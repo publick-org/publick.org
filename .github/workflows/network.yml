@@ -1,0 +1,298 @@
+# Every town's daily update, build, checks, and publish, and the homepage.
+# The work is done by the engine (pipeline/network.py) at the version in
+# engine-version; this file only decides what runs when.
+#
+#   schedule   Four runs across the early morning. Each town belongs to one,
+#              by a stable hash of its folder name, so runs stay small as
+#              towns are added. Fetches, builds, checks, publishes, commits data.
+#   push       Rebuilds and publishes the towns a change touched (all of them
+#              when engine-version or a workflow changed), and the homepage
+#              when home/ changed. No fetching.
+#   pull_request  Builds and checks the towns a change touches. Nothing is published.
+#   workflow_dispatch  Any towns, with or without fetching.
+name: Network
+
+on:
+  schedule:
+    - cron: "17 9 * * *"
+    - cron: "17 10 * * *"
+    - cron: "17 11 * * *"
+    - cron: "17 12 * * *"
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      towns:
+        description: Town folders, comma-separated (empty for every town)
+        type: string
+        default: ""
+      fetch:
+        description: Fetch new data first
+        type: boolean
+        default: true
+
+# Scheduled and manual runs queue behind each other, so two data commits for a
+# town never race; pushes queue separately; a pull request's newer run replaces its older one.
+concurrency:
+  group: ${{ github.event_name == 'pull_request' && format('network-pr-{0}', github.event.number) || (github.event_name == 'push' && 'network-push' || 'network-update') }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions:
+  contents: read
+
+env:
+  # Towns per job. Each job installs Python and the browser for the checks once, then runs its towns in turn.
+  BATCH_SIZE: 4
+  PYTHONPATH: ${{ github.workspace }}/.publick-engine
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.plan.outputs.matrix }}
+      towns: ${{ steps.plan.outputs.towns }}
+      fetch: ${{ steps.plan.outputs.fetch }}
+      deploy: ${{ steps.plan.outputs.deploy }}
+      home: ${{ steps.plan.outputs.home }}
+      prune: ${{ steps.plan.outputs.prune }}
+      engine: ${{ steps.engine.outputs.ref }}
+    steps:
+      # Only the towns' config files: enough to list them, without downloading any town's data.
+      - uses: actions/checkout@v5
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /engine-version
+            /towns/*/config/
+
+      - id: engine
+        run: echo "ref=$(tr -d '[:space:]' < engine-version)" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/checkout@v5
+        with:
+          repository: publick-org/publick-engine
+          ref: ${{ steps.engine.outputs.ref }}
+          path: .publick-engine
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - id: plan
+        env:
+          EVENT: ${{ github.event_name }}
+          SCHEDULE: ${{ github.event.schedule }}
+          TOWNS: ${{ inputs.towns }}
+          FETCH: ${{ inputs.fetch }}
+          BEFORE: ${{ github.event.before }}
+          BASE: ${{ github.event.pull_request.base.sha }}
+        run: |
+          args=(--batch-size "$BATCH_SIZE")
+          fetch=false; deploy=true; home=false; prune=false
+          case "$EVENT" in
+            schedule)
+              # The index of this run's cron line above.
+              case "$SCHEDULE" in
+                "17 9 * * *") slot=0 ;;
+                "17 10 * * *") slot=1 ;;
+                "17 11 * * *") slot=2 ;;
+                "17 12 * * *") slot=3 ;;
+                *) echo "::error::Unknown schedule $SCHEDULE"; exit 1 ;;
+              esac
+              args+=(--slots 4 --slot "$slot")
+              fetch=true
+              # Once a day, after the first run's towns: delete old builds and unused files.
+              [ "$slot" = 0 ] && prune=true
+              ;;
+            workflow_dispatch)
+              [ -n "$TOWNS" ] && args+=(--towns "$TOWNS") || home=true
+              fetch="$FETCH"
+              ;;
+            push | pull_request)
+              since="$BEFORE"; [ "$EVENT" = pull_request ] && since="$BASE"
+              if [ -z "$since" ] || [ "$since" = 0000000000000000000000000000000000000000 ]; then
+                # A new branch: nothing to compare with, so everything counts as changed.
+                git ls-files > changed.txt
+              else
+                git fetch --quiet --depth=1 origin "$since"
+                git diff --name-only "$since" HEAD > changed.txt
+              fi
+              args+=(--changed changed.txt)
+              grep -q '^home/' changed.txt && home=true
+              [ "$EVENT" = pull_request ] && deploy=false && home=false
+              ;;
+          esac
+          matrix=$(python -m pipeline.network plan "${args[@]}")
+          echo "$matrix"
+          {
+            echo "matrix=$matrix"
+            echo "towns=$([ "$matrix" = '{"include": []}' ] && echo false || echo true)"
+            echo "fetch=$fetch"
+            echo "deploy=$deploy"
+            echo "home=$home"
+            echo "prune=$prune"
+          } >> "$GITHUB_OUTPUT"
+
+  towns:
+    needs: plan
+    if: needs.plan.outputs.towns == 'true'
+    name: ${{ matrix.name }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    permissions:
+      contents: write
+    strategy:
+      fail-fast: false
+      # Stays well under the organization's limit on jobs running at once.
+      max-parallel: 10
+      matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}
+    steps:
+      # Only this batch's towns are checked out, so a job's checkout stays small however many towns there are.
+      - uses: actions/checkout@v5
+        with:
+          filter: blob:none
+          sparse-checkout: .github
+
+      - env:
+          TOWNS: ${{ matrix.towns }}
+        run: |
+          read -ra towns <<< "$TOWNS"
+          git sparse-checkout add "${towns[@]/#/towns/}"
+
+      - uses: actions/checkout@v5
+        with:
+          repository: publick-org/publick-engine
+          ref: ${{ needs.plan.outputs.engine }}
+          path: .publick-engine
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: .publick-engine/requirements*.txt
+
+      - name: Install dependencies
+        run: |
+          pip install -r .publick-engine/requirements.txt -r .publick-engine/requirements-dev.txt
+          python -m playwright install --with-deps chromium
+
+      - name: Update, build, check, and publish
+        env:
+          TOWNS: ${{ matrix.towns }}
+          FETCH: ${{ needs.plan.outputs.fetch == 'true' && '--fetch' || '' }}
+          DEPLOY: ${{ needs.plan.outputs.deploy == 'true' && '--deploy' || '' }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          BLS_API_KEY: ${{ secrets.BLS_API_KEY }}
+          STORAGE_ACCESS_KEY_ID: ${{ secrets.STORAGE_ACCESS_KEY_ID }}
+          STORAGE_SECRET_ACCESS_KEY: ${{ secrets.STORAGE_SECRET_ACCESS_KEY }}
+          SITES_ENDPOINT: ${{ secrets.SITES_ENDPOINT }}
+          SITES_BUCKET: ${{ secrets.SITES_BUCKET }}
+          SITES_ACCESS_KEY_ID: ${{ secrets.SITES_ACCESS_KEY_ID }}
+          SITES_SECRET_ACCESS_KEY: ${{ secrets.SITES_SECRET_ACCESS_KEY }}
+        # $FETCH and $DEPLOY are unquoted on purpose: each is one flag or nothing.
+        run: python -m pipeline.network run --towns "$TOWNS" $FETCH $DEPLOY --reports reports
+
+      # The data is kept even if a town's build or checks failed, as each town's own workflow did.
+      - name: Commit data
+        if: ${{ !cancelled() && needs.plan.outputs.fetch == 'true' && github.event_name != 'pull_request' }}
+        env:
+          TOWNS: ${{ matrix.towns }}
+          COMMIT_ATTEMPTS: 10
+        run: |
+          read -ra towns <<< "$TOWNS"
+          paths=()
+          for town in "${towns[@]}"; do paths+=("towns/$town/data"); done
+          .publick-engine/.github/scripts/commit-data.sh "Update data for $TOWNS" "${paths[@]}"
+
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: report-${{ strategy.job-index }}
+          path: reports/
+          if-no-files-found: ignore
+          retention-days: 7
+
+  home:
+    needs: plan
+    if: needs.plan.outputs.home == 'true' && needs.plan.outputs.deploy == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          sparse-checkout: home
+
+      - uses: actions/checkout@v5
+        with:
+          repository: publick-org/publick-engine
+          ref: ${{ needs.plan.outputs.engine }}
+          path: .publick-engine
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - run: pip install boto3
+
+      - name: Publish the homepage
+        env:
+          SITES_ENDPOINT: ${{ secrets.SITES_ENDPOINT }}
+          SITES_BUCKET: ${{ secrets.SITES_BUCKET }}
+          SITES_ACCESS_KEY_ID: ${{ secrets.SITES_ACCESS_KEY_ID }}
+          SITES_SECRET_ACCESS_KEY: ${{ secrets.SITES_SECRET_ACCESS_KEY }}
+        run: python -m pipeline.deploy publish --domain publick.org --site home
+
+  # One table of every town in the run. Fails the run once if any town needs
+  # attention, so GitHub sends one email per run rather than one per town.
+  report:
+    needs: [plan, towns]
+    if: ${{ !cancelled() && needs.plan.outputs.towns == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          repository: publick-org/publick-engine
+          ref: ${{ needs.plan.outputs.engine }}
+          path: .publick-engine
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: report-*
+          merge-multiple: true
+          path: reports
+
+      - name: Report
+        run: |
+          mkdir -p reports
+          python -m pipeline.network report reports
+
+  # Once a day: delete builds beyond the newest ten for each site, and files no kept build uses.
+  prune:
+    needs: [plan, towns]
+    if: ${{ !cancelled() && needs.plan.outputs.prune == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          repository: publick-org/publick-engine
+          ref: ${{ needs.plan.outputs.engine }}
+          path: .publick-engine
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - run: pip install boto3
+
+      - name: Prune old builds
+        env:
+          SITES_ENDPOINT: ${{ secrets.SITES_ENDPOINT }}
+          SITES_BUCKET: ${{ secrets.SITES_BUCKET }}
+          SITES_ACCESS_KEY_ID: ${{ secrets.SITES_ACCESS_KEY_ID }}
+          SITES_SECRET_ACCESS_KEY: ${{ secrets.SITES_SECRET_ACCESS_KEY }}
+        run: python -m pipeline.deploy prune --keep 10
