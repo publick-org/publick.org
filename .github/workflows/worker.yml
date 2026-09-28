@@ -32,7 +32,7 @@ jobs:
           node-version: "22"
 
       - name: Test the Worker
-        run: node --test .publick-engine/worker/index.test.js
+        run: node --test .publick-engine/worker/sites.test.js
 
       - name: Deploy
         env:
