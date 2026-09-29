@@ -27,7 +27,10 @@ Worker, which picks the site by hostname: `gloucester-ma.publick.org` is
 - **Daily**, in four runs from 09:17 to 12:17 UTC: each town belongs to one run, by a
   stable hash of its folder name. A run fetches each of its towns' new data,
   builds and checks the site, publishes it if the checks pass, and commits the
-  data. Towns run in batches of four per job, up to ten jobs at a time.
+  data. Towns run in batches of four per job, up to ten jobs at a time. Daily
+  runs give the accessibility checks a sample of each town's pages (every
+  hand-written page, and the first and largest of each kind of record page);
+  every other run checks every page.
 - **On push to `main`:** rebuilds and publishes the towns the push touched (every
   town when `engine-version` or a workflow changed), and the homepage if `home/`
   changed. Data isn't fetched.
