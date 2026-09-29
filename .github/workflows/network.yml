@@ -183,8 +183,11 @@ jobs:
       matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}
     steps:
       # Only this batch's towns are checked out, so a job's checkout stays small however many towns there are.
+      # Outside a pull request, the branch as it is when the job starts, not when the run was queued: a run
+      # that waited behind another starts from that run's data rather than replaying over it.
       - uses: actions/checkout@v5
         with:
+          ref: ${{ github.event_name != 'pull_request' && github.ref || '' }}
           filter: blob:none
           sparse-checkout: .github
 
