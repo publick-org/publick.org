@@ -46,15 +46,17 @@ failed or has stale data, so GitHub sends one email per run.
 
 ## Status page
 
-[publick.org/status/](https://publick.org/status/) shows every town at a
-glance: its last daily run, whether it needs attention, and when each of its
-data sources (its config's `[freshness]` table) last updated, with any failed
-step. Each run that fetches a town's data writes the result to the town's
-`data/run.json`, committed with the data; after the run's towns finish, the
-homepage is rebuilt from `main` with the status page
-(`scripts/build_status.py`) and published. A town needs attention when a step
-failed (a single source's fetch included), a source is behind, or it has had
-no daily run for 30 hours.
+[publick.org/status/](https://publick.org/status/) is public, for the
+towns' readers: whether each site's data is up to date, when each data source
+(its config's `[freshness]` table) last updated, and which data a failed or
+missed update affects, in plain words. It leaves out the run's internals
+(commands, errors, timings), which stay in the run's summary on GitHub Actions
+and its email. Each run that fetches a town's data writes the result to the
+town's `data/run.json`, committed with the data; after the run's towns finish,
+the homepage is rebuilt from `main` with the status page
+(`scripts/build_status.py`) and published. A site shows "some data delayed"
+when a step of its last run failed or a source is behind, and "not updated"
+after 30 hours with no daily run.
 
 ## Adding a town
 

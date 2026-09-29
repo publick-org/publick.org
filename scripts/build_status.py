@@ -7,8 +7,11 @@ the town's [freshness] table last updated. This page puts every town's
 record side by side, so a broken source shows here the morning it breaks,
 not only in the run's email.
 
-A town needs attention when its last run failed a step (a fetch included),
-a data source is behind, or it has had no daily run for LATE_HOURS.
+The page is public, for the towns' readers: it says which data on a site may
+be out of date, in plain words, and leaves the run's internals (commands,
+errors, timings) to the run's summary on GitHub Actions. A site has "some data
+delayed" when a step of its last run failed or a source is behind, and is
+"not updated" when it has had no daily run for LATE_HOURS.
 
     python scripts/build_status.py --out _home    # after build_home.py, into the homepage's folder
 """
@@ -31,7 +34,26 @@ LATE_HOURS = 30
 # The page's own times are in the network's time zone; each town's, in its own.
 NETWORK_TZ = ZoneInfo("America/New_York")
 
-LABELS = {"ok": "OK", "attention": "Needs attention", "late": "No recent run", "none": "Not run yet"}
+LABELS = {"ok": "Up to date", "attention": "Some data delayed", "late": "Not updated", "none": "Not started"}
+
+# What each step of the daily update brings to a town's site, in a reader's words. A step not named
+# here is internal; its failure is reported only as part of the update not finishing.
+STEP_DATA = {
+    "Fetch meetings": "meeting calendar",
+    "Fetch minutes": "meeting minutes",
+    "Fetch School Committee documents": "School Committee agendas and minutes",
+    "Summarize agendas": "agenda and minutes summaries",
+    "Fetch tax bill": "tax bill figures",
+    "Fetch unemployment": "unemployment rate",
+    "Fetch school figures": "school figures",
+    "Fetch budget figures": "budget figures",
+    "Fetch housing figures": "housing figures",
+    "Fetch building permits": "building permits",
+    "Fetch 311 requests": "311 requests",
+    "Compute 311 scorecard": "311 figures",
+}
+# Steps that put the day's build on the site. If one fails, the site keeps the version before.
+PUBLISH_STEPS = ("Build site", "Check site", "Publish site")
 
 
 def when(stamp: str | None, tz: ZoneInfo) -> str:
@@ -41,13 +63,6 @@ def when(stamp: str | None, tz: ZoneInfo) -> str:
     t = datetime.fromisoformat(stamp).astimezone(tz)
     hour = t.strftime("%I").lstrip("0")
     return f"{t:%b} {t.day}, {t.year}, {hour}:{t:%M} {'a.m.' if t.hour < 12 else 'p.m.'} {t:%Z}"
-
-
-def duration(start: str | None, end: str | None) -> str | None:
-    if not start or not end:
-        return None
-    minutes = round((datetime.fromisoformat(end) - datetime.fromisoformat(start)).total_seconds() / 60)
-    return f"{minutes} min" if minutes < 60 else f"{minutes // 60} h {minutes % 60} min"
 
 
 def load_towns(root: Path) -> list[dict]:
@@ -66,29 +81,41 @@ def load_towns(root: Path) -> list[dict]:
     return towns
 
 
-def problems(record: dict) -> list[str]:
-    """What went wrong in a town's last run, in plain words."""
+def last_run(record: dict) -> str:
+    return record.get("finished_at") or record["started_at"]
+
+
+def issues(record: dict, tz: ZoneInfo) -> list[str]:
+    """What a reader of the town's site should know about its last update, in plain words.
+
+    This page is public: it names the data affected, never the run's internals (commands, errors,
+    timings). Those are in the run's summary on GitHub Actions.
+    """
     found = []
-    for s in (record.get("update") or {}).get("steps", []):
-        if not s["ok"]:
-            found.append(f"{s['name']} failed ({s['error']})")
-    for s in record.get("steps", []):
-        # Fetching is reported step by step above; a stale source is reported by source below.
-        if not s["ok"] and s["name"] not in ("Fetch new data", "Check data freshness"):
-            found.append(f"{s['name']} failed ({s['error']})")
-    if record.get("update") is None and any(s["name"] == "Fetch new data" and not s["ok"] for s in record["steps"]):
-        found.append("Fetching new data failed before any source ran")
+    fetch_steps = (record.get("update") or {}).get("steps", [])
+    failed = [s["name"] for s in fetch_steps if not s["ok"]]
+    for name in failed:
+        if name in STEP_DATA:
+            found.append(f"The {STEP_DATA[name]} couldn't be checked for changes in the latest daily update.")
+    internal = any(name not in STEP_DATA for name in failed) or (
+        not fetch_steps and any(s["name"] == "Fetch new data" and not s["ok"] for s in record.get("steps", [])))
+    if internal:
+        found.append("Part of the latest update didn't finish.")
+    if any(s["name"] in PUBLISH_STEPS and not s["ok"] for s in record.get("steps", [])):
+        found.append("The latest update couldn't be put on the site, so it shows the version from before.")
     for r in record.get("sources") or []:
         if not r["stale"]:
             continue
         if "waiting_count" in r:
-            found.append(f"{r['label']}: {r['waiting_count']} waiting for more than {r['max_days']} days")
+            n = r["waiting_count"]
+            found.append(f"{n} agenda{'s' if n != 1 else ''} or minutes {'are' if n != 1 else 'is'} "
+                         f"waiting for a summary.")
         elif r["updated_at"]:
-            found.append(f"{r['label']} is behind: expected within {r['max_days']} days")
+            found.append(f"{r['label']}: last updated {when(r['updated_at'], tz)}, later than expected.")
         else:
-            found.append(f"{r['label']} has no data")
+            found.append(f"{r['label']}: no data yet.")
     if record.get("stale") and not record.get("sources"):
-        found.append("Some data sources are behind")
+        found.append("Some data is older than expected.")
     return found
 
 
@@ -96,10 +123,9 @@ def status(town: dict, now: datetime) -> str:
     record = town["record"]
     if record is None:
         return "none"
-    finished = datetime.fromisoformat(record.get("finished_at") or record["started_at"])
-    if (now - finished).total_seconds() > LATE_HOURS * 3600:
+    if (now - datetime.fromisoformat(last_run(record))).total_seconds() > LATE_HOURS * 3600:
         return "late"
-    return "attention" if problems(record) else "ok"
+    return "attention" if issues(record, town["tz"]) else "ok"
 
 
 def badge(state: str, text: str | None = None) -> str:
@@ -116,17 +142,25 @@ def table(caption_id: str, caption: str, head: list[str], rows: list[list[str]])
             f'<thead><tr>{ths}</tr></thead>\n<tbody>{body}</tbody>\n</table>\n</div>')
 
 
+def notes(t: dict, state: str) -> list[str]:
+    record = t["record"]
+    if record is None:
+        return ["Daily updates haven't started for this site yet."]
+    found = issues(record, t["tz"])
+    if state == "late":
+        found = [f"No update since {when(last_run(record), t['tz'])}. The site still works, with the data it "
+                 "had then.", *found]
+    return found
+
+
 def summary_table(towns: list[dict], states: dict) -> str:
     rows = []
     for t in towns:
-        record, found = t["record"], problems(t["record"]) if t["record"] else []
-        late = states[t["folder"]] == "late"
-        if late:
-            found = [f"No daily run for over {LATE_HOURS} hours", *found]
-        note = ('<ul class="plain">' + "".join(f"<li>{escape(p)}</li>" for p in found) + "</ul>") if found else "–"
+        found = notes(t, states[t["folder"]]) if states[t["folder"]] != "ok" else []
+        note = ('<ul class="plain">' + "".join(f"<li>{escape(n)}</li>" for n in found) + "</ul>") if found else "–"
         rows.append([f'<a href="#{t["folder"]}">{escape(t["name"])}</a>', badge(states[t["folder"]]),
-                     when(record and (record.get("finished_at") or record["started_at"]), t["tz"]), note])
-    return table("towns-caption", "Every town", ["Town", "Status", "Last daily run", "Problems"], rows)
+                     when(t["record"] and last_run(t["record"]), t["tz"]), note])
+    return table("towns-caption", "Every site", ["Site", "Status", "Last updated", "Notes"], rows)
 
 
 def town_section(t: dict, state: str) -> str:
@@ -134,63 +168,36 @@ def town_section(t: dict, state: str) -> str:
     parts = [f'<section class="town-status town-status-{state}" id="{folder}" aria-labelledby="{folder}-heading">',
              f'<h2 id="{folder}-heading">{escape(t["name"])} {badge(state)}</h2>',
              f'<p class="town-place">{escape(t["place"])} · <a href="{escape(t["url"])}">{escape(t["domain"])}</a></p>']
-    if record is None:
-        parts.append("<p>No daily run has been recorded for this town yet. The record is written by the first "
-                     "run that fetches its data.</p></section>")
-        return "\n".join(parts)
+    if record is not None:
+        parts.append(f"<p>Last updated {when(last_run(record), t['tz'])}.</p>")
+    found = notes(t, state)
+    if state == "none":
+        parts.append(f"<p>{escape(found[0])}</p>")
+    elif found:
+        items = "".join(f"<li>{escape(n)}</li>" for n in found)
+        parts.append(f'<ul class="problems" aria-label="Notes on {escape(t["name"])}">{items}</ul>')
 
-    finished = record.get("finished_at")
-    took = duration(record["started_at"], finished)
-    facts = [f"Last daily run: {when(finished or record['started_at'], t['tz'])}" + (f" (took {took})" if took else "")]
-    if record.get("engine"):
-        facts.append(f"engine {escape(record['engine'])}")
-    facts.append("site published" if record.get("deployed") else "site not published; the last good site stays up")
-    parts.append(f'<p>{". ".join(f[0].upper() + f[1:] for f in facts)}.</p>')
-    if state == "late":
-        parts.append(f"<p><strong>No daily run has finished for this town in over {LATE_HOURS} hours.</strong> "
-                     "Check the network's Actions runs.</p>")
-
-    found = problems(record)
-    if found:
-        items = "".join(f"<li>{escape(p)}</li>" for p in found)
-        parts.append(f'<ul class="problems" aria-label="Problems in the last run">{items}</ul>')
-
-    if record.get("sources"):
+    if record and record.get("sources"):
         rows = []
         for r in record["sources"]:
             if "waiting_count" in r:
                 result = badge("attention" if r["stale"] else "ok",
                                f"{r['waiting_count']} waiting" if r["waiting_count"] else "None waiting")
             else:
-                result = badge("attention", "Behind") if r["stale"] else badge("ok")
+                result = badge("attention", "Delayed") if r["stale"] else badge("ok")
             rows.append([escape(r["label"]), result, when(r["updated_at"], t["tz"]),
                          f"{r['max_days']} day{'s' if r['max_days'] != 1 else ''}"])
-        parts.append(table(f"{folder}-sources", f"Data sources for {escape(t['name'])}",
-                           ["Source", "Status", "Last updated", "Expected within"], rows))
-        waiting = next((r for r in record["sources"] if r.get("waiting")), None)
-        if waiting and waiting["stale"]:
-            more = waiting["waiting_count"] - len(waiting["waiting"])
-            items = "".join(f"<li>{escape(w)}</li>" for w in waiting["waiting"])
-            parts.append(f"<details><summary>Waiting for a summary</summary><ul>{items}</ul>"
-                         + (f"<p>and {more} more.</p>" if more > 0 else "") + "</details>")
-
-    steps = [*((record.get("update") or {}).get("steps", [])),
-             *(s for s in record.get("steps", []) if s["name"] != "Fetch new data")]
-    if steps:
-        rows = [[escape(s["name"]), "OK" if s["ok"] else f"Failed: {escape(s['error'] or 'unknown error')}",
-                 f"{s['seconds']:g} s"] for s in steps]
-        parts.append("<details><summary>Every step of the last run</summary>\n"
-                     + table(f"{folder}-steps", f"Steps of {escape(t['name'])}'s last run", ["Step", "Result", "Time"], rows)
-                     + "\n</details>")
+        parts.append(table(f"{folder}-sources", f"Data on {escape(t['name'])}",
+                           ["Data", "Status", "Last updated", "Expected at least every"], rows))
     parts.append("</section>")
     return "\n".join(parts)
 
 
-def render(towns: list[dict], now: datetime, engine: str | None) -> str:
+def render(towns: list[dict], now: datetime) -> str:
     states = {t["folder"]: status(t, now) for t in towns}
     counts = {s: sum(1 for v in states.values() if v == s) for s in LABELS}
-    tally = ", ".join(f"{counts[s]} {LABELS[s].lower() if s != 'ok' else 'OK'}" for s in LABELS if counts[s])
-    headline = (f"{len(towns)} town{'s' if len(towns) != 1 else ''}: {tally}." if towns else "No towns yet.")
+    tally = ", ".join(f"{counts[s]} {LABELS[s].lower()}" for s in LABELS if counts[s])
+    headline = (f"{len(towns)} site{'s' if len(towns) != 1 else ''}: {tally}." if towns else "No sites yet.")
     sections = "\n\n".join(town_section(t, states[t["folder"]]) for t in towns)
     return f"""<!doctype html>
 <html lang="en">
@@ -198,7 +205,7 @@ def render(towns: list[dict], now: datetime, engine: str | None) -> str:
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Network status: Publick</title>
-  <meta name="description" content="Each Publick town site's last daily update and any data sources that have stopped updating.">
+  <meta name="description" content="Whether each Publick site's data is up to date.">
   <meta name="robots" content="noindex">
   <link rel="canonical" href="https://publick.org/status/">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
@@ -226,8 +233,9 @@ def render(towns: list[dict], now: datetime, engine: str | None) -> str:
   <main id="main" tabindex="-1">
     <div class="wrap">
       <h1 class="page-title">Network status</h1>
-      <p class="lede">{headline}</p>
-      <p class="small">Each town's data is fetched once a day, early in the morning. This page is updated after each of the morning's runs; last updated {when(now.isoformat(), NETWORK_TZ)}{f", engine {escape(engine)}" if engine else ""}.</p>
+      <p class="lede">Whether each Publick site's data is up to date. {headline}</p>
+      <p>Each site collects its town's public data once a day, early in the morning. When a source stops updating, or a day's update doesn't finish, it shows here, and the site keeps showing the last data it had.</p>
+      <p class="small">This page was last updated {when(now.isoformat(), NETWORK_TZ)}. Seen something out of date that isn't listed? Write to <a href="mailto:hello@publick.org">hello@publick.org</a>.</p>
 
       {summary_table(towns, states)}
 
@@ -257,11 +265,9 @@ def main() -> int:
     parser.add_argument("--now", type=datetime.fromisoformat, help="the time to report as now (for testing)")
     args = parser.parse_args()
     out = (args.out if args.out.is_absolute() else args.root / args.out) / "status"
-    engine_file = args.root / "engine-version"
-    engine = engine_file.read_text().strip() if engine_file.exists() else None
     now = args.now or datetime.now(timezone.utc)
     out.mkdir(parents=True, exist_ok=True)
-    (out / "index.html").write_text(render(load_towns(args.root), now, engine), encoding="utf-8")
+    (out / "index.html").write_text(render(load_towns(args.root), now), encoding="utf-8")
     print(f"Wrote {out / 'index.html'}")
     return 0
 
