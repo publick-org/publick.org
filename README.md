@@ -6,13 +6,15 @@ at the version in `engine-version`.
 
 ```
 engine-version                The engine release every town runs, e.g. v1.3.0
-home/                         The publick.org homepage, published as-is
+home/                         The publick.org homepage; its town lists are filled in by scripts/build_home.py
+home/upcoming.toml            Towns shown under "Coming next" on the homepage
 towns/<town>-<state>/         One folder per town, laid out as a town repository is:
   config/<town>.toml            everything town-specific
   data/                         collected data, committed by the daily run
   site/static/                  files that replace or add to the engine's (the share image)
 wrangler.toml                 The Worker that serves every site from the sites bucket
 scripts/import-town.sh        Copies a town's own repository into towns/
+scripts/build_home.py         Writes the homepage's "Live now" and "Coming next" lists
 .github/workflows/network.yml The daily runs, and builds on push and pull request
 .github/workflows/worker.yml  Deploys the Worker (by hand)
 ```
@@ -32,8 +34,8 @@ Worker, which picks the site by hostname: `gloucester-ma.publick.org` is
   hand-written page, and the first and largest of each kind of record page);
   every other run checks every page.
 - **On push to `main`:** rebuilds and publishes the towns the push touched (every
-  town when `engine-version` or a workflow changed), and the homepage if `home/`
-  changed. Data isn't fetched.
+  town when `engine-version` or a workflow changed), and the homepage if `home/`,
+  `scripts/` or a town's config changed. Data isn't fetched.
 - **On a pull request:** builds and checks the towns it touches. Nothing is published.
 - **By hand** (**Actions → Network → Run workflow**): any towns, with or without
   fetching; with no towns named, every town and the homepage.
@@ -46,8 +48,11 @@ failed or has stale data, so GitHub sends one email per run.
 Add `towns/<town>-<state>/` with its `config/<town>.toml` (start from the
 engine's `tests/fixtures/town/config/gloucester.toml` and its README), an
 empty `data/`, and optionally `site/static/share/<town>.png`. Set
-`[site] domain` to `<town>-<state>.publick.org`. Merge, then run the workflow
-for the town by hand to fetch its data. No DNS change is needed.
+`[site] domain` to `<town>-<state>.publick.org` and `network_url` to
+`https://publick.org`, which links the network's name in every page footer.
+Merge, then run the workflow for the town by hand to fetch its data. No DNS
+change is needed, and the homepage lists the town as live (and drops it from
+`home/upcoming.toml`'s "Coming next") on its own.
 
 ## Moving a town in from its own repository
 

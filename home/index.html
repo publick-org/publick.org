@@ -41,26 +41,37 @@
         <p class="independent">Independent. Not run by or affiliated with any city or town government.</p>
       </section>
 
+      <!-- The town lists are written by scripts/build_home.py: live towns from
+           towns/, upcoming ones from home/upcoming.toml. Edit those, not the lists. -->
       <section aria-labelledby="live-heading">
         <h2 id="live-heading">Live now</h2>
+        <!-- towns:live -->
         <ul class="towns">
           <li class="town">
             <h3><a href="https://gloucester-ma.publick.org">Gloucester Publick</a></h3>
             <p class="town-place">Gloucester, Massachusetts</p>
-            <p>Meetings, 311 requests, schools, the city budget and housing, updated daily.</p>
+            <p>Meetings, 311 requests, schools, city budget and housing, updated daily.</p>
+          </li>
+          <li class="town">
+            <h3><a href="https://manchester-nh.publick.org">Manchester Publick</a></h3>
+            <p class="town-place">Manchester, New Hampshire</p>
+            <p>Meetings, 311 requests and housing, updated daily.</p>
           </li>
         </ul>
+        <!-- /towns:live -->
       </section>
 
+      <!-- towns:next -->
       <section aria-labelledby="next-heading">
         <h2 id="next-heading">Coming next</h2>
         <ul class="towns">
           <li class="town town-next">
-            <h3>Manchester, New Hampshire</h3>
+            <h3>Malden, Massachusetts</h3>
             <p>In the works.</p>
           </li>
         </ul>
       </section>
+      <!-- /towns:next -->
 
       <section aria-labelledby="request-heading" class="request">
         <h2 id="request-heading">Is your town next?</h2>
