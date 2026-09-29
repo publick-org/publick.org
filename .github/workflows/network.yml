@@ -8,6 +8,7 @@
 #              The browser (accessibility) checks run on a sample of each
 #              town's pages: every hand-written page, and the first and largest
 #              of each kind of record page (the engine's site_checks/pages.py).
+#              Then republishes the homepage, for its status page (publick.org/status/).
 #   push       Rebuilds and publishes the towns a change touched (all of them
 #              when engine-version or a workflow changed), and the homepage
 #              when home/, scripts/ or a town's config changed (its town lists
@@ -132,6 +133,8 @@ jobs:
               [ "$EVENT" = pull_request ] && deploy=false
               ;;
           esac
+          # A run that fetches records each town's result (data/run.json); the homepage's status page shows them.
+          [ "$fetch" = true ] && home=true
           matrix=$(python -m pipeline.network plan "${args[@]}")
           echo "$matrix"
           {
@@ -224,18 +227,24 @@ jobs:
           if-no-files-found: ignore
           retention-days: 7
 
+  # The homepage and its status page. It waits for the towns, so the status
+  # page shows this run's results; a town's failure doesn't stop it.
   home:
-    needs: plan
-    if: needs.plan.outputs.home == 'true'
+    needs: [plan, towns]
+    if: ${{ !cancelled() && needs.plan.outputs.home == 'true' }}
     runs-on: ubuntu-latest
     steps:
+      # Outside a pull request, the branch as it is now: with the data (and run records) this run's towns committed.
       - uses: actions/checkout@v5
         with:
+          ref: ${{ github.event_name != 'pull_request' && github.ref || '' }}
           sparse-checkout-cone-mode: false
           sparse-checkout: |
+            /engine-version
             /home/
             /scripts/
             /towns/*/config/
+            /towns/*/data/run.json
 
       - uses: actions/checkout@v5
         with:
@@ -252,6 +261,10 @@ jobs:
       # The town lists, from towns/ and home/upcoming.toml.
       - name: Build the homepage
         run: python scripts/build_home.py --out _home
+
+      # Every town's last daily run and data sources, from towns/*/data/run.json.
+      - name: Build the status page
+        run: python scripts/build_status.py --out _home
 
       - name: Publish the homepage
         if: needs.plan.outputs.deploy == 'true'
