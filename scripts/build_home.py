@@ -1,7 +1,7 @@
 """Build the publick.org homepage with its town lists up to date.
 
-"Live now" lists every town under towns/: its site's name and address, its
-place, and its sections, from its config. "Coming next" lists the towns in
+"Live now" lists every town under towns/: its site's name, address and
+place, from its config. "Coming next" lists the towns in
 home/upcoming.toml that don't have a folder yet, so a town moves from one list
 to the other when it is added. Everything else on the page is home/index.html
 as written; the lists go between its <!-- towns:live --> and <!-- towns:next -->
@@ -33,9 +33,8 @@ def live_towns(root: Path) -> list[dict]:
             continue
         config = tomllib.loads(configs[0].read_text(encoding="utf-8"))
         site, town = config["site"], config["town"]
-        titles = [s.get("title", s["slug"]) for s in config.get("sections", []) if s["slug"] != "about"]
         towns.append({"name": site["name"], "url": f"https://{site['domain']}", "town": town["name"],
-                      "state": town["state"], "sections": titles})
+                      "state": town["state"]})
     return sorted(towns, key=lambda t: (t["town"], t["state"]))
 
 
@@ -46,21 +45,11 @@ def upcoming_towns(root: Path, live: list[dict]) -> list[dict]:
     return [t for t in listed if (t["name"].lower(), t["state"].lower()) not in here]
 
 
-def sections_line(titles: list[str]) -> str:
-    """['Meetings', '311 Requests', 'City budget'] -> 'Meetings, 311 requests and city budget, updated daily.'"""
-    words = titles[:1] + [t.lower() for t in titles[1:]]
-    if not words:
-        return "Updated daily."
-    joined = words[0] if len(words) == 1 else ", ".join(words[:-1]) + " and " + words[-1]
-    return f"{joined}, updated daily."
-
-
 def live_html(towns: list[dict]) -> str:
     items = "".join(
         f'\n          <li class="town">\n'
         f'            <h3><a href="{escape(t["url"])}">{escape(t["name"])}</a></h3>\n'
         f'            <p class="town-place">{escape(t["town"])}, {escape(t["state"])}</p>\n'
-        f'            <p>{escape(sections_line(t["sections"]))}</p>\n'
         f'          </li>' for t in towns)
     return f'\n        <ul class="towns">{items}\n        </ul>\n        '
 
