@@ -10,7 +10,8 @@
 #              of each kind of record page (the engine's site_checks/pages.py).
 #   push       Rebuilds and publishes the towns a change touched (all of them
 #              when engine-version or a workflow changed), and the homepage
-#              when home/ changed. No fetching. Every page is checked.
+#              when home/, scripts/ or a town's config changed (its town lists
+#              come from towns/). No fetching. Every page is checked.
 #   pull_request  Builds and checks every page of the towns a change touches.
 #              Nothing is published.
 #   workflow_dispatch  Any towns, with or without fetching. Every page is checked.
@@ -126,8 +127,9 @@ jobs:
                 git diff --name-only "$since" HEAD > changed.txt
               fi
               args+=(--changed changed.txt)
-              grep -q '^home/' changed.txt && home=true
-              [ "$EVENT" = pull_request ] && deploy=false && home=false
+              grep -qE '^(home|scripts)/|^towns/[^/]+/config/' changed.txt && home=true
+              # A pull request builds the homepage to check it, but publishes nothing.
+              [ "$EVENT" = pull_request ] && deploy=false
               ;;
           esac
           matrix=$(python -m pipeline.network plan "${args[@]}")
@@ -224,12 +226,16 @@ jobs:
 
   home:
     needs: plan
-    if: needs.plan.outputs.home == 'true' && needs.plan.outputs.deploy == 'true'
+    if: needs.plan.outputs.home == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
         with:
-          sparse-checkout: home
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /home/
+            /scripts/
+            /towns/*/config/
 
       - uses: actions/checkout@v5
         with:
@@ -243,13 +249,18 @@ jobs:
 
       - run: pip install boto3
 
+      # The town lists, from towns/ and home/upcoming.toml.
+      - name: Build the homepage
+        run: python scripts/build_home.py --out _home
+
       - name: Publish the homepage
+        if: needs.plan.outputs.deploy == 'true'
         env:
           SITES_ENDPOINT: ${{ secrets.SITES_ENDPOINT }}
           SITES_BUCKET: ${{ secrets.SITES_BUCKET }}
           SITES_ACCESS_KEY_ID: ${{ secrets.SITES_ACCESS_KEY_ID }}
           SITES_SECRET_ACCESS_KEY: ${{ secrets.SITES_SECRET_ACCESS_KEY }}
-        run: python -m pipeline.deploy publish --domain publick.org --site home
+        run: python -m pipeline.deploy publish --domain publick.org --site _home
 
   # One table of every town in the run. Fails the run once if any town needs
   # attention, so GitHub sends one email per run rather than one per town.
