@@ -160,11 +160,14 @@ prefix = "malden-ma"
 # backlog since January is worked through a little each day.
 [summaries]
 model = "claude-sonnet-5"
-max_per_run = 10
+# Raised from 10 with max_cost_per_run below; about 12 cents a summary.
+max_per_run = 40
 # Prices per million tokens, for the spending limit below.
 input_price = 2.0
 output_price = 10.0
-max_cost_per_run = 1.0
+# Raised from $1 on 2026-09-29 to clear the summary backlog faster; set it back
+# to 1.0 once a run's summaries report shows little remaining.
+max_cost_per_run = 5.0
 
 # Terms that come up on agendas and minutes, explained on each meeting page
 # where they appear. Acronyms match exactly; other terms ignore case.
