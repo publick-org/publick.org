@@ -2,16 +2,20 @@
 
 Each daily run that fetches a town's data writes its result to the town's
 data/run.json (the engine's pipeline/network.py), and commits it with the
-data: when the run finished, which steps failed, and when each data source in
-the town's [freshness] table last updated. This page puts every town's
+data: when the run finished, which steps failed, and each data source's
+freshness (the engine's pipeline/freshness.py). This page puts every town's
 record side by side, so a broken source shows here the morning it breaks,
 not only in the run's email.
 
 The page is public, for the towns' readers: it says which data on a site may
 be out of date, in plain words, and leaves the run's internals (commands,
 errors, timings) to the run's summary on GitHub Actions. A site has "some data
-delayed" when a step of its last run failed or a source is behind, and is
-"not updated" when it has had no daily run for LATE_HOURS.
+delayed" when a daily step of its last run failed or a source is behind, and
+is "not updated" when it has had no daily run for LATE_HOURS. Figures that are
+published monthly or yearly (FIGURE_STEPS) are behind only when newer figures
+should have been published by now; a failed check of one isn't shown here, since
+the site still has the latest figures (the engine reports repeated failures to
+the maintainer).
 
     python scripts/build_status.py --out _home    # after build_home.py, into the homepage's folder
 """
@@ -52,6 +56,10 @@ STEP_DATA = {
     "Fetch 311 requests": "311 requests",
     "Compute 311 scorecard": "311 figures",
 }
+# Steps that fetch figures published monthly or yearly. The engine judges these by the period their data
+# covers, so a failed check isn't news for readers unless the figures fall behind (a source row says so).
+FIGURE_STEPS = {"Fetch tax bill", "Fetch unemployment", "Fetch school figures", "Fetch budget figures",
+                "Fetch housing figures"}
 # Steps that put the day's build on the site. If one fails, the site keeps the version before.
 PUBLISH_STEPS = ("Build site", "Check site", "Publish site")
 
@@ -93,7 +101,7 @@ def issues(record: dict, tz: ZoneInfo) -> list[str]:
     """
     found = []
     fetch_steps = (record.get("update") or {}).get("steps", [])
-    failed = [s["name"] for s in fetch_steps if not s["ok"]]
+    failed = [s["name"] for s in fetch_steps if not s["ok"] and s["name"] not in FIGURE_STEPS]
     for name in failed:
         if name in STEP_DATA:
             found.append(f"The {STEP_DATA[name]} couldn't be checked for changes in the latest daily update.")
@@ -110,6 +118,8 @@ def issues(record: dict, tz: ZoneInfo) -> list[str]:
             n = r["waiting_count"]
             found.append(f"{n} agenda{'s' if n != 1 else ''} or minutes {'are' if n != 1 else 'is'} "
                          f"waiting for a summary.")
+        elif r.get("behind") and r["behind"] != "no data yet":
+            found.append(f"{r['label']}: {r['behind']}.")
         elif r["updated_at"]:
             found.append(f"{r['label']}: last updated {when(r['updated_at'], tz)}, later than expected.")
         else:
@@ -185,10 +195,14 @@ def town_section(t: dict, state: str) -> str:
                                f"{r['waiting_count']} waiting" if r["waiting_count"] else "None waiting")
             else:
                 result = badge("attention", "Delayed") if r["stale"] else badge("ok")
-            rows.append([escape(r["label"]), result, when(r["updated_at"], t["tz"]),
-                         f"{r['max_days']} day{'s' if r['max_days'] != 1 else ''}"])
+            if r.get("max_days"):
+                expected = f"Every {r['max_days']} day{'s' if r['max_days'] != 1 else ''}"
+            else:
+                expected = escape(r.get("next") or "–")
+            rows.append([escape(r["label"]), result, escape(r.get("latest") or "–"), when(r["updated_at"], t["tz"]),
+                         expected])
         parts.append(table(f"{folder}-sources", f"Data on {escape(t['name'])}",
-                           ["Data", "Status", "Last updated", "Expected at least every"], rows))
+                           ["Data", "Status", "Latest", "Last checked", "Next expected"], rows))
     parts.append("</section>")
     return "\n".join(parts)
 
@@ -234,7 +248,7 @@ def render(towns: list[dict], now: datetime) -> str:
     <div class="wrap">
       <h1 class="page-title">Network status</h1>
       <p class="lede">Whether each Publick site's data is up to date. {headline}</p>
-      <p>Each site collects its town's public data once a day, early in the morning. When a source stops updating, or a day's update doesn't finish, it shows here, and the site keeps showing the last data it had.</p>
+      <p>Each site collects its town's meetings and requests once a day, early in the morning, and checks for new figures that are published monthly or yearly (tax bills, budgets, school results, unemployment) weekly or monthly. When a daily source stops updating, a day's update doesn't finish, or new figures are later than usual, it shows here, and the site keeps showing the last data it had.</p>
       <p class="small">This page was last updated {when(now.isoformat(), NETWORK_TZ)}. Seen something out of date that isn't listed? Write to <a href="mailto:hello@publick.org">hello@publick.org</a>.</p>
 
       {summary_table(towns, states)}
