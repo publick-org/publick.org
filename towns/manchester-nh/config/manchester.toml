@@ -1,0 +1,211 @@
+# Site configuration for Manchester, New Hampshire. Everything town-specific
+# lives here; the code is the Publick engine (github.com/publick-org/publick-engine).
+# Build with: python -m pipeline.build_site (with the engine on PYTHONPATH)
+#
+# Manchester's website does not run on CivicPlus, and New Hampshire's state
+# sources (budget, tax bill, schools) differ from Massachusetts's, so sections
+# are added one at a time: unemployment (BLS), housing (Census), 311
+# (SeeClickFix), and meetings (the city calendar and its CivicClerk portal).
+# Agendas, minutes, and New Hampshire sources come later.
+
+[site]
+name = "Manchester Publick"
+# The masthead shows name_prefix in dark ink and name_suffix in maroon: the
+# town, then the network. The icon (site/static/favicon.svg) is the network's
+# P in the headline font, the same for every town.
+name_prefix = "Manchester "
+name_suffix = "Publick"
+domain = "manchester-nh.publick.org"
+# The network of town sites this one belongs to, named in every page footer.
+network = "Publick"
+# network_url = "https://publick.org"
+tagline = "Public data on how Manchester, New Hampshire is doing. Updated daily."
+# One line under the name at the top of every page.
+masthead = "An independent guide to city government in Manchester, New Hampshire"
+repo_url = "https://github.com/publick-org/manchester-nh"
+# Public contact address. Shown on the About and Accessibility pages when set.
+contact_email = "manchester-nh@publick.org"
+timezone = "America/New_York"
+user_agent = "manchester-nh.publick.org (+https://manchester-nh.publick.org/about/)"
+
+# The city's own colors, from manchesternh.gov's stylesheet: its blue (links,
+# buttons), navy (headings), a light tint of the blue, and its deep red (the
+# current page in the menu, flags, notices). All meet WCAG AA on white.
+[site.colors]
+primary = "#12469a"
+primary_dark = "#14284b"
+primary_soft = "#e7eef9"
+accent = "#7c2629"
+
+[town]
+name = "Manchester"
+state = "New Hampshire"
+state_abbr = "NH"
+official_site = "https://www.manchesternh.gov"
+
+# Sections appear in the main navigation in this order. Each one is a folder
+# under site/pages/<slug>/ and is served at https://<domain>/<slug>/.
+# status: "planned" shows an "In development" label; "live" removes it.
+[[sections]]
+slug = "meetings"
+title = "Meetings"
+summary = "When the Board of Mayor and Aldermen, its committees, and the city's boards and commissions meet, with links to their agendas."
+status = "live"
+
+[[sections]]
+slug = "311"
+title = "311 Requests"
+nav = "311"
+summary = "How fast Public Works responds to service requests, by category and ward."
+status = "live"
+
+[[sections]]
+slug = "housing"
+title = "Housing"
+summary = "New homes permitted, home values and rents, and the housing stock."
+status = "live"
+
+[[sections]]
+slug = "about"
+title = "About"
+summary = "Data sources, update schedule, metric definitions, and corrections."
+status = "live"
+
+# Public meetings, from two places. The Board of Mayor and Aldermen, its
+# committees, and the City Clerk's boards are on the city's CivicClerk portal
+# (the address the city calendar's agenda links go to). Other boards and
+# commissions (Planning, Zoning, Conservation, Highway, Water, and more) are on
+# the city calendar only. Agendas and minutes aren't collected yet
+# (documents = false): each meeting links to them where the city posts them.
+[meetings]
+calendar_url = "https://www.manchesternh.gov/Government/City-Calendars"
+archive_url = "https://www.manchesternh.gov/Departments/City-Clerk/Meeting-Minutes-and-Agendas"
+archive_name = "city's Meeting Minutes and Agendas page"
+governing_body = "Board of Mayor and Aldermen"
+documents = false
+request_delay = 3.0
+# One name per public body. A calendar entry is filed under the longest of
+# these it contains ("PH-1 Board of Mayor and Aldermen", "Special Meeting of the
+# Committee on Lands & Buildings"), ignoring case and "&" versus "and". Special
+# committees are listed by their own names, so they don't read as special
+# meetings of a standing committee.
+boards = [
+  "Board of Mayor and Aldermen",
+  "Committee on Accounts, Enrollment & Revenue Administration",
+  "Committee on Administration/Information Systems",
+  "Committee on Bills on Second Reading",
+  "Committee on Community Improvement",
+  "Committee on Finance",
+  "Committee on Human Resources/Insurance",
+  "Committee on Joint School Buildings",
+  "Committee on Lands and Buildings",
+  "Committee on Public Safety, Health & Traffic",
+  "Special Committee on Airport Activities",
+  "Special Committee on Alcohol, Other Drugs & Youth Services",
+  "Special Committee on Baseball/Civic Center",
+  "Special Committee on Energy Contracts & Related Activities",
+  "Special Committee on Solid Waste Activities",
+  "Board of Registrars",
+  "Board of Recount",
+  "Personnel Appeals Board",
+  "Planning Board",
+  "Zoning Board of Adjustment",
+  "Conservation Commission",
+  "Heritage Commission",
+  "Highway Commission",
+  "Parks, Recreation & Cemetery Commission",
+  "Board of Water Commissioners",
+  "Board of Health",
+  "Police Commission",
+  "Senior Services Commission",
+  "Trustees of Trust Funds",
+  "Arts Commission",
+  "Manchester Development Corporation",
+]
+
+# Other names the calendars use for a board.
+[meetings.aliases]
+"ZBA" = "Zoning Board of Adjustment"
+"Zoning Board" = "Zoning Board of Adjustment"
+# The Board of Health's entries are titled "Regular Meeting", at the Health Department.
+"Health Department" = "Board of Health"
+
+[meetings.civicclerk]
+api_url = "https://manchesternh.api.civicclerk.com/v1"
+portal_url = "https://manchesternh.portal.civicclerk.com"
+# The current Board of Mayor and Aldermen took office in January 2026.
+since = "2026-01-01"
+
+# The city calendar's month view (DotNetNuke Events, module 3737).
+[meetings.dnn]
+calendar_url = "https://www.manchesternh.gov/Government/City-Calendars"
+module_id = 3737
+since = "2026-01-01"
+months_ahead = 1
+include_pattern = '\b(board|commission|committee|council|corporation|trust|funds|meeting|hearing)\b'
+# The aldermanic boards come from CivicClerk; their calendar entries repeat them.
+exclude_pattern = '\b(Aldermen|Committee on|Board of Registrars|Board of Recount|Personnel Appeals Board)\b'
+
+# Housing: Census building permits (state and place FIPS codes) and American
+# Community Survey through Census Reporter (geo ids). The Massachusetts-only
+# parts (shi_url, and parcel counts from [finance]) are left out.
+[housing]
+bps_region = "Northeast Region"
+bps_prefix = "ne"
+bps_state = "33"
+bps_place = "45140"
+census_geo = "16000US3345140"
+state_geo = "04000US33"
+
+# 311 requests, from SeeClickFix (public requests only). The city's organization
+# (512) covers Public Works, Parking, Police, and Water Works; departments keeps
+# Public Works' request types only, for now.
+[seeclickfix]
+organization_id = 512
+open311_base = "https://seeclickfix.com/open311/v2"
+api_base = "https://seeclickfix.com/api/v2"
+departments = ["City of Manchester DPW"]
+scope_note = "Public Works requests only, such as potholes, trash and recycling pickups, streetlights, signs, and trees. Parking and police requests aren't included yet."
+report_url = "https://www.manchesternh.gov/residents/manchester-nh-connect"
+# SeeClickFix documents a limit of 20 requests per minute.
+request_delay = 3.2
+recent_days = 21
+max_details_per_run = 700
+time_budget_seconds = 2400
+# The month the full history starts (python -m pipeline.fetch_311 --backfill).
+# Older requests are included only while they are still open.
+history_since = "2024-01"
+# Wards as of the city's 2021 redistricting, from NH GRANIT, with 2020 census
+# population (see data/README.md).
+precincts_file = "manchester-wards-2022.geojson"
+wards_publisher = "NH GRANIT"
+wards_year = 2022
+wards_url = "https://www.arcgis.com/home/item.html?id=3d1a8bdf3eaa49e09cf5d9da5b56bf9c"
+
+# Repeat locations: requests in the same category within radius_m meters and
+# window_days days of each other are grouped as one place.
+[seeclickfix.repeats]
+radius_m = 50
+window_days = 60
+recent_open_days = 30
+
+# Unemployment rate (BLS Local Area Unemployment Statistics). City rates are
+# not seasonally adjusted; the state series is shown for context. bulk_file is
+# the state's file under download.bls.gov/pub/time.series/la/, used when the
+# API refuses.
+[labor]
+local_series = "LAUCT334514000000003"
+state_series = "LAUST330000000000003"
+bulk_file = "la.data.36.NewHampshire"
+
+# How often each data source should update. The daily run fails (and GitHub
+# emails the owner) when one goes longer than max_days, and the About page
+# lists them.
+[freshness]
+sources = [
+  { label = "Meetings (city calendar and CivicClerk)", file = "meetings/status.json", max_days = 2 },
+  { label = "311 requests", file = "311/status.json", max_days = 2 },
+  { label = "311 scorecard", file = "311/scorecard.json", field = "generated_at", max_days = 2 },
+  { label = "Unemployment rate (BLS)", file = "labor/unemployment.json", max_days = 3 },
+  { label = "Housing figures", file = "housing/housing.json", max_days = 15 },
+]

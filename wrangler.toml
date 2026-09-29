@@ -1,0 +1,19 @@
+# The Worker that serves publick.org and every town's site from the sites
+# bucket. Its code is the engine's worker/index.js, at the version in
+# engine-version; .github/workflows/worker.yml checks it out and deploys.
+name = "publick-sites"
+main = ".publick-engine/worker/index.js"
+compatibility_date = "2026-08-01"
+workers_dev = false
+
+# Every town is <town>-<state>.publick.org, plus the bare publick.org.
+# Other hostnames on the zone that must not reach this Worker (files.publick.org,
+# the documents bucket) need a route with no Worker; see README.md.
+routes = [
+  { pattern = "publick.org/*", zone_name = "publick.org" },
+  { pattern = "*.publick.org/*", zone_name = "publick.org" },
+]
+
+[[r2_buckets]]
+binding = "SITES"
+bucket_name = "publick-sites"
