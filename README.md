@@ -69,6 +69,25 @@ Merge, then run the workflow for the town by hand to fetch its data. No DNS
 change is needed, and the homepage lists the town as live (and drops it from
 `home/upcoming.toml`'s "Coming next") on its own.
 
+The town's tax, budget, and school figures come from its state, through the
+engine's package for that state (the engine README's States section): its
+`[finance]` and `[schools]` tables take that state's keys. Start from a town in
+the same state: Gloucester or Malden for Massachusetts, Manchester for New
+Hampshire. A town in a state the engine has no package for leaves those tables
+and the budget and schools sections out; it still gets meetings, 311,
+unemployment, and housing. List each source in its `[freshness]` table, so the
+status page shows it.
+
+## New Hampshire's yearly figures
+
+New Hampshire's tax rates and school figures come from statewide files the
+engine saves once a year, because the state's websites refuse automated
+requests. When the status page shows "New Hampshire state figures (yearly)" as
+behind for a New Hampshire town, download the new files in a browser and run
+the engine's `python -m pipeline.states.nh.extract` (the engine README, New
+Hampshire's yearly figures), merge that to the engine, and move
+`engine-version` here to the release it makes.
+
 ## Moving a town in from its own repository
 
 1. Turn off the town repository's schedule (**Actions → Update and deploy → Disable workflow**).
