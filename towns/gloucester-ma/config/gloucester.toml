@@ -136,7 +136,9 @@ max_per_run = 50
 # Prices per million tokens, for the spending limit below.
 input_price = 2.0
 output_price = 10.0
-max_cost_per_run = 5.0
+# Kept low: the network's summaries share one API account. Each run does the
+# most useful documents first, so a backlog is worked through over several days.
+max_cost_per_run = 1.0
 
 # Context for unusual months on the 311 scorecard. Each note must cite a source.
 [[seeclickfix.annotations]]
