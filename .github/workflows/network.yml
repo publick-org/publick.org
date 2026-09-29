@@ -5,11 +5,15 @@
 #   schedule   Four runs across the early morning. Each town belongs to one,
 #              by a stable hash of its folder name, so runs stay small as
 #              towns are added. Fetches, builds, checks, publishes, commits data.
+#              The browser (accessibility) checks run on a sample of each
+#              town's pages: every hand-written page, and the first and largest
+#              of each kind of record page (the engine's site_checks/pages.py).
 #   push       Rebuilds and publishes the towns a change touched (all of them
 #              when engine-version or a workflow changed), and the homepage
-#              when home/ changed. No fetching.
-#   pull_request  Builds and checks the towns a change touches. Nothing is published.
-#   workflow_dispatch  Any towns, with or without fetching.
+#              when home/ changed. No fetching. Every page is checked.
+#   pull_request  Builds and checks every page of the towns a change touches.
+#              Nothing is published.
+#   workflow_dispatch  Any towns, with or without fetching. Every page is checked.
 name: Network
 
 on:
@@ -56,6 +60,7 @@ jobs:
       deploy: ${{ steps.plan.outputs.deploy }}
       home: ${{ steps.plan.outputs.home }}
       prune: ${{ steps.plan.outputs.prune }}
+      sample: ${{ steps.plan.outputs.sample }}
       engine: ${{ steps.engine.outputs.ref }}
     steps:
       # Only the towns' config files: enough to list them, without downloading any town's data.
@@ -90,7 +95,7 @@ jobs:
           BASE: ${{ github.event.pull_request.base.sha }}
         run: |
           args=(--batch-size "$BATCH_SIZE")
-          fetch=false; deploy=true; home=false; prune=false
+          fetch=false; deploy=true; home=false; prune=false; sample=false
           case "$EVENT" in
             schedule)
               # The index of this run's cron line above.
@@ -103,6 +108,7 @@ jobs:
               esac
               args+=(--slots 4 --slot "$slot")
               fetch=true
+              sample=true
               # Once a day, after the first run's towns: delete old builds and unused files.
               [ "$slot" = 0 ] && prune=true
               ;;
@@ -133,6 +139,7 @@ jobs:
             echo "deploy=$deploy"
             echo "home=$home"
             echo "prune=$prune"
+            echo "sample=$sample"
           } >> "$GITHUB_OUTPUT"
 
   towns:
@@ -183,6 +190,7 @@ jobs:
           TOWNS: ${{ matrix.towns }}
           FETCH: ${{ needs.plan.outputs.fetch == 'true' && '--fetch' || '' }}
           DEPLOY: ${{ needs.plan.outputs.deploy == 'true' && '--deploy' || '' }}
+          SAMPLE: ${{ needs.plan.outputs.sample == 'true' && '--sample-checks' || '' }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           BLS_API_KEY: ${{ secrets.BLS_API_KEY }}
           STORAGE_ACCESS_KEY_ID: ${{ secrets.STORAGE_ACCESS_KEY_ID }}
@@ -191,8 +199,8 @@ jobs:
           SITES_BUCKET: ${{ secrets.SITES_BUCKET }}
           SITES_ACCESS_KEY_ID: ${{ secrets.SITES_ACCESS_KEY_ID }}
           SITES_SECRET_ACCESS_KEY: ${{ secrets.SITES_SECRET_ACCESS_KEY }}
-        # $FETCH and $DEPLOY are unquoted on purpose: each is one flag or nothing.
-        run: python -m pipeline.network run --towns "$TOWNS" $FETCH $DEPLOY --reports reports
+        # $FETCH, $DEPLOY and $SAMPLE are unquoted on purpose: each is one flag or nothing.
+        run: python -m pipeline.network run --towns "$TOWNS" $FETCH $DEPLOY $SAMPLE --reports reports
 
       # The data is kept even if a town's build or checks failed, as each town's own workflow did.
       - name: Commit data
