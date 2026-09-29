@@ -5,8 +5,8 @@
 # Manchester's website does not run on CivicPlus, and New Hampshire's state
 # sources (budget, tax bill, schools) differ from Massachusetts's, so sections
 # are added one at a time: unemployment (BLS), housing (Census), 311
-# (SeeClickFix), and meetings (the city calendar and its CivicClerk portal).
-# Agendas, minutes, and New Hampshire sources come later.
+# (SeeClickFix), and meetings (the city calendar and its CivicClerk portal),
+# with the CivicClerk meetings' agendas and minutes. New Hampshire sources come later.
 
 [site]
 name = "Manchester Publick"
@@ -49,7 +49,7 @@ official_site = "https://www.manchesternh.gov"
 [[sections]]
 slug = "meetings"
 title = "Meetings"
-summary = "When the Board of Mayor and Aldermen, its committees, and the city's boards and commissions meet, with links to their agendas."
+summary = "When the Board of Mayor and Aldermen, its committees, and the city's boards and commissions meet, with agendas, and the aldermen's minutes from January 2026 on."
 status = "live"
 
 [[sections]]
@@ -75,14 +75,14 @@ status = "live"
 # committees, and the City Clerk's boards are on the city's CivicClerk portal
 # (the address the city calendar's agenda links go to). Other boards and
 # commissions (Planning, Zoning, Conservation, Highway, Water, and more) are on
-# the city calendar only. Agendas and minutes aren't collected yet
-# (documents = false): each meeting links to them where the city posts them.
+# the city calendar only. Agendas and minutes are saved for the CivicClerk
+# meetings (from [meetings.civicclerk] since on); the city calendar's meetings
+# link to their agendas where the city posts them.
 [meetings]
 calendar_url = "https://www.manchesternh.gov/Government/City-Calendars"
 archive_url = "https://www.manchesternh.gov/Departments/City-Clerk/Meeting-Minutes-and-Agendas"
 archive_name = "city's Meeting Minutes and Agendas page"
 governing_body = "Board of Mayor and Aldermen"
-documents = false
 request_delay = 3.0
 # One name per public body. A calendar entry is filed under the longest of
 # these it contains ("PH-1 Board of Mayor and Aldermen", "Special Meeting of the
@@ -145,6 +145,14 @@ months_ahead = 1
 include_pattern = '\b(board|commission|committee|council|corporation|trust|funds|meeting|hearing)\b'
 # The aldermanic boards come from CivicClerk; their calendar entries repeat them.
 exclude_pattern = '\b(Aldermen|Committee on|Board of Registrars|Board of Recount|Personnel Appeals Board)\b'
+
+# Agenda and minutes PDFs live in the network's documents bucket, not in git
+# (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID, STORAGE_SECRET_ACCESS_KEY.
+[storage]
+endpoint = "https://6bbfee5a3892553c7993dbfa4b4e8453.r2.cloudflarestorage.com"
+bucket = "publick-documents"
+public_url = "https://files.publick.org"
+prefix = "manchester-nh"
 
 # Housing: Census building permits (state and place FIPS codes) and American
 # Community Survey through Census Reporter (geo ids). The Massachusetts-only

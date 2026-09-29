@@ -1,0 +1,238 @@
+# Site configuration for Malden, Massachusetts. Everything town-specific lives
+# here; the code is the Publick engine (github.com/publick-org/publick-engine).
+#
+# Malden's website runs on CivicPlus, but its boards post agendas and minutes
+# in the Agenda Center rather than on the city calendar, which lists community
+# events. 311 requests are on SeeClickFix. The state sources (DLS, DESE, BLS,
+# Census, the Subsidized Housing Inventory) are the same as Gloucester's.
+
+[site]
+name = "Malden Publick"
+# The masthead shows name_prefix in dark ink and name_suffix in the accent
+# color: the town, then the network.
+name_prefix = "Malden "
+name_suffix = "Publick"
+domain = "malden-ma.publick.org"
+# The network of town sites this one belongs to, named in every page footer.
+network = "Publick"
+network_url = "https://publick.org"
+tagline = "Public data on how Malden, Massachusetts responds, decides, and spends. Updated daily."
+# One line under the name at the top of every page.
+masthead = "An independent guide to city government in Malden, Massachusetts"
+repo_url = "https://github.com/publick-org/publick.org"
+# Public contact address. Shown on the About and Accessibility pages when set.
+contact_email = "malden-ma@publick.org"
+timezone = "America/New_York"
+user_agent = "malden-ma.publick.org (+https://malden-ma.publick.org/about/)"
+
+[town]
+name = "Malden"
+state = "Massachusetts"
+state_abbr = "MA"
+official_site = "https://www.cityofmalden.org"
+
+# Sections appear in the main navigation in this order. Each one is a folder
+# under site/pages/<slug>/ and is served at https://<domain>/<slug>/.
+[[sections]]
+slug = "meetings"
+title = "Meetings"
+summary = "Every board and committee meeting in the city's Agenda Center, with agendas, and minutes from January 2026 on."
+status = "live"
+
+[[sections]]
+slug = "311"
+title = "311 Requests"
+nav = "311"
+summary = "How fast the city responds to service requests, by category and ward."
+status = "live"
+
+[[sections]]
+slug = "schools"
+title = "Schools"
+summary = "Graduation, attendance, and MCAS results compared with the state."
+status = "live"
+
+[[sections]]
+slug = "budget"
+title = "City budget"
+nav = "Budget"
+summary = "Where general fund money comes from and how it is spent, reserves, and the property tax limit."
+status = "live"
+
+[[sections]]
+slug = "housing"
+title = "Housing"
+summary = "New homes permitted, home values and rents, affordable housing, and the housing stock."
+status = "live"
+
+[[sections]]
+slug = "about"
+title = "About"
+summary = "Data sources, update schedule, metric definitions, and corrections."
+status = "live"
+
+# Public meetings, from the city's CivicPlus Agenda Center.
+[meetings]
+base_url = "https://www.cityofmalden.org"
+archive_url = "https://www.cityofmalden.org/AgendaCenter"
+archive_name = "city's Agenda Center"
+request_delay = 3.0
+max_event_pages = 40
+
+# Agenda Center categories renamed to the board's usual name.
+[meetings.aliases]
+"Transportation Commission (formerly Traffic Commission)" = "Transportation Commission"
+"Site Plan Review Committee for ADUs and Educational, Religious & Child Care Facility Uses" = "Site Plan Review Committee"
+"Mystic Valley Public Health Coalition Meeting" = "Mystic Valley Public Health Coalition"
+
+[meetings.agenda_center]
+base_url = "https://www.cityofmalden.org"
+# The first run lists meetings from here, and minutes are collected from here on.
+since = "2026-01-01"
+# Notices of meetings held by applicants (cannabis businesses), not by a city board.
+exclude_categories = ["Community Outreach"]
+
+# City Council committees post under the City Council, and School Committee
+# subcommittees under the School Committee; each is its own board here.
+[meetings.agenda_center.committees."City Council"]
+"Finance Committee" = "City Council Finance Committee"
+"License Committee" = "City Council License Committee"
+"Rules and Ordinance Committee" = "City Council Rules and Ordinance Committee"
+"Committee of the Whole" = "City Council Committee of the Whole"
+"COTW" = "City Council Committee of the Whole"
+"Personnel Appointments" = "City Council Personnel Appointments Committee"
+"PersonnelAppointments" = "City Council Personnel Appointments Committee"
+"Community Engagement and Inclusion" = "City Council Community Engagement and Inclusion Committee"
+"Community Engagement Inclusion" = "City Council Community Engagement and Inclusion Committee"
+"Economic Development" = "City Council Economic Development Committee"
+"Library Committee" = "City Council Library Committee"
+"Public Property" = "City Council Public Property Committee"
+"Public Safety Committee" = "City Council Public Safety Committee"
+"Code of Conduct Committee" = "City Council Code of Conduct Committee"
+"Joint Finance Rules and Ordinance" = "City Council Joint Finance and Rules and Ordinance Committees"
+"Joint Finance RO" = "City Council Joint Finance and Rules and Ordinance Committees"
+"Joint Economic Development Rules and Ordinance" = "City Council Joint Economic Development and Rules and Ordinance Committees"
+"Joint Economic Development and Rules and Ordinance" = "City Council Joint Economic Development and Rules and Ordinance Committees"
+
+[meetings.agenda_center.committees."School Committee"]
+"Policy Subcommittee" = "School Committee Policy Subcommittee"
+"Technology Subcommittee" = "School Committee Technology Subcommittee"
+"Finance Subcommittee" = "School Committee Finance Subcommittee"
+
+# 311 requests, from SeeClickFix (public requests only).
+[seeclickfix]
+organization_id = 337
+open311_base = "https://seeclickfix.com/open311/v2"
+api_base = "https://seeclickfix.com/api/v2"
+report_url = "https://seeclickfix.com/malden"
+# SeeClickFix documents a limit of 20 requests per minute.
+request_delay = 3.2
+recent_days = 21
+max_details_per_run = 700
+time_budget_seconds = 2400
+# The month the full history starts (python -m pipeline.fetch_311 --backfill).
+# Older requests are included only while they are still open.
+history_since = "2025-01"
+precincts_file = "malden-precincts-2022.geojson"
+wards_publisher = "MassGIS"
+wards_year = "2022"
+wards_url = "https://gis.data.mass.gov/maps/aec5130790814ace94438d3bcf23cf9a"
+
+# Repeat locations: requests in the same category within radius_m meters and
+# window_days days of each other are grouped as one place.
+[seeclickfix.repeats]
+radius_m = 50
+window_days = 60
+recent_open_days = 30
+
+# Agenda and minutes PDFs live in the network's documents bucket, not in git
+# (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID, STORAGE_SECRET_ACCESS_KEY.
+[storage]
+endpoint = "https://6bbfee5a3892553c7993dbfa4b4e8453.r2.cloudflarestorage.com"
+bucket = "publick-documents"
+public_url = "https://files.publick.org"
+prefix = "malden-ma"
+
+# Plain-English agenda text and previews, and decisions from minutes, written by
+# a language model and labeled as AI-generated on the site. Cached by document
+# hash. Each run does the most useful first (upcoming agendas, then the newest
+# minutes) and stops at max_per_run documents or max_cost_per_run dollars, so the
+# backlog since January is worked through a little each day.
+[summaries]
+model = "claude-sonnet-5"
+max_per_run = 10
+# Prices per million tokens, for the spending limit below.
+input_price = 2.0
+output_price = 10.0
+max_cost_per_run = 1.0
+
+# Terms that come up on agendas and minutes, explained on each meeting page
+# where they appear. Acronyms match exactly; other terms ignore case.
+[[glossary]]
+term = "executive session"
+definition = "A part of a public meeting closed to the public. State law allows it only for specific reasons, such as lawsuits, negotiations, or personnel matters."
+
+[[glossary]]
+term = "M.G.L."
+definition = "Massachusetts General Laws, the state's laws."
+
+[[glossary]]
+term = "ADA"
+definition = "Americans with Disabilities Act, the federal law on access for people with disabilities."
+
+[[glossary]]
+term = "CPA"
+definition = "Community Preservation Act. A local property tax surcharge, with state matching money, that pays for open space, historic preservation, affordable housing, and recreation."
+
+[[glossary]]
+term = "MBTA Communities"
+definition = "The state law (Section 3A of the Zoning Act) requiring cities near MBTA service to allow multifamily housing by right in at least one district."
+
+# School district figures from the state's education data portal (DESE).
+[schools]
+district_code = "01650000"
+district_name = "Malden Public Schools"
+portal = "https://educationtocareer.data.mass.gov"
+
+# Tax bill and budget figures (Mass. Division of Local Services). Some DLS
+# reports take the name, others the DOR code.
+[finance]
+dls_municipality = "Malden"
+dls_code = "165"
+
+# Housing: Census building permits (state and place FIPS codes), American
+# Community Survey through Census Reporter (geo ids), and the state's
+# Subsidized Housing Inventory PDF (the town's name as the PDF lists it).
+[housing]
+bps_region = "Northeast Region"
+bps_prefix = "ne"
+bps_state = "25"
+bps_place = "37875"
+census_geo = "16000US2537875"
+state_geo = "04000US25"
+shi_url = "https://www.mass.gov/doc/subsidized-housing-inventory-2/download"
+shi_name = "Malden"
+
+# Unemployment rate (BLS Local Area Unemployment Statistics). City rates are
+# not seasonally adjusted; the state series is shown for context.
+[labor]
+local_series = "LAUCT253787500000003"
+state_series = "LAUST250000000000003"
+
+# How often each data source should update. The daily run fails when one goes
+# longer than max_days, and the About page lists them.
+[freshness]
+# Documents can wait this long for a summary before the daily run flags them.
+# Generous while the backlog since January is summarized a little each day;
+# lower it to 2 (the default) once it has caught up.
+summary_grace_days = 14
+sources = [
+  { label = "Meetings (Agenda Center)", file = "meetings/status.json", max_days = 2 },
+  { label = "311 requests", file = "311/status.json", max_days = 2 },
+  { label = "311 scorecard", file = "311/scorecard.json", field = "generated_at", max_days = 2 },
+  { label = "Unemployment rate (BLS)", file = "labor/unemployment.json", max_days = 3 },
+  { label = "School figures (DESE)", file = "schools/schools.json", max_days = 3 },
+  { label = "Average tax bill (Mass. DLS)", file = "finance/tax_bill.json", max_days = 7 },
+  { label = "City budget (Mass. DLS)", file = "finance/budget.json", max_days = 15 },
+  { label = "Housing figures", file = "housing/housing.json", max_days = 15 },
+]
