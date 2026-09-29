@@ -1,0 +1,193 @@
+{
+  "town": "malden",
+  "folder": "malden-ma",
+  "started_at": "2026-09-29T15:19:49+00:00",
+  "finished_at": "2026-09-29T16:08:44+00:00",
+  "engine": "v1.6.0",
+  "steps": [
+    {
+      "name": "Fetch new data",
+      "ok": true,
+      "error": null,
+      "seconds": 2822.6
+    },
+    {
+      "name": "Build site",
+      "ok": true,
+      "error": null,
+      "seconds": 1.7
+    },
+    {
+      "name": "Check site",
+      "ok": true,
+      "error": null,
+      "seconds": 96.3
+    },
+    {
+      "name": "Publish site",
+      "ok": true,
+      "error": null,
+      "seconds": 13.8
+    }
+  ],
+  "update": {
+    "town": "malden",
+    "sources": "all",
+    "started_at": "2026-09-29T15:19:49+00:00",
+    "ok": true,
+    "steps": [
+      {
+        "name": "Fetch meetings",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 2.7
+      },
+      {
+        "name": "Fetch minutes",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 178.0
+      },
+      {
+        "name": "Fetch School Committee documents",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.3
+      },
+      {
+        "name": "Summarize agendas",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 274.6
+      },
+      {
+        "name": "Fetch tax bill",
+        "ok": false,
+        "required": false,
+        "error": "exited with status 1",
+        "seconds": 0.7
+      },
+      {
+        "name": "Fetch unemployment",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.7
+      },
+      {
+        "name": "Fetch school figures",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 3.6
+      },
+      {
+        "name": "Fetch budget figures",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.4
+      },
+      {
+        "name": "Fetch housing figures",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.3
+      },
+      {
+        "name": "Fetch building permits",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.3
+      },
+      {
+        "name": "Move saved documents to storage",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.2
+      },
+      {
+        "name": "Fetch 311 requests",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 2356.2
+      },
+      {
+        "name": "Compute 311 scorecard",
+        "ok": true,
+        "required": true,
+        "error": null,
+        "seconds": 4.7
+      }
+    ]
+  },
+  "stale": false,
+  "sources": [
+    {
+      "label": "Meetings (Agenda Center)",
+      "updated_at": "2026-09-29T11:19:50-04:00",
+      "max_days": 2,
+      "stale": false
+    },
+    {
+      "label": "311 requests",
+      "updated_at": "2026-09-29T11:27:31-04:00",
+      "max_days": 2,
+      "stale": false
+    },
+    {
+      "label": "311 scorecard",
+      "updated_at": "2026-09-29T12:06:47-04:00",
+      "max_days": 2,
+      "stale": false
+    },
+    {
+      "label": "Unemployment rate (BLS)",
+      "updated_at": "2026-09-29T11:27:26-04:00",
+      "max_days": 3,
+      "stale": false
+    },
+    {
+      "label": "School figures (DESE)",
+      "updated_at": "2026-09-29T11:27:27-04:00",
+      "max_days": 3,
+      "stale": false
+    },
+    {
+      "label": "Average tax bill (Mass. DLS)",
+      "updated_at": "2026-09-28T21:14:23-04:00",
+      "max_days": 7,
+      "stale": false
+    },
+    {
+      "label": "City budget (Mass. DLS)",
+      "updated_at": "2026-09-28T21:14:36-04:00",
+      "max_days": 15,
+      "stale": false
+    },
+    {
+      "label": "Housing figures",
+      "updated_at": "2026-09-28T21:15:18-04:00",
+      "max_days": 15,
+      "stale": false
+    },
+    {
+      "label": "Meeting summaries",
+      "updated_at": null,
+      "max_days": 14,
+      "stale": false,
+      "waiting": [],
+      "waiting_count": 0
+    }
+  ],
+  "deployed": true,
+  "ok": true
+}
