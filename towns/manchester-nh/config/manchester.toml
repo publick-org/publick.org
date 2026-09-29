@@ -2,11 +2,9 @@
 # lives here; the code is the Publick engine (github.com/publick-org/publick-engine).
 # Build with: python -m pipeline.build_site (with the engine on PYTHONPATH)
 #
-# Manchester's website does not run on CivicPlus, and New Hampshire's state
-# sources (budget, tax bill, schools) differ from Massachusetts's, so sections
-# are added one at a time: unemployment (BLS), housing (Census), 311
-# (SeeClickFix), and meetings (the city calendar and its CivicClerk portal),
-# with the CivicClerk meetings' agendas and minutes. New Hampshire sources come later.
+# Manchester's website does not run on CivicPlus, so its meetings come from the
+# city calendar and its CivicClerk portal. Its tax rate, tax bill, budget, and
+# school figures are New Hampshire's (the engine's pipeline/states/nh/).
 
 [site]
 name = "Manchester Publick"
@@ -57,6 +55,19 @@ slug = "311"
 title = "311 Requests"
 nav = "311"
 summary = "How fast Public Works responds to service requests, by category and ward."
+status = "live"
+
+[[sections]]
+slug = "budget"
+title = "City budget"
+nav = "Budget"
+summary = "The city's adopted budget, its property tax rate and where the tax goes, and the average single-family tax bill."
+status = "live"
+
+[[sections]]
+slug = "schools"
+title = "Schools"
+summary = "Manchester School District's graduation rate, state test results, and cost per pupil, with the state's."
 status = "live"
 
 [[sections]]
@@ -154,6 +165,23 @@ bucket = "publick-documents"
 public_url = "https://files.publick.org"
 prefix = "manchester-nh"
 
+# Tax rate, property tax, and the city's budget (pipeline/states/nh/). The tax
+# rates are the New Hampshire DRA's, from the engine's yearly statewide
+# figures; the average single-family bill is calculated from them and NH
+# GRANIT's parcel map; the adopted budget is the table on the city's Budget
+# Info page.
+[finance]
+dra_municipality = "Manchester"
+budget_table_url = "https://www.manchesternh.gov/Departments/Finance/Budget-Info"
+budget_table_name = "the city's Budget Info page"
+budget_documents_url = "https://www.manchesternh.gov/Departments/Finance/Budget-Info"
+
+# Schools: the New Hampshire Department of Education's statewide figures,
+# where the district is "Manchester".
+[schools]
+doe_district = "Manchester"
+district_name = "Manchester School District"
+
 # Housing: Census building permits (state and place FIPS codes) and American
 # Community Survey through Census Reporter (geo ids). The Massachusetts-only
 # parts (shi_url, and parcel counts from [finance]) are left out.
@@ -216,4 +244,9 @@ sources = [
   { label = "311 scorecard", file = "311/scorecard.json", field = "generated_at", max_days = 2 },
   { label = "Unemployment rate (BLS)", file = "labor/unemployment.json", max_days = 3 },
   { label = "Housing figures", file = "housing/housing.json", max_days = 15 },
+  { label = "Tax bill (calculated)", file = "finance/tax_bill.json", max_days = 3 },
+  { label = "City budget", file = "finance/budget.json", max_days = 3 },
+  { label = "School figures", file = "schools/schools.json", max_days = 3 },
+  # The state's figures are saved into the engine once a year (pipeline/states/nh/extract.py).
+  { label = "New Hampshire state figures (yearly)", file = "finance/budget.json", field = "figures_extracted_at", max_days = 400 },
 ]
