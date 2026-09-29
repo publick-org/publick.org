@@ -225,6 +225,8 @@ state_series = "LAUST250000000000003"
 # How often each data source should update. The daily run fails when one goes
 # longer than max_days, and the About page lists them.
 [freshness]
+# Sources that change daily. Figures published monthly or yearly (tax bill, budget, schools,
+# unemployment, housing) are judged by the engine, by the period they cover (pipeline/rhythms.py).
 # Documents can wait this long for a summary before the daily run flags them.
 # Generous while the backlog since January is summarized a little each day;
 # lower it to 2 (the default) once it has caught up.
@@ -233,9 +235,4 @@ sources = [
   { label = "Meetings (Agenda Center)", file = "meetings/status.json", max_days = 2 },
   { label = "311 requests", file = "311/status.json", max_days = 2 },
   { label = "311 scorecard", file = "311/scorecard.json", field = "generated_at", max_days = 2 },
-  { label = "Unemployment rate (BLS)", file = "labor/unemployment.json", max_days = 3 },
-  { label = "School figures (DESE)", file = "schools/schools.json", max_days = 3 },
-  { label = "Average tax bill (Mass. DLS)", file = "finance/tax_bill.json", max_days = 7 },
-  { label = "City budget (Mass. DLS)", file = "finance/budget.json", max_days = 15 },
-  { label = "Housing figures", file = "housing/housing.json", max_days = 15 },
 ]

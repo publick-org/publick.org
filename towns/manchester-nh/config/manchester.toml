@@ -253,17 +253,12 @@ bulk_file = "la.data.36.NewHampshire"
 # emails the owner) when one goes longer than max_days, and the About page
 # lists them.
 [freshness]
+# Sources that change daily. Figures published monthly or yearly (tax bill, budget, schools,
+# unemployment, housing) are judged by the engine, by the period they cover (pipeline/rhythms.py).
 # Documents saved before summaries started are summarized over several runs.
 summary_grace_days = 14
 sources = [
   { label = "Meetings (city calendar and CivicClerk)", file = "meetings/status.json", max_days = 2 },
   { label = "311 requests", file = "311/status.json", max_days = 2 },
   { label = "311 scorecard", file = "311/scorecard.json", field = "generated_at", max_days = 2 },
-  { label = "Unemployment rate (BLS)", file = "labor/unemployment.json", max_days = 3 },
-  { label = "Housing figures", file = "housing/housing.json", max_days = 15 },
-  { label = "Tax bill (calculated)", file = "finance/tax_bill.json", max_days = 3 },
-  { label = "City budget", file = "finance/budget.json", max_days = 3 },
-  { label = "School figures", file = "schools/schools.json", max_days = 3 },
-  # The state's figures are saved into the engine once a year (pipeline/states/nh/extract.py).
-  { label = "New Hampshire state figures (yearly)", file = "finance/budget.json", field = "figures_extracted_at", max_days = 400 },
 ]
