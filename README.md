@@ -15,6 +15,7 @@ towns/<town>-<state>/         One folder per town, laid out as a town repository
 wrangler.toml                 The Worker that serves every site from the sites bucket
 scripts/import-town.sh        Copies a town's own repository into towns/
 scripts/build_home.py         Writes the homepage's "Live now" and "Coming next" lists
+scripts/build_status.py       Writes the network status page, publick.org/status/
 .github/workflows/network.yml The daily runs, and builds on push and pull request
 .github/workflows/worker.yml  Deploys the Worker (by hand)
 ```
@@ -42,6 +43,18 @@ Worker, which picks the site by hostname: `gloucester-ma.publick.org` is
 
 Each run ends with one table of every town it ran, and fails once if any town
 failed or has stale data, so GitHub sends one email per run.
+
+## Status page
+
+[publick.org/status/](https://publick.org/status/) shows every town at a
+glance: its last daily run, whether it needs attention, and when each of its
+data sources (its config's `[freshness]` table) last updated, with any failed
+step. Each run that fetches a town's data writes the result to the town's
+`data/run.json`, committed with the data; after the run's towns finish, the
+homepage is rebuilt from `main` with the status page
+(`scripts/build_status.py`) and published. A town needs attention when a step
+failed (a single source's fetch included), a source is behind, or it has had
+no daily run for 30 hours.
 
 ## Adding a town
 
