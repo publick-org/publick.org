@@ -1,39 +1,39 @@
 {
   "town": "manchester",
   "folder": "manchester-nh",
-  "started_at": "2026-09-29T17:39:41+00:00",
-  "finished_at": "2026-09-29T18:21:20+00:00",
-  "engine": "v1.6.0",
+  "started_at": "2026-09-29T19:29:42+00:00",
+  "finished_at": "2026-09-29T19:59:57+00:00",
+  "engine": "v1.7.1",
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 2435.0
+      "seconds": 1758.0
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 1.2
+      "seconds": 1.5
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 51.5
+      "seconds": 49.2
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 10.5
+      "seconds": 5.8
     }
   ],
   "update": {
     "town": "manchester",
-    "sources": "all",
-    "started_at": "2026-09-29T17:39:41+00:00",
+    "sources": "meetings",
+    "started_at": "2026-09-29T19:29:42+00:00",
     "ok": true,
     "steps": [
       {
@@ -41,7 +41,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 31.1
+        "seconds": 34.1
       },
       {
         "name": "Fetch minutes",
@@ -62,14 +62,14 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.5
+        "seconds": 1710.5
       },
       {
         "name": "Fetch tax bill",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 2.2
+        "seconds": 10.4
       },
       {
         "name": "Fetch unemployment",
@@ -83,14 +83,14 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4
+        "seconds": 0.3
       },
       {
         "name": "Fetch budget figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.1
+        "seconds": 0.9
       },
       {
         "name": "Fetch housing figures",
@@ -112,20 +112,6 @@
         "required": false,
         "error": null,
         "seconds": 0.2
-      },
-      {
-        "name": "Fetch 311 requests",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 2394.1
-      },
-      {
-        "name": "Compute 311 scorecard",
-        "ok": true,
-        "required": true,
-        "error": null,
-        "seconds": 2.8
       }
     ]
   },
@@ -133,7 +119,7 @@
   "sources": [
     {
       "label": "Meetings (city calendar and CivicClerk)",
-      "updated_at": "2026-09-29T13:39:42-04:00",
+      "updated_at": "2026-09-29T15:29:43-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -151,7 +137,7 @@
     },
     {
       "label": "Unemployment rate (BLS)",
-      "updated_at": "2026-09-29T13:40:17-04:00",
+      "updated_at": "2026-09-29T15:58:58-04:00",
       "max_days": 3,
       "stale": false
     },
@@ -163,19 +149,19 @@
     },
     {
       "label": "Tax bill (calculated)",
-      "updated_at": "2026-09-29T13:40:15-04:00",
+      "updated_at": "2026-09-29T15:58:47-04:00",
       "max_days": 3,
       "stale": false
     },
     {
       "label": "City budget",
-      "updated_at": "2026-09-29T13:40:18-04:00",
+      "updated_at": "2026-09-29T15:58:59-04:00",
       "max_days": 3,
       "stale": false
     },
     {
       "label": "School figures",
-      "updated_at": "2026-09-29T13:40:18-04:00",
+      "updated_at": "2026-09-29T15:58:58-04:00",
       "max_days": 3,
       "stale": false
     },
@@ -184,6 +170,14 @@
       "updated_at": "2026-09-29T12:11:08+00:00",
       "max_days": 400,
       "stale": false
+    },
+    {
+      "label": "Meeting summaries",
+      "updated_at": null,
+      "max_days": 14,
+      "stale": false,
+      "waiting": [],
+      "waiting_count": 0
     }
   ],
   "deployed": true,
