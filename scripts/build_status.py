@@ -299,7 +299,7 @@ def render(towns: list[dict], now: datetime, budget: float | None = None, repo_k
     <div class="wrap">
       <div class="masthead">
         <p class="brand"><a href="../"><img src="../favicon.svg" alt="" width="44" height="44"> Publick</a></p>
-        <p class="masthead-line">Your town's public record, every day, in plain English.</p>
+        <p class="masthead-line">Your town's public record, every day.</p>
       </div>
     </div>
   </header>
