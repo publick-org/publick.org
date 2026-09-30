@@ -21,6 +21,16 @@
 #              part). With fetching, pages are sampled as on a daily run;
 #              without, every page is checked.
 #
+# A run that fetches doesn't fail when a town does: the town's data is still
+# committed, and one GitHub issue, opened or updated after each daily run and
+# assigned to ALERT_ASSIGNEE, lists the towns without a good update in 30
+# hours. It's closed when every town is caught up. A pull request's run fails
+# if any town does, so a broken site can't be merged.
+#
+# AI summaries share one monthly budget, SUMMARY_BUDGET dollars: the plan job
+# adds up what every town spent this month (towns/*/data/summary-costs.json)
+# and gives each town in the run its share of what's left.
+#
 # Scheduled runs put four towns in a job, so Python and the browser are
 # installed once for all four. Other runs are small, so each town gets its own
 # job and they run side by side. Within a job, the browser checks use every core.
@@ -64,6 +74,10 @@ env:
   # Towns per job on a scheduled run. Each job installs Python and the browser for the checks once, then runs
   # its towns in turn. Other runs have one town per job.
   BATCH_SIZE: 4
+  # The network's monthly budget for AI summaries, in dollars, shared by every town.
+  SUMMARY_BUDGET: "50"
+  # Who the daily issue for towns that need attention is assigned to, so it reaches them.
+  ALERT_ASSIGNEE: NasTber
   PYTHONPATH: ${{ github.workspace }}/.publick-engine
 
 jobs:
@@ -78,9 +92,12 @@ jobs:
       home: ${{ steps.plan.outputs.home }}
       prune: ${{ steps.plan.outputs.prune }}
       sample: ${{ steps.plan.outputs.sample }}
+      summary_allowance: ${{ steps.budget.outputs.allowance }}
+      summary_backlog_allowance: ${{ steps.budget.outputs.backlog_allowance }}
       engine: ${{ steps.engine.outputs.ref }}
     steps:
-      # Only the towns' config files: enough to list them, without downloading any town's data.
+      # The towns' config files and summary costs: enough to list them and share out the summary
+      # budget, without downloading any town's data.
       - uses: actions/checkout@v5
         with:
           filter: blob:none
@@ -88,6 +105,7 @@ jobs:
           sparse-checkout: |
             /engine-version
             /towns/*/config/
+            /towns/*/data/summary-costs.json
 
       - id: engine
         run: echo "ref=$(tr -d '[:space:]' < engine-version)" >> "$GITHUB_OUTPUT"
@@ -168,6 +186,21 @@ jobs:
             echo "sample=$sample"
           } >> "$GITHUB_OUTPUT"
 
+      # Each town's share, for this run, of what's left of the month's summary budget. Only a run that
+      # fetches makes summaries.
+      - id: budget
+        if: steps.plan.outputs.fetch == 'true' && steps.plan.outputs.towns == 'true'
+        env:
+          MATRIX: ${{ steps.plan.outputs.matrix }}
+        run: |
+          towns=$(jq '[.include[].towns | split(" ")[]] | length' <<< "$MATRIX")
+          budget=$(python -m pipeline.network budget --monthly "$SUMMARY_BUDGET" --towns-in-run "$towns")
+          echo "$budget"
+          {
+            echo "allowance=$(jq -r .allowance <<< "$budget")"
+            echo "backlog_allowance=$(jq -r .backlog_allowance <<< "$budget")"
+          } >> "$GITHUB_OUTPUT"
+
   towns:
     needs: plan
     if: needs.plan.outputs.towns == 'true'
@@ -223,6 +256,9 @@ jobs:
           # Only when some data is left out, so a run fetching everything works with any engine.
           SOURCES: ${{ needs.plan.outputs.fetch == 'true' && needs.plan.outputs.sources != 'all' && format('--sources {0}', needs.plan.outputs.sources) || '' }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          # Empty unless the run fetches; then the town summarizes within these, new documents first.
+          PUBLICK_SUMMARY_ALLOWANCE: ${{ needs.plan.outputs.summary_allowance }}
+          PUBLICK_SUMMARY_BACKLOG_ALLOWANCE: ${{ needs.plan.outputs.summary_backlog_allowance }}
           BLS_API_KEY: ${{ secrets.BLS_API_KEY }}
           STORAGE_ACCESS_KEY_ID: ${{ secrets.STORAGE_ACCESS_KEY_ID }}
           STORAGE_SECRET_ACCESS_KEY: ${{ secrets.STORAGE_SECRET_ACCESS_KEY }}
@@ -254,11 +290,16 @@ jobs:
           retention-days: 7
 
   # The homepage and its status page. It waits for the towns, so the status
-  # page shows this run's results; a town's failure doesn't stop it.
+  # page shows this run's results; a town's failure doesn't stop it. After a
+  # run that fetches, it also opens, updates, or closes the issue listing the
+  # towns that need attention.
   home:
     needs: [plan, towns]
     if: ${{ !cancelled() && needs.plan.outputs.home == 'true' }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
     steps:
       # Outside a pull request, the branch as it is now: with the data (and run records) this run's towns committed.
       - uses: actions/checkout@v5
@@ -271,6 +312,7 @@ jobs:
             /scripts/
             /towns/*/config/
             /towns/*/data/run.json
+            /towns/*/data/summary-costs.json
 
       - uses: actions/checkout@v5
         with:
@@ -288,9 +330,36 @@ jobs:
       - name: Build the homepage
         run: python scripts/build_home.py --out _home
 
-      # Every town's last daily run and data sources, from towns/*/data/run.json.
+      # Every town's last daily run and data sources, from towns/*/data/run.json; the month's summary
+      # spending; and the data each town keeps, with the repository's size on GitHub.
       - name: Build the status page
-        run: python scripts/build_status.py --out _home
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          repo_kb=$(gh api "repos/$GITHUB_REPOSITORY" --jq .size || true)
+          python scripts/build_status.py --out _home --summary-budget "$SUMMARY_BUDGET" ${repo_kb:+--repo-kb "$repo_kb"}
+
+      # One issue for every town that needs attention, rather than a failed run for each: updated after
+      # each run that fetches (an edit sends no email), and closed when every town is caught up.
+      - name: Update the issue for towns that need attention
+        if: needs.plan.outputs.fetch == 'true' && github.event_name != 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          LABEL: towns behind
+        run: |
+          body=$(python -m pipeline.network behind)
+          gh label create "$LABEL" --color D93F0B --description "Towns without a good daily update" --force
+          number=$(gh issue list --label "$LABEL" --state open --json number --jq '.[0].number // empty')
+          if [ -n "$body" ]; then
+            if [ -n "$number" ]; then
+              gh issue edit "$number" --body "$body"
+            else
+              gh issue create --title "Towns need attention" --label "$LABEL" --assignee "$ALERT_ASSIGNEE" --body "$body"
+            fi
+          elif [ -n "$number" ]; then
+            gh issue close "$number" --comment "Every town is caught up."
+          fi
 
       - name: Publish the homepage
         if: needs.plan.outputs.deploy == 'true'
@@ -301,8 +370,9 @@ jobs:
           SITES_SECRET_ACCESS_KEY: ${{ secrets.SITES_SECRET_ACCESS_KEY }}
         run: python -m pipeline.deploy publish --domain publick.org --site _home
 
-  # One table of every town in the run. Fails the run once if any town needs
-  # attention, so GitHub sends one email per run rather than one per town.
+  # One table of every town in the run. Fails only a run that doesn't fetch
+  # (a pull request, a push, a rebuild) when a town failed; a daily run's
+  # problems go to the issue the home job keeps.
   report:
     needs: [plan, towns]
     if: ${{ !cancelled() && needs.plan.outputs.towns == 'true' }}

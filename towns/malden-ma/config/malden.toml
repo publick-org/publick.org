@@ -176,8 +176,8 @@ max_per_run = 40
 # Prices per million tokens, for the spending limit below.
 input_price = 2.0
 output_price = 10.0
-# Raised from $1 on 2026-09-29 to clear the summary backlog faster; set it back
-# to 1.0 once a run's summaries report shows little remaining.
+# A ceiling for one run. The network's monthly summary budget (SUMMARY_BUDGET in
+# .github/workflows/network.yml) decides what each run may spend, new documents first.
 max_cost_per_run = 5.0
 
 # Terms that come up on agendas and minutes, explained on each meeting page
