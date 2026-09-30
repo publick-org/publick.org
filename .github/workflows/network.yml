@@ -2,9 +2,15 @@
 # The work is done by the engine (pipeline/network.py) at the version in
 # engine-version; this file only decides what runs when.
 #
-#   schedule   Four runs across the early morning. Each town belongs to one,
-#              by a stable hash of its folder name, so runs stay small as
-#              towns are added. Fetches, builds, checks, publishes, commits data.
+#   schedule   Daily runs, started on time every hour of the morning by the
+#              publick-scheduler Worker (wrangler.scheduler.toml; a
+#              workflow_dispatch with daily), with GitHub's own schedule as a
+#              backup, since GitHub starts scheduled runs late or not at all.
+#              A daily run takes the towns that are due: those whose last
+#              fetching run finished more than DUE_HOURS ago, oldest first. So
+#              a late or doubled start does no harm (a start with nothing due
+#              does nothing), and the next run makes up a missed one.
+#              Fetches, builds, checks, publishes, commits data.
 #              The browser (accessibility) checks run on a sample of each
 #              town's pages: every hand-written page, and the first and largest
 #              of each kind of record page (the engine's site_checks/pages.py).
@@ -37,6 +43,8 @@
 name: Network
 
 on:
+  # A backup for the scheduler Worker's starts. Towns are picked by need, so these only matter when
+  # the Worker's didn't happen.
   schedule:
     - cron: "17 9 * * *"
     - cron: "17 10 * * *"
@@ -47,6 +55,10 @@ on:
   pull_request:
   workflow_dispatch:
     inputs:
+      daily:
+        description: A daily run, as scheduled (the towns that are due; the other choices are ignored)
+        type: boolean
+        default: false
       towns:
         description: Town folders, comma-separated (empty for every town)
         type: string
@@ -78,6 +90,8 @@ env:
   SUMMARY_BUDGET: "50"
   # Who the daily issue for towns that need attention is assigned to, so it reaches them.
   ALERT_ASSIGNEE: NasTber
+  # A daily run takes the towns whose last fetching run finished more than this many hours ago.
+  DUE_HOURS: "18"
   PYTHONPATH: ${{ github.workspace }}/.publick-engine
 
 jobs:
@@ -96,16 +110,20 @@ jobs:
       summary_backlog_allowance: ${{ steps.budget.outputs.backlog_allowance }}
       engine: ${{ steps.engine.outputs.ref }}
     steps:
-      # The towns' config files and summary costs: enough to list them and share out the summary
-      # budget, without downloading any town's data.
+      # The towns' config files, summary costs, and run records: enough to list them, pick the ones that
+      # are due, and share out the summary budget, without downloading any town's data. Outside a pull
+      # request, the branch as it is when the run starts, not when it was queued: a run that waited
+      # behind another sees the towns that one just updated.
       - uses: actions/checkout@v5
         with:
+          ref: ${{ github.event_name != 'pull_request' && github.ref || '' }}
           filter: blob:none
           sparse-checkout-cone-mode: false
           sparse-checkout: |
             /engine-version
             /towns/*/config/
             /towns/*/data/summary-costs.json
+            /towns/*/data/run.json
 
       - id: engine
         run: echo "ref=$(tr -d '[:space:]' < engine-version)" >> "$GITHUB_OUTPUT"
@@ -123,7 +141,7 @@ jobs:
       - id: plan
         env:
           EVENT: ${{ github.event_name }}
-          SCHEDULE: ${{ github.event.schedule }}
+          DAILY: ${{ inputs.daily }}
           TOWNS: ${{ inputs.towns }}
           FETCH: ${{ inputs.fetch }}
           SOURCES: ${{ inputs.sources || 'all' }}
@@ -131,29 +149,21 @@ jobs:
           BASE: ${{ github.event.pull_request.base.sha }}
         run: |
           args=()
-          batch=1; fetch=false; deploy=true; home=false; prune=false; sample=false; sources=all
+          batch=1; fetch=false; deploy=true; home=false; prune=false; sample=false; sources=all; daily=false
+          [ "$EVENT" = schedule ] || { [ "$EVENT" = workflow_dispatch ] && [ "$DAILY" = true ]; } && daily=true
           case "$EVENT" in
-            schedule)
-              # The index of this run's cron line above.
-              case "$SCHEDULE" in
-                "17 9 * * *") slot=0 ;;
-                "17 10 * * *") slot=1 ;;
-                "17 11 * * *") slot=2 ;;
-                "17 12 * * *") slot=3 ;;
-                *) echo "::error::Unknown schedule $SCHEDULE"; exit 1 ;;
-              esac
-              args+=(--slots 4 --slot "$slot")
-              batch="$BATCH_SIZE"
-              fetch=true
-              sample=true
-              # Once a day, after the first run's towns: delete old builds and unused files.
-              [ "$slot" = 0 ] && prune=true
-              ;;
-            workflow_dispatch)
-              [ -n "$TOWNS" ] && args+=(--towns "$TOWNS") || home=true
-              fetch="$FETCH"
-              # A fetching run is checked as a daily run is; a rebuild alone checks every page.
-              [ "$fetch" = true ] && sample=true && sources="$SOURCES"
+            schedule | workflow_dispatch)
+              if [ "$daily" = true ]; then
+                args+=(--due-hours "$DUE_HOURS")
+                batch="$BATCH_SIZE"
+                fetch=true
+                sample=true
+              else
+                [ -n "$TOWNS" ] && args+=(--towns "$TOWNS") || home=true
+                fetch="$FETCH"
+                # A fetching run is checked as a daily run is; a rebuild alone checks every page.
+                [ "$fetch" = true ] && sample=true && sources="$SOURCES"
+              fi
               ;;
             push | pull_request)
               since="$BEFORE"; [ "$EVENT" = pull_request ] && since="$BASE"
@@ -171,13 +181,16 @@ jobs:
               if [ "$EVENT" = pull_request ]; then deploy=false; else sample=true; fi
               ;;
           esac
-          # A run that fetches records each town's result (data/run.json); the homepage's status page shows them.
-          [ "$fetch" = true ] && home=true
           matrix=$(python -m pipeline.network plan "${args[@]}" --batch-size "$batch")
           echo "$matrix"
+          any=$([ "$matrix" = '{"include": []}' ] && echo false || echo true)
+          # A run that fetches records each town's result (data/run.json); the homepage's status page shows them.
+          [ "$fetch" = true ] && [ "$any" = true ] && home=true
+          # A daily run that did something: delete old builds and unused files.
+          [ "$daily" = true ] && [ "$any" = true ] && prune=true
           {
             echo "matrix=$matrix"
-            echo "towns=$([ "$matrix" = '{"include": []}' ] && echo false || echo true)"
+            echo "towns=$any"
             echo "fetch=$fetch"
             echo "sources=$sources"
             echo "deploy=$deploy"
