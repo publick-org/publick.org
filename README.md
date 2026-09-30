@@ -19,6 +19,7 @@ wrangler.scheduler.toml       The Worker that starts the daily runs on time
 scripts/import-town.sh        Copies a town's own repository into towns/
 scripts/build_home.py         Writes the homepage's "Live now" and "Coming next" lists
 scripts/build_status.py       Writes the network status page, publick.org/status/
+scripts/make_share_image.py   Draws home/share/publick.png, the homepage's card on Substack and social media
 .github/workflows/network.yml The daily runs, and builds on push and pull request
 .github/workflows/worker.yml  Deploys both Workers (by hand)
 ```
