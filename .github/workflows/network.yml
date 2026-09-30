@@ -214,9 +214,53 @@ jobs:
             echo "backlog_allowance=$(jq -r .backlog_allowance <<< "$budget")"
           } >> "$GITHUB_OUTPUT"
 
-  towns:
+  # Statewide sources (Massachusetts's DLS reports), fetched once for every town before the towns run, into
+  # states/: only exports that aren't saved or are over a week old, so most runs ask for nothing. A failure is
+  # recorded in states/<state>/status.json (the daily issue lists a state that keeps failing), and the towns run
+  # with what was saved.
+  states:
     needs: plan
-    if: needs.plan.outputs.towns == 'true'
+    if: needs.plan.outputs.towns == 'true' && needs.plan.outputs.fetch == 'true' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.ref }}
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /.github/
+            /towns/*/config/
+            /states/
+
+      - uses: actions/checkout@v5
+        with:
+          repository: publick-org/publick-engine
+          ref: ${{ needs.plan.outputs.engine }}
+          path: .publick-engine
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: .publick-engine/requirements*.txt
+
+      - run: pip install -r .publick-engine/requirements.txt
+
+      - name: Fetch statewide sources
+        run: python -m pipeline.network states
+
+      - name: Commit them
+        env:
+          COMMIT_ATTEMPTS: 10
+        run: .publick-engine/.github/scripts/commit-data.sh "Update statewide sources" states
+
+  towns:
+    needs: [plan, states]
+    # The towns run whether the statewide step ran, was skipped (a pull request, a rebuild), or failed.
+    if: ${{ !cancelled() && needs.plan.outputs.towns == 'true' }}
     name: ${{ matrix.name }}
     runs-on: ubuntu-latest
     timeout-minutes: 300
@@ -237,11 +281,12 @@ jobs:
           filter: blob:none
           sparse-checkout: .github
 
+      # This batch's towns, and the statewide sources their steps read (states/).
       - env:
           TOWNS: ${{ matrix.towns }}
         run: |
           read -ra towns <<< "$TOWNS"
-          git sparse-checkout add "${towns[@]/#/towns/}"
+          git sparse-checkout add "${towns[@]/#/towns/}" states
 
       - uses: actions/checkout@v5
         with:
