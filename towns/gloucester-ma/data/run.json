@@ -1,39 +1,40 @@
 {
   "town": "gloucester",
   "folder": "gloucester-ma",
-  "started_at": "2026-09-29T15:19:56+00:00",
-  "finished_at": "2026-09-29T16:00:07+00:00",
-  "engine": "v1.6.0",
+  "started_at": "2026-09-30T14:06:35+00:00",
+  "finished_at": "2026-09-30T14:31:15+00:00",
+  "engine": "v1.12.0",
+  "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 2381.7
+      "seconds": 1447.4
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 1.5
+      "seconds": 2.0
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 20.6
+      "seconds": 26.4
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 7.4
+      "seconds": 3.7
     }
   ],
   "update": {
     "town": "gloucester",
     "sources": "all",
-    "started_at": "2026-09-29T15:19:56+00:00",
+    "started_at": "2026-09-30T14:06:35+00:00",
     "ok": true,
     "steps": [
       {
@@ -41,91 +42,109 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 52.5
+        "seconds": 48.8,
+        "cadence": "continuous"
       },
       {
         "name": "Fetch minutes",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.7
+        "seconds": 1.1,
+        "cadence": "continuous"
       },
       {
         "name": "Fetch School Committee documents",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 22.0
+        "seconds": 18.5,
+        "cadence": "continuous"
       },
       {
         "name": "Summarize agendas",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 23.1
+        "seconds": 93.5,
+        "cadence": "continuous"
       },
       {
         "name": "Fetch tax bill",
-        "ok": false,
+        "ok": true,
         "required": false,
-        "error": "exited with status 1",
-        "seconds": 0.6
+        "error": null,
+        "seconds": 0,
+        "cadence": "yearly",
+        "skipped": "checked 3 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.6
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 3.9
+        "seconds": 0,
+        "cadence": "yearly",
+        "skipped": "checked 0 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3
+        "seconds": 0,
+        "cadence": "yearly",
+        "skipped": "checked 3 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 3 days ago; checked every 7 days"
       },
       {
         "name": "Fetch building permits",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.2
+        "seconds": 0.3,
+        "cadence": "continuous"
       },
       {
         "name": "Move saved documents to storage",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.1
+        "seconds": 0.2,
+        "cadence": "continuous"
       },
       {
         "name": "Fetch 311 requests",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 2276.0
+        "seconds": 1283.8,
+        "cadence": "continuous"
       },
       {
         "name": "Compute 311 scorecard",
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 0.5
+        "seconds": 0.7,
+        "cadence": "continuous"
       }
     ]
   },
@@ -133,50 +152,20 @@
   "sources": [
     {
       "label": "Meetings calendar",
-      "updated_at": "2026-09-29T11:19:56-04:00",
+      "updated_at": "2026-09-30T10:06:36-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
-      "updated_at": "2026-09-29T11:21:41-04:00",
+      "updated_at": "2026-09-30T10:09:18-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
-      "updated_at": "2026-09-29T11:59:37-04:00",
+      "updated_at": "2026-09-30T10:30:42-04:00",
       "max_days": 2,
-      "stale": false
-    },
-    {
-      "label": "Unemployment rate (BLS)",
-      "updated_at": "2026-09-29T11:21:36-04:00",
-      "max_days": 3,
-      "stale": false
-    },
-    {
-      "label": "School figures (DESE)",
-      "updated_at": "2026-09-29T11:21:36-04:00",
-      "max_days": 3,
-      "stale": false
-    },
-    {
-      "label": "Average tax bill (Mass. DLS)",
-      "updated_at": "2026-09-26T19:28:50-04:00",
-      "max_days": 7,
-      "stale": false
-    },
-    {
-      "label": "City budget (Mass. DLS)",
-      "updated_at": "2026-09-27T06:20:54-04:00",
-      "max_days": 15,
-      "stale": false
-    },
-    {
-      "label": "Housing figures",
-      "updated_at": "2026-09-27T06:31:57-04:00",
-      "max_days": 15,
       "stale": false
     },
     {
@@ -187,9 +176,64 @@
     },
     {
       "label": "School Committee documents (Google Drive)",
-      "updated_at": "2026-09-29T11:20:50-04:00",
+      "updated_at": "2026-09-30T10:07:26-04:00",
       "max_days": 2,
       "stale": false
+    },
+    {
+      "label": "Average tax bill (Mass. DLS)",
+      "updated_at": "2026-09-26T19:28:50-04:00",
+      "max_days": null,
+      "cadence": "yearly",
+      "failing": 0,
+      "stale": false,
+      "latest": "Fiscal year 2026",
+      "next": "Fiscal year 2027 usually by February 1, 2027",
+      "behind": null
+    },
+    {
+      "label": "City budget (Mass. DLS)",
+      "updated_at": "2026-09-27T06:20:54-04:00",
+      "max_days": null,
+      "cadence": "yearly",
+      "failing": 0,
+      "stale": false,
+      "latest": "Fiscal year 2025 spending",
+      "next": "Fiscal year 2026 spending usually by June 1, 2027",
+      "behind": null
+    },
+    {
+      "label": "School figures (DESE)",
+      "updated_at": "2026-09-29T11:21:36-04:00",
+      "max_days": null,
+      "cadence": "yearly",
+      "failing": 0,
+      "stale": false,
+      "latest": "Class of 2025 graduation rate; Spring 2026 MCAS results; 2025\u201326 attendance",
+      "next": "Class of 2026 graduation rate usually by May 1, 2027; Spring 2027 MCAS results usually by October 1, 2027; 2026\u201327 attendance usually by October 1, 2027",
+      "behind": null
+    },
+    {
+      "label": "Unemployment rate (BLS)",
+      "updated_at": "2026-09-29T11:21:36-04:00",
+      "max_days": null,
+      "cadence": "monthly",
+      "failing": 0,
+      "stale": false,
+      "latest": "July 2026 rate",
+      "next": "August 2026 rate usually by October 10, 2026",
+      "behind": null
+    },
+    {
+      "label": "Housing figures",
+      "updated_at": "2026-09-27T06:31:57-04:00",
+      "max_days": null,
+      "cadence": "monthly",
+      "failing": 0,
+      "stale": false,
+      "latest": "2025 building permits; August 2026 building permits; ACS 2024 5-year estimates; Fiscal year 2027 parcel counts",
+      "next": "2026 building permits usually by June 1, 2027; September 2026 building permits usually by November 1, 2026; ACS 2025 5-year estimates usually by December 15, 2026; Fiscal year 2028 parcel counts usually by March 1, 2028",
+      "behind": null
     },
     {
       "label": "Meeting summaries",
@@ -200,6 +244,10 @@
       "waiting_count": 0
     }
   ],
+  "failing": [],
   "deployed": true,
-  "ok": true
+  "ok": true,
+  "last_good_at": "2026-09-30T14:31:15+00:00",
+  "data_bytes": 8649230,
+  "data_bytes_added": 125112
 }
