@@ -266,8 +266,10 @@ bulk_file = "la.data.36.NewHampshire"
 [freshness]
 # Sources that change daily. Figures published monthly or yearly (tax bill, budget, schools,
 # unemployment, housing) are judged by the engine, by the period they cover (pipeline/rhythms.py).
-# Documents saved before summaries started are summarized over several runs.
-summary_grace_days = 14
+# New agendas and minutes can wait this long for a summary before the daily run
+# flags them. Older ones are summarized a little each day within the network's
+# budget and aren't counted.
+summary_grace_days = 2
 sources = [
   { label = "Meetings (city calendar and CivicClerk)", file = "meetings/status.json", max_days = 2 },
   { label = "311 requests", file = "311/status.json", max_days = 2 },
