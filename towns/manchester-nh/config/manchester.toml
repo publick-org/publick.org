@@ -82,6 +82,17 @@ title = "About"
 summary = "Data sources, update schedule, metric definitions, and corrections."
 status = "live"
 
+# Page view counting with GoatCounter (goatcounter.com): no cookies, no
+# personal data, and never what someone searched for. Every Publick town
+# counts on the network's site, publick; prefix is this town's folder, put in
+# front of every page path so the one dashboard can tell the towns apart.
+# public_stats is the dashboard's public URL, if it has one; the About page
+# links it.
+[analytics]
+goatcounter = "publick"
+prefix = "manchester-nh"
+public_stats = ""
+
 # Public meetings, from two places. The Board of Mayor and Aldermen, its
 # committees, and the City Clerk's boards are on the city's CivicClerk portal
 # (the address the city calendar's agenda links go to). Other boards and
