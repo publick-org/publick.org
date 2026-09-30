@@ -71,12 +71,14 @@ summary = "Data sources, update schedule, metric definitions, and corrections."
 status = "live"
 
 # Page view counting with GoatCounter (goatcounter.com): no cookies, no
-# personal data, and never what someone searched for. Set goatcounter to the
-# account's code (the "xyz" in xyz.goatcounter.com) to turn it on; leave it
-# empty to count nothing. public_stats is the account's public dashboard URL,
-# if it has one; the About page links it.
+# personal data, and never what someone searched for. Every Publick town
+# counts on the network's site, publick; prefix is this town's folder, put in
+# front of every page path so the one dashboard can tell the towns apart.
+# public_stats is the dashboard's public URL, if it has one; the About page
+# links it.
 [analytics]
 goatcounter = "publick"
+prefix = "gloucester-ma"
 public_stats = ""
 
 # Public meetings, from the city's CivicPlus calendar.
