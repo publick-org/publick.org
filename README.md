@@ -5,19 +5,22 @@ from this one repository with the [Publick engine](https://github.com/publick-or
 at the version in `engine-version`.
 
 ```
-engine-version                The engine release every town runs, e.g. v1.3.0
+engine-version                The engine release every town runs, e.g. v1.13.0
 home/                         The publick.org homepage; its town lists are filled in by scripts/build_home.py
 home/upcoming.toml            Towns shown under "Coming next" on the homepage
 towns/<town>-<state>/         One folder per town, laid out as a town repository is:
   config/<town>.toml            everything town-specific
-  data/                         collected data, committed by the daily run
+  data/                         collected data, committed by the daily run, with run.json (its last
+                                daily run) and summary-costs.json (its AI summaries' cost, by month)
   site/static/                  files that replace or add to the engine's (the share image)
+states/ma/                    Statewide sources, fetched once for every town: Massachusetts's DLS reports
 wrangler.toml                 The Worker that serves every site from the sites bucket
+wrangler.scheduler.toml       The Worker that starts the daily runs on time
 scripts/import-town.sh        Copies a town's own repository into towns/
 scripts/build_home.py         Writes the homepage's "Live now" and "Coming next" lists
 scripts/build_status.py       Writes the network status page, publick.org/status/
 .github/workflows/network.yml The daily runs, and builds on push and pull request
-.github/workflows/worker.yml  Deploys the Worker (by hand)
+.github/workflows/worker.yml  Deploys both Workers (by hand)
 ```
 
 ## How it runs
@@ -27,22 +30,42 @@ Worker, which picks the site by hostname: `gloucester-ma.publick.org` is
 `towns/gloucester-ma`, and `publick.org` is `home/`. See the engine's
 `pipeline/deploy.py` and `worker/index.js`.
 
-- **Daily**, in four runs from 09:17 to 12:17 UTC: each town belongs to one run, by a
-  stable hash of its folder name. A run fetches each of its towns' new data,
-  builds and checks the site, publishes it if the checks pass, and commits the
-  data. Towns run in batches of four per job, up to ten jobs at a time. Daily
-  runs give the accessibility checks a sample of each town's pages (every
-  hand-written page, and the first and largest of each kind of record page);
-  every other run checks every page.
+- **Daily**, started every hour from 09:05 to 14:05 UTC by the
+  `publick-scheduler` Worker (`wrangler.scheduler.toml`), with GitHub's own
+  schedule in the same hours as a backup, since GitHub starts those late or not
+  at all. Each start takes the towns that are due (their last daily run
+  finished more than `DUE_HOURS`, 18, ago), oldest first; a start with nothing
+  due does nothing, and the next start makes up a missed one.
+  - The statewide job fetches the sources a state's towns share, once for all
+    of them, into `states/`: Massachusetts's DLS reports, only when a report
+    isn't saved or is over a week old.
+  - Each town then fetches its own new data, is built and checked, published
+    if the checks pass, and its data committed. Towns run in batches of four
+    per job, up to ten jobs at a time. Daily runs give the accessibility checks
+    a sample of each town's pages (every hand-written page, and the first and
+    largest of each kind of record page); every other run checks every page.
+  - AI summaries share one budget, `SUMMARY_BUDGET` ($50 a month): each run
+    gives each of its towns a share of what's left, new documents first.
 - **On push to `main`:** rebuilds and publishes the towns the push touched (every
   town when `engine-version` or a workflow changed), and the homepage if `home/`,
   `scripts/` or a town's config changed. Data isn't fetched.
 - **On a pull request:** builds and checks the towns it touches. Nothing is published.
-- **By hand** (**Actions → Network → Run workflow**): any towns, with or without
-  fetching; with no towns named, every town and the homepage.
+- **By hand** (**Actions → Network → Run workflow**): tick **daily** for a daily
+  run, as the scheduler starts; or any towns, with or without fetching; with no
+  towns named, every town and the homepage.
 
-Each run ends with one table of every town it ran, and fails once if any town
-failed or has stale data, so GitHub sends one email per run.
+## Alerts
+
+A daily run doesn't fail when a town does; its data is still committed. Instead,
+one GitHub issue, **Towns need attention** (label `towns behind`, assigned to
+`ALERT_ASSIGNEE` in `network.yml`), is opened when a town has had no good
+update (published, with fresh data) for 30 hours, or a figure source's checks
+keep failing, or a state's statewide checks have failed three times in a row.
+Each daily run updates it (an edit sends no email) and closes it when every
+town is caught up. If the daily runs stop altogether, the scheduler opens
+**The network's daily runs have stopped** (label `network stopped`) after 30
+hours, and closes it when a run finishes. A pull request's run still fails when
+a town does, so a broken site can't be merged.
 
 ## Status page
 
@@ -56,7 +79,9 @@ town's `data/run.json`, committed with the data; after the run's towns finish,
 the homepage is rebuilt from `main` with the status page
 (`scripts/build_status.py`) and published. A site shows "some data delayed"
 when a step of its last run failed or a source is behind, and "not updated"
-after 30 hours with no daily run.
+after 30 hours with no daily run. Below the towns, "Running the network" shows
+the month's AI summary spending against the budget, each town's data size and
+what its last update added, and the repository's size on GitHub.
 
 ## Adding a town
 
@@ -65,6 +90,8 @@ engine's `tests/fixtures/town/config/gloucester.toml` and its README), an
 empty `data/`, and optionally `site/static/share/<town>.png`. Set
 `[site] domain` to `<town>-<state>.publick.org` and `network_url` to
 `https://publick.org`, which links the network's name in every page footer.
+Add an `[analytics]` table with `goatcounter = "publick"` and `prefix` set to
+the town's folder, so its page views count on the network's GoatCounter site.
 Merge, then run the workflow for the town by hand to fetch its data. No DNS
 change is needed, and the homepage lists the town as live (and drops it from
 `home/upcoming.toml`'s "Coming next") on its own.
@@ -134,6 +161,11 @@ In this repository's **Settings → Secrets and variables → Actions**:
 | `SITES_ACCESS_KEY_ID`, `SITES_SECRET_ACCESS_KEY` | The R2 token from step 2 |
 | `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` | The token from step 3, and the account ID |
 | `ANTHROPIC_API_KEY`, `BLS_API_KEY`, `STORAGE_ACCESS_KEY_ID`, `STORAGE_SECRET_ACCESS_KEY` | As for a town repository (engine README, Secrets) |
+| `SCHEDULER_GITHUB_TOKEN` | For the scheduler Worker: a fine-grained personal access token with resource owner `publick-org`, this repository only, and **Actions** and **Issues** read and write. It expires; note its date, and replace it (then run **Actions → Worker**) before it does. Until then, runs fall back to GitHub's own schedule |
+
+The scheduler's Cron Triggers also need the Cloudflare account to have a
+`workers.dev` subdomain: opening **Workers & Pages** in the dashboard once
+creates it. The Workers don't use it; both have `workers_dev = false`.
 
 Then turn off GitHub Pages for this repository (**Settings → Pages**), and
 run **Actions → Worker**.
