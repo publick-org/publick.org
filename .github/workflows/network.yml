@@ -20,6 +20,9 @@
 #              when home/, scripts/ or a town's config changed (its town lists
 #              come from towns/). No fetching. The browser checks run on a
 #              sample of pages: the pull request already checked every one.
+#              It first waits for a daily or manual run in progress, which
+#              publishes its towns before it commits their data: built from
+#              the branch meanwhile, a town would go back to older data.
 #   pull_request  Builds and checks every page of the towns a change touches.
 #              Nothing is published.
 #   workflow_dispatch  Any towns, with or without fetching, and with a choice of
@@ -74,7 +77,9 @@ on:
         default: all
 
 # Scheduled and manual runs queue behind each other, so two data commits for a
-# town never race; pushes queue separately; a pull request's newer run replaces its older one.
+# town never race; pushes queue separately (a daily start would replace a push waiting in the same
+# queue, and it would never publish), and wait in their plan job for a daily or manual run in progress;
+# a pull request's newer run replaces its older one.
 concurrency:
   group: ${{ github.event_name == 'pull_request' && format('network-pr-{0}', github.event.number) || (github.event_name == 'push' && 'network-push' || 'network-update') }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
@@ -97,6 +102,11 @@ env:
 jobs:
   plan:
     runs-on: ubuntu-latest
+    # A push may wait here for a daily run (see the first step).
+    timeout-minutes: 350
+    permissions:
+      contents: read
+      actions: read
     outputs:
       matrix: ${{ steps.plan.outputs.matrix }}
       towns: ${{ steps.plan.outputs.towns }}
@@ -110,6 +120,30 @@ jobs:
       summary_backlog_allowance: ${{ steps.budget.outputs.backlog_allowance }}
       engine: ${{ steps.engine.outputs.ref }}
     steps:
+      # A push waits for a daily or manual run in progress. That run publishes each town before it commits
+      # the town's data, so a push building from the branch meanwhile would put older data back on the
+      # town's site. After the wait, the jobs below start from the branch with the data that run committed.
+      # A queued run isn't waited for: it starts from the branch as it is, and publishes after this one.
+      - name: Wait for a daily or manual run in progress
+        if: github.event_name == 'push'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          # Past a daily run's time limit; after this, publish anyway.
+          WAIT_MINUTES: 320
+        run: |
+          deadline=$(( $(date +%s) + WAIT_MINUTES * 60 ))
+          while :; do
+            running=$(gh run list --repo "$GITHUB_REPOSITORY" --workflow network.yml --status in_progress \
+              --json event --jq '[.[] | select(.event == "schedule" or .event == "workflow_dispatch")] | length')
+            [ "$running" = 0 ] && break
+            if [ "$(date +%s)" -ge "$deadline" ]; then
+              echo "::warning::A daily or manual run was still in progress after $WAIT_MINUTES minutes; publishing anyway."
+              break
+            fi
+            echo "Waiting for $running daily or manual run(s) in progress."
+            sleep 60
+          done
+
       # The towns' config files, summary costs, and run records: enough to list them, pick the ones that
       # are due, and share out the summary budget, without downloading any town's data. Outside a pull
       # request, the branch as it is when the run starts, not when it was queued: a run that waited
@@ -147,6 +181,7 @@ jobs:
           SOURCES: ${{ inputs.sources || 'all' }}
           BEFORE: ${{ github.event.before }}
           BASE: ${{ github.event.pull_request.base.sha }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           args=()
           batch=1; fetch=false; deploy=true; home=false; prune=false; sample=false; sources=all; daily=false
@@ -167,6 +202,13 @@ jobs:
               ;;
             push | pull_request)
               since="$BEFORE"; [ "$EVENT" = pull_request ] && since="$BASE"
+              # A push counts every change since the last push run that published, not just its own: a push
+              # waiting in the queue is replaced by a newer one (and waits longer behind a daily run).
+              if [ "$EVENT" = push ]; then
+                last=$(gh run list --repo "$GITHUB_REPOSITORY" --workflow network.yml --branch main --event push \
+                  --status success --limit 1 --json headSha --jq '.[0].headSha // empty' || true)
+                [ -n "$last" ] && since="$last"
+              fi
               if [ -z "$since" ] || [ "$since" = 0000000000000000000000000000000000000000 ]; then
                 # A new branch: nothing to compare with, so everything counts as changed.
                 git ls-files > changed.txt
