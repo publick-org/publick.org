@@ -23,6 +23,10 @@ data/summary-costs.json (the engine's pipeline/summarize.py), and how much
 data each town keeps and its last update added, with the repository's size,
 so it's clear when the data should move out of git (roadmap item 1).
 
+The page's last-daily-run meta tag is when the most recent town's daily run
+finished; the publick-scheduler Worker reads it to tell when the network's
+runs have stopped altogether.
+
     python scripts/build_status.py --out _home [--summary-budget 50] [--repo-kb N]
 """
 
@@ -265,6 +269,9 @@ def render(towns: list[dict], now: datetime, budget: float | None = None, repo_k
     tally = ", ".join(f"{counts[s]} {LABELS[s].lower()}" for s in LABELS if counts[s])
     headline = (f"{len(towns)} site{'s' if len(towns) != 1 else ''}: {tally}." if towns else "No sites yet.")
     sections = "\n\n".join(town_section(t, states[t["folder"]]) for t in towns)
+    # Run records are written only by runs that fetch: the daily runs, and manual ones.
+    finished = [datetime.fromisoformat(last_run(t["record"])) for t in towns if t["record"]]
+    last_daily = max(finished).astimezone(timezone.utc).isoformat(timespec="seconds") if finished else ""
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -273,6 +280,7 @@ def render(towns: list[dict], now: datetime, budget: float | None = None, repo_k
   <title>Network status: Publick</title>
   <meta name="description" content="Whether each Publick site's data is up to date.">
   <meta name="robots" content="noindex">
+  <meta name="last-daily-run" content="{last_daily}">
   <link rel="canonical" href="https://publick.org/status/">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
   <meta name="color-scheme" content="light">
