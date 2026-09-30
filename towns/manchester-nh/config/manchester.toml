@@ -187,8 +187,8 @@ max_per_run = 40
 # Prices per million tokens, for the spending limit below.
 input_price = 2.0
 output_price = 10.0
-# $5 while the first backlog clears, as in Gloucester and Malden; set it back to
-# 1.0 once a run's summaries report shows little remaining.
+# A ceiling for one run. The network's monthly summary budget (SUMMARY_BUDGET in
+# .github/workflows/network.yml) decides what each run may spend, new documents first.
 max_cost_per_run = 5.0
 
 # Tax rate, property tax, and the city's budget (pipeline/states/nh/). The tax

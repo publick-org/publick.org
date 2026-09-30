@@ -17,7 +17,13 @@ should have been published by now; a failed check of one isn't shown here, since
 the site still has the latest figures (the engine reports repeated failures to
 the maintainer).
 
-    python scripts/build_status.py --out _home    # after build_home.py, into the homepage's folder
+Below the towns, the page shows what running the network takes: the month's
+AI summary spending against the network's budget, from each town's
+data/summary-costs.json (the engine's pipeline/summarize.py), and how much
+data each town keeps and its last update added, with the repository's size,
+so it's clear when the data should move out of git (roadmap item 1).
+
+    python scripts/build_status.py --out _home [--summary-budget 50] [--repo-kb N]
 """
 
 from __future__ import annotations
@@ -33,6 +39,7 @@ from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parent.parent
 RUN_RECORD = Path("data") / "run.json"
+SUMMARY_LEDGER = Path("data") / "summary-costs.json"
 # Each town runs once a day; a record older than this means its run didn't happen or didn't finish.
 LATE_HOURS = 30
 # The page's own times are in the network's time zone; each town's, in its own.
@@ -81,7 +88,9 @@ def load_towns(root: Path) -> list[dict]:
             continue
         config = tomllib.loads(configs[0].read_text(encoding="utf-8"))
         record_path = folder / RUN_RECORD
-        towns.append({"folder": folder.name, "name": config["site"]["name"],
+        ledger_path = folder / SUMMARY_LEDGER
+        towns.append({"ledger": json.loads(ledger_path.read_text(encoding="utf-8")) if ledger_path.exists() else {},
+                      "folder": folder.name, "name": config["site"]["name"],
                       "url": f"https://{config['site']['domain']}", "domain": config["site"]["domain"],
                       "place": f"{config['town']['name']}, {config['town']['state']}",
                       "tz": ZoneInfo(config["site"].get("timezone", "America/New_York")),
@@ -207,7 +216,50 @@ def town_section(t: dict, state: str) -> str:
     return "\n".join(parts)
 
 
-def render(towns: list[dict], now: datetime) -> str:
+def size(n: float) -> str:
+    """Bytes in a reader's units: '8.4 MB'."""
+    for unit in ("bytes", "KB", "MB", "GB"):
+        if abs(n) < 1000 or unit == "GB":
+            return f"{n:,.0f} {unit}" if unit == "bytes" else f"{n:,.1f} {unit}"
+        n /= 1000
+
+
+def running_section(towns: list[dict], now: datetime, budget: float | None, repo_kb: int | None) -> str:
+    """What running the network takes: this month's summary spending, and each town's data."""
+    month = now.astimezone(NETWORK_TZ).strftime("%Y-%m")
+    parts = ['<section class="network-running" aria-labelledby="running-heading">',
+             '<h2 id="running-heading">Running the network</h2>']
+    spent = {t["folder"]: t["ledger"].get(month, {}) for t in towns}
+    total = sum(r.get("cost", 0) + r.get("failed_cost", 0) for r in spent.values())
+    month_name = now.astimezone(NETWORK_TZ).strftime("%B %Y")
+    if budget:
+        parts.append(f"<p>AI summaries of agendas and minutes cost ${total:,.2f} so far in {month_name}, of the "
+                     f"network's ${budget:,.0f} monthly budget. New documents are summarized first; older ones "
+                     f"wait for what's left.</p>")
+    else:
+        parts.append(f"<p>AI summaries of agendas and minutes cost ${total:,.2f} so far in {month_name}.</p>")
+    rows = [[escape(t["name"]), f"{spent[t['folder']].get('documents', 0):,}",
+             f"${spent[t['folder']].get('cost', 0) + spent[t['folder']].get('failed_cost', 0):,.2f}"] for t in towns]
+    parts.append(table("spending-caption", f"Summaries in {month_name}", ["Site", "Summaries", "Cost"], rows))
+
+    rows = []
+    for t in towns:
+        record = t["record"] or {}
+        if "data_bytes" not in record:
+            rows.append([escape(t["name"]), "–", "–"])
+            continue
+        added = record["data_bytes_added"]
+        rows.append([escape(t["name"]), size(record["data_bytes"]), ("+" if added > 0 else "") + size(added)])
+    kept = "Each site's collected data is kept with its code on GitHub."
+    if repo_kb:
+        kept += f" All of it, with its history, takes {size(repo_kb * 1000)} there."
+    parts.append(f"<p>{kept}</p>")
+    parts.append(table("data-caption", "Data kept for each site", ["Site", "Data", "Added by the last update"], rows))
+    parts.append("</section>")
+    return "\n".join(parts)
+
+
+def render(towns: list[dict], now: datetime, budget: float | None = None, repo_kb: int | None = None) -> str:
     states = {t["folder"]: status(t, now) for t in towns}
     counts = {s: sum(1 for v in states.values() if v == s) for s in LABELS}
     tally = ", ".join(f"{counts[s]} {LABELS[s].lower()}" for s in LABELS if counts[s])
@@ -254,6 +306,8 @@ def render(towns: list[dict], now: datetime) -> str:
       {summary_table(towns, states)}
 
 {sections}
+
+{running_section(towns, now, budget, repo_kb)}
     </div>
   </main>
 
@@ -277,11 +331,14 @@ def main() -> int:
     parser.add_argument("--out", type=Path, required=True, help="the homepage's built folder; the page goes in status/")
     parser.add_argument("--root", type=Path, default=ROOT)
     parser.add_argument("--now", type=datetime.fromisoformat, help="the time to report as now (for testing)")
+    parser.add_argument("--summary-budget", type=float, help="the network's monthly AI summary budget, in dollars")
+    parser.add_argument("--repo-kb", type=int, help="the repository's size on GitHub, in KB (its API's size)")
     args = parser.parse_args()
     out = (args.out if args.out.is_absolute() else args.root / args.out) / "status"
     now = args.now or datetime.now(timezone.utc)
     out.mkdir(parents=True, exist_ok=True)
-    (out / "index.html").write_text(render(load_towns(args.root), now), encoding="utf-8")
+    (out / "index.html").write_text(render(load_towns(args.root), now, args.summary_budget, args.repo_kb),
+                                    encoding="utf-8")
     print(f"Wrote {out / 'index.html'}")
     return 0
 
