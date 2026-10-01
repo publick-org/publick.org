@@ -1,40 +1,40 @@
 {
   "town": "manchester",
   "folder": "manchester-nh",
-  "started_at": "2026-09-30T15:36:57+00:00",
-  "finished_at": "2026-09-30T17:03:42+00:00",
-  "engine": "v1.12.0",
+  "started_at": "2026-10-01T11:06:45+00:00",
+  "finished_at": "2026-10-01T11:52:41+00:00",
+  "engine": "v1.13.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 5146.1
+      "seconds": 2692.9
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 2.1
+      "seconds": 2.2
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 50.1
+      "seconds": 50.5
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 6.3
+      "seconds": 9.4
     }
   ],
   "update": {
     "town": "manchester",
     "sources": "all",
-    "started_at": "2026-09-30T15:36:57+00:00",
+    "started_at": "2026-10-01T11:06:45+00:00",
     "ok": true,
     "steps": [
       {
@@ -42,7 +42,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 35.7,
+        "seconds": 55.2,
         "cadence": "continuous"
       },
       {
@@ -66,7 +66,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 2742.3,
+        "seconds": 283.6,
         "cadence": "continuous"
       },
       {
@@ -76,7 +76,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 0 days ago; checked every 30 days"
+        "skipped": "checked 1 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -85,7 +85,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -94,7 +94,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 0 days ago; checked every 30 days"
+        "skipped": "checked 1 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -103,7 +103,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 0 days ago; checked every 30 days"
+        "skipped": "checked 1 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 2364.0,
+        "seconds": 2349.7,
         "cadence": "continuous"
       },
       {
@@ -143,28 +143,28 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 2.8,
+        "seconds": 2.9,
         "cadence": "continuous"
       }
     ]
   },
-  "stale": false,
+  "stale": true,
   "sources": [
     {
       "label": "Meetings (city calendar and CivicClerk)",
-      "updated_at": "2026-09-30T11:36:58-04:00",
+      "updated_at": "2026-10-01T07:06:46-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
-      "updated_at": "2026-09-30T12:23:17-04:00",
+      "updated_at": "2026-10-01T07:12:26-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
-      "updated_at": "2026-09-30T13:02:41-04:00",
+      "updated_at": "2026-10-01T07:51:36-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -227,15 +227,17 @@
       "label": "Meeting summaries",
       "updated_at": null,
       "max_days": 2,
-      "stale": false,
-      "waiting": [],
-      "waiting_count": 0
+      "stale": true,
+      "waiting": [
+        "minutes for Board of Mayor and Aldermen, 2026-08-04"
+      ],
+      "waiting_count": 1
     }
   ],
   "failing": [],
   "deployed": true,
   "ok": true,
   "last_good_at": "2026-09-30T17:03:42+00:00",
-  "data_bytes": 10157082,
-  "data_bytes_added": 1114214
+  "data_bytes": 10444650,
+  "data_bytes_added": 285255
 }
