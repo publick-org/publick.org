@@ -430,14 +430,9 @@ jobs:
       - name: Build the homepage
         run: python scripts/build_home.py --out _home
 
-      # Every town's last daily run and data sources, from towns/*/data/run.json; the month's summary
-      # spending; and the data each town keeps, with the repository's size on GitHub.
+      # Every town's last daily run and data sources, from towns/*/data/run.json.
       - name: Build the status page
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          repo_kb=$(gh api "repos/$GITHUB_REPOSITORY" --jq .size || true)
-          python scripts/build_status.py --out _home --summary-budget "$SUMMARY_BUDGET" ${repo_kb:+--repo-kb "$repo_kb"}
+        run: python scripts/build_status.py --out _home
 
       # One issue for every town that needs attention, rather than a failed run for each: updated after
       # each run that fetches (an edit sends no email), and closed when every town is caught up.
