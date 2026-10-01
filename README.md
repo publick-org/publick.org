@@ -110,14 +110,15 @@ config table): the mayor, the council, and the school committee, from official
 city and school websites, with `checked` set to the day you checked them. Use
 only city- or school-issued email addresses and the mayor's office phone, not
 personal numbers the city may also publish. Give a member a `ward` only if
-the seat is elected by that ward.
+the seat is elected by that ward, and `wards` if it's elected by several (a
+district of wards, as on Beverly's School Committee).
 
 ## Keeping officials current
 
 Each town's `[officials]` table is kept by hand. Check every town's members
 against the city and school websites after each municipal election (the next
-for Gloucester, Malden, and Manchester is November 2027; new terms start in
-January 2028), and whenever a seat changes between elections (a resignation,
+for Beverly, Gloucester, Malden, and Manchester is November 2027; new terms
+start in January 2028), and whenever a seat changes between elections (a resignation,
 an appointment to fill a vacancy, new council or committee officers). Update
 the members and `checked` in one pull request.
 

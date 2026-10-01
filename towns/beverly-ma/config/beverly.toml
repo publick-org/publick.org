@@ -1,0 +1,231 @@
+# Site configuration for Beverly, Massachusetts.
+# Everything town-specific lives here; the code is the Publick engine
+# (github.com/publick-org/publick-engine).
+#
+# Beverly's website runs on CivicPlus, and the City Council posts agendas and
+# minutes in the Agenda Center, as Malden's boards do. The School Committee
+# posts on the school district's website instead, which the engine doesn't
+# read yet. 311 requests are in the city's own system (MyBeverly), which has
+# no public data, so the site has no 311 section. The state sources (DLS,
+# DESE, BLS, Census, the Subsidized Housing Inventory) are the same as
+# Malden's.
+[site]
+name = "Beverly Publick"
+# The masthead shows name_prefix in dark ink and name_suffix in the accent
+# color: the town, then the network.
+name_prefix = "Beverly "
+name_suffix = "Publick"
+domain = "beverly-ma.publick.org"
+# The network of town sites this one belongs to, named in every page footer.
+network = "Publick"
+network_url = "https://publick.org"
+tagline = "Public data on how Beverly, Massachusetts decides and spends. Updated daily."
+# One line under the name at the top of every page.
+masthead = "An independent guide to city government in Beverly, Massachusetts"
+repo_url = "https://github.com/publick-org/publick.org"
+# Public contact address. Shown on the About and Accessibility pages when set.
+contact_email = "beverly-ma@publick.org"
+timezone = "America/New_York"
+user_agent = "beverly-ma.publick.org (+https://beverly-ma.publick.org/about/)"
+
+# From the city website's theme (beverlyma.gov); each passes WCAG AA on white.
+[site.colors]
+primary = "#005287"
+primary_dark = "#041e41"
+primary_soft = "#e6eef4"
+accent = "#803e3e"
+
+[town]
+name = "Beverly"
+state = "Massachusetts"
+state_abbr = "MA"
+official_site = "https://www.beverlyma.gov"
+
+# Sections appear in the main navigation in this order. Each one is a folder
+# under site/pages/<slug>/ and is served at https://<domain>/<slug>/.
+[[sections]]
+slug = "meetings"
+title = "Meetings"
+summary = "Every board and committee meeting in the city's Agenda Center, with agendas, and minutes from January 2026 on."
+status = "live"
+
+[[sections]]
+slug = "schools"
+title = "Schools"
+summary = "Graduation, attendance, and MCAS results compared with the state."
+status = "live"
+
+[[sections]]
+slug = "budget"
+title = "City budget"
+nav = "Budget"
+summary = "Where general fund money comes from and how it is spent, reserves, and the property tax limit."
+status = "live"
+
+[[sections]]
+slug = "housing"
+title = "Housing"
+summary = "New homes permitted, home values and rents, affordable housing, and the housing stock."
+status = "live"
+
+[[sections]]
+slug = "officials"
+title = "Who represents you"
+nav = "Officials"
+summary = "The mayor, City Council, and School Committee, by office and by ward, and how to reach them."
+status = "live"
+
+[[sections]]
+slug = "about"
+title = "About"
+summary = "Data sources, update schedule, metric definitions, and corrections."
+status = "live"
+
+# Page view counting with GoatCounter, on the network's site; prefix is this
+# town's folder.
+[analytics]
+goatcounter = "publick"
+prefix = "beverly-ma"
+public_stats = ""
+
+# Public meetings, from the city's CivicPlus Agenda Center.
+[meetings]
+base_url = "https://www.beverlyma.gov"
+archive_url = "https://www.beverlyma.gov/AgendaCenter"
+archive_name = "city's Agenda Center"
+# The city's site resets some connections; a slower pace and the client's retries help.
+request_delay = 4.0
+max_event_pages = 40
+
+# Agenda Center categories renamed to the board's usual name. Names written
+# last-name-first ("Health, Board of") are turned round by the engine.
+[meetings.aliases]
+"Water Supply Board, Salem and Beverly" = "Salem and Beverly Water Supply Board"
+
+[meetings.agenda_center]
+base_url = "https://www.beverlyma.gov"
+# The first run lists meetings from here, and minutes are collected from here on.
+since = "2026-01-01"
+
+# City Council committees post under the City Council. Each meets with the
+# Committee of the Whole ("Public Services/Committee of the Whole"), so that
+# name isn't listed: the committee's own name decides the board.
+[meetings.agenda_center.committees."City Council"]
+"Finance and Property" = "City Council Finance and Property Committee"
+"Legal Affairs" = "City Council Legal Affairs Committee"
+"Public Services" = "City Council Public Services Committee"
+"Joint Meeting Legal Affairs" = "City Council Joint Committee"
+"School Committee" = "Joint City Council and School Committee"
+"Preliminary Screening" = "City Council Budget/Management Analyst Screening Committee"
+"PreliminaryScreening" = "City Council Budget/Management Analyst Screening Committee"
+
+# Agenda and minutes PDFs, in the network's documents bucket.
+[storage]
+endpoint = "https://6bbfee5a3892553c7993dbfa4b4e8453.r2.cloudflarestorage.com"
+bucket = "publick-documents"
+public_url = "https://files.publick.org"
+prefix = "beverly-ma"
+
+# Agenda previews and decisions from minutes, written by a language model and
+# labeled as AI-generated on the site. Within the network's monthly budget.
+[summaries]
+model = "claude-sonnet-5"
+max_per_run = 40
+input_price = 2.0
+output_price = 10.0
+max_cost_per_run = 5.0
+
+[[glossary]]
+term = "executive session"
+definition = "A part of a public meeting closed to the public. State law allows it only for specific reasons, such as lawsuits, negotiations, or personnel matters."
+
+[[glossary]]
+term = "M.G.L."
+definition = "Massachusetts General Laws, the state's laws."
+
+[[glossary]]
+term = "Committee of the Whole"
+definition = "The full City Council meeting as a committee, to discuss a matter before voting on it at a regular meeting."
+
+# School district figures from the state's education data portal (DESE).
+[schools]
+district_code = "00300000"
+district_name = "Beverly Public Schools"
+portal = "https://educationtocareer.data.mass.gov"
+
+# Tax bill and budget figures (Mass. Division of Local Services).
+[finance]
+dls_municipality = "Beverly"
+dls_code = "30"
+
+# Housing: Census building permits and the American Community Survey, and the
+# state's Subsidized Housing Inventory.
+[housing]
+bps_region = "Northeast Region"
+bps_prefix = "ne"
+bps_state = "25"
+bps_place = "05595"
+census_geo = "16000US2505595"
+state_geo = "04000US25"
+shi_url = "https://www.mass.gov/doc/subsidized-housing-inventory-2/download"
+shi_name = "Beverly"
+
+# Unemployment rate (BLS Local Area Unemployment Statistics, area CT2505595000000).
+[labor]
+local_series = "LAUCT250559500000003"
+state_series = "LAUST250000000000003"
+
+[freshness]
+summary_grace_days = 2
+sources = [
+  { label = "Meetings (Agenda Center)", file = "meetings/status.json", max_days = 2 },
+]
+
+# Who represents you (the Officials page). Kept by hand from official city
+# and school websites; checked is the date the list was last checked against
+# them. Only city- and school-issued email addresses, and the mayor's office
+# phone. The ward file is data/static/beverly-precincts-2022.geojson (MassGIS).
+[officials]
+checked = "2026-10-01"
+wards_file = "beverly-precincts-2022.geojson"
+
+[[officials.bodies]]
+name = "Mayor"
+url = "https://www.beverlyma.gov/324/Office-of-the-Mayor"
+note = "Elected citywide for four years."
+members = [
+  { name = "Michael P. Cahill", seat = "Citywide", term_ends = "2030-01", email = "mayorcahill@beverlyma.gov", phone = "(978) 921-6000" },
+]
+
+[[officials.bodies]]
+name = "City Council"
+url = "https://www.beverlyma.gov/429/City-Council"
+note = "Six councilors elected by ward and three at-large, for two years."
+members = [
+  { name = "Julie R. Flowers", seat = "At-large", role = "Council President", term_ends = "2027-12", email = "jflowers@beverlyma.gov", url = "https://www.beverlyma.gov/432/Julie-R-Flowers" },
+  { name = "John J. Mullady", seat = "At-large", term_ends = "2027-12", email = "jmullady@beverlyma.gov", url = "https://www.beverlyma.gov/1272/John-J-Mullady" },
+  { name = "Keith A. Sonia", seat = "At-large", term_ends = "2027-12", email = "ksonia@beverlyma.gov", url = "https://www.beverlyma.gov/1273/Keith-A-Sonia" },
+  { name = "Todd C. Rotondo", seat = "Ward 1", ward = 1, term_ends = "2027-12", email = "trotondo@beverlyma.gov", url = "https://www.beverlyma.gov/433/Todd-C-Rotondo" },
+  { name = "Danielle M. Spang", seat = "Ward 2", ward = 2, term_ends = "2027-12", email = "dspang@beverlyma.gov", url = "https://www.beverlyma.gov/434/Danielle-M-Spang" },
+  { name = "Steven M. Crowley", seat = "Ward 3", ward = 3, term_ends = "2027-12", email = "scrowley@beverlyma.gov", url = "https://www.beverlyma.gov/431/Steven-M-Crowley" },
+  { name = "Scott D. Houseman", seat = "Ward 4", ward = 4, term_ends = "2027-12", email = "shouseman@beverlyma.gov", url = "https://www.beverlyma.gov/436/Scott-D-Houseman" },
+  { name = "Kathleen M. Feldman", seat = "Ward 5", ward = 5, term_ends = "2027-12", email = "kfeldman@beverlyma.gov", url = "https://www.beverlyma.gov/437/Kathleen-M-Feldman" },
+  { name = "Matthew J. St. Hilaire", seat = "Ward 6", ward = 6, role = "Council Vice President", term_ends = "2027-12", email = "msthilaire@beverlyma.gov", url = "https://www.beverlyma.gov/827/Matthew-A-StHilaire" },
+]
+
+# District A is Wards 1-3 and District B Wards 4-6.
+[[officials.bodies]]
+name = "School Committee"
+url = "https://www.beverlyschools.org/apps/pages/index.jsp?uREC_ID=2083091&type=d&pREC_ID=2133534"
+note = "Six members elected by ward and two by district (District A is Wards 1 to 3, District B Wards 4 to 6), for two years, and the mayor as the ninth member."
+members = [
+  { name = "Lorinda K. Visnick", seat = "District B", wards = [4, 5, 6], role = "President", term_ends = "2028-01", email = "lvisnick@beverlyschools.org" },
+  { name = "Geraldine Cahill", seat = "District A", wards = [1, 2, 3], term_ends = "2028-01", email = "gcahill@beverlyschools.org" },
+  { name = "Catherine G. Frost", seat = "Ward 1", ward = 1, term_ends = "2028-01", email = "cfrost@beverlyschools.org" },
+  { name = "Madeline R. Lennox", seat = "Ward 2", ward = 2, term_ends = "2028-01", email = "mlennox@beverlyschools.org" },
+  { name = "Kimberley J. Coelho", seat = "Ward 3", ward = 3, term_ends = "2028-01", email = "kcoelho@beverlyschools.org" },
+  { name = "Lindsay Harnden", seat = "Ward 4", ward = 4, role = "Vice President", term_ends = "2028-01", email = "lducharme@beverlyschools.org" },
+  { name = "Kaarin L. Robinson", seat = "Ward 5", ward = 5, role = "Secretary", term_ends = "2028-01", email = "krobinson@beverlyschools.org" },
+  { name = "John E. Taylor", seat = "Ward 6", ward = 6, term_ends = "2028-01", email = "jtaylor@beverlyschools.org" },
+  { name = "Michael P. Cahill", seat = "Mayor", term_ends = "2030-01", email = "mayorcahill@beverlyma.gov" },
+]
