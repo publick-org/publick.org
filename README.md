@@ -5,7 +5,7 @@ from this one repository with the [Publick engine](https://github.com/publick-or
 at the version in `engine-version`.
 
 ```
-engine-version                The engine release every town runs, e.g. v1.13.0
+engine-version                The engine release every town runs, e.g. v1.19.0
 ADDING-A-TOWN.md              The checklist for adding a town, from an empty folder to its first published site
 home/                         The publick.org homepage (index.html) and the page for a state with many towns
                               (state.html); their town lists are filled in by scripts/build_home.py
