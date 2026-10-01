@@ -80,9 +80,8 @@ town's `data/run.json`, committed with the data; after the run's towns finish,
 the homepage is rebuilt from `main` with the status page
 (`scripts/build_status.py`) and published. A site shows "some data delayed"
 when a step of its last run failed or a source is behind, and "not updated"
-after 30 hours with no daily run. Below the towns, "Running the network" shows
-the month's AI summary spending against the budget, each town's data size and
-what its last update added, and the repository's size on GitHub.
+after 30 hours with no daily run. It never shows what running the network
+costs or how much data it keeps.
 
 ## Adding a town
 
