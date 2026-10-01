@@ -6,6 +6,7 @@ at the version in `engine-version`.
 
 ```
 engine-version                The engine release every town runs, e.g. v1.13.0
+ADDING-A-TOWN.md              The checklist for adding a town, from an empty folder to its first published site
 home/                         The publick.org homepage (index.html) and the page for a state with many towns
                               (state.html); their town lists are filled in by scripts/build_home.py
 home/upcoming.toml            Towns named under "In the works" on the homepage
@@ -86,6 +87,9 @@ after 30 hours with no daily run. It never shows what running the network
 costs or how much data it keeps.
 
 ## Adding a town
+
+The step-by-step checklist, from finding what the city uses to the first
+published site, is [ADDING-A-TOWN.md](ADDING-A-TOWN.md). In short:
 
 Add `towns/<town>-<state>/` with its `config/<town>.toml` (start from the
 engine's `tests/fixtures/town/config/gloucester.toml` and its README), an
