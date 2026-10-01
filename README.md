@@ -6,8 +6,10 @@ at the version in `engine-version`.
 
 ```
 engine-version                The engine release every town runs, e.g. v1.13.0
-home/                         The publick.org homepage; its town lists are filled in by scripts/build_home.py
-home/upcoming.toml            Towns shown under "Coming next" on the homepage
+ADDING-A-TOWN.md              The checklist for adding a town, from an empty folder to its first published site
+home/                         The publick.org homepage (index.html) and the page for a state with many towns
+                              (state.html); their town lists are filled in by scripts/build_home.py
+home/upcoming.toml            Towns named under "In the works" on the homepage
 towns/<town>-<state>/         One folder per town, laid out as a town repository is:
   config/<town>.toml            everything town-specific
   data/                         collected data, committed by the daily run, with run.json (its last
@@ -17,7 +19,8 @@ states/ma/                    Statewide sources, fetched once for every town: Ma
 wrangler.toml                 The Worker that serves every site from the sites bucket
 wrangler.scheduler.toml       The Worker that starts the daily runs on time
 scripts/import-town.sh        Copies a town's own repository into towns/
-scripts/build_home.py         Writes the homepage's "Live now" and "Coming next" lists
+scripts/build_home.py         Writes the homepage's town lists, by state, with the network's counts (from each
+                              town's data/run.json), and a page for each state with 10 or more towns
 scripts/build_status.py       Writes the network status page, publick.org/status/
 scripts/make_share_image.py   Draws home/share/publick.png, the homepage's card on Substack and social media
 .github/workflows/network.yml The daily runs, and builds on push and pull request
@@ -85,6 +88,9 @@ costs or how much data it keeps.
 
 ## Adding a town
 
+The step-by-step checklist, from finding what the city uses to the first
+published site, is [ADDING-A-TOWN.md](ADDING-A-TOWN.md). In short:
+
 Add `towns/<town>-<state>/` with its `config/<town>.toml` (start from the
 engine's `tests/fixtures/town/config/gloucester.toml` and its README), an
 empty `data/`, and optionally `site/static/share/<town>.png`. Set
@@ -92,9 +98,12 @@ empty `data/`, and optionally `site/static/share/<town>.png`. Set
 `https://publick.org`, which links the network's name in every page footer.
 Add an `[analytics]` table with `goatcounter = "publick"` and `prefix` set to
 the town's folder, so its page views count on the network's GoatCounter site.
-Merge, then run the workflow for the town by hand to fetch its data. No DNS
-change is needed, and the homepage lists the town as live (and drops it from
-`home/upcoming.toml`'s "Coming next") on its own.
+Merge, then run the workflow for the town by hand to fetch its data (set
+`catch_up` to a few dollars to summarize its first months' documents in that
+run, within the month's budget). No DNS
+change is needed: the homepage lists the town under its state (and drops it from
+"In the works") on its own, and gives the state its own page once it has 10
+towns.
 
 The town's tax, budget, and school figures come from its state, through the
 engine's package for that state (the engine README's States section): its

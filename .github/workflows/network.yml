@@ -75,6 +75,10 @@ on:
         type: choice
         options: [all, figures, meetings, "311"]
         default: all
+      catch_up:
+        description: "For a new town's first runs: dollars its older documents may use for summaries in this run (empty for the usual share). Capped by what's left of the month's budget and the town's own limit per run"
+        type: string
+        default: ""
 
 # Scheduled and manual runs queue behind each other, so two data commits for a
 # town never race; pushes queue separately (a daily start would replace a push waiting in the same
@@ -247,13 +251,22 @@ jobs:
         if: steps.plan.outputs.fetch == 'true' && steps.plan.outputs.towns == 'true'
         env:
           MATRIX: ${{ steps.plan.outputs.matrix }}
+          # A manual run's catch-up for older documents (a new town's first months), never above its
+          # share of what's left of the month.
+          CATCH_UP: ${{ github.event_name == 'workflow_dispatch' && !inputs.daily && inputs.catch_up || '' }}
         run: |
           towns=$(jq '[.include[].towns | split(" ")[]] | length' <<< "$MATRIX")
           budget=$(python -m pipeline.network budget --monthly "$SUMMARY_BUDGET" --towns-in-run "$towns")
           echo "$budget"
+          allowance=$(jq -r .allowance <<< "$budget")
+          backlog=$(jq -r .backlog_allowance <<< "$budget")
+          if [ -n "$CATCH_UP" ]; then
+            backlog=$(python -c 'import sys; print(round(min(float(sys.argv[1]), float(sys.argv[2])), 2))' "$CATCH_UP" "$allowance")
+            echo "Catch-up: older documents may use \$$backlog in this run"
+          fi
           {
-            echo "allowance=$(jq -r .allowance <<< "$budget")"
-            echo "backlog_allowance=$(jq -r .backlog_allowance <<< "$budget")"
+            echo "allowance=$allowance"
+            echo "backlog_allowance=$backlog"
           } >> "$GITHUB_OUTPUT"
 
   # Statewide sources (Massachusetts's DLS reports), fetched once for every town before the towns run, into
