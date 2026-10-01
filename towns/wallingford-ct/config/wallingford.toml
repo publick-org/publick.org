@@ -7,9 +7,10 @@
 # for every board, which the engine reads as [meetings.file_list]. The Board of
 # Education posts on the school district's website (Finalsite, with Google
 # Docs), which the engine doesn't read yet. The town doesn't use SeeClickFix,
-# so the site has no 311 section. Connecticut has no state package in the
-# engine yet, so there are no tax bill, budget, or schools figures; housing
-# and unemployment come from the Census and BLS, as for every town.
+# so the site has no 311 section. The engine's Connecticut package has only
+# school figures so far, from EdSight, so there are no tax bill or budget
+# figures yet; housing and unemployment come from the Census and BLS, as for
+# every town.
 [site]
 name = "Wallingford Publick"
 # The masthead shows name_prefix in dark ink and name_suffix in the accent
@@ -49,6 +50,12 @@ official_site = "https://www.wallingfordct.gov"
 slug = "meetings"
 title = "Meetings"
 summary = "Every board and commission meeting on the town's calendar, with agendas, and minutes from July 2026 on."
+status = "live"
+
+[[sections]]
+slug = "schools"
+title = "Schools"
+summary = "Graduation, attendance, state test results, and spending per pupil compared with the state."
 status = "live"
 
 [[sections]]
@@ -159,6 +166,12 @@ definition = "Routine items, such as tax refunds and approving past minutes, vot
 [[glossary]]
 term = "Public Utilities Commission"
 definition = "The board, appointed by the mayor, that oversees the town's own electric, water, and sewer utilities."
+
+# School district figures from EdSight, the State Department of Education's
+# data portal (district code 1480011).
+[schools]
+edsight_district = "Wallingford School District"
+district_name = "Wallingford Public Schools"
 
 # Housing: Census building permits and the American Community Survey.
 # Wallingford isn't a Census place, so permits find it by its town (MCD) code;
