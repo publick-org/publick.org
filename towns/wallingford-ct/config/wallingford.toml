@@ -1,0 +1,234 @@
+# Site configuration for Wallingford, Connecticut.
+# Everything town-specific lives here; the code is the Publick engine
+# (github.com/publick-org/publick-engine).
+#
+# The network's first Connecticut town. Wallingford's website has its own CMS
+# (by Web Solutions), with a meetings calendar and one Minutes & Agendas page
+# for every board, which the engine reads as [meetings.file_list]. The Board of
+# Education posts on the school district's website (Finalsite, with Google
+# Docs), which the engine doesn't read yet. The town doesn't use SeeClickFix,
+# so the site has no 311 section. Connecticut has no state package in the
+# engine yet, so there are no tax bill, budget, or schools figures; housing
+# and unemployment come from the Census and BLS, as for every town.
+[site]
+name = "Wallingford Publick"
+# The masthead shows name_prefix in dark ink and name_suffix in the accent
+# color: the town, then the network.
+name_prefix = "Wallingford "
+name_suffix = "Publick"
+domain = "wallingford-ct.publick.org"
+# The network of town sites this one belongs to, named in every page footer.
+network = "Publick"
+network_url = "https://publick.org"
+tagline = "Public data on how Wallingford, Connecticut decides and spends. Updated daily."
+# One line under the name at the top of every page.
+masthead = "An independent guide to town government in Wallingford, Connecticut"
+repo_url = "https://github.com/publick-org/publick.org"
+# Public contact address. Shown on the About and Accessibility pages when set.
+contact_email = "wallingford-ct@publick.org"
+timezone = "America/New_York"
+user_agent = "wallingford-ct.publick.org (+https://wallingford-ct.publick.org/about/)"
+
+# From the town website's stylesheet (wallingfordct.gov); each passes WCAG AA
+# on white. The accent is the site's green (#0e956b) darkened to pass.
+[site.colors]
+primary = "#2148a2"
+primary_dark = "#232659"
+primary_soft = "#e6eaf5"
+accent = "#0c855f"
+
+[town]
+name = "Wallingford"
+state = "Connecticut"
+state_abbr = "CT"
+official_site = "https://www.wallingfordct.gov"
+
+# Sections appear in the main navigation in this order. Each one is a folder
+# under site/pages/<slug>/ and is served at https://<domain>/<slug>/.
+[[sections]]
+slug = "meetings"
+title = "Meetings"
+summary = "Every board and commission meeting on the town's calendar, with agendas, and minutes from July 2026 on."
+status = "live"
+
+[[sections]]
+slug = "housing"
+title = "Housing"
+summary = "New homes permitted, home values and rents, and the housing stock."
+status = "live"
+
+[[sections]]
+slug = "officials"
+title = "Who represents you"
+nav = "Officials"
+summary = "The mayor, Town Council, and Board of Education, and how to reach them."
+status = "live"
+
+[[sections]]
+slug = "about"
+title = "About"
+summary = "Data sources, update schedule, metric definitions, and corrections."
+status = "live"
+
+# Page view counting with GoatCounter, on the network's site; prefix is this
+# town's folder.
+[analytics]
+goatcounter = "publick"
+prefix = "wallingford-ct"
+public_stats = ""
+
+# Public meetings, from the town website's meetings calendar and its Minutes &
+# Agendas page.
+[meetings]
+calendar_url = "https://www.wallingfordct.gov/events/meetings/"
+archive_url = "https://www.wallingfordct.gov/minutes-and-agendas/"
+archive_name = "town's Minutes & Agendas page"
+governing_body = "Town Council"
+# The boards collected: those that posted in 2026. The calendar's outside
+# bodies (the regional council of governments, Wallingford Center Inc, the
+# Housing Authority, the Library Board) are left out.
+boards = [
+  "Town Council",
+  "Ambulance Committee",
+  "Board of Assessment Appeals",
+  "Board of Ethics",
+  "Board of Health",
+  "Committee on Aging",
+  "Conservation Commission",
+  "Economic Development Commission",
+  "Fair Rent Commission",
+  "Historic Properties Commission",
+  "Inland Wetlands & Watercourses Commission",
+  "Mayor's Council on Substance Abuse Prevention",
+  "Ordinance Committee",
+  "Parks & Recreation Commission",
+  "Pension Commission",
+  "Personnel and Pension Appeals Board",
+  "Plan of Conservation & Development Implementation Committee",
+  "Planning & Zoning Commission",
+  "Public Celebrations Committee",
+  "Public Utilities Commission",
+  "Quinnipiac River Linear Trail Advisory Committee",
+  "Veterans Memorial Committee",
+  "Wallingford Celebrates America 250",
+  "Zoning Board of Appeals",
+]
+
+# Names the calendar and the documents page use for a board, mapped to its
+# usual name.
+[meetings.aliases]
+"Ordinance Committee (TC)" = "Ordinance Committee"
+"Inland Wetland and Watercourse Commission" = "Inland Wetlands & Watercourses Commission"
+"Quinnipiac River Linear Trail" = "Quinnipiac River Linear Trail Advisory Committee"
+
+[meetings.file_list]
+documents_url = "https://www.wallingfordct.gov/minutes-and-agendas/"
+calendar_url = "https://www.wallingfordct.gov/events/meetings/"
+# Minutes are collected from here on. The Town Council's minutes before July
+# 2026 are scans, which would be transcribed at a cost.
+since = "2026-07-01"
+
+# Agenda and minutes PDFs, in the network's documents bucket.
+[storage]
+endpoint = "https://6bbfee5a3892553c7993dbfa4b4e8453.r2.cloudflarestorage.com"
+bucket = "publick-documents"
+public_url = "https://files.publick.org"
+prefix = "wallingford-ct"
+
+# Agenda previews and decisions from minutes, written by a language model and
+# labeled as AI-generated on the site. Within the network's monthly budget.
+[summaries]
+model = "claude-sonnet-5"
+max_per_run = 40
+input_price = 2.0
+output_price = 10.0
+max_cost_per_run = 5.0
+
+[[glossary]]
+term = "executive session"
+definition = "A part of a public meeting closed to the public. State law allows it only for specific reasons, such as lawsuits, real estate purchases, or personnel matters."
+
+[[glossary]]
+term = "C.G.S."
+definition = "Connecticut General Statutes, the state's laws."
+
+[[glossary]]
+term = "consent agenda"
+definition = "Routine items, such as tax refunds and approving past minutes, voted on together in one motion unless a member asks to take one up separately."
+
+[[glossary]]
+term = "Public Utilities Commission"
+definition = "The board, appointed by the mayor, that oversees the town's own electric, water, and sewer utilities."
+
+# Housing: Census building permits and the American Community Survey.
+# Wallingford isn't a Census place, so permits find it by its town (MCD) code;
+# it reports no months to the Census, so its permit counts are estimates.
+# Connecticut's planning regions replaced its counties in 2022, so the town's
+# Census code is 0917078740 (0900978740 before).
+[housing]
+bps_region = "Northeast Region"
+bps_prefix = "ne"
+bps_state = "09"
+bps_mcd = "78740"
+census_geo = "06000US0917078740"
+state_geo = "04000US09"
+
+# Unemployment rate (BLS Local Area Unemployment Statistics, Wallingford town).
+[labor]
+local_series = "LAUCS097874000000003"
+state_series = "LAUST090000000000003"
+bulk_file = "la.data.13.Connecticut"
+
+[freshness]
+summary_grace_days = 2
+sources = [
+  { label = "Meetings (town website)", file = "meetings/status.json", max_days = 2 },
+]
+
+# Who represents you (the Officials page). Kept by hand from official town
+# and school websites; checked is the date the list was last checked against
+# them. Only town- and school-issued email addresses, and the mayor's office
+# phone. Every seat is elected at large (Charter, Chapter II), so there is no
+# ward map. Terms are two years, starting the first Monday after January 1.
+[officials]
+checked = "2026-10-01"
+
+[[officials.bodies]]
+name = "Mayor"
+url = "https://www.wallingfordct.gov/government/departments/mayors-office/"
+note = "Elected townwide for two years."
+members = [
+  { name = "Vincent Cervoni", seat = "Townwide", term_ends = "2028-01", email = "towngov@wallingfordct.gov", phone = "(203) 294-2070" },
+]
+
+[[officials.bodies]]
+name = "Town Council"
+url = "https://www.wallingfordct.gov/government/departments/town-council/"
+note = "Nine members elected at large for two years, no more than six of them from one party."
+members = [
+  { name = "Vincent F. Testa, Jr.", seat = "At-large", role = "Chair", term_ends = "2028-01", email = "vtesta@wallingfordct.gov" },
+  { name = "Samuel Carmody", seat = "At-large", role = "Vice Chair", term_ends = "2028-01", email = "scarmody@wallingfordct.gov" },
+  { name = "Autumn Allinson", seat = "At-large", term_ends = "2028-01", email = "aallinson@wallingfordct.gov" },
+  { name = "Craig C. Fishbein", seat = "At-large", term_ends = "2028-01" },
+  { name = "Thomas Laffin", seat = "At-large", term_ends = "2028-01", email = "tlaffin@wallingfordct.gov" },
+  { name = "Jesse Reynolds", seat = "At-large", term_ends = "2028-01", email = "jreynolds@wallingfordct.gov" },
+  { name = "Bryan Rivard", seat = "At-large", term_ends = "2028-01", email = "brivard@wallingfordct.gov" },
+  { name = "Melanie Rossacci", seat = "At-large", term_ends = "2028-01", email = "mrossacci@wallingfordct.gov" },
+  { name = "Christina Tatta", seat = "At-large", term_ends = "2028-01", email = "ctatta@wallingfordct.gov" },
+]
+
+[[officials.bodies]]
+name = "Board of Education"
+url = "https://www.wallingford.k12.ct.us/board-of-education"
+note = "Nine members elected at large for two years."
+members = [
+  { name = "Michael Votto", seat = "At-large", role = "Chairperson", term_ends = "2028-01", email = "mvotto@wallingfordschools.org" },
+  { name = "Maureen Reed", seat = "At-large", role = "Vice Chairperson", term_ends = "2028-01", email = "mreed@wallingfordschools.org" },
+  { name = "Caroline Raynis", seat = "At-large", role = "Secretary", term_ends = "2028-01" },
+  { name = "Duncan Craig", seat = "At-large", term_ends = "2028-01" },
+  { name = "Kristi Doerr", seat = "At-large", term_ends = "2028-01" },
+  { name = "Rajan Doering", seat = "At-large", term_ends = "2028-01", email = "rdoering@wallingfordschools.org" },
+  { name = "Jen Passaretti", seat = "At-large", term_ends = "2028-01", email = "jpassaretti@wallingfordschools.org" },
+  { name = "Donna Regan", seat = "At-large", term_ends = "2028-01", email = "dregan@wallingfordschools.org" },
+  { name = "Marla Roscoe", seat = "At-large", term_ends = "2028-01" },
+]
