@@ -77,6 +77,13 @@ summary = "New homes permitted, home values and rents, and the housing stock."
 status = "live"
 
 [[sections]]
+slug = "officials"
+title = "Who represents you"
+nav = "Officials"
+summary = "The mayor, aldermen, and Board of School Committee, by office and by ward, and how to reach them."
+status = "live"
+
+[[sections]]
 slug = "about"
 title = "About"
 summary = "Data sources, update schedule, metric definitions, and corrections."
@@ -274,4 +281,64 @@ sources = [
   { label = "Meetings (city calendar and CivicClerk)", file = "meetings/status.json", max_days = 2 },
   { label = "311 requests", file = "311/status.json", max_days = 2 },
   { label = "311 scorecard", file = "311/scorecard.json", field = "generated_at", max_days = 2 },
+]
+
+# Who represents you (the Officials page). Kept by hand from official city
+# and school websites; checked is the date the list was last checked against
+# them. A member with a ward is elected by that ward (a ward in the ward file);
+# one without is elected citywide. Only city- and school-issued email
+# addresses, and the mayor's office phone. Terms end on the date set by the
+# city charter.
+[officials]
+checked = "2026-10-01"
+
+[[officials.bodies]]
+name = "Mayor"
+url = "https://www.manchesternh.gov/Government/Mayor-and-Aldermen/Mayors-Office"
+note = "Elected citywide for two years. The mayor presides over the Board of Mayor and Aldermen and chairs the Board of School Committee."
+members = [
+  { name = "Jay Ruais", seat = "Citywide", term_ends = "2028-01", email = "mayor@manchesternh.gov", phone = "(603) 624-6500" },
+]
+
+[[officials.bodies]]
+name = "Board of Mayor and Aldermen"
+url = "https://www.manchesternh.gov/Government/Mayor-and-Aldermen"
+note = "Twelve aldermen elected by ward and two at-large, for two years. The mayor presides."
+members = [
+  { name = "Bryce Kaw-uh", seat = "Ward 1", ward = 1, term_ends = "2028-01", email = "bkaw-uh@manchesternh.gov", url = "https://www.manchesternh.gov/Government/Mayor-and-Aldermen/Aldermen/Ward-1-Alderman" },
+  { name = "Dan Goonan", seat = "Ward 2", ward = 2, term_ends = "2028-01", email = "dan.goonan@manchesternh.gov", url = "https://www.manchesternh.gov/Government/Mayor-and-Aldermen/Aldermen/Ward-2-Alderman" },
+  { name = "Dana Dexter", seat = "Ward 3", ward = 3, term_ends = "2028-01", email = "ddexter@manchesternh.gov", url = "https://www.manchesternh.gov/Government/Mayor-and-Aldermen/Aldermen/Ward-3-Alderman" },
+  { name = "Christine Fajardo", seat = "Ward 4", ward = 4, term_ends = "2028-01", email = "cfajardo@manchesternh.gov", url = "https://www.manchesternh.gov/Government/Mayor-and-Aldermen/Aldermen/Ward-4-Alderman" },
+  { name = "Jason Bonilla", seat = "Ward 5", ward = 5, term_ends = "2028-01", email = "jbonilla@manchesternh.gov", url = "https://www.manchesternh.gov/Government/Mayor-and-Aldermen/Aldermen/Ward-5-Alderman" },
+  { name = "Crissy Kantor", seat = "Ward 6", ward = 6, term_ends = "2028-01", email = "ckantor@manchesternh.gov", url = "https://www.manchesternh.gov/Government/Mayor-and-Aldermen/Aldermen/Ward-6-Alderman" },
+  { name = "Ross Terrio", seat = "Ward 7", ward = 7, term_ends = "2028-01", email = "rterrio@manchesternh.gov", url = "https://www.manchesternh.gov/Government/Mayor-and-Aldermen/Aldermen/Ward-7-Alderman" },
+  { name = "Edward Sapienza", seat = "Ward 8", ward = 8, term_ends = "2028-01", email = "esapienza@manchesternh.gov", url = "https://www.manchesternh.gov/Government/Mayor-and-Aldermen/Aldermen/Ward-8-Alderman" },
+  { name = "Jim Burkush", seat = "Ward 9", ward = 9, term_ends = "2028-01", email = "jburkush@manchesternh.gov", url = "https://www.manchesternh.gov/Government/Mayor-and-Aldermen/Aldermen/Ward-9-Alderman" },
+  { name = "Bill Barry", seat = "Ward 10", ward = 10, role = "Chairman of the Board", term_ends = "2028-01", email = "bbarry@manchesternh.gov", url = "https://www.manchesternh.gov/Government/Mayor-and-Aldermen/Aldermen/Ward-10-Alderman" },
+  { name = "Norm Vincent", seat = "Ward 11", ward = 11, term_ends = "2028-01", email = "nvincent@manchesternh.gov", url = "https://www.manchesternh.gov/Government/Mayor-and-Aldermen/Aldermen/Ward-11-Alderman" },
+  { name = "Kelly Thomas", seat = "Ward 12", ward = 12, term_ends = "2028-01", email = "kelly.thomas@manchesternh.gov", url = "https://www.manchesternh.gov/Government/Mayor-and-Aldermen/Aldermen/Ward-12-Alderman" },
+  { name = "June Trisciani", seat = "At-large", term_ends = "2028-01", email = "jtrisciani@manchesternh.gov", url = "https://www.manchesternh.gov/Government/Mayor-and-Aldermen/Aldermen/At-Large-Ald-Trisciani" },
+  { name = "Dan O'Neil", seat = "At-large", term_ends = "2028-01", email = "doneil@manchesternh.gov", url = "https://www.manchesternh.gov/Government/Mayor-and-Aldermen/Aldermen/At-Large-Ald-ONeil" },
+]
+
+[[officials.bodies]]
+name = "Board of School Committee"
+url = "https://www.mansd.org/page/bosc"
+note = "Twelve members elected by ward and two at-large, with the mayor as chair."
+members = [
+  { name = "Jay Ruais", seat = "Mayor", role = "Chair", term_ends = "2028-01", email = "mayor@manchesternh.gov" },
+  { name = "Julie Turner", seat = "Ward 1", ward = 1 },
+  { name = "Sean Parr", seat = "Ward 2", ward = 2 },
+  { name = "Sarah Georges", seat = "Ward 3", ward = 3 },
+  { name = "Leslie Want", seat = "Ward 4", ward = 4 },
+  { name = "Jeff Taylor", seat = "Ward 5", ward = 5 },
+  { name = "Dan Bergeron", seat = "Ward 6", ward = 6 },
+  { name = "Christopher Potter", seat = "Ward 7", ward = 7 },
+  { name = "Nicholas St. John", seat = "Ward 8", ward = 8 },
+  { name = "Stan Garrity", seat = "Ward 9", ward = 9, role = "Appointed February 2026 to fill a vacancy" },
+  { name = "Gary Hamer", seat = "Ward 10", ward = 10 },
+  { name = "Liz O'Neil-Wong", seat = "Ward 11", ward = 11 },
+  { name = "Julie Smith", seat = "Ward 12", ward = 12 },
+  { name = "Jim O'Connell", seat = "At-large", role = "Vice Chair" },
+  { name = "Cindy Rodenhauser Stewart", seat = "At-large" },
 ]

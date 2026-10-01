@@ -65,6 +65,13 @@ summary = "New homes permitted, home values and rents, affordable housing, and t
 status = "live"
 
 [[sections]]
+slug = "officials"
+title = "Who represents you"
+nav = "Officials"
+summary = "The mayor, City Council, and School Committee, by office and by ward, and how to reach them."
+status = "live"
+
+[[sections]]
 slug = "about"
 title = "About"
 summary = "Data sources, update schedule, metric definitions, and corrections."
@@ -333,3 +340,50 @@ abbreviations = ["SC", "B&F", "B & F", "Program", "Personnel", "Ad Hoc Communica
 "Building & Finance Subcommittee" = "School Committee Building & Finance Subcommittee"
 "Personnel Subcommittee" = "School Committee Personnel Subcommittee"
 "Ad Hoc Communications Subcommittee" = "School Committee Ad Hoc Communications Subcommittee"
+
+# Who represents you (the Officials page). Kept by hand from official city
+# and school websites; checked is the date the list was last checked against
+# them. A member with a ward is elected by that ward (a ward in the ward file);
+# one without is elected citywide. Only city- and school-issued email
+# addresses, and the mayor's office phone. Terms end on the date set by the
+# city charter.
+[officials]
+checked = "2026-10-01"
+
+[[officials.bodies]]
+name = "Mayor"
+url = "https://gloucester-ma.gov/440/Office-of-The-Mayor"
+note = "Elected citywide for two years."
+members = [
+  { name = "Paul Lundberg", seat = "Citywide", term_ends = "2028-01", email = "plundberg@gloucester-ma.gov", phone = "(978) 325-5100" },
+]
+
+[[officials.bodies]]
+name = "City Council"
+url = "https://gloucester-ma.gov/121/City-Council"
+note = "Five councilors elected by ward and four at-large, for two years."
+members = [
+  { name = "Tony Gross", seat = "At-large", role = "Council President", term_ends = "2028-01", email = "tgross@gloucester-ma.gov" },
+  { name = "Jason Grow", seat = "At-large", term_ends = "2028-01", email = "jgrow@gloucester-ma.gov" },
+  { name = "Hannah Kimberley", seat = "At-large", term_ends = "2028-01", email = "hkimberley@gloucester-ma.gov" },
+  { name = "Patti-Ann Page", seat = "At-large", term_ends = "2028-01", email = "ppage@gloucester-ma.gov" },
+  { name = "Scott Memhard", seat = "Ward 1", ward = 1, term_ends = "2028-01", email = "smemhard@gloucester-ma.gov" },
+  { name = "Dylan Benson", seat = "Ward 2", ward = 2, term_ends = "2028-01", email = "dbenson@gloucester-ma.gov" },
+  { name = "Marjorie Grace", seat = "Ward 3", ward = 3, term_ends = "2028-01", email = "mgrace@gloucester-ma.gov" },
+  { name = "Frank Margiotta", seat = "Ward 4", ward = 4, term_ends = "2028-01", email = "fmargiotta@gloucester-ma.gov" },
+  { name = "Sean Nolan", seat = "Ward 5", ward = 5, role = "Council Vice President", term_ends = "2028-01", email = "snolan@gloucester-ma.gov" },
+]
+
+[[officials.bodies]]
+name = "School Committee"
+url = "https://schoolcommittee.gloucesterschools.com/"
+note = "Six members elected at-large for two years, and the mayor, who votes as the seventh member."
+members = [
+  { name = "Kathleen Clancy", seat = "At-large", role = "Chair", term_ends = "2028-01", email = "kclancy@gloucesterschools.com" },
+  { name = "William Melvin", seat = "At-large", role = "Vice Chair", term_ends = "2028-01", email = "wmelvin@gloucesterschools.com" },
+  { name = "Laura Wiessen", seat = "At-large", role = "Secretary", term_ends = "2028-01", email = "lwiessen@gloucesterschools.com" },
+  { name = "Melissa Joy Teixeira Prince", seat = "At-large", term_ends = "2028-01", email = "mteixeira@gloucesterschools.com" },
+  { name = "Heather Dagle", seat = "At-large", term_ends = "2028-01", email = "hdagle@gloucesterschools.com" },
+  { name = "Andrea Liacos", seat = "At-large", term_ends = "2028-01", email = "aliacos2@gloucesterschools.com" },
+  { name = "Paul Lundberg", seat = "Mayor", term_ends = "2028-01", email = "plundberg@gloucester-ma.gov" },
+]
