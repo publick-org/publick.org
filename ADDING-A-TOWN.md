@@ -122,5 +122,9 @@ For Massachusetts (New Hampshire: start from Manchester's config):
 - [ ] Merge, then **Actions → Network → Run workflow** for the town, fetching.
       No DNS change; the homepage lists the town under its state by itself.
       A run collects up to 60 minutes; run it again until none are waiting.
+      Its older documents get a small share of the summary budget each run;
+      to summarize its first months in a day, set **catch_up** (dollars, e.g.
+      3) on a manual run. The month's budget and the town's own limit per
+      run still apply.
 - [ ] Add the town to the README's "Keeping officials current" election
       dates if they differ.

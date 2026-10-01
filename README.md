@@ -98,7 +98,9 @@ empty `data/`, and optionally `site/static/share/<town>.png`. Set
 `https://publick.org`, which links the network's name in every page footer.
 Add an `[analytics]` table with `goatcounter = "publick"` and `prefix` set to
 the town's folder, so its page views count on the network's GoatCounter site.
-Merge, then run the workflow for the town by hand to fetch its data. No DNS
+Merge, then run the workflow for the town by hand to fetch its data (set
+`catch_up` to a few dollars to summarize its first months' documents in that
+run, within the month's budget). No DNS
 change is needed: the homepage lists the town under its state (and drops it from
 "In the works") on its own, and gives the state its own page once it has 10
 towns.
