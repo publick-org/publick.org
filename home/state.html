@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{state}: Publick</title>
+  <meta name="description" content="Publick's sites for towns in {state}: each town's public record, every day.">
+  <link rel="canonical" href="https://publick.org/{abbr}/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Publick">
+  <meta property="og:title" content="Publick in {state}">
+  <meta property="og:url" content="https://publick.org/{abbr}/">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#faf7f0">
+  <link rel="preload" href="../fonts/public-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/source-serif-4-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <link rel="stylesheet" href="../css/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- A state's page, written by scripts/build_home.py when the state has many towns. -->
+  <header class="site-header">
+    <div class="wrap">
+      <div class="masthead">
+        <p class="brand"><a href="../"><img src="../favicon.svg" alt="" width="44" height="44"> Publick</a></p>
+        <p class="masthead-line">Your town's public record, every day.</p>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <div class="wrap">
+      <h1 class="page-title">{state}</h1>
+      <p class="town-count">{count}</p>
+      <section aria-labelledby="towns-heading">
+        <h2 id="towns-heading" class="visually-hidden">Towns in {state}</h2>
+        <!-- towns:state -->
+        <!-- /towns:state -->
+      </section>
+      <p class="back"><a href="../">All states</a></p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="footer-brand">Publick</p>
+      <ul class="footer-links">
+        <li><a href="mailto:hello@publick.org">hello@publick.org</a></li>
+        <li><a href="../status/">Network status</a></li>
+        <li><a href="https://github.com/publick-org">Source code on GitHub</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>

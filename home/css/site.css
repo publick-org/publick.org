@@ -77,13 +77,32 @@ main { display: block; padding: 1.5rem 0 3rem; }
 .independent { margin: 0; color: var(--muted); font-weight: 700; }
 .small { color: var(--muted); font-size: 0.9375rem; }
 
-.towns { margin: 0; padding: 0; list-style: none; }
-.town { padding: 1rem 1.1rem; border: 1px solid var(--line); border-left: 4px solid var(--accent); background: #fff; }
-.town + .town { margin-top: 0.75rem; }
-.town p { margin: 0.3rem 0 0; }
-.town h3 a { display: inline-flex; align-items: center; min-height: 2.75rem; }
-.town-place { color: var(--muted); font-weight: 700; }
-.town-next { border-left-color: var(--line); background: transparent; }
+/* ---- Find your town: the network's counts, then its towns by state ---- */
+
+h2.first { margin-top: 0.5rem; padding-top: 0; border-top: 0; }
+.glance { display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; margin: 0 0 0.5rem; padding: 0; list-style: none; color: var(--muted); font-size: 0.9375rem; }
+.glance strong { color: var(--ink); font-size: 1.05rem; }
+.state { margin: 1.5rem 0 0; }
+.state h3 { font-size: 1.2rem; margin: 0 0 0.6rem; }
+.count { font-family: "Public Sans", system-ui, sans-serif; font-weight: 400; font-size: 0.9375rem; color: var(--muted); }
+.town-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(13.5rem, 1fr)); gap: 0.6rem; margin: 0; padding: 0; list-style: none; }
+.town-cards a, .state-link a {
+  display: block; min-height: 2.75rem; padding: 0.7rem 0.9rem;
+  border: 1px solid var(--line); border-left: 4px solid var(--accent); background: #fff; text-decoration: none;
+}
+.town-cards a:hover, .state-link a:hover { border-left-color: var(--accent-dark); }
+.town-cards a:hover .name, .state-link a:hover .name { text-decoration: underline; text-decoration-thickness: 2px; }
+.town-cards .name { display: block; font-weight: 700; font-size: 1.1rem; color: var(--accent); }
+.town-cards .domain { display: block; color: var(--muted); font-size: 0.875rem; }
+/* A state with its own page: one line, its name and how many towns. */
+.state-link { margin: 1.5rem 0 0; max-width: none; }
+.state-link a { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+.state-link .name { font-family: var(--serif); font-weight: 700; font-size: 1.2rem; color: var(--accent); }
+.state-link + .state-link { margin-top: 0.6rem; }
+.in-works { margin: 1.25rem 0 0; color: var(--muted); }
+.town-count { margin: 0 0 1.25rem; color: var(--muted); }
+.back { margin: 2rem 0 0; }
+.back a { display: inline-flex; align-items: center; min-height: 2.75rem; }
 
 .actions { margin: 1.25rem 0; }
 .button {
@@ -133,6 +152,7 @@ main { display: block; padding: 1.5rem 0 3rem; }
 .table-scroll a { display: inline-block; padding: 0.6rem 0; margin: -0.6rem 0; }
 
 .town-status h2 { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.75rem; }
+.town-place { color: var(--muted); font-weight: 700; }
 .town-status .town-place { margin: 0 0 0.75rem; }
 .town-status .town-place a { display: inline-block; padding: 0.6rem 0; margin: -0.6rem 0; }
 .problems { margin: 0.75rem 0; padding: 0.75rem 1rem 0.75rem 2rem; border-left: 4px solid #a3290c; background: #fff; }

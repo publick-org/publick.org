@@ -40,53 +40,20 @@
 
   <main id="main" tabindex="-1">
     <div class="wrap">
-      <section aria-labelledby="about-heading">
-        <h2 id="about-heading" class="visually-hidden">What Publick is</h2>
-        <p class="lede">Publick is a network of free, independent websites. Each one publishes a town's public record every day: meeting agendas and minutes as readable text with summaries, 311 requests, what's happening on each street, and budget, schools and housing data.</p>
-        <p class="independent">Independent. Not run by or affiliated with any city or town government.</p>
-      </section>
-
-      <!-- The town lists are written by scripts/build_home.py: live towns from
-           towns/, upcoming ones from home/upcoming.toml. Edit those, not the lists. -->
-      <section aria-labelledby="live-heading">
-        <h2 id="live-heading">Live now</h2>
+      <!-- The town lists are written by scripts/build_home.py: live towns from towns/,
+           grouped by state, the counts from their run records, and "In the works" from
+           home/upcoming.toml. Edit those, not the lists. -->
+      <section aria-labelledby="towns-heading">
+        <h2 id="towns-heading" class="first">Find your town</h2>
         <!-- towns:live -->
-        <ul class="towns">
-          <li class="town">
-            <h3><a href="https://gloucester-ma.publick.org">Gloucester Publick</a></h3>
-            <p class="town-place">Gloucester, Massachusetts</p>
-          </li>
-          <li class="town">
-            <h3><a href="https://malden-ma.publick.org">Malden Publick</a></h3>
-            <p class="town-place">Malden, Massachusetts</p>
-          </li>
-          <li class="town">
-            <h3><a href="https://manchester-nh.publick.org">Manchester Publick</a></h3>
-            <p class="town-place">Manchester, New Hampshire</p>
-          </li>
-        </ul>
         <!-- /towns:live -->
       </section>
 
-      <!-- towns:next -->
-      <section aria-labelledby="next-heading">
-        <h2 id="next-heading">Coming next</h2>
-        <ul class="towns">
-          <li class="town town-next">
-            <h3>Salem, Massachusetts</h3>
-            <p>In the works.</p>
-          </li>
-          <li class="town town-next">
-            <h3>Medford, Massachusetts</h3>
-            <p>In the works.</p>
-          </li>
-          <li class="town town-next">
-            <h3>Beverly, Massachusetts</h3>
-            <p>In the works.</p>
-          </li>
-        </ul>
+      <section aria-labelledby="about-heading">
+        <h2 id="about-heading">What Publick is</h2>
+        <p class="lede">Publick is a network of free, independent websites. Each one publishes a town's public record every day: meeting agendas and minutes as readable text with summaries, who represents you, 311 requests, what's happening on each street, and budget, schools and housing data.</p>
+        <p class="independent">Independent. Not run by or affiliated with any city or town government.</p>
       </section>
-      <!-- /towns:next -->
 
       <section aria-labelledby="request-heading" class="request">
         <h2 id="request-heading">Is your town next?</h2>
