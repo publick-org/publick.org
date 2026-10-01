@@ -66,6 +66,13 @@ summary = "New homes permitted, home values and rents, affordable housing, and t
 status = "live"
 
 [[sections]]
+slug = "officials"
+title = "Who represents you"
+nav = "Officials"
+summary = "The mayor, City Council, and School Committee, by office and by ward, and how to reach them."
+status = "live"
+
+[[sections]]
 slug = "about"
 title = "About"
 summary = "Data sources, update schedule, metric definitions, and corrections."
@@ -246,4 +253,55 @@ sources = [
   { label = "Meetings (Agenda Center)", file = "meetings/status.json", max_days = 2 },
   { label = "311 requests", file = "311/status.json", max_days = 2 },
   { label = "311 scorecard", file = "311/scorecard.json", field = "generated_at", max_days = 2 },
+]
+
+# Who represents you (the Officials page). Kept by hand from official city
+# and school websites; checked is the date the list was last checked against
+# them. A member with a ward is elected by that ward (a ward in the ward file);
+# one without is elected citywide. Only city- and school-issued email
+# addresses, and the mayor's office phone. Terms end on the date set by the
+# city charter.
+[officials]
+checked = "2026-10-01"
+
+[[officials.bodies]]
+name = "Mayor"
+url = "https://www.cityofmalden.org/263/Mayor"
+note = "Elected citywide for four years."
+members = [
+  { name = "Gary Christenson", seat = "Citywide", term_ends = "2028-01", email = "mayor@cityofmalden.org", phone = "(781) 397-7000" },
+]
+
+[[officials.bodies]]
+name = "City Council"
+url = "https://www.cityofmalden.org/469/City-Council"
+note = "Eight councillors elected by ward and three at-large, for two years."
+members = [
+  { name = "Peg Crowe", seat = "Ward 1", ward = 1, term_ends = "2028-01", email = "pcrowe@cityofmalden.org" },
+  { name = "Paul Condon", seat = "Ward 2", ward = 2, term_ends = "2028-01", email = "pcondon@cityofmalden.org" },
+  { name = "Amanda Linehan", seat = "Ward 3", ward = 3, role = "Council President", term_ends = "2028-01", email = "alinehan@cityofmalden.org" },
+  { name = "Ryan O'Malley", seat = "Ward 4", ward = 4, term_ends = "2028-01", email = "romalley@cityofmalden.org" },
+  { name = "Ari Taylor", seat = "Ward 5", ward = 5, term_ends = "2028-01", email = "ataylor@cityofmalden.org" },
+  { name = "Stephen Winslow", seat = "Ward 6", ward = 6, term_ends = "2028-01", email = "swinslow@cityofmalden.org" },
+  { name = "Chris Simonelli", seat = "Ward 7", ward = 7, term_ends = "2028-01", email = "csimonelli@cityofmalden.org" },
+  { name = "Jadeane Sica", seat = "Ward 8", ward = 8, term_ends = "2028-01", email = "jsica@cityofmalden.org" },
+  { name = "Michelle Luong", seat = "At-large", term_ends = "2028-01", email = "mluong@cityofmalden.org" },
+  { name = "Karen Colón Hayes", seat = "At-large", term_ends = "2028-01", email = "kcolonhayes@cityofmalden.org" },
+  { name = "Carey McDonald", seat = "At-large", term_ends = "2028-01", email = "cmcdonald@cityofmalden.org" },
+]
+
+[[officials.bodies]]
+name = "School Committee"
+url = "https://www.cityofmalden.org/479/School-Committee"
+note = "Eight members elected by ward for two years, and the mayor as chair."
+members = [
+  { name = "Gary Christenson", seat = "Mayor", role = "Chair", term_ends = "2028-01", email = "mayor@cityofmalden.org" },
+  { name = "Michael Drummey", seat = "Ward 1", ward = 1, term_ends = "2028-01", email = "mikedrummey@maldenps.org" },
+  { name = "Rob McCarthy", seat = "Ward 2", ward = 2, term_ends = "2028-01" },
+  { name = "Jennifer Spadafora", seat = "Ward 3", ward = 3, term_ends = "2028-01", email = "jspadafora@maldenps.org" },
+  { name = "Dawn Macklin", seat = "Ward 4", ward = 4, term_ends = "2028-01", email = "dmacklin@maldenps.org" },
+  { name = "Elizabeth J. Hortie", seat = "Ward 5", ward = 5, term_ends = "2028-01", email = "ehortie@maldenps.org" },
+  { name = "Peter Piazza", seat = "Ward 6", ward = 6, term_ends = "2028-01", email = "PPiazza@maldenps.org" },
+  { name = "Keith Bernard", seat = "Ward 7", ward = 7, role = "Vice Chair", term_ends = "2028-01", email = "kbernard@maldenps.org" },
+  { name = "Sharyn Rose-Zeiberg", seat = "Ward 8", ward = 8, term_ends = "2028-01", email = "srose-zeiberg@maldenps.org" },
 ]
