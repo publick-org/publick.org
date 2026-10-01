@@ -1,40 +1,40 @@
 {
   "town": "beverly",
   "folder": "beverly-ma",
-  "started_at": "2026-10-01T15:15:12+00:00",
-  "finished_at": "2026-10-01T15:17:49+00:00",
-  "engine": "v1.16.0",
+  "started_at": "2026-10-01T15:59:39+00:00",
+  "finished_at": "2026-10-01T16:07:19+00:00",
+  "engine": "v1.17.1",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 135.5
+      "seconds": 420.8
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 0.9
+      "seconds": 1.0
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 15.1
+      "seconds": 19.3
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 5.4
+      "seconds": 18.4
     }
   ],
   "update": {
     "town": "beverly",
-    "sources": "all",
-    "started_at": "2026-10-01T15:15:12+00:00",
+    "sources": "meetings",
+    "started_at": "2026-10-01T15:59:39+00:00",
     "ok": true,
     "steps": [
       {
@@ -42,7 +42,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 32.5,
+        "seconds": 1.3,
         "cadence": "continuous"
       },
       {
@@ -50,9 +50,8 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [archive] in the config"
+        "seconds": 274.3,
+        "cadence": "continuous"
       },
       {
         "name": "Fetch School Committee documents",
@@ -68,7 +67,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 71.6,
+        "seconds": 144.2,
         "cadence": "continuous"
       },
       {
@@ -76,40 +75,45 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
-        "cadence": "yearly"
+        "seconds": 0,
+        "cadence": "yearly",
+        "skipped": "checked 0 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 3.6,
-        "cadence": "yearly"
+        "seconds": 0,
+        "cadence": "yearly",
+        "skipped": "checked 0 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
-        "cadence": "yearly"
+        "seconds": 0,
+        "cadence": "yearly",
+        "skipped": "checked 0 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 25.4,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch building permits",
@@ -125,26 +129,8 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.1,
+        "seconds": 0.2,
         "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [seeclickfix] in the config"
-      },
-      {
-        "name": "Compute 311 scorecard",
-        "ok": true,
-        "required": true,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [seeclickfix] in the config"
       }
     ]
   },
@@ -152,7 +138,7 @@
   "sources": [
     {
       "label": "Meetings (Agenda Center)",
-      "updated_at": "2026-10-01T11:15:13-04:00",
+      "updated_at": "2026-10-01T11:59:40-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -223,7 +209,7 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-01T15:17:49+00:00",
-  "data_bytes": 420397,
-  "data_bytes_added": 352422
+  "last_good_at": "2026-10-01T16:07:19+00:00",
+  "data_bytes": 626302,
+  "data_bytes_added": 199990
 }
