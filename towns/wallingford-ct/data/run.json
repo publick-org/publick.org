@@ -1,16 +1,16 @@
 {
   "town": "wallingford",
   "folder": "wallingford-ct",
-  "started_at": "2026-10-01T21:57:41+00:00",
-  "finished_at": "2026-10-01T21:59:11+00:00",
-  "engine": "v1.21.0",
+  "started_at": "2026-10-01T23:32:49+00:00",
+  "finished_at": "2026-10-01T23:37:08+00:00",
+  "engine": "v1.22.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 70.5
+      "seconds": 238.2
     },
     {
       "name": "Build site",
@@ -22,21 +22,62 @@
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 14.7
+      "seconds": 15.4
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 3.5
+      "seconds": 4.9
     }
   ],
   "update": {
     "town": "wallingford",
-    "sources": "figures",
-    "started_at": "2026-10-01T21:57:42+00:00",
+    "sources": "meetings",
+    "started_at": "2026-10-01T23:32:49+00:00",
     "ok": true,
     "steps": [
+      {
+        "name": "Fetch meetings",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 8.0,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch minutes",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.3,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch School Committee documents",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [drive_meetings] in the config"
+      },
+      {
+        "name": "Fetch school board meetings",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 79.2,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Summarize agendas",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 150.1,
+        "cadence": "continuous"
+      },
       {
         "name": "Fetch tax bill",
         "ok": true,
@@ -60,8 +101,9 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 69.8,
-        "cadence": "yearly"
+        "seconds": 0,
+        "cadence": "yearly",
+        "skipped": "checked 0 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -89,6 +131,14 @@
         "seconds": 0,
         "cadence": "continuous",
         "skipped": "no [permits] in the config"
+      },
+      {
+        "name": "Move saved documents to storage",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.2,
+        "cadence": "continuous"
       }
     ]
   },
@@ -96,7 +146,13 @@
   "sources": [
     {
       "label": "Meetings (town website)",
-      "updated_at": "2026-10-01T16:45:14-04:00",
+      "updated_at": "2026-10-01T19:32:49-04:00",
+      "max_days": 2,
+      "stale": false
+    },
+    {
+      "label": "Board of Education meetings (school district website)",
+      "updated_at": "2026-10-01T19:32:58-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -145,11 +201,11 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-01T21:59:11+00:00",
-  "data_bytes": 447442,
-  "data_bytes_added": 3644,
+  "last_good_at": "2026-10-01T23:37:08+00:00",
+  "data_bytes": 605670,
+  "data_bytes_added": 159003,
   "activity": {
-    "boards": 22,
+    "boards": 26,
     "meetings_by_date": {
       "2026-10-01": 1,
       "2026-10-05": 2,
