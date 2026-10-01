@@ -106,6 +106,22 @@ and the budget and schools sections out; it still gets meetings, 311,
 unemployment, and housing. List each source in its `[freshness]` table, so the
 status page shows it.
 
+Add the `officials` section and an `[officials]` table (the engine README's
+config table): the mayor, the council, and the school committee, from official
+city and school websites, with `checked` set to the day you checked them. Use
+only city- or school-issued email addresses and the mayor's office phone, not
+personal numbers the city may also publish. Give a member a `ward` only if
+the seat is elected by that ward.
+
+## Keeping officials current
+
+Each town's `[officials]` table is kept by hand. Check every town's members
+against the city and school websites after each municipal election (the next
+for Gloucester, Malden, and Manchester is November 2027; new terms start in
+January 2028), and whenever a seat changes between elections (a resignation,
+an appointment to fill a vacancy, new council or committee officers). Update
+the members and `checked` in one pull request.
+
 ## New Hampshire's yearly figures
 
 New Hampshire's tax rates and school figures come from statewide files the
