@@ -34,9 +34,9 @@ Worker, which picks the site by hostname: `gloucester-ma.publick.org` is
 `pipeline/deploy.py` and `worker/index.js`.
 
 - **Daily**, started every hour from 09:05 to 14:05 UTC by the
-  `publick-scheduler` Worker (`wrangler.scheduler.toml`), with GitHub's own
-  schedule in the same hours as a backup, since GitHub starts those late or not
-  at all. Each start takes the towns that are due (their last daily run
+  `publick-scheduler` Worker (`wrangler.scheduler.toml`), with one GitHub
+  schedule (12:17 UTC) as a backup, since GitHub starts those late or not at
+  all. Each start takes the towns that are due (their last daily run
   finished more than `DUE_HOURS`, 18, ago), oldest first; a start with nothing
   due does nothing, and the next start makes up a missed one.
   - The statewide job fetches the sources a state's towns share, once for all
@@ -47,11 +47,18 @@ Worker, which picks the site by hostname: `gloucester-ma.publick.org` is
     per job, up to ten jobs at a time. Daily runs give the accessibility checks
     a sample of each town's pages (every hand-written page, and the first and
     largest of each kind of record page); every other run checks every page.
-  - AI summaries share one budget, `SUMMARY_BUDGET` ($50 a month): each run
-    gives each of its towns a share of what's left, new documents first.
+  - AI summaries and translations share one budget, `SUMMARY_BUDGET` ($50 a
+    month; a month can have its own in `SUMMARY_BUDGET_MONTH`, as October 2026
+    has $80): each run gives each of its towns a share of what's left, new
+    documents first.
 - **On push to `main`:** rebuilds and publishes the towns the push touched (every
-  town when `engine-version` or a workflow changed), and the homepage if `home/`,
-  `scripts/` or a town's config changed. Data isn't fetched.
+  town when `engine-version` or a workflow changed), records that in their run
+  records, and rebuilds the homepage and status page. Data isn't fetched.
+- **The engine, once a day** (`engine.yml`, 08:40 UTC): after the engine's daily
+  release, a pull request moves `engine-version` to it. Its run builds and
+  checks every page of every town; merging it publishes them. So the towns
+  take at most one new engine a day. For an urgent fix, release the engine
+  now (its **Actions → Release → Run workflow**) and run **Actions → Engine**.
 - **On a pull request:** builds and checks the towns it touches. Nothing is published.
 - **By hand** (**Actions → Network → Run workflow**): tick **daily** for a daily
   run, as the scheduler starts; or any towns, with or without fetching; with no
@@ -185,6 +192,7 @@ In this repository's **Settings → Secrets and variables → Actions**:
 | `SITES_ACCESS_KEY_ID`, `SITES_SECRET_ACCESS_KEY` | The R2 token from step 2 |
 | `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` | The token from step 3, and the account ID |
 | `ANTHROPIC_API_KEY`, `BLS_API_KEY`, `STORAGE_ACCESS_KEY_ID`, `STORAGE_SECRET_ACCESS_KEY` | As for a town repository (engine README, Secrets) |
+| `ENGINE_PR_TOKEN` | For `engine.yml`'s daily pull request: a fine-grained personal access token for this repository only, with **Contents** and **Pull requests** read and write, so the pull request's checks start by themselves (one opened with the workflow's own token doesn't start them; close and reopen it to). Without it, turn on **Settings → Actions → General → Allow GitHub Actions to create and approve pull requests** |
 | `SCHEDULER_GITHUB_TOKEN` | For the scheduler Worker: a fine-grained personal access token with resource owner `publick-org`, this repository only, and **Actions** and **Issues** read and write. It expires (the current one, made 2026-09-30, about 2027-10-01); replace it (then run **Actions → Worker**) before it does. Until then, runs fall back to GitHub's own schedule |
 
 The scheduler's Cron Triggers also need the Cloudflare account to have a
