@@ -97,12 +97,18 @@ public_stats = ""
 # Public meetings, from the city's CivicPlus calendar.
 [meetings]
 base_url = "https://www.gloucester-ma.gov"
+# The calendar's feed lists only its next 20 events, about two weeks; engines
+# before v1.31 read it, and later ones read the calendar month by month
+# ([meetings.civicplus], below) instead.
 calendar_feed = "RSSFeed.aspx?ModID=58&CID=All-calendar.xml"
 # Calendar entries whose title matches this are public meetings; the rest
 # (festivals, community events) are skipped.
 include_pattern = '\b(board|commission|committee|subcommittee|council|authority|trust|meeting|hearing)\b'
 request_delay = 3.0
 max_event_pages = 40
+
+# The city calendar, month by month: this month and the next two.
+[meetings.civicplus]
 
 # Calendar names mapped to one consistent name per public body.
 [meetings.aliases]
@@ -111,6 +117,11 @@ max_event_pages = 40
 "Planning & Development" = "City Council Planning & Development Committee"
 "Budget & Finance" = "City Council Budget & Finance Committee"
 "Program Subcommittee" = "School Committee Program Subcommittee"
+# The School Committee's calendar names its subcommittees without the committee.
+"Building and Finance Subcommittee" = "School Committee Building & Finance Subcommittee"
+"Personnel Subcommittee" = "School Committee Personnel Subcommittee"
+"Personnel Subcommittee Online" = "School Committee Personnel Subcommittee"
+"Ad Hoc Communications Subcommittee" = "School Committee Ad Hoc Communications Subcommittee"
 
 # 311 requests, from SeeClickFix (public requests only).
 [seeclickfix]
@@ -337,7 +348,7 @@ since = "2026-06-28"
 # The district's list of meeting dates for the year; upcoming meetings are
 # shown from it up to schedule_days_ahead days out, before agendas are posted.
 schedule_url = "https://schoolcommittee.gloucesterschools.com/meeting-schedule"
-schedule_days_ahead = 45
+schedule_days_ahead = 75
 abbreviations = ["SC", "B&F", "B & F", "Program", "Personnel", "Ad Hoc Communications", "Communications"]
 
 [drive_meetings.bodies]

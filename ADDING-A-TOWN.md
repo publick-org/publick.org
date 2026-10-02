@@ -94,8 +94,25 @@ For Massachusetts (New Hampshire: start from Manchester's config):
       tables above, and `[freshness]` (drop 311 if the town has none).
 - [ ] **Colors** (`[site.colors]`): the most-used colors in the city
       website's stylesheet; each must reach 4.5:1 on white.
+- [ ] **City calendar** (`[meetings.civicplus]`, for a CivicPlus city): the
+      calendar read month by month, with `calendars` naming the city's
+      calendar of public meetings ("City Meetings"), even when the Agenda
+      Center has the agendas: an Agenda Center lists a meeting only once its
+      agenda is posted. A meeting in both is shown once.
 - [ ] **Board names** (`[meetings.aliases]`): only names the engine doesn't
-      fix itself (it already turns "Health, Board of" round).
+      fix itself (it already turns "Health, Board of" round, and matches a
+      calendar's "Open Space and Recreation Committee" or "Malden Cultural
+      Council" to the Agenda Center's "Open Space & Recreation Committee" or
+      "Cultural Council"). `python -m pipeline.listings` lists the meetings
+      shown as one and why; a calendar meeting next to an Agenda Center one
+      of the same day, not put together, needs an alias.
+- [ ] **School board**: where the district lists its meetings, so they're
+      shown before their agendas: its calendar feed (`[ical_meetings]`), a
+      page of the year's dates (`[schedule_meetings]`, or `schedule_url` in
+      `[finalsite_meetings]` or `[drive_meetings]`).
+- [ ] **City or town** needs nothing: the first run records the Census
+      Bureau's word for the place (`data/place.json`), and the site says "the
+      city" or "the town" to match. Set `[town] kind` only to override it.
 - [ ] **Council committees** (`[meetings.agenda_center.committees]`): list
       each committee by a phrase in its agenda titles. When titles name two
       ("Public Services/Committee of the Whole"), leave the shared one out so
