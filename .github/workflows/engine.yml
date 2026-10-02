@@ -1,0 +1,70 @@
+# Moves engine-version to the engine's newest release, once a day, by a pull
+# request. The engine releases at most once a day (its release.yml, 08:20 UTC);
+# this runs after it, before the morning's daily runs, so every town takes at
+# most one new engine a day, and only after the pull request's run has built
+# and checked every page of every town with it (network.yml). Merge it to move
+# the towns; it never merges itself. Rolling back is moving engine-version
+# back the same way.
+#
+# An urgent fix: release the engine now (its Actions -> Release -> Run
+# workflow), then run this (Actions -> Engine -> Run workflow).
+#
+# A pull request opened with this workflow's own token doesn't start other
+# workflows, so its checks wouldn't run. The repository secret
+# ENGINE_PR_TOKEN, a fine-grained token for this repository with Contents and
+# Pull requests read and write, opens it instead, so the checks start.
+# Without it, the pull request is still opened (with Settings -> Actions ->
+# General -> "Allow GitHub Actions to create and approve pull requests" on),
+# and closing and reopening it starts its checks.
+name: Engine
+
+on:
+  schedule:
+    # 08:40 UTC: after the engine's daily release (08:20), before the first daily run (09:05).
+    - cron: "40 8 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  move:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Open or update the pull request
+        env:
+          GH_TOKEN: ${{ secrets.ENGINE_PR_TOKEN || github.token }}
+          HAS_TOKEN: ${{ secrets.ENGINE_PR_TOKEN != '' }}
+          BRANCH: engine-version
+        run: |
+          current=$(tr -d '[:space:]' < engine-version)
+          newest=$(gh release view --repo publick-org/publick-engine --json tagName --jq .tagName)
+          echo "engine-version is $current; the newest release is $newest."
+          if [ "$current" = "$newest" ]; then
+            echo "Nothing to move."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git switch -C "$BRANCH"
+          echo "$newest" > engine-version
+          git commit -qam "Engine $newest"
+          git push -f origin "$BRANCH"
+          body="Moves every town from $current to [$newest](https://github.com/publick-org/publick-engine/releases/tag/$newest).
+
+          Changes: https://github.com/publick-org/publick-engine/compare/$current...$newest
+
+          This pull request's run builds and checks every page of every town with $newest. Merge when it's green; the towns publish with it on the push that follows. Opened by .github/workflows/engine.yml."
+          number=$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number // empty')
+          if [ -n "$number" ]; then
+            gh pr edit "$number" --title "Engine $newest" --body "$body"
+          else
+            gh pr create --head "$BRANCH" --base main --title "Engine $newest" --body "$body"
+          fi
+          if [ "$HAS_TOKEN" != true ]; then
+            echo "::warning::ENGINE_PR_TOKEN isn't set, so the pull request's checks don't start by themselves: close and reopen it to start them."
+          fi
