@@ -5,7 +5,7 @@ from this one repository with the [Publick engine](https://github.com/publick-or
 at the version in `engine-version`.
 
 ```
-engine-version                The engine release every town runs, e.g. v1.19.0
+engine-version                The engine release every town runs, e.g. v1.30.0; moved each morning by engine.yml
 ADDING-A-TOWN.md              The checklist for adding a town, from an empty folder to its first published site
 home/                         The publick.org homepage (index.html) and the page for a state with many towns
                               (state.html); their town lists are filled in by scripts/build_home.py
@@ -147,8 +147,8 @@ engine saves once a year, because the state's websites refuse automated
 requests. When the status page shows "New Hampshire state figures (yearly)" as
 behind for a New Hampshire town, download the new files in a browser and run
 the engine's `python -m pipeline.states.nh.extract` (the engine README, New
-Hampshire's yearly figures), merge that to the engine, and move
-`engine-version` here to the release it makes.
+Hampshire's yearly figures) and merge that to the engine. The next morning's
+release and engine move (`engine.yml`) take it to every New Hampshire town.
 
 ## Moving a town in from its own repository
 
