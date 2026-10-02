@@ -95,7 +95,7 @@ goatcounter = "publick"
 prefix = "malden-ma"
 public_stats = ""
 
-# Public meetings, from the city's CivicPlus Agenda Center.
+# Public meetings, from the city's CivicPlus calendar and Agenda Center.
 [meetings]
 base_url = "https://www.cityofmalden.org"
 archive_url = "https://www.cityofmalden.org/AgendaCenter"
@@ -103,9 +103,20 @@ archive_name = "city's Agenda Center"
 request_delay = 3.0
 max_event_pages = 40
 
-# Agenda Center categories renamed to the board's usual name.
+# The city calendar, read month by month ([meetings.civicplus], engine v1.31 on):
+# the meetings the city lists before their agendas are posted, with their
+# times and places. A meeting on the calendar and in the Agenda Center is
+# shown once.
+[meetings.civicplus]
+calendars = ["Boards and Commissions Meetings"]
+
+# Agenda Center categories, and calendar names, renamed to the board's usual name.
 [meetings.aliases]
 "Transportation Commission (formerly Traffic Commission)" = "Transportation Commission"
+# The calendar's names for boards the Agenda Center names otherwise.
+"PersonnelAppointments" = "City Council Personnel Appointments Committee"
+"Rules & Ordinance Committee" = "City Council Rules and Ordinance Committee"
+"Municipal Building Committee" = "Municipal Building Committee - Malden River Works"
 "Site Plan Review Committee for ADUs and Educational, Religious & Child Care Facility Uses" = "Site Plan Review Committee"
 "Mystic Valley Public Health Coalition Meeting" = "Mystic Valley Public Health Coalition"
 
@@ -142,6 +153,14 @@ exclude_categories = ["Community Outreach"]
 "Policy Subcommittee" = "School Committee Policy Subcommittee"
 "Technology Subcommittee" = "School Committee Technology Subcommittee"
 "Finance Subcommittee" = "School Committee Finance Subcommittee"
+
+# The School Committee's dates for the year, from the school district's
+# website: its meetings are listed before their agendas are posted in the
+# Agenda Center ([schedule_meetings], engine v1.31 on).
+[schedule_meetings]
+url = "https://www.maldenps.org/district-information/school-committee/school-committee-meetings"
+source_name = "Malden Public Schools"
+body = "School Committee"
 
 # 311 requests, from SeeClickFix (public requests only).
 [seeclickfix]

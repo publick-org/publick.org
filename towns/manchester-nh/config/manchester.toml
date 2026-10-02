@@ -176,10 +176,22 @@ since = "2026-01-01"
 calendar_url = "https://www.manchesternh.gov/Government/City-Calendars"
 module_id = 3737
 since = "2026-01-01"
-months_ahead = 1
+months_ahead = 2
 include_pattern = '\b(board|commission|committee|council|corporation|trust|funds|meeting|hearing)\b'
 # The aldermanic boards come from CivicClerk; their calendar entries repeat them.
 exclude_pattern = '\b(Aldermen|Committee on|Board of Registrars|Board of Recount|Personnel Appeals Board)\b'
+
+# Where the city's own listing is wrong, found by hand: shown on the meeting's
+# page with the reason and how it's known (engine v1.31 on). Once the city
+# changes the listing after `checked`, the correction comes down until it's
+# checked again.
+[[meetings.corrections]]
+board = "Arts Commission"
+date = "2026-11-09"
+doubtful = true
+checked = "2026-10-02"
+note = "The city calendar also lists the Arts Commission on Tuesday, October 27 and Tuesday, November 24: the fourth Tuesday of the month, when the commission now meets. This Monday entry is older than those two and is most likely left over from its earlier schedule. Check with the city before going."
+evidence = "https://www.manchesternh.gov/Government/City-Calendars/ModuleID/3737/ItemID/106927/mctl/EventDetails"
 
 # Agenda and minutes PDFs live in the network's documents bucket, not in git
 # (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID, STORAGE_SECRET_ACCESS_KEY.
@@ -356,6 +368,8 @@ members = [
 # site shows its English name after it. To be checked by a person who reads
 # Spanish before the site launches.
 [strings.es]
+# The correction in [[meetings.corrections]].
+"The city calendar also lists the Arts Commission on Tuesday, October 27 and Tuesday, November 24: the fourth Tuesday of the month, when the commission now meets. This Monday entry is older than those two and is most likely left over from its earlier schedule. Check with the city before going." = "El calendario de la ciudad también muestra la Comisión de las Artes el martes 27 de octubre y el martes 24 de noviembre: el cuarto martes del mes, cuando la comisión se reúne ahora. Esta publicación de un lunes es más antigua que esas dos y probablemente quedó de su horario anterior. Consulte con la ciudad antes de ir."
 # The masthead and the share text.
 "Public data on how Manchester, New Hampshire is doing. Updated daily." = "Datos públicos sobre cómo le va a Manchester, New Hampshire. Se actualizan a diario."
 "An independent guide to city government in Manchester, New Hampshire" = "Una guía independiente sobre el gobierno de la ciudad de Manchester, New Hampshire"
