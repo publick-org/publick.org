@@ -4,7 +4,7 @@
 #
 #   schedule   Daily runs, started on time every hour of the morning by the
 #              publick-scheduler Worker (wrangler.scheduler.toml; a
-#              workflow_dispatch with daily), with GitHub's own schedule as a
+#              workflow_dispatch with daily), with one GitHub schedule as a
 #              backup, since GitHub starts scheduled runs late or not at all.
 #              A daily run takes the towns that are due: those whose last
 #              fetching run finished more than DUE_HOURS ago, oldest first. So
@@ -16,9 +16,9 @@
 #              of each kind of record page (the engine's site_checks/pages.py).
 #              Then republishes the homepage, for its status page (publick.org/status/).
 #   push       Rebuilds and publishes the towns a change touched (all of them
-#              when engine-version or a workflow changed), and the homepage
-#              when home/, scripts/ or a town's config changed (its town lists
-#              come from towns/). No fetching. The browser checks run on a
+#              when engine-version or a workflow changed), records that in each
+#              town's run record (data/run.json), and rebuilds the homepage and
+#              its status page. No fetching. The browser checks run on a
 #              sample of pages: the pull request already checked every one.
 #              It first waits for a daily or manual run in progress, which
 #              publishes its towns before it commits their data: built from
@@ -46,12 +46,9 @@
 name: Network
 
 on:
-  # A backup for the scheduler Worker's starts. Towns are picked by need, so these only matter when
-  # the Worker's didn't happen.
+  # A backup for the scheduler Worker's starts. Towns are picked by need, so this only matters when
+  # the Worker's didn't happen; it's late in the morning's starts, so it finds what they missed.
   schedule:
-    - cron: "17 9 * * *"
-    - cron: "17 10 * * *"
-    - cron: "17 11 * * *"
     - cron: "17 12 * * *"
   push:
     branches: [main]
@@ -95,8 +92,10 @@ env:
   # Towns per job on a scheduled run. Each job installs Python and the browser for the checks once, then runs
   # its towns in turn. Other runs have one town per job.
   BATCH_SIZE: 4
-  # The network's monthly budget for AI summaries, in dollars, shared by every town.
+  # The network's monthly budget for AI summaries and translations, in dollars, shared by every town.
   SUMMARY_BUDGET: "50"
+  # A month with a budget of its own, as YYYY-MM=dollars: October 2026, with six towns' launch backlogs.
+  SUMMARY_BUDGET_MONTH: "2026-10=80"
   # Who the daily issue for towns that need attention is assigned to, so it reaches them.
   ALERT_ASSIGNEE: NasTber
   # A daily run takes the towns whose last fetching run finished more than this many hours ago.
@@ -230,8 +229,10 @@ jobs:
           matrix=$(python -m pipeline.network plan "${args[@]}" --batch-size "$batch")
           echo "$matrix"
           any=$([ "$matrix" = '{"include": []}' ] && echo false || echo true)
-          # A run that fetches records each town's result (data/run.json); the homepage's status page shows them.
+          # A run that fetches records each town's result (data/run.json), and one that publishes without fetching
+          # records that it did; the homepage's status page shows them.
           [ "$fetch" = true ] && [ "$any" = true ] && home=true
+          [ "$deploy" = true ] && [ "$any" = true ] && home=true
           # A daily run that did something: delete old builds and unused files.
           [ "$daily" = true ] && [ "$any" = true ] && prune=true
           {
@@ -256,7 +257,9 @@ jobs:
           CATCH_UP: ${{ github.event_name == 'workflow_dispatch' && !inputs.daily && inputs.catch_up || '' }}
         run: |
           towns=$(jq '[.include[].towns | split(" ")[]] | length' <<< "$MATRIX")
-          budget=$(python -m pipeline.network budget --monthly "$SUMMARY_BUDGET" --towns-in-run "$towns")
+          monthly="$SUMMARY_BUDGET"
+          [ "${SUMMARY_BUDGET_MONTH%%=*}" = "$(date -u +%Y-%m)" ] && monthly="${SUMMARY_BUDGET_MONTH#*=}"
+          budget=$(python -m pipeline.network budget --monthly "$monthly" --towns-in-run "$towns")
           echo "$budget"
           allowance=$(jq -r .allowance <<< "$budget")
           backlog=$(jq -r .backlog_allowance <<< "$budget")
@@ -394,6 +397,21 @@ jobs:
           for town in "${towns[@]}"; do paths+=("towns/$town/data"); done
           .publick-engine/.github/scripts/commit-data.sh "Update data for $TOWNS" "${paths[@]}"
 
+      # A run that published without fetching (a push, a rebuild) updates only the run records, so the status
+      # page and the daily alert know the sites are up.
+      - name: Commit run records
+        if: ${{ !cancelled() && needs.plan.outputs.fetch != 'true' && needs.plan.outputs.deploy == 'true' && github.event_name != 'pull_request' }}
+        env:
+          TOWNS: ${{ matrix.towns }}
+          COMMIT_ATTEMPTS: 10
+        run: |
+          read -ra towns <<< "$TOWNS"
+          paths=()
+          for town in "${towns[@]}"; do
+            [ -f "towns/$town/data/run.json" ] && paths+=("towns/$town/data/run.json")
+          done
+          [ ${#paths[@]} -eq 0 ] || .publick-engine/.github/scripts/commit-data.sh "Record publishing $TOWNS" "${paths[@]}"
+
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
@@ -448,9 +466,9 @@ jobs:
         run: python scripts/build_status.py --out _home
 
       # One issue for every town that needs attention, rather than a failed run for each: updated after
-      # each run that fetches (an edit sends no email), and closed when every town is caught up.
+      # each run that fetches or publishes (an edit sends no email), and closed when every town is caught up.
       - name: Update the issue for towns that need attention
-        if: needs.plan.outputs.fetch == 'true' && github.event_name != 'pull_request'
+        if: (needs.plan.outputs.fetch == 'true' || needs.plan.outputs.deploy == 'true') && github.event_name != 'pull_request'
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
