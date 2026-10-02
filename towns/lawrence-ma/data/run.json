@@ -1,0 +1,243 @@
+{
+  "town": "lawrence",
+  "folder": "lawrence-ma",
+  "started_at": "2026-10-02T02:42:48+00:00",
+  "finished_at": "2026-10-02T02:46:19+00:00",
+  "engine": "v1.24.0",
+  "fetched": true,
+  "steps": [
+    {
+      "name": "Fetch new data",
+      "ok": true,
+      "error": null,
+      "seconds": 156.1
+    },
+    {
+      "name": "Build site",
+      "ok": true,
+      "error": null,
+      "seconds": 2.6
+    },
+    {
+      "name": "Check site",
+      "ok": true,
+      "error": null,
+      "seconds": 35.2
+    },
+    {
+      "name": "Publish site",
+      "ok": true,
+      "error": null,
+      "seconds": 17.0
+    }
+  ],
+  "update": {
+    "town": "lawrence",
+    "sources": "all",
+    "started_at": "2026-10-02T02:42:48+00:00",
+    "ok": true,
+    "steps": [
+      {
+        "name": "Fetch meetings",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 11.0,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch minutes",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 40.9,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch School Committee documents",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [drive_meetings] in the config"
+      },
+      {
+        "name": "Fetch school board meetings",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [finalsite_meetings] in the config"
+      },
+      {
+        "name": "Summarize agendas",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 71.9,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch tax bill",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.4,
+        "cadence": "yearly"
+      },
+      {
+        "name": "Fetch unemployment",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.8,
+        "cadence": "monthly"
+      },
+      {
+        "name": "Fetch school figures",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 3.7,
+        "cadence": "yearly"
+      },
+      {
+        "name": "Fetch budget figures",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.5,
+        "cadence": "yearly"
+      },
+      {
+        "name": "Fetch housing figures",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 25.8,
+        "cadence": "monthly"
+      },
+      {
+        "name": "Fetch building permits",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [permits] in the config"
+      },
+      {
+        "name": "Move saved documents to storage",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.2,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch 311 requests",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [seeclickfix] in the config"
+      },
+      {
+        "name": "Compute 311 scorecard",
+        "ok": true,
+        "required": true,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [seeclickfix] in the config"
+      }
+    ]
+  },
+  "stale": false,
+  "sources": [
+    {
+      "label": "Meetings (Agenda Center)",
+      "updated_at": "2026-10-01T22:42:49-04:00",
+      "max_days": 2,
+      "stale": false
+    },
+    {
+      "label": "Average tax bill (Mass. DLS)",
+      "updated_at": "2026-10-01T22:44:53-04:00",
+      "max_days": null,
+      "cadence": "yearly",
+      "failing": 0,
+      "stale": false,
+      "latest": "Fiscal year 2026",
+      "next": "Fiscal year 2027 usually by February 1, 2027",
+      "behind": null
+    },
+    {
+      "label": "City budget (Mass. DLS)",
+      "updated_at": "2026-10-01T22:44:57-04:00",
+      "max_days": null,
+      "cadence": "yearly",
+      "failing": 0,
+      "stale": false,
+      "latest": "Fiscal year 2025 spending",
+      "next": "Fiscal year 2026 spending usually by June 1, 2027",
+      "behind": null
+    },
+    {
+      "label": "School figures (DESE)",
+      "updated_at": "2026-10-01T22:44:54-04:00",
+      "max_days": null,
+      "cadence": "yearly",
+      "failing": 0,
+      "stale": false,
+      "latest": "Class of 2025 graduation rate; Spring 2026 MCAS results; 2025\u201326 attendance",
+      "next": "Class of 2026 graduation rate usually by May 1, 2027; Spring 2027 MCAS results usually by October 1, 2027; 2026\u201327 attendance usually by October 1, 2027",
+      "behind": null
+    },
+    {
+      "label": "Unemployment rate (BLS)",
+      "updated_at": "2026-10-01T22:44:53-04:00",
+      "max_days": null,
+      "cadence": "monthly",
+      "failing": 0,
+      "stale": false,
+      "latest": "August 2026 rate",
+      "next": "September 2026 rate usually by November 10, 2026",
+      "behind": null
+    },
+    {
+      "label": "Housing figures",
+      "updated_at": "2026-10-01T22:44:58-04:00",
+      "max_days": null,
+      "cadence": "monthly",
+      "failing": 0,
+      "stale": false,
+      "latest": "2025 building permits; August 2026 building permits; ACS 2024 5-year estimates; Fiscal year 2026 parcel counts",
+      "next": "2026 building permits usually by June 1, 2027; September 2026 building permits usually by November 1, 2026; ACS 2025 5-year estimates usually by December 15, 2026; Fiscal year 2027 parcel counts usually by March 1, 2027",
+      "behind": null
+    },
+    {
+      "label": "Meeting summaries",
+      "updated_at": null,
+      "max_days": 2,
+      "stale": false,
+      "waiting": [],
+      "waiting_count": 0
+    }
+  ],
+  "failing": [],
+  "deployed": true,
+  "ok": true,
+  "last_good_at": "2026-10-02T02:46:19+00:00",
+  "data_bytes": 419580,
+  "data_bytes_added": 349645,
+  "activity": {
+    "boards": 24,
+    "meetings_by_date": {
+      "2026-10-07": 2
+    }
+  }
+}
