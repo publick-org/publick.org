@@ -126,7 +126,7 @@ district of wards, as on Beverly's School Committee).
 
 Each town's `[officials]` table is kept by hand. Check every town's members
 against the city and school websites after each municipal election (the next
-for Beverly, Gloucester, Malden, Manchester, and Wallingford is November
+for Beverly, Gloucester, Lawrence, Malden, Manchester, and Wallingford is November
 2027; new terms start in January 2028), and whenever a seat changes between elections (a resignation,
 an appointment to fill a vacancy, new council or committee officers). Update
 the members and `checked` in one pull request.
