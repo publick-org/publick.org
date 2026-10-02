@@ -1,0 +1,106 @@
+# Moves engine-version to the engine's newest release, once a day, by itself.
+# The engine releases at most once a day (its release.yml, 08:20 UTC); this
+# runs after it, before the morning's daily runs. It opens a pull request
+# moving engine-version, waits for that pull request's run (network.yml) to
+# build and check every page of every town with the new engine, and merges it
+# when every town passes. The merge's push run publishes the towns with it.
+# So every town takes at most one new engine a day, and only one that passed
+# on every town.
+#
+# If any town fails, nothing is merged: the pull request stays open with its
+# failed run, the towns stay on the engine they have, and this workflow fails,
+# which emails the owner. Fix the engine (the next day's release is checked
+# the same way), or merge the pull request by hand. Rolling back is moving
+# engine-version back by hand.
+#
+# An urgent fix: release the engine now (its Actions -> Release -> Run
+# workflow), then run this (Actions -> Engine -> Run workflow).
+#
+# It needs the repository secret ENGINE_PR_TOKEN: a fine-grained token for this
+# repository with Contents and Pull requests read and write. This workflow's
+# own token can't do it, because what it pushes, opens, or merges doesn't
+# start other workflows: the pull request's checks wouldn't run, and the
+# merge wouldn't publish.
+name: Engine
+
+on:
+  schedule:
+    # 08:40 UTC: after the engine's daily release (08:20), before the first daily run (09:05).
+    - cron: "40 8 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  move:
+    runs-on: ubuntu-latest
+    # The pull request's run checks every page of every town: about half an hour today.
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Open the pull request, wait for its checks, and merge it
+        env:
+          GH_TOKEN: ${{ secrets.ENGINE_PR_TOKEN }}
+          BRANCH: engine-version
+          # How long to wait for the pull request's run before giving up (it's left open).
+          WAIT_MINUTES: 170
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::error::Set the repository secret ENGINE_PR_TOKEN (see this file's comments): without it the pull request's checks don't run and the merge doesn't publish."
+            exit 1
+          fi
+          current=$(tr -d '[:space:]' < engine-version)
+          newest=$(gh release view --repo publick-org/publick-engine --json tagName --jq .tagName)
+          echo "engine-version is $current; the newest release is $newest."
+          if [ "$current" = "$newest" ]; then
+            echo "Nothing to move."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git switch -C "$BRANCH"
+          echo "$newest" > engine-version
+          git commit -qam "Engine $newest"
+          git push -f origin "$BRANCH"
+          sha=$(git rev-parse HEAD)
+          body="Moves every town from $current to [$newest](https://github.com/publick-org/publick-engine/releases/tag/$newest).
+
+          Changes: https://github.com/publick-org/publick-engine/compare/$current...$newest
+
+          Opened by .github/workflows/engine.yml, which merges it by itself once this pull request's run has built and checked every page of every town with $newest. If a town fails, it stays open and the towns stay on $current."
+          number=$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number // empty')
+          if [ -n "$number" ]; then
+            gh pr edit "$number" --title "Engine $newest" --body "$body"
+          else
+            gh pr create --head "$BRANCH" --base main --title "Engine $newest" --body "$body"
+            number=$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number')
+          fi
+
+          # The pull request's run of network.yml, for this commit.
+          deadline=$(( $(date +%s) + WAIT_MINUTES * 60 ))
+          while :; do
+            run=$(gh run list --workflow network.yml --event pull_request --commit "$sha" --limit 1 \
+              --json status,conclusion,url --jq '.[0] // empty')
+            status=waiting; conclusion=""
+            if [ -n "$run" ]; then
+              status=$(jq -r .status <<< "$run")
+              conclusion=$(jq -r '.conclusion // ""' <<< "$run")
+            fi
+            [ "$status" = completed ] && break
+            if [ "$(date +%s)" -ge "$deadline" ]; then
+              echo "::error::Pull request #$number's checks didn't finish in $WAIT_MINUTES minutes; it's left open, and the towns stay on $current."
+              exit 1
+            fi
+            echo "Pull request #$number's checks: $status"
+            sleep 60
+          done
+          url=$(jq -r .url <<< "$run")
+          if [ "$conclusion" != success ]; then
+            echo "::error::Pull request #$number's checks ended '$conclusion' ($url): not merged, and the towns stay on $current."
+            exit 1
+          fi
+          gh pr merge "$number" --merge --match-head-commit "$sha" --delete-branch
+          echo "Merged #$number: every town moves to $newest on the push run that follows."
