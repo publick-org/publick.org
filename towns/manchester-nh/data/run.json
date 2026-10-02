@@ -1,40 +1,34 @@
 {
   "town": "manchester",
   "folder": "manchester-nh",
-  "started_at": "2026-10-01T11:06:45+00:00",
-  "finished_at": "2026-10-01T11:52:41+00:00",
-  "engine": "v1.13.0",
+  "started_at": "2026-10-02T09:55:13+00:00",
+  "finished_at": "2026-10-02T10:37:46+00:00",
+  "engine": "v1.24.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 2692.9
+      "seconds": 2502.9
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 2.2
+      "seconds": 2.6
     },
     {
       "name": "Check site",
-      "ok": true,
-      "error": null,
-      "seconds": 50.5
-    },
-    {
-      "name": "Publish site",
-      "ok": true,
-      "error": null,
-      "seconds": 9.4
+      "ok": false,
+      "error": "exited with status 1",
+      "seconds": 46.6
     }
   ],
   "update": {
     "town": "manchester",
     "sources": "all",
-    "started_at": "2026-10-01T11:06:45+00:00",
+    "started_at": "2026-10-02T09:55:13+00:00",
     "ok": true,
     "steps": [
       {
@@ -42,7 +36,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 55.2,
+        "seconds": 48.6,
         "cadence": "continuous"
       },
       {
@@ -58,15 +52,25 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
-        "cadence": "continuous"
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [drive_meetings] in the config"
+      },
+      {
+        "name": "Fetch school board meetings",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [finalsite_meetings] in the config"
       },
       {
         "name": "Summarize agendas",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 283.6,
+        "seconds": 100.9,
         "cadence": "continuous"
       },
       {
@@ -76,7 +80,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 1 days ago; checked every 30 days"
+        "skipped": "checked 2 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -85,7 +89,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -94,7 +98,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 1 days ago; checked every 30 days"
+        "skipped": "checked 2 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -103,7 +107,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 1 days ago; checked every 30 days"
+        "skipped": "checked 2 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -112,15 +116,16 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 2 days ago; checked every 7 days"
+        "skipped": "checked 3 days ago; checked every 7 days"
       },
       {
         "name": "Fetch building permits",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
-        "cadence": "continuous"
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [permits] in the config"
       },
       {
         "name": "Move saved documents to storage",
@@ -135,7 +140,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 2349.7,
+        "seconds": 2349.8,
         "cadence": "continuous"
       },
       {
@@ -143,28 +148,28 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 2.9,
+        "seconds": 2.8,
         "cadence": "continuous"
       }
     ]
   },
-  "stale": true,
+  "stale": false,
   "sources": [
     {
       "label": "Meetings (city calendar and CivicClerk)",
-      "updated_at": "2026-10-01T07:06:46-04:00",
+      "updated_at": "2026-10-02T05:55:14-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
-      "updated_at": "2026-10-01T07:12:26-04:00",
+      "updated_at": "2026-10-02T05:57:43-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
-      "updated_at": "2026-10-01T07:51:36-04:00",
+      "updated_at": "2026-10-02T06:36:53-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -227,17 +232,24 @@
       "label": "Meeting summaries",
       "updated_at": null,
       "max_days": 2,
-      "stale": true,
-      "waiting": [
-        "minutes for Board of Mayor and Aldermen, 2026-08-04"
-      ],
-      "waiting_count": 1
+      "stale": false,
+      "waiting": [],
+      "waiting_count": 0
     }
   ],
   "failing": [],
-  "deployed": true,
-  "ok": true,
+  "deployed": false,
+  "ok": false,
   "last_good_at": "2026-09-30T17:03:42+00:00",
-  "data_bytes": 10444650,
-  "data_bytes_added": 285255
+  "data_bytes": 10975103,
+  "data_bytes_added": 530388,
+  "activity": {
+    "boards": 27,
+    "meetings_by_date": {
+      "2026-10-06": 1,
+      "2026-10-08": 2,
+      "2026-10-13": 1,
+      "2026-10-15": 1
+    }
+  }
 }

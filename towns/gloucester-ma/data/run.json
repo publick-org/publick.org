@@ -1,40 +1,34 @@
 {
   "town": "gloucester",
   "folder": "gloucester-ma",
-  "started_at": "2026-10-01T09:06:38+00:00",
-  "finished_at": "2026-10-01T09:09:11+00:00",
-  "engine": "v1.13.0",
+  "started_at": "2026-10-02T09:07:26+00:00",
+  "finished_at": "2026-10-02T09:11:24+00:00",
+  "engine": "v1.24.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 120.5
+      "seconds": 209.2
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 2.0
+      "seconds": 2.4
     },
     {
       "name": "Check site",
-      "ok": true,
-      "error": null,
-      "seconds": 26.6
-    },
-    {
-      "name": "Publish site",
-      "ok": true,
-      "error": null,
-      "seconds": 3.3
+      "ok": false,
+      "error": "exited with status 1",
+      "seconds": 25.9
     }
   ],
   "update": {
     "town": "gloucester",
     "sources": "all",
-    "started_at": "2026-10-01T09:06:38+00:00",
+    "started_at": "2026-10-02T09:07:26+00:00",
     "ok": true,
     "steps": [
       {
@@ -50,7 +44,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.3,
+        "seconds": 6.8,
         "cadence": "continuous"
       },
       {
@@ -58,15 +52,24 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 18.5,
+        "seconds": 20.4,
         "cadence": "continuous"
+      },
+      {
+        "name": "Fetch school board meetings",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [finalsite_meetings] in the config"
       },
       {
         "name": "Summarize agendas",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.2,
+        "seconds": 62.7,
         "cadence": "continuous"
       },
       {
@@ -76,7 +79,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 4 days ago; checked every 30 days"
+        "skipped": "checked 5 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -85,7 +88,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -94,7 +97,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 1 days ago; checked every 30 days"
+        "skipped": "checked 2 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -103,7 +106,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 3 days ago; checked every 30 days"
+        "skipped": "checked 4 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -112,7 +115,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 3 days ago; checked every 7 days"
+        "skipped": "checked 4 days ago; checked every 7 days"
       },
       {
         "name": "Fetch building permits",
@@ -135,7 +138,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 61.3,
+        "seconds": 80.6,
         "cadence": "continuous"
       },
       {
@@ -152,19 +155,19 @@
   "sources": [
     {
       "label": "Meetings calendar",
-      "updated_at": "2026-10-01T05:06:39-04:00",
+      "updated_at": "2026-10-02T05:07:27-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
-      "updated_at": "2026-10-01T05:07:37-04:00",
+      "updated_at": "2026-10-02T05:09:34-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
-      "updated_at": "2026-10-01T05:08:38-04:00",
+      "updated_at": "2026-10-02T05:10:55-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -176,7 +179,7 @@
     },
     {
       "label": "School Committee documents (Google Drive)",
-      "updated_at": "2026-10-01T05:07:17-04:00",
+      "updated_at": "2026-10-02T05:08:10-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -245,9 +248,20 @@
     }
   ],
   "failing": [],
-  "deployed": true,
-  "ok": true,
+  "deployed": false,
+  "ok": false,
   "last_good_at": "2026-10-01T09:09:11+00:00",
-  "data_bytes": 8656892,
-  "data_bytes_added": 5515
+  "data_bytes": 8708304,
+  "data_bytes_added": 51418,
+  "activity": {
+    "boards": 28,
+    "meetings_by_date": {
+      "2026-10-05": 1,
+      "2026-10-06": 2,
+      "2026-10-07": 4,
+      "2026-10-08": 2,
+      "2026-10-13": 2,
+      "2026-10-14": 1
+    }
+  }
 }
