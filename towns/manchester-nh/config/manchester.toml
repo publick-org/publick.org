@@ -5,6 +5,10 @@
 # Manchester's website does not run on CivicPlus, so its meetings come from the
 # city calendar and its CivicClerk portal. Its tax rate, tax bill, budget, and
 # school figures are New Hampshire's (the engine's pipeline/states/nh/).
+#
+# Like every Publick town's, the site is in English and Spanish, for the city's
+# Spanish-speaking residents ([site] languages). [strings.es], at the end, gives the Spanish
+# for the town's own text; the engine has the rest.
 
 [site]
 name = "Manchester Publick"
@@ -25,6 +29,8 @@ repo_url = "https://github.com/publick-org/publick.org"
 contact_email = "manchester-nh@publick.org"
 timezone = "America/New_York"
 user_agent = "manchester-nh.publick.org (+https://manchester-nh.publick.org/about/)"
+# English at the site's root, Spanish under /es/.
+languages = ["en", "es"]
 
 # The city's own colors, from manchesternh.gov's stylesheet: its blue (links,
 # buttons), navy (headings), a light tint of the blue, and its deep red (the
@@ -342,3 +348,112 @@ members = [
   { name = "Jim O'Connell", seat = "At-large", role = "Vice Chair" },
   { name = "Cindy Rodenhauser Stewart", seat = "At-large" },
 ]
+
+# The town's own text in Spanish, keyed by its English as written above or as
+# the data writes it (board names, 311 categories). Plain Spanish, addressed as
+# usted, following the engine's site/strings/es-guide.md and Lawrence's table
+# where the English is the same. A board's name is given in Spanish only; the
+# site shows its English name after it. To be checked by a person who reads
+# Spanish before the site launches.
+[strings.es]
+# The masthead and the share text.
+"Public data on how Manchester, New Hampshire is doing. Updated daily." = "Datos públicos sobre cómo le va a Manchester, New Hampshire. Se actualizan a diario."
+"An independent guide to city government in Manchester, New Hampshire" = "Una guía independiente sobre el gobierno de la ciudad de Manchester, New Hampshire"
+
+# Section summaries (the engine translates the section names every town shares).
+"When the Board of Mayor and Aldermen, its committees, and the city's boards and commissions meet, with agendas, and the aldermen's minutes from January 2026 on." = "Cuándo se reúnen la Junta del Alcalde y Concejales, sus comités y las juntas y comisiones de la ciudad, con sus agendas, y las actas de los concejales desde enero de 2026."
+"How fast Public Works responds to service requests, by category and ward." = "Qué tan rápido responde Obras Públicas a las solicitudes de servicio, por categoría y por distrito."
+"The city's adopted budget, its property tax rate and where the tax goes, and the average single-family tax bill." = "El presupuesto aprobado de la ciudad, la tasa del impuesto a la propiedad y a dónde va ese dinero, y la factura promedio del impuesto a la propiedad de una casa unifamiliar."
+"Manchester School District's graduation rate, state test results, and cost per pupil, with the state's." = "La tasa de graduación del Distrito Escolar de Manchester, los resultados de los exámenes estatales y el costo por estudiante, comparados con los del estado."
+"New homes permitted, home values and rents, and the housing stock." = "Viviendas nuevas con permiso de construcción, el valor de las viviendas y los alquileres, y cuántas viviendas hay."
+"The mayor, aldermen, and Board of School Committee, by office and by ward, and how to reach them." = "El alcalde, los concejales y el Comité Escolar, por cargo y por distrito, y cómo comunicarse con ellos."
+"Data sources, update schedule, metric definitions, and corrections." = "Fuentes de los datos, cuándo se actualizan, qué significa cada medida y correcciones."
+
+# Where the city posts agendas and minutes, and the data the site keeps up to date.
+"city's Meeting Minutes and Agendas page" = "página de Actas y Agendas de Reuniones de la ciudad"
+"Meetings (city calendar and CivicClerk)" = "Reuniones (calendario de la ciudad y CivicClerk)"
+"311 requests" = "Solicitudes al 311"
+"311 scorecard" = "Cómo responde la ciudad al 311"
+
+# Officials: notes, seats, and roles.
+"Elected citywide for two years. The mayor presides over the Board of Mayor and Aldermen and chairs the Board of School Committee." = "Elegido por toda la ciudad por dos años. El alcalde preside la Junta del Alcalde y Concejales y el Comité Escolar."
+"Twelve aldermen elected by ward and two at-large, for two years. The mayor presides." = "Doce concejales elegidos por distrito y dos por toda la ciudad, por dos años. El alcalde preside."
+"Twelve members elected by ward and two at-large, with the mayor as chair." = "Doce miembros elegidos por distrito y dos por toda la ciudad, con el alcalde como presidente."
+"Citywide" = "Toda la ciudad"
+"At-large" = "Toda la ciudad"
+"Ward 1" = "Distrito 1"
+"Ward 2" = "Distrito 2"
+"Ward 3" = "Distrito 3"
+"Ward 4" = "Distrito 4"
+"Ward 5" = "Distrito 5"
+"Ward 6" = "Distrito 6"
+"Ward 7" = "Distrito 7"
+"Ward 8" = "Distrito 8"
+"Ward 9" = "Distrito 9"
+"Ward 10" = "Distrito 10"
+"Ward 11" = "Distrito 11"
+"Ward 12" = "Distrito 12"
+"Mayor" = "Alcalde"
+"Chair" = "Presidente"
+"Vice Chair" = "Vicepresidente"
+"Chairman of the Board" = "Presidente de la Junta"
+"Appointed February 2026 to fill a vacancy" = "Por nombramiento en febrero de 2026, para cubrir una vacante"
+
+# Boards, as CivicClerk and the city calendar name them (after [meetings.aliases]).
+"Board of Mayor and Aldermen" = "Junta del Alcalde y Concejales"
+"Committee on Accounts, Enrollment & Revenue Administration" = "Comité de Cuentas, Registro y Administración de Ingresos"
+"Committee on Administration/Information Systems" = "Comité de Administración y Sistemas de Información"
+"Committee on Bills on Second Reading" = "Comité de Proyectos en Segunda Lectura"
+"Committee on Community Improvement" = "Comité de Mejoras Comunitarias"
+"Committee on Finance" = "Comité de Finanzas"
+"Committee on Human Resources/Insurance" = "Comité de Recursos Humanos y Seguros"
+"Committee on Joint School Buildings" = "Comité Conjunto de Edificios Escolares"
+"Committee on Lands and Buildings" = "Comité de Terrenos y Edificios"
+"Committee on Public Safety, Health & Traffic" = "Comité de Seguridad Pública, Salud y Tránsito"
+"Special Committee on Airport Activities" = "Comité Especial de Actividades del Aeropuerto"
+"Special Committee on Alcohol, Other Drugs & Youth Services" = "Comité Especial sobre Alcohol, Otras Drogas y Servicios para Jóvenes"
+"Special Committee on Baseball/Civic Center" = "Comité Especial de Béisbol y Centro Cívico"
+"Special Committee on Solid Waste Activities" = "Comité Especial de Desechos Sólidos"
+"Board of School Committee" = "Comité Escolar"
+"Board of Registrars" = "Junta de Registradores de Votantes"
+"Planning Board" = "Junta de Planificación"
+"Zoning Board of Adjustment" = "Junta de Ajustes de Zonificación"
+"Conservation Commission" = "Comisión de Conservación"
+"Heritage Commission" = "Comisión del Patrimonio"
+"Highway Commission" = "Comisión de Vías Públicas"
+"Parks, Recreation & Cemetery Commission" = "Comisión de Parques, Recreación y Cementerios"
+"Board of Water Commissioners" = "Junta de Comisionados del Agua"
+"Board of Health" = "Junta de Salud"
+"Trustees of Trust Funds" = "Junta de Síndicos de los Fondos Fiduciarios"
+"Arts Commission" = "Comisión de las Artes"
+"Manchester Development Corporation" = "Corporación de Desarrollo de Manchester"
+"Central Business Service District Advisory Board" = "Junta Asesora del Distrito de Servicios del Centro Comercial"
+
+# 311 categories, as SeeClickFix names them.
+"ABANDONED FURNITURE/TV'S/TIRES" = "Muebles, televisores o llantas abandonados"
+"Curb Damage" = "Bordillo dañado"
+"DPW-Other" = "Otro (Obras Públicas)"
+"Dead Animal Pick Up" = "Recogida de animales muertos"
+"Drainage: Storm Drain/Catch Basin - Broken" = "Drenaje: desagüe pluvial o sumidero roto"
+"Drainage: Storm Drain/CatchBasin - Clogged" = "Drenaje: desagüe pluvial o sumidero tapado"
+"Fence Damage" = "Cerca dañada"
+"Graffiti Removal" = "Quitar grafiti"
+"Homeless Encampment" = "Campamento de personas sin hogar"
+"Item(s) Not Secured Properly" = "Artículos mal asegurados"
+"Lawn Damage" = "Césped dañado"
+"Mail Box Damage" = "Buzón dañado"
+"Manhole Cover: Loose/Noisy/Raised" = "Tapa de alcantarilla suelta, ruidosa o levantada"
+"Missed Recycling Pickup" = "No recogieron el reciclaje"
+"Missed Trash Pickup" = "No recogieron la basura"
+"Missed Yard Waste Pickup" = "No recogieron los desechos de jardín"
+"Parks and Playgrounds" = "Parques y áreas de juego"
+"Pothole Patch" = "Bache"
+"Prohibited Item(s)" = "Artículos prohibidos"
+"Sign Repair" = "Reparar letrero o señal"
+"Signal Repair" = "Reparar semáforo"
+"Sprinkler Head Damage" = "Rociador dañado"
+"Street Light Repair" = "Reparar luz de la calle"
+"Trash Cart Not Placed Correctly" = "Contenedor de basura mal colocado"
+"Trash Overflowing" = "Basura desbordada"
+"Tree Services" = "Servicios de árboles"
+"Unauthorized Container" = "Contenedor no autorizado"

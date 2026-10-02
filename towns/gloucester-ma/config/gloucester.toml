@@ -1,6 +1,10 @@
 # Site configuration for one town. Everything town-specific lives here so the
 # same code can build another town's site from another file in this folder.
 # Build with: python -m pipeline.build_site --town gloucester
+#
+# The site is in English and Spanish ([site] languages), as every town in the
+# network is. [strings.es], at the end, gives the Spanish for the town's own
+# text and the names in its data (boards, 311 categories); the engine has the rest.
 
 [site]
 name = "Gloucester Publick"
@@ -22,6 +26,8 @@ repo_url = "https://github.com/publick-org/publick.org"
 contact_email = "gloucester-ma@publick.org"
 timezone = "America/New_York"
 user_agent = "gloucester-ma.publick.org (+https://gloucester-ma.publick.org/about/)"
+# English at the site's root, Spanish under /es/.
+languages = ["en", "es"]
 
 [town]
 name = "Gloucester"
@@ -387,3 +393,147 @@ members = [
   { name = "Andrea Liacos", seat = "At-large", term_ends = "2028-01", email = "aliacos2@gloucesterschools.com" },
   { name = "Paul Lundberg", seat = "Mayor", term_ends = "2028-01", email = "plundberg@gloucester-ma.gov" },
 ]
+
+# The town's own text in Spanish, keyed by its English as written above or as
+# the data writes it (board names, 311 categories). Plain Spanish addressed as
+# usted, following the engine's site/strings/es-guide.md; where the English is
+# the same as Lawrence's, so is the Spanish. A board's name is given in Spanish
+# only; the site shows its English name after it. To be checked by a person who
+# reads Spanish before the site launches.
+[strings.es]
+# The masthead and the share text.
+"Public data on how Gloucester, Massachusetts responds, decides, and spends. Updated daily." = "Datos públicos sobre cómo Gloucester, Massachusetts, responde, toma decisiones y gasta su dinero. Se actualizan a diario."
+"An independent guide to city government in Gloucester, Massachusetts" = "Una guía independiente sobre el gobierno de la ciudad de Gloucester, Massachusetts"
+
+# Section summaries (the engine translates the section names every town shares).
+"Every board and committee meeting on the city calendar, with agendas, and minutes from late June 2026 on." = "Todas las reuniones de las juntas y comités en el calendario de la ciudad, con sus agendas, y las actas desde finales de junio de 2026."
+"How fast the city responds to service requests, by category and ward." = "Qué tan rápido responde la ciudad a las solicitudes de servicio, por categoría y por distrito."
+"Graduation, attendance, and MCAS results compared with the state, and a link to the Gloucester Schools Report." = "Graduación, asistencia y resultados del MCAS, comparados con el estado, y un enlace al informe Gloucester Schools Report."
+"Where general fund money comes from and how it is spent, reserves, and the property tax limit." = "De dónde viene el dinero del fondo general y cómo se gasta, las reservas y el límite del impuesto a la propiedad."
+"New homes permitted, home values and rents, affordable housing, and the housing stock." = "Viviendas nuevas con permiso de construcción, el valor de las viviendas y los alquileres, la vivienda asequible y cuántas viviendas hay."
+"The mayor, City Council, and School Committee, by office and by ward, and how to reach them." = "El alcalde, el Concejo Municipal y el Comité Escolar, por cargo y por distrito, y cómo comunicarse con ellos."
+"Data sources, update schedule, metric definitions, and corrections." = "Fuentes de los datos, cuándo se actualizan, qué significa cada medida y correcciones."
+
+# Where meetings are posted, and the data the site keeps up to date.
+"Meetings calendar" = "Calendario de reuniones"
+"311 requests" = "Solicitudes al 311"
+"311 scorecard" = "Cómo responde la ciudad al 311"
+"Building permits (city Data Hub)" = "Permisos de construcción (Data Hub de la ciudad)"
+"School Committee documents (Google Drive)" = "Documentos del Comité Escolar (Google Drive)"
+
+# How to take part.
+"The Council hears from residents during \"oral communications\" and at public hearings." = "El Concejo escucha a los residentes durante las “comunicaciones orales” (oral communications) y en las audiencias públicas."
+"City Council FAQ" = "Preguntas frecuentes sobre el Concejo Municipal"
+"1623 Studios" = "1623 Studios"
+"The public can attend School Committee meetings in person at Gloucester High School or remotely." = "El público puede asistir a las reuniones del Comité Escolar en persona, en la escuela Gloucester High School, o de forma remota."
+"School Committee website" = "Sitio web del Comité Escolar"
+
+# Glossary definitions (the terms themselves stay as the agendas write them).
+"A part of a public meeting closed to the public. State law allows it only for specific reasons, such as lawsuits, negotiations, or personnel matters." = "Una parte de una reunión pública que se hace a puerta cerrada. La ley estatal la permite solo por razones específicas, como demandas, negociaciones o asuntos de personal."
+"Massachusetts General Laws, the state's laws." = "Leyes Generales de Massachusetts (Massachusetts General Laws), las leyes del estado."
+"Americans with Disabilities Act, the federal law on access for people with disabilities." = "Ley de Estadounidenses con Discapacidades (Americans with Disabilities Act), la ley federal sobre el acceso para las personas con discapacidad."
+"Community Preservation Act. A local property tax surcharge, with state matching money, that pays for open space, historic preservation, affordable housing, and recreation." = "Ley de Preservación Comunitaria (Community Preservation Act). Un recargo local al impuesto a la propiedad, con fondos estatales que lo complementan, que paga espacios abiertos, la preservación de lugares históricos, vivienda asequible y recreación."
+"Zoning Board of Appeals." = "Junta de Apelaciones de Zonificación."
+"Massachusetts Cultural Resource Information System, the state's inventory of historic buildings and places." = "Sistema de Información sobre Recursos Culturales de Massachusetts (Massachusetts Cultural Resource Information System), el inventario estatal de edificios y lugares históricos."
+"Certificate of Appropriateness: the commission's approval for exterior changes to a building in a historic district." = "Certificado de Adecuación (Certificate of Appropriateness): la aprobación de la comisión para hacer cambios en el exterior de un edificio en un distrito histórico."
+"Public Employee Retirement Administration Commission, the state agency that oversees Massachusetts public retirement systems." = "Comisión de Administración del Retiro de los Empleados Públicos (Public Employee Retirement Administration Commission), la agencia estatal que supervisa los sistemas públicos de retiro de Massachusetts."
+"Pension Reserves Investment Trust, the state-run investment fund that local retirement systems can invest in." = "Fideicomiso de Inversión de las Reservas de Pensiones (Pension Reserves Investment Trust), el fondo de inversión que administra el estado y en el que pueden invertir los sistemas de retiro locales."
+"Pension Reserves Investment Management Board, which manages the PRIT fund." = "Junta de Administración de las Inversiones de las Reservas de Pensiones (Pension Reserves Investment Management Board), que administra el fondo PRIT."
+"The list of payments, such as pension checks and bills, that the board approves." = "La lista de pagos, como los cheques de pensión y las facturas, que aprueba la junta."
+"Retirement based on age and years of service, rather than disability." = "Retiro por edad y años de servicio, y no por discapacidad."
+"Time worked that counts toward a pension." = "Tiempo trabajado que cuenta para la pensión."
+"Cost-of-living adjustment: an increase to retirees' pensions." = "Ajuste por costo de vida (cost-of-living adjustment): un aumento de las pensiones de los jubilados."
+
+# Officials: notes, seats, and roles.
+"Elected citywide for two years." = "Elegido por toda la ciudad por dos años."
+"Five councilors elected by ward and four at-large, for two years." = "Cinco concejales elegidos por distrito y cuatro por toda la ciudad, por dos años."
+"Six members elected at-large for two years, and the mayor, who votes as the seventh member." = "Seis miembros elegidos por toda la ciudad por dos años, y el alcalde, que vota como séptimo miembro."
+"Citywide" = "Toda la ciudad"
+"At-large" = "Toda la ciudad"
+"Ward 1" = "Distrito 1"
+"Ward 2" = "Distrito 2"
+"Ward 3" = "Distrito 3"
+"Ward 4" = "Distrito 4"
+"Ward 5" = "Distrito 5"
+"Mayor" = "Alcalde"
+"Council President" = "Presidente del Concejo"
+"Council Vice President" = "Vicepresidente del Concejo"
+"Chair" = "Presidente"
+"Vice Chair" = "Vicepresidente"
+"Secretary" = "Secretario"
+
+# Boards, as the city calendar, the Archive Center and the School Committee's
+# Google Drive name them (after the aliases above).
+"City Council" = "Concejo Municipal"
+"City Council Budget & Finance Committee" = "Comité de Presupuesto y Finanzas del Concejo Municipal"
+"City Council Ordinances & Administration Committee" = "Comité de Ordenanzas y Administración del Concejo Municipal"
+"City Council Planning & Development Committee" = "Comité de Planificación y Desarrollo del Concejo Municipal"
+"Joint City Council & Planning Board" = "Reunión conjunta del Concejo Municipal y la Junta de Planificación"
+"School Committee" = "Comité Escolar"
+"School Committee Building & Finance Subcommittee" = "Subcomité de Edificios y Finanzas del Comité Escolar"
+"School Committee Program Subcommittee" = "Subcomité de Programas del Comité Escolar"
+"Board of Assessors" = "Junta de Tasadores"
+"Board of Commissioners of Trust Funds" = "Junta de Comisionados de Fondos Fiduciarios"
+"Board of Health" = "Junta de Salud"
+"Clean Energy Commission" = "Comisión de Energía Limpia"
+"Committee for the Arts" = "Comité de las Artes"
+"Conservation Commission" = "Comisión de Conservación"
+"Council on Aging Board" = "Junta del Consejo para Personas Mayores"
+"EDIC" = "Corporación de Desarrollo Económico e Industrial"
+"Gloucester Retirement Board" = "Junta de Retiro de Gloucester"
+"Historic District Commission" = "Comisión de Distritos Históricos"
+"Historical Commission" = "Comisión Histórica"
+"Human Rights Commission" = "Comisión de Derechos Humanos"
+"Licensing Board" = "Junta de Licencias"
+"Open Space and Recreation Committee" = "Comité de Espacios Abiertos y Recreación"
+"Planning Board" = "Junta de Planificación"
+"Planning Board Subcommittee" = "Subcomité de la Junta de Planificación"
+"Sawyer Free Library Board" = "Junta de la Biblioteca Sawyer Free"
+"Special Event Advisory Committee" = "Comité Asesor de Eventos Especiales"
+"Traffic Commission" = "Comisión de Tránsito"
+"Zoning Board of Appeals" = "Junta de Apelaciones de Zonificación"
+
+# 311 categories, as SeeClickFix names them.
+"Abandoned Vehicle" = "Vehículo abandonado"
+"Animal Issues" = "Problemas con animales"
+"Beaches" = "Playas"
+"Brush" = "Ramas y maleza"
+"Clean Team/Volunteer Yellow Bag Pick Up" = "Recogida de bolsas amarillas de voluntarios (Clean Team)"
+"Community Development" = "Desarrollo comunitario"
+"Conservation" = "Conservación"
+"Crosswalks" = "Cruces peatonales"
+"Graffiti" = "Grafiti"
+"Harbor Master's Office" = "Oficina del capitán de puerto"
+"Illegal Dumping" = "Basura tirada ilegalmente"
+"Maintenance" = "Mantenimiento"
+"Manhole Cover" = "Tapa de alcantarilla"
+"Other" = "Otro"
+"Parking Kiosk" = "Máquina de pago del estacionamiento"
+"Police Department (Non-Emergency)" = "Departamento de Policía (no es emergencia)"
+"Pothole" = "Bache"
+"Private Property Issue" = "Problema en una propiedad privada"
+"Public Spaces (Parks, Playgrounds, Boulevard)" = "Espacios públicos (parques, parques infantiles, el Boulevard)"
+"Road Issues Other Than Potholes" = "Problemas en la calle que no son baches"
+"Sidewalk Issue" = "Problema en la acera"
+"Snow/Ice Removal" = "Quitar nieve o hielo"
+"Snow: Icy Conditions" = "Nieve: hielo en el suelo"
+"Snow: Plow Request" = "Nieve: pedir el quitanieves"
+"Storm Drain/Flooding Issue" = "Desagüe pluvial o inundación"
+"Street Light Issue" = "Problema con la luz de la calle"
+"Street Sign Issue" = "Problema con un letrero de la calle"
+"Traffic Signal Issue" = "Problema con un semáforo"
+"Trash or Recycling" = "Basura o reciclaje"
+"Tree Issues" = "Problemas con árboles"
+"Utilities (Water/Sewer)" = "Servicios de agua y alcantarillado"
+"Water Quality" = "Calidad del agua"
+"Health Department" = "Departamento de Salud"
+"Health Department (Food)" = "Departamento de Salud (alimentos)"
+"Health Department (Food - Internal)" = "Departamento de Salud (alimentos, interno)"
+"Health Department (General Inquiry)" = "Departamento de Salud (consulta general)"
+"Health Department (General Inquiry - Internal)" = "Departamento de Salud (consulta general, interno)"
+"Health Department (General Nuisance/Inquiry)" = "Departamento de Salud (molestias o consulta general)"
+"Health Department (General Nuisance - Internal)" = "Departamento de Salud (molestias en general, interno)"
+"Health Department (Housing) - Internal" = "Departamento de Salud (vivienda), interno"
+"Health Department (Rental Registry Inquiry-Internal)" = "Departamento de Salud (consulta sobre el registro de alquileres, interno)"
+"Health Department (Septic)" = "Departamento de Salud (pozo séptico)"
+"Health Department (Septic - Internal)" = "Departamento de Salud (pozo séptico, interno)"

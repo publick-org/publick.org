@@ -11,6 +11,9 @@
 # school figures so far, from EdSight, so there are no tax bill or budget
 # figures yet; housing and unemployment come from the Census and BLS, as for
 # every town.
+#
+# The site is in English and Spanish ([site] languages). [strings.es], at the
+# end, gives the Spanish for the town's own text; the engine has the rest.
 [site]
 name = "Wallingford Publick"
 # The masthead shows name_prefix in dark ink and name_suffix in the accent
@@ -29,6 +32,7 @@ repo_url = "https://github.com/publick-org/publick.org"
 contact_email = "wallingford-ct@publick.org"
 timezone = "America/New_York"
 user_agent = "wallingford-ct.publick.org (+https://wallingford-ct.publick.org/about/)"
+languages = ["en", "es"]
 
 # From the town website's stylesheet (wallingfordct.gov); each passes WCAG AA
 # on white. The accent is the site's green (#0e956b) darkened to pass.
@@ -260,3 +264,67 @@ members = [
   { name = "Donna Regan", seat = "At-large", term_ends = "2028-01", email = "dregan@wallingfordschools.org" },
   { name = "Marla Roscoe", seat = "At-large", term_ends = "2028-01" },
 ]
+
+[strings.es]
+# The masthead and the share text.
+"Public data on how Wallingford, Connecticut decides and spends. Updated daily." = "Datos públicos sobre cómo Wallingford, Connecticut, toma decisiones y gasta su dinero. Se actualizan a diario."
+"An independent guide to town government in Wallingford, Connecticut" = "Una guía independiente sobre el gobierno municipal de Wallingford, Connecticut"
+
+# Section summaries (the engine translates the section names every town shares).
+"Every board and commission meeting on the town's calendar, with agendas, and minutes from July 2026 on." = "Todas las reuniones de las juntas y comisiones en el calendario del municipio, con sus agendas, y las actas desde julio de 2026."
+"Graduation, attendance, state test results, and spending per pupil compared with the state." = "Graduación, asistencia, resultados de los exámenes estatales y gasto por estudiante, comparados con el estado."
+"New homes permitted, home values and rents, and the housing stock." = "Viviendas nuevas con permiso de construcción, el valor de las viviendas y los alquileres, y cuántas viviendas hay."
+"The mayor, Town Council, and Board of Education, and how to reach them." = "El alcalde, el Concejo Municipal y la Junta de Educación, y cómo comunicarse con ellos."
+"Data sources, update schedule, metric definitions, and corrections." = "Fuentes de los datos, cuándo se actualizan, qué significa cada medida y correcciones."
+
+# Where the town posts agendas and minutes, and the data the site keeps up to date.
+"town's Minutes & Agendas page" = "página de Actas y Agendas del municipio"
+"Meetings (town website)" = "Reuniones (sitio web del municipio)"
+"Board of Education meetings (school district website)" = "Reuniones de la Junta de Educación (sitio web del distrito escolar)"
+
+# Glossary definitions (the terms themselves stay as the agendas write them).
+"A part of a public meeting closed to the public. State law allows it only for specific reasons, such as lawsuits, real estate purchases, or personnel matters." = "Una parte de una reunión pública que se hace a puerta cerrada. La ley estatal la permite solo por razones específicas, como demandas, compras de bienes raíces o asuntos de personal."
+"Connecticut General Statutes, the state's laws." = "Estatutos Generales de Connecticut (Connecticut General Statutes), las leyes del estado."
+"Routine items, such as tax refunds and approving past minutes, voted on together in one motion unless a member asks to take one up separately." = "Asuntos de rutina, como devoluciones de impuestos y la aprobación de actas anteriores, que se votan juntos en una sola moción, a menos que un miembro pida tratar alguno por separado."
+"The board, appointed by the mayor, that oversees the town's own electric, water, and sewer utilities." = "La comisión, nombrada por el alcalde, que supervisa los servicios de electricidad, agua y alcantarillado que son del propio municipio."
+
+# Officials: notes, seats, and roles.
+"Elected townwide for two years." = "Elegido por todo el municipio por dos años."
+"Nine members elected at large for two years, no more than six of them from one party." = "Nueve miembros elegidos por todo el municipio por dos años; no más de seis pueden ser del mismo partido."
+"Nine members elected at large for two years." = "Nueve miembros elegidos por todo el municipio por dos años."
+"Townwide" = "Todo el municipio"
+"At-large" = "Todo el municipio"
+"Mayor" = "Alcalde"
+"Chair" = "Presidente"
+"Chairperson" = "Presidente"
+"Vice Chair" = "Vicepresidente"
+"Vice Chairperson" = "Vicepresidente"
+"Secretary" = "Secretario"
+
+# Boards, as the town's calendar and the school district name them (after [meetings.aliases]).
+"Town Council" = "Concejo Municipal"
+"Board of Education" = "Junta de Educación"
+"Board of Education Instructional Committee" = "Comité de Enseñanza de la Junta de Educación"
+"Board of Education Operations Committee" = "Comité de Operaciones de la Junta de Educación"
+"Board of Education Policy Committee" = "Comité de Políticas de la Junta de Educación"
+"Board of Assessment Appeals" = "Junta de Apelaciones de Tasaciones"
+"Board of Ethics" = "Junta de Ética"
+"Board of Health" = "Junta de Salud"
+"Committee on Aging" = "Comité de Personas Mayores"
+"Conservation Commission" = "Comisión de Conservación"
+"Economic Development Commission" = "Comisión de Desarrollo Económico"
+"Fair Rent Commission" = "Comisión de Alquiler Justo"
+"Inland Wetlands & Watercourses Commission" = "Comisión de Humedales y Cursos de Agua Interiores"
+"Mayor's Council on Substance Abuse Prevention" = "Consejo del Alcalde para la Prevención del Abuso de Sustancias"
+"Ordinance Committee" = "Comité de Ordenanzas"
+"Parks & Recreation Commission" = "Comisión de Parques y Recreación"
+"Pension Commission" = "Comisión de Pensiones"
+"Personnel and Pension Appeals Board" = "Junta de Apelaciones de Personal y Pensiones"
+"Plan of Conservation & Development Implementation Committee" = "Comité de Implementación del Plan de Conservación y Desarrollo"
+"Planning & Zoning Commission" = "Comisión de Planificación y Zonificación"
+"Public Celebrations Committee" = "Comité de Celebraciones Públicas"
+"Public Utilities Commission" = "Comisión de Servicios Públicos"
+"Quinnipiac River Linear Trail Advisory Committee" = "Comité Asesor del Sendero Lineal del Río Quinnipiac"
+"Veterans Memorial Committee" = "Comité del Monumento a los Veteranos"
+"Wallingford Celebrates America 250" = "Wallingford celebra los 250 años de Estados Unidos"
+"Zoning Board of Appeals" = "Junta de Apelaciones de Zonificación"
