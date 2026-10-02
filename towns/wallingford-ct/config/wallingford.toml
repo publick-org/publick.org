@@ -146,12 +146,22 @@ since = "2026-07-01"
 page_url = "https://www.wallingford.k12.ct.us/board-of-education/board-of-education-meetings"
 source_name = "Wallingford Public Schools"
 since = "2026-07-01"
+# The district posts a meeting with its agenda; its schedule for the year lists
+# the dates before that ("10/26/26 BOE Meeting"; engine v1.31 on).
+schedule_url = "https://www.wallingford.k12.ct.us/board-of-education/board-of-education-meetings/board-of-education-schedule-2024"
 
 [finalsite_meetings.bodies]
 "Board of Education" = "Board of Education"
 "Operations Committee" = "Board of Education Operations Committee"
 "Instructional Committee" = "Board of Education Instructional Committee"
 "Policy Committee" = "Board of Education Policy Committee"
+
+# The schedule's names for the boards.
+[finalsite_meetings.schedule_names]
+"BOE" = "Board of Education"
+"Operations" = "Board of Education Operations Committee"
+"Instructional" = "Board of Education Instructional Committee"
+"Policy" = "Board of Education Policy Committee"
 
 # Agenda and minutes PDFs, in the network's documents bucket.
 [storage]

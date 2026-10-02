@@ -96,7 +96,7 @@ goatcounter = "publick"
 prefix = "lawrence-ma"
 public_stats = ""
 
-# Public meetings, from the city's CivicPlus Agenda Center.
+# Public meetings, from the city's CivicPlus calendar and Agenda Center.
 [meetings]
 base_url = "https://www.cityoflawrence.com"
 archive_url = "https://www.cityoflawrence.com/AgendaCenter"
@@ -104,6 +104,13 @@ archive_name = "city's Agenda Center"
 # The city's site resets some connections; a slower pace and the client's retries help.
 request_delay = 5.0
 max_event_pages = 40
+
+# The city calendar, read month by month ([meetings.civicplus], engine v1.31 on):
+# the meetings the city lists before their agendas are posted, with their
+# times and places. A meeting on the calendar and in the Agenda Center is
+# shown once.
+[meetings.civicplus]
+calendars = ["Council, Committees, Boards & Commissions"]
 
 # Agenda Center categories renamed to the board's usual name. The City
 # Council's committees each have a category of their own, named as on the
