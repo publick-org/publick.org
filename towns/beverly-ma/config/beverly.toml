@@ -94,7 +94,7 @@ goatcounter = "publick"
 prefix = "beverly-ma"
 public_stats = ""
 
-# Public meetings, from the city's CivicPlus Agenda Center.
+# Public meetings, from the city's CivicPlus calendar and Agenda Center.
 [meetings]
 base_url = "https://www.beverlyma.gov"
 archive_url = "https://www.beverlyma.gov/AgendaCenter"
@@ -103,10 +103,24 @@ archive_name = "city's Agenda Center"
 request_delay = 4.0
 max_event_pages = 40
 
-# Agenda Center categories renamed to the board's usual name. Names written
-# last-name-first ("Health, Board of") are turned round by the engine.
+# The city calendar, read month by month ([meetings.civicplus], engine v1.31 on):
+# the meetings the city lists before their agendas are posted, with their
+# times and places. A meeting on the calendar and in the Agenda Center is
+# shown once.
+[meetings.civicplus]
+calendars = ["City Meetings"]
+
+# Agenda Center categories, and calendar names, renamed to the board's usual
+# name. Names written last-name-first ("Health, Board of") are turned round by
+# the engine.
 [meetings.aliases]
 "Water Supply Board, Salem and Beverly" = "Salem and Beverly Water Supply Board"
+# The calendar's names for boards the Agenda Center names otherwise.
+"Budget/Managment Analyst Preliminary Screening Committee" = "City Council Budget/Management Analyst Screening Committee"
+"Budget/Management Analyst Preliminary Screening Committee" = "City Council Budget/Management Analyst Screening Committee"
+"Joint Meeting Legal Affairs/Public Services/Committee of the Whole" = "City Council Joint Committee"
+"Historic Districts Commission" = "Historic District Commission"
+"Beverly License Board" = "Licensing Board"
 
 [meetings.agenda_center]
 base_url = "https://www.beverlyma.gov"
@@ -124,6 +138,24 @@ since = "2026-01-01"
 "School Committee" = "Joint City Council and School Committee"
 "Preliminary Screening" = "City Council Budget/Management Analyst Screening Committee"
 "PreliminaryScreening" = "City Council Budget/Management Analyst Screening Committee"
+
+# The School Committee's meetings, from the school district's calendar feed
+# (Edlio), with their times ([ical_meetings], engine v1.31 on). Agendas are on
+# the district's website.
+[ical_meetings]
+ical_url = "https://www.beverlyschools.org/apps/events/ical/?id=0"
+page_url = "https://www.beverlyschools.org/apps/pages/index.jsp?uREC_ID=2083091&type=d"
+source_name = "Beverly Public Schools"
+since = "2026-09-01"
+
+[ical_meetings.bodies]
+"School Committee" = "School Committee"
+"Committee of the Whole" = "School Committee of the Whole"
+"Policy Subcommittee" = "School Committee Policy Subcommittee"
+"Policy Committee" = "School Committee Policy Subcommittee"
+"Finance & Facilities" = "School Committee Finance and Facilities Subcommittee"
+"Negotiations Subcommittee" = "School Committee Negotiations Subcommittee"
+"Curriculum, Instruction & Student Life" = "School Committee Curriculum, Instruction and Student Life Subcommittee"
 
 # Agenda and minutes PDFs, in the network's documents bucket.
 [storage]
