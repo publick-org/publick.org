@@ -1,0 +1,369 @@
+# Site configuration for Lawrence, Massachusetts. Everything town-specific lives
+# here; the code is the Publick engine (github.com/publick-org/publick-engine).
+#
+# Lawrence's website runs on CivicPlus, and every board posts agendas and
+# minutes in the Agenda Center, as Malden's do: the City Council, its
+# committees (each in a category of its own), and the School Committee. The
+# council's minutes are posted months after its meetings, once approved.
+# There is no 311 section: the city takes concerns through a form on its own
+# website, and the few SeeClickFix requests in Lawrence go unanswered. The
+# state sources (DLS, DESE, BLS, Census, the Subsidized Housing Inventory) are
+# the same as Malden's.
+#
+# Most residents are Hispanic and many read Spanish first, so the site is in
+# English and Spanish ([site] languages). [strings.es], at the end, gives the
+# Spanish for the town's own text; the engine has the rest.
+
+[site]
+name = "Lawrence Publick"
+# The masthead shows name_prefix in dark ink and name_suffix in the accent
+# color: the town, then the network.
+name_prefix = "Lawrence "
+name_suffix = "Publick"
+domain = "lawrence-ma.publick.org"
+# The network of town sites this one belongs to, named in every page footer.
+network = "Publick"
+network_url = "https://publick.org"
+tagline = "Public data on how Lawrence, Massachusetts decides and spends. Updated daily."
+# One line under the name at the top of every page.
+masthead = "An independent guide to city government in Lawrence, Massachusetts"
+repo_url = "https://github.com/publick-org/publick.org"
+# Public contact address. Shown on the About and Accessibility pages when set.
+contact_email = "lawrence-ma@publick.org"
+timezone = "America/New_York"
+user_agent = "lawrence-ma.publick.org (+https://lawrence-ma.publick.org/about/)"
+# English at the site's root, Spanish under /es/.
+languages = ["en", "es"]
+
+# From the city website's theme (cityoflawrence.com): its navy and its green;
+# each passes WCAG AA on white. Its gold (#ffcc00) doesn't, so it isn't used.
+[site.colors]
+primary = "#061951"
+primary_dark = "#061951"
+primary_soft = "#e6e8ee"
+accent = "#09846d"
+
+[town]
+name = "Lawrence"
+state = "Massachusetts"
+state_abbr = "MA"
+official_site = "https://www.cityoflawrence.com"
+
+# Sections appear in the main navigation in this order. Each one is a folder
+# under site/pages/<slug>/ and is served at https://<domain>/<slug>/.
+[[sections]]
+slug = "meetings"
+title = "Meetings"
+summary = "Every board and committee meeting in the city's Agenda Center, with agendas, and minutes from January 2026 on."
+status = "live"
+
+[[sections]]
+slug = "schools"
+title = "Schools"
+summary = "Graduation, attendance, and MCAS results compared with the state."
+status = "live"
+
+[[sections]]
+slug = "budget"
+title = "City budget"
+nav = "Budget"
+summary = "Where general fund money comes from and how it is spent, reserves, and the property tax limit."
+status = "live"
+
+[[sections]]
+slug = "housing"
+title = "Housing"
+summary = "New homes permitted, home values and rents, affordable housing, and the housing stock."
+status = "live"
+
+[[sections]]
+slug = "officials"
+title = "Who represents you"
+nav = "Officials"
+summary = "The mayor, City Council, and School Committee, by office and by ward, and how to reach them."
+status = "live"
+
+[[sections]]
+slug = "about"
+title = "About"
+summary = "Data sources, update schedule, metric definitions, and corrections."
+status = "live"
+
+# Page view counting with GoatCounter, on the network's site; prefix is this
+# town's folder.
+[analytics]
+goatcounter = "publick"
+prefix = "lawrence-ma"
+public_stats = ""
+
+# Public meetings, from the city's CivicPlus Agenda Center.
+[meetings]
+base_url = "https://www.cityoflawrence.com"
+archive_url = "https://www.cityoflawrence.com/AgendaCenter"
+archive_name = "city's Agenda Center"
+# The city's site resets some connections; a slower pace and the client's retries help.
+request_delay = 5.0
+max_event_pages = 40
+
+# Agenda Center categories renamed to the board's usual name. The City
+# Council's committees each have a category of their own, named as on the
+# council's Committees page; here they're named as the council's.
+[meetings.aliases]
+"Budget & Finance Committee" = "City Council Budget and Finance Committee"
+"Committee on the Whole" = "City Council Committee of the Whole"
+"Economic Development Committee" = "City Council Economic Development Committee"
+"Housing Committee" = "City Council Housing Committee"
+"Ordinance & Intergovernmental Relations Committee" = "City Council Ordinance and Intergovernmental Relations Committee"
+"Personnel Committee" = "City Council Personnel and Administration Committee"
+"Public Safety Committee" = "City Council Public Safety Committee"
+"Lawrence School Committee" = "School Committee"
+"Lawrence Alliance for Education [LAE]" = "Lawrence Alliance for Education"
+"Lawrence Housing Authority [LHA]" = "Lawrence Housing Authority"
+"Redevelopment Authority" = "Lawrence Redevelopment Authority"
+"Board of Registrar" = "Board of Registrars"
+
+[meetings.agenda_center]
+base_url = "https://www.cityoflawrence.com"
+# The first run lists meetings from here, and minutes are collected from here on.
+since = "2026-01-01"
+
+# Since May 2026 the Housing and Economic Development committees meet as one,
+# posted under either category (sometimes both).
+[meetings.agenda_center.committees."City Council Housing Committee"]
+"Housing and Economic Development" = "City Council Housing and Economic Development Committee"
+"Housing and Economic Dev" = "City Council Housing and Economic Development Committee"
+
+[meetings.agenda_center.committees."City Council Economic Development Committee"]
+"Housing and Economic Development" = "City Council Housing and Economic Development Committee"
+"Housing and Economic Dev" = "City Council Housing and Economic Development Committee"
+
+# The Library Trustees' agendas are sometimes posted under the School
+# Committee as well as under their own category.
+[meetings.agenda_center.committees."School Committee"]
+"Library Board of Trustee" = "Library Trustees"
+
+# Agenda and minutes PDFs, in the network's documents bucket.
+[storage]
+endpoint = "https://6bbfee5a3892553c7993dbfa4b4e8453.r2.cloudflarestorage.com"
+bucket = "publick-documents"
+public_url = "https://files.publick.org"
+prefix = "lawrence-ma"
+
+# Agenda previews and decisions from minutes, written by a language model and
+# labeled as AI-generated on the site, and their Spanish translations (Claude
+# Haiku 4.5, the engine's default). Within the network's monthly budget.
+[summaries]
+model = "claude-sonnet-5"
+max_per_run = 40
+input_price = 2.0
+output_price = 10.0
+max_cost_per_run = 5.0
+
+# How residents can take part, per board, shown on its meeting pages. Only
+# what the city or the school district has published; each entry names its source.
+[participation."City Council"]
+comment = "Residents who sign in can speak to the Council during the public participation part of its regular meetings."
+source_title = "City Council minutes of February 3, 2026"
+source_url = "https://www.cityoflawrence.com/AgendaCenter/ViewFile/Minutes/_02032026-1701"
+video_title = "the City Council's YouTube channel"
+video_url = "https://www.youtube.com/user/LawrenceCityCouncil/videos"
+
+[participation."School Committee"]
+video_title = "Lawrence Public Schools' YouTube channel"
+video_url = "https://www.youtube.com/@LawrencePublicSchools"
+
+# Terms that come up on agendas and minutes, explained on each meeting page
+# where they appear. Acronyms match exactly; other terms ignore case.
+[[glossary]]
+term = "executive session"
+definition = "A part of a public meeting closed to the public. State law allows it only for specific reasons, such as lawsuits, negotiations, or personnel matters."
+
+[[glossary]]
+term = "M.G.L."
+definition = "Massachusetts General Laws, the state's laws."
+
+[[glossary]]
+term = "Committee of the Whole"
+definition = "The full City Council meeting as a committee, to discuss a matter before voting on it at a regular meeting."
+
+[[glossary]]
+term = "CBA"
+definition = "Collective bargaining agreement: a contract between the city and a union of its employees, setting pay and working conditions."
+
+[[glossary]]
+term = "COLA"
+definition = "Cost-of-living adjustment: a raise in pay or a pension to keep up with rising prices."
+
+# School district figures from the state's education data portal (DESE).
+[schools]
+district_code = "01490000"
+district_name = "Lawrence Public Schools"
+portal = "https://educationtocareer.data.mass.gov"
+
+# Tax bill and budget figures (Mass. Division of Local Services).
+[finance]
+dls_municipality = "Lawrence"
+dls_code = "149"
+
+# Housing: Census building permits and the American Community Survey, and the
+# state's Subsidized Housing Inventory.
+[housing]
+bps_region = "Northeast Region"
+bps_prefix = "ne"
+bps_state = "25"
+bps_place = "34550"
+census_geo = "16000US2534550"
+state_geo = "04000US25"
+shi_url = "https://www.mass.gov/doc/subsidized-housing-inventory-2/download"
+shi_name = "Lawrence"
+
+# Unemployment rate (BLS Local Area Unemployment Statistics, area CT2534550000000).
+[labor]
+local_series = "LAUCT253455000000003"
+state_series = "LAUST250000000000003"
+
+[freshness]
+summary_grace_days = 2
+sources = [
+  { label = "Meetings (Agenda Center)", file = "meetings/status.json", max_days = 2 },
+]
+
+# Who represents you (the Officials page). Kept by hand from official city
+# and school websites; checked is the date the list was last checked against
+# them. Only city- and school-issued email addresses, and the mayor's office
+# phone. The ward file is data/static/lawrence-precincts-2022.geojson
+# (MassGIS): Lawrence's wards are lettered A to F, and the council's six
+# districts are the six wards.
+[officials]
+checked = "2026-10-01"
+wards_file = "lawrence-precincts-2022.geojson"
+
+# Re-elected on November 4, 2025 (official results); the charter's term is four years.
+[[officials.bodies]]
+name = "Mayor"
+url = "https://www.cityoflawrence.com/27/Office-of-The-Mayor"
+note = "Elected citywide for four years."
+members = [
+  { name = "Brian A. DePeña", seat = "Citywide", term_ends = "2030-01", email = "OfficeOfTheMayor@cityoflawrence.com", phone = "(978) 620-3010" },
+]
+
+# Elected on November 4, 2025 (official results); officers from the council's
+# page and the roll call in its minutes of February 3, 2026. The charter's
+# term is two years, from the first secular day of January in even years.
+[[officials.bodies]]
+name = "City Council"
+url = "https://www.cityoflawrence.com/101/City-Council"
+note = "Six councilors elected by district (Wards A to F) and three at-large, for two years."
+members = [
+  { name = "Jeovanny A. Rodriguez", seat = "At-large", role = "Council President", term_ends = "2028-01", email = "JRodriguez@cityoflawrence.com" },
+  { name = "Ana Levy", seat = "At-large", role = "Council Vice President", term_ends = "2028-01", email = "alevy@cityoflawrence.com" },
+  { name = "Celina Reyes", seat = "At-large", term_ends = "2028-01", email = "creyes@cityoflawrence.com" },
+  { name = "Franklin Miguel", seat = "District A", ward = "A", term_ends = "2028-01", email = "Franklin.Miguel@cityoflawrence.com" },
+  { name = "Rosaly Gonzalez", seat = "District B", ward = "B", term_ends = "2028-01", email = "rgonzalez@cityoflawrence.com" },
+  { name = "Gregory Del Rosario", seat = "District C", ward = "C", term_ends = "2028-01", email = "gregory.delrosario@cityoflawrence.com" },
+  { name = "Vivian Marmol", seat = "District D", ward = "D", term_ends = "2028-01", email = "Vivian.marmol@cityoflawrence.com" },
+  { name = "Stephany Infante", seat = "District E", ward = "E", term_ends = "2028-01", email = "Sinfante@cityoflawrence.com" },
+  { name = "Marc Laplante", seat = "District F", ward = "F", term_ends = "2028-01", email = "MLaplante@cityoflawrence.com" },
+]
+
+# From the school district's School Committee page. Three members were elected
+# citywide on November 4, 2025 (official results). The charter on the city's
+# website still describes six district members, so no term is given.
+[[officials.bodies]]
+name = "School Committee"
+url = "https://www.lawrence.k12.ma.us/about/district/school-committee"
+note = "Three members elected citywide and three appointed, with the mayor as chair."
+members = [
+  { name = "Brian A. DePeña", seat = "Mayor", role = "Chair", term_ends = "2030-01", email = "OfficeOfTheMayor@cityoflawrence.com" },
+  { name = "Jessica M. Ramirez", seat = "Citywide", role = "Vice Chair", email = "Jessica.Marie.Ramirez@lawrence.k12.ma.us" },
+  { name = "Eliaquin Gonell", seat = "Citywide", email = "Eliaquin.Gonell@lawrence.k12.ma.us" },
+  { name = "Jonathan Guzman", seat = "Citywide", email = "Jonathan.Guzman@lawrence.k12.ma.us" },
+  { name = "Michael Armano", seat = "Appointed", email = "Michael.Armano@lawrence.k12.ma.us" },
+  { name = "Donna Bertolino", seat = "Appointed", email = "Donna.Bertolino@lawrence.k12.ma.us" },
+  { name = "Jesus Suriel", seat = "Appointed", email = "Jesus.Suriel@lawrence.k12.ma.us" },
+]
+
+# The town's own text in Spanish, keyed by its English as written above or as
+# the data writes it (board names). Plain Spanish for Lawrence's readers, most
+# of them Dominican or Puerto Rican, addressed as usted, following the engine's
+# site/strings/es-guide.md. A board's name is given in Spanish only; the site
+# shows its English name after it. To be checked by a person who reads Spanish
+# before the site launches.
+[strings.es]
+# The masthead and the share text.
+"Public data on how Lawrence, Massachusetts decides and spends. Updated daily." = "Datos públicos sobre cómo Lawrence, Massachusetts, toma decisiones y gasta su dinero. Se actualizan a diario."
+"An independent guide to city government in Lawrence, Massachusetts" = "Una guía independiente sobre el gobierno de la ciudad de Lawrence, Massachusetts"
+
+# Section summaries (the engine translates the section names every town shares).
+"Every board and committee meeting in the city's Agenda Center, with agendas, and minutes from January 2026 on." = "Todas las reuniones de las juntas y comités en el Centro de Agendas de la ciudad, con sus agendas, y las actas desde enero de 2026."
+"Graduation, attendance, and MCAS results compared with the state." = "Graduación, asistencia y resultados del MCAS, comparados con el estado."
+"Where general fund money comes from and how it is spent, reserves, and the property tax limit." = "De dónde viene el dinero del fondo general y cómo se gasta, las reservas y el límite del impuesto a la propiedad."
+"New homes permitted, home values and rents, affordable housing, and the housing stock." = "Viviendas nuevas con permiso de construcción, el valor de las viviendas y los alquileres, la vivienda asequible y cuántas viviendas hay."
+"The mayor, City Council, and School Committee, by office and by ward, and how to reach them." = "El alcalde, el Concejo Municipal y el Comité Escolar, por cargo y por distrito, y cómo comunicarse con ellos."
+"Data sources, update schedule, metric definitions, and corrections." = "Fuentes de los datos, cuándo se actualizan, qué significa cada medida y correcciones."
+
+# Where the city posts agendas and minutes, and the data the site keeps up to date.
+"city's Agenda Center" = "Centro de Agendas de la ciudad"
+"Meetings (Agenda Center)" = "Reuniones (Centro de Agendas)"
+
+# How to take part.
+"Residents who sign in can speak to the Council during the public participation part of its regular meetings." = "Los residentes que se inscriban pueden hablarle al Concejo durante el turno de participación del público en sus reuniones regulares."
+"City Council minutes of February 3, 2026" = "Actas del Concejo Municipal del 3 de febrero de 2026"
+"the City Council's YouTube channel" = "el canal de YouTube del Concejo Municipal"
+"Lawrence Public Schools' YouTube channel" = "el canal de YouTube de las Escuelas Públicas de Lawrence"
+
+# Glossary definitions (the terms themselves stay as the agendas write them).
+"A part of a public meeting closed to the public. State law allows it only for specific reasons, such as lawsuits, negotiations, or personnel matters." = "Una parte de una reunión pública que se hace a puerta cerrada. La ley estatal la permite solo por razones específicas, como demandas, negociaciones o asuntos de personal."
+"Massachusetts General Laws, the state's laws." = "Leyes Generales de Massachusetts (Massachusetts General Laws), las leyes del estado."
+"The full City Council meeting as a committee, to discuss a matter before voting on it at a regular meeting." = "Todo el Concejo Municipal reunido como comité, para discutir un asunto antes de votarlo en una reunión regular."
+"Collective bargaining agreement: a contract between the city and a union of its employees, setting pay and working conditions." = "Convenio colectivo (collective bargaining agreement): un contrato entre la ciudad y un sindicato de sus empleados que fija el salario y las condiciones de trabajo."
+"Cost-of-living adjustment: a raise in pay or a pension to keep up with rising prices." = "Ajuste por costo de vida (cost-of-living adjustment): un aumento del salario o de la pensión para compensar la subida de los precios."
+
+# Officials: notes, seats, and roles.
+"Elected citywide for four years." = "Elegido por toda la ciudad por cuatro años."
+"Six councilors elected by district (Wards A to F) and three at-large, for two years." = "Seis concejales elegidos por distrito (de la A a la F) y tres por toda la ciudad, por dos años."
+"Three members elected citywide and three appointed, with the mayor as chair." = "Tres miembros elegidos por toda la ciudad y tres nombrados, con el alcalde como presidente."
+"Citywide" = "Toda la ciudad"
+"At-large" = "Toda la ciudad"
+"District A" = "Distrito A"
+"District B" = "Distrito B"
+"District C" = "Distrito C"
+"District D" = "Distrito D"
+"District E" = "Distrito E"
+"District F" = "Distrito F"
+"Mayor" = "Alcalde"
+"Appointed" = "Por nombramiento"
+"Council President" = "Presidente del Concejo"
+"Council Vice President" = "Vicepresidenta del Concejo"
+"Chair" = "Presidente"
+"Vice Chair" = "Vicepresidenta"
+
+# Boards, as the Agenda Center names them (after [meetings.aliases]).
+"City Council" = "Concejo Municipal"
+"City Council Budget and Finance Committee" = "Comité de Presupuesto y Finanzas del Concejo Municipal"
+"City Council Committee of the Whole" = "Comité Plenario del Concejo Municipal"
+"City Council Economic Development Committee" = "Comité de Desarrollo Económico del Concejo Municipal"
+"City Council Housing Committee" = "Comité de Vivienda del Concejo Municipal"
+"City Council Housing and Economic Development Committee" = "Comité de Vivienda y Desarrollo Económico del Concejo Municipal"
+"City Council Ordinance and Intergovernmental Relations Committee" = "Comité de Ordenanzas y Relaciones Intergubernamentales del Concejo Municipal"
+"City Council Personnel and Administration Committee" = "Comité de Personal y Administración del Concejo Municipal"
+"City Council Public Safety Committee" = "Comité de Seguridad Pública del Concejo Municipal"
+"School Committee" = "Comité Escolar"
+"Lawrence Alliance for Education" = "Alianza de Lawrence para la Educación"
+"Airport Commission" = "Comisión del Aeropuerto"
+"Bellevue Cemetery Board" = "Junta del Cementerio Bellevue"
+"Board of Health" = "Junta de Salud"
+"Board of Registrars" = "Junta de Registradores de Votantes"
+"Commission on Disability" = "Comisión sobre Discapacidad"
+"Conservation Commission" = "Comisión de Conservación"
+"Greater Lawrence Sanitary District" = "Distrito Sanitario de Greater Lawrence"
+"Historical Commission" = "Comisión Histórica"
+"Lawrence Cultural Council" = "Consejo Cultural de Lawrence"
+"Lawrence Housing Authority" = "Autoridad de Vivienda de Lawrence"
+"Library Trustees" = "Junta de Síndicos de la Biblioteca"
+"Licensing Board" = "Junta de Licencias"
+"Planning Board" = "Junta de Planificación"
+"Prospect Hill Historical District Commission" = "Comisión del Distrito Histórico de Prospect Hill"
+"Lawrence Redevelopment Authority" = "Autoridad de Reurbanización de Lawrence"
+"Retirement Board" = "Junta de Retiro"
+"Zoning Board of Appeals" = "Junta de Apelaciones de Zonificación"
