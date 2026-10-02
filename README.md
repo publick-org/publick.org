@@ -54,11 +54,15 @@ Worker, which picks the site by hostname: `gloucester-ma.publick.org` is
 - **On push to `main`:** rebuilds and publishes the towns the push touched (every
   town when `engine-version` or a workflow changed), records that in their run
   records, and rebuilds the homepage and status page. Data isn't fetched.
-- **The engine, once a day** (`engine.yml`, 08:40 UTC): after the engine's daily
-  release, a pull request moves `engine-version` to it. Its run builds and
-  checks every page of every town; merging it publishes them. So the towns
-  take at most one new engine a day. For an urgent fix, release the engine
-  now (its **Actions → Release → Run workflow**) and run **Actions → Engine**.
+- **The engine, once a day, by itself** (`engine.yml`, 08:40 UTC): after the
+  engine's daily release, it opens a pull request moving `engine-version` to
+  it, waits for that pull request's run to build and check every page of
+  every town, and merges it if every town passes; the merge publishes them.
+  If a town fails, the pull request stays open, the towns stay where they
+  are, and the failed workflow emails the owner. So the towns take at most
+  one new engine a day, and only one that passed on all of them. For an
+  urgent fix, release the engine now (its **Actions → Release → Run
+  workflow**) and run **Actions → Engine**.
 - **On a pull request:** builds and checks the towns it touches. Nothing is published.
 - **By hand** (**Actions → Network → Run workflow**): tick **daily** for a daily
   run, as the scheduler starts; or any towns, with or without fetching; with no
@@ -192,7 +196,7 @@ In this repository's **Settings → Secrets and variables → Actions**:
 | `SITES_ACCESS_KEY_ID`, `SITES_SECRET_ACCESS_KEY` | The R2 token from step 2 |
 | `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` | The token from step 3, and the account ID |
 | `ANTHROPIC_API_KEY`, `BLS_API_KEY`, `STORAGE_ACCESS_KEY_ID`, `STORAGE_SECRET_ACCESS_KEY` | As for a town repository (engine README, Secrets) |
-| `ENGINE_PR_TOKEN` | For `engine.yml`'s daily pull request: a fine-grained personal access token for this repository only, with **Contents** and **Pull requests** read and write, so the pull request's checks start by themselves (one opened with the workflow's own token doesn't start them; close and reopen it to). Without it, turn on **Settings → Actions → General → Allow GitHub Actions to create and approve pull requests** |
+| `ENGINE_PR_TOKEN` | For `engine.yml`, which moves the engine each day: a fine-grained personal access token with resource owner `publick-org`, this repository only, and **Contents** and **Pull requests** read and write. Required: what the workflow's own token pushes, opens, or merges starts no other workflow, so the pull request wouldn't be checked and the merge wouldn't publish. It expires; replace it before it does (until then the engine doesn't move, and the workflow's failure emails the owner) |
 | `SCHEDULER_GITHUB_TOKEN` | For the scheduler Worker: a fine-grained personal access token with resource owner `publick-org`, this repository only, and **Actions** and **Issues** read and write. It expires (the current one, made 2026-09-30, about 2027-10-01); replace it (then run **Actions → Worker**) before it does. Until then, runs fall back to GitHub's own schedule |
 
 The scheduler's Cron Triggers also need the Cloudflare account to have a
