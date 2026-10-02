@@ -3,9 +3,8 @@
 "Find your town" lists every town under towns/, grouped by state. When a state
 has STATE_PAGE_AT towns or more, it gets its own page (publick.org/<state>/,
 from home/state.html) and the homepage links to it instead, so the homepage
-stays short however many towns the network has. "In the works" names the
-towns in home/upcoming.toml that don't have a folder yet, so a town moves from
-one to the other when it is added.
+stays short however many towns the network has. Only live towns are named:
+a town appears once it has a folder.
 
 The counts at the top (towns, boards followed, meetings in the next 7 days)
 come from each town's data/run.json, written by its daily run, never from its
@@ -53,23 +52,12 @@ def live_towns(root: Path) -> list[dict]:
     return sorted(towns, key=lambda t: (t["state"], t["town"]))
 
 
-def upcoming_towns(root: Path, live: list[dict]) -> list[dict]:
-    path = root / "home" / "upcoming.toml"
-    listed = tomllib.loads(path.read_text(encoding="utf-8")).get("town", []) if path.exists() else []
-    here = {(t["town"].lower(), t["state"].lower()) for t in live}
-    return [t for t in listed if (t["name"].lower(), t["state"].lower()) not in here]
-
-
 def by_state(towns: list[dict]) -> list[tuple[str, str, list[dict]]]:
     """(state, its abbreviation, its towns), states in alphabetical order."""
     states: dict[str, list[dict]] = {}
     for t in towns:
         states.setdefault(t["state"], []).append(t)
     return [(state, ts[0]["state_abbr"], ts) for state, ts in sorted(states.items())]
-
-
-def joined(names: list[str]) -> str:
-    return names[0] if len(names) == 1 else ", ".join(names[:-1]) + " and " + names[-1]
 
 
 def plural(n: int, one: str, many: str) -> str:
@@ -114,16 +102,6 @@ def states_html(towns: list[dict]) -> str:
     return "".join(parts)
 
 
-def in_works_html(upcoming: list[dict]) -> str:
-    if not upcoming:
-        return ""
-    states: dict[str, list[str]] = {}
-    for t in upcoming:
-        states.setdefault(t["state"], []).append(t["name"])
-    text = "; ".join(f"{joined(names)}, {state}" for state, names in states.items())
-    return f'\n        <p class="in-works">In the works: {escape(text)}.</p>'
-
-
 def fill(page: str, name: str, block: str, source: str) -> str:
     pattern = re.compile(rf"(<!-- towns:{name} -->).*?(<!-- /towns:{name} -->)", re.S)
     if not pattern.search(page):
@@ -134,7 +112,7 @@ def fill(page: str, name: str, block: str, source: str) -> str:
 def render(page: str, root: Path, today: date | None = None) -> str:
     today = today or datetime.now(timezone.utc).date()
     live = live_towns(root)
-    block = glance_html(live, today) + states_html(live) + in_works_html(upcoming_towns(root, live))
+    block = glance_html(live, today) + states_html(live)
     return fill(page, "live", block, "home/index.html")
 
 
@@ -160,7 +138,7 @@ def main() -> int:
     if out.resolve() == source.resolve():
         raise SystemExit("--out must be a new folder, not home/: the pages are built from home/'s templates")
     shutil.rmtree(out, ignore_errors=True)
-    shutil.copytree(source, out, ignore=shutil.ignore_patterns("upcoming.toml", "state.html"))
+    shutil.copytree(source, out, ignore=shutil.ignore_patterns("state.html"))
     (out / "index.html").write_text(render((source / "index.html").read_text(encoding="utf-8"), args.root),
                                     encoding="utf-8")
     for abbr, page in state_pages((source / "state.html").read_text(encoding="utf-8"), args.root).items():
