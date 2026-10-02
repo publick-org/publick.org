@@ -103,6 +103,13 @@ For Massachusetts (New Hampshire: start from Manchester's config):
       makes titles read "… Meeting Meeting".
 - [ ] **Sections**: only what the town has. No 311 section without 311 data.
 - [ ] **Glossary**: terms that come up in this city's agendas.
+- [ ] **Spanish**: `languages = ["en", "es"]` in `[site]`. Every town launches
+      in both. Nothing else to do: the first runs draft the town's own text
+      (tagline, boards, seats) and translate its summaries, each checked
+      without AI and reviewed by a second AI model; anything that fails is
+      shown in English. No person checks the Spanish, and the site says so.
+      Role titles in Spanish use the generic form ("Vicepresidente"), since
+      the holder changes.
 
 ## 6. Check before merging
 
@@ -112,7 +119,9 @@ For Massachusetts (New Hampshire: start from Manchester's config):
       usual name, committees under their own boards, no errors.
 - [ ] `python -m pytest site_checks` on the build.
 - [ ] Read the first summaries of the main board's meetings before
-      announcing the site.
+      announcing the site. Each summary is also checked against its
+      document's own text (the engine's `pipeline/factcheck.py`): `python -m
+      pipeline.factcheck` with `PUBLICK_TOWN_DIR` set lists anything not found.
 
 ## 7. Publish
 
