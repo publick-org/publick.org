@@ -6,7 +6,7 @@
 # (by Web Solutions), with a meetings calendar and one Minutes & Agendas page
 # for every board, which the engine reads as [meetings.file_list]. The Board of
 # Education posts on the school district's website (Finalsite, with Google
-# Docs), which the engine doesn't read yet. The town doesn't use SeeClickFix,
+# Docs), read as [finalsite_meetings]. The town doesn't use SeeClickFix,
 # so the site has no 311 section. The engine's Connecticut package has only
 # school figures so far, from EdSight, so there are no tax bill or budget
 # figures yet; housing and unemployment come from the Census and BLS, as for
@@ -135,6 +135,20 @@ calendar_url = "https://www.wallingfordct.gov/events/meetings/"
 # 2026 are scans, which would be transcribed at a cost.
 since = "2026-07-01"
 
+# The Board of Education and its committees, from the meetings the school
+# district posts on its website (Finalsite), with agendas and minutes as Google
+# Docs. Committees are named as the board's own.
+[finalsite_meetings]
+page_url = "https://www.wallingford.k12.ct.us/board-of-education/board-of-education-meetings"
+source_name = "Wallingford Public Schools"
+since = "2026-07-01"
+
+[finalsite_meetings.bodies]
+"Board of Education" = "Board of Education"
+"Operations Committee" = "Board of Education Operations Committee"
+"Instructional Committee" = "Board of Education Instructional Committee"
+"Policy Committee" = "Board of Education Policy Committee"
+
 # Agenda and minutes PDFs, in the network's documents bucket.
 [storage]
 endpoint = "https://6bbfee5a3892553c7993dbfa4b4e8453.r2.cloudflarestorage.com"
@@ -196,6 +210,7 @@ bulk_file = "la.data.13.Connecticut"
 summary_grace_days = 2
 sources = [
   { label = "Meetings (town website)", file = "meetings/status.json", max_days = 2 },
+  { label = "Board of Education meetings (school district website)", file = "meetings/finalsite_status.json", max_days = 2 },
 ]
 
 # Who represents you (the Officials page). Kept by hand from official town
