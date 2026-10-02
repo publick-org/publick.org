@@ -9,7 +9,6 @@ engine-version                The engine release every town runs, e.g. v1.19.0
 ADDING-A-TOWN.md              The checklist for adding a town, from an empty folder to its first published site
 home/                         The publick.org homepage (index.html) and the page for a state with many towns
                               (state.html); their town lists are filled in by scripts/build_home.py
-home/upcoming.toml            Towns named under "In the works" on the homepage
 towns/<town>-<state>/         One folder per town, laid out as a town repository is:
   config/<town>.toml            everything town-specific
   data/                         collected data, committed by the daily run, with run.json (its last
@@ -101,8 +100,7 @@ the town's folder, so its page views count on the network's GoatCounter site.
 Merge, then run the workflow for the town by hand to fetch its data (set
 `catch_up` to a few dollars to summarize its first months' documents in that
 run, within the month's budget). No DNS
-change is needed: the homepage lists the town under its state (and drops it from
-"In the works") on its own, and gives the state its own page once it has 10
+change is needed: the homepage lists the town under its state on its own, and gives the state its own page once it has 10
 towns.
 
 The town's tax, budget, and school figures come from its state, through the
@@ -126,7 +124,7 @@ district of wards, as on Beverly's School Committee).
 
 Each town's `[officials]` table is kept by hand. Check every town's members
 against the city and school websites after each municipal election (the next
-for Beverly, Gloucester, Malden, Manchester, and Wallingford is November
+for Beverly, Gloucester, Lawrence, Malden, Manchester, and Wallingford is November
 2027; new terms start in January 2028), and whenever a seat changes between elections (a resignation,
 an appointment to fill a vacancy, new council or committee officers). Update
 the members and `checked` in one pull request.
