@@ -1,0 +1,32 @@
+{
+  "headline": "Informe financiero, informes de cafetería y actualizaciones de proyectos de mantenimiento e instalaciones.",
+  "summary": "La reunión cubrirá el informe financiero con actualizaciones del año fiscal hasta la fecha y de fondos, informes de operaciones de la cafetería, y una actualización sobre proyectos de mantenimiento e instalaciones.",
+  "items": [
+    "Informe Financiero: Proyección Financiera",
+    "Informe Financiero: Informe Munis del Año Fiscal hasta la Fecha",
+    "Informe Financiero: Fondo del 2%",
+    "Informe Financiero: Waterfall/Plan de Mejora de Capital (enlace solamente, sin documento)",
+    "Informe Financiero: Solicitud de Transferencia Año Fiscal 2026-2027",
+    "Informes de Cafetería: Resumen del Informe de Cafetería",
+    "Informes de Cafetería: Informe de Comparación de Ganancias y Pérdidas del Año Fiscal hasta la Fecha",
+    "Informes de Cafetería: Resumen de Comidas de Operaciones de Cafetería",
+    "Informes de Cafetería: Informe de Balance de Munis",
+    "Informes de Cafetería: Registro de Oportunidades de Mejora (no actualizado, enlace solamente, sin documento)",
+    "Actualización de Proyectos de Mantenimiento/Instalaciones: Resumen del Proyecto"
+  ],
+  "language": "es",
+  "kind": "agenda",
+  "source_sha256": "04dbc5664013b8123b2d3687e55779965cd6237128e337ac89514fe218ebdc31",
+  "source_hash": "0f046b19bdd73f080e9387083194c4e80258979a765a14632de6b86f10324ada",
+  "check": "ok",
+  "review": "items 2: YTD is rendered as \"Año Fiscal hasta la Fecha\", which adds \"fiscal\". YTD means year to date, which may be a calendar year, so \"Año hasta la Fecha\" is the faithful rendering.; summary: YTD is rendered as \"año fiscal hasta la fecha\", which adds \"fiscal\" and may misstate the period. YTD means year to date.; items 7: YTD is rendered as \"Año Fiscal hasta la Fecha\", which adds \"fiscal\" and may misstate the period. YTD means year to date.; items 9: \"Balance Sheet\" is rendered only as \"Balance\", so \"Sheet\" is left out. The report is a balance sheet (\"Balance General\"), not just a balance.",
+  "attempts": 1,
+  "model": "claude-haiku-4-5-20251001",
+  "prompt_version": 3,
+  "generated_at": "2026-10-02T13:54:50-04:00",
+  "usage": {
+    "input_tokens": 1168,
+    "output_tokens": 363
+  },
+  "cost": 0.009817
+}
