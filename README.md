@@ -154,8 +154,9 @@ district site (decided 2026-10-02: this stays by hand). With the engine on
 - A meeting the city posted after the morning's run comes in on the next.
 - Where the city's own listing is wrong (an entry left over from a board's
   old schedule, a typo in a time), add a `[[meetings.corrections]]` entry
-  with the reason, a link to the evidence and the date checked, and its
-  Spanish in `[strings.es]`. Manchester's Arts Commission entry for
+  with the reason, a link to the evidence and the date checked. It can go
+  up in English: the next run drafts its Spanish, and a translation in
+  `[strings.es]` is used instead when there is one. Manchester's Arts Commission entry for
   November 9, 2026 is the first. The engine's README says what each field
   does; a correction comes down by itself when the city changes the listing.
 
