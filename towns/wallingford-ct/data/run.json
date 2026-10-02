@@ -1,40 +1,40 @@
 {
   "town": "wallingford",
   "folder": "wallingford-ct",
-  "started_at": "2026-10-01T23:32:49+00:00",
-  "finished_at": "2026-10-01T23:37:08+00:00",
-  "engine": "v1.22.0",
+  "started_at": "2026-10-02T17:54:02+00:00",
+  "finished_at": "2026-10-02T18:00:46+00:00",
+  "engine": "v1.30.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 238.2
+      "seconds": 373.5
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 2.2
+      "seconds": 1.3
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 30.0
+      "seconds": 19.7
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 6.7
+      "seconds": 9.3
     }
   ],
   "update": {
     "town": "wallingford",
-    "sources": "meetings",
-    "started_at": "2026-10-01T23:32:49+00:00",
+    "sources": "all",
+    "started_at": "2026-10-02T17:54:02+00:00",
     "ok": true,
     "steps": [
       {
@@ -42,7 +42,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 8.0,
+        "seconds": 22.0,
         "cadence": "continuous"
       },
       {
@@ -50,7 +50,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.2,
         "cadence": "continuous"
       },
       {
@@ -67,7 +67,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 79.2,
+        "seconds": 25.1,
         "cadence": "continuous"
       },
       {
@@ -75,7 +75,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 150.1,
+        "seconds": 325.9,
         "cadence": "continuous"
       },
       {
@@ -137,8 +137,26 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.2,
+        "seconds": 0.1,
         "cadence": "continuous"
+      },
+      {
+        "name": "Fetch 311 requests",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [seeclickfix] in the config"
+      },
+      {
+        "name": "Compute 311 scorecard",
+        "ok": true,
+        "required": true,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [seeclickfix] in the config"
       }
     ]
   },
@@ -146,13 +164,13 @@
   "sources": [
     {
       "label": "Meetings (town website)",
-      "updated_at": "2026-10-01T19:32:49-04:00",
+      "updated_at": "2026-10-02T13:54:02-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Board of Education meetings (school district website)",
-      "updated_at": "2026-10-01T19:32:58-04:00",
+      "updated_at": "2026-10-02T13:54:24-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -201,21 +219,18 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-02T15:25:47+00:00",
-  "data_bytes": 605670,
-  "data_bytes_added": 159003,
+  "last_good_at": "2026-10-02T18:00:46+00:00",
+  "data_bytes": 718620,
+  "data_bytes_added": 111460,
   "activity": {
     "boards": 26,
     "meetings_by_date": {
-      "2026-10-01": 1,
-      "2026-10-05": 2,
+      "2026-10-05": 3,
       "2026-10-06": 2,
       "2026-10-07": 1,
       "2026-10-08": 1,
       "2026-10-13": 2,
       "2026-10-14": 1
     }
-  },
-  "published_at": "2026-10-02T15:25:47+00:00",
-  "published_engine": "v1.30.0"
+  }
 }
