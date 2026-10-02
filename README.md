@@ -140,6 +140,26 @@ for Beverly, Gloucester, Lawrence, Malden, Manchester, and Wallingford is Novemb
 an appointment to fill a vacancy, new council or committee officers). Update
 the members and `checked` in one pull request.
 
+## Checking meetings by hand
+
+About once a week while towns are added, compare each town's upcoming
+meetings with its city's own calendar, Agenda Center or portal, and school
+district site (decided 2026-10-02: this stays by hand). With the engine on
+`PYTHONPATH` and `PUBLICK_TOWN_DIR` set to the town's folder:
+
+- `python -m pipeline.listings` lists the meetings shown as one and why. A
+  calendar meeting beside an Agenda Center one of the same board and day
+  that isn't put together means the two name the board differently: add the
+  calendar's name to `[meetings.aliases]`.
+- A meeting the city posted after the morning's run comes in on the next.
+- Where the city's own listing is wrong (an entry left over from a board's
+  old schedule, a typo in a time), add a `[[meetings.corrections]]` entry
+  with the reason, a link to the evidence and the date checked. It can go
+  up in English: the next run drafts its Spanish, and a translation in
+  `[strings.es]` is used instead when there is one. Manchester's Arts Commission entry for
+  November 9, 2026 is the first. The engine's README says what each field
+  does; a correction comes down by itself when the city changes the listing.
+
 ## New Hampshire's yearly figures
 
 New Hampshire's tax rates and school figures come from statewide files the
