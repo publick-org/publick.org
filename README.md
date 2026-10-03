@@ -5,6 +5,9 @@ from this one repository with the [Publick engine](https://github.com/publick-or
 at the version in `engine-version`.
 
 ```
+LICENSE                       What may be reused and how: CC BY 4.0 for what Publick makes, the credit line,
+                              and what keeps its own terms (311, public records); the code is MIT
+LICENSE-CC-BY-4.0.txt         The CC BY 4.0 legal text
 engine-version                The engine release every town runs, e.g. v1.30.0; moved each morning by engine.yml
 ADDING-A-TOWN.md              The checklist for adding a town, from an empty folder to its first published site
 home/                         The publick.org homepage (index.html) and the page for a state with many towns
