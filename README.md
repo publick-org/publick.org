@@ -78,8 +78,10 @@ one GitHub issue, **Towns need attention** (label `towns behind`, assigned to
 `ALERT_ASSIGNEE` in `network.yml`), is opened when a town has had no good
 update (published, with fresh data) for 30 hours, or a figure source's checks
 keep failing, or a state's statewide checks have failed three times in a row.
-Each daily run updates it (an edit sends no email) and closes it when every
-town is caught up. If the daily runs stop altogether, the scheduler opens
+Each daily run updates it and closes it when every town is caught up. An edit
+sends no email, so the run also comments with the towns newly behind (from
+`python -m pipeline.network behind --new-since`); a town already listed, or
+one that's caught up, sends nothing. If the daily runs stop altogether, the scheduler opens
 **The network's daily runs have stopped** (label `network stopped`) after 30
 hours, and closes it when a run finishes. A pull request's run still fails when
 a town does, so a broken site can't be merged.

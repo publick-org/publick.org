@@ -466,7 +466,8 @@ jobs:
         run: python scripts/build_status.py --out _home
 
       # One issue for every town that needs attention, rather than a failed run for each: updated after
-      # each run that fetches or publishes (an edit sends no email), and closed when every town is caught up.
+      # each run that fetches or publishes, and closed when every town is caught up. An edit sends no
+      # email, so a comment names the towns that weren't in it before (none for one already listed).
       - name: Update the issue for towns that need attention
         if: (needs.plan.outputs.fetch == 'true' || needs.plan.outputs.deploy == 'true') && github.event_name != 'pull_request'
         env:
@@ -479,7 +480,12 @@ jobs:
           number=$(gh issue list --label "$LABEL" --state open --json number --jq '.[0].number // empty')
           if [ -n "$body" ]; then
             if [ -n "$number" ]; then
+              gh issue view "$number" --json body --jq .body > "$RUNNER_TEMP/previous.md"
               gh issue edit "$number" --body "$body"
+              comment=$(python -m pipeline.network behind --new-since "$RUNNER_TEMP/previous.md")
+              if [ -n "$comment" ]; then
+                gh issue comment "$number" --body "$comment"
+              fi
             else
               gh issue create --title "Towns need attention" --label "$LABEL" --assignee "$ALERT_ASSIGNEE" --body "$body"
             fi
