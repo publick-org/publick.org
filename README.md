@@ -50,9 +50,8 @@ Worker, which picks the site by hostname: `gloucester-ma.publick.org` is
     per job, up to ten jobs at a time. Daily runs give the accessibility checks
     a sample of each town's pages (every hand-written page, and the first and
     largest of each kind of record page); every other run checks every page.
-  - AI summaries and translations share one budget, `SUMMARY_BUDGET` ($50 a
-    month; a month can have its own in `SUMMARY_BUDGET_MONTH`, as October 2026
-    has $80): each run gives each of its towns a share of what's left, new
+  - AI summaries and translations share one budget, `SUMMARY_BUDGET` ($80 a
+    month, decided 2026-10-03; a month can have its own in `SUMMARY_BUDGET_MONTH`): each run gives each of its towns a share of what's left, new
     documents first.
 - **On push to `main`:** rebuilds and publishes the towns the push touched (every
   town when `engine-version` or a workflow changed), records that in their run
