@@ -1,5 +1,6 @@
-# The Worker that starts the network's daily runs on time (GitHub starts its
-# own scheduled runs late, or not at all) and opens an issue if they stop.
+# The Worker that starts the engine's release, the engine pull request, and the
+# network's daily runs on time (GitHub starts its own scheduled runs late, or
+# not at all), and opens an issue if the daily runs stop.
 # Its code is the engine's worker/scheduler-index.js, at the version in
 # engine-version; .github/workflows/worker.yml deploys it and sets its
 # GITHUB_TOKEN secret from the repository's SCHEDULER_GITHUB_TOKEN.
@@ -9,15 +10,25 @@ compatibility_date = "2026-08-01"
 workers_dev = false
 
 [triggers]
-# Every hour from 09:05 to 14:05 UTC, early morning Eastern. Each start takes
-# only the towns that are due, so the later ones usually find nothing to do.
-crons = ["5 9-14 * * *"]
+# 08:20 UTC: the engine's release. 08:40: the engine pull request, which moves
+# engine-version to it (GitHub's own schedules for both start hours late).
+# Every hour from 09:05 to 14:05 UTC, early morning Eastern: a daily run. Each
+# start takes only the towns that are due, so the later ones usually find
+# nothing to do. The first two must match RELEASE_CRON and ENGINE_CRON in the
+# engine's worker/scheduler.js, as written.
+crons = ["20 8 * * *", "40 8 * * *", "5 9-14 * * *"]
 
 [vars]
 REPOSITORY = "publick-org/publick.org"
 WORKFLOW = "network.yml"
 BRANCH = "main"
 STATUS_URL = "https://publick.org/status/"
+# The release and engine pull request the scheduler starts at 08:20 and 08:40.
+# GITHUB_TOKEN (SCHEDULER_GITHUB_TOKEN) covers the engine repository too, with
+# Actions read and write.
+ENGINE_REPOSITORY = "publick-org/publick-engine"
+RELEASE_WORKFLOW = "release.yml"
+ENGINE_WORKFLOW = "engine.yml"
 # Who the "network stopped" issue is assigned to, so it reaches them.
 ALERT_ASSIGNEE = "NasTber"
 

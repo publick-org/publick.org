@@ -57,8 +57,9 @@ Worker, which picks the site by hostname: `gloucester-ma.publick.org` is
 - **On push to `main`:** rebuilds and publishes the towns the push touched (every
   town when `engine-version` or a workflow changed), records that in their run
   records, and rebuilds the homepage and status page. Data isn't fetched.
-- **The engine, once a day, by itself** (`engine.yml`, 08:40 UTC): after the
-  engine's daily release, it opens a pull request moving `engine-version` to
+- **The engine, once a day, by itself** (`engine.yml`, 08:40 UTC): the
+  scheduler Worker starts the engine's release at 08:20 and this at 08:40
+  (GitHub's own schedules for both are a late backup). After the release, it opens a pull request moving `engine-version` to
   it, waits for that pull request's run to build and check every page of
   every town, and merges it if every town passes; the merge publishes them.
   If a town fails, the pull request stays open, the towns stay where they
@@ -78,8 +79,10 @@ one GitHub issue, **Towns need attention** (label `towns behind`, assigned to
 `ALERT_ASSIGNEE` in `network.yml`), is opened when a town has had no good
 update (published, with fresh data) for 30 hours, or a figure source's checks
 keep failing, or a state's statewide checks have failed three times in a row.
-Each daily run updates it (an edit sends no email) and closes it when every
-town is caught up. If the daily runs stop altogether, the scheduler opens
+Each daily run updates it and closes it when every town is caught up. An edit
+sends no email, so the run also comments with the towns newly behind (from
+`python -m pipeline.network behind --new-since`); a town already listed, or
+one that's caught up, sends nothing. If the daily runs stop altogether, the scheduler opens
 **The network's daily runs have stopped** (label `network stopped`) after 30
 hours, and closes it when a run finishes. A pull request's run still fails when
 a town does, so a broken site can't be merged.
@@ -220,7 +223,7 @@ In this repository's **Settings → Secrets and variables → Actions**:
 | `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` | The token from step 3, and the account ID |
 | `ANTHROPIC_API_KEY`, `BLS_API_KEY`, `STORAGE_ACCESS_KEY_ID`, `STORAGE_SECRET_ACCESS_KEY` | As for a town repository (engine README, Secrets) |
 | `ENGINE_PR_TOKEN` | For `engine.yml`, which moves the engine each day: a fine-grained personal access token with resource owner `publick-org`, this repository only, and **Contents** and **Pull requests** read and write. Required: what the workflow's own token pushes, opens, or merges starts no other workflow, so the pull request wouldn't be checked and the merge wouldn't publish. It expires; replace it before it does (until then the engine doesn't move, and the workflow's failure emails the owner) |
-| `SCHEDULER_GITHUB_TOKEN` | For the scheduler Worker: a fine-grained personal access token with resource owner `publick-org`, this repository only, and **Actions** and **Issues** read and write. It expires (the current one, made 2026-09-30, about 2027-10-01); replace it (then run **Actions → Worker**) before it does. Until then, runs fall back to GitHub's own schedule |
+| `SCHEDULER_GITHUB_TOKEN` | For the scheduler Worker: a fine-grained personal access token with resource owner `publick-org`, for this repository with **Actions** and **Issues** read and write, and for `publick-engine` with **Actions** read and write (widened 2026-10-03, so the scheduler can start the engine's release). It expires (the current one, made 2026-09-30, about 2027-10-01); replace it (then run **Actions → Worker**) before it does. Until then, runs fall back to GitHub's own schedule |
 
 The scheduler's Cron Triggers also need the Cloudflare account to have a
 `workers.dev` subdomain: opening **Workers & Pages** in the dashboard once

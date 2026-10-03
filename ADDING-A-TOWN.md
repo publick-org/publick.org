@@ -150,7 +150,10 @@ For Massachusetts (New Hampshire: start from Manchester's config):
       A run collects up to 60 minutes; run it again until none are waiting.
       Its older documents get a small share of the summary budget each run;
       to summarize its first months in a day, set **catch_up** (dollars, e.g.
-      3) on a manual run. The month's budget and the town's own limit per
+      3) on a manual run. Only meetings from `[summaries] since` on are
+      summarized: set it to the first of the month about three months before
+      launch, so the town's history doesn't take the month's budget (older
+      meetings keep their records and documents). The month's budget and the town's own limit per
       run still apply.
 - [ ] Add the town to the README's "Keeping officials current" election
       dates if they differ.
