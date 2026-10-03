@@ -54,14 +54,18 @@ Worker, which picks the site by hostname: `gloucester-ma.publick.org` is
     month; a month can have its own in `SUMMARY_BUDGET_MONTH`, as October 2026
     has $80): each run gives each of its towns a share of what's left, new
     documents first.
-- **On push to `main`:** rebuilds and publishes the towns the push touched (every
-  town when `engine-version` or a workflow changed), records that in their run
-  records, and rebuilds the homepage and status page. Data isn't fetched.
+- **On push to `main`:** builds and checks the towns the push touched (every
+  town when `engine-version` or a workflow changed), and the homepage if it
+  changed, but publishes nothing: each town's next daily run publishes it with
+  the change. So a push never waits for a daily run in progress. To publish a
+  change sooner (an urgent correction), run **Actions → Network → Run
+  workflow** for the town with **fetch** unticked. Data isn't fetched.
 - **The engine, once a day, by itself** (`engine.yml`, 08:40 UTC): the
   scheduler Worker starts the engine's release at 08:20 and this at 08:40
   (GitHub's own schedules for both are a late backup). After the release, it opens a pull request moving `engine-version` to
   it, waits for that pull request's run to build and check every page of
-  every town, and merges it if every town passes; the merge publishes them.
+  every town, and merges it if every town passes; each town's next daily run
+  publishes it on the new engine.
   If a town fails, the pull request stays open, the towns stay where they
   are, and the failed workflow emails the owner. So the towns take at most
   one new engine a day, and only one that passed on all of them. For an

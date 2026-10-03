@@ -3,9 +3,9 @@
 # runs after it, before the morning's daily runs. It opens a pull request
 # moving engine-version, waits for that pull request's run (network.yml) to
 # build and check every page of every town with the new engine, and merges it
-# when every town passes. The merge's push run publishes the towns with it.
-# So every town takes at most one new engine a day, and only one that passed
-# on every town.
+# when every town passes. Each town is published on it by its next daily run
+# (a push only builds and checks: network.yml). So every town takes at most one
+# new engine a day, and only one that passed on every town.
 #
 # If any town fails, nothing is merged: the pull request stays open with its
 # failed run, the towns stay on the engine they have, and this workflow fails,
@@ -107,4 +107,4 @@ jobs:
             exit 1
           fi
           gh pr merge "$number" --merge --match-head-commit "$sha" --delete-branch
-          echo "Merged #$number: every town moves to $newest on the push run that follows."
+          echo "Merged #$number: each town moves to $newest on its next daily run."
