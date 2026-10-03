@@ -1,0 +1,14 @@
+# Pull requests that move the workflows' pinned actions (each pinned by commit, with its version in a
+# comment) to their newest releases, once a month and all in one pull request. Its run builds and checks
+# every town, with no keys, as any pull request's does; nothing moves until it's merged by hand.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      actions:
+        patterns: ["*"]
+    commit-message:
+      prefix: Actions
