@@ -1,40 +1,40 @@
 {
   "town": "manchester",
   "folder": "manchester-nh",
-  "started_at": "2026-10-02T09:55:13+00:00",
-  "finished_at": "2026-10-02T10:37:46+00:00",
-  "engine": "v1.24.0",
+  "started_at": "2026-10-03T10:08:50+00:00",
+  "finished_at": "2026-10-03T10:55:41+00:00",
+  "engine": "v1.30.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 2502.9
+      "seconds": 2720.8
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 5.6
+      "seconds": 5.5
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 77.6
+      "seconds": 73.5
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 8.0
+      "seconds": 11.1
     }
   ],
   "update": {
     "town": "manchester",
     "sources": "all",
-    "started_at": "2026-10-02T09:55:13+00:00",
+    "started_at": "2026-10-03T10:08:50+00:00",
     "ok": true,
     "steps": [
       {
@@ -42,7 +42,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 48.6,
+        "seconds": 96.6,
         "cadence": "continuous"
       },
       {
@@ -76,7 +76,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 100.9,
+        "seconds": 270.6,
         "cadence": "continuous"
       },
       {
@@ -86,7 +86,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 2 days ago; checked every 30 days"
+        "skipped": "checked 3 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -95,7 +95,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 2 days ago; checked every 7 days"
+        "skipped": "checked 3 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -104,7 +104,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 2 days ago; checked every 30 days"
+        "skipped": "checked 3 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -113,7 +113,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 2 days ago; checked every 30 days"
+        "skipped": "checked 3 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -122,7 +122,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 3 days ago; checked every 7 days"
+        "skipped": "checked 4 days ago; checked every 7 days"
       },
       {
         "name": "Fetch building permits",
@@ -146,7 +146,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 2349.8,
+        "seconds": 2349.7,
         "cadence": "continuous"
       },
       {
@@ -154,7 +154,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 2.8,
+        "seconds": 2.9,
         "cadence": "continuous"
       }
     ]
@@ -163,19 +163,19 @@
   "sources": [
     {
       "label": "Meetings (city calendar and CivicClerk)",
-      "updated_at": "2026-10-02T05:55:14-04:00",
+      "updated_at": "2026-10-03T06:08:50-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
-      "updated_at": "2026-10-02T05:57:43-04:00",
+      "updated_at": "2026-10-03T06:14:58-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
-      "updated_at": "2026-10-02T06:36:53-04:00",
+      "updated_at": "2026-10-03T06:54:08-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -246,18 +246,16 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-02T19:22:12+00:00",
-  "data_bytes": 10975103,
-  "data_bytes_added": 530388,
+  "last_good_at": "2026-10-03T10:55:41+00:00",
+  "data_bytes": 11526020,
+  "data_bytes_added": 550067,
   "activity": {
     "boards": 27,
     "meetings_by_date": {
-      "2026-10-06": 1,
-      "2026-10-08": 2,
+      "2026-10-06": 6,
+      "2026-10-08": 1,
       "2026-10-13": 1,
-      "2026-10-15": 1
+      "2026-10-15": 2
     }
-  },
-  "published_at": "2026-10-02T19:22:12+00:00",
-  "published_engine": "v1.30.0"
+  }
 }
