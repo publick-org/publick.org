@@ -38,7 +38,11 @@ jobs:
     # The pull request's run checks every page of every town: about half an hour today.
     timeout-minutes: 180
     steps:
+      # Without its token saved in git's config: git would push with it, this workflow's read-only
+      # token, over ENGINE_PR_TOKEN in the remote's URL (the first run, 2026-10-03, failed so).
       - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
 
       - name: Open the pull request, wait for its checks, and merge it
         env:
