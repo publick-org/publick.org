@@ -1,34 +1,34 @@
 {
   "town": "wallingford",
   "folder": "wallingford-ct",
-  "started_at": "2026-10-03T12:06:48+00:00",
-  "finished_at": "2026-10-03T12:11:41+00:00",
-  "engine": "v1.30.0",
+  "started_at": "2026-10-04T09:14:04+00:00",
+  "finished_at": "2026-10-04T09:15:32+00:00",
+  "engine": "v1.34.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 260.2
+      "seconds": 53.0
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 2.2
+      "seconds": 2.3
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 19.2
+      "seconds": 27.3
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 5.2
+      "seconds": 4.1
     },
     {
       "name": "Check live site",
@@ -40,7 +40,7 @@
   "update": {
     "town": "wallingford",
     "sources": "all",
-    "started_at": "2026-10-03T12:06:48+00:00",
+    "started_at": "2026-10-04T09:14:04+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 9.7,
+        "seconds": 8.0,
         "cadence": "continuous"
       },
       {
@@ -73,7 +73,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 22.1,
+        "seconds": 25.1,
         "cadence": "continuous"
       },
       {
@@ -81,7 +81,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 227.5,
+        "seconds": 18.8,
         "cadence": "continuous"
       },
       {
@@ -100,7 +100,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -109,7 +109,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 1 days ago; checked every 30 days"
+        "skipped": "checked 2 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -127,7 +127,15 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
+      },
+      {
+        "name": "Fetch place",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.2,
+        "cadence": "continuous"
       },
       {
         "name": "Fetch building permits",
@@ -170,13 +178,13 @@
   "sources": [
     {
       "label": "Meetings (town website)",
-      "updated_at": "2026-10-03T08:06:49-04:00",
+      "updated_at": "2026-10-04T05:14:05-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Board of Education meetings (school district website)",
-      "updated_at": "2026-10-03T08:06:59-04:00",
+      "updated_at": "2026-10-04T05:14:13-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -225,9 +233,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-04T08:53:29+00:00",
-  "data_bytes": 720471,
-  "data_bytes_added": 1082,
+  "last_good_at": "2026-10-04T09:15:32+00:00",
+  "data_bytes": 732401,
+  "data_bytes_added": 11804,
   "activity": {
     "boards": 26,
     "meetings_by_date": {
@@ -240,6 +248,15 @@
       "2026-10-16": 1
     }
   },
-  "published_at": "2026-10-04T08:53:29+00:00",
-  "published_engine": "v1.34.0"
+  "fact_checks": {
+    "summaries": 48,
+    "ok": 47,
+    "failed": 0,
+    "weak": 1,
+    "unchecked": 0,
+    "not_yet": 0,
+    "held_back": 0,
+    "entries_not_shown": 0,
+    "vote_counts_left_out": 17
+  }
 }
