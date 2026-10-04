@@ -1,0 +1,611 @@
+# Site configuration for Burlington, Vermont. Everything town-specific lives
+# here; the code is the Publick engine (github.com/publick-org/publick-engine).
+# Build with: python -m pipeline.build_site (with the engine on PYTHONPATH)
+#
+# The network's first Vermont town. Burlington's website runs on CivicPlus,
+# but its Agenda Center is empty: every city body posts its meetings, agendas,
+# and minutes on the city's CivicClerk portal, read as [meetings.civicclerk],
+# as Manchester's aldermen are. The minutes are text PDFs. The Burlington
+# School Board posts on Diligent Community (bsdvt.community.highbond.com),
+# which the engine can't read yet, so the school board's meetings are left out
+# for now; the district's figures still come from the state ([schools]). The
+# city answers requests on SeeClickFix ([seeclickfix]). The engine's Vermont
+# package gives the tax rates, what the property tax raises, and the average
+# homestead tax bill, from the Department of Taxes ([finance]), and school
+# figures, from the Agency of Education; housing and unemployment come from
+# the Census and BLS, as for every town.
+#
+# Like every Publick town's, the site is in English and Spanish ([site]
+# languages). Burlington's largest groups of residents who read another
+# language first read Nepali, Somali, Swahili, Arabic, Kirundi, and others
+# (the city's Election Language Support page lists several); the engine
+# translates only into Spanish for now. [strings.es], at the end, gives the
+# Spanish for the town's own text; the engine has the rest.
+
+[site]
+name = "Burlington Publick"
+# The masthead shows name_prefix in dark ink and name_suffix in the accent
+# color: the town, then the network.
+name_prefix = "Burlington "
+name_suffix = "Publick"
+domain = "burlington-vt.publick.org"
+# The network of town sites this one belongs to, named in every page footer.
+network = "Publick"
+network_url = "https://publick.org"
+tagline = "Public data on how Burlington, Vermont decides and spends. Updated daily."
+# One line under the name at the top of every page.
+masthead = "An independent guide to city government in Burlington, Vermont"
+repo_url = "https://github.com/publick-org/publick.org"
+# Public contact address. Shown on the About and Accessibility pages when set.
+contact_email = "burlington-vt@publick.org"
+timezone = "America/New_York"
+user_agent = "burlington-vt.publick.org (+https://burlington-vt.publick.org/about/)"
+# English at the site's root, Spanish under /es/.
+languages = ["en", "es"]
+
+# From the city website's stylesheet (burlingtonvt.gov): its blue (links and
+# buttons, 7.5:1 on white), its darker navy (headers, 9.2:1), a light tint of
+# the blue, and its green (4.6:1). Its bright blue (#0098f7, 3.1:1) and orange
+# (#f79433, 2.3:1) don't pass WCAG AA on white, so they aren't used.
+[site.colors]
+primary = "#00569b"
+primary_dark = "#004983"
+primary_soft = "#e6eef5"
+accent = "#3b842e"
+
+[town]
+name = "Burlington"
+state = "Vermont"
+state_abbr = "VT"
+official_site = "https://www.burlingtonvt.gov"
+
+# Sections appear in the main navigation in this order. Each one is a folder
+# under site/pages/<slug>/ and is served at https://<domain>/<slug>/.
+[[sections]]
+slug = "meetings"
+title = "Meetings"
+summary = "When the City Council, its committees, and the city's boards and commissions meet, with agendas, and minutes from April 2026 on."
+status = "live"
+
+[[sections]]
+slug = "311"
+title = "311 Requests"
+nav = "311"
+summary = "How fast the city responds to SeeClickFix requests, by category and ward."
+status = "live"
+
+[[sections]]
+slug = "budget"
+title = "City budget"
+nav = "Budget"
+summary = "The city's tax rates, what the property tax raises for the city and for schools, and the average homestead tax bill."
+status = "live"
+
+[[sections]]
+slug = "schools"
+title = "Schools"
+summary = "Burlington School District's graduation rate, attendance, state test results, and spending per pupil, with the state's."
+status = "live"
+
+[[sections]]
+slug = "housing"
+title = "Housing"
+summary = "New homes permitted, home values and rents, and the housing stock."
+status = "live"
+
+[[sections]]
+slug = "officials"
+title = "Who represents you"
+nav = "Officials"
+summary = "The mayor and the City Council, by ward and district, and how to reach them."
+status = "live"
+
+[[sections]]
+slug = "about"
+title = "About"
+summary = "Data sources, update schedule, metric definitions, and corrections."
+status = "live"
+
+# Page view counting with GoatCounter, on the network's site; prefix is this
+# town's folder.
+[analytics]
+goatcounter = "publick"
+prefix = "burlington-vt"
+public_stats = ""
+
+# Public meetings, from the city's CivicClerk portal: the City Council, the
+# City Council with the Mayor presiding, the Board of Finance, the council's
+# committees, and the city's boards and commissions. The city calendar
+# (burlingtonvt.gov/calendar.aspx) repeats the portal's meetings, so it isn't
+# read. The Neighborhood Planning Assemblies (resident assemblies, by
+# ward) are on the portal too; they're left out (exclude_pattern below), to
+# keep the summaries within the network's budget.
+[meetings]
+calendar_url = "https://burlingtonvt.portal.civicclerk.com"
+archive_url = "https://burlingtonvt.portal.civicclerk.com"
+archive_name = "city's CivicClerk portal"
+governing_body = "City Council"
+# The home page always shows these in full, with the governing body.
+main_boards = ["City Council With Mayor Presiding", "Board of Finance"]
+request_delay = 3.0
+# One name per public body. A portal entry is filed under the longest of these
+# it contains ("City Council - Ordinance Committee Meeting", "Special Meeting of
+# the Burlington City Council With Mayor Presiding"), ignoring case,
+# punctuation, and "&" versus "and". The council's committees are named as the
+# council's, as on its Standing Committees page.
+boards = [
+  "City Council",
+  "City Council With Mayor Presiding",
+  "Board of Finance",
+  "City Council Charter Change Committee",
+  "City Council Community Development and Neighborhood Revitalization Committee",
+  "City Council Human Resources Committee",
+  "City Council License Committee",
+  "City Council Ordinance Committee",
+  "City Council Parks, Arts and Culture Committee",
+  "City Council Public Safety Committee",
+  "City Council Racial Equity, Inclusion, and Belonging Committee",
+  "City Council Transportation, Energy, and Utilities Committee",
+  "City Council Tax Abatement Committee",
+  "Tax Fairness Ad Hoc Committee",
+  "Boards and Commissions Selection Committee",
+  "Local Control Commission",
+  "Local Control Commission Subcommittee",
+  "Local Cannabis Control Commission",
+  "Local Cannabis Control Commission Subcommittee",
+  "Board of Civil Authority",
+  "Board for Registration of Voters",
+  "Board of Abatement of Taxes",
+  "Board of Assessors",
+  "Board of Tax Appeals",
+  "Development Review Board",
+  "Planning Commission",
+  "Planning Commission Executive Committee",
+  "Planning Commission Long Range Planning Committee",
+  "Planning Commission Ordinance Committee",
+  "Collaborative Working Group on Inclusionary Zoning",
+  "Design Advisory Board",
+  "Conservation Board",
+  "Conservation Board Open Space Subcommittee",
+  "Housing Board of Review",
+  "Airport Commission",
+  "Burlington Electric Commission",
+  "Church Street Marketplace Commission",
+  "Church Street Marketplace Cart Vendor Committee",
+  "Fire Commission",
+  "Police Commission",
+  "Police Commission Animal Control Committee",
+  "Police Commission Complaints Committee",
+  "Parks Commission",
+  "Public Works Commission",
+  "Library Commission",
+  "Library Commission Policy Committee",
+  "Board of Health",
+  "Cemetery Commission",
+  "Retirement Board",
+  "Vehicle for Hire Licensing Board",
+  "Advisory Committee on Accessibility",
+  "Burlington Walk Bike Council",
+  "Burlington Aging Council",
+  "Burlington City Arts Board of Directors",
+  "Burlington City Arts Executive Committee",
+  "Burlington City Arts Public Art Committee",
+  "Burlington Community Development Corporation",
+  "Burlington Housing Trust Fund Administrative Committee",
+]
+
+# Other names the portal uses for a board.
+[meetings.aliases]
+"Budget Presentations" = "City Council"
+"Charter Change Committee" = "City Council Charter Change Committee"
+"CDNR Committee" = "City Council Community Development and Neighborhood Revitalization Committee"
+"Community Development and Neighborhood Revitalization Committee" = "City Council Community Development and Neighborhood Revitalization Committee"
+"Human Resources Committee" = "City Council Human Resources Committee"
+"HR Committee" = "City Council Human Resources Committee"
+"License Committee" = "City Council License Committee"
+"Parks, Arts and Culture" = "City Council Parks, Arts and Culture Committee"
+"PACC" = "City Council Parks, Arts and Culture Committee"
+"Public Safety Committee" = "City Council Public Safety Committee"
+"REIB" = "City Council Racial Equity, Inclusion, and Belonging Committee"
+"REIB City Council" = "City Council Racial Equity, Inclusion, and Belonging Committee"
+"Transportation, Energy, and Utilities Committee" = "City Council Transportation, Energy, and Utilities Committee"
+"Tax Abatement Committee" = "City Council Tax Abatement Committee"
+"Tax Fairness Proposals" = "Tax Fairness Ad Hoc Committee"
+"Boards & Commissions Committee" = "Boards and Commissions Selection Committee"
+"Local Control Sub-committee" = "Local Control Commission Subcommittee"
+"Local Cannabis Control Sub-committee" = "Local Cannabis Control Commission Subcommittee"
+"Local Control Cannabis Commission" = "Local Cannabis Control Commission"
+"Board of Assessor" = "Board of Assessors"
+"Long Range Planning Committee" = "Planning Commission Long Range Planning Committee"
+"Collab. Working Group on Inclusionary Zoning" = "Collaborative Working Group on Inclusionary Zoning"
+"Open Space Subcommittee" = "Conservation Board Open Space Subcommittee"
+"Vegetation Ordinance Amendment Info Session" = "Conservation Board"
+"Cart Vendor Committee" = "Church Street Marketplace Cart Vendor Committee"
+"CSMC" = "Church Street Marketplace Commission"
+"Animal Control Committee" = "Police Commission Animal Control Committee"
+"Vicious Dog Hearing" = "Police Commission"
+"Parks & Recreation Commission" = "Parks Commission"
+"Fletcher Free Library Commission Policy Committee" = "Library Commission Policy Committee"
+"Burlington Walk-Bike Council" = "Burlington Walk Bike Council"
+"BCA Executive" = "Burlington City Arts Executive Committee"
+"BCA Board of Directors Executive Committee" = "Burlington City Arts Executive Committee"
+"Public Art Committee" = "Burlington City Arts Public Art Committee"
+"Burlington City Arts Board of Directors Executive Committee" = "Burlington City Arts Executive Committee"
+
+[meetings.civicclerk]
+api_url = "https://burlingtonvt.api.civicclerk.com/v1"
+portal_url = "https://burlingtonvt.portal.civicclerk.com"
+# Meetings, agendas, and minutes are collected from here on: the current City
+# Council took office at its organization meeting on April 6, 2026, after the
+# Town Meeting Day election of March 3. Earlier minutes are text too; they're
+# left out so the record starts with the council the Officials page lists.
+since = "2026-04-01"
+# Left out: the Neighborhood Planning Assemblies ("Ward 3 NPA Meeting", "Wards
+# 4&7 NPA Meeting", "All Wards NPA Meeting"); the portal's placeholder and test
+# entries ("Dashboard Organizational Agenda -- PLANNING ONLY" in 2075, "TEST
+# ROUTING ITEMS"); and notices of public hearings posted as entries of their
+# own ("PUBLIC HEARING NOTICE: ...", "Public Hearing: ..."), which are held at
+# the City Council's or Planning Commission's meeting of the same evening, where
+# they're listed. Also the planning and public works departments' public
+# information and community meetings on projects ("planBTV New North End
+# Community Meeting"), which aren't meetings of a city body.
+exclude_pattern = '\bNPAs?\b|\bPLANNING ONLY\b|\bTEST ROUTING\b|^public hearing\b|\b(community|public information) meeting\b|^one time event$'
+
+# Agenda and minutes PDFs, in the network's documents bucket.
+[storage]
+endpoint = "https://6bbfee5a3892553c7993dbfa4b4e8453.r2.cloudflarestorage.com"
+bucket = "publick-documents"
+public_url = "https://files.publick.org"
+prefix = "burlington-vt"
+
+# Agenda previews and decisions from minutes, written by a language model and
+# labeled as AI-generated on the site, and their Spanish translations. Within
+# the network's monthly budget. Only meetings from `since` on are summarized:
+# older ones keep their records and documents.
+[summaries]
+model = "claude-sonnet-5"
+max_per_run = 40
+input_price = 2.0
+output_price = 10.0
+max_cost_per_run = 5.0
+since = "2026-07-01"
+
+# How residents can take part, per board, shown on its meeting pages. Only
+# what the city has published; each entry names its source.
+[participation."City Council"]
+comment = "Residents can speak during Public Forum at the Council's regular meetings: sign up in person at the meeting, or online to speak on Zoom. Online sign-up closes one hour before Public Forum begins."
+source_title = "City Council agenda of September 14, 2026"
+source_url = "https://burlingtonvt.portal.civicclerk.com/event/10090/files"
+video_title = "CCTV's City Council playlist on YouTube"
+video_url = "https://www.youtube.com/playlist?list=PLljLFn4BZd2PwCge7lNoKug676jIf_iUA"
+
+# Terms that come up on agendas and minutes, explained on each meeting page
+# where they appear. Acronyms match exactly; other terms ignore case.
+[[glossary]]
+term = "executive session"
+definition = "A part of a public meeting closed to the public. Vermont's Open Meeting Law allows it only for specific reasons, such as lawsuits, contracts, or personnel matters, and no final decision may be made in it."
+
+[[glossary]]
+term = "VSA"
+definition = "Vermont Statutes Annotated, the state's laws (also written V.S.A.)."
+
+[[glossary]]
+term = "consent agenda"
+definition = "Routine items, such as accepting reports and placing letters on file, voted on together in one motion unless a member asks to take one up separately."
+
+[[glossary]]
+term = "deliberative agenda"
+definition = "The part of a City Council agenda with the items the Council discusses and votes on one at a time."
+
+[[glossary]]
+term = "Public Forum"
+definition = "The time at a City Council meeting when residents can speak to the Council about any city matter."
+
+[[glossary]]
+term = "Board of Finance"
+definition = "The mayor, the City Council President, and three councilors, with the Chief Administrative Officer as a non-voting member. It reviews the city's spending and other money matters before the City Council votes on them."
+
+[[glossary]]
+term = "City Council With Mayor Presiding"
+definition = "The City Council meeting with the mayor in the chair, where the Council appoints members of the city's boards and commissions."
+
+[[glossary]]
+term = "CEDO"
+definition = "The Community & Economic Development Office, the city department for housing, neighborhoods, and economic development."
+
+[[glossary]]
+term = "CAO"
+definition = "The Chief Administrative Officer, who leads the Clerk/Treasurer's Office: the city's finances, elections, and public records."
+
+[[glossary]]
+term = "TIF"
+definition = "Tax increment financing: paying for public improvements in a district, such as Burlington's Downtown and Waterfront TIF districts, with the extra property tax its new development brings in."
+
+[[glossary]]
+term = "Town Meeting Day"
+definition = "The first Tuesday in March, when Vermont towns and cities vote. Burlington elects its councilors and school commissioners then and votes on the school budget, bonds, and charter changes."
+
+[[glossary]]
+term = "NPA"
+definition = "Neighborhood Planning Assembly: a meeting, by ward, open to every resident, where neighbors hear from the city and make recommendations to it."
+
+[[glossary]]
+term = "grand list"
+definition = "The total listed value of the city's taxable property. Property tax rates are applied to it."
+
+# Tax rates, property tax, and the average homestead tax bill
+# (pipeline/states/vt/), from the Vermont Department of Taxes' Property
+# Valuation and Review (PVR) figures, where the city is "Burlington" (town
+# code 4114), and VCGI's statewide parcel data, where its name is the same.
+# The city's own budgets, year by year, are on its Finance & Budgets page.
+[finance]
+pvr_town = "Burlington"
+budget_documents_url = "https://www.burlingtonvt.gov/197/Finance-Budgets"
+
+# School figures from the Vermont Agency of Education: the district is SU015
+# (Burlington School District) on the Education Dashboard, and T037 in the
+# per pupil spending report.
+[schools]
+aoe_org = "SU015"
+aoe_lea = "T037"
+district_name = "Burlington School District"
+
+# Housing: Census building permits (Burlington is Census place 10675, which
+# reports to the Census every month) and the American Community Survey,
+# through Census Reporter.
+[housing]
+bps_region = "Northeast Region"
+bps_prefix = "ne"
+bps_state = "50"
+bps_place = "10675"
+census_geo = "16000US5010675"
+state_geo = "04000US50"
+
+# 311 requests, from SeeClickFix (public requests only). Burlington's
+# organization (297) also takes requests for Burlington Electric, the airport,
+# and the city's COVID-19 relief requests of 2020; departments keeps the city's
+# own request types ("Burlington, VT": Public Works, Parks, parking, water, and
+# more).
+[seeclickfix]
+organization_id = 297
+open311_base = "https://seeclickfix.com/open311/v2"
+api_base = "https://seeclickfix.com/api/v2"
+departments = ["Burlington, VT"]
+scope_note = "The city's own request types, such as potholes, sidewalks, trash and illegal dumping, graffiti, parks, parking, and water. Burlington Electric's and the airport's requests aren't included."
+report_url = "https://seeclickfix.com/burlington_2"
+# SeeClickFix documents a limit of 20 requests per minute.
+request_delay = 3.2
+recent_days = 21
+max_details_per_run = 700
+time_budget_seconds = 2400
+# The month the full history starts (python -m pipeline.fetch_311 --backfill).
+# Older requests are included only while they are still open.
+history_since = "2026-01"
+# The eight wards in effect since March 2024 (the 2022 redistricting), from the
+# city's GIS, with each ward's council district and 2020 census population (see
+# data/README.md).
+precincts_file = "burlington-wards-2024.geojson"
+wards_publisher = "City of Burlington"
+wards_year = 2024
+wards_url = "https://maps.burlingtonvt.gov/arcgis/rest/services/City_Wards_2024/MapServer/0"
+
+# Repeat locations: requests in the same category within radius_m meters and
+# window_days days of each other are grouped as one place.
+[seeclickfix.repeats]
+radius_m = 50
+window_days = 60
+recent_open_days = 30
+
+# Unemployment rate (BLS Local Area Unemployment Statistics, area
+# CT5010675000000, Burlington city). City rates are not seasonally adjusted;
+# the state series is shown for context. bulk_file is the state's file under
+# download.bls.gov/pub/time.series/la/, used when the API refuses.
+[labor]
+local_series = "LAUCT501067500000003"
+state_series = "LAUST500000000000003"
+bulk_file = "la.data.53.Vermont"
+
+# How often each data source should update. The daily run fails (and GitHub
+# emails the owner) when one goes longer than max_days, and the About page
+# lists them. Figures published monthly or yearly are judged by the engine.
+[freshness]
+summary_grace_days = 2
+sources = [
+  { label = "Meetings (CivicClerk)", file = "meetings/status.json", max_days = 2 },
+  { label = "311 requests", file = "311/status.json", max_days = 2 },
+  { label = "311 scorecard", file = "311/scorecard.json", field = "generated_at", max_days = 2 },
+]
+
+# Who represents you (the Officials page). Kept by hand from the city's
+# website; checked is the date the list was last checked against it. Only
+# city-issued email addresses, and the mayor's office phone. A member with a
+# ward is elected by that ward; a district councilor is elected by the two
+# wards of the district (charter, 24 App. V.S.A. ch. 3, § 2: East is Wards 1
+# and 8, Central 2 and 3, South 5 and 6, North 4 and 7). Terms begin on the
+# first Monday in April after the March election (§ 125); the year each ends
+# is from the city's council roster and Board of Finance page.
+#
+# The Burlington School Board (a school commissioner for each ward and
+# district) isn't listed yet: the school district's members page doesn't give
+# its members' seats and addresses cleanly.
+[officials]
+checked = "2026-10-04"
+
+# Elected in March 2024 for three years (charter § 125); the Board of Finance
+# page gives the term's end, 2027.
+[[officials.bodies]]
+name = "Mayor"
+url = "https://www.burlingtonvt.gov/476/Mayor-Emma-Mulvaney-Stanak"
+note = "Elected citywide for three years. The mayor presides over the City Council With Mayor Presiding and sits on the Board of Finance."
+members = [
+  { name = "Emma Mulvaney-Stanak", seat = "Citywide", term_ends = "2027-04", email = "mayor@burlingtonvt.gov", phone = "(802) 865-7272" },
+]
+
+# From the council's roster on its page (www2.burlingtonvt.gov/Clerk/CityCouncil),
+# confirmed against the City Clerk's official declarations of the elections of
+# March 3, 2026 (wards) and March 4, 2025 (districts) and the roll call in the
+# minutes of September 14, 2026. Names as the declarations give them.
+[[officials.bodies]]
+name = "City Council"
+url = "https://www.burlingtonvt.gov/413/City-Council"
+note = "Twelve councilors: eight elected by ward and four by district (two wards each), for two years."
+members = [
+  { name = "Carter Neubieser", seat = "Ward 1", ward = 1, term_ends = "2028-04", email = "cneubieser@burlingtonvt.gov" },
+  { name = "Gene Bergman", seat = "Ward 2", ward = 2, term_ends = "2028-04", email = "gbergman@burlingtonvt.gov" },
+  { name = "Laura Sanchez-Parkinson", seat = "Ward 3", ward = 3, term_ends = "2028-04", email = "lsanchezparkinson@burlingtonvt.gov" },
+  { name = "Sarah Carpenter", seat = "Ward 4", ward = 4, term_ends = "2028-04", email = "scarpenter@burlingtonvt.gov" },
+  { name = "Ben Traverse", seat = "Ward 5", ward = 5, role = "City Council President", term_ends = "2028-04", email = "btraverse@burlingtonvt.gov" },
+  { name = "Becca Brown McKnight", seat = "Ward 6", ward = 6, term_ends = "2028-04", email = "bbrownmcknight@burlingtonvt.gov" },
+  { name = "Evan Litwin", seat = "Ward 7", ward = 7, term_ends = "2028-04", email = "elitwin@burlingtonvt.gov" },
+  { name = "Marek Broderick", seat = "Ward 8", ward = 8, term_ends = "2028-04", email = "mbroderick@burlingtonvt.gov" },
+  { name = "Allie Schachter", seat = "East District", wards = [1, 8], term_ends = "2027-04", email = "aschachter@burlingtonvt.gov" },
+  { name = "Melo Grant", seat = "Central District", wards = [2, 3], term_ends = "2027-04", email = "megrant@burlingtonvt.gov" },
+  { name = "Ranjit \"Buddy\" Singh", seat = "South District", wards = [5, 6], term_ends = "2027-04", email = "bsingh@burlingtonvt.gov" },
+  { name = "Mark Barlow", seat = "North District", wards = [4, 7], term_ends = "2027-04", email = "mbarlow@burlingtonvt.gov" },
+]
+
+# The town's own text in Spanish, keyed by its English as written above or as
+# the data writes it (board names, 311 categories). Plain Spanish, addressed as
+# usted, following the engine's site/strings/es-guide.md and Lawrence's and
+# Manchester's tables where the English is the same. A board's name is given in
+# Spanish only; the site shows its English name after it. Not checked by a
+# person: the site says it's translated with AI.
+[strings.es]
+# The masthead and the share text.
+"Public data on how Burlington, Vermont decides and spends. Updated daily." = "Datos públicos sobre cómo Burlington, Vermont, toma decisiones y gasta su dinero. Se actualizan a diario."
+"An independent guide to city government in Burlington, Vermont" = "Una guía independiente sobre el gobierno de la ciudad de Burlington, Vermont"
+
+# Section summaries (the engine translates the section names every town shares).
+"When the City Council, its committees, and the city's boards and commissions meet, with agendas, and minutes from April 2026 on." = "Cuándo se reúnen el Concejo Municipal, sus comités y las juntas y comisiones de la ciudad, con sus agendas, y las actas desde abril de 2026."
+"How fast the city responds to SeeClickFix requests, by category and ward." = "Qué tan rápido responde la ciudad a las solicitudes de SeeClickFix, por categoría y por distrito."
+"The city's tax rates, what the property tax raises for the city and for schools, and the average homestead tax bill." = "Las tasas de impuestos de la ciudad, lo que recauda el impuesto a la propiedad para la ciudad y para las escuelas, y la factura promedio del impuesto a la propiedad de una vivienda principal (homestead)."
+"Burlington School District's graduation rate, attendance, state test results, and spending per pupil, with the state's." = "La tasa de graduación del Distrito Escolar de Burlington, la asistencia, los resultados de los exámenes estatales y el gasto por estudiante, comparados con los del estado."
+"The mayor and the City Council, by ward and district, and how to reach them." = "La alcaldesa y el Concejo Municipal, por distrito electoral (ward) y por distrito, y cómo comunicarse con ellos."
+
+# Where the city posts agendas and minutes, and the data the site keeps up to date.
+"city's CivicClerk portal" = "portal CivicClerk de la ciudad"
+"Meetings (CivicClerk)" = "Reuniones (CivicClerk)"
+"311 requests" = "Solicitudes al 311"
+
+# 311.
+"The city's own request types, such as potholes, sidewalks, trash and illegal dumping, graffiti, parks, parking, and water. Burlington Electric's and the airport's requests aren't included." = "Los tipos de solicitud de la propia ciudad, como baches, aceras, basura y vertidos ilegales, grafiti, parques, estacionamiento y agua. No se incluyen las solicitudes de Burlington Electric ni del aeropuerto."
+
+# How to take part.
+"Residents can speak during Public Forum at the Council's regular meetings: sign up in person at the meeting, or online to speak on Zoom. Online sign-up closes one hour before Public Forum begins." = "Los residentes pueden hablar durante el Foro Público (Public Forum) en las reuniones regulares del Concejo: inscríbase en persona en la reunión, o en línea para hablar por Zoom. La inscripción en línea cierra una hora antes de que empiece el Foro Público."
+"City Council agenda of September 14, 2026" = "Agenda del Concejo Municipal del 14 de septiembre de 2026"
+"CCTV's City Council playlist on YouTube" = "la lista de reproducción del Concejo Municipal de CCTV en YouTube"
+
+# Glossary definitions (the terms themselves stay as the agendas write them).
+"A part of a public meeting closed to the public. Vermont's Open Meeting Law allows it only for specific reasons, such as lawsuits, contracts, or personnel matters, and no final decision may be made in it." = "Una parte de una reunión pública que se hace a puerta cerrada. La ley de reuniones abiertas de Vermont la permite solo por razones específicas, como demandas, contratos o asuntos de personal, y en ella no se puede tomar ninguna decisión final."
+"Vermont Statutes Annotated, the state's laws (also written V.S.A.)." = "Estatutos Anotados de Vermont (Vermont Statutes Annotated), las leyes del estado (también se escribe V.S.A.)."
+"Routine items, such as accepting reports and placing letters on file, voted on together in one motion unless a member asks to take one up separately." = "Asuntos de rutina, como aceptar informes y archivar cartas, que se votan juntos en una sola moción, a menos que un miembro pida tratar alguno por separado."
+"The part of a City Council agenda with the items the Council discusses and votes on one at a time." = "La parte de la agenda del Concejo Municipal con los asuntos que el Concejo discute y vota uno por uno."
+"The time at a City Council meeting when residents can speak to the Council about any city matter." = "El momento de una reunión del Concejo Municipal en que los residentes pueden hablarle al Concejo sobre cualquier asunto de la ciudad."
+"The mayor, the City Council President, and three councilors, with the Chief Administrative Officer as a non-voting member. It reviews the city's spending and other money matters before the City Council votes on them." = "La alcaldesa, el presidente del Concejo Municipal y tres concejales, con el Director Administrativo (Chief Administrative Officer) como miembro sin voto. Revisa los gastos de la ciudad y otros asuntos de dinero antes de que el Concejo Municipal los vote."
+"The City Council meeting with the mayor in the chair, where the Council appoints members of the city's boards and commissions." = "La reunión del Concejo Municipal presidida por la alcaldesa, en la que el Concejo nombra a los miembros de las juntas y comisiones de la ciudad."
+"The Community & Economic Development Office, the city department for housing, neighborhoods, and economic development." = "La Oficina de Desarrollo Comunitario y Económico (Community & Economic Development Office), el departamento de la ciudad para la vivienda, los vecindarios y el desarrollo económico."
+"The Chief Administrative Officer, who leads the Clerk/Treasurer's Office: the city's finances, elections, and public records." = "El Director Administrativo (Chief Administrative Officer), que dirige la Oficina del Secretario y Tesorero (Clerk/Treasurer's Office): las finanzas, las elecciones y los registros públicos de la ciudad."
+"Tax increment financing: paying for public improvements in a district, such as Burlington's Downtown and Waterfront TIF districts, with the extra property tax its new development brings in." = "Financiamiento por incremento de impuestos (tax increment financing): pagar mejoras públicas en un distrito, como los distritos TIF del centro y de la costa del lago de Burlington, con el impuesto a la propiedad adicional que trae su nuevo desarrollo."
+"The first Tuesday in March, when Vermont towns and cities vote. Burlington elects its councilors and school commissioners then and votes on the school budget, bonds, and charter changes." = "El primer martes de marzo, cuando votan los pueblos y ciudades de Vermont. Ese día Burlington elige a sus concejales y comisionados escolares y vota el presupuesto escolar, los bonos y los cambios a la carta orgánica."
+"Neighborhood Planning Assembly: a meeting, by ward, open to every resident, where neighbors hear from the city and make recommendations to it." = "Asamblea de Planificación Vecinal (Neighborhood Planning Assembly): una reunión, por distrito electoral, abierta a todos los residentes, donde los vecinos escuchan a la ciudad y le hacen recomendaciones."
+"The total listed value of the city's taxable property. Property tax rates are applied to it." = "El valor total registrado de las propiedades sujetas a impuestos de la ciudad. A ese valor se le aplican las tasas del impuesto a la propiedad."
+
+# Officials: notes, seats, and roles.
+"Elected citywide for three years. The mayor presides over the City Council With Mayor Presiding and sits on the Board of Finance." = "Elegida por toda la ciudad por tres años. La alcaldesa preside el Concejo Municipal con la Alcaldía en la Presidencia y forma parte de la Junta de Finanzas."
+"Twelve councilors: eight elected by ward and four by district (two wards each), for two years." = "Doce concejales: ocho elegidos por distrito electoral (ward) y cuatro por distrito (de dos wards cada uno), por dos años."
+"City Council President" = "Presidente del Concejo Municipal"
+"East District" = "Distrito Este"
+"Central District" = "Distrito Central"
+"South District" = "Distrito Sur"
+"North District" = "Distrito Norte"
+
+# Boards, as the portal names them (after [meetings.aliases]).
+"City Council With Mayor Presiding" = "Concejo Municipal con la Alcaldía en la Presidencia"
+"Board of Finance" = "Junta de Finanzas"
+"City Council Charter Change Committee" = "Comité de Cambios a la Carta Orgánica del Concejo Municipal"
+"City Council Community Development and Neighborhood Revitalization Committee" = "Comité de Desarrollo Comunitario y Revitalización de Vecindarios del Concejo Municipal"
+"City Council Human Resources Committee" = "Comité de Recursos Humanos del Concejo Municipal"
+"City Council License Committee" = "Comité de Licencias del Concejo Municipal"
+"City Council Ordinance Committee" = "Comité de Ordenanzas del Concejo Municipal"
+"City Council Parks, Arts and Culture Committee" = "Comité de Parques, Artes y Cultura del Concejo Municipal"
+"City Council Public Safety Committee" = "Comité de Seguridad Pública del Concejo Municipal"
+"City Council Racial Equity, Inclusion, and Belonging Committee" = "Comité de Equidad Racial, Inclusión y Pertenencia del Concejo Municipal"
+"City Council Transportation, Energy, and Utilities Committee" = "Comité de Transporte, Energía y Servicios Públicos del Concejo Municipal"
+"City Council Tax Abatement Committee" = "Comité de Reducción de Impuestos del Concejo Municipal"
+"Tax Fairness Ad Hoc Committee" = "Comité Especial de Equidad Tributaria"
+"Boards and Commissions Selection Committee" = "Comité de Selección de Juntas y Comisiones"
+"Local Control Commission" = "Comisión de Control Local"
+"Local Control Commission Subcommittee" = "Subcomité de la Comisión de Control Local"
+"Local Cannabis Control Commission" = "Comisión Local de Control del Cannabis"
+"Local Cannabis Control Commission Subcommittee" = "Subcomité de la Comisión Local de Control del Cannabis"
+"Board of Civil Authority" = "Junta de Autoridad Civil"
+"Board for Registration of Voters" = "Junta de Registro de Votantes"
+"Board of Abatement of Taxes" = "Junta de Reducción de Impuestos"
+"Board of Assessors" = "Junta de Tasadores"
+"Board of Tax Appeals" = "Junta de Apelaciones de Impuestos"
+"Development Review Board" = "Junta de Revisión de Desarrollo"
+"Planning Commission" = "Comisión de Planificación"
+"Planning Commission Executive Committee" = "Comité Ejecutivo de la Comisión de Planificación"
+"Planning Commission Long Range Planning Committee" = "Comité de Planificación a Largo Plazo de la Comisión de Planificación"
+"Planning Commission Ordinance Committee" = "Comité de Ordenanzas de la Comisión de Planificación"
+"Collaborative Working Group on Inclusionary Zoning" = "Grupo de Trabajo Conjunto sobre Zonificación Inclusiva"
+"Design Advisory Board" = "Junta Asesora de Diseño"
+"Conservation Board" = "Junta de Conservación"
+"Conservation Board Open Space Subcommittee" = "Subcomité de Espacios Abiertos de la Junta de Conservación"
+"Housing Board of Review" = "Junta de Revisión de Vivienda"
+"Airport Commission" = "Comisión del Aeropuerto"
+"Burlington Electric Commission" = "Comisión de Burlington Electric"
+"Church Street Marketplace Commission" = "Comisión del Church Street Marketplace"
+"Church Street Marketplace Cart Vendor Committee" = "Comité de Vendedores Ambulantes del Church Street Marketplace"
+"Fire Commission" = "Comisión de Bomberos"
+"Police Commission" = "Comisión de Policía"
+"Police Commission Animal Control Committee" = "Comité de Control de Animales de la Comisión de Policía"
+"Police Commission Complaints Committee" = "Comité de Quejas de la Comisión de Policía"
+"Parks Commission" = "Comisión de Parques"
+"Public Works Commission" = "Comisión de Obras Públicas"
+"Library Commission" = "Comisión de la Biblioteca"
+"Library Commission Policy Committee" = "Comité de Políticas de la Comisión de la Biblioteca"
+"Board of Health" = "Junta de Salud"
+"Cemetery Commission" = "Comisión de Cementerios"
+"Retirement Board" = "Junta de Jubilación"
+"Vehicle for Hire Licensing Board" = "Junta de Licencias de Vehículos de Alquiler"
+"Advisory Committee on Accessibility" = "Comité Asesor de Accesibilidad"
+"Burlington Walk Bike Council" = "Consejo de Peatones y Ciclistas de Burlington"
+"Burlington Aging Council" = "Consejo de Personas Mayores de Burlington"
+"Burlington City Arts Board of Directors" = "Junta Directiva de Burlington City Arts"
+"Burlington City Arts Executive Committee" = "Comité Ejecutivo de Burlington City Arts"
+"Burlington City Arts Public Art Committee" = "Comité de Arte Público de Burlington City Arts"
+"Burlington Community Development Corporation" = "Corporación de Desarrollo Comunitario de Burlington"
+"Burlington Housing Trust Fund Administrative Committee" = "Comité Administrativo del Fondo Fiduciario de Vivienda de Burlington"
+
+# 311 categories, as SeeClickFix names the city's request types.
+"Active Construction Issue" = "Problema en una obra en curso"
+"Acts of kindness or positive community contributions" = "Actos de bondad o aportes positivos a la comunidad"
+"Church Street Marketplace" = "Church Street Marketplace"
+"Dead Animal" = "Animal muerto"
+"Drainage" = "Drenaje"
+"Found Needle or syringe" = "Aguja o jeringa encontrada"
+"Graffiti on private property" = "Grafiti en propiedad privada"
+"Greenbelt/Treebelt" = "Franja verde entre la acera y la calle"
+"Icy Conditions" = "Hielo en la vía"
+"Parking Garages and Lots" = "Garajes y estacionamientos públicos"
+"Parking Meters & Kiosks" = "Parquímetros y quioscos de pago"
+"Parking on lawns or yards" = "Estacionamiento en céspedes o patios"
+"Parks Department Issue" = "Problema en un parque"
+"Parks Department issue" = "Problema en un parque"
+"Recycling - Missed Pickup" = "No recogieron el reciclaje"
+"Sewer Issue" = "Problema de alcantarillado"
+"Sidewalk" = "Acera"
+"Sidewalks (Non-integrated)" = "Aceras (no integrado)"
+"Signage or traffic light problem" = "Problema con letreros o semáforos"
+"Snow Plowing" = "Remoción de nieve"
+"Street Pavement Condition" = "Estado del pavimento"
+"Sweeping Needed" = "Hace falta barrer la calle"
+"Traffic Signal Problems" = "Problemas con semáforos"
+"Traffic/Street Signs: Report Problem" = "Señales de tránsito o de calles: reportar un problema"
+"Transportation, Bike or Parking Improvement Request" = "Pedido de mejoras de transporte, bicicletas o estacionamiento"
+"Trash or Illegal Dumping" = "Basura o vertido ilegal"
+"Water Cap/Valve" = "Tapa o válvula de agua"
+"Water Leak" = "Fuga de agua"
+"Water Quality" = "Calidad del agua"
+"Water Service Disruption" = "Interrupción del servicio de agua"
