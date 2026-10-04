@@ -1,9 +1,8 @@
 # Runbook
 
 What to do when something needs a person: each morning's checks, what each
-alert means, and how to fix or roll back. Written for the second person with
-owner access as much as for the first; the README says how the network
-works, this says what to do.
+alert means, and how to fix or roll back. The README says how the network
+works; this says what to do.
 
 Times are UTC. Eastern is UTC−4 in summer, UTC−5 in winter.
 
@@ -11,14 +10,10 @@ Times are UTC. Eastern is UTC−4 in summer, UTC−5 in winter.
 
 | Service | What it holds | Owners |
 |---|---|---|
-| GitHub, `publick-org` | Both repositories, their secrets, Actions | NasTber; *second owner to be named* |
-| Cloudflare | `publick.org` DNS, both Workers, the R2 buckets (`publick-sites`, `publick-documents`), email routing | NasTber; *second owner to be named* |
-| Anthropic | The API key, its spending and rate limits | NasTber; *second owner to be named* |
+| GitHub, `publick-org` | Both repositories, their secrets, Actions | NasTber |
+| Cloudflare | `publick.org` DNS, both Workers, the R2 buckets (`publick-sites`, `publick-documents`), email routing | NasTber |
+| Anthropic | The API key, its spending and rate limits | NasTber |
 | GoatCounter | The `publick` page-view site | NasTber |
-
-A second owner on each, other than GoatCounter, is roadmap item 16. Until
-there is one, nobody else can renew a token, deploy a Worker, or raise the
-budget.
 
 ## Each morning
 
