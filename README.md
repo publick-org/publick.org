@@ -22,7 +22,8 @@ wrangler.toml                 The Worker that serves every site from the sites b
 wrangler.scheduler.toml       The Worker that starts the daily runs on time
 scripts/import-town.sh        Copies a town's own repository into towns/
 scripts/build_home.py         Writes the homepage's town lists, by state, with the network's counts (from each
-                              town's data/run.json), and a page for each state with 10 or more towns
+                              town's data/run.json), and a page for each state with 10 or more towns; and the
+                              homepage's sitemap.xml and robots.txt
 scripts/build_status.py       Writes the network status page, publick.org/status/
 scripts/make_share_image.py   Draws home/share/publick.png, the homepage's card on Substack and social media
 .github/workflows/network.yml The daily runs, and builds on push and pull request
