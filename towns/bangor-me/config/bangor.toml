@@ -76,6 +76,13 @@ summary = "Bangor's graduation rate, chronic absenteeism, state test results, an
 status = "live"
 
 [[sections]]
+slug = "budget"
+title = "City budget"
+nav = "Budget"
+summary = "The city's tax rate and what the property tax raises, compared with Maine's other towns."
+status = "live"
+
+[[sections]]
 slug = "housing"
 title = "Housing"
 summary = "New homes permitted, home values and rents, and the housing stock."
@@ -244,13 +251,12 @@ definition = "A deed in which the city gives up whatever claim it has to a prope
 # (GEOCODE 19020) have current values (their total is 1.07 times the city's
 # 2024 taxable land and buildings), but 10,937 of its 11,659 parcels have land
 # use "0", homes among them, so its single-family homes can't be picked out
-# (the codes it does use, such as "1110", are apartment buildings). The Maine
-# package's budget figures need only mrs_municipality, but the engine asks for
-# the tax bill's keys too whenever [finance] is given, so the table, and the
-# Budget section, are left out for now. Not enabled:
-# [finance]
-# mrs_municipality = "Bangor"
-# budget_documents_url = "https://www.bangormaine.gov/213/Budget-Information"
+# (the codes it does use, such as "1110", are apartment buildings). So the tax
+# bill's keys (megis_geocode, single_family_use) are left out, and the Budget
+# page has the tax rate and what the property tax raises without an average bill.
+[finance]
+mrs_municipality = "Bangor"
+budget_documents_url = "https://www.bangormaine.gov/213/Budget-Information"
 
 # Schools: the Department of Education's ESSA Dashboard, where the district is
 # "Bangor Public Schools". The district calls itself the Bangor School Department.
@@ -367,6 +373,7 @@ members = [
 # The masthead and the share text.
 "Public data on how Bangor, Maine decides and spends. Updated daily." = "Datos públicos sobre cómo Bangor, Maine, toma decisiones y gasta su dinero. Se actualizan a diario."
 "An independent guide to city government in Bangor, Maine" = "Una guía independiente sobre el gobierno de la ciudad de Bangor, Maine"
+"The city's tax rate and what the property tax raises, compared with Maine's other towns." = "La tasa de impuestos de la ciudad y lo que recauda el impuesto a la propiedad, comparadas con las de los demás municipios de Maine."
 
 # Section summaries (the engine translates the section names every town shares).
 "Every board and committee meeting in the city's Agenda Center, with agendas, and minutes from January 2026 on." = "Todas las reuniones de las juntas y comités en el Centro de Agendas de la ciudad, con sus agendas, y las actas desde enero de 2026."
