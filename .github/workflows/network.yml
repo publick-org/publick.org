@@ -151,8 +151,9 @@ jobs:
       # are due, and share out the summary budget, without downloading any town's data. Outside a pull
       # request, the branch as it is when the run starts, not when it was queued: a run that waited
       # behind another sees the towns that one just updated.
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
         with:
+          persist-credentials: false
           ref: ${{ github.event_name != 'pull_request' && github.ref || '' }}
           filter: blob:none
           sparse-checkout-cone-mode: false
@@ -165,13 +166,14 @@ jobs:
       - id: engine
         run: echo "ref=$(tr -d '[:space:]' < engine-version)" >> "$GITHUB_OUTPUT"
 
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
         with:
+          persist-credentials: false
           repository: publick-org/publick-engine
           ref: ${{ steps.engine.outputs.ref }}
           path: .publick-engine
 
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
         with:
           python-version: "3.12"
 
@@ -283,7 +285,8 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v5
+      # With its token saved in git's config: the commit step pushes with it.
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
         with:
           ref: ${{ github.ref }}
           filter: blob:none
@@ -293,13 +296,14 @@ jobs:
             /towns/*/config/
             /states/
 
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
         with:
+          persist-credentials: false
           repository: publick-org/publick-engine
           ref: ${{ needs.plan.outputs.engine }}
           path: .publick-engine
 
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
         with:
           python-version: "3.12"
           cache: pip
@@ -332,9 +336,11 @@ jobs:
     steps:
       # Only this batch's towns are checked out, so a job's checkout stays small however many towns there are.
       # Outside a pull request, the branch as it is when the job starts, not when the run was queued: a run
-      # that waited behind another starts from that run's data rather than replaying over it.
-      - uses: actions/checkout@v5
+      # that waited behind another starts from that run's data rather than replaying over it. The token is
+      # saved in git's config only where the commit steps push with it, not on a pull request's run.
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
         with:
+          persist-credentials: ${{ github.event_name != 'pull_request' }}
           ref: ${{ github.event_name != 'pull_request' && github.ref || '' }}
           filter: blob:none
           sparse-checkout: .github
@@ -346,13 +352,14 @@ jobs:
           read -ra towns <<< "$TOWNS"
           git sparse-checkout add "${towns[@]/#/towns/}" states
 
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
         with:
+          persist-credentials: false
           repository: publick-org/publick-engine
           ref: ${{ needs.plan.outputs.engine }}
           path: .publick-engine
 
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
         with:
           python-version: "3.12"
           cache: pip
@@ -371,17 +378,18 @@ jobs:
           SAMPLE: ${{ needs.plan.outputs.sample == 'true' && '--sample-checks' || '' }}
           # Only when some data is left out, so a run fetching everything works with any engine.
           SOURCES: ${{ needs.plan.outputs.fetch == 'true' && needs.plan.outputs.sources != 'all' && format('--sources {0}', needs.plan.outputs.sources) || '' }}
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          # No keys on a pull request's run: it doesn't fetch or publish, and its build and checks use none.
+          ANTHROPIC_API_KEY: ${{ github.event_name != 'pull_request' && secrets.ANTHROPIC_API_KEY || '' }}
           # Empty unless the run fetches; then the town summarizes within these, new documents first.
           PUBLICK_SUMMARY_ALLOWANCE: ${{ needs.plan.outputs.summary_allowance }}
           PUBLICK_SUMMARY_BACKLOG_ALLOWANCE: ${{ needs.plan.outputs.summary_backlog_allowance }}
-          BLS_API_KEY: ${{ secrets.BLS_API_KEY }}
-          STORAGE_ACCESS_KEY_ID: ${{ secrets.STORAGE_ACCESS_KEY_ID }}
-          STORAGE_SECRET_ACCESS_KEY: ${{ secrets.STORAGE_SECRET_ACCESS_KEY }}
-          SITES_ENDPOINT: ${{ secrets.SITES_ENDPOINT }}
-          SITES_BUCKET: ${{ secrets.SITES_BUCKET }}
-          SITES_ACCESS_KEY_ID: ${{ secrets.SITES_ACCESS_KEY_ID }}
-          SITES_SECRET_ACCESS_KEY: ${{ secrets.SITES_SECRET_ACCESS_KEY }}
+          BLS_API_KEY: ${{ github.event_name != 'pull_request' && secrets.BLS_API_KEY || '' }}
+          STORAGE_ACCESS_KEY_ID: ${{ github.event_name != 'pull_request' && secrets.STORAGE_ACCESS_KEY_ID || '' }}
+          STORAGE_SECRET_ACCESS_KEY: ${{ github.event_name != 'pull_request' && secrets.STORAGE_SECRET_ACCESS_KEY || '' }}
+          SITES_ENDPOINT: ${{ github.event_name != 'pull_request' && secrets.SITES_ENDPOINT || '' }}
+          SITES_BUCKET: ${{ github.event_name != 'pull_request' && secrets.SITES_BUCKET || '' }}
+          SITES_ACCESS_KEY_ID: ${{ github.event_name != 'pull_request' && secrets.SITES_ACCESS_KEY_ID || '' }}
+          SITES_SECRET_ACCESS_KEY: ${{ github.event_name != 'pull_request' && secrets.SITES_SECRET_ACCESS_KEY || '' }}
         # $FETCH, $DEPLOY, $SAMPLE and $SOURCES are unquoted on purpose: each is a flag (and its value) or nothing.
         run: python -m pipeline.network run --towns "$TOWNS" $FETCH $SOURCES $DEPLOY $SAMPLE --reports reports
 
@@ -412,7 +420,7 @@ jobs:
           done
           [ ${#paths[@]} -eq 0 ] || .publick-engine/.github/scripts/commit-data.sh "Record publishing $TOWNS" "${paths[@]}"
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         if: ${{ !cancelled() }}
         with:
           name: report-${{ strategy.job-index }}
@@ -433,8 +441,9 @@ jobs:
       issues: write
     steps:
       # Outside a pull request, the branch as it is now: with the data (and run records) this run's towns committed.
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
         with:
+          persist-credentials: false
           ref: ${{ github.event_name != 'pull_request' && github.ref || '' }}
           sparse-checkout-cone-mode: false
           sparse-checkout: |
@@ -445,13 +454,14 @@ jobs:
             /towns/*/data/run.json
             /towns/*/data/summary-costs.json
 
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
         with:
+          persist-credentials: false
           repository: publick-org/publick-engine
           ref: ${{ needs.plan.outputs.engine }}
           path: .publick-engine
 
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
         with:
           python-version: "3.12"
 
@@ -510,17 +520,18 @@ jobs:
     if: ${{ !cancelled() && needs.plan.outputs.towns == 'true' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
         with:
+          persist-credentials: false
           repository: publick-org/publick-engine
           ref: ${{ needs.plan.outputs.engine }}
           path: .publick-engine
 
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
         with:
           python-version: "3.12"
 
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
         with:
           pattern: report-*
           merge-multiple: true
@@ -537,13 +548,14 @@ jobs:
     if: ${{ !cancelled() && needs.plan.outputs.prune == 'true' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
         with:
+          persist-credentials: false
           repository: publick-org/publick-engine
           ref: ${{ needs.plan.outputs.engine }}
           path: .publick-engine
 
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
         with:
           python-version: "3.12"
 
