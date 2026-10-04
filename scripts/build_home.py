@@ -14,6 +14,10 @@ record has them, only the number of towns is shown.
 Everything else on the pages is home/index.html and home/state.html as
 written; the generated parts go between their <!-- towns:... --> markers.
 
+It also writes the sitemap of these pages, and a robots.txt naming it. Each
+town's site has its own (the engine's build_site.py). The status page, which
+build_status.py adds, is kept out of search results, so out of the sitemap.
+
     python scripts/build_home.py --out _home    # the pages to publish
 """
 
@@ -34,6 +38,7 @@ ROOT = Path(__file__).resolve().parent.parent
 STATE_PAGE_AT = 10
 # Days of coming meetings counted at the top of the homepage.
 COMING_DAYS = 7
+SITE = "https://publick.org"
 
 
 def live_towns(root: Path) -> list[dict]:
@@ -128,6 +133,15 @@ def state_pages(template: str, root: Path) -> dict[str, str]:
     return pages
 
 
+def sitemap(states: list[str], today: date) -> str:
+    """The homepage, which changes with each day's counts, and each state's page, which changes only
+    when a town is added: it has no date, as the day it last changed isn't known."""
+    entries = [f"  <url><loc>{SITE}/</loc><lastmod>{today.isoformat()}</lastmod></url>"]
+    entries += [f"  <url><loc>{SITE}/{abbr}/</loc></url>" for abbr in sorted(states)]
+    return ('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+            + "\n".join(entries) + "\n</urlset>\n")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--out", type=Path, required=True, help="folder to write the pages to")
@@ -141,9 +155,12 @@ def main() -> int:
     shutil.copytree(source, out, ignore=shutil.ignore_patterns("state.html"))
     (out / "index.html").write_text(render((source / "index.html").read_text(encoding="utf-8"), args.root),
                                     encoding="utf-8")
-    for abbr, page in state_pages((source / "state.html").read_text(encoding="utf-8"), args.root).items():
+    states = state_pages((source / "state.html").read_text(encoding="utf-8"), args.root)
+    for abbr, page in states.items():
         (out / abbr).mkdir(parents=True, exist_ok=True)
         (out / abbr / "index.html").write_text(page, encoding="utf-8")
+    (out / "sitemap.xml").write_text(sitemap(list(states), datetime.now(timezone.utc).date()), encoding="utf-8")
+    (out / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8")
     print(f"Wrote {out / 'index.html'}")
     return 0
 
