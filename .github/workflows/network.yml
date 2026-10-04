@@ -93,9 +93,9 @@ env:
   # its towns in turn. Other runs have one town per job.
   BATCH_SIZE: 4
   # The network's monthly budget for AI summaries and translations, in dollars, shared by every town.
-  SUMMARY_BUDGET: "50"
-  # A month with a budget of its own, as YYYY-MM=dollars: October 2026, with six towns' launch backlogs.
-  SUMMARY_BUDGET_MONTH: "2026-10=80"
+  SUMMARY_BUDGET: "80"
+  # A month with a budget of its own, as YYYY-MM=dollars (empty for none).
+  SUMMARY_BUDGET_MONTH: ""
   # Who the daily issue for towns that need attention is assigned to, so it reaches them.
   ALERT_ASSIGNEE: NasTber
   # A daily run takes the towns whose last fetching run finished more than this many hours ago.
