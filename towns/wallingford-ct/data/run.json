@@ -1,8 +1,8 @@
 {
   "town": "wallingford",
   "folder": "wallingford-ct",
-  "started_at": "2026-10-04T09:14:04+00:00",
-  "finished_at": "2026-10-04T09:15:32+00:00",
+  "started_at": "2026-10-04T12:10:03+00:00",
+  "finished_at": "2026-10-04T12:10:58+00:00",
   "engine": "v1.34.0",
   "fetched": true,
   "steps": [
@@ -10,19 +10,19 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 53.0
+      "seconds": 15.8
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 2.9
+      "seconds": 2.5
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 31.0
+      "seconds": 29.6
     },
     {
       "name": "Publish site",
@@ -39,59 +39,17 @@
   ],
   "update": {
     "town": "wallingford",
-    "sources": "all",
-    "started_at": "2026-10-04T09:14:04+00:00",
+    "sources": "figures",
+    "started_at": "2026-10-04T12:10:04+00:00",
     "ok": true,
     "steps": [
-      {
-        "name": "Fetch meetings",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 8.0,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Fetch minutes",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0.3,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Fetch School Committee documents",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [drive_meetings] in the config"
-      },
-      {
-        "name": "Fetch school board meetings",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 25.1,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Summarize agendas",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 18.8,
-        "cadence": "continuous"
-      },
       {
         "name": "Fetch tax bill",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [finance] in the config"
+        "seconds": 8.4,
+        "cadence": "yearly"
       },
       {
         "name": "Fetch unemployment",
@@ -116,9 +74,8 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [finance] in the config"
+        "seconds": 6.4,
+        "cadence": "yearly"
       },
       {
         "name": "Fetch housing figures",
@@ -145,32 +102,6 @@
         "seconds": 0,
         "cadence": "continuous",
         "skipped": "no [permits] in the config"
-      },
-      {
-        "name": "Move saved documents to storage",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0.2,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [seeclickfix] in the config"
-      },
-      {
-        "name": "Compute 311 scorecard",
-        "ok": true,
-        "required": true,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [seeclickfix] in the config"
       }
     ]
   },
@@ -187,6 +118,28 @@
       "updated_at": "2026-10-04T05:14:13-04:00",
       "max_days": 2,
       "stale": false
+    },
+    {
+      "label": "Tax bill (calculated)",
+      "updated_at": "2026-10-04T08:10:04-04:00",
+      "max_days": null,
+      "cadence": "yearly",
+      "failing": 0,
+      "stale": false,
+      "latest": "Fiscal year 2027",
+      "next": "Fiscal year 2028 usually by November 1, 2027",
+      "behind": null
+    },
+    {
+      "label": "City budget",
+      "updated_at": "2026-10-04T08:10:13-04:00",
+      "max_days": null,
+      "cadence": "yearly",
+      "failing": 0,
+      "stale": false,
+      "latest": "Fiscal year 2026 adopted budget; Fiscal year 2027 mill rate",
+      "next": "Fiscal year 2027 adopted budget usually by October 1, 2026; Fiscal year 2028 mill rate usually by October 1, 2027",
+      "behind": null
     },
     {
       "label": "School figures (EdSight)",
@@ -233,9 +186,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-04T12:10:18+00:00",
-  "data_bytes": 732401,
-  "data_bytes_added": 11804,
+  "last_good_at": "2026-10-04T12:10:58+00:00",
+  "data_bytes": 743427,
+  "data_bytes_added": 10725,
   "activity": {
     "boards": 26,
     "meetings_by_date": {
