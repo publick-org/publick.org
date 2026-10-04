@@ -10,6 +10,7 @@ LICENSE                       What may be reused and how: CC BY 4.0 for what Pub
 LICENSE-CC-BY-4.0.txt         The CC BY 4.0 legal text
 engine-version                The engine release every town runs, e.g. v1.30.0; moved each morning by engine.yml
 ADDING-A-TOWN.md              The checklist for adding a town, from an empty folder to its first published site
+RUNBOOK.md                    What to do when something needs a person: each morning's checks, alerts, rollback
 home/                         The publick.org homepage (index.html) and the page for a state with many towns
                               (state.html); their town lists are filled in by scripts/build_home.py
 towns/<town>-<state>/         One folder per town, laid out as a town repository is:
