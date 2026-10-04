@@ -154,8 +154,7 @@ calendars = ["City Council Meetings & Workshops", "Finance Committee", "Planning
 # summaries. The City Council's, the Finance Committee's and the Planning
 # Board's collections are named by year ("City Council Meeting Minutes 2026",
 # "Finance Committee - Minutes 2026", "Planning Board Minutes 2026 - 2030"),
-# which the engine doesn't yet take for minutes collections: until it does,
-# their minutes aren't collected. The 9-1-1 Committee's collection ("CMT 911
+# which the engine reads as their boards' minutes. The 9-1-1 Committee's collection ("CMT 911
 # Agendas and Minutes") holds some agendas too, which are saved as minutes.
 [archive]
 index = "Archive.aspx"
@@ -164,6 +163,7 @@ minutes_since = "2026-01-01"
 # Archive collection names (without "Minutes") mapped to the boards' usual names.
 [archive.aliases]
 "CDBG" = "Community Development Block Grant Committee"
+"City Council Meeting" = "City Council"
 "CMT Historic Preservation Review Board" = "Historic Preservation Review Board"
 "CMT Public Art Committee" = "Public Art Committee"
 "CMT 911 Agendas and" = "9-1-1 Committee"
