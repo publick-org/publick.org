@@ -7,10 +7,10 @@
 # for every board, which the engine reads as [meetings.file_list]. The Board of
 # Education posts on the school district's website (Finalsite, with Google
 # Docs), read as [finalsite_meetings]. The town doesn't use SeeClickFix,
-# so the site has no 311 section. The engine's Connecticut package has only
-# school figures so far, from EdSight, so there are no tax bill or budget
-# figures yet; housing and unemployment come from the Census and BLS, as for
-# every town.
+# so the site has no 311 section. The engine's Connecticut package gives the
+# budget, mill rate, and tax bill, from the state's Office of Policy and
+# Management ([finance]), and school figures, from EdSight; housing and
+# unemployment come from the Census and BLS, as for every town.
 #
 # The site is in English and Spanish ([site] languages). [strings.es], at the
 # end, gives the Spanish for the town's own text; the engine has the rest.
@@ -54,6 +54,13 @@ official_site = "https://www.wallingfordct.gov"
 slug = "meetings"
 title = "Meetings"
 summary = "Every board and commission meeting on the town's calendar, with agendas, and minutes from July 2026 on."
+status = "live"
+
+[[sections]]
+slug = "budget"
+title = "Town budget"
+nav = "Budget"
+summary = "The town's adopted budget, its mill rate and what the property tax raises, and the average single-family tax bill."
 status = "live"
 
 [[sections]]
@@ -195,6 +202,17 @@ definition = "Routine items, such as tax refunds and approving past minutes, vot
 term = "Public Utilities Commission"
 definition = "The board, appointed by the mayor, that oversees the town's own electric, water, and sewer utilities."
 
+# Budget, mill rate, and property tax (pipeline/states/ct/), from the Office
+# of Policy and Management's statewide datasets on data.ct.gov. The average
+# single-family bill is calculated from the state's yearly Parcel and CAMA file,
+# where Wallingford codes its single-family homes 1010. The town's own budget
+# books are on its Finance Department page.
+[finance]
+opm_town = "Wallingford"
+opm_code = 148
+single_family_use = ["1010"]
+budget_documents_url = "https://www.wallingfordct.gov/government/departments/finance-department/"
+
 # School district figures from EdSight, the State Department of Education's
 # data portal (district code 1480011).
 [schools]
@@ -246,7 +264,7 @@ members = [
 [[officials.bodies]]
 name = "Town Council"
 url = "https://www.wallingfordct.gov/government/departments/town-council/"
-note = "Nine members elected at large for two years, no more than six of them from one party."
+note = "Wallingford has no wards or council districts: all nine members represent the whole town. Elected at large for two years, no more than six of them from one party."
 members = [
   { name = "Vincent F. Testa, Jr.", seat = "At-large", role = "Chair", term_ends = "2028-01", email = "vtesta@wallingfordct.gov" },
   { name = "Samuel Carmody", seat = "At-large", role = "Vice Chair", term_ends = "2028-01", email = "scarmody@wallingfordct.gov" },
@@ -262,7 +280,7 @@ members = [
 [[officials.bodies]]
 name = "Board of Education"
 url = "https://www.wallingford.k12.ct.us/board-of-education"
-note = "Nine members elected at large for two years."
+note = "No wards or districts: all nine members represent the whole town. Elected at large for two years."
 members = [
   { name = "Michael Votto", seat = "At-large", role = "Chairperson", term_ends = "2028-01", email = "mvotto@wallingfordschools.org" },
   { name = "Maureen Reed", seat = "At-large", role = "Vice Chairperson", term_ends = "2028-01", email = "mreed@wallingfordschools.org" },
@@ -280,8 +298,12 @@ members = [
 "Public data on how Wallingford, Connecticut decides and spends. Updated daily." = "Datos públicos sobre cómo Wallingford, Connecticut, toma decisiones y gasta su dinero. Se actualizan a diario."
 "An independent guide to town government in Wallingford, Connecticut" = "Una guía independiente sobre el gobierno municipal de Wallingford, Connecticut"
 
+# The budget section's name (the engine translates the names every town shares).
+"Town budget" = "Presupuesto del pueblo"
+
 # Section summaries (the engine translates the section names every town shares).
 "Every board and commission meeting on the town's calendar, with agendas, and minutes from July 2026 on." = "Todas las reuniones de las juntas y comisiones en el calendario del municipio, con sus agendas, y las actas desde julio de 2026."
+"The town's adopted budget, its mill rate and what the property tax raises, and the average single-family tax bill." = "El presupuesto aprobado del municipio, su tasa de impuesto (mill rate) y lo que recauda el impuesto a la propiedad, y la factura promedio del impuesto a la propiedad de una casa unifamiliar."
 "Graduation, attendance, state test results, and spending per pupil compared with the state." = "Graduación, asistencia, resultados de los exámenes estatales y gasto por estudiante, comparados con el estado."
 "The mayor, Town Council, and Board of Education, and how to reach them." = "El alcalde, el Concejo Municipal y la Junta de Educación, y cómo comunicarse con ellos."
 
@@ -298,8 +320,8 @@ members = [
 
 # Officials: notes, seats, and roles.
 "Elected townwide for two years." = "Elegido por todo el municipio por dos años."
-"Nine members elected at large for two years, no more than six of them from one party." = "Nueve miembros elegidos por todo el municipio por dos años; no más de seis pueden ser del mismo partido."
-"Nine members elected at large for two years." = "Nueve miembros elegidos por todo el municipio por dos años."
+"Wallingford has no wards or council districts: all nine members represent the whole town. Elected at large for two years, no more than six of them from one party." = "Wallingford no tiene distritos electorales municipales: los nueve miembros representan a todo el municipio. Se eligen por todo el municipio por dos años; no más de seis pueden ser del mismo partido."
+"No wards or districts: all nine members represent the whole town. Elected at large for two years." = "Sin distritos electorales: los nueve miembros representan a todo el municipio. Se eligen por todo el municipio por dos años."
 "At-large" = "Todo el municipio"
 
 # Boards, as the town's calendar and the school district name them (after [meetings.aliases]).
