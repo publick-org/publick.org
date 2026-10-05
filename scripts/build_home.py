@@ -14,9 +14,13 @@ record has them, only the number of towns is shown.
 Everything else on the pages is home/index.html and home/state.html as
 written; the generated parts go between their <!-- towns:... --> markers.
 
-It also writes the sitemap of these pages, and a robots.txt naming it. Each
-town's site has its own (the engine's build_site.py). The status page, which
-build_status.py adds, is kept out of search results, so out of the sitemap.
+It also writes the network's sitemap, publick.org/sitemap.xml: an index of
+this site's own (sitemap-home.xml) and every live town's (the engine's
+build_site.py writes each), so submitting it once in Search Console, to the
+publick.org domain property that covers every town's subdomain, covers every
+town, and a new town is in it from its first build. robots.txt names it. The
+status page, which build_status.py adds, is kept out of search results, so out
+of the sitemap.
 
     python scripts/build_home.py --out _home    # the pages to publish
 """
@@ -133,9 +137,17 @@ def state_pages(template: str, root: Path) -> dict[str, str]:
     return pages
 
 
+def sitemap_index(towns: list[dict]) -> str:
+    """The network's sitemap: this site's own, then each live town's."""
+    entries = [f"  <sitemap><loc>{loc}</loc></sitemap>"
+               for loc in [f"{SITE}/sitemap-home.xml", *(f"{t['url']}/sitemap.xml" for t in towns)]]
+    return ('<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+            + "\n".join(entries) + "\n</sitemapindex>\n")
+
+
 def sitemap(states: list[str], today: date) -> str:
-    """The homepage, which changes with each day's counts, and each state's page, which changes only
-    when a town is added: it has no date, as the day it last changed isn't known."""
+    """This site's pages: the homepage, which changes with each day's counts, and each state's page,
+    which changes only when a town is added: it has no date, as the day it last changed isn't known."""
     entries = [f"  <url><loc>{SITE}/</loc><lastmod>{today.isoformat()}</lastmod></url>"]
     entries += [f"  <url><loc>{SITE}/{abbr}/</loc></url>" for abbr in sorted(states)]
     return ('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
@@ -159,7 +171,8 @@ def main() -> int:
     for abbr, page in states.items():
         (out / abbr).mkdir(parents=True, exist_ok=True)
         (out / abbr / "index.html").write_text(page, encoding="utf-8")
-    (out / "sitemap.xml").write_text(sitemap(list(states), datetime.now(timezone.utc).date()), encoding="utf-8")
+    (out / "sitemap-home.xml").write_text(sitemap(list(states), datetime.now(timezone.utc).date()), encoding="utf-8")
+    (out / "sitemap.xml").write_text(sitemap_index(live_towns(args.root)), encoding="utf-8")
     (out / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8")
     print(f"Wrote {out / 'index.html'}")
     return 0
