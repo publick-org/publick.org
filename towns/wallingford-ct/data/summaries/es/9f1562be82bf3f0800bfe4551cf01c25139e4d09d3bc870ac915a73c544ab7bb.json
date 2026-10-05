@@ -1,23 +1,23 @@
 {
-  "headline": "Encontró justa la subida de alquiler en la queja de Fernandez y aprobó un acuerdo de desocupación en la disputa de Hax.",
-  "summary": "La comisión escuchó testimonios en la queja de Joan Fernandez contra Garden Homes Management Corporation y votó que la subida de alquiler era justa y equitativa. En una queja separada de Barbara Hax contra Lawrence Zolnik, las partes presentaron un acuerdo de arreglo que cubre la desocupación de los locales, la cantidad de alquiler y los términos de notificación, que ambas partes confirmaron en el acta.",
+  "headline": "Consideró justa la subida de alquiler en el caso de Fernandez y aprobó un acuerdo de arreglo entre Hax y Zolnik.",
+  "summary": "La comisión escuchó una reclamación de Joan Fernandez en contra de Garden Homes Management Corporation y votó unánimemente que la subida de alquiler era justa y equitativa. La comisión también revisó un acuerdo entre Barbara Hax y Lawrence Zolnik que cubre la fecha de mudanza, el monto del alquiler, y términos relacionados, que ambas partes confirmaron en el acta.",
   "decisions": [
-    "Encontró que la subida de alquiler en la queja de Fernandez contra Garden Homes Management Corporation es justa y equitativa; la moción pasó por aprobación unánime.",
-    "Registró el acuerdo entre Barbara Hax y Lawrence Zolnik, incluyendo que la demandante desocupará los locales no más tarde del 30 de noviembre de 2026, el alquiler será $1,250.00 a partir de septiembre de 2026, el demandado puede entregar un Aviso de Desocupación sin que se considere represalia, el demandado se comunicará con Scott Hax sobre asuntos, y el alquiler solo se deberá por ocupación real si la demandante se va antes; ambas partes confirmaron que este es su acuerdo."
+    "Determinó que la subida de alquiler en la reclamación de Fernandez en contra de Garden Homes Management Corporation es justa y equitativa, aprobado unánimemente.",
+    "Aceptó el acuerdo entre Barbara Hax y Lawrence Zolnik, incluyendo mudanza antes del 30 de noviembre de 2026, y alquiler fijado en $1,250.00 a partir de septiembre de 2026."
   ],
   "language": "es",
   "kind": "minutes",
   "source_sha256": "9f1562be82bf3f0800bfe4551cf01c25139e4d09d3bc870ac915a73c544ab7bb",
-  "source_hash": "edf036a40f52da0f7db5f08df75a29a7d89ba87cee35d4f14e00f45a9ee983f6",
+  "source_hash": "1dcfbd981a3c65b43e2a3439e3b49782e2365c37150ba1d4d76d95ce21755dbf",
   "check": "ok",
-  "review": "decisions 2: The English says the Respondent may serve an \"early\" Notice to Quit, but the Spanish says only \"un Aviso de Desocupación\" and omits \"early\" (anticipado), which changes the meaning of the term.; The Spanish uses \"la demandante\" for the Complainant, which gives her gender, but the English only says \"Complainant\" without specifying it. The same applies to \"la demandante se va antes\". Also \"Complainant\" is rendered as \"demandante\" and \"Respondent\" as \"demandado\", which also states a masculine gender for the Respondent.",
-  "attempts": 2,
+  "review": "headline: The English says the commission approved a settlement agreement, but the Spanish only says 'aprobó un acuerdo de arreglo' with no change in meaning. The real issue is in the summary: the English says the commission 'reviewed' the agreement, and the headline and decisions say 'approved' and 'accepted'. These are consistent with the source, so no error here.; decisions 2: 'move-out by November 30, 2026' was translated as 'mudanza antes del 30 de noviembre de 2026'. 'Antes del' means before that date and excludes November 30 itself, while 'by' includes it. It should be 'a más tardar el 30 de noviembre de 2026'.; summary: 'which both parties confirmed on the record' was translated as 'en el acta'. This means 'in the minutes' and not 'on the record' as in the hearing. Also, the relative clause 'que ambas partes confirmaron' after 'términos relacionados' is ambiguous, so it could read as if the terms, not the agreement, were confirmed.",
+  "attempts": 1,
   "model": "claude-haiku-4-5-20251001",
   "prompt_version": 3,
-  "generated_at": "2026-10-03T08:07:22-04:00",
+  "generated_at": "2026-10-05T05:52:20-04:00",
   "usage": {
-    "input_tokens": 1152,
-    "output_tokens": 367
+    "input_tokens": 1077,
+    "output_tokens": 267
   },
-  "cost": 0.008621
+  "cost": 0.008964
 }
