@@ -40,7 +40,7 @@ jobs:
     steps:
       # Without its token saved in git's config: git would push with it, this workflow's read-only
       # token, over ENGINE_PR_TOKEN in the remote's URL (the first run, 2026-10-03, failed so).
-      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
 
