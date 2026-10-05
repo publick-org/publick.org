@@ -8,7 +8,7 @@ at the version in `engine-version`.
 LICENSE                       What may be reused and how: CC BY 4.0 for what Publick makes, the credit line,
                               and what keeps its own terms (311, public records); the code is MIT
 LICENSE-CC-BY-4.0.txt         The CC BY 4.0 legal text
-engine-version                The engine release every town runs, e.g. v1.30.0; moved each morning by engine.yml
+engine-version                The engine release every town runs, e.g. v1.36.0; moved each morning by engine.yml
 ADDING-A-TOWN.md              The checklist for adding a town, from an empty folder to its first published site
 RUNBOOK.md                    What to do when something needs a person: each morning's checks, alerts, rollback
 home/                         The publick.org homepage (index.html) and the page for a state with many towns
@@ -18,16 +18,19 @@ towns/<town>-<state>/         One folder per town, laid out as a town repository
   data/                         collected data, committed by the daily run, with run.json (its last
                                 daily run) and summary-costs.json (its AI summaries' cost, by month)
   site/static/                  files that replace or add to the engine's (the share image)
-states/ma/                    Statewide sources, fetched once for every town: Massachusetts's DLS reports
+states/ma/                    Statewide sources, fetched once for every town: Massachusetts's DLS reports (other
+                              states' figures are saved in the engine, or fetched by each town)
 wrangler.toml                 The Worker that serves every site from the sites bucket
 wrangler.scheduler.toml       The Worker that starts the daily runs on time
-scripts/import-town.sh        Copies a town's own repository into towns/
+scripts/import-town.sh        Copies a town's own repository into towns/ (how the first three towns moved in)
 scripts/build_home.py         Writes the homepage's town lists, by state, with the network's counts (from each
                               town's data/run.json), and a page for each state with 10 or more towns; and the
                               homepage's sitemap.xml and robots.txt
 scripts/build_status.py       Writes the network status page, publick.org/status/
 scripts/make_share_image.py   Draws home/share/publick.png, the homepage's card on Substack and social media
 .github/workflows/network.yml The daily runs, and builds on push and pull request
+.github/workflows/engine.yml  Moves engine-version to each morning's engine release, if every town passes on it
+.github/workflows/evaluate.yml Runs the engine's minutes test set against the real model (by hand)
 .github/workflows/worker.yml  Deploys both Workers (by hand)
 ```
 
@@ -123,11 +126,13 @@ towns.
 
 The town's tax, budget, and school figures come from its state, through the
 engine's package for that state (the engine README's States section): its
-`[finance]` and `[schools]` tables take that state's keys. Start from a town in
-the same state: Gloucester or Malden for Massachusetts, Manchester for New
-Hampshire. A town in a state the engine has no package for leaves those tables
-and the budget and schools sections out; it still gets meetings, 311,
-unemployment, and housing. List each source in its `[freshness]` table, so the
+`[finance]` and `[schools]` tables take that state's keys. Every New England
+state has a package. Start from a town in the same state: Gloucester or Malden
+for Massachusetts, Manchester for New Hampshire, Wallingford for Connecticut,
+Burlington for Vermont (and, once publick.org #58 is merged, Lewiston or Bangor
+for Maine, South Kingstown for Rhode Island). A town in a state the engine has
+no package for leaves those tables and the budget and schools sections out; it
+still gets meetings, 311, unemployment, and housing. List each source in its `[freshness]` table, so the
 status page shows it.
 
 Add the `officials` section and an `[officials]` table (the engine README's
@@ -179,6 +184,9 @@ Hampshire's yearly figures) and merge that to the engine. The next morning's
 release and engine move (`engine.yml`) take it to every New Hampshire town.
 
 ## Moving a town in from its own repository
+
+Gloucester, Malden, and Manchester moved in this way; every town since was
+added here from the start. For another town that has its own repository:
 
 1. Turn off the town repository's schedule (**Actions → Update and deploy → Disable workflow**).
 2. `scripts/import-town.sh <town>-<state>` to copy its latest config, data, and

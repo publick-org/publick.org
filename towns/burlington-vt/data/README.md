@@ -9,7 +9,7 @@ each record and in git history.
 | `meetings/meetings.json` | One record per public meeting since April 2026: board, title, date, time, place, status (cancelled, removed), links to its agenda and minutes, and every change since it was first seen, including revised agendas | The city's [CivicClerk portal](https://burlingtonvt.portal.civicclerk.com) (public records) |
 | `meetings/status.json` | When the portal was last checked, for the site and the stale-data alert | Derived |
 | Agendas and minutes (PDF) | Each agenda (upcoming meetings) and set of minutes as the city posted it, kept in the network's documents bucket at `files.publick.org/burlington-vt/` rather than in git | City of Burlington CivicClerk portal (public records) |
-| `summaries/`, `summaries/es/` | AI-written summaries of agendas and minutes, and their Spanish translations, labeled as AI-generated on the site | Publick, from the documents above |
+| `summaries/`, `summaries/es/` | AI-written summaries of agendas and minutes, and their Spanish translations, each checked against its document and labeled as AI-generated on the site | Publick, from the documents above |
 | `311/requests.json` | One record per public SeeClickFix request in the city's own request types ("Burlington, VT"): category, location, ward, council district, status, and submitted/acknowledged/closed/reopened times. No descriptions, photos, or reporter details | [SeeClickFix](https://seeclickfix.com), [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/) |
 | `311/scorecard.json` | Metrics shown on the 311 page, recomputed daily | Derived from `311/requests.json`; same license |
 | `finance/tax_bill.json` | Average homestead tax bill by tax year, calculated by Publick from the state's tax rates and the homestead values in the statewide parcel data | [Vermont Department of Taxes, PVR Annual Report](https://tax.vermont.gov/pvr-annual-report), [VCGI statewide parcel data](https://geodata.vermont.gov/datasets/vt-data-statewide-standardized-parcel-data-parcel-polygons) (public records) |
@@ -26,3 +26,7 @@ The ward file's coordinates are rounded to 6 decimal places. Its population is
 Publick's sum, not the city's: the GIS layer's own population field (`total`)
 adds up to 40,299, not the city's 44,743, and looks left over from a draft of
 the plan, so it isn't used.
+
+What Publick makes here (the summaries and translations, and figures it
+calculates) is under CC BY 4.0, with credit; the repository's `LICENSE` says
+how, and what keeps its own terms.

@@ -174,9 +174,12 @@ Put each expiry date in a calendar when the token is made.
   upcoming meetings against the city's own sites (README, "Checking meetings
   by hand").
 - **Officials**, after each municipal election and whenever a seat changes
-  (README, "Keeping officials current"). The next elections for every town
-  are in November 2027.
+  (README, "Keeping officials current", which lists each town's next
+  election: most towns in November 2027, Burlington in March 2027, and the
+  towns in publick.org #58 on 2026-11-03).
 - **New Hampshire's yearly figures**, when the status page shows them behind
-  (README, "New Hampshire's yearly figures").
+  (README, "New Hampshire's yearly figures"). Vermont's, Maine's, and Rhode
+  Island's are saved into the engine once a year too (the engine README's
+  States section); Rhode Island's are downloaded by hand in a browser.
 - **A new town's email routing rule**, in Cloudflare's dashboard, when the
   town is added (`ADDING-A-TOWN.md`).
