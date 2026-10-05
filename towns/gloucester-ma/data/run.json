@@ -1,34 +1,34 @@
 {
   "town": "gloucester",
   "folder": "gloucester-ma",
-  "started_at": "2026-10-04T09:09:59+00:00",
-  "finished_at": "2026-10-04T09:21:34+00:00",
-  "engine": "v1.34.0",
+  "started_at": "2026-10-05T09:15:25+00:00",
+  "finished_at": "2026-10-05T09:32:03+00:00",
+  "engine": "v1.36.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 626.0
+      "seconds": 942.8
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 5.8
+      "seconds": 4.3
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 53.3
+      "seconds": 38.8
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 8.3
+      "seconds": 11.0
     },
     {
       "name": "Check live site",
@@ -40,7 +40,7 @@
   "update": {
     "town": "gloucester",
     "sources": "all",
-    "started_at": "2026-10-04T09:09:59+00:00",
+    "started_at": "2026-10-05T09:15:25+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 130.4,
+        "seconds": 127.0,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.6,
+        "seconds": 1.4,
         "cadence": "continuous"
       },
       {
@@ -64,7 +64,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 17.8,
+        "seconds": 18.7,
         "cadence": "continuous"
       },
       {
@@ -81,7 +81,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 419.0,
+        "seconds": 696.8,
         "cadence": "continuous"
       },
       {
@@ -91,7 +91,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 7 days ago; checked every 30 days"
+        "skipped": "checked 8 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -100,7 +100,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 4 days ago; checked every 7 days"
+        "skipped": "checked 5 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -109,7 +109,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 4 days ago; checked every 30 days"
+        "skipped": "checked 5 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -118,14 +118,14 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 6 days ago; checked every 30 days"
+        "skipped": "checked 7 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 25.4,
         "cadence": "monthly"
       },
       {
@@ -141,7 +141,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 4.4,
         "cadence": "continuous"
       },
       {
@@ -157,7 +157,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 55.0,
+        "seconds": 67.9,
         "cadence": "continuous"
       },
       {
@@ -165,7 +165,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 0.8,
+        "seconds": 0.6,
         "cadence": "continuous"
       }
     ]
@@ -174,36 +174,42 @@
   "sources": [
     {
       "label": "Meetings calendar",
-      "updated_at": "2026-10-04T05:10:00-04:00",
+      "file": "meetings/status.json",
+      "updated_at": "2026-10-05T05:15:25-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
-      "updated_at": "2026-10-04T05:19:30-04:00",
+      "file": "311/status.json",
+      "updated_at": "2026-10-05T05:29:59-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
-      "updated_at": "2026-10-04T05:20:25-04:00",
+      "file": "311/scorecard.json",
+      "updated_at": "2026-10-05T05:31:07-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Building permits (city Data Hub)",
-      "updated_at": "2026-09-27T11:58:38-04:00",
+      "file": "permits/permits.json",
+      "updated_at": "2026-10-05T05:29:55-04:00",
       "max_days": 15,
       "stale": false
     },
     {
       "label": "School Committee documents (Google Drive)",
-      "updated_at": "2026-10-04T05:12:12-04:00",
+      "file": "meetings/drive_status.json",
+      "updated_at": "2026-10-05T05:17:34-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Average tax bill (Mass. DLS)",
+      "file": "finance/tax_bill.json",
       "updated_at": "2026-09-26T19:28:50-04:00",
       "max_days": null,
       "cadence": "yearly",
@@ -215,6 +221,7 @@
     },
     {
       "label": "City budget (Mass. DLS)",
+      "file": "finance/budget.json",
       "updated_at": "2026-09-27T06:20:54-04:00",
       "max_days": null,
       "cadence": "yearly",
@@ -226,6 +233,7 @@
     },
     {
       "label": "School figures (DESE)",
+      "file": "schools/schools.json",
       "updated_at": "2026-09-29T11:21:36-04:00",
       "max_days": null,
       "cadence": "yearly",
@@ -237,6 +245,7 @@
     },
     {
       "label": "Unemployment rate (BLS)",
+      "file": "labor/unemployment.json",
       "updated_at": "2026-09-29T11:21:36-04:00",
       "max_days": null,
       "cadence": "monthly",
@@ -248,7 +257,8 @@
     },
     {
       "label": "Housing figures",
-      "updated_at": "2026-09-27T06:31:57-04:00",
+      "file": "housing/housing.json",
+      "updated_at": "2026-10-05T05:29:29-04:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
@@ -259,6 +269,7 @@
     },
     {
       "label": "Meeting summaries",
+      "file": "summaries",
       "updated_at": null,
       "max_days": 2,
       "stale": false,
@@ -269,9 +280,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-05T08:54:20+00:00",
-  "data_bytes": 8968684,
-  "data_bytes_added": 29043,
+  "last_good_at": "2026-10-05T09:32:03+00:00",
+  "data_bytes": 9207343,
+  "data_bytes_added": 238338,
   "activity": {
     "boards": 33,
     "meetings_by_date": {
@@ -285,15 +296,13 @@
   },
   "fact_checks": {
     "summaries": 79,
-    "ok": 42,
-    "failed": 0,
+    "ok": 39,
+    "failed": 3,
     "weak": 0,
     "unchecked": 16,
     "not_yet": 21,
-    "held_back": 0,
-    "entries_not_shown": 0,
-    "vote_counts_left_out": 4
-  },
-  "published_at": "2026-10-05T08:54:20+00:00",
-  "published_engine": "v1.36.0"
+    "held_back": 3,
+    "entries_not_shown": 3,
+    "vote_counts_left_out": 1
+  }
 }
