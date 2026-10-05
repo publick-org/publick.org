@@ -151,7 +151,7 @@ jobs:
       # are due, and share out the summary budget, without downloading any town's data. Outside a pull
       # request, the branch as it is when the run starts, not when it was queued: a run that waited
       # behind another sees the towns that one just updated.
-      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
           ref: ${{ github.event_name != 'pull_request' && github.ref || '' }}
@@ -166,14 +166,14 @@ jobs:
       - id: engine
         run: echo "ref=$(tr -d '[:space:]' < engine-version)" >> "$GITHUB_OUTPUT"
 
-      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
           repository: publick-org/publick-engine
           ref: ${{ steps.engine.outputs.ref }}
           path: .publick-engine
 
-      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: "3.12"
 
@@ -286,7 +286,7 @@ jobs:
       contents: write
     steps:
       # With its token saved in git's config: the commit step pushes with it.
-      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ github.ref }}
           filter: blob:none
@@ -296,14 +296,14 @@ jobs:
             /towns/*/config/
             /states/
 
-      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
           repository: publick-org/publick-engine
           ref: ${{ needs.plan.outputs.engine }}
           path: .publick-engine
 
-      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: "3.12"
           cache: pip
@@ -338,7 +338,7 @@ jobs:
       # Outside a pull request, the branch as it is when the job starts, not when the run was queued: a run
       # that waited behind another starts from that run's data rather than replaying over it. The token is
       # saved in git's config only where the commit steps push with it, not on a pull request's run.
-      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: ${{ github.event_name != 'pull_request' }}
           ref: ${{ github.event_name != 'pull_request' && github.ref || '' }}
@@ -352,14 +352,14 @@ jobs:
           read -ra towns <<< "$TOWNS"
           git sparse-checkout add "${towns[@]/#/towns/}" states
 
-      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
           repository: publick-org/publick-engine
           ref: ${{ needs.plan.outputs.engine }}
           path: .publick-engine
 
-      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: "3.12"
           cache: pip
@@ -420,7 +420,7 @@ jobs:
           done
           [ ${#paths[@]} -eq 0 ] || .publick-engine/.github/scripts/commit-data.sh "Record publishing $TOWNS" "${paths[@]}"
 
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         if: ${{ !cancelled() }}
         with:
           name: report-${{ strategy.job-index }}
@@ -441,7 +441,7 @@ jobs:
       issues: write
     steps:
       # Outside a pull request, the branch as it is now: with the data (and run records) this run's towns committed.
-      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
           ref: ${{ github.event_name != 'pull_request' && github.ref || '' }}
@@ -454,14 +454,14 @@ jobs:
             /towns/*/data/run.json
             /towns/*/data/summary-costs.json
 
-      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
           repository: publick-org/publick-engine
           ref: ${{ needs.plan.outputs.engine }}
           path: .publick-engine
 
-      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: "3.12"
 
@@ -520,18 +520,18 @@ jobs:
     if: ${{ !cancelled() && needs.plan.outputs.towns == 'true' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
           repository: publick-org/publick-engine
           ref: ${{ needs.plan.outputs.engine }}
           path: .publick-engine
 
-      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: "3.12"
 
-      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
           pattern: report-*
           merge-multiple: true
@@ -548,14 +548,14 @@ jobs:
     if: ${{ !cancelled() && needs.plan.outputs.prune == 'true' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
           repository: publick-org/publick-engine
           ref: ${{ needs.plan.outputs.engine }}
           path: .publick-engine
 
-      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: "3.12"
 
