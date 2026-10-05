@@ -91,6 +91,15 @@ The scheduler opens **The network's daily runs have stopped** (label
 3. If the run itself fails before any town, read its plan job: usually a
    workflow change or GitHub itself.
 
+### Pausing the daily runs
+
+To stop every run for a while (a source that must not be asked again, a
+broken engine you can't roll back yet): **Actions → Network → ⋯ → Disable
+workflow**. The scheduler's starts then fail harmlessly, the sites keep
+their last builds, and after 30 hours the scheduler opens "The network's
+daily runs have stopped", as expected. **Enable workflow** turns it back on; the next start
+takes every town that's due.
+
 ### A site is broken, or shows something wrong
 
 Roll the town back to its previous build, then fix forward. With the sites
