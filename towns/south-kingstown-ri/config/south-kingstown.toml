@@ -1,0 +1,410 @@
+# Site configuration for South Kingstown, Rhode Island.
+# Everything town-specific lives here; the code is the Publick engine
+# (github.com/publick-org/publick-engine).
+#
+# The network's first Rhode Island town. South Kingstown's website runs on
+# CivicPlus, but since January 2026 the Town Council and the town's boards post
+# their meetings, agendas, and minutes on the town's CivicClerk portal
+# ([meetings.civicclerk]); earlier ones are on ClerkBase, which the engine
+# doesn't read. The School Committee posts on BoardDocs and the Secretary of
+# State's Open Meetings portal, neither of which the engine reads (and BoardDocs
+# refuses automated requests), so its meetings aren't collected; its members
+# are on the Officials page. The district's website (SchoolMessenger Presence)
+# has no calendar feed for [ical_meetings], and its year's meeting dates are a
+# PDF, which [schedule_meetings] doesn't read. Service requests are on SeeClickFix, which the
+# town started using in July 2026 ([seeclickfix]). The engine's Rhode Island
+# package gives the tax rates, levy, and assessed values, from the Division of
+# Municipal Finance ([finance]; Rhode Island has no tax bill source), and school
+# figures, from the Department of Education ([schools]); housing and
+# unemployment come from the Census and BLS, as for every town.
+#
+# The site is in English and Spanish ([site] languages). [strings.es], at the
+# end, gives the Spanish for the town's own text; the engine has the rest.
+[site]
+name = "South Kingstown Publick"
+# The masthead shows name_prefix in dark ink and name_suffix in the accent
+# color: the town, then the network.
+name_prefix = "South Kingstown "
+name_suffix = "Publick"
+domain = "south-kingstown-ri.publick.org"
+# The network of town sites this one belongs to, named in every page footer.
+network = "Publick"
+network_url = "https://publick.org"
+tagline = "Public data on how South Kingstown, Rhode Island decides and spends. Updated daily."
+# One line under the name at the top of every page.
+masthead = "An independent guide to town government in South Kingstown, Rhode Island"
+repo_url = "https://github.com/publick-org/publick.org"
+# Public contact address. Shown on the About and Accessibility pages when set.
+contact_email = "south-kingstown-ri@publick.org"
+timezone = "America/New_York"
+user_agent = "south-kingstown-ri.publick.org (+https://south-kingstown-ri.publick.org/about/)"
+languages = ["en", "es"]
+
+# From the town website's stylesheet (southkingstownri.gov): its blue (#3e74b4,
+# links and buttons) darkened to pass on the light tint too, its deep indigo
+# (#15005c, headings and the menu), a light tint of the blue, and its dark
+# green (#3c4f2a). Each passes WCAG AA on white (5.7, 17.7, and 9.0 to 1).
+[site.colors]
+primary = "#3868a2"
+primary_dark = "#15005c"
+primary_soft = "#e8eef7"
+accent = "#3c4f2a"
+
+[town]
+name = "South Kingstown"
+state = "Rhode Island"
+state_abbr = "RI"
+official_site = "https://www.southkingstownri.gov"
+
+# Sections appear in the main navigation in this order. Each one is a folder
+# under site/pages/<slug>/ and is served at https://<domain>/<slug>/.
+[[sections]]
+slug = "meetings"
+title = "Meetings"
+summary = "When the Town Council and the town's boards and commissions meet, with agendas, and minutes from January 2026 on."
+status = "live"
+
+[[sections]]
+slug = "311"
+title = "311 Requests"
+nav = "311"
+summary = "How fast the town responds to service requests on SeeClickFix, by category and voting precinct."
+status = "live"
+
+[[sections]]
+slug = "budget"
+title = "Town budget"
+nav = "Budget"
+summary = "The town's property tax rates, what the property tax raises, and property tax per resident, compared with the state."
+status = "live"
+
+[[sections]]
+slug = "schools"
+title = "Schools"
+summary = "Graduation, attendance, state test results, and spending per pupil compared with the state."
+status = "live"
+
+[[sections]]
+slug = "housing"
+title = "Housing"
+summary = "New homes permitted, home values and rents, and the housing stock."
+status = "live"
+
+[[sections]]
+slug = "officials"
+title = "Who represents you"
+nav = "Officials"
+summary = "The Town Council and School Committee, and how to reach them."
+status = "live"
+
+[[sections]]
+slug = "about"
+title = "About"
+summary = "Data sources, update schedule, metric definitions, and corrections."
+status = "live"
+
+# Page view counting with GoatCounter, on the network's site; prefix is this
+# town's folder.
+[analytics]
+goatcounter = "publick"
+prefix = "south-kingstown-ri"
+public_stats = ""
+
+# Public meetings, from the town's CivicClerk portal (the address the town's
+# Agendas and Minutes page gives for January 2026 on). Earlier meetings are on
+# ClerkBase, linked from the same page.
+[meetings]
+calendar_url = "https://southkingstownri.portal.civicclerk.com"
+archive_url = "https://www.southkingstownri.gov/1435/Agendas-and-Minutes"
+archive_name = "town's Agendas and Minutes page"
+governing_body = "Town Council"
+# One name per public body, as the town's Boards & Commissions page names it.
+# A portal entry is filed under the longest of these it contains ("Town Council
+# Municipal CIP Work Session #1", "Planning Board - Work Session"), ignoring
+# case and punctuation. Every town body on the portal is collected: those that
+# posted in 2026.
+boards = [
+  "Town Council",
+  "Affordable Housing Collaborative Committee",
+  "Assessment Board of Review",
+  "Bicycle-Pedestrian Advisory Committee",
+  "Building Code Board of Appeals",
+  "Canvassing Authority",
+  "Conservation Commission",
+  "Economic Development Committee",
+  "Historic District Commission",
+  "Library Board of Trustees",
+  "Planning Board",
+  "Planning Board Landscape Sub-Committee",
+  "Recreation Commission",
+  "School Building Committee",
+  "School Building Project Change Order Task Force",
+  "South Kingstown 250th Committee",
+  "Technical Review Committee",
+  "Trustees of South Kingstown School Funds",
+  "Waterfront Advisory Commission",
+  "Zoning Board of Review",
+]
+
+# Other names the portal's meetings use for a board.
+[meetings.aliases]
+# The Town Council's budget sessions are titled "Budget Work Session #1".
+"Budget Work Session" = "Town Council"
+"Trustees of the South Kingstown School Funds" = "Trustees of South Kingstown School Funds"
+"SK USA 250th" = "South Kingstown 250th Committee"
+"SK USA250" = "South Kingstown 250th Committee"
+"Change Order Task Force" = "School Building Project Change Order Task Force"
+# Longer than "School Building Committee", so the task force's own meetings stay its own.
+"School Building Committee COTF" = "School Building Project Change Order Task Force"
+
+[meetings.civicclerk]
+api_url = "https://southkingstownri.api.civicclerk.com/v1"
+portal_url = "https://southkingstownri.portal.civicclerk.com"
+# The portal starts in January 2026; the town's earlier meetings are on ClerkBase.
+since = "2026-01-01"
+# The portal reads a meeting's board only from its title. A few are titled
+# "One Time Event" or "Special Meeting" alone, naming no board, and are left
+# out, as is the Narragansett Library Association, a private body the portal
+# lists for the town.
+exclude_pattern = '^(One Time Event|Special Meeting)$|Narragansett Library Association'
+
+# Agenda and minutes PDFs, in the network's documents bucket.
+[storage]
+endpoint = "https://6bbfee5a3892553c7993dbfa4b4e8453.r2.cloudflarestorage.com"
+bucket = "publick-documents"
+public_url = "https://files.publick.org"
+prefix = "south-kingstown-ri"
+
+# Agenda previews and decisions from minutes, written by a language model and
+# labeled as AI-generated on the site. Within the network's monthly budget.
+# Only meetings from July 2026 on are summarized (about 55 agendas and the
+# minutes posted so far, at launch); older ones keep their records and documents.
+[summaries]
+model = "claude-sonnet-5"
+max_per_run = 40
+input_price = 2.0
+output_price = 10.0
+max_cost_per_run = 5.0
+since = "2026-07-01"
+
+# How residents can take part, per board, shown on its meeting pages. Only
+# what the town has published; each entry names its source.
+[participation."Town Council"]
+comment = "Anyone may speak once, for up to five minutes, during the public comment period of the Council's regular meetings. Comments on a matter not on the agenda can't be voted on that night."
+source_title = "Town Council agenda of September 28, 2026"
+source_url = "https://southkingstownri.portal.civicclerk.com/event/2300/files"
+video_title = "the Town Council's YouTube channel"
+video_url = "https://www.youtube.com/@sktowncouncil/streams"
+
+# Terms that come up on agendas and minutes, explained on each meeting page
+# where they appear. Acronyms match exactly; other terms ignore case.
+[[glossary]]
+term = "executive session"
+definition = "A part of a public meeting closed to the public. Rhode Island's Open Meetings Act (R.I.G.L. § 42-46-5) allows it only for specific reasons, such as lawsuits, collective bargaining, buying land, or personnel matters."
+
+[[glossary]]
+term = "RIGL"
+definition = "Rhode Island General Laws, the state's laws."
+
+[[glossary]]
+term = "consent agenda"
+definition = "Routine items, such as tax abatements and license renewals, voted on together in one motion unless a council member or a member of the public asks to take one up separately."
+
+[[glossary]]
+term = "victualling license"
+definition = "A town license to serve food to the public, renewed each year. Rhode Island law calls a restaurant a victualler."
+
+[[glossary]]
+term = "abate"
+definition = "To reduce or cancel a tax bill, for example after an error in the assessment."
+
+[[glossary]]
+term = "CIP"
+definition = "Capital Improvement Program: the town's plan for buildings, roads, equipment, and other long-lasting purchases over the next several years, and how to pay for them."
+
+# Tax rates, levy, and assessed values (pipeline/states/ri/), from the Division
+# of Municipal Finance's statewide tables, where the town is "South Kingstown".
+# Rhode Island publishes no average single-family tax bill. The town's own
+# budget books are on its Budget Information page.
+[finance]
+dmf_municipality = "South Kingstown"
+budget_documents_url = "https://www.southkingstownri.gov/283/Budget-Information-and-Related-Documents"
+
+# School district figures from the Rhode Island Department of Education (RIDE),
+# where South Kingstown's district code is 32.
+[schools]
+ride_district = 32
+district_name = "South Kingstown Public Schools"
+
+# Housing: Census building permits and the American Community Survey.
+# South Kingstown isn't a Census place, so permits find it by its town (MCD)
+# code, 67460, in Washington County; it reports every month to the Census.
+[housing]
+bps_region = "Northeast Region"
+bps_prefix = "ne"
+bps_state = "44"
+bps_mcd = "67460"
+census_geo = "06000US4400967460"
+state_geo = "04000US44"
+
+# Unemployment rate (BLS Local Area Unemployment Statistics, South Kingstown
+# town). Town rates are not seasonally adjusted; the state series is shown for
+# context. bulk_file is the state's file under download.bls.gov/pub/time.series/la/,
+# used when the API refuses.
+[labor]
+local_series = "LAUCS446746000000003"
+state_series = "LAUST440000000000003"
+bulk_file = "la.data.47.RhodeIsland"
+
+# 311 requests, from SeeClickFix (public requests only). The town's organization
+# (4552, "Town of South Kingstown RI") is one department with 19 request types,
+# all collected; the town's Report a Concern page links its SeeClickFix portal.
+[seeclickfix]
+organization_id = 4552
+open311_base = "https://seeclickfix.com/open311/v2"
+api_base = "https://seeclickfix.com/api/v2"
+report_url = "https://www.southkingstownri.gov/1470/Submit-a-Request-for-Service"
+# SeeClickFix documents a limit of 20 requests per minute.
+request_delay = 3.2
+recent_days = 21
+max_details_per_run = 700
+time_budget_seconds = 2400
+# The month the full history starts (python -m pipeline.fetch_311 --backfill).
+# The town's first public request is from July 28, 2026.
+history_since = "2026-01"
+# The town has no wards: its areas are its 11 voting precincts (3201 to 3211),
+# as the town drew them in the 2021-2022 redistricting, from RIGIS, with 2020
+# census population (see data/README.md). The pages call them precincts, and
+# the Officials page has no ward finder ([seeclickfix] areas).
+areas = "precincts"
+precincts_file = "south-kingstown-precincts-2022.geojson"
+wards_publisher = "RIGIS"
+wards_year = 2022
+wards_url = "https://www.arcgis.com/home/item.html?id=9104ca2e5e9b4cdb9985e8935ef2514d"
+
+# Repeat locations: requests in the same category within radius_m meters and
+# window_days days of each other are grouped as one place.
+[seeclickfix.repeats]
+radius_m = 50
+window_days = 60
+recent_open_days = 30
+
+[freshness]
+summary_grace_days = 2
+sources = [
+  { label = "Meetings (CivicClerk)", file = "meetings/status.json", max_days = 2 },
+  { label = "311 requests", file = "311/status.json", max_days = 2 },
+  { label = "311 scorecard", file = "311/scorecard.json", field = "generated_at", max_days = 2 },
+]
+
+# Who represents you (the Officials page). Kept by hand from official town
+# and school websites, confirmed against the Board of Elections' official
+# results (November 2022 and 2024) and the Town Council's minutes of March 17
+# and July 27, 2026; checked is the date the list was last checked against
+# them. Only town- and school-issued email addresses. Every seat is elected at
+# large, so no member has a ward. Neither page gives the month a term ends, so
+# term_ends is left out. The Town Manager is appointed, not elected, so isn't
+# listed.
+[officials]
+checked = "2026-10-04"
+
+[[officials.bodies]]
+name = "Town Council"
+url = "https://www.southkingstownri.gov/412/Town-Council"
+note = "South Kingstown has no wards or council districts: all five members represent the whole town. Elected at large in November of even-numbered years."
+members = [
+  { name = "Rory H. McEntee", seat = "At-large", role = "President", email = "rmcentee@southkingstownri.gov" },
+  { name = "Michael K. Marran", seat = "At-large", role = "Vice President", email = "mmarran@southkingstownri.gov" },
+  { name = "Patricia A. Alley", seat = "At-large", email = "palley@southkingstownri.gov" },
+  { name = "Deborah D. Bergner", seat = "At-large", email = "dbergner@southkingstownri.gov" },
+  { name = "Jay G. Wegimont", seat = "At-large", email = "jwegimont@southkingstownri.gov" },
+]
+
+[[officials.bodies]]
+name = "School Committee"
+url = "https://www.skschools.net/our_district/school_committee/meet_our_school_committee"
+note = "No wards or districts: all seven members represent the whole town. Elected at large for four-year terms, three and four of them in alternate even-numbered years."
+members = [
+  { name = "Carol Vetter", seat = "At-large", role = "Chairperson", email = "cvetter@sksd-ri.net" },
+  { name = "James Restivo", seat = "At-large", role = "Vice Chairperson", email = "jrestivo@sksd-ri.net" },
+  { name = "Michelle Brousseau", seat = "At-large", email = "mbrousseau@sksd-ri.net" },
+  { name = "Stewart Lander", seat = "At-large" },
+  { name = "Kate McMahon Macinanti", seat = "At-large", email = "kmacinanti@sksd-ri.net" },
+  { name = "Bradley Shear", seat = "At-large", email = "bshear@sksd-ri.net" },
+  { name = "Paula Whitford", seat = "At-large", email = "pwhitford@sksd-ri.net" },
+]
+
+[strings.es]
+# The masthead and the share text.
+"Public data on how South Kingstown, Rhode Island decides and spends. Updated daily." = "Datos públicos sobre cómo South Kingstown, Rhode Island, toma decisiones y gasta su dinero. Se actualizan a diario."
+"An independent guide to town government in South Kingstown, Rhode Island" = "Una guía independiente sobre el gobierno municipal de South Kingstown, Rhode Island"
+
+# The budget section's name (the engine translates the names every town shares).
+"Town budget" = "Presupuesto del pueblo"
+
+# Section summaries (the engine translates the section names every town shares).
+"When the Town Council and the town's boards and commissions meet, with agendas, and minutes from January 2026 on." = "Cuándo se reúnen el Concejo Municipal y las juntas y comisiones del municipio, con sus agendas, y las actas desde enero de 2026."
+"How fast the town responds to service requests on SeeClickFix, by category and voting precinct." = "Qué tan rápido responde el municipio a las solicitudes de servicio en SeeClickFix, por categoría y por precinto electoral."
+"The town's property tax rates, what the property tax raises, and property tax per resident, compared with the state." = "Las tasas del impuesto a la propiedad del municipio, lo que recauda ese impuesto y el impuesto a la propiedad por residente, comparados con el estado."
+"Graduation, attendance, state test results, and spending per pupil compared with the state." = "Graduación, asistencia, resultados de los exámenes estatales y gasto por estudiante, comparados con el estado."
+"The Town Council and School Committee, and how to reach them." = "El Concejo Municipal y el Comité Escolar, y cómo comunicarse con ellos."
+
+# Where the town posts agendas and minutes, and the data the site keeps up to date.
+"town's Agendas and Minutes page" = "página de Agendas y Actas del municipio"
+"Meetings (CivicClerk)" = "Reuniones (CivicClerk)"
+"311 requests" = "Solicitudes al 311"
+
+# How to take part.
+"Anyone may speak once, for up to five minutes, during the public comment period of the Council's regular meetings. Comments on a matter not on the agenda can't be voted on that night." = "Cualquier persona puede hablar una vez, hasta cinco minutos, durante el período de comentarios del público en las reuniones ordinarias del Concejo. Los comentarios sobre un asunto que no está en la agenda no se pueden votar esa noche."
+"Town Council agenda of September 28, 2026" = "Agenda del Concejo Municipal del 28 de septiembre de 2026"
+"the Town Council's YouTube channel" = "el canal de YouTube del Concejo Municipal"
+
+# Glossary definitions (the terms themselves stay as the agendas write them).
+"A part of a public meeting closed to the public. Rhode Island's Open Meetings Act (R.I.G.L. § 42-46-5) allows it only for specific reasons, such as lawsuits, collective bargaining, buying land, or personnel matters." = "Una parte de una reunión pública que se hace a puerta cerrada. La Ley de Reuniones Abiertas de Rhode Island (R.I.G.L. § 42-46-5) la permite solo por razones específicas, como demandas, negociaciones colectivas, compra de terrenos o asuntos de personal."
+"Rhode Island General Laws, the state's laws." = "Leyes Generales de Rhode Island (Rhode Island General Laws), las leyes del estado."
+"Routine items, such as tax abatements and license renewals, voted on together in one motion unless a council member or a member of the public asks to take one up separately." = "Asuntos de rutina, como reducciones de impuestos y renovaciones de licencias, que se votan juntos en una sola moción, a menos que un concejal o una persona del público pida tratar alguno por separado."
+"A town license to serve food to the public, renewed each year. Rhode Island law calls a restaurant a victualler." = "Una licencia del municipio para servir comida al público, que se renueva cada año. La ley de Rhode Island llama \"victualler\" a un restaurante."
+"To reduce or cancel a tax bill, for example after an error in the assessment." = "Reducir o cancelar una factura de impuestos, por ejemplo, después de un error en la tasación."
+"Capital Improvement Program: the town's plan for buildings, roads, equipment, and other long-lasting purchases over the next several years, and how to pay for them." = "Programa de Mejoras de Capital: el plan del municipio para edificios, calles, equipos y otras compras duraderas en los próximos años, y cómo pagarlas."
+
+# Officials: notes, seats, and roles.
+"South Kingstown has no wards or council districts: all five members represent the whole town. Elected at large in November of even-numbered years." = "South Kingstown no tiene distritos electorales municipales: los cinco miembros representan a todo el municipio. Se eligen por todo el municipio en noviembre de los años pares."
+"No wards or districts: all seven members represent the whole town. Elected at large for four-year terms, three and four of them in alternate even-numbered years." = "Sin distritos electorales: los siete miembros representan a todo el municipio. Se eligen por todo el municipio por cuatro años; tres y cuatro de ellos, en años pares alternos."
+"At-large" = "Todo el municipio"
+
+# Boards, as the portal names them (after [meetings.aliases]).
+"Affordable Housing Collaborative Committee" = "Comité de Colaboración para la Vivienda Asequible"
+"Assessment Board of Review" = "Junta de Revisión de Tasaciones"
+"Bicycle-Pedestrian Advisory Committee" = "Comité Asesor de Bicicletas y Peatones"
+"Building Code Board of Appeals" = "Junta de Apelaciones del Código de Construcción"
+"Canvassing Authority" = "Junta Electoral Local (Canvassing Authority)"
+"Planning Board Landscape Sub-Committee" = "Subcomité de Paisajismo de la Junta de Planificación"
+"School Building Committee" = "Comité de Construcción Escolar"
+"School Building Project Change Order Task Force" = "Grupo de Trabajo de Órdenes de Cambio del Proyecto de Construcción Escolar"
+"South Kingstown 250th Committee" = "Comité de los 250 años de South Kingstown"
+"Technical Review Committee" = "Comité de Revisión Técnica"
+"Trustees of South Kingstown School Funds" = "Fideicomisarios de los Fondos Escolares de South Kingstown"
+"Waterfront Advisory Commission" = "Comisión Asesora de la Costa"
+"Zoning Board of Review" = "Junta de Revisión de Zonificación"
+
+# 311 categories, as SeeClickFix names them.
+"Abandoned Vehicle" = "Vehículo abandonado"
+"Animal Control Issue" = "Problema de control de animales"
+"Drainage & Flooding Issue" = "Problema de drenaje o inundación"
+"Facility-Other" = "Otro (instalaciones del municipio)"
+"General Construction/Building Permit Concern" = "Inquietud sobre construcción o permisos de construcción"
+"Graffiti/Vandalism" = "Grafiti o vandalismo"
+"Mooring & Public Boat Ramp Concern" = "Inquietud sobre amarres o rampas públicas para botes"
+"Parking Enforcement" = "Control de estacionamiento"
+"Plowing" = "Remoción de nieve"
+"Recycling & Transfer Station Issue" = "Problema de reciclaje o de la estación de transferencia"
+"Roadway, Signs, Pothole or Sidewalk Issue" = "Problema de calle, letreros, baches o aceras"
+"Sewer or Odor Issue" = "Problema de alcantarillado u olores"
+"Streetlight Issue" = "Problema con luz de la calle"
+"Town Beach Issue" = "Problema en una playa del municipio"
+"Town Drinking Water System Issue" = "Problema del sistema de agua potable del municipio"
+"Town Facility Cleanliness" = "Limpieza de instalaciones del municipio"
+"Town Parks Maintenance, Safety or Cleanliness" = "Mantenimiento, seguridad o limpieza de parques del municipio"
+"Traffic Safety Concern" = "Inquietud sobre seguridad vial"
+"Tree & Brush Concern" = "Inquietud sobre árboles o maleza"
+"Zoning Enforcement/Property Maintenance" = "Cumplimiento de zonificación o mantenimiento de propiedades"
