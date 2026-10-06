@@ -2,13 +2,14 @@
 
 The Publick network: the publick.org homepage and every town's site, run
 from this one repository with the [Publick engine](https://github.com/publick-org/publick-engine)
-at the version in `engine-version`.
+at the version in `engine-version`. What's planned is in the engine's
+[ROADMAP.md](https://github.com/publick-org/publick-engine/blob/main/ROADMAP.md).
 
 ```
 LICENSE                       What may be reused and how: CC BY 4.0 for what Publick makes, the credit line,
                               and what keeps its own terms (311, public records); the code is MIT
 LICENSE-CC-BY-4.0.txt         The CC BY 4.0 legal text
-engine-version                The engine release every town runs, e.g. v1.30.0; moved each morning by engine.yml
+engine-version                The engine release every town runs, an exact tag; moved each morning by engine.yml
 ADDING-A-TOWN.md              The checklist for adding a town, from an empty folder to its first published site
 RUNBOOK.md                    What to do when something needs a person: each morning's checks, alerts, rollback
 home/                         The publick.org homepage (index.html) and the page for a state with many towns
@@ -29,6 +30,8 @@ scripts/build_home.py         Writes the homepage's town lists, by state, with t
 scripts/build_status.py       Writes the network status page, publick.org/status/
 scripts/make_share_image.py   Draws home/share/publick.png, the homepage's card on Substack and social media
 .github/workflows/network.yml The daily runs, and builds on push and pull request
+.github/workflows/engine.yml  Moves engine-version to each new engine release once every town passes on it
+.github/workflows/evaluate.yml Runs the engine's minutes prompt against the real model before a prompt change ships (by hand)
 .github/workflows/worker.yml  Deploys both Workers (by hand)
 ```
 
@@ -115,7 +118,11 @@ empty `data/`, and optionally `site/static/share/<town>.png`. Set
 `[site] domain` to `<town>-<state>.publick.org` and `network_url` to
 `https://publick.org`, which links the network's name in every page footer.
 Add an `[analytics]` table with `goatcounter = "publick"` and `prefix` set to
-the town's folder, so its page views count on the network's GoatCounter site.
+the town's folder, so its page views count on the network's GoatCounter site,
+and a `[storage]` table for the `publick-documents` bucket with `prefix` set to
+the town's folder too (it defaults to the config file's name). Add a
+`<town>-<state>@publick.org` rule in Cloudflare Email Routing for its
+`contact_email`.
 Merge, then run the workflow for the town by hand to fetch its data (set
 `catch_up` to a few dollars to summarize its first months' documents in that
 run, within the month's budget). No DNS
@@ -180,15 +187,6 @@ the engine's `python -m pipeline.states.nh.extract` (the engine README, New
 Hampshire's yearly figures) and merge that to the engine. The next morning's
 release and engine move (`engine.yml`) take it to every New Hampshire town.
 
-## Moving a town in from its own repository
-
-1. Turn off the town repository's schedule (**Actions → Update and deploy → Disable workflow**).
-2. `scripts/import-town.sh <town>-<state>` to copy its latest config, data, and
-   static files into `towns/`, then commit and merge.
-3. Delete the town's `CNAME` record in Cloudflare DNS, so the wildcard record sends it to the Worker.
-4. Once the site is up from here, remove the custom domain from the old
-   repository's Pages settings and archive the repository.
-
 ## Rolling back
 
 With the sites bucket's keys set (below), from a checkout of the engine:
@@ -211,8 +209,8 @@ In the Cloudflare account that holds `publick.org`:
 3. **My Profile → API Tokens → Create Token** from the *Edit Cloudflare Workers*
    template, limited to this account and the `publick.org` zone, for deploying the Worker.
 4. **DNS:** proxied (orange cloud) `AAAA` records for `*` and for `@`, both to
-   `100::`. The address is never reached; the Worker answers first. Remove the
-   GitHub Pages `A` records for `@`, and each town's `CNAME` as it moves.
+   `100::`. The address is never reached; the Worker answers first. Remove any
+   GitHub Pages `A` records for `@`.
 5. **Workers Routes:** any other hostname under `publick.org` that must not
    reach the Worker needs a route with **no Worker**, such as
    `files.publick.org/*` (the documents bucket).
