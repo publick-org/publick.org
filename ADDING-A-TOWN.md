@@ -155,5 +155,8 @@ For Massachusetts (New Hampshire: start from Manchester's config):
       launch, so the town's history doesn't take the month's budget (older
       meetings keep their records and documents). The month's budget and the town's own limit per
       run still apply.
+- [ ] Add a `<town>-<state>@publick.org` rule in Cloudflare (**Email
+      Routing → Routing rules → Create address**, **Send to an email**), so
+      mail to the site's `contact_email` is forwarded.
 - [ ] Add the town to the README's "Keeping officials current" election
       dates if they differ.
