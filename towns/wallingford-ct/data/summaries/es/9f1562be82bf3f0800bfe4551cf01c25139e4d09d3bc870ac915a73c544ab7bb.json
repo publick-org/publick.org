@@ -1,23 +1,23 @@
 {
-  "headline": "Consideró justa la subida de alquiler en el caso de Fernandez y aprobó un acuerdo de arreglo entre Hax y Zolnik.",
-  "summary": "La comisión escuchó una reclamación de Joan Fernandez en contra de Garden Homes Management Corporation y votó unánimemente que la subida de alquiler era justa y equitativa. La comisión también revisó un acuerdo entre Barbara Hax y Lawrence Zolnik que cubre la fecha de mudanza, el monto del alquiler, y términos relacionados, que ambas partes confirmaron en el acta.",
+  "headline": "Encontró justa la subida de alquiler en el caso Fernandez y aprobó un acuerdo entre Hax y Zolnik.",
+  "summary": "La comisión escuchó una queja de Joan Fernandez en contra de Garden Homes Management Corporation y votó por unanimidad que la subida de alquiler fue justa y equitativa. La comisión también revisó un acuerdo entre Barbara Hax y Lawrence Zolnik que cubre la fecha de mudanza, la cantidad de alquiler, y términos relacionados, que ambas partes confirmaron en el acta.",
   "decisions": [
-    "Determinó que la subida de alquiler en la reclamación de Fernandez en contra de Garden Homes Management Corporation es justa y equitativa, aprobado unánimemente.",
-    "Aceptó el acuerdo entre Barbara Hax y Lawrence Zolnik, incluyendo mudanza antes del 30 de noviembre de 2026, y alquiler fijado en $1,250.00 a partir de septiembre de 2026."
+    "Determinó que la subida de alquiler en la queja de Fernandez en contra de Garden Homes Management Corporation es justa y equitativa, aprobada por unanimidad.",
+    "Aceptó el acuerdo entre Barbara Hax y Lawrence Zolnik, que incluye mudanza antes del 30 de noviembre de 2026, y alquiler de $1,250.00 a partir de septiembre de 2026."
   ],
   "language": "es",
   "kind": "minutes",
   "source_sha256": "9f1562be82bf3f0800bfe4551cf01c25139e4d09d3bc870ac915a73c544ab7bb",
   "source_hash": "1dcfbd981a3c65b43e2a3439e3b49782e2365c37150ba1d4d76d95ce21755dbf",
   "check": "ok",
-  "review": "headline: The English says the commission approved a settlement agreement, but the Spanish only says 'aprobó un acuerdo de arreglo' with no change in meaning. The real issue is in the summary: the English says the commission 'reviewed' the agreement, and the headline and decisions say 'approved' and 'accepted'. These are consistent with the source, so no error here.; decisions 2: 'move-out by November 30, 2026' was translated as 'mudanza antes del 30 de noviembre de 2026'. 'Antes del' means before that date and excludes November 30 itself, while 'by' includes it. It should be 'a más tardar el 30 de noviembre de 2026'.; summary: 'which both parties confirmed on the record' was translated as 'en el acta'. This means 'in the minutes' and not 'on the record' as in the hearing. Also, the relative clause 'que ambas partes confirmaron' after 'términos relacionados' is ambiguous, so it could read as if the terms, not the agreement, were confirmed.",
-  "attempts": 1,
+  "review": "headline: The English says the commission 'approved settlement agreement between Hax and Zolnik'; the Spanish says only 'aprobó un acuerdo', dropping 'settlement' (acuerdo de conciliación/resolución).; summary: The English says the commission 'reviewed' the agreement, which both parties 'confirmed on the record'. 'On the record' means in the recorded proceedings. The Spanish 'en el acta' means 'in the minutes', which changes the meaning.; decisions 2: The English says 'move-out by November 30, 2026', meaning on or before that date. The Spanish 'antes del 30 de noviembre' means strictly before it, so November 30 itself is excluded.",
+  "attempts": 2,
   "model": "claude-haiku-4-5-20251001",
   "prompt_version": 3,
-  "generated_at": "2026-10-05T05:52:20-04:00",
+  "generated_at": "2026-10-06T05:07:34-04:00",
   "usage": {
     "input_tokens": 1077,
-    "output_tokens": 267
+    "output_tokens": 254
   },
-  "cost": 0.008964
+  "cost": 0.007841
 }
