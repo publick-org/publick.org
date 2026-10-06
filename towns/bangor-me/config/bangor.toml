@@ -14,10 +14,8 @@
 # Bangor has no wards or precincts: every voter votes at one polling place
 # (the city's Voting Location Information page), the council and the School
 # Committee are elected at-large, and neither the city's GIS nor the Maine
-# GeoLibrary has a ward layer. The city answers its SeeClickFix requests
-# (organization 1848), but the engine's 311 section needs a ward file, so 311
-# is left out until it can show a town without wards (see the note above the
-# commented [seeclickfix] table below).
+# GeoLibrary has a ward layer. The city answers its requests on SeeClickFix
+# ([seeclickfix], organization 1848), shown by category with no areas.
 #
 # Like every Publick town's, the site is in English and Spanish ([site]
 # languages). [strings.es], at the end, gives the Spanish for the town's own
@@ -67,6 +65,13 @@ official_site = "https://www.bangormaine.gov"
 slug = "meetings"
 title = "Meetings"
 summary = "Every board and committee meeting in the city's Agenda Center, with agendas, and minutes from January 2026 on."
+status = "live"
+
+[[sections]]
+slug = "311"
+title = "311 Requests"
+nav = "311"
+summary = "How fast the city responds to service requests on SeeClickFix, by category."
 status = "live"
 
 [[sections]]
@@ -284,22 +289,29 @@ local_series = "LAUCT230279500000003"
 state_series = "LAUST230000000000003"
 bulk_file = "la.data.26.Maine"
 
-# 311 requests, from SeeClickFix, once the engine can show a town without
-# wards: fetch_311 and compute_311 need a ward file (precincts_file), and
-# Bangor has none. The city's organization is 1848 ("Bangor, ME"), the one
-# its "Report a Concern" link goes to; its Open311 services
-# (seeclickfix.com/open311/v2/1848/services.json) are 32 request types, all
-# of that one organization, so no departments are needed. Not enabled:
-# [seeclickfix]
-# organization_id = 1848
-# open311_base = "https://seeclickfix.com/open311/v2"
-# api_base = "https://seeclickfix.com/api/v2"
-# report_url = "https://seeclickfix.com/web_portal/qr1HKu9VATJDXPsPAsSja62Q/report/category"
-# request_delay = 3.2
-# recent_days = 21
-# max_details_per_run = 700
-# time_budget_seconds = 2400
-# history_since = "2026-01"
+# 311 requests, from SeeClickFix (public requests only). The city's
+# organization is 1848 ("Bangor, ME"), the one its "Report a Concern" link
+# goes to; its Open311 services (seeclickfix.com/open311/v2/1848/services.json)
+# are 32 request types, all of that one organization, so no departments are
+# needed. Bangor has no wards or precincts, so there's no precincts_file: the
+# pages show requests by category, with no areas.
+[seeclickfix]
+organization_id = 1848
+open311_base = "https://seeclickfix.com/open311/v2"
+api_base = "https://seeclickfix.com/api/v2"
+report_url = "https://seeclickfix.com/web_portal/qr1HKu9VATJDXPsPAsSja62Q/report/category"
+# SeeClickFix documents a limit of 20 requests per minute.
+request_delay = 3.2
+recent_days = 21
+max_details_per_run = 700
+time_budget_seconds = 2400
+# The month the full history starts (python -m pipeline.fetch_311 --backfill).
+history_since = "2026-01"
+
+[seeclickfix.repeats]
+radius_m = 50
+window_days = 60
+recent_open_days = 30
 
 # How often each data source should update. The daily run fails when one goes
 # longer than max_days, and the About page lists them.
@@ -311,6 +323,8 @@ bulk_file = "la.data.26.Maine"
 summary_grace_days = 2
 sources = [
   { label = "Meetings (Agenda Center)", file = "meetings/status.json", max_days = 2 },
+  { label = "311 requests", file = "311/status.json", max_days = 2 },
+  { label = "311 scorecard", file = "311/scorecard.json", field = "generated_at", max_days = 2 },
 ]
 
 # Who represents you (the Officials page). Kept by hand from official city
@@ -370,6 +384,8 @@ members = [
 # shows its English name after it. Not checked by a person: the site says it's
 # translated with AI.
 [strings.es]
+"How fast the city responds to service requests on SeeClickFix, by category." = "Qué tan rápido responde la ciudad a las solicitudes de servicio en SeeClickFix, por categoría."
+"311 requests" = "Solicitudes al 311"
 # The masthead and the share text.
 "Public data on how Bangor, Maine decides and spends. Updated daily." = "Datos públicos sobre cómo Bangor, Maine, toma decisiones y gasta su dinero. Se actualizan a diario."
 "An independent guide to city government in Bangor, Maine" = "Una guía independiente sobre el gobierno de la ciudad de Bangor, Maine"
