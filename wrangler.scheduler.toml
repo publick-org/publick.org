@@ -15,8 +15,10 @@ workers_dev = false
 # Every hour from 09:05 to 14:05 UTC, early morning Eastern: a daily run. Each
 # start takes only the towns that are due, so the later ones usually find
 # nothing to do. The first two must match RELEASE_CRON and ENGINE_CRON in the
-# engine's worker/scheduler.js, as written.
-crons = ["20 8 * * *", "40 8 * * *", "5 9-14 * * *"]
+# engine's worker/scheduler.js, as written. Every hour of Sunday and Monday (UTC): the weekly
+# digest's send, which emails each town's issue once it's due; it must match DIGEST_CRON in the
+# engine's worker/digest.js, as written.
+crons = ["20 8 * * *", "40 8 * * *", "5 9-14 * * *", "35 * * * 0,1"]
 
 [vars]
 REPOSITORY = "publick-org/publick.org"
@@ -29,8 +31,11 @@ STATUS_URL = "https://publick.org/status/"
 ENGINE_REPOSITORY = "publick-org/publick-engine"
 RELEASE_WORKFLOW = "release.yml"
 ENGINE_WORKFLOW = "engine.yml"
-# Who the "network stopped" issue is assigned to, so it reaches them.
+# Who the "network stopped" and "digest not sent" issues are assigned to, so they reach them.
 ALERT_ASSIGNEE = "NasTber"
+# The towns whose weekly digest is emailed, by hostname, separated by commas; empty, and none is.
+# A town's signup form ([digest] signup in its config) goes on first, so it has readers to send to.
+DIGEST_TOWNS = ""
 
 # The status page is read through the sites Worker directly: a Worker's
 # request to its own zone may not reach another Worker's route.
