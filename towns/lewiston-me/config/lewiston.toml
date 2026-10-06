@@ -8,8 +8,7 @@
 # collection per board (and, for the City Council, the Finance Committee and the
 # Planning Board, one per year). Its Agenda Center is empty. The School Committee
 # posts its agendas and minutes in public Google Drive folders, a folder per
-# meeting, which the engine doesn't read yet, so its meetings aren't listed. The
-# city doesn't use SeeClickFix, so the site has no 311 section. The engine's
+# meeting ([drive_meetings]). The city doesn't use SeeClickFix, so the site has no 311 section. The engine's
 # Maine package gives the tax rate, the property tax, and the tax bill, from
 # Maine Revenue Services and the Maine GeoLibrary ([finance]), and school
 # figures, from the Department of Education's ESSA Dashboard ([schools]);
@@ -168,6 +167,22 @@ minutes_since = "2026-01-01"
 "CMT Public Art Committee" = "Public Art Committee"
 "CMT 911 Agendas and" = "9-1-1 Committee"
 "CMT 911" = "9-1-1 Committee"
+
+# The School Committee's agendas and minutes, in the public Google Drive folder
+# linked from its page on the school department's website ("Archived School
+# Committee Meeting Minutes & Agendas"): a folder per school year ("2026-2027
+# School Committee"), and in it a folder per meeting, named by its date ("04
+# 10-5-26"). Each meeting's minutes are posted in the packet of the meeting
+# that approves them, and its agenda gives the time ("on or about 5:30 pm").
+# The folder's link carries a resource key, needed to read it.
+[drive_meetings]
+source_name = "Lewiston Public Schools"
+posted_on = "the School Committee's Google Drive"
+page_url = "https://www.lewistonpublicschools.org/en-US/school-committee-bc9f3846"
+meetings_folder = "0ByV5LOTYl0ObfnowOTlLRDZpankyc1hZcnF0TUV4U3hnTEljNGdvNDE3Z2p0b0VSS2lfekE"
+resource_key = "0-kGE8IAFzu2Zp_mSIJG0OQg"
+body = "School Committee"
+since = "2026-01-01"
 
 # Agenda and minutes PDFs, in the network's documents bucket.
 [storage]
@@ -342,7 +357,7 @@ members = [
 [[officials.bodies]]
 name = "School Committee"
 url = "https://www.lewistonpublicschools.org/en-US/school-committee-bc9f3846"
-note = "Seven members elected by ward and one at-large, and a city councilor chosen by the City Council. Its meetings aren't listed on this site yet: the committee posts its agendas and minutes in Google Drive folders, which the site doesn't read."
+note = "Seven members elected by ward and one at-large, and a city councilor chosen by the City Council."
 members = [
   { name = "Luke Jensen", seat = "At-large", term_ends = "2028-01", email = "lukejensen@lewistonpublicschools.org" },
   { name = "Phoenix McLaughlin", seat = "Ward 1", ward = 1, role = "Chair", term_ends = "2027-01", email = "pmclaughlin@lewistonpublicschools.org" },
@@ -397,7 +412,7 @@ members = [
 # Officials: notes, seats, and roles.
 "Elected citywide. This term is three years, as the city moves to staggered terms; from 2027 on, two years. The mayor presides over the City Council." = "Elegido por toda la ciudad. Este mandato es de tres años, mientras la ciudad pasa a mandatos escalonados; desde 2027, de dos años. El alcalde preside el Concejo Municipal."
 "Seven councilors, each elected by one of the city's seven wards. The mayor presides." = "Siete concejales, cada uno elegido por uno de los siete distritos de la ciudad. El alcalde preside."
-"Seven members elected by ward and one at-large, and a city councilor chosen by the City Council. Its meetings aren't listed on this site yet: the committee posts its agendas and minutes in Google Drive folders, which the site doesn't read." = "Siete miembros elegidos por distrito y uno por toda la ciudad, y un concejal elegido por el Concejo Municipal. Sus reuniones todavía no aparecen en este sitio: el comité publica sus agendas y actas en carpetas de Google Drive, que el sitio no lee."
+"Seven members elected by ward and one at-large, and a city councilor chosen by the City Council." = "Siete miembros elegidos por distrito y uno por toda la ciudad, y un concejal elegido por el Concejo Municipal."
 "City Council President" = "Presidente del Concejo Municipal"
 "Vice Chair" = "Vicepresidente"
 "City Council representative" = "Representante del Concejo Municipal"
