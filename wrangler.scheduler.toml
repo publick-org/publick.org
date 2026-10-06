@@ -17,8 +17,8 @@ workers_dev = false
 # nothing to do. The first two must match RELEASE_CRON and ENGINE_CRON in the
 # engine's worker/scheduler.js, as written. Every hour of Sunday and Monday (UTC): the weekly
 # digest's send, which emails each town's issue once it's due; it must match DIGEST_CRON in the
-# engine's worker/digest.js, as written.
-crons = ["20 8 * * *", "40 8 * * *", "5 9-14 * * *", "35 * * * 0,1"]
+# engine's worker/digest.js, as written. Cloudflare numbers days 1 (Sunday) to 7, so they're named.
+crons = ["20 8 * * *", "40 8 * * *", "5 9-14 * * *", "35 * * * SUN,MON"]
 
 [vars]
 REPOSITORY = "publick-org/publick.org"
