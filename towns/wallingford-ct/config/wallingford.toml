@@ -186,6 +186,28 @@ input_price = 2.0
 output_price = 10.0
 max_cost_per_run = 5.0
 
+# How residents can take part, per board, shown on its meeting pages. Only
+# what the town or the school district has published; each entry names its source.
+# The Town Council's from its Rules of Procedure (last amended March 30, 2026);
+# its meetings are on the town's Government Access TV channel, whose page links
+# the YouTube channel.
+[participation."Town Council"]
+comment = "Residents can ask the Council questions in the Public Question and Answer Period of its regular meetings, and speak on each item it acts on (except the consent agenda), for up to three minutes."
+source_title = "Town Council Rules of Procedure"
+source_url = "https://www.wallingfordct.gov/Customer-Content/www/CMS/files/TC_Rules_Procedures.pdf"
+video_title = "Wallingford Government Television's YouTube channel"
+video_url = "https://www.youtube.com/channel/UCdWP8OnNWc1nyrtewoqYRpQ"
+
+# The Board of Education's from its Policy 1120 (revised December 20, 2021), on
+# the district's Board-approved policies site; recordings are on the district's
+# YouTube channel, linked from its Board Meetings on Demand page.
+[participation."Board of Education"]
+comment = "Residents can ask questions or comment in the public comment period of Board meetings, and on each agenda item before the Board votes on it."
+source_title = "Board of Education Policy 1120, Public Participation at Meetings"
+source_url = "https://docs.google.com/document/d/189NbUsFf6W8Xb0wZOKZkXIalvVvR5FqPHk1YyZe6ysA/edit"
+video_title = "Wallingford Public Schools' YouTube channel"
+video_url = "https://www.youtube.com/@WPSConnections"
+
 [[glossary]]
 term = "executive session"
 definition = "A part of a public meeting closed to the public. State law allows it only for specific reasons, such as lawsuits, real estate purchases, or personnel matters."
@@ -251,7 +273,7 @@ sources = [
 # phone. Every seat is elected at large (Charter, Chapter II), so there is no
 # ward map. Terms are two years, starting the first Monday after January 1.
 [officials]
-checked = "2026-10-01"
+checked = "2026-10-06"
 
 [[officials.bodies]]
 name = "Mayor"
@@ -264,7 +286,7 @@ members = [
 [[officials.bodies]]
 name = "Town Council"
 url = "https://www.wallingfordct.gov/government/departments/town-council/"
-note = "Wallingford has no wards or council districts: all nine members represent the whole town. Elected at large for two years, no more than six of them from one party."
+note = "Nine members elected at large for two years, no more than six of them from one party."
 members = [
   { name = "Vincent F. Testa, Jr.", seat = "At-large", role = "Chair", term_ends = "2028-01", email = "vtesta@wallingfordct.gov" },
   { name = "Samuel Carmody", seat = "At-large", role = "Vice Chair", term_ends = "2028-01", email = "scarmody@wallingfordct.gov" },
@@ -280,17 +302,17 @@ members = [
 [[officials.bodies]]
 name = "Board of Education"
 url = "https://www.wallingford.k12.ct.us/board-of-education"
-note = "No wards or districts: all nine members represent the whole town. Elected at large for two years."
+note = "Nine members elected at large for two years."
 members = [
   { name = "Michael Votto", seat = "At-large", role = "Chairperson", term_ends = "2028-01", email = "mvotto@wallingfordschools.org" },
   { name = "Maureen Reed", seat = "At-large", role = "Vice Chairperson", term_ends = "2028-01", email = "mreed@wallingfordschools.org" },
-  { name = "Caroline Raynis", seat = "At-large", role = "Secretary", term_ends = "2028-01" },
-  { name = "Duncan Craig", seat = "At-large", term_ends = "2028-01" },
-  { name = "Kristi Doerr", seat = "At-large", term_ends = "2028-01" },
+  { name = "Caroline Raynis", seat = "At-large", role = "Secretary", term_ends = "2028-01", email = "craynis@wallingfordschools.org" },
+  { name = "Duncan Craig", seat = "At-large", term_ends = "2028-01", email = "dcraig@wallingfordschools.org" },
+  { name = "Kristi Doerr", seat = "At-large", term_ends = "2028-01", email = "kdoerr@wallingfordschools.org" },
   { name = "Rajan Doering", seat = "At-large", term_ends = "2028-01", email = "rdoering@wallingfordschools.org" },
   { name = "Jen Passaretti", seat = "At-large", term_ends = "2028-01", email = "jpassaretti@wallingfordschools.org" },
   { name = "Donna Regan", seat = "At-large", term_ends = "2028-01", email = "dregan@wallingfordschools.org" },
-  { name = "Marla Roscoe", seat = "At-large", term_ends = "2028-01" },
+  { name = "Marla Roscoe", seat = "At-large", term_ends = "2028-01", email = "mroscoe@wallingfordschools.org" },
 ]
 
 [strings.es]
@@ -312,6 +334,14 @@ members = [
 "Meetings (town website)" = "Reuniones (sitio web del municipio)"
 "Board of Education meetings (school district website)" = "Reuniones de la Junta de Educación (sitio web del distrito escolar)"
 
+# How to take part.
+"Residents can ask the Council questions in the Public Question and Answer Period of its regular meetings, and speak on each item it acts on (except the consent agenda), for up to three minutes." = "Los residentes pueden hacerle preguntas al Concejo durante el turno de preguntas y respuestas del público en sus reuniones regulares, y hablar sobre cada asunto que el Concejo decida (salvo la agenda de consentimiento, o consent agenda), hasta tres minutos."
+"Town Council Rules of Procedure" = "Reglamento del Concejo Municipal"
+"Wallingford Government Television's YouTube channel" = "el canal de YouTube de Wallingford Government Television"
+"Residents can ask questions or comment in the public comment period of Board meetings, and on each agenda item before the Board votes on it." = "Los residentes pueden hacer preguntas o comentarios durante el turno de comentarios del público en las reuniones de la Junta, y sobre cada asunto de la agenda antes de que la Junta lo vote."
+"Board of Education Policy 1120, Public Participation at Meetings" = "Política 1120 de la Junta de Educación, sobre la participación del público en las reuniones"
+"Wallingford Public Schools' YouTube channel" = "el canal de YouTube de las Escuelas Públicas de Wallingford"
+
 # Glossary definitions (the terms themselves stay as the agendas write them).
 "A part of a public meeting closed to the public. State law allows it only for specific reasons, such as lawsuits, real estate purchases, or personnel matters." = "Una parte de una reunión pública que se hace a puerta cerrada. La ley estatal la permite solo por razones específicas, como demandas, compras de bienes raíces o asuntos de personal."
 "Connecticut General Statutes, the state's laws." = "Estatutos Generales de Connecticut (Connecticut General Statutes), las leyes del estado."
@@ -320,8 +350,8 @@ members = [
 
 # Officials: notes, seats, and roles.
 "Elected townwide for two years." = "Elegido por todo el municipio por dos años."
-"Wallingford has no wards or council districts: all nine members represent the whole town. Elected at large for two years, no more than six of them from one party." = "Wallingford no tiene distritos electorales municipales: los nueve miembros representan a todo el municipio. Se eligen por todo el municipio por dos años; no más de seis pueden ser del mismo partido."
-"No wards or districts: all nine members represent the whole town. Elected at large for two years." = "Sin distritos electorales: los nueve miembros representan a todo el municipio. Se eligen por todo el municipio por dos años."
+"Nine members elected at large for two years, no more than six of them from one party." = "Nueve miembros elegidos por todo el municipio por dos años; no más de seis pueden ser del mismo partido."
+"Nine members elected at large for two years." = "Nueve miembros elegidos por todo el municipio por dos años."
 "At-large" = "Todo el municipio"
 
 # Boards, as the town's calendar and the school district name them (after [meetings.aliases]).

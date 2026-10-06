@@ -302,36 +302,40 @@ sources = [
 # results (November 2022 and 2024) and the Town Council's minutes of March 17
 # and July 27, 2026; checked is the date the list was last checked against
 # them. Only town- and school-issued email addresses. Every seat is elected at
-# large, so no member has a ward. Neither page gives the month a term ends, so
-# term_ends is left out. The Town Manager is appointed, not elected, so isn't
-# listed.
+# large, so no member has a ward. Terms are from the Town Council's minutes on
+# the town's ClerkBase archive (clerkshq.com/SouthKingstown-ri): the council
+# and the School Committee members elected in November 2024 were sworn in on
+# November 25, 2024, the council for two years ("until November 2026") and the
+# committee members for four; the committee members elected in 2022 were sworn
+# in on November 21, 2022, for four years. The Town Manager is appointed, not
+# elected, so isn't listed.
 [officials]
 checked = "2026-10-04"
 
 [[officials.bodies]]
 name = "Town Council"
 url = "https://www.southkingstownri.gov/412/Town-Council"
-note = "South Kingstown has no wards or council districts: all five members represent the whole town. Elected at large in November of even-numbered years."
+note = "Five members elected at large in November of even-numbered years."
 members = [
-  { name = "Rory H. McEntee", seat = "At-large", role = "President", email = "rmcentee@southkingstownri.gov" },
-  { name = "Michael K. Marran", seat = "At-large", role = "Vice President", email = "mmarran@southkingstownri.gov" },
-  { name = "Patricia A. Alley", seat = "At-large", email = "palley@southkingstownri.gov" },
-  { name = "Deborah D. Bergner", seat = "At-large", email = "dbergner@southkingstownri.gov" },
-  { name = "Jay G. Wegimont", seat = "At-large", email = "jwegimont@southkingstownri.gov" },
+  { name = "Rory H. McEntee", seat = "At-large", role = "President", term_ends = "2026-11", email = "rmcentee@southkingstownri.gov" },
+  { name = "Michael K. Marran", seat = "At-large", role = "Vice President", term_ends = "2026-11", email = "mmarran@southkingstownri.gov" },
+  { name = "Patricia A. Alley", seat = "At-large", term_ends = "2026-11", email = "palley@southkingstownri.gov" },
+  { name = "Deborah D. Bergner", seat = "At-large", term_ends = "2026-11", email = "dbergner@southkingstownri.gov" },
+  { name = "Jay G. Wegimont", seat = "At-large", term_ends = "2026-11", email = "jwegimont@southkingstownri.gov" },
 ]
 
 [[officials.bodies]]
 name = "School Committee"
 url = "https://www.skschools.net/our_district/school_committee/meet_our_school_committee"
-note = "No wards or districts: all seven members represent the whole town. Elected at large for four-year terms, three and four of them in alternate even-numbered years."
+note = "Seven members elected at large for four years, three and four of them in alternate even-numbered years. Its meetings aren't listed on this site: the committee posts them on BoardDocs, which doesn't allow automated reading."
 members = [
-  { name = "Carol Vetter", seat = "At-large", role = "Chairperson", email = "cvetter@sksd-ri.net" },
-  { name = "James Restivo", seat = "At-large", role = "Vice Chairperson", email = "jrestivo@sksd-ri.net" },
-  { name = "Michelle Brousseau", seat = "At-large", email = "mbrousseau@sksd-ri.net" },
-  { name = "Stewart Lander", seat = "At-large" },
-  { name = "Kate McMahon Macinanti", seat = "At-large", email = "kmacinanti@sksd-ri.net" },
-  { name = "Bradley Shear", seat = "At-large", email = "bshear@sksd-ri.net" },
-  { name = "Paula Whitford", seat = "At-large", email = "pwhitford@sksd-ri.net" },
+  { name = "Carol Vetter", seat = "At-large", role = "Chairperson", term_ends = "2026-11", email = "cvetter@sksd-ri.net" },
+  { name = "James Restivo", seat = "At-large", role = "Vice Chairperson", term_ends = "2026-11", email = "jrestivo@sksd-ri.net" },
+  { name = "Michelle Brousseau", seat = "At-large", term_ends = "2028-11", email = "mbrousseau@sksd-ri.net" },
+  { name = "Stewart Lander", seat = "At-large", term_ends = "2028-11" },
+  { name = "Kate McMahon Macinanti", seat = "At-large", term_ends = "2026-11", email = "kmacinanti@sksd-ri.net" },
+  { name = "Bradley Shear", seat = "At-large", term_ends = "2028-11", email = "bshear@sksd-ri.net" },
+  { name = "Paula Whitford", seat = "At-large", term_ends = "2028-11", email = "pwhitford@sksd-ri.net" },
 ]
 
 [strings.es]
@@ -368,8 +372,8 @@ members = [
 "Capital Improvement Program: the town's plan for buildings, roads, equipment, and other long-lasting purchases over the next several years, and how to pay for them." = "Programa de Mejoras de Capital: el plan del municipio para edificios, calles, equipos y otras compras duraderas en los próximos años, y cómo pagarlas."
 
 # Officials: notes, seats, and roles.
-"South Kingstown has no wards or council districts: all five members represent the whole town. Elected at large in November of even-numbered years." = "South Kingstown no tiene distritos electorales municipales: los cinco miembros representan a todo el municipio. Se eligen por todo el municipio en noviembre de los años pares."
-"No wards or districts: all seven members represent the whole town. Elected at large for four-year terms, three and four of them in alternate even-numbered years." = "Sin distritos electorales: los siete miembros representan a todo el municipio. Se eligen por todo el municipio por cuatro años; tres y cuatro de ellos, en años pares alternos."
+"Five members elected at large in November of even-numbered years." = "Cinco miembros elegidos por todo el municipio en noviembre de los años pares."
+"Seven members elected at large for four years, three and four of them in alternate even-numbered years. Its meetings aren't listed on this site: the committee posts them on BoardDocs, which doesn't allow automated reading." = "Siete miembros elegidos por todo el municipio por cuatro años; tres y cuatro de ellos, en años pares alternos. Sus reuniones no aparecen en este sitio: el comité las publica en BoardDocs, que no permite la lectura automatizada."
 "At-large" = "Todo el municipio"
 
 # Boards, as the portal names them (after [meetings.aliases]).

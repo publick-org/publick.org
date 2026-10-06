@@ -241,6 +241,10 @@ sources = [
 # phone. The ward file is data/static/lawrence-precincts-2022.geojson
 # (MassGIS): Lawrence's wards are lettered A to F, and the council's six
 # districts are the six wards.
+# The About page's "What this site doesn't cover": why there's no 311 section.
+[absences]
+311 = "The city takes concerns through a form on its own website, which has no public data."
+
 [officials]
 checked = "2026-10-01"
 wards_file = "lawrence-precincts-2022.geojson"
@@ -274,17 +278,19 @@ members = [
 ]
 
 # From the school district's School Committee page. Three members were elected
-# citywide on November 4, 2025 (official results). The charter on the city's
-# website still describes six district members, so no term is given.
+# citywide on November 4, 2025 (official results), for two-year terms (the
+# city's specimen ballot), and took their seats in January 2026; the clerk was
+# chosen at the committee's meeting of January 5, 2026 (its minutes). The
+# appointed members' terms aren't published.
 [[officials.bodies]]
 name = "School Committee"
 url = "https://www.lawrence.k12.ma.us/about/district/school-committee"
 note = "Three members elected citywide and three appointed, with the mayor as chair."
 members = [
   { name = "Brian A. DePeña", seat = "Mayor", role = "Chair", term_ends = "2030-01", email = "OfficeOfTheMayor@cityoflawrence.com" },
-  { name = "Jessica M. Ramirez", seat = "Citywide", role = "Vice Chair", email = "Jessica.Marie.Ramirez@lawrence.k12.ma.us" },
-  { name = "Eliaquin Gonell", seat = "Citywide", email = "Eliaquin.Gonell@lawrence.k12.ma.us" },
-  { name = "Jonathan Guzman", seat = "Citywide", email = "Jonathan.Guzman@lawrence.k12.ma.us" },
+  { name = "Jessica M. Ramirez", seat = "Citywide", role = "Vice Chair", term_ends = "2028-01", email = "Jessica.Marie.Ramirez@lawrence.k12.ma.us" },
+  { name = "Eliaquin Gonell", seat = "Citywide", term_ends = "2028-01", email = "Eliaquin.Gonell@lawrence.k12.ma.us" },
+  { name = "Jonathan Guzman", seat = "Citywide", role = "Clerk", term_ends = "2028-01", email = "Jonathan.Guzman@lawrence.k12.ma.us" },
   { name = "Michael Armano", seat = "Appointed", email = "Michael.Armano@lawrence.k12.ma.us" },
   { name = "Donna Bertolino", seat = "Appointed", email = "Donna.Bertolino@lawrence.k12.ma.us" },
   { name = "Jesus Suriel", seat = "Appointed", email = "Jesus.Suriel@lawrence.k12.ma.us" },
@@ -297,6 +303,7 @@ members = [
 # shows its English name after it. Not checked by a person: the site says it's
 # translated with AI.
 [strings.es]
+"The city takes concerns through a form on its own website, which has no public data." = "La ciudad recibe inquietudes mediante un formulario en su propio sitio web, que no tiene datos públicos."
 # The masthead and the share text.
 "Public data on how Lawrence, Massachusetts decides and spends. Updated daily." = "Datos públicos sobre cómo Lawrence, Massachusetts, toma decisiones y gasta su dinero. Se actualizan a diario."
 "An independent guide to city government in Lawrence, Massachusetts" = "Una guía independiente sobre el gobierno de la ciudad de Lawrence, Massachusetts"
