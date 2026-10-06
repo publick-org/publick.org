@@ -193,6 +193,73 @@ checked = "2026-10-02"
 note = "The city calendar also lists the Arts Commission on Tuesday, October 27 and Tuesday, November 24: the fourth Tuesday of the month, when the commission now meets. This Monday entry is older than those two and is most likely left over from its earlier schedule. Check with the city before going."
 evidence = "https://www.manchesternh.gov/Government/City-Calendars/ModuleID/3737/ItemID/106927/mctl/EventDetails"
 
+# How residents can take part, per board, shown on its meeting pages. Only
+# what the city or the school district has published; each entry names its
+# source. The Board of Mayor and Aldermen's is from Rule 3 of its 2026-2027
+# Rules and its page on the city's website (30 minutes); the Board of School
+# Committee's from Rule 2.04 of its 2026-2028 Rules. Both boards' meetings are
+# on Manchester Public TV's Channel 22, which the city's website links and the
+# school district's Board Meeting Videos page names, with recordings on demand.
+[participation."Board of Mayor and Aldermen"]
+comment = "Manchester residents may speak for up to three minutes during public comment, which may run up to 30 minutes at the start of each regular meeting. Sign up with the City Clerk, giving your name and topic, before it begins."
+source_title = "the Rules of the Board of Mayor and Aldermen"
+source_url = "https://www.manchesternh.gov/Portals/2/Departments/city_clerk/BMA_Rules.pdf"
+video_title = "Manchester Public TV's Channel 22"
+video_url = "https://www.manchestertv.org/22"
+
+[participation."Board of School Committee"]
+comment = "Manchester residents may speak for up to three minutes in the public forum at each regular meeting. You're asked, but not required, to sign up with the clerk first, with your name, address, and topic. Complaints about school staff go to the Superintendent, not the public forum."
+source_title = "the Board of School Committee's Rules"
+source_url = "https://www.mansd.org/page/board-rules"
+video_title = "Manchester Public TV's Channel 22"
+video_url = "https://www.manchestertv.org/22"
+
+# Terms that come up on agendas and minutes, explained on each meeting page
+# where they appear. Acronyms match exactly; other terms ignore case. An entry
+# with bodies is shown only on those boards' meetings. From the Board's Rules
+# (consent agenda, tabling), the city's Board of Mayor and Aldermen, Community
+# Improvement Program, and Zoning Board pages, and the city's own minutes.
+[[glossary]]
+term = "non-public session"
+definition = "A part of a meeting closed to the public. New Hampshire's Right-to-Know Law (RSA 91-A) allows it only for certain reasons, such as buying or selling property, personnel matters, or labor negotiations."
+
+[[glossary]]
+term = "RSA"
+definition = "Revised Statutes Annotated, New Hampshire's state laws."
+
+[[glossary]]
+term = "BMA"
+definition = "Board of Mayor and Aldermen, the city's governing body: the mayor and 14 aldermen."
+
+[[glossary]]
+term = "CIP"
+definition = "Community Improvement Program: the city's plan for paying for capital projects and special programs, with grants, city bonds, and city cash. The Board of Mayor and Aldermen adopts one each year."
+
+[[glossary]]
+term = "consent agenda"
+bodies = ["Board of Mayor and Aldermen"]
+definition = "Routine items, chosen by the City Clerk with the mayor, that the Board approves together in one vote. Any member can have an item removed and taken up on its own."
+
+[[glossary]]
+term = "tabled"
+definition = "Set aside by a vote, to take up later. A tabled item comes back when the board votes to take it off the table."
+
+[[glossary]]
+term = "receive and file"
+definition = "To accept a letter, report, or other document into the record, without taking any other action on it."
+
+[[glossary]]
+term = "TIF"
+definition = "Tax increment financing: a district where the extra property tax from its growth in value is set aside to pay for public projects, such as roads or a parking garage."
+
+[[glossary]]
+term = "ZBA"
+definition = "Zoning Board of Adjustment."
+
+[[glossary]]
+term = "variance"
+definition = "Permission from the Zoning Board of Adjustment to use or build on a property in a way the zoning ordinance doesn't allow. The board grants one only if five tests are met, among them that following the rule exactly would cause an unnecessary hardship."
+
 # Agenda and minutes PDFs live in the network's documents bucket, not in git
 # (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID, STORAGE_SECRET_ACCESS_KEY.
 [storage]
@@ -308,7 +375,7 @@ sources = [
 # addresses, and the mayor's office phone. Terms end on the date set by the
 # city charter.
 [officials]
-checked = "2026-10-01"
+checked = "2026-10-06"
 
 [[officials.bodies]]
 name = "Mayor"
@@ -339,26 +406,33 @@ members = [
   { name = "Dan O'Neil", seat = "At-large", term_ends = "2028-01", email = "doneil@manchesternh.gov", url = "https://www.manchesternh.gov/Government/Mayor-and-Aldermen/Aldermen/At-Large-Ald-ONeil" },
 ]
 
+# Emails from the district's About Our Board page (seat addresses for the ward
+# members). Every seat is filled at each biennial city election (the City
+# Clerk's How to File for Office page); the members elected in November 2025
+# took office at the January 6, 2026 inauguration (the clerk's 2025 Municipal
+# Political Calendar), so their terms end in January 2028. Ward 9's appointed
+# member has no term end here: the charter, which says how long an appointment
+# lasts, is on American Legal Publishing's site, which blocks automated reading.
 [[officials.bodies]]
 name = "Board of School Committee"
 url = "https://www.mansd.org/page/bosc"
-note = "Twelve members elected by ward and two at-large, with the mayor as chair."
+note = "Twelve members elected by ward and two at-large, with the mayor as chair. Its meetings aren't listed on this site yet: the school district posts them on its own website, which the site doesn't read."
 members = [
   { name = "Jay Ruais", seat = "Mayor", role = "Chair", term_ends = "2028-01", email = "mayor@manchesternh.gov" },
-  { name = "Julie Turner", seat = "Ward 1", ward = 1 },
-  { name = "Sean Parr", seat = "Ward 2", ward = 2 },
-  { name = "Sarah Georges", seat = "Ward 3", ward = 3 },
-  { name = "Leslie Want", seat = "Ward 4", ward = 4 },
-  { name = "Jeff Taylor", seat = "Ward 5", ward = 5 },
-  { name = "Dan Bergeron", seat = "Ward 6", ward = 6 },
-  { name = "Christopher Potter", seat = "Ward 7", ward = 7 },
-  { name = "Nicholas St. John", seat = "Ward 8", ward = 8 },
-  { name = "Stan Garrity", seat = "Ward 9", ward = 9, role = "Appointed February 2026 to fill a vacancy" },
-  { name = "Gary Hamer", seat = "Ward 10", ward = 10 },
-  { name = "Liz O'Neil-Wong", seat = "Ward 11", ward = 11 },
-  { name = "Julie Smith", seat = "Ward 12", ward = 12 },
-  { name = "Jim O'Connell", seat = "At-large", role = "Vice Chair" },
-  { name = "Cindy Rodenhauser Stewart", seat = "At-large" },
+  { name = "Julie Turner", seat = "Ward 1", ward = 1, term_ends = "2028-01", email = "boscward1@mansd.org" },
+  { name = "Sean Parr", seat = "Ward 2", ward = 2, term_ends = "2028-01", email = "boscward2@mansd.org" },
+  { name = "Sarah Georges", seat = "Ward 3", ward = 3, term_ends = "2028-01", email = "boscward3@mansd.org" },
+  { name = "Leslie Want", seat = "Ward 4", ward = 4, term_ends = "2028-01", email = "boscward4@mansd.org" },
+  { name = "Jeff Taylor", seat = "Ward 5", ward = 5, term_ends = "2028-01", email = "boscward5@mansd.org" },
+  { name = "Dan Bergeron", seat = "Ward 6", ward = 6, term_ends = "2028-01", email = "boscward6@mansd.org" },
+  { name = "Christopher Potter", seat = "Ward 7", ward = 7, term_ends = "2028-01", email = "boscward7@mansd.org" },
+  { name = "Nicholas St. John", seat = "Ward 8", ward = 8, term_ends = "2028-01", email = "boscward8@mansd.org" },
+  { name = "Stan Garrity", seat = "Ward 9", ward = 9, role = "Appointed February 2026 to fill a vacancy", email = "boscward9@mansd.org" },
+  { name = "Gary Hamer", seat = "Ward 10", ward = 10, term_ends = "2028-01", email = "boscward10@mansd.org" },
+  { name = "Liz O'Neil-Wong", seat = "Ward 11", ward = 11, term_ends = "2028-01", email = "boscward11@mansd.org" },
+  { name = "Julie Smith", seat = "Ward 12", ward = 12, term_ends = "2028-01", email = "boscward12@mansd.org" },
+  { name = "Jim O'Connell", seat = "At-large", role = "Vice Chair", term_ends = "2028-01", email = "joconnell@mansd.org" },
+  { name = "Cindy Rodenhauser Stewart", seat = "At-large", term_ends = "2028-01", email = "cindystewart@mansd.org" },
 ]
 
 # The town's own text in Spanish, keyed by its English as written above or as
@@ -381,6 +455,25 @@ members = [
 "Manchester School District's graduation rate, state test results, and cost per pupil, with the state's." = "La tasa de graduación del Distrito Escolar de Manchester, los resultados de los exámenes estatales y el costo por estudiante, comparados con los del estado."
 "The mayor, aldermen, and Board of School Committee, by office and by ward, and how to reach them." = "El alcalde, los concejales y el Comité Escolar, por cargo y por distrito, y cómo comunicarse con ellos."
 
+# How to take part.
+"Manchester residents may speak for up to three minutes during public comment, which may run up to 30 minutes at the start of each regular meeting. Sign up with the City Clerk, giving your name and topic, before it begins." = "Los residentes de Manchester pueden hablar hasta tres minutos durante los comentarios del público, que pueden durar hasta 30 minutos al comienzo de cada reunión regular. Inscríbase con el Secretario Municipal (City Clerk), con su nombre y su tema, antes de que empiecen."
+"the Rules of the Board of Mayor and Aldermen" = "el Reglamento de la Junta del Alcalde y Concejales"
+"Manchester residents may speak for up to three minutes in the public forum at each regular meeting. You're asked, but not required, to sign up with the clerk first, with your name, address, and topic. Complaints about school staff go to the Superintendent, not the public forum." = "Los residentes de Manchester pueden hablar hasta tres minutos en el foro público (public forum) de cada reunión regular. Se pide, pero no se exige, inscribirse antes con el secretario, con su nombre, su dirección y su tema. Las quejas sobre el personal escolar se presentan al Superintendente, no en el foro público."
+"the Board of School Committee's Rules" = "el Reglamento del Comité Escolar"
+"Manchester Public TV's Channel 22" = "el Canal 22 de Manchester Public TV"
+
+# Glossary definitions (the terms themselves stay as the agendas write them).
+"A part of a meeting closed to the public. New Hampshire's Right-to-Know Law (RSA 91-A) allows it only for certain reasons, such as buying or selling property, personnel matters, or labor negotiations." = "Una parte de una reunión que se hace a puerta cerrada. La Ley del Derecho a Saber de New Hampshire (Right-to-Know Law, RSA 91-A) la permite solo por ciertas razones, como la compra o venta de propiedades, asuntos de personal o negociaciones laborales."
+"Revised Statutes Annotated, New Hampshire's state laws." = "Estatutos Revisados Anotados (Revised Statutes Annotated), las leyes del estado de New Hampshire."
+"Board of Mayor and Aldermen, the city's governing body: the mayor and 14 aldermen." = "Junta del Alcalde y Concejales (Board of Mayor and Aldermen), el órgano de gobierno de la ciudad: el alcalde y 14 concejales."
+"Community Improvement Program: the city's plan for paying for capital projects and special programs, with grants, city bonds, and city cash. The Board of Mayor and Aldermen adopts one each year." = "Programa de Mejoras Comunitarias (Community Improvement Program): el plan de la ciudad para pagar proyectos de inversión de capital y programas especiales con subvenciones, bonos de la ciudad y efectivo de la ciudad. La Junta del Alcalde y Concejales aprueba uno cada año."
+"Routine items, chosen by the City Clerk with the mayor, that the Board approves together in one vote. Any member can have an item removed and taken up on its own." = "Asuntos de rutina, escogidos por el Secretario Municipal junto con el alcalde, que la Junta aprueba juntos en una sola votación. Cualquier miembro puede pedir que se saque un asunto para tratarlo por separado."
+"Set aside by a vote, to take up later. A tabled item comes back when the board votes to take it off the table." = "Dejado de lado mediante una votación, para tratarlo más adelante. Un asunto dejado sobre la mesa vuelve cuando la junta vota para retomarlo."
+"To accept a letter, report, or other document into the record, without taking any other action on it." = "Aceptar una carta, un informe u otro documento para que conste en el registro, sin tomar ninguna otra medida al respecto."
+"Tax increment financing: a district where the extra property tax from its growth in value is set aside to pay for public projects, such as roads or a parking garage." = "Financiamiento por incremento de impuestos (tax increment financing): una zona donde el impuesto a la propiedad adicional que genera el aumento de su valor se reserva para pagar proyectos públicos, como calles o un estacionamiento."
+"Zoning Board of Adjustment." = "Junta de Ajustes de Zonificación."
+"Permission from the Zoning Board of Adjustment to use or build on a property in a way the zoning ordinance doesn't allow. The board grants one only if five tests are met, among them that following the rule exactly would cause an unnecessary hardship." = "Un permiso de la Junta de Ajustes de Zonificación para usar o construir en una propiedad de una forma que la ordenanza de zonificación no permite. La junta lo concede solo si se cumplen cinco requisitos, entre ellos que aplicar la regla al pie de la letra causaría una dificultad innecesaria."
+
 # Where the city posts agendas and minutes, and the data the site keeps up to date.
 "city's Meeting Minutes and Agendas page" = "página de Actas y Agendas de Reuniones de la ciudad"
 "Meetings (city calendar and CivicClerk)" = "Reuniones (calendario de la ciudad y CivicClerk)"
@@ -389,7 +482,7 @@ members = [
 # Officials: notes, seats, and roles.
 "Elected citywide for two years. The mayor presides over the Board of Mayor and Aldermen and chairs the Board of School Committee." = "Elegido por toda la ciudad por dos años. El alcalde preside la Junta del Alcalde y Concejales y el Comité Escolar."
 "Twelve aldermen elected by ward and two at-large, for two years. The mayor presides." = "Doce concejales elegidos por distrito y dos por toda la ciudad, por dos años. El alcalde preside."
-"Twelve members elected by ward and two at-large, with the mayor as chair." = "Doce miembros elegidos por distrito y dos por toda la ciudad, con el alcalde como presidente."
+"Twelve members elected by ward and two at-large, with the mayor as chair. Its meetings aren't listed on this site yet: the school district posts them on its own website, which the site doesn't read." = "Doce miembros elegidos por distrito y dos por toda la ciudad, con el alcalde como presidente. Sus reuniones todavía no aparecen en este sitio: el distrito escolar las publica en su propio sitio web, que este sitio no lee."
 "Chairman of the Board" = "Presidente de la Junta"
 "Appointed February 2026 to fill a vacancy" = "Por nombramiento en febrero de 2026, para cubrir una vacante"
 
