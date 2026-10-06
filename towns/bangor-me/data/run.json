@@ -1,8 +1,8 @@
 {
   "town": "bangor",
   "folder": "bangor-me",
-  "started_at": "2026-10-05T18:29:35+00:00",
-  "finished_at": "2026-10-05T18:42:48+00:00",
+  "started_at": "2026-10-06T13:12:00+00:00",
+  "finished_at": "2026-10-06T13:17:34+00:00",
   "engine": "v1.37.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 753.7
+      "seconds": 281.5
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 1.8
+      "seconds": 2.7
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 21.9
+      "seconds": 30.4
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 14.7
+      "seconds": 18.1
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.7
+      "seconds": 1.0
     }
   ],
   "update": {
     "town": "bangor",
     "sources": "all",
-    "started_at": "2026-10-05T18:29:35+00:00",
+    "started_at": "2026-10-06T13:12:01+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 51.7,
+        "seconds": 15.9,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 296.4,
+        "seconds": 101.0,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 378.9,
+        "seconds": 163.9,
         "cadence": "continuous"
       },
       {
@@ -98,39 +98,43 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.7,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.2,
-        "cadence": "yearly"
+        "seconds": 0,
+        "cadence": "yearly",
+        "skipped": "checked 0 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.2,
-        "cadence": "yearly"
+        "seconds": 0,
+        "cadence": "yearly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 24.5,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.2,
         "cadence": "continuous"
       },
       {
@@ -175,7 +179,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-05T14:29:35-04:00",
+      "updated_at": "2026-10-06T09:12:01-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -240,29 +244,29 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-05T18:42:48+00:00",
-  "data_bytes": 758558,
-  "data_bytes_added": 756073,
+  "last_good_at": "2026-10-06T13:17:34+00:00",
+  "data_bytes": 824802,
+  "data_bytes_added": 59503,
   "activity": {
     "boards": 26,
     "meetings_by_date": {
-      "2026-10-05": 3,
       "2026-10-06": 2,
       "2026-10-08": 2,
       "2026-10-13": 1,
       "2026-10-14": 2,
-      "2026-10-15": 1
+      "2026-10-15": 1,
+      "2026-10-19": 3
     }
   },
   "fact_checks": {
-    "summaries": 19,
-    "ok": 14,
-    "failed": 4,
+    "summaries": 24,
+    "ok": 17,
+    "failed": 5,
     "weak": 0,
-    "unchecked": 1,
+    "unchecked": 2,
     "not_yet": 0,
-    "held_back": 4,
-    "entries_not_shown": 13,
-    "vote_counts_left_out": 12
+    "held_back": 5,
+    "entries_not_shown": 14,
+    "vote_counts_left_out": 14
   }
 }
