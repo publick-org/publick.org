@@ -94,6 +94,11 @@ For Massachusetts (New Hampshire: start from Manchester's config):
       tables above, and `[freshness]` (drop 311 if the town has none).
 - [ ] **Colors** (`[site.colors]`): the most-used colors in the city
       website's stylesheet; each must reach 4.5:1 on white.
+- [ ] **Weekly digest by email**: copy `[digest]` from any town's config
+      (`signup`, `provider`, `privacy_url`); in Buttondown, make the tag
+      `<town>-<state>-en` (**Tags → New**); and add `<town>-<state>.publick.org`
+      to `DIGEST_TOWNS` in `wrangler.scheduler.toml`, then run **Actions →
+      Worker** once the town is published.
 - [ ] **City calendar** (`[meetings.civicplus]`, for a CivicPlus city): the
       calendar read month by month, with `calendars` naming the city's
       calendar of public meetings ("City Meetings"), even when the Agenda
