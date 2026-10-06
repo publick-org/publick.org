@@ -12,7 +12,8 @@
 # The weekly digest's email (the engine's worker/digest.js) takes a Buttondown key for each
 # Worker, each set when it's there: BUTTONDOWN_SUBSCRIBE_KEY for the sites Worker's signup
 # form (subscribers read and write, sending disabled), and BUTTONDOWN_SEND_KEY for the
-# scheduler's Sunday send (emails read and write, sending enabled).
+# scheduler's Sunday send (emails read and write, sending enabled). Each town in the scheduler's
+# DIGEST_TOWNS gets its Buttondown tag (<town>-<state>-en) here, made if it isn't there yet.
 name: Worker
 
 on:
@@ -92,3 +93,30 @@ jobs:
             exit 0
           fi
           printf '%s' "$BUTTONDOWN_SEND_KEY" | npx --yes wrangler@4 secret put BUTTONDOWN_SEND_KEY -c wrangler.scheduler.toml
+
+      # Last, so a failure here never stops a deploy. A tag already there is left as it is (its color too).
+      - name: Make each digest town's Buttondown tag
+        env:
+          BUTTONDOWN_SUBSCRIBE_KEY: ${{ secrets.BUTTONDOWN_SUBSCRIBE_KEY }}
+        run: |
+          if [ -z "$BUTTONDOWN_SUBSCRIBE_KEY" ]; then
+            echo "::warning::BUTTONDOWN_SUBSCRIBE_KEY isn't set, so no tags are made."
+            exit 0
+          fi
+          towns=$(sed -n 's/^DIGEST_TOWNS = "\(.*\)"$/\1/p' wrangler.scheduler.toml | tr ',' ' ')
+          failed=0
+          for host in $towns; do
+            tag="${host%%.*}-en"
+            status=$(curl -sS -o tag.json -w '%{http_code}' -X POST https://api.buttondown.com/v1/tags \
+              -H "Authorization: Token $BUTTONDOWN_SUBSCRIBE_KEY" -H "Content-Type: application/json" \
+              -d "{\"name\": \"$tag\"}")
+            if [ "$status" = 201 ]; then
+              echo "Made the tag $tag."
+            elif grep -q name_already_exists tag.json; then
+              echo "The tag $tag is there."
+            else
+              echo "::error::Making the tag $tag: HTTP $status $(cat tag.json)"
+              failed=1
+            fi
+          done
+          exit $failed
