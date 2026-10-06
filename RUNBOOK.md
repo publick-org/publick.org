@@ -14,6 +14,7 @@ Times are UTC. Eastern is UTC−4 in summer, UTC−5 in winter.
 | Cloudflare | `publick.org` DNS, both Workers, the R2 buckets (`publick-sites`, `publick-documents`), email routing | NasTber |
 | Anthropic | The API key, its spending and rate limits | NasTber |
 | GoatCounter | The `publick` page-view site | NasTber |
+| Buttondown | The weekly digest's email: its readers, and sending from `hello@digest.publick.org` (DNS records on `digest.publick.org`) | NasTber |
 
 ## Each morning
 
@@ -22,6 +23,7 @@ Times are UTC. Eastern is UTC−4 in summer, UTC−5 in winter.
 | 08:20 | The engine's release: everything merged to the engine's `main` since the last release, if its tests passed | The scheduler Worker (GitHub's schedule is a late backup) |
 | 08:40 | `engine.yml`: a pull request moving `engine-version` to that release, checked on every page of every town, merged if all pass | The scheduler Worker |
 | 09:05 to 14:05, hourly | `network.yml` daily runs: each start takes the towns that are due | The scheduler Worker; GitHub's 12:17 is a backup |
+| Sundays, 5:30 PM Eastern | Each town in `DIGEST_TOWNS` (`wrangler.scheduler.toml`) emailed its weekly digest; a failure opens **The weekly digest didn't send** | The scheduler Worker, checking hourly on Sundays and Mondays (UTC) |
 
 So anything merged to the engine's `main` before 08:20 goes to every town
 that morning, if every town passes on it. Merge engine changes after the
@@ -165,6 +167,8 @@ README's "Setup, once" says what each holds.
 | `CLOUDFLARE_API_TOKEN` | When it was set to | **Actions → Worker** can't deploy; the running Workers keep working |
 | `SITES_*`, `STORAGE_*` | When revoked | Nothing publishes, or documents aren't stored; sites keep their last builds |
 | `BLS_API_KEY` | When revoked | Unemployment figures fall behind |
+| `BUTTONDOWN_SUBSCRIBE_KEY` | When revoked | The digest's signup form says it didn't go through. Make a new key in Buttondown (**API → Keys**: subscribers read and write, sending disabled), then run **Actions → Worker** |
+| `BUTTONDOWN_SEND_KEY` | When revoked | The weekly digest isn't sent, and the scheduler opens an issue. Make a new key (emails read and write, sending enabled), then run **Actions → Worker** |
 
 Put each expiry date in a calendar when the token is made.
 
