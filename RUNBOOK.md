@@ -174,8 +174,8 @@ Put each expiry date in a calendar when the token is made.
   upcoming meetings against the city's own sites (README, "Checking meetings
   by hand").
 - **Officials**, after each municipal election and whenever a seat changes
-  (README, "Keeping officials current"). The next elections for every town
-  are in November 2027.
+  (README, "Keeping officials current", which lists each town's dates). The
+  next is November 3, 2026, for Bangor, Lewiston, and South Kingstown.
 - **New Hampshire's yearly figures**, when the status page shows them behind
   (README, "New Hampshire's yearly figures").
 - **A new town's email routing rule**, in Cloudflare's dashboard, when the
