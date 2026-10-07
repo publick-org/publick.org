@@ -97,7 +97,7 @@ status = "live"
 slug = "officials"
 title = "Who represents you"
 nav = "Officials"
-summary = "The mayor and the City Council, by ward and district, and how to reach them."
+summary = "The mayor, the City Council, and the School Board, by ward and district, and how to reach them."
 status = "live"
 
 [[sections]]
@@ -416,20 +416,19 @@ sources = [
   { label = "311 scorecard", file = "311/scorecard.json", field = "generated_at", max_days = 2 },
 ]
 
-# Who represents you (the Officials page). Kept by hand from the city's
-# website; checked is the date the list was last checked against it. Only
-# city-issued email addresses, and the mayor's office phone. A member with a
-# ward is elected by that ward; a district councilor is elected by the two
-# wards of the district (charter, 24 App. V.S.A. ch. 3, § 2: East is Wards 1
-# and 8, Central 2 and 3, South 5 and 6, North 4 and 7). Terms begin on the
-# first Monday in April after the March election (§ 125); the year each ends
-# is from the city's council roster and Board of Finance page.
-#
-# The Burlington School Board (a school commissioner for each ward and
-# district) isn't listed yet: the school district's members page doesn't give
-# its members' seats and addresses cleanly.
+# Who represents you (the Officials page). Kept by hand from the city's and
+# the school district's websites; checked is the date the list was last checked
+# against them. Only city- and school-issued email addresses, and the mayor's
+# office phone. A member with a ward is elected by that ward; a district
+# councilor or school commissioner is elected by the two wards of the district
+# (charter, 24 App. V.S.A. ch. 3, § 2: East is Wards 1 and 8, Central 2 and 3,
+# South 5 and 6, North 4 and 7). Councilors' terms begin on the first Monday in
+# April after the March election (§ 125), and school commissioners' at the
+# board's organizational meeting in early April; the year each ends is from the
+# city's council roster and Board of Finance page, and the school district's
+# members page.
 [officials]
-checked = "2026-10-04"
+checked = "2026-10-06"
 
 # Elected in March 2024 for three years (charter § 125); the Board of Finance
 # page gives the term's end, 2027.
@@ -464,6 +463,34 @@ members = [
   { name = "Mark Barlow", seat = "North District", wards = [4, 7], term_ends = "2027-04", email = "mbarlow@burlingtonvt.gov" },
 ]
 
+# The Board of School Commissioners, as the school district calls it, from its
+# members page (seats, officers, the year each term ends, and school-issued
+# email addresses), confirmed against the City Clerk's official declarations of
+# the elections of March 3, 2026 (wards) and March 4, 2025 (districts). Names
+# as the declarations give them. Commissioners take the oath of office at the
+# board's organizational meeting, on or after the first Monday in April (the
+# board's policies). The board's two student representatives don't vote and
+# aren't listed. It posts its meetings on Diligent Community, which the engine
+# can't read yet, so it has no meetings page to link and no [participation].
+[[officials.bodies]]
+name = "School Board"
+url = "https://www.bsdvt.org/school-board/members/"
+note = "Twelve school commissioners: eight elected by ward and four by district (two wards each), for two years. Its meetings aren't listed on this site yet: the board posts them on Diligent, which the site can't read."
+members = [
+  { name = "Gary L. Golden", seat = "Ward 1", ward = 1, term_ends = "2028-04", email = "ggolden@bsdvt.org" },
+  { name = "Polly Vanderputten", seat = "Ward 2", ward = 2, term_ends = "2028-04", email = "pvanderputten@bsdvt.org" },
+  { name = "Heather Amato", seat = "Ward 3", ward = 3, term_ends = "2028-04", email = "hamato@bsdvt.org" },
+  { name = "Melissa Zygmant", seat = "Ward 4", ward = 4, term_ends = "2028-04", email = "mzygmant@bsdvt.org" },
+  { name = "Lucia W. Campriello", seat = "Ward 5", ward = 5, role = "Clerk", term_ends = "2028-04", email = "lcampriello@bsdvt.org" },
+  { name = "Clare Wool", seat = "Ward 6", ward = 6, role = "Chair", term_ends = "2028-04", email = "cwool@bsdvt.org" },
+  { name = "Polly J. Ericksen", seat = "Ward 7", ward = 7, term_ends = "2028-04", email = "pericksen@bsdvt.org" },
+  { name = "Jacqueline \"Nikki\" O'Toole", seat = "Ward 8", ward = 8, term_ends = "2028-04", email = "jotoole@bsdvt.org" },
+  { name = "Matthew Price", seat = "East District", wards = [1, 8], term_ends = "2027-04", email = "mprice@bsdvt.org" },
+  { name = "Jean E. Waltz", seat = "Central District", wards = [2, 3], term_ends = "2027-04", email = "jwaltz@bsdvt.org" },
+  { name = "Jeffrey J. Wick", seat = "South District", wards = [5, 6], role = "Vice Chair", term_ends = "2027-04", email = "jwick@bsdvt.org" },
+  { name = "Kendra Sowers", seat = "North District", wards = [4, 7], term_ends = "2027-04", email = "ksowers@bsdvt.org" },
+]
+
 # The town's own text in Spanish, keyed by its English as written above or as
 # the data writes it (board names, 311 categories). Plain Spanish, addressed as
 # usted, following the engine's site/strings/es-guide.md and Lawrence's and
@@ -480,7 +507,7 @@ members = [
 "How fast the city responds to SeeClickFix requests, by category and ward." = "Qué tan rápido responde la ciudad a las solicitudes de SeeClickFix, por categoría y por distrito."
 "The city's tax rates, what the property tax raises for the city and for schools, and the average homestead tax bill." = "Las tasas de impuestos de la ciudad, lo que recauda el impuesto a la propiedad para la ciudad y para las escuelas, y la factura promedio del impuesto a la propiedad de una vivienda principal (homestead)."
 "Burlington School District's graduation rate, attendance, state test results, and spending per pupil, with the state's." = "La tasa de graduación del Distrito Escolar de Burlington, la asistencia, los resultados de los exámenes estatales y el gasto por estudiante, comparados con los del estado."
-"The mayor and the City Council, by ward and district, and how to reach them." = "La alcaldesa y el Concejo Municipal, por distrito electoral (ward) y por distrito, y cómo comunicarse con ellos."
+"The mayor, the City Council, and the School Board, by ward and district, and how to reach them." = "La alcaldesa, el Concejo Municipal y la Junta Escolar, por distrito electoral (ward) y por distrito, y cómo comunicarse con ellos."
 
 # Where the city posts agendas and minutes, and the data the site keeps up to date.
 "city's CivicClerk portal" = "portal CivicClerk de la ciudad"
@@ -518,6 +545,8 @@ members = [
 "Central District" = "Distrito Central"
 "South District" = "Distrito Sur"
 "North District" = "Distrito Norte"
+"School Board" = "Junta Escolar"
+"Twelve school commissioners: eight elected by ward and four by district (two wards each), for two years. Its meetings aren't listed on this site yet: the board posts them on Diligent, which the site can't read." = "Doce comisionados escolares: ocho elegidos por distrito electoral (ward) y cuatro por distrito (de dos wards cada uno), por dos años. Sus reuniones todavía no aparecen en este sitio: la junta las publica en Diligent, que el sitio no puede leer."
 
 # Boards, as the portal names them (after [meetings.aliases]).
 "City Council With Mayor Presiding" = "Concejo Municipal con la Alcaldía en la Presidencia"
