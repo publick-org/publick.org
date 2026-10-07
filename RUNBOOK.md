@@ -145,10 +145,15 @@ The "Report an error" buttons go to each town's `contact_email`.
   meetings by hand"). It can go up in English.
 - **A summary that's wrong**: read the document first. If the city's
   document says it (a typo in the minutes), the summary is right to copy
-  it. If the summary is wrong, there's no switch yet to hold back one
-  summary: roll the town back if the harm is serious, and fix it in the
-  engine (a fact-check rule, or a prompt change with its version raised).
-  A switch for this is a gap to close.
+  it. If the summary is wrong, take it down at once with a
+  `[[summaries.withheld]]` entry in the town's config (engine #90: `board`
+  and `date`, or `meeting`, with `kind = "minutes"` or `"agenda"` and the
+  date `checked`) and merge: the push publishes the town without it, and its
+  meeting page says it was taken down while the error is checked. Then fix
+  the cause in the engine (a fact-check rule, or a prompt change with its
+  version raised), and remove the entry once a new summary is right. Until
+  engine #90 reaches `engine-version`, rolling the town back is the only way,
+  and the next daily run publishes the summary again.
 - **An official listed wrong**: fix the town's `[officials]` table and its
   `checked` date, from the city's own pages.
 
