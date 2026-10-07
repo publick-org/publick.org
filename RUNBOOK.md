@@ -120,18 +120,22 @@ every town on it.
 ### Many more readers than usual
 
 A news story or a shared link can bring more readers in an hour than a
-usual week. The sites are static and the Worker keeps their files in
-Cloudflare's cache, so the one limit that bites is Cloudflare's plan:
+usual week. The sites are static, so the one limit that bites is
+Cloudflare's plan. The account is on Workers' free plan (decided 2026-10-07
+to stay on it for now), and the Worker doesn't yet keep the sites' files in
+Cloudflare's cache (engine #88, merged and deployed after the move to the
+paid plan):
 
 1. **Workers & Pages → publick-sites → Metrics**: requests, errors, and
    CPU time. On the free plan, past 100,000 requests a day every site gets
    Cloudflare's error 1027 until midnight UTC: move the account to Workers
    Paid (**Workers & Pages → Plans**), which takes effect at once.
 2. **R2 → publick-sites → Metrics**: reads should stay low while the Worker's
-   cache is working. A climb in reads with the requests means it isn't.
-3. If one town's signup form is being abused (the Worker's logs say "over
-   the rate limit" many times), turn that town's `[digest] signup` off and
-   merge; the form is gone on the next build.
+   cache is working (after engine #88). Until then, reads climb with the
+   requests.
+3. If one town's signup form is being abused (many signups in the Worker's
+   logs; after engine #88, "over the rate limit"), turn that town's
+   `[digest] signup` off and merge; the form is gone on the next build.
 4. GoatCounter counts page views on its own limits; missed counts don't
    affect the sites.
 
@@ -146,7 +150,8 @@ The "Report an error" buttons go to each town's `contact_email`.
 - **A summary that's wrong**: read the document first. If the city's
   document says it (a typo in the minutes), the summary is right to copy
   it. If the summary is wrong, take it down at once with a
-  `[[summaries.withheld]]` entry in the town's config (engine #90: `board`
+  `[[summaries.withheld]]` entry in the town's config (engine #90, merged
+  2026-10-07: `board`
   and `date`, or `meeting`, with `kind = "minutes"` or `"agenda"` and the
   date `checked`) and merge: the push publishes the town without it, and its
   meeting page says it was taken down while the error is checked. Then fix
