@@ -95,6 +95,14 @@ goatcounter = "publick"
 prefix = "wallingford-ct"
 public_stats = ""
 
+# The weekly digest's email signup, on /digest/ (the engine's pipeline/digest.py). The form posts
+# to this site's /digest/subscribe, which the sites Worker answers (worker/digest.js) and passes on
+# to Buttondown with the tag wallingford-ct-en. The About page names who keeps the addresses.
+[digest]
+signup = true
+provider = "Buttondown"
+privacy_url = "https://buttondown.com/legal/privacy"
+
 # Public meetings, from the town website's meetings calendar and its Minutes &
 # Agendas page.
 [meetings]

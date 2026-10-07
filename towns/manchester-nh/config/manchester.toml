@@ -106,6 +106,14 @@ goatcounter = "publick"
 prefix = "manchester-nh"
 public_stats = ""
 
+# The weekly digest's email signup, on /digest/ (the engine's pipeline/digest.py). The form posts
+# to this site's /digest/subscribe, which the sites Worker answers (worker/digest.js) and passes on
+# to Buttondown with the tag manchester-nh-en. The About page names who keeps the addresses.
+[digest]
+signup = true
+provider = "Buttondown"
+privacy_url = "https://buttondown.com/legal/privacy"
+
 # Public meetings, from two places. The Board of Mayor and Aldermen, its
 # committees, and the City Clerk's boards are on the city's CivicClerk portal
 # (the address the city calendar's agenda links go to). Other boards and
