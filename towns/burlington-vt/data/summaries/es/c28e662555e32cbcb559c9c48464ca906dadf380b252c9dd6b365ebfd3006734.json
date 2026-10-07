@@ -1,24 +1,24 @@
 {
-  "headline": "Tres audiencias sobre depósitos de seguridad entre inquilinos y dueños de propiedades en disputa.",
-  "summary": "La Junta de Revisión de Vivienda va a celebrar audiencias sobre tres casos de depósitos de seguridad entre inquilinos y dueños de propiedades. Las propiedades implicadas son 106 Birch Court, 73 Buell Street Apt. 1, y 54B Intervale Avenue.",
+  "headline": "Tres audiencias sobre depósitos de garantía entre inquilinos y propietarios por propiedades en disputa.",
+  "summary": "La Junta de Revisión de Vivienda realizará audiencias sobre tres casos de depósito de garantía entre inquilinos y propietarios. Las propiedades son 106 Birch Court, 73 Buell Street Apt. 1 y 54B Intervale Avenue.",
   "items": [
-    "Caso de Depósito de Seguridad: Kyla Rathbone (inquilina) contra Ertan Barucic (dueño), Respecto a: 106 Birch Court",
-    "Caso de Depósito de Seguridad: Jonah Cather-Walter y Jonas Tenzer (inquilinos) contra Gardner Properties LLC c/o Neil Gardner (dueño), Respecto a: 73 Buell Street Apt. 1",
-    "Caso de Depósito de Seguridad: Lana Peters (inquilina) contra MR Dupont Real Estate, LLC c/o Daniel Hogan (dueño), Respecto a: 54B Intervale Avenue"
+    "Caso de depósito de garantía: Kyla Rathbone (inquilina) contra Ertan Barucic (propietario), sobre 106 Birch Court",
+    "Caso de depósito de garantía: Jonah Cather-Walter y Jonas Tenzer (inquilinos) contra Gardner Properties LLC c/o Neil Gardner (propietario), sobre 73 Buell Street Apt. 1",
+    "Caso de depósito de garantía: Lana Peters (inquilina) contra MR Dupont Real Estate, LLC c/o Daniel Hogan (propietario), sobre 54B Intervale Avenue"
   ],
   "language": "es",
   "kind": "agenda",
   "source_sha256": "c28e662555e32cbcb559c9c48464ca906dadf380b252c9dd6b365ebfd3006734",
   "source_hash": "906d1b16870fe4eba0e7007848123a862203f785b02969b75e9323b252e749c4",
   "check": "ok",
-  "review": "summary: The Spanish adds a board name, \"La Junta de Revisión de Vivienda\" (Housing Review Board). The English only says \"The board\" and gives no name, so the translation invents a specific body. It should say \"La junta\".; headline: \"over disputed properties\" is rendered as \"propiedades en disputa\", which attaches the dispute to the properties and drops the idea that the hearings are about disputes over the deposits. The English also says hearings \"over disputed properties\", but the Spanish wording could be read as the landlords being owners of properties in dispute. This changes the meaning slightly.",
-  "attempts": 2,
-  "model": "claude-haiku-4-5-20251001",
-  "prompt_version": 3,
-  "generated_at": "2026-10-05T09:10:33-04:00",
+  "review": "summary: The English says only \"The board\" and never names it. The translation adds a specific name, \"La Junta de Revisión de Vivienda\", which is not in the source. It should say \"La junta\".; items 1: The English gives the tenant Kyla Rathbone no gender, but the translation says \"inquilina\" (female). The landlord is rendered as \"propietario\" (male), also unstated. Either choice states a gender the source doesn't give.; items 3: The English gives the tenant Lana Peters no gender, but the translation says \"inquilina\" (female). The landlord is rendered as \"propietario\" (male), also unstated.",
+  "attempts": 1,
+  "model": "claude-sonnet-5-5",
+  "prompt_version": 4,
+  "generated_at": "2026-10-07T09:01:05-04:00",
   "usage": {
-    "input_tokens": 1141,
-    "output_tokens": 294
+    "input_tokens": 1540,
+    "output_tokens": 364
   },
-  "cost": 0.007915
+  "cost": 0.013534
 }

@@ -1,46 +1,46 @@
 {
   "town": "manchester",
   "folder": "manchester-nh",
-  "started_at": "2026-10-06T09:23:09+00:00",
-  "finished_at": "2026-10-06T10:07:22+00:00",
-  "engine": "v1.37.0",
+  "started_at": "2026-10-07T12:12:53+00:00",
+  "finished_at": "2026-10-07T12:58:38+00:00",
+  "engine": "v1.42.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 2568.1
+      "seconds": 2667.6
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 5.4
+      "seconds": 5.2
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 54.0
+      "seconds": 55.8
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 12.2
+      "seconds": 15.7
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.6
+      "seconds": 0.7
     }
   ],
   "update": {
     "town": "manchester",
     "sources": "all",
-    "started_at": "2026-10-06T09:23:09+00:00",
+    "started_at": "2026-10-07T12:12:53+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 81.6,
+        "seconds": 79.3,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 105.0,
+        "seconds": 231.3,
         "cadence": "continuous"
       },
       {
@@ -92,16 +92,15 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 6 days ago; checked every 30 days"
+        "skipped": "checked 7 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 6 days ago; checked every 7 days"
+        "seconds": 0.6,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch school figures",
@@ -110,7 +109,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 6 days ago; checked every 30 days"
+        "skipped": "checked 7 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -119,15 +118,16 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 6 days ago; checked every 30 days"
+        "skipped": "checked 7 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 24.5,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -159,7 +159,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 2353.0,
+        "seconds": 2353.1,
         "cadence": "continuous"
       },
       {
@@ -167,7 +167,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 2.9,
+        "seconds": 2.3,
         "cadence": "continuous"
       }
     ]
@@ -177,21 +177,21 @@
     {
       "label": "Meetings (city calendar and CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-06T05:23:10-04:00",
+      "updated_at": "2026-10-07T08:12:53-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-10-06T05:26:42-04:00",
+      "updated_at": "2026-10-07T08:18:05-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-10-06T06:05:55-04:00",
+      "updated_at": "2026-10-07T08:57:18-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -234,13 +234,13 @@
     {
       "label": "Unemployment rate (BLS)",
       "file": "labor/unemployment.json",
-      "updated_at": "2026-09-29T15:58:58-04:00",
+      "updated_at": "2026-10-07T08:18:04-04:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
       "stale": false,
-      "latest": "July 2026 rate",
-      "next": "August 2026 rate usually by October 10, 2026",
+      "latest": "August 2026 rate",
+      "next": "September 2026 rate usually by November 10, 2026",
       "behind": null
     },
     {
@@ -268,16 +268,16 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-06T18:08:58+00:00",
-  "data_bytes": 12370875,
-  "data_bytes_added": 205458,
+  "last_good_at": "2026-10-07T12:58:38+00:00",
+  "data_bytes": 12565266,
+  "data_bytes_added": 194391,
   "activity": {
     "boards": 27,
     "meetings_by_date": {
-      "2026-10-06": 6,
       "2026-10-08": 1,
       "2026-10-13": 1,
-      "2026-10-15": 3
+      "2026-10-15": 3,
+      "2026-10-20": 1
     }
   },
   "fact_checks": {
@@ -290,7 +290,5 @@
     "held_back": 0,
     "entries_not_shown": 0,
     "vote_counts_left_out": 17
-  },
-  "published_at": "2026-10-06T18:08:58+00:00",
-  "published_engine": "v1.42.0"
+  }
 }

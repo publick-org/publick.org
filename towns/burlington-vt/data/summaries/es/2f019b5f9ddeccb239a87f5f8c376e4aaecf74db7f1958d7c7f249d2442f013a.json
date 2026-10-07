@@ -1,20 +1,20 @@
 {
-  "headline": "Escuchó testimonios en dos audiencias de apelación por prohibición de entrada antes de pasar a sesión deliberativa cerrada.",
-  "summary": "El comité tuvo comentarios de audiencia pública sobre la política de prohibición de entrada a City Hall y un caso de prohibición de entrada. Luego escuchó testimonios en audiencias de apelación por prohibición de entrada para Jayden Sweeney y Eric Gravel, incluyendo declaraciones del Jefe de Policía Burke y la Abogada de la Ciudad Brown, antes de levantar la sesión para pasar a Sesión Deliberativa. Las actas no registran una decisión final en ninguna de las dos apelaciones.",
+  "headline": "Se escuchó testimonio en dos audiencias de apelación por intrusión antes de pasar a una sesión de deliberación a puerta cerrada.",
+  "summary": "El comité recibió comentarios del público sobre la política de intrusión en el City Hall y sobre un caso de intrusión. Luego escuchó testimonio en las audiencias de apelación por intrusión de Jayden Sweeney y Eric Gravel, incluidas declaraciones del jefe de la BPD, Burke, y del abogado de la ciudad, Brown, antes de levantar la sesión para pasar a una sesión de deliberación. Las actas no registran una decisión final sobre ninguna de las dos apelaciones.",
   "decisions": [],
   "language": "es",
   "kind": "minutes",
   "source_sha256": "2f019b5f9ddeccb239a87f5f8c376e4aaecf74db7f1958d7c7f249d2442f013a",
   "source_hash": "ce7ab9a5447168a35cf138deb010a86b839f797fc76818451a5e13e6e2310b3e",
   "check": "ok",
-  "review": "summary: \"la Abogada de la Ciudad Brown\" indica el género de City Attorney Brown, que el texto en inglés no especifica. Además, \"BPD Chief Burke\" se tradujo como \"Jefe de Policía Burke\" (masculino, sin que el inglés lo indique) y se omitió \"BPD\". Por último, \"public forum comments\" (comentarios del foro público) se tradujo como \"comentarios de audiencia pública\", lo que cambia el tipo de sesión.",
-  "attempts": 2,
-  "model": "claude-haiku-4-5-20251001",
-  "prompt_version": 3,
-  "generated_at": "2026-10-06T05:59:12-04:00",
+  "review": "summary: \"antes de levantar la sesión para pasar a una sesión de deliberación\" mistranslates \"adjourning into Deliberative Session\". Levantar la sesión means the meeting ended, but here the committee went into a deliberative session. The sentence now suggests the meeting was adjourned.; \"abogado de la ciudad, Brown\" states the City Attorney's gender as male, which the English does not give.; \"el jefe de la BPD, Burke\" states the Chief's gender as male, which the English does not give.; \"City Hall\" is left in English in the Spanish sentence. It should be translated (ayuntamiento / alcaldía).",
+  "attempts": 1,
+  "model": "claude-sonnet-5-5",
+  "prompt_version": 4,
+  "generated_at": "2026-10-07T09:01:05-04:00",
   "usage": {
-    "input_tokens": 1041,
-    "output_tokens": 175
+    "input_tokens": 1408,
+    "output_tokens": 251
   },
-  "cost": 0.00613
+  "cost": 0.011762
 }
