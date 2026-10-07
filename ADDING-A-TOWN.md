@@ -1,9 +1,10 @@
 # Adding a town
 
 From an empty folder to a published site, in the network repository
-(publick-org/publick.org). Written from adding Beverly and researching three
-more towns; each step names where the answer comes from, so a town the engine
-already reads takes an afternoon, not weeks.
+(publick-org/publick.org). Written from adding Beverly, and used since for
+Lawrence, Burlington, and the towns in publick.org #58; each step names where
+the answer comes from, so a town the engine already reads takes an afternoon,
+not weeks.
 
 ## 1. What the city uses
 
@@ -11,22 +12,27 @@ already reads takes an afternoon, not weeks.
       CivicPlus" footer) has an Agenda Center (`/AgendaCenter`, Malden and
       Beverly), a calendar with an Archive Center (`/Archive.aspx`,
       Gloucester), or both. Otherwise look for a CivicClerk portal
-      (`<city>.portal.civicclerk.com`) or a DotNetNuke calendar (Manchester).
-      Anything else (Govstack, Drupal, BoardDocs, a page of links) needs a
-      new reader in the engine first: stop here and make that its own piece
-      of work. A reader is written once and works for every town on the
+      (`<city>.portal.civicclerk.com`: Manchester, Burlington), a DotNetNuke
+      calendar (Manchester), or a meetings calendar with one documents page
+      for every board (Wallingford). Anything else (Govstack, Drupal, the
+      Rhode Island Secretary of State's portal) needs a new reader in the
+      engine first: stop here and make that its own piece of work. A reader is written once and works for every town on the
       same software.
 - [ ] **Can the site be read automatically?** Fetch a listing page with
       `curl` and a User-Agent naming Publick. A site that answers with a
       browser check ("Just a moment…") blocks automated reading: ask the
       town to allow Publick's crawler. Never work around the check.
 - [ ] **School Committee meetings.** Often posted somewhere else: the school
-      district's website (Beverly) or public Google Drive folders
-      (Gloucester), or in the city's Agenda Center with everything else. The engine reads Drive folders and Agenda Centers, not district
-      websites yet.
+      district's website (Beverly, Malden, Wallingford) or public Google Drive
+      folders (Gloucester), or in the city's Agenda Center with everything
+      else. The engine reads Agenda Centers, Drive folders laid out one per
+      committee, a Finalsite district's board posts, a district's calendar
+      feed, and a page of a board's dates. Not yet: BoardDocs, Diligent
+      Community, nested Drive folders; leave the board out and say so in the
+      pull request.
 - [ ] **Minutes.** Download two or three. A scanned PDF (no text to select)
       is transcribed by the model, which costs money every month; note how
-      many pages a year that would be.
+      many pages a year that would be. Minutes as Word files aren't read.
 - [ ] **311.** Search SeeClickFix for the city
       (`seeclickfix.com/api/v2/places?search=<City>`; the place may need its
       state, like `<city>_ma`). Many issues the city
@@ -37,7 +43,10 @@ already reads takes an afternoon, not weeks.
 
 ## 2. The state's and the country's codes
 
-For Massachusetts (New Hampshire: start from Manchester's config):
+For Massachusetts, below. For another state, start from a town's config in
+that state (README, "Adding a town") and the state package's docstring in the
+engine (`pipeline/states/<state>/__init__.py`), which lists its keys; the
+Census and BLS steps are the same everywhere, with the state's own FIPS code.
 
 - [ ] **DLS name and DOR code** (`[finance]`): in any file in the network
       repository's `states/ma/dls/`, the town's row ("DOR Code": "030",
@@ -56,6 +65,12 @@ For Massachusetts (New Hampshire: start from Manchester's config):
       the town.
 
 ## 3. Wards
+
+In Massachusetts, from MassGIS (below). Elsewhere, the city's own GIS
+(Burlington), or the state's (NH GRANIT for Manchester, RIGIS for South
+Kingstown's precincts). A town without wards, its seats all elected
+townwide, uses its voting precincts for 311 (`areas = "precincts"`) and
+shows no ward map; a town with neither (Bangor) has no 311 section yet.
 
 - [ ] **Ward and precinct file**, for 311 and the Officials page: MassGIS
       Wards and Precincts (2022),
@@ -134,7 +149,7 @@ For Massachusetts (New Hampshire: start from Manchester's config):
       set to the town's folder, with an empty `data/` (it must build), then
       after `python -m pipeline.fetch_meetings`: every board listed under its
       usual name, committees under their own boards, no errors.
-- [ ] `python -m pytest site_checks` on the build.
+- [ ] `python -m pytest ../publick-engine/site_checks` on the build.
 - [ ] Read the first summaries of the main board's meetings before
       announcing the site. Each summary is also checked against its
       document's own text (the engine's `pipeline/factcheck.py`): `python -m
