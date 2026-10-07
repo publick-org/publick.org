@@ -17,3 +17,13 @@ routes = [
 [[r2_buckets]]
 binding = "SITES"
 bucket_name = "publick-sites"
+
+# How often one IP address, and one email address, may use the weekly digest's
+# signup form (the engine's worker/digest.js, withinLimits): 4 a minute each,
+# counted in each Cloudflare location. Over it, the form says it didn't go
+# through and nothing reaches Buttondown. namespace_id is any number unique
+# to the account.
+[[ratelimits]]
+name = "SIGNUP_LIMITER"
+namespace_id = "1001"
+simple = { limit = 4, period = 60 }
