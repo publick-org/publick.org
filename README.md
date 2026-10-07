@@ -229,7 +229,8 @@ In the Cloudflare account that holds `publick.org`:
    request to every site, each page and its CSS, scripts, and images, runs the
    sites Worker. The free plan refuses requests past 100,000 a day, on every
    site at once, until midnight UTC; the paid plan includes 10 million a month.
-   It also lets the digest's send make more than 50 requests a run.
+   It also lets the digest's send make more than 50 requests a run. Not
+
 
 In this repository's **Settings → Secrets and variables → Actions**:
 
