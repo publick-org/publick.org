@@ -51,8 +51,9 @@ Worker, which picks the site by hostname: `gloucester-ma.publick.org` is
     of them, into `states/`: Massachusetts's DLS reports, only when a report
     isn't saved or is over a week old.
   - Each town then fetches its own new data, is built and checked, published
-    if the checks pass, and its data committed. Towns run in batches of four
-    per job, up to ten jobs at a time. Daily runs give the accessibility checks
+    if the checks pass, and its data committed as soon as it's done. Towns run
+    in batches of four per job, up to ten jobs at a time, the slow ones spread
+    over the jobs by how long each took last time. Daily runs give the accessibility checks
     a sample of each town's pages (every hand-written page, and the first and
     largest of each kind of record page); every other run checks every page.
   - AI summaries and translations share one budget, `SUMMARY_BUDGET`: each run gives each of its towns a share of what's left, new
