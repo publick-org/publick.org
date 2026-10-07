@@ -1,24 +1,24 @@
 {
-  "headline": "Fijaron audiencia pública para el Permiso Especial #206-26 en 4 Linden Ave y nombraron a Michael Vigorito al Comité de Preservación Comunitaria.",
-  "summary": "La junta fijó una fecha de audiencia pública para el Permiso Especial #206-26 en 4 Linden Ave, solicitado por Bruce D. y April K. MacPhail, para el 15 de septiembre de 2026. La junta también nominó a Michael Vigorito como su representante al Comité de Preservación Comunitaria. La aprobación de las actas del 21 de julio de 2026 fue pospuesta para la próxima reunión.",
+  "headline": "Se fijó la audiencia pública para el Permiso Especial #206-26 en 4 Linden Ave y se nombró a Michael Vigorito al Community Preservation Committee.",
+  "summary": "La junta fijó para el 15 de septiembre de 2026 la fecha de la audiencia pública del Permiso Especial #206-26 en 4 Linden Ave, solicitado por Bruce D. y April K. MacPhail. La junta también nominó a Michael Vigorito como su representante ante el Community Preservation Committee. La aprobación de las actas del 21 de julio de 2026 se pospuso para la próxima reunión.",
   "decisions": [
-    "Fijaron una audiencia pública para el Permiso Especial #206-26 en 4 Linden Ave para el 15 de septiembre de 2026, 4-0.",
-    "Nominaron a Michael Vigorito como representante de la Junta de Planificación al Comité de Preservación Comunitaria, 3-0-1 con Vigorito absteniéndose.",
-    "Pospusieron la aprobación de las actas del 21 de julio de 2026 para la próxima reunión."
+    "Se fijó la audiencia pública para el Permiso Especial #206-26 en 4 Linden Ave para el 15 de septiembre de 2026, 4-0.",
+    "Se nominó a Michael Vigorito como representante de la Planning Board ante el Community Preservation Committee, 3-0-1, con la abstención de Vigorito.",
+    "Se pospuso para la próxima reunión la aprobación de las actas del 21 de julio de 2026."
   ],
   "language": "es",
   "kind": "minutes",
   "source_sha256": "287f77d4202c57396848b9cb274c65c595eeadfc31892e7a86dcb377710ac70d",
   "source_hash": "a30e5cc0616348e7d76ca686d15cd60a7e8ac59a09a620bd5c332d727838ca7e",
   "check": "ok",
-  "review": "headline: \"named ... to\" is translated as \"nombraron\" (appointed), but the English summary says the board nominated Vigorito as its representative. The translation shows a nomination as a completed appointment, which changes what happened.",
-  "attempts": 2,
-  "model": "claude-haiku-4-5-20251001",
-  "prompt_version": 3,
-  "generated_at": "2026-10-06T05:08:53-04:00",
+  "review": "headline: English says Vigorito was 'named' (nombrado) in the headline in the English text, but the summary says 'nominated'. The Spanish headline follows the English 'se nombró', which is faithful to it, so the wording matches. Still, 'Community Preservation Committee' is left in English where it is a board name that should be translated (e.g., Comité de Preservación Comunitaria).; summary: 'Community Preservation Committee' is a committee name left in English inside a Spanish sentence; it should be translated (Comité de Preservación Comunitaria). 'Planning Board' is likewise left untranslated in decisions 2.; decisions 2: 'Planning Board' and 'Community Preservation Committee' are board names left in English within a Spanish sentence; they should be translated (Junta de Planificación, Comité de Preservación Comunitaria).",
+  "attempts": 1,
+  "model": "claude-sonnet-5-5",
+  "prompt_version": 4,
+  "generated_at": "2026-10-07T05:18:37-04:00",
   "usage": {
-    "input_tokens": 1121,
-    "output_tokens": 324
+    "input_tokens": 1501,
+    "output_tokens": 377
   },
-  "cost": 0.006671
+  "cost": 0.01428
 }
