@@ -41,7 +41,10 @@
 # and gives each town in the run its share of what's left.
 #
 # Scheduled runs put four towns in a job, so Python and the browser are
-# installed once for all four. Other runs are small, so each town gets its own
+# installed once for all four, with the slow towns spread over the jobs by how
+# long each took last time (the engine's plan). Each town's data is committed
+# as soon as it's done, so a job that dies (its runner lost, as on 2026-10-07)
+# loses only the town it was on. Other runs are small, so each town gets its own
 # job and they run side by side. Within a job, the browser checks use every core.
 name: Network
 
@@ -370,9 +373,12 @@ jobs:
           pip install -r .publick-engine/requirements.txt -r .publick-engine/requirements-dev.txt
           python -m playwright install --with-deps chromium
 
+      # One town at a time, each one's data committed when it's done (on a fetching run outside a pull request).
       - name: Update, build, check, and publish
         env:
           TOWNS: ${{ matrix.towns }}
+          COMMIT: ${{ needs.plan.outputs.fetch == 'true' && github.event_name != 'pull_request' }}
+          COMMIT_ATTEMPTS: 10
           FETCH: ${{ needs.plan.outputs.fetch == 'true' && '--fetch' || '' }}
           DEPLOY: ${{ needs.plan.outputs.deploy == 'true' && '--deploy' || '' }}
           SAMPLE: ${{ needs.plan.outputs.sample == 'true' && '--sample-checks' || '' }}
@@ -391,9 +397,20 @@ jobs:
           SITES_ACCESS_KEY_ID: ${{ github.event_name != 'pull_request' && secrets.SITES_ACCESS_KEY_ID || '' }}
           SITES_SECRET_ACCESS_KEY: ${{ github.event_name != 'pull_request' && secrets.SITES_SECRET_ACCESS_KEY || '' }}
         # $FETCH, $DEPLOY, $SAMPLE and $SOURCES are unquoted on purpose: each is a flag (and its value) or nothing.
-        run: python -m pipeline.network run --towns "$TOWNS" $FETCH $SOURCES $DEPLOY $SAMPLE --reports reports
+        # A town that fails, or whose commit fails, doesn't stop the next; the step fails at the end if either did.
+        run: |
+          read -ra towns <<< "$TOWNS"
+          status=0
+          for town in "${towns[@]}"; do
+            python -m pipeline.network run --towns "$town" $FETCH $SOURCES $DEPLOY $SAMPLE --reports reports || status=1
+            if [ "$COMMIT" = true ]; then
+              .publick-engine/.github/scripts/commit-data.sh "Update data for $town" "towns/$town/data" || status=1
+            fi
+          done
+          exit "$status"
 
-      # The data is kept even if a town's build or checks failed, as each town's own workflow did.
+      # The data is kept even if a town's build or checks failed, as each town's own workflow did. Each town's
+      # was committed as it finished; this catches any that couldn't be, after the step above failed.
       - name: Commit data
         if: ${{ !cancelled() && needs.plan.outputs.fetch == 'true' && github.event_name != 'pull_request' }}
         env:
