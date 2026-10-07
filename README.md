@@ -19,10 +19,11 @@ towns/<town>-<state>/         One folder per town, laid out as a town repository
   data/                         collected data, committed by the daily run, with run.json (its last
                                 daily run) and summary-costs.json (its AI summaries' cost, by month)
   site/static/                  files that replace or add to the engine's (the share image)
-states/ma/                    Statewide sources, fetched once for every town: Massachusetts's DLS reports
+states/ma/                    Statewide sources, fetched once for every town: Massachusetts's DLS reports (other
+                              states' figures are saved in the engine, or fetched by each town)
 wrangler.toml                 The Worker that serves every site from the sites bucket
 wrangler.scheduler.toml       The Worker that starts the daily runs on time
-scripts/import-town.sh        Copies a town's own repository into towns/
+scripts/import-town.sh        Copies a town's own repository into towns/ (how the first three towns moved in)
 scripts/build_home.py         Writes the homepage's town lists, by state, with the network's counts (from each
                               town's data/run.json), and a page for each state with 10 or more towns; and the
                               network's sitemap.xml (an index of the homepage's and
@@ -45,8 +46,8 @@ Worker, which picks the site by hostname: `gloucester-ma.publick.org` is
 - **Daily**, started every hour from 09:05 to 14:05 UTC by the
   `publick-scheduler` Worker (`wrangler.scheduler.toml`), with one GitHub
   schedule (12:17 UTC) as a backup, since GitHub starts those late or not at
-  all. Each start takes the towns that are due (their last daily run
-  finished more than `DUE_HOURS`, 18, ago), oldest first; a start with nothing
+  all. Each start takes the towns that are due (their last fetching run,
+  daily or by hand, finished more than `DUE_HOURS`, 18, ago), oldest first; a start with nothing
   due does nothing, and the next start makes up a missed one.
   - The statewide job fetches the sources a state's towns share, once for all
     of them, into `states/`: Massachusetts's DLS reports, only when a report
@@ -54,9 +55,11 @@ Worker, which picks the site by hostname: `gloucester-ma.publick.org` is
   - Each town then fetches its own new data, is built and checked, published
     if the checks pass, and its data committed as soon as it's done. Towns run
     in batches of four per job, up to ten jobs at a time, the slow ones spread
-    over the jobs by how long each took last time. Daily runs give the accessibility checks
-    a sample of each town's pages (every hand-written page, and the first and
-    largest of each kind of record page); every other run checks every page.
+    over the jobs by how long each took last time. Daily runs, runs by hand
+    that fetch, and pushes to `main` give the accessibility checks a sample of
+    each town's pages (every hand-written page, and the first and largest of
+    each kind of record page); pull requests and rebuilds by hand without
+    fetching check every page.
   - AI summaries and translations share one budget, `SUMMARY_BUDGET` ($80 a
     month, decided 2026-10-03; a month can have its own in `SUMMARY_BUDGET_MONTH`): each run gives each of its towns a share of what's left, new
     documents first.
@@ -74,6 +77,13 @@ Worker, which picks the site by hostname: `gloucester-ma.publick.org` is
   urgent fix, release the engine now (its **Actions → Release → Run
   workflow**) and run **Actions → Engine**.
 - **On a pull request:** builds and checks the towns it touches. Nothing is published.
+- **The weekly digest**, each Sunday at 5:30 PM in the town's time: the
+  scheduler Worker emails each town in its `DIGEST_TOWNS`
+  (`wrangler.scheduler.toml`) its newest issue through Buttondown, to that
+  town's readers alone. The signup form on a town's `/digest/` page (its
+  config's `[digest] signup`) posts to the sites Worker, which passes the
+  address on to Buttondown, within the `SIGNUP_LIMITER` rate limit
+  (`wrangler.toml`). See the engine README's Weekly digest.
 - **By hand** (**Actions → Network → Run workflow**): tick **daily** for a daily
   run, as the scheduler starts; or any towns, with or without fetching; with no
   towns named, every town and the homepage.
@@ -132,11 +142,13 @@ towns.
 
 The town's tax, budget, and school figures come from its state, through the
 engine's package for that state (the engine README's States section): its
-`[finance]` and `[schools]` tables take that state's keys. Start from a town in
-the same state: Gloucester or Malden for Massachusetts, Manchester for New
-Hampshire. A town in a state the engine has no package for leaves those tables
-and the budget and schools sections out; it still gets meetings, 311,
-unemployment, and housing. List each source in its `[freshness]` table, so the
+`[finance]` and `[schools]` tables take that state's keys. Every New England
+state has a package. Start from a town in the same state: Gloucester or Malden
+for Massachusetts, Manchester for New Hampshire, Wallingford for Connecticut,
+Burlington for Vermont, Lewiston or Bangor for Maine, South Kingstown for
+Rhode Island. A town in a state the engine has
+no package for leaves those tables and the budget and schools sections out; it
+still gets meetings, 311, unemployment, and housing. List each source in its `[freshness]` table, so the
 status page shows it.
 
 Add the `officials` section and an `[officials]` table (the engine README's
@@ -215,6 +227,12 @@ In the Cloudflare account that holds `publick.org`:
 5. **Workers Routes:** any other hostname under `publick.org` that must not
    reach the Worker needs a route with **no Worker**, such as
    `files.publick.org/*` (the documents bucket).
+6. **Workers Paid plan** (**Workers & Pages → Plans**, $5 a month). Every
+   request to every site, each page and its CSS, scripts, and images, runs the
+   sites Worker. The free plan refuses requests past 100,000 a day, on every
+   site at once, until midnight UTC; the paid plan includes 10 million a month.
+   It also lets the digest's send make more than 50 requests a run. Not
+   done yet: decided 2026-10-07 to stay on the free plan for now.
 
 In this repository's **Settings → Secrets and variables → Actions**:
 
