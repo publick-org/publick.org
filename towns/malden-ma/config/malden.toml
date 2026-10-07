@@ -31,6 +31,17 @@ user_agent = "malden-ma.publick.org (+https://malden-ma.publick.org/about/)"
 # English at the site's root, Spanish under /es/.
 languages = ["en", "es"]
 
+# From the city website's stylesheet (cityofmalden.org): its blue (links and the
+# banner), its dark navy (headings and the active tab), a light tint of the
+# blue, and its green (subheadings). Each passes WCAG AA on white as it is
+# (9.3, 17.4, and 5.1 to 1), so none is darkened. Its gold (#bca16c, 2.5 to 1)
+# and bright blue (#0098f7, 3.1 to 1) don't pass, so they aren't used.
+[site.colors]
+primary = "#313f91"
+primary_dark = "#091937"
+primary_soft = "#eaecf4"
+accent = "#5f7701"
+
 [town]
 name = "Malden"
 state = "Massachusetts"
@@ -212,8 +223,33 @@ output_price = 10.0
 # .github/workflows/network.yml) decides what each run may spend, new documents first.
 max_cost_per_run = 5.0
 
+# How residents can take part, per board, shown on its meeting pages. Only
+# what the city and the school district have published; each entry names its
+# source. The Council's agendas list public comment near the start of each
+# regular meeting; its minutes say how it went. The city's pages don't link
+# recordings of Council meetings, so none is given.
+[participation."City Council"]
+comment = "Residents can speak in person during the public comment period near the start of regular Council meetings. Written comments can also be submitted; the City Clerk reads them into the record."
+source_title = "City Council minutes of September 8, 2026"
+source_url = "https://www.cityofmalden.org/AgendaCenter/ViewFile/Minutes/_09082026-4410"
+
+# From the School Committee's Rules (rule 5.03), which the district website
+# links. The district's meetings page links each meeting's recording, by
+# Urban Media Arts, formerly Malden Access Television (as the Planning
+# Board's minutes of February 11, 2026 name it), on its YouTube channel.
+[participation."School Committee"]
+comment = "Members of the public may address the School Committee only during the public comment period near the start of its regular meetings."
+source_title = "the School Committee's Rules"
+source_url = "https://maldenpsorg.finalsite.com/fs/resource-manager/view/da7b166b-c862-458c-a1f8-c005aef3b71d"
+video_title = "Urban Media Arts (formerly Malden Access TV)"
+video_url = "https://www.maldenps.org/district-information/school-committee/school-committee-meetings"
+
 # Terms that come up on agendas and minutes, explained on each meeting page
-# where they appear. Acronyms match exactly; other terms ignore case.
+# where they appear. Acronyms match exactly; other terms ignore case. An entry
+# with bodies is shown only on those boards' meetings. OSPCD, CDBG, and CPC are
+# from the city's pages for each; consent agenda from the Council's minutes;
+# the Open Meeting Law as a Massachusetts school district's policy manual
+# (Beverly's) sums it up.
 [[glossary]]
 term = "executive session"
 definition = "A part of a public meeting closed to the public. State law allows it only for specific reasons, such as lawsuits, negotiations, or personnel matters."
@@ -233,6 +269,27 @@ definition = "Community Preservation Act. A local property tax surcharge, with s
 [[glossary]]
 term = "MBTA Communities"
 definition = "The state law (Section 3A of the Zoning Act) requiring cities near MBTA service to allow multifamily housing by right in at least one district."
+
+[[glossary]]
+term = "Open Meeting Law"
+definition = "The state law (M.G.L. Chapter 30A, Sections 18 to 25) that requires public boards to meet in public, post notice of their meetings in advance, and keep minutes."
+
+[[glossary]]
+term = "consent agenda"
+bodies = ["City Council"]
+definition = "Routine items, such as minutes, that the Council approves together in one vote. A councillor can ask to take an item off to discuss or amend it separately."
+
+[[glossary]]
+term = "OSPCD"
+definition = "Office of Strategic Planning and Community Development, the city office for planning, housing, community and economic development, and grants."
+
+[[glossary]]
+term = "CDBG"
+definition = "Community Development Block Grant: federal money, from the Department of Housing and Urban Development, for housing and neighborhood projects that serve low- and moderate-income residents."
+
+[[glossary]]
+term = "CPC"
+definition = "Community Preservation Committee, which manages the city's Community Preservation Act fund."
 
 # School district figures from the state's education data portal (DESE).
 [schools]
@@ -348,8 +405,20 @@ members = [
 # Where the city posts agendas and minutes, and the data the site keeps up to date.
 "311 requests" = "Solicitudes al 311"
 
+# How to take part (the board pages).
+"Residents can speak in person during the public comment period near the start of regular Council meetings. Written comments can also be submitted; the City Clerk reads them into the record." = "Los residentes pueden hablar en persona durante el turno de comentarios del público, cerca del comienzo de las reuniones regulares del Concejo. También se pueden enviar comentarios por escrito, que el Secretario Municipal lee para que consten en el acta."
+"City Council minutes of September 8, 2026" = "Actas del Concejo Municipal del 8 de septiembre de 2026"
+"Members of the public may address the School Committee only during the public comment period near the start of its regular meetings." = "El público puede dirigirse al Comité Escolar solo durante el turno de comentarios del público, cerca del comienzo de sus reuniones regulares."
+"the School Committee's Rules" = "el reglamento del Comité Escolar"
+"Urban Media Arts (formerly Malden Access TV)" = "Urban Media Arts (antes Malden Access TV)"
+
 # Glossary definitions (the terms themselves stay as the agendas write them).
 "The state law (Section 3A of the Zoning Act) requiring cities near MBTA service to allow multifamily housing by right in at least one district." = "La ley estatal (sección 3A de la Ley de Zonificación, Zoning Act) que exige a las ciudades cerca del servicio de la MBTA permitir viviendas multifamiliares sin necesidad de un permiso especial en al menos una zona."
+"The state law (M.G.L. Chapter 30A, Sections 18 to 25) that requires public boards to meet in public, post notice of their meetings in advance, and keep minutes." = "La ley estatal de reuniones abiertas (capítulo 30A, secciones 18 a 25, de las Leyes Generales de Massachusetts), que exige que las juntas públicas se reúnan en público, anuncien sus reuniones con anticipación y lleven actas."
+"Routine items, such as minutes, that the Council approves together in one vote. A councillor can ask to take an item off to discuss or amend it separately." = "Asuntos de rutina, como las actas, que el Concejo aprueba juntos en una sola votación. Un concejal puede pedir que se saque un asunto para tratarlo o enmendarlo por separado."
+"Office of Strategic Planning and Community Development, the city office for planning, housing, community and economic development, and grants." = "Oficina de Planificación Estratégica y Desarrollo Comunitario (Office of Strategic Planning and Community Development), la oficina de la ciudad encargada de la planificación, la vivienda, el desarrollo comunitario y económico, y las subvenciones."
+"Community Development Block Grant: federal money, from the Department of Housing and Urban Development, for housing and neighborhood projects that serve low- and moderate-income residents." = "Subvención en Bloque para el Desarrollo Comunitario (Community Development Block Grant): dinero federal del Departamento de Vivienda y Desarrollo Urbano para proyectos de vivienda y de barrios que benefician a residentes de ingresos bajos y moderados."
+"Community Preservation Committee, which manages the city's Community Preservation Act fund." = "Comité de Preservación Comunitaria (Community Preservation Committee), que administra el fondo de la Ley de Preservación Comunitaria de la ciudad."
 
 # Officials: notes, seats, and roles.
 "Eight councillors elected by ward and three at-large, for two years." = "Ocho concejales elegidos por distrito y tres por toda la ciudad, por dos años."

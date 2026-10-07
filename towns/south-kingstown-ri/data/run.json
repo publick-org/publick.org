@@ -1,0 +1,286 @@
+{
+  "town": "south-kingstown",
+  "folder": "south-kingstown-ri",
+  "started_at": "2026-10-06T13:17:34+00:00",
+  "finished_at": "2026-10-06T13:24:19+00:00",
+  "engine": "v1.37.0",
+  "fetched": true,
+  "steps": [
+    {
+      "name": "Fetch new data",
+      "ok": true,
+      "error": null,
+      "seconds": 335.1
+    },
+    {
+      "name": "Build site",
+      "ok": true,
+      "error": null,
+      "seconds": 4.8
+    },
+    {
+      "name": "Check site",
+      "ok": true,
+      "error": null,
+      "seconds": 50.5
+    },
+    {
+      "name": "Publish site",
+      "ok": true,
+      "error": null,
+      "seconds": 15.3
+    },
+    {
+      "name": "Check live site",
+      "ok": true,
+      "error": null,
+      "seconds": 0.7
+    }
+  ],
+  "update": {
+    "town": "south-kingstown",
+    "sources": "all",
+    "started_at": "2026-10-06T13:17:35+00:00",
+    "ok": true,
+    "steps": [
+      {
+        "name": "Fetch meetings",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 48.8,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch minutes",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 75.7,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch School Committee documents",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [drive_meetings] in the config"
+      },
+      {
+        "name": "Fetch school board meetings",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [finalsite_meetings] in the config"
+      },
+      {
+        "name": "Summarize agendas",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 193.2,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch tax bill",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.2,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch unemployment",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
+      },
+      {
+        "name": "Fetch school figures",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "yearly",
+        "skipped": "checked 0 days ago; checked every 7 days"
+      },
+      {
+        "name": "Fetch budget figures",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "yearly",
+        "skipped": "checked 0 days ago; checked every 7 days"
+      },
+      {
+        "name": "Fetch housing figures",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
+      },
+      {
+        "name": "Fetch place",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.2,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch building permits",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [permits] in the config"
+      },
+      {
+        "name": "Move saved documents to storage",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.2,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch 311 requests",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 16.4,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Compute 311 scorecard",
+        "ok": true,
+        "required": true,
+        "error": null,
+        "seconds": 0.3,
+        "cadence": "continuous"
+      }
+    ]
+  },
+  "stale": false,
+  "sources": [
+    {
+      "label": "Meetings (CivicClerk)",
+      "file": "meetings/status.json",
+      "updated_at": "2026-10-06T09:17:35-04:00",
+      "max_days": 2,
+      "stale": false
+    },
+    {
+      "label": "311 requests",
+      "file": "311/status.json",
+      "updated_at": "2026-10-06T09:22:53-04:00",
+      "max_days": 2,
+      "stale": false
+    },
+    {
+      "label": "311 scorecard",
+      "file": "311/scorecard.json",
+      "updated_at": "2026-10-06T09:23:09-04:00",
+      "max_days": 2,
+      "stale": false
+    },
+    {
+      "label": "Tax rates and levy",
+      "file": "finance/budget.json",
+      "updated_at": "2026-10-05T14:38:20-04:00",
+      "max_days": null,
+      "cadence": "yearly",
+      "failing": 0,
+      "stale": false,
+      "latest": "Fiscal year 2026 tax rates; Fiscal year 2026 tax levy",
+      "next": "Fiscal year 2027 tax rates usually by December 1, 2026; Fiscal year 2027 tax levy usually by January 1, 2027",
+      "behind": null
+    },
+    {
+      "label": "School figures",
+      "file": "schools/schools.json",
+      "updated_at": "2026-10-05T14:37:52-04:00",
+      "max_days": null,
+      "cadence": "yearly",
+      "failing": 0,
+      "stale": false,
+      "latest": "Class of 2024 graduation rate; Spring 2025 state test results; 2024\u201325 attendance; 2023\u201324 spending per pupil",
+      "next": "Class of 2025 graduation rate usually by December 1, 2026; Spring 2026 state test results usually by October 1, 2026; 2025\u201326 attendance usually by December 1, 2026; 2024\u201325 spending per pupil usually by December 1, 2026",
+      "behind": null
+    },
+    {
+      "label": "Unemployment rate (BLS)",
+      "file": "labor/unemployment.json",
+      "updated_at": "2026-10-05T14:37:49-04:00",
+      "max_days": null,
+      "cadence": "monthly",
+      "failing": 0,
+      "stale": false,
+      "latest": "August 2026 rate",
+      "next": "September 2026 rate usually by November 10, 2026",
+      "behind": null
+    },
+    {
+      "label": "Housing figures",
+      "file": "housing/housing.json",
+      "updated_at": "2026-10-05T14:38:20-04:00",
+      "max_days": null,
+      "cadence": "monthly",
+      "failing": 0,
+      "stale": false,
+      "latest": "2025 building permits; August 2026 building permits; ACS 2024 5-year estimates",
+      "next": "2026 building permits usually by June 1, 2027; September 2026 building permits usually by November 1, 2026; ACS 2025 5-year estimates usually by December 15, 2026",
+      "behind": null
+    },
+    {
+      "label": "Meeting summaries",
+      "file": "summaries",
+      "updated_at": null,
+      "max_days": 2,
+      "stale": false,
+      "waiting": [],
+      "waiting_count": 0
+    }
+  ],
+  "failing": [],
+  "deployed": true,
+  "ok": true,
+  "last_good_at": "2026-10-06T18:09:12+00:00",
+  "data_bytes": 1025994,
+  "data_bytes_added": 74898,
+  "activity": {
+    "boards": 20,
+    "meetings_by_date": {
+      "2026-10-06": 2,
+      "2026-10-07": 1,
+      "2026-10-08": 2,
+      "2026-10-13": 3,
+      "2026-10-14": 1,
+      "2026-10-19": 1
+    }
+  },
+  "fact_checks": {
+    "summaries": 17,
+    "ok": 15,
+    "failed": 1,
+    "weak": 0,
+    "unchecked": 1,
+    "not_yet": 0,
+    "held_back": 1,
+    "entries_not_shown": 2,
+    "vote_counts_left_out": 2
+  },
+  "published_at": "2026-10-06T18:09:12+00:00",
+  "published_engine": "v1.42.0"
+}

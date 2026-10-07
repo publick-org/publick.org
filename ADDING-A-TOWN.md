@@ -149,7 +149,7 @@ shows no ward map; a town with neither (Bangor) has no 311 section yet.
       set to the town's folder, with an empty `data/` (it must build), then
       after `python -m pipeline.fetch_meetings`: every board listed under its
       usual name, committees under their own boards, no errors.
-- [ ] `python -m pytest site_checks` on the build.
+- [ ] `python -m pytest ../publick-engine/site_checks` on the build.
 - [ ] Read the first summaries of the main board's meetings before
       announcing the site. Each summary is also checked against its
       document's own text (the engine's `pipeline/factcheck.py`): `python -m
@@ -170,9 +170,8 @@ shows no ward map; a town with neither (Bangor) has no 311 section yet.
       launch, so the town's history doesn't take the month's budget (older
       meetings keep their records and documents). The month's budget and the town's own limit per
       run still apply.
-- [ ] **Email:** a Cloudflare Email Routing rule sending
-      `<town>-<state>@publick.org` (the config's `contact_email`) to the
-      owner's inbox (**Email Routing → Routing rules → Create address**).
-      The "Report an error" buttons write to it.
+- [ ] Add a `<town>-<state>@publick.org` rule in Cloudflare (**Email
+      Routing → Routing rules → Create address**, **Send to an email**), so
+      mail to the site's `contact_email` is forwarded.
 - [ ] Add the town to the README's "Keeping officials current" election
       dates if they differ.

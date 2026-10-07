@@ -14,6 +14,7 @@ Times are UTC. Eastern is UTC−4 in summer, UTC−5 in winter.
 | Cloudflare | `publick.org` DNS, both Workers, the R2 buckets (`publick-sites`, `publick-documents`), email routing | NasTber |
 | Anthropic | The API key, its spending and rate limits | NasTber |
 | GoatCounter | The `publick` page-view site | NasTber |
+| Buttondown | The weekly digest's email: its readers, and sending from `hello@digest.publick.org` (DNS records on `digest.publick.org`) | NasTber |
 
 ## Each morning
 
@@ -22,6 +23,7 @@ Times are UTC. Eastern is UTC−4 in summer, UTC−5 in winter.
 | 08:20 | The engine's release: everything merged to the engine's `main` since the last release, if its tests passed | The scheduler Worker (GitHub's schedule is a late backup) |
 | 08:40 | `engine.yml`: a pull request moving `engine-version` to that release, checked on every page of every town, merged if all pass | The scheduler Worker |
 | 09:05 to 14:05, hourly | `network.yml` daily runs: each start takes the towns that are due | The scheduler Worker; GitHub's 12:17 is a backup |
+| Sundays, 5:30 PM Eastern | Each town in `DIGEST_TOWNS` (`wrangler.scheduler.toml`) emailed its weekly digest; a failure opens **The weekly digest didn't send** | The scheduler Worker, checking hourly on Sundays and Mondays (UTC) |
 
 So anything merged to the engine's `main` before 08:20 goes to every town
 that morning, if every town passes on it. Merge engine changes after the
@@ -115,6 +117,24 @@ about ten publishes. To take every town back to an older engine, set
 `engine-version` to the earlier release and merge; the push run publishes
 every town on it.
 
+### Many more readers than usual
+
+A news story or a shared link can bring more readers in an hour than a
+usual week. The sites are static and the Worker keeps their files in
+Cloudflare's cache, so the one limit that bites is Cloudflare's plan:
+
+1. **Workers & Pages → publick-sites → Metrics**: requests, errors, and
+   CPU time. On the free plan, past 100,000 requests a day every site gets
+   Cloudflare's error 1027 until midnight UTC: move the account to Workers
+   Paid (**Workers & Pages → Plans**), which takes effect at once.
+2. **R2 → publick-sites → Metrics**: reads should stay low while the Worker's
+   cache is working. A climb in reads with the requests means it isn't.
+3. If one town's signup form is being abused (the Worker's logs say "over
+   the rate limit" many times), turn that town's `[digest] signup` off and
+   merge; the form is gone on the next build.
+4. GoatCounter counts page views on its own limits; missed counts don't
+   affect the sites.
+
 ### A reader reports an error
 
 The "Report an error" buttons go to each town's `contact_email`.
@@ -174,6 +194,8 @@ README's "Setup, once" says what each holds.
 | `CLOUDFLARE_API_TOKEN` | When it was set to | **Actions → Worker** can't deploy; the running Workers keep working |
 | `SITES_*`, `STORAGE_*` | When revoked | Nothing publishes, or documents aren't stored; sites keep their last builds |
 | `BLS_API_KEY` | When revoked | Unemployment figures fall behind |
+| `BUTTONDOWN_SUBSCRIBE_KEY` | When revoked | The digest's signup form says it didn't go through. Make a new key in Buttondown (**API → Keys**: subscribers read and write, sending disabled), then run **Actions → Worker** |
+| `BUTTONDOWN_SEND_KEY` | When revoked | The weekly digest isn't sent, and the scheduler opens an issue. Make a new key (emails read and write, sending enabled), then run **Actions → Worker** |
 
 Put each expiry date in a calendar when the token is made.
 
@@ -183,9 +205,8 @@ Put each expiry date in a calendar when the token is made.
   upcoming meetings against the city's own sites (README, "Checking meetings
   by hand").
 - **Officials**, after each municipal election and whenever a seat changes
-  (README, "Keeping officials current", which lists each town's next
-  election: most towns in November 2027, Burlington in March 2027, and the
-  towns in publick.org #58 on 2026-11-03).
+  (README, "Keeping officials current", which lists each town's dates). The
+  next is November 3, 2026, for Bangor, Lewiston, and South Kingstown.
 - **New Hampshire's yearly figures**, when the status page shows them behind
   (README, "New Hampshire's yearly figures"). Vermont's, Maine's, and Rhode
   Island's are saved into the engine once a year too (the engine README's

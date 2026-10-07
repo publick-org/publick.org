@@ -2,13 +2,14 @@
 
 The Publick network: the publick.org homepage and every town's site, run
 from this one repository with the [Publick engine](https://github.com/publick-org/publick-engine)
-at the version in `engine-version`.
+at the version in `engine-version`. What's planned is in the engine's
+[ROADMAP.md](https://github.com/publick-org/publick-engine/blob/main/ROADMAP.md).
 
 ```
 LICENSE                       What may be reused and how: CC BY 4.0 for what Publick makes, the credit line,
                               and what keeps its own terms (311, public records); the code is MIT
 LICENSE-CC-BY-4.0.txt         The CC BY 4.0 legal text
-engine-version                The engine release every town runs, e.g. v1.36.0; moved each morning by engine.yml
+engine-version                The engine release every town runs, an exact tag; moved each morning by engine.yml
 ADDING-A-TOWN.md              The checklist for adding a town, from an empty folder to its first published site
 RUNBOOK.md                    What to do when something needs a person: each morning's checks, alerts, rollback
 home/                         The publick.org homepage (index.html) and the page for a state with many towns
@@ -25,12 +26,13 @@ wrangler.scheduler.toml       The Worker that starts the daily runs on time
 scripts/import-town.sh        Copies a town's own repository into towns/ (how the first three towns moved in)
 scripts/build_home.py         Writes the homepage's town lists, by state, with the network's counts (from each
                               town's data/run.json), and a page for each state with 10 or more towns; and the
-                              homepage's sitemap.xml and robots.txt
+                              network's sitemap.xml (an index of the homepage's and
+                              every town's sitemaps) and robots.txt
 scripts/build_status.py       Writes the network status page, publick.org/status/
 scripts/make_share_image.py   Draws home/share/publick.png, the homepage's card on Substack and social media
 .github/workflows/network.yml The daily runs, and builds on push and pull request
-.github/workflows/engine.yml  Moves engine-version to each morning's engine release, if every town passes on it
-.github/workflows/evaluate.yml Runs the engine's minutes test set against the real model (by hand)
+.github/workflows/engine.yml  Moves engine-version to each new engine release once every town passes on it
+.github/workflows/evaluate.yml Runs the engine's minutes prompt against the real model before a prompt change ships (by hand)
 .github/workflows/worker.yml  Deploys both Workers (by hand)
 ```
 
@@ -44,17 +46,18 @@ Worker, which picks the site by hostname: `gloucester-ma.publick.org` is
 - **Daily**, started every hour from 09:05 to 14:05 UTC by the
   `publick-scheduler` Worker (`wrangler.scheduler.toml`), with one GitHub
   schedule (12:17 UTC) as a backup, since GitHub starts those late or not at
-  all. Each start takes the towns that are due (their last daily run
-  finished more than `DUE_HOURS`, 18, ago), oldest first; a start with nothing
+  all. Each start takes the towns that are due (their last fetching run,
+  daily or by hand, finished more than `DUE_HOURS`, 18, ago), oldest first; a start with nothing
   due does nothing, and the next start makes up a missed one.
   - The statewide job fetches the sources a state's towns share, once for all
     of them, into `states/`: Massachusetts's DLS reports, only when a report
     isn't saved or is over a week old.
   - Each town then fetches its own new data, is built and checked, published
     if the checks pass, and its data committed. Towns run in batches of four
-    per job, up to ten jobs at a time. Daily runs give the accessibility checks
-    a sample of each town's pages (every hand-written page, and the first and
-    largest of each kind of record page); every other run checks every page.
+    per job, up to ten jobs at a time. Daily runs, runs by hand that fetch, and pushes to
+    `main` give the accessibility checks a sample of each town's pages (every
+    hand-written page, and the first and largest of each kind of record page);
+    pull requests and rebuilds by hand without fetching check every page.
   - AI summaries and translations share one budget, `SUMMARY_BUDGET` ($80 a
     month, decided 2026-10-03; a month can have its own in `SUMMARY_BUDGET_MONTH`): each run gives each of its towns a share of what's left, new
     documents first.
@@ -72,6 +75,13 @@ Worker, which picks the site by hostname: `gloucester-ma.publick.org` is
   urgent fix, release the engine now (its **Actions → Release → Run
   workflow**) and run **Actions → Engine**.
 - **On a pull request:** builds and checks the towns it touches. Nothing is published.
+- **The weekly digest**, each Sunday at 5:30 PM in the town's time: the
+  scheduler Worker emails each town in its `DIGEST_TOWNS`
+  (`wrangler.scheduler.toml`) its newest issue through Buttondown, to that
+  town's readers alone. The signup form on a town's `/digest/` page (its
+  config's `[digest] signup`) posts to the sites Worker, which passes the
+  address on to Buttondown, within the `SIGNUP_LIMITER` rate limit
+  (`wrangler.toml`). See the engine README's Weekly digest.
 - **By hand** (**Actions → Network → Run workflow**): tick **daily** for a daily
   run, as the scheduler starts; or any towns, with or without fetching; with no
   towns named, every town and the homepage.
@@ -117,7 +127,11 @@ empty `data/`, and optionally `site/static/share/<town>.png`. Set
 `[site] domain` to `<town>-<state>.publick.org` and `network_url` to
 `https://publick.org`, which links the network's name in every page footer.
 Add an `[analytics]` table with `goatcounter = "publick"` and `prefix` set to
-the town's folder, so its page views count on the network's GoatCounter site.
+the town's folder, so its page views count on the network's GoatCounter site,
+and a `[storage]` table for the `publick-documents` bucket with `prefix` set to
+the town's folder too (it defaults to the config file's name). Add a
+`<town>-<state>@publick.org` rule in Cloudflare Email Routing for its
+`contact_email`.
 Merge, then run the workflow for the town by hand to fetch its data (set
 `catch_up` to a few dollars to summarize its first months' documents in that
 run, within the month's budget). No DNS
@@ -129,8 +143,8 @@ engine's package for that state (the engine README's States section): its
 `[finance]` and `[schools]` tables take that state's keys. Every New England
 state has a package. Start from a town in the same state: Gloucester or Malden
 for Massachusetts, Manchester for New Hampshire, Wallingford for Connecticut,
-Burlington for Vermont (and, once publick.org #58 is merged, Lewiston or Bangor
-for Maine, South Kingstown for Rhode Island). A town in a state the engine has
+Burlington for Vermont, Lewiston or Bangor for Maine, South Kingstown for
+Rhode Island. A town in a state the engine has
 no package for leaves those tables and the budget and schools sections out; it
 still gets meetings, 311, unemployment, and housing. List each source in its `[freshness]` table, so the
 status page shows it.
@@ -148,8 +162,9 @@ district of wards, as on Beverly's School Committee).
 Each town's `[officials]` table is kept by hand. Check every town's members
 against the city and school websites after each municipal election (the next
 for Beverly, Gloucester, Lawrence, Malden, Manchester, and Wallingford is November
-2027; new terms start in January 2028; for Burlington it is Town Meeting Day,
-March 2, 2027, with new terms from the first Monday in April), and whenever a seat changes between elections (a resignation,
+2027; new terms start in January 2028; for Bangor, Lewiston, and South
+Kingstown it is November 3, 2026, and for Burlington Town Meeting Day, March
+2, 2027, with new terms from the first Monday in April), and whenever a seat changes between elections (a resignation,
 an appointment to fill a vacancy, new council or committee officers). Update
 the members and `checked` in one pull request.
 
@@ -183,18 +198,6 @@ the engine's `python -m pipeline.states.nh.extract` (the engine README, New
 Hampshire's yearly figures) and merge that to the engine. The next morning's
 release and engine move (`engine.yml`) take it to every New Hampshire town.
 
-## Moving a town in from its own repository
-
-Gloucester, Malden, and Manchester moved in this way; every town since was
-added here from the start. For another town that has its own repository:
-
-1. Turn off the town repository's schedule (**Actions → Update and deploy → Disable workflow**).
-2. `scripts/import-town.sh <town>-<state>` to copy its latest config, data, and
-   static files into `towns/`, then commit and merge.
-3. Delete the town's `CNAME` record in Cloudflare DNS, so the wildcard record sends it to the Worker.
-4. Once the site is up from here, remove the custom domain from the old
-   repository's Pages settings and archive the repository.
-
 ## Rolling back
 
 With the sites bucket's keys set (below), from a checkout of the engine:
@@ -217,11 +220,16 @@ In the Cloudflare account that holds `publick.org`:
 3. **My Profile → API Tokens → Create Token** from the *Edit Cloudflare Workers*
    template, limited to this account and the `publick.org` zone, for deploying the Worker.
 4. **DNS:** proxied (orange cloud) `AAAA` records for `*` and for `@`, both to
-   `100::`. The address is never reached; the Worker answers first. Remove the
-   GitHub Pages `A` records for `@`, and each town's `CNAME` as it moves.
+   `100::`. The address is never reached; the Worker answers first. Remove any
+   GitHub Pages `A` records for `@`.
 5. **Workers Routes:** any other hostname under `publick.org` that must not
    reach the Worker needs a route with **no Worker**, such as
    `files.publick.org/*` (the documents bucket).
+6. **Workers Paid plan** (**Workers & Pages → Plans**, $5 a month). Every
+   request to every site, each page and its CSS, scripts, and images, runs the
+   sites Worker. The free plan refuses requests past 100,000 a day, on every
+   site at once, until midnight UTC; the paid plan includes 10 million a month.
+   It also lets the digest's send make more than 50 requests a run.
 
 In this repository's **Settings → Secrets and variables → Actions**:
 
@@ -233,6 +241,8 @@ In this repository's **Settings → Secrets and variables → Actions**:
 | `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` | The token from step 3, and the account ID |
 | `ANTHROPIC_API_KEY`, `BLS_API_KEY`, `STORAGE_ACCESS_KEY_ID`, `STORAGE_SECRET_ACCESS_KEY` | As for a town repository (engine README, Secrets) |
 | `ENGINE_PR_TOKEN` | For `engine.yml`, which moves the engine each day: a fine-grained personal access token with resource owner `publick-org`, this repository only, and **Contents** and **Pull requests** read and write. Required: what the workflow's own token pushes, opens, or merges starts no other workflow, so the pull request wouldn't be checked and the merge wouldn't publish. It expires; replace it before it does (until then the engine doesn't move, and the workflow's failure emails the owner) |
+| `BUTTONDOWN_SUBSCRIBE_KEY` | For the weekly digest's signup form, which the sites Worker answers: a Buttondown API key with subscribers read and write, and sending disabled, so it can't send email. Without it, the form says it didn't go through |
+| `BUTTONDOWN_SEND_KEY` | For the weekly digest's Sunday send, from the scheduler Worker: a Buttondown API key with emails read and write, and sending enabled. Without it, nothing is sent |
 | `SCHEDULER_GITHUB_TOKEN` | For the scheduler Worker: a fine-grained personal access token with resource owner `publick-org`, for this repository with **Actions** and **Issues** read and write, and for `publick-engine` with **Actions** read and write (widened 2026-10-03, so the scheduler can start the engine's release). It expires (the current one, made 2026-09-30, about 2027-10-01); replace it (then run **Actions → Worker**) before it does. Until then, runs fall back to GitHub's own schedule |
 
 The scheduler's Cron Triggers also need the Cloudflare account to have a

@@ -173,6 +173,35 @@ input_price = 2.0
 output_price = 10.0
 max_cost_per_run = 5.0
 
+# How residents can take part, per board, shown on its meeting pages. Only
+# what the city and the school district have published; each entry names its
+# source. The Council's comment rules are Appendix A of its Rules and Orders.
+# Both boards' meetings are streamed and broadcast by BevCam, the city's local
+# access station (the city website's BevCam link goes to bevcam.org); BevCam's
+# Government Access channel page lists the Council's recordings, and the
+# district's Video Archives page the School Committee's.
+[participation."City Council"]
+comment = "People who live or work in Beverly can speak for up to three minutes in the public comment period of a regular Council meeting. Sign up with the City Clerk's office by 9:30 a.m. on the day of the meeting; the period is limited to five speakers, first come, first served."
+source_title = "the City Council's Rules and Orders"
+source_url = "https://www.beverlyma.gov/DocumentCenter/View/7654/Rules-and-Orders-of-the-Beverly-City-Council-PDF"
+video_title = "BevCam"
+video_url = "https://bevcam.org/government-channel/"
+
+# From Policy BEDH and its guidelines (BEDH-E) in the district's policy
+# manual, which the district website links.
+[participation."School Committee"]
+comment = "Residents can speak for up to three minutes in the public comment period near the start of each regular School Committee meeting, after giving their name and address. The period lasts 20 minutes in all."
+source_title = "the district's policy manual (Policy BEDH)"
+source_url = "https://docs.google.com/document/d/1hYbvteXi4yy4gsMYJGekNlRUXz1lcy2DyvrJ7wmUxSc/edit"
+video_title = "BevCam"
+video_url = "https://www.beverlyschools.org/apps/pages/index.jsp?uREC_ID=2083091&type=d&pREC_ID=2285699"
+
+# Terms that come up on agendas and minutes, explained on each meeting page
+# where they appear. Acronyms match exactly; other terms ignore case. From the
+# city's pages for the Zoning Board of Appeals, the Building Department's
+# variance FAQ, the Conservation Commission (its Notice of Intent
+# instructions), the Community Preservation Committee, and the Historic
+# District Commission's Rules of Procedure.
 [[glossary]]
 term = "executive session"
 definition = "A part of a public meeting closed to the public. State law allows it only for specific reasons, such as lawsuits, negotiations, or personnel matters."
@@ -184,6 +213,38 @@ definition = "Massachusetts General Laws, the state's laws."
 [[glossary]]
 term = "Committee of the Whole"
 definition = "The full City Council meeting as a committee, to discuss a matter before voting on it at a regular meeting."
+
+[[glossary]]
+term = "CPA"
+definition = "Community Preservation Act. A local property tax surcharge, with state matching money, that pays for open space, historic preservation, affordable housing, and recreation."
+
+[[glossary]]
+term = "CPC"
+definition = "Community Preservation Committee, which reviews applications for Community Preservation Act money and recommends projects to the City Council."
+
+[[glossary]]
+term = "ZBA"
+definition = "Zoning Board of Appeals."
+
+[[glossary]]
+term = "special permit"
+definition = "Permission from a city board, such as the Zoning Board of Appeals, for a use or project that the zoning ordinance allows only with the board's approval, given after a public hearing."
+
+[[glossary]]
+term = "variance"
+definition = "Permission from the Zoning Board of Appeals to depart from the zoning ordinance, such as to build closer to a lot line than it allows. It can be granted only when the shape, soil, or slope of the land would make following the rules a substantial hardship."
+
+[[glossary]]
+term = "Notice of Intent"
+definition = "An application to the Conservation Commission, under the state's Wetlands Protection Act, for work in or near wetlands. If the commission approves, it issues an Order of Conditions."
+
+[[glossary]]
+term = "Order of Conditions"
+definition = "The Conservation Commission's permit for work in or near wetlands, with the conditions the work must follow."
+
+[[glossary]]
+term = "demolition delay"
+definition = "Under the city's Demolition Delay Ordinance, the Historic District Commission can delay a permit to demolish a building more than 50 years old for up to 12 months, if it finds the building historically significant and preferably preserved."
 
 # School district figures from the state's education data portal (DESE).
 [schools]
@@ -223,6 +284,10 @@ sources = [
 # and school websites; checked is the date the list was last checked against
 # them. Only city- and school-issued email addresses, and the mayor's office
 # phone. The ward file is data/static/beverly-precincts-2022.geojson (MassGIS).
+# The About page's "What this site doesn't cover": why there's no 311 section.
+[absences]
+311 = "The city takes requests through its own MyBeverly app, which has no public data."
+
 [officials]
 checked = "2026-10-01"
 wards_file = "beverly-precincts-2022.geojson"
@@ -275,12 +340,29 @@ members = [
 # the site shows its English name after it. To be checked by a person who
 # reads Spanish before the site launches.
 [strings.es]
+"The city takes requests through its own MyBeverly app, which has no public data." = "La ciudad recibe solicitudes mediante su propia aplicación, MyBeverly, que no tiene datos públicos."
 # The masthead and the share text.
 "Public data on how Beverly, Massachusetts decides and spends. Updated daily." = "Datos públicos sobre cómo Beverly, Massachusetts, toma decisiones y gasta su dinero. Se actualizan a diario."
 "An independent guide to city government in Beverly, Massachusetts" = "Una guía independiente sobre el gobierno de la ciudad de Beverly, Massachusetts"
 
 # Section summaries (the engine translates the section names every town shares).
 "Every board and committee meeting in the city's Agenda Center, with agendas, and minutes from January 2026 on." = "Todas las reuniones de las juntas y comités en el Centro de Agendas de la ciudad, con sus agendas, y las actas desde enero de 2026."
+
+# How to take part (the board pages).
+"People who live or work in Beverly can speak for up to three minutes in the public comment period of a regular Council meeting. Sign up with the City Clerk's office by 9:30 a.m. on the day of the meeting; the period is limited to five speakers, first come, first served." = "Las personas que viven o trabajan en Beverly pueden hablar hasta tres minutos en el turno de comentarios del público de una reunión regular del Concejo. Inscríbase en la oficina del Secretario Municipal antes de las 9:30 a. m. del día de la reunión; el turno es para un máximo de cinco personas, por orden de llegada."
+"the City Council's Rules and Orders" = "el reglamento del Concejo Municipal (Rules and Orders)"
+"BevCam" = "BevCam"
+"Residents can speak for up to three minutes in the public comment period near the start of each regular School Committee meeting, after giving their name and address. The period lasts 20 minutes in all." = "Los residentes pueden hablar hasta tres minutos en el turno de comentarios del público, cerca del comienzo de cada reunión regular del Comité Escolar, después de dar su nombre y dirección. El turno dura 20 minutos en total."
+"the district's policy manual (Policy BEDH)" = "el manual de políticas del distrito escolar (Política BEDH)"
+
+# Glossary definitions (the terms themselves stay as the agendas write them).
+"Community Preservation Committee, which reviews applications for Community Preservation Act money and recommends projects to the City Council." = "Comité de Preservación Comunitaria (Community Preservation Committee), que revisa las solicitudes de fondos de la Ley de Preservación Comunitaria y recomienda proyectos al Concejo Municipal."
+"Zoning Board of Appeals." = "Junta de Apelaciones de Zonificación."
+"Permission from a city board, such as the Zoning Board of Appeals, for a use or project that the zoning ordinance allows only with the board's approval, given after a public hearing." = "Permiso especial (special permit): autorización de una junta de la ciudad, como la Junta de Apelaciones de Zonificación, para un uso o proyecto que la ordenanza de zonificación permite solo con la aprobación de la junta, después de una audiencia pública."
+"Permission from the Zoning Board of Appeals to depart from the zoning ordinance, such as to build closer to a lot line than it allows. It can be granted only when the shape, soil, or slope of the land would make following the rules a substantial hardship." = "Variación (variance): permiso de la Junta de Apelaciones de Zonificación para apartarse de la ordenanza de zonificación, por ejemplo, para construir más cerca del límite del terreno de lo permitido. Solo se puede conceder cuando la forma, el suelo o la pendiente del terreno harían que cumplir las reglas fuera una carga considerable."
+"An application to the Conservation Commission, under the state's Wetlands Protection Act, for work in or near wetlands. If the commission approves, it issues an Order of Conditions." = "Aviso de Intención (Notice of Intent): una solicitud a la Comisión de Conservación, bajo la Ley de Protección de Humedales del estado, para hacer obras en humedales o cerca de ellos. Si la comisión la aprueba, emite una Orden de Condiciones (Order of Conditions)."
+"The Conservation Commission's permit for work in or near wetlands, with the conditions the work must follow." = "Orden de Condiciones (Order of Conditions): el permiso de la Comisión de Conservación para hacer obras en humedales o cerca de ellos, con las condiciones que deben cumplir."
+"Under the city's Demolition Delay Ordinance, the Historic District Commission can delay a permit to demolish a building more than 50 years old for up to 12 months, if it finds the building historically significant and preferably preserved." = "Demora de demolición (demolition delay): según la Ordenanza de Demora de Demolición, la Comisión del Distrito Histórico puede retrasar hasta 12 meses el permiso para demoler un edificio de más de 50 años si determina que tiene importancia histórica y que es preferible conservarlo."
 
 # Officials: notes, seats, and roles.
 "Six councilors elected by ward and three at-large, for two years." = "Seis concejales elegidos por distrito y tres por toda la ciudad, por dos años."

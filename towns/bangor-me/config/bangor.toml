@@ -1,0 +1,448 @@
+# Site configuration for Bangor, Maine. Everything town-specific lives here;
+# the code is the Publick engine (github.com/publick-org/publick-engine).
+#
+# Bangor's website runs on CivicPlus, and every board posts agendas and
+# minutes in the Agenda Center, as Malden's and Lawrence's do: the City
+# Council, its Workshop, its six standing committees (each in a category of
+# its own), the School Committee, and the city's boards and commissions. The city calendar lists the same meetings, with
+# their times and places, before their agendas are posted. The engine's Maine
+# package (pipeline/states/me/) gives the school figures, from the Department
+# of Education's ESSA Dashboard; housing and unemployment come from the Census
+# and BLS, as for every town. The package's tax rate and property tax, from
+# Maine Revenue Services, wait for an engine change (see [finance] below).
+#
+# Bangor has no wards or precincts: every voter votes at one polling place
+# (the city's Voting Location Information page), the council and the School
+# Committee are elected at-large, and neither the city's GIS nor the Maine
+# GeoLibrary has a ward layer. The city answers its requests on SeeClickFix
+# ([seeclickfix], organization 1848), shown by category with no areas.
+#
+# Like every Publick town's, the site is in English and Spanish ([site]
+# languages). [strings.es], at the end, gives the Spanish for the town's own
+# text; the engine has the rest.
+
+[site]
+name = "Bangor Publick"
+# The masthead shows name_prefix in dark ink and name_suffix in the accent
+# color: the town, then the network.
+name_prefix = "Bangor "
+name_suffix = "Publick"
+domain = "bangor-me.publick.org"
+# The network of town sites this one belongs to, named in every page footer.
+network = "Publick"
+network_url = "https://publick.org"
+tagline = "Public data on how Bangor, Maine decides and spends. Updated daily."
+# One line under the name at the top of every page.
+masthead = "An independent guide to city government in Bangor, Maine"
+repo_url = "https://github.com/publick-org/publick.org"
+# Public contact address. Shown on the About and Accessibility pages when set.
+contact_email = "bangor-me@publick.org"
+timezone = "America/New_York"
+user_agent = "bangor-me.publick.org (+https://bangor-me.publick.org/about/)"
+# English at the site's root, Spanish under /es/.
+languages = ["en", "es"]
+
+# From the city website's stylesheet (bangormaine.gov): its blue (headings,
+# widget titles), the darker blue its tabs fade to, a light tint of the blue,
+# and its red (links and subheadings). Contrast on white: 7.2, 8.8, and 5.3
+# to 1, all past WCAG AA. Its gold (#e6b711) and sky blue (#0098f7) don't pass,
+# so they aren't used.
+[site.colors]
+primary = "#0058a4"
+primary_dark = "#014b8a"
+primary_soft = "#e6eef6"
+accent = "#d32101"
+
+[town]
+name = "Bangor"
+state = "Maine"
+state_abbr = "ME"
+official_site = "https://www.bangormaine.gov"
+
+# Sections appear in the main navigation in this order. Each one is a folder
+# under site/pages/<slug>/ and is served at https://<domain>/<slug>/.
+[[sections]]
+slug = "meetings"
+title = "Meetings"
+summary = "Every board and committee meeting in the city's Agenda Center, with agendas, and minutes from January 2026 on."
+status = "live"
+
+[[sections]]
+slug = "311"
+title = "311 Requests"
+nav = "311"
+summary = "How fast the city responds to service requests on SeeClickFix, by category."
+status = "live"
+
+[[sections]]
+slug = "schools"
+title = "Schools"
+summary = "Bangor's graduation rate, chronic absenteeism, state test results, and spending per pupil, with the state's."
+status = "live"
+
+[[sections]]
+slug = "budget"
+title = "City budget"
+nav = "Budget"
+summary = "The city's tax rate and what the property tax raises, compared with Maine's other towns."
+status = "live"
+
+[[sections]]
+slug = "housing"
+title = "Housing"
+summary = "New homes permitted, home values and rents, and the housing stock."
+status = "live"
+
+[[sections]]
+slug = "officials"
+title = "Who represents you"
+nav = "Officials"
+summary = "The City Council and School Committee, and how to reach them."
+status = "live"
+
+[[sections]]
+slug = "about"
+title = "About"
+summary = "Data sources, update schedule, metric definitions, and corrections."
+status = "live"
+
+# Page view counting with GoatCounter, on the network's site; prefix is this
+# town's folder.
+[analytics]
+goatcounter = "publick"
+prefix = "bangor-me"
+public_stats = ""
+
+# Public meetings, from the city's CivicPlus calendar and Agenda Center.
+[meetings]
+base_url = "https://www.bangormaine.gov"
+archive_url = "https://www.bangormaine.gov/AgendaCenter"
+archive_name = "city's Agenda Center"
+# The city's site resets some connections; a slower pace and the client's retries help.
+request_delay = 5.0
+max_event_pages = 40
+
+# The city calendar, read month by month ([meetings.civicplus], engine v1.31 on):
+# the meetings the city lists before their agendas are posted, with their
+# times and places. A meeting on the calendar and in the Agenda Center is
+# shown once. The city has one calendar, with holidays and events among the
+# meetings: the patterns keep the meetings, and leave out the candidates'
+# forums, ribbon-cuttings, and conferences.
+[meetings.civicplus]
+calendars = ["City Calendar"]
+include_pattern = '\b(board|commission|committee|council|communities|trustees|workshop)\b'
+exclude_pattern = '\b(candidates forum|ribbon-cutting|summit)\b'
+
+# Agenda Center categories, and calendar names, renamed to the board's usual
+# name. The City Council's six standing committees each have a category of
+# their own, named as on the council's Committees page; here they're named as
+# the council's, as Lawrence's are.
+[meetings.aliases]
+"Business & Economic Development Committee" = "City Council Business and Economic Development Committee"
+"Finance Committee" = "City Council Finance Committee"
+"Government Operations Committee" = "City Council Government Operations Committee"
+"Infrastructure Committee" = "City Council Infrastructure Committee"
+"Legislative Committee" = "City Council Legislative Committee"
+"Personnel Committee" = "City Council Personnel Committee"
+# The calendar's names for boards the Agenda Center names otherwise.
+"Ban Air Board of Directors" = "BanAir Board of Directors"
+"Bangor Livable Communities Committee" = "Bangor Livable Communities"
+"Advisory Committee on Racial Equity, Inclusion and Human Rights" = "Advisory Committee on Racial Equity, Inclusion, and Human Rights"
+"City Council Workshop & Tour of Wastewater Treatment Plant" = "City Council Workshop"
+"School Committee-Reorganizational" = "School Committee"
+
+[meetings.agenda_center]
+base_url = "https://www.bangormaine.gov"
+# The first run lists meetings from here, and minutes are collected from here on.
+# The council elected in November 2025 met from January; the Legislative
+# Committee was formed in February 2026.
+since = "2026-01-01"
+# "Weekly Full Packets" is every agenda of the week in one file, not a board.
+exclude_categories = ["Weekly Full Packets"]
+
+# The School Committee posts its workshops under its own category.
+[meetings.agenda_center.committees."School Committee"]
+"Workshop" = "School Committee Workshop"
+
+# Agenda and minutes PDFs, in the network's documents bucket.
+[storage]
+endpoint = "https://6bbfee5a3892553c7993dbfa4b4e8453.r2.cloudflarestorage.com"
+bucket = "publick-documents"
+public_url = "https://files.publick.org"
+prefix = "bangor-me"
+
+# Agenda previews and decisions from minutes, written by a language model and
+# labeled as AI-generated on the site, and their Spanish translations. Within
+# the network's monthly budget. Only meetings from since on are summarized, so
+# the months before launch don't take the budget; older meetings keep their
+# records and documents. The School Committee's minutes are scans, which the
+# model transcribes (about three pages a meeting). City Council agendas are
+# posted with their full packets (119 pages for September 28, 2026); those
+# over the engine's 100-page limit get no preview, but their minutes do.
+[summaries]
+model = "claude-sonnet-5"
+max_per_run = 40
+input_price = 2.0
+output_price = 10.0
+max_cost_per_run = 5.0
+since = "2026-07-01"
+
+# How residents can take part, per board, shown on its meeting pages. Only
+# what the city or the school department has published; each entry names its source.
+[participation."City Council"]
+comment = "Anyone may speak for up to three minutes in the general public comment period near the start of each Council meeting; people who live or own property in Bangor speak first. To comment by Zoom, register on the city's Meeting Participation page by 9 a.m. on the day of the meeting."
+source_title = "the city's Meeting Participation page"
+source_url = "https://www.bangormaine.gov/504/Meeting-Participation"
+video_title = "the City of Bangor's YouTube channel"
+video_url = "https://www.youtube.com/@cityofbangor"
+
+[participation."School Committee"]
+comment = "Members of the public may address the School Committee for up to three minutes on school and education matters, after stating their name and where they live."
+source_title = "the School Committee's page"
+source_url = "https://www.bangorschools.net/page/school-committee"
+video_title = "the School Committee's meetings on YouTube"
+video_url = "https://www.youtube.com/playlist?list=PL_WsDrL4bMJQz7rIVPiqI7SIT366IeaUC"
+
+# Terms that come up on agendas and minutes, explained on each meeting page
+# where they appear. Acronyms match exactly; other terms ignore case. An entry
+# with bodies is shown only on those boards' meetings.
+[[glossary]]
+term = "executive session"
+definition = "A part of a public meeting closed to the public. Maine's Freedom of Access Act allows it only for specific reasons, such as lawsuits, real estate, or personnel matters."
+
+[[glossary]]
+term = "M.R.S.A."
+definition = "Maine Revised Statutes Annotated, the state's laws."
+
+[[glossary]]
+term = "MRSA"
+definition = "Maine Revised Statutes Annotated, the state's laws."
+
+[[glossary]]
+term = "consent agenda"
+bodies = ["City Council"]
+definition = "Routine items the City Council adopts together in one motion without discussion. An item is taken up separately only if a councilor asks."
+
+[[glossary]]
+term = "first reading"
+bodies = ["City Council"]
+definition = "A resolve or ordinance's introduction at a City Council meeting. The Council votes on it at a later meeting, often after a committee has reviewed it."
+
+[[glossary]]
+term = "resolve"
+bodies = ["City Council"]
+definition = "A kind of City Council vote. In Bangor, the Council appropriates money and accepts grants by resolve."
+
+[[glossary]]
+term = "TIF"
+definition = "Tax increment financing: a district where some of the property tax from new development is set aside, for public projects or for the development itself."
+
+[[glossary]]
+term = "credit enhancement agreement"
+definition = "An agreement, under a tax increment financing (TIF) district, in which the city returns part of a development's new property tax to its owner."
+
+[[glossary]]
+term = "CDBG"
+definition = "Community Development Block Grant: federal money, from the Department of Housing and Urban Development, for housing and neighborhood projects that serve low- and moderate-income residents."
+
+[[glossary]]
+term = "quitclaim deed"
+definition = "A deed in which the city gives up whatever claim it has to a property, such as one it took for unpaid taxes."
+
+# Tax rate and property tax (pipeline/states/me/), from Maine Revenue Services'
+# Municipal Valuation Return Statistical Summary, where the city is "Bangor",
+# once the engine can show them without the tax bill. There's no average
+# single-family tax bill: Bangor's rows in the Maine GeoLibrary's parcel table
+# (GEOCODE 19020) have current values (their total is 1.07 times the city's
+# 2024 taxable land and buildings), but 10,937 of its 11,659 parcels have land
+# use "0", homes among them, so its single-family homes can't be picked out
+# (the codes it does use, such as "1110", are apartment buildings). So the tax
+# bill's keys (megis_geocode, single_family_use) are left out, and the Budget
+# page has the tax rate and what the property tax raises without an average bill.
+[finance]
+mrs_municipality = "Bangor"
+budget_documents_url = "https://www.bangormaine.gov/213/Budget-Information"
+
+# Schools: the Department of Education's ESSA Dashboard, where the district is
+# "Bangor Public Schools". The district calls itself the Bangor School Department.
+[schools]
+doe_district = "Bangor Public Schools"
+district_name = "Bangor School Department"
+
+# Housing: Census building permits (state and place FIPS codes) and American
+# Community Survey through Census Reporter (geo ids). Bangor is a Census place
+# (Bangor city, 02795) and reports its permits every month.
+[housing]
+bps_region = "Northeast Region"
+bps_prefix = "ne"
+bps_state = "23"
+bps_place = "02795"
+census_geo = "16000US2302795"
+state_geo = "04000US23"
+
+# Unemployment rate (BLS Local Area Unemployment Statistics, area
+# CT2302795000000, Bangor city). City rates are not seasonally adjusted; the
+# state series is shown for context. bulk_file is the state's file under
+# download.bls.gov/pub/time.series/la/, used when the API refuses.
+[labor]
+local_series = "LAUCT230279500000003"
+state_series = "LAUST230000000000003"
+bulk_file = "la.data.26.Maine"
+
+# 311 requests, from SeeClickFix (public requests only). The city's
+# organization is 1848 ("Bangor, ME"), the one its "Report a Concern" link
+# goes to; its Open311 services (seeclickfix.com/open311/v2/1848/services.json)
+# are 32 request types, all of that one organization, so no departments are
+# needed. Bangor has no wards or precincts, so there's no precincts_file: the
+# pages show requests by category, with no areas.
+[seeclickfix]
+organization_id = 1848
+open311_base = "https://seeclickfix.com/open311/v2"
+api_base = "https://seeclickfix.com/api/v2"
+report_url = "https://seeclickfix.com/web_portal/qr1HKu9VATJDXPsPAsSja62Q/report/category"
+# SeeClickFix documents a limit of 20 requests per minute.
+request_delay = 3.2
+recent_days = 21
+max_details_per_run = 700
+time_budget_seconds = 2400
+# The month the full history starts (python -m pipeline.fetch_311 --backfill).
+history_since = "2026-01"
+
+[seeclickfix.repeats]
+radius_m = 50
+window_days = 60
+recent_open_days = 30
+
+# How often each data source should update. The daily run fails when one goes
+# longer than max_days, and the About page lists them.
+[freshness]
+# Figures published monthly or yearly (schools, unemployment, housing)
+# are judged by the engine, by the period they cover (pipeline/rhythms.py).
+# New agendas and minutes can wait this long for a summary before the daily run
+# flags them.
+summary_grace_days = 2
+sources = [
+  { label = "Meetings (Agenda Center)", file = "meetings/status.json", max_days = 2 },
+  { label = "311 requests", file = "311/status.json", max_days = 2 },
+  { label = "311 scorecard", file = "311/scorecard.json", field = "generated_at", max_days = 2 },
+]
+
+# Who represents you (the Officials page). Kept by hand from official city
+# and school websites; checked is the date the list was last checked against
+# them. Only city- and school-issued email addresses. Every seat is elected
+# at large, so there is no ward map. Bangor has no elected mayor: the council
+# chooses its chair, who serves as mayor, and appoints a city manager.
+[officials]
+checked = "2026-10-04"
+
+# From the council's page and each councilor's page in the city directory
+# (the year each term ends), confirmed against the official results of
+# November 5, 2024 (Hawes, Beck, Mallar) and November 4, 2025 (Carson,
+# Faloon, Walker), and the roll call of the council's minutes of September 14,
+# 2026. Deane, Fish, and Leonard were elected in November 2023, whose results
+# the city's page no longer lists. Terms end in November: three seats are
+# elected each November, and the new council chooses its chair right after
+# (the council's page).
+[[officials.bodies]]
+name = "City Council"
+url = "https://www.bangormaine.gov/446/City-Council"
+note = "Nine councilors elected at-large, on a non-partisan ballot, for three years; three seats are elected each November. Each November the council chooses one of its members as chair, who also serves as mayor."
+members = [
+  { name = "Susan Hawes", seat = "At-large", role = "Council Chair", term_ends = "2027-11", email = "susan.hawes@bangormaine.gov" },
+  { name = "Michael Beck", seat = "At-large", term_ends = "2027-11", email = "michael.beck@bangormaine.gov" },
+  { name = "Daniel Carson", seat = "At-large", term_ends = "2028-11", email = "daniel.carson@bangormaine.gov" },
+  { name = "Susan Deane", seat = "At-large", term_ends = "2026-11", email = "susan.deane@bangormaine.gov" },
+  { name = "Susan Faloon", seat = "At-large", term_ends = "2028-11", email = "Susan.Faloon@bangormaine.gov" },
+  { name = "Carolyn Fish", seat = "At-large", term_ends = "2026-11", email = "carolyn.fish@bangormaine.gov" },
+  { name = "Joseph Leonard", seat = "At-large", term_ends = "2026-11", email = "joseph.leonard@bangormaine.gov" },
+  { name = "Wayne Mallar", seat = "At-large", term_ends = "2027-11", email = "wayne.mallar@bangormaine.gov" },
+  { name = "Angela Walker", seat = "At-large", term_ends = "2028-11", email = "angela.walker@bangormaine.gov" },
+]
+
+# From the School Committee's page on the school department's website (members,
+# officers, terms, and email addresses), confirmed against the official results
+# of November 5, 2024 (Luciano, Sprague) and November 4, 2025 (Cook, Speed),
+# and the members present in the committee's minutes of September 10, 2026.
+[[officials.bodies]]
+name = "School Committee"
+url = "https://www.bangorschools.net/page/school-committee"
+note = "Seven members elected at-large for three years; two or three seats are elected each November."
+members = [
+  { name = "Timothy Surrette", seat = "At-large", role = "Chair", term_ends = "2026-11", email = "tsurrette@bangorschools.net" },
+  { name = "Katie Brydon", seat = "At-large", role = "Vice Chair", term_ends = "2026-11", email = "kbrydon@bangorschools.net" },
+  { name = "Mallory Cook", seat = "At-large", term_ends = "2028-11", email = "malcook@bangorschools.net" },
+  { name = "Sara Luciano", seat = "At-large", term_ends = "2027-11", email = "sluciano@bangorschools.net" },
+  { name = "Shelly Okere", seat = "At-large", term_ends = "2026-11", email = "sokere@bangorschools.net" },
+  { name = "Ben Speed", seat = "At-large", term_ends = "2028-11", email = "benspeed@bangorschools.net" },
+  { name = "Ben Sprague", seat = "At-large", term_ends = "2027-11", email = "bsprague@bangorschools.net" },
+]
+
+# The town's own text in Spanish, keyed by its English as written above or as
+# the data writes it (board names). Plain Spanish, addressed as usted,
+# following the engine's site/strings/es-guide.md and Lawrence's table where
+# the English is the same. A board's name is given in Spanish only; the site
+# shows its English name after it. Not checked by a person: the site says it's
+# translated with AI.
+[strings.es]
+"How fast the city responds to service requests on SeeClickFix, by category." = "Qué tan rápido responde la ciudad a las solicitudes de servicio en SeeClickFix, por categoría."
+"311 requests" = "Solicitudes al 311"
+# The masthead and the share text.
+"Public data on how Bangor, Maine decides and spends. Updated daily." = "Datos públicos sobre cómo Bangor, Maine, toma decisiones y gasta su dinero. Se actualizan a diario."
+"An independent guide to city government in Bangor, Maine" = "Una guía independiente sobre el gobierno de la ciudad de Bangor, Maine"
+"The city's tax rate and what the property tax raises, compared with Maine's other towns." = "La tasa de impuestos de la ciudad y lo que recauda el impuesto a la propiedad, comparadas con las de los demás municipios de Maine."
+
+# Section summaries (the engine translates the section names every town shares).
+"Every board and committee meeting in the city's Agenda Center, with agendas, and minutes from January 2026 on." = "Todas las reuniones de las juntas y comités en el Centro de Agendas de la ciudad, con sus agendas, y las actas desde enero de 2026."
+"Bangor's graduation rate, chronic absenteeism, state test results, and spending per pupil, with the state's." = "La tasa de graduación de Bangor, el ausentismo crónico, los resultados de los exámenes estatales y el gasto por estudiante, comparados con los del estado."
+"The City Council and School Committee, and how to reach them." = "El Concejo Municipal y el Comité Escolar, y cómo comunicarse con ellos."
+
+# How to take part.
+"Anyone may speak for up to three minutes in the general public comment period near the start of each Council meeting; people who live or own property in Bangor speak first. To comment by Zoom, register on the city's Meeting Participation page by 9 a.m. on the day of the meeting." = "Cualquier persona puede hablar hasta tres minutos en el turno general de comentarios del público, cerca del comienzo de cada reunión del Concejo; las personas que viven o tienen una propiedad en Bangor hablan primero. Para comentar por Zoom, inscríbase en la página de Participación en las Reuniones de la ciudad antes de las 9 a.m. del día de la reunión."
+"the city's Meeting Participation page" = "la página de Participación en las Reuniones de la ciudad"
+"the City of Bangor's YouTube channel" = "el canal de YouTube de la Ciudad de Bangor"
+"Members of the public may address the School Committee for up to three minutes on school and education matters, after stating their name and where they live." = "El público puede hablarle al Comité Escolar hasta tres minutos sobre asuntos de las escuelas y la educación, después de decir su nombre y dónde vive."
+"the School Committee's page" = "la página del Comité Escolar"
+"the School Committee's meetings on YouTube" = "las reuniones del Comité Escolar en YouTube"
+
+# Glossary definitions (the terms themselves stay as the agendas write them).
+"A part of a public meeting closed to the public. Maine's Freedom of Access Act allows it only for specific reasons, such as lawsuits, real estate, or personnel matters." = "Una parte de una reunión pública que se hace a puerta cerrada. La Ley de Libertad de Acceso de Maine (Freedom of Access Act) la permite solo por razones específicas, como demandas, bienes raíces o asuntos de personal."
+"Maine Revised Statutes Annotated, the state's laws." = "Estatutos Revisados de Maine (Maine Revised Statutes Annotated), las leyes del estado."
+"Routine items the City Council adopts together in one motion without discussion. An item is taken up separately only if a councilor asks." = "Asuntos de rutina que el Concejo Municipal aprueba juntos en una sola moción, sin discusión. Un asunto se trata por separado solo si un concejal lo pide."
+"A resolve or ordinance's introduction at a City Council meeting. The Council votes on it at a later meeting, often after a committee has reviewed it." = "La presentación de una resolución (resolve) o de una ordenanza en una reunión del Concejo Municipal. El Concejo la vota en una reunión posterior, a menudo después de que un comité la revise."
+"A kind of City Council vote. In Bangor, the Council appropriates money and accepts grants by resolve." = "Un tipo de votación del Concejo Municipal. En Bangor, el Concejo asigna dinero y acepta subvenciones mediante una resolución (resolve)."
+"Tax increment financing: a district where some of the property tax from new development is set aside, for public projects or for the development itself." = "Financiamiento por incremento de impuestos (tax increment financing): una zona donde parte del impuesto a la propiedad que generan las nuevas construcciones se reserva para proyectos públicos o para el propio proyecto."
+"An agreement, under a tax increment financing (TIF) district, in which the city returns part of a development's new property tax to its owner." = "Un acuerdo, dentro de una zona de financiamiento por incremento de impuestos (TIF), en el que la ciudad le devuelve al dueño de un proyecto parte del nuevo impuesto a la propiedad que este genera."
+"Community Development Block Grant: federal money, from the Department of Housing and Urban Development, for housing and neighborhood projects that serve low- and moderate-income residents." = "Subvención en Bloque para el Desarrollo Comunitario (Community Development Block Grant): dinero federal del Departamento de Vivienda y Desarrollo Urbano para proyectos de vivienda y de barrios que benefician a residentes de ingresos bajos y moderados."
+"A deed in which the city gives up whatever claim it has to a property, such as one it took for unpaid taxes." = "Una escritura en la que la ciudad renuncia a cualquier derecho que tenga sobre una propiedad, por ejemplo, una que tomó por impuestos no pagados."
+
+# Officials: notes, seats, and roles.
+"Nine councilors elected at-large, on a non-partisan ballot, for three years; three seats are elected each November. Each November the council chooses one of its members as chair, who also serves as mayor." = "Nueve concejales elegidos por toda la ciudad, en una boleta sin partidos, por tres años; cada noviembre se eligen tres puestos. Cada noviembre el concejo escoge a uno de sus miembros como presidente, que también sirve como alcalde."
+"Seven members elected at-large for three years; two or three seats are elected each November." = "Siete miembros elegidos por toda la ciudad por tres años; cada noviembre se eligen dos o tres puestos."
+"Council Chair" = "Presidente del Concejo"
+
+# Boards, as the Agenda Center names them (after [meetings.aliases] and the
+# committee names above).
+"City Council Workshop" = "Sesión de trabajo del Concejo Municipal"
+"City Council Business and Economic Development Committee" = "Comité de Negocios y Desarrollo Económico del Concejo Municipal"
+"City Council Finance Committee" = "Comité de Finanzas del Concejo Municipal"
+"City Council Government Operations Committee" = "Comité de Operaciones del Gobierno del Concejo Municipal"
+"City Council Infrastructure Committee" = "Comité de Infraestructura del Concejo Municipal"
+"City Council Legislative Committee" = "Comité Legislativo del Concejo Municipal"
+"City Council Personnel Committee" = "Comité de Personal del Concejo Municipal"
+"School Committee Workshop" = "Sesión de trabajo del Comité Escolar"
+"Advisory Committee on Homelessness" = "Comité Asesor sobre la Falta de Vivienda"
+"Advisory Committee on Racial Equity, Inclusion, and Human Rights" = "Comité Asesor de Equidad Racial, Inclusión y Derechos Humanos"
+"BanAir Board of Directors" = "Junta Directiva de BanAir"
+"Bangor Area Storm Water Group" = "Grupo de Aguas Pluviales del Área de Bangor"
+"Bangor Livable Communities" = "Comunidades Habitables de Bangor"
+"Bangor Water District Board of Trustees" = "Junta de Síndicos del Distrito de Agua de Bangor"
+"Board of Assessment Review" = "Junta de Revisión de Tasaciones"
+"Board of Ethics" = "Junta de Ética"
+"Commission on Cultural Development" = "Comisión de Desarrollo Cultural"
+"Downtown Parking Advisory Committee" = "Comité Asesor de Estacionamiento del Centro"
+"Firearms Discharge Committee" = "Comité de Disparo de Armas de Fuego"
+"Historic Preservation Commission" = "Comisión de Preservación Histórica"
+"Opioid Settlement Funds Advisory Committee" = "Comité Asesor de los Fondos del Acuerdo sobre Opioides"
+"Parks, Recreation & Harbor Advisory Committee" = "Comité Asesor de Parques, Recreación y Puerto"
+"Penjajawoc Marsh - Bangor Mall Management Commission" = "Comisión de Manejo del Pantano Penjajawoc y el Bangor Mall"
+"Tree Board" = "Junta de Árboles"

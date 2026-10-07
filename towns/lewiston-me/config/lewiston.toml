@@ -1,0 +1,428 @@
+# Site configuration for Lewiston, Maine. Everything town-specific lives here;
+# the code is the Publick engine (github.com/publick-org/publick-engine).
+# Build with: python -m pipeline.build_site --town lewiston (with the engine on PYTHONPATH)
+#
+# The network's first Maine city. Lewiston's website runs on CivicPlus, as
+# Gloucester's does: the city calendar lists the meetings and links each one's
+# agenda in the Archive Center, where the City Clerk also posts minutes, one
+# collection per board (and, for the City Council, the Finance Committee and the
+# Planning Board, one per year). Its Agenda Center is empty. The School Committee
+# posts its agendas and minutes in public Google Drive folders, a folder per
+# meeting ([drive_meetings]). The city doesn't use SeeClickFix, so the site has no 311 section. The engine's
+# Maine package gives the tax rate, the property tax, and the tax bill, from
+# Maine Revenue Services and the Maine GeoLibrary ([finance]), and school
+# figures, from the Department of Education's ESSA Dashboard ([schools]);
+# housing and unemployment come from the Census and BLS, as for every town.
+#
+# The site is in English and Spanish ([site] languages), as every town in the
+# network is. Many of Lewiston's residents came from Somalia and other African
+# countries and read Somali, French, Portuguese, Lingala or Arabic first; those
+# languages aren't offered yet. [strings.es], at the end, gives the Spanish for
+# the town's own text; the engine has the rest.
+
+[site]
+name = "Lewiston Publick"
+# The masthead shows name_prefix in dark ink and name_suffix in the accent
+# color: the town, then the network.
+name_prefix = "Lewiston "
+name_suffix = "Publick"
+domain = "lewiston-me.publick.org"
+# The network of town sites this one belongs to, named in every page footer.
+network = "Publick"
+network_url = "https://publick.org"
+tagline = "Public data on how Lewiston, Maine decides and spends. Updated daily."
+# One line under the name at the top of every page.
+masthead = "An independent guide to city government in Lewiston, Maine"
+repo_url = "https://github.com/publick-org/publick.org"
+# Public contact address. Shown on the About and Accessibility pages when set.
+contact_email = "lewiston-me@publick.org"
+timezone = "America/New_York"
+user_agent = "lewiston-me.publick.org (+https://lewiston-me.publick.org/about/)"
+# English at the site's root, Spanish under /es/.
+languages = ["en", "es"]
+
+# From the city website's stylesheet (lewistonmaine.gov): its navy (the toolbar
+# and calendar headings), a darker navy, a light tint of the navy, and its
+# rust (links on hover). Each passes WCAG AA on white: 9.3, 12.0 and 4.7 to 1.
+# Its bright blue (#0098f7, 3.1 to 1) doesn't, so it isn't used.
+[site.colors]
+primary = "#064a76"
+primary_dark = "#003b51"
+primary_soft = "#e6edf2"
+accent = "#b7582e"
+
+[town]
+name = "Lewiston"
+state = "Maine"
+state_abbr = "ME"
+official_site = "https://www.lewistonmaine.gov"
+
+# Sections appear in the main navigation in this order. Each one is a folder
+# under site/pages/<slug>/ and is served at https://<domain>/<slug>/.
+[[sections]]
+slug = "meetings"
+title = "Meetings"
+summary = "When the City Council, the Finance Committee, the Planning Board, and the city's other boards meet, with agendas, and minutes from January 2026 on."
+status = "live"
+
+[[sections]]
+slug = "budget"
+title = "City budget"
+nav = "Budget"
+summary = "The city's tax rate and what the property tax raises, compared with Maine's other towns, and the average single-family tax bill."
+status = "live"
+
+[[sections]]
+slug = "schools"
+title = "Schools"
+summary = "Lewiston Public Schools' graduation rate, absenteeism, state test results, and spending per pupil, with the state's."
+status = "live"
+
+[[sections]]
+slug = "housing"
+title = "Housing"
+summary = "New homes permitted, home values and rents, and the housing stock."
+status = "live"
+
+[[sections]]
+slug = "officials"
+title = "Who represents you"
+nav = "Officials"
+summary = "The mayor, City Council, and School Committee, by office and by ward, and how to reach them."
+status = "live"
+
+[[sections]]
+slug = "about"
+title = "About"
+summary = "Data sources, update schedule, metric definitions, and corrections."
+status = "live"
+
+# Page view counting with GoatCounter, on the network's site; prefix is this
+# town's folder.
+[analytics]
+goatcounter = "publick"
+prefix = "lewiston-me"
+public_stats = ""
+
+# Public meetings, from the city's CivicPlus calendar, with agendas linked
+# from its events into the Archive Center.
+[meetings]
+base_url = "https://www.lewistonmaine.gov"
+archive_url = "https://www.lewistonmaine.gov/Archive.aspx"
+archive_name = "city's Archive Center"
+# The city's site resets some connections; a slower pace and the client's retries help.
+request_delay = 5.0
+max_event_pages = 40
+# The Main City Calendar has festivals, races, and elections next to a few
+# committees' meetings: only titles with these words are public meetings.
+include_pattern = '\b(board|commission|committee|council|authority|meeting|hearing|workshop)\b'
+# "Lewiston Housing Authority Wedgewood Development Updates" was a public
+# information session, not a meeting of the authority.
+exclude_pattern = '\bupdates?\b'
+
+# The city calendar, read month by month: this month and the next two. Each
+# board with a calendar of its own, and the Main City Calendar, where the
+# Public Art Committee, the Public Safety Committee and the 9-1-1 Committee are.
+[meetings.civicplus]
+calendars = ["City Council Meetings & Workshops", "Finance Committee", "Planning Board", "Complete Street Committee", "Main City Calendar"]
+
+# Calendar titles and Archive Center collections, as the board's usual name.
+# The City Council meets as a workshop and a regular meeting the same evening,
+# listed as one event ("City Council Workshop & Meeting").
+[meetings.aliases]
+"City Council Workshop &" = "City Council"
+"City Council Workshop" = "City Council"
+"City Council Budget Workshop" = "City Council"
+"City Council Budget Workshop &" = "City Council"
+"City Council Meeting & Budget Workshop" = "City Council"
+"City Council Budget Public Hearing &" = "City Council"
+"911 Committee" = "9-1-1 Committee"
+# The calendar numbers the Public Safety Committee's meetings; a meeting
+# numbered past these needs a line here.
+"Public Safety Committee Meeting #4" = "Public Safety Committee"
+"Public Safety Committee Meeting #5" = "Public Safety Committee"
+"Public Safety Committee Meeting #6" = "Public Safety Committee"
+"Public Safety Committee Meeting #7" = "Public Safety Committee"
+"Public Safety Committee Meeting #8" = "Public Safety Committee"
+
+# Minutes from the city's Archive Center. Minutes for meetings on or after
+# minutes_since are collected: January 2026, when the councilors elected in
+# November 2025 took office. The City Council's and the Finance Committee's
+# minutes are text; the Planning Board's, and some of the Historic Preservation
+# Review Board's, are scans, which the model transcribes after the month's
+# summaries. The City Council's, the Finance Committee's and the Planning
+# Board's collections are named by year ("City Council Meeting Minutes 2026",
+# "Finance Committee - Minutes 2026", "Planning Board Minutes 2026 - 2030"),
+# which the engine reads as their boards' minutes. The 9-1-1 Committee's collection ("CMT 911
+# Agendas and Minutes") holds some agendas too, which are saved as minutes.
+[archive]
+index = "Archive.aspx"
+minutes_since = "2026-01-01"
+
+# Archive collection names (without "Minutes") mapped to the boards' usual names.
+[archive.aliases]
+"CDBG" = "Community Development Block Grant Committee"
+"City Council Meeting" = "City Council"
+"CMT Historic Preservation Review Board" = "Historic Preservation Review Board"
+"CMT Public Art Committee" = "Public Art Committee"
+"CMT 911 Agendas and" = "9-1-1 Committee"
+"CMT 911" = "9-1-1 Committee"
+
+# The School Committee's agendas and minutes, in the public Google Drive folder
+# linked from its page on the school department's website ("Archived School
+# Committee Meeting Minutes & Agendas"): a folder per school year ("2026-2027
+# School Committee"), and in it a folder per meeting, named by its date ("04
+# 10-5-26"). Each meeting's minutes are posted in the packet of the meeting
+# that approves them, and its agenda gives the time ("on or about 5:30 pm").
+# The folder's link carries a resource key, needed to read it.
+[drive_meetings]
+source_name = "Lewiston Public Schools"
+posted_on = "the School Committee's Google Drive"
+page_url = "https://www.lewistonpublicschools.org/en-US/school-committee-bc9f3846"
+meetings_folder = "0ByV5LOTYl0ObfnowOTlLRDZpankyc1hZcnF0TUV4U3hnTEljNGdvNDE3Z2p0b0VSS2lfekE"
+resource_key = "0-kGE8IAFzu2Zp_mSIJG0OQg"
+body = "School Committee"
+since = "2026-01-01"
+
+# Agenda and minutes PDFs, in the network's documents bucket.
+[storage]
+endpoint = "https://6bbfee5a3892553c7993dbfa4b4e8453.r2.cloudflarestorage.com"
+bucket = "publick-documents"
+public_url = "https://files.publick.org"
+prefix = "lewiston-me"
+
+# Agenda previews and decisions from minutes, written by a language model and
+# labeled as AI-generated on the site, and their Spanish translations. Within
+# the network's monthly budget. Only meetings from `since` on are summarized,
+# so the city's first months don't take the month's budget; older meetings keep
+# their records and documents. The City Council's agendas are posted with their
+# full packets (109 pages for October 6, 2026); those over the engine's 100-page
+# limit get no preview, but their minutes do.
+[summaries]
+model = "claude-sonnet-5"
+max_per_run = 40
+input_price = 2.0
+output_price = 10.0
+max_cost_per_run = 5.0
+since = "2026-07-01"
+
+# How residents can take part, per board, shown on its meeting pages. Only
+# what the city or the school department has published; each entry names its source.
+[participation."City Council"]
+comment = "Any Lewiston resident or taxpayer may speak during the public comment period of a regular meeting, for up to 3 minutes. Residents who can't attend can email comments on an agenda item to publiccomments@lewistonmaine.gov, and they are forwarded to the mayor and councilors before the meeting."
+source_title = "Mayor & City Council page"
+source_url = "https://www.lewistonmaine.gov/105/Mayor-City-Council"
+video_title = "the City of Lewiston's YouTube channel"
+video_url = "https://www.youtube.com/channel/UCprFi23oI7DclYQ8kxx_mmQ"
+
+[participation."School Committee"]
+comment = "Public comments must be made in person at School Committee meetings."
+source_title = "School Committee page"
+source_url = "https://www.lewistonpublicschools.org/en-US/school-committee-bc9f3846"
+video_title = "Lewiston Public Schools' archived meeting videos"
+video_url = "https://www.youtube.com/channel/UCyvRhXaDrDfofhDvkf5Q9bw/videos"
+
+# Terms that come up on agendas and minutes, explained on each meeting page
+# where they appear. Acronyms match exactly; other terms ignore case.
+[[glossary]]
+term = "executive session"
+definition = "A part of a public meeting closed to the public. State law (1 MRSA §405) allows it only for specific reasons, such as lawsuits, real estate, or personnel matters."
+
+[[glossary]]
+term = "MRSA"
+definition = "Maine Revised Statutes Annotated, the state's laws."
+
+[[glossary]]
+term = "consent agenda"
+definition = "Routine items, marked with an asterisk on the City Council's agenda, voted on together in one motion unless a councilor or a resident asks to take one up separately."
+
+[[glossary]]
+term = "first passage"
+definition = "The City Council's first vote on an ordinance or an amendment to one. It takes effect only after a second vote, final passage, at a later meeting."
+bodies = ["City Council"]
+
+[[glossary]]
+term = "TIF"
+definition = "Tax increment financing: an agreement under which some of the new property tax from a development goes back to the project, or to public improvements around it, for a set number of years."
+
+[[glossary]]
+term = "Credit Enhancement Agreement"
+definition = "An agreement under a TIF in which the city pays a developer back part of the new property tax its project brings in."
+
+[[glossary]]
+term = "LCIP"
+definition = "Lewiston Capital Improvement Program: the city's plan for buildings, roads, vehicles, and other long-lived purchases over the next several years."
+
+[[glossary]]
+term = "CDBG"
+definition = "Community Development Block Grant: money from the federal government for housing and neighborhood projects that benefit people with low and moderate incomes."
+
+# Tax rate, property tax, and the city's budget (pipeline/states/me/). The
+# rates, commitment, and valuation are Maine Revenue Services', under the name
+# "LEWISTON"; the average single-family bill is calculated from them and the
+# Maine GeoLibrary's parcel table, where Lewiston is GEOCODE 01050 and codes
+# its single-family homes 101 ("SINGLE FAMILY"). The city's own budget books
+# are on its Municipal Budget page.
+[finance]
+mrs_municipality = "Lewiston"
+megis_geocode = "01050"
+single_family_use = ["101"]
+budget_documents_url = "https://www.lewistonmaine.gov/685/Municipal-Budget"
+
+# Schools: the Department of Education's ESSA Dashboard, where the district is
+# "Lewiston Public Schools".
+[schools]
+doe_district = "Lewiston Public Schools"
+district_name = "Lewiston Public Schools"
+
+# Housing: Census building permits (state and place FIPS codes) and the
+# American Community Survey through Census Reporter (geo ids). Lewiston is a
+# Census place, Lewiston city (23-38740).
+[housing]
+bps_region = "Northeast Region"
+bps_prefix = "ne"
+bps_state = "23"
+bps_place = "38740"
+census_geo = "16000US2338740"
+state_geo = "04000US23"
+
+# Unemployment rate (BLS Local Area Unemployment Statistics, area
+# CT2338740000000, Lewiston city). City rates are not seasonally adjusted; the
+# state series is shown for context. bulk_file is the state's file under
+# download.bls.gov/pub/time.series/la/, used when the API refuses.
+[labor]
+local_series = "LAUCT233874000000003"
+state_series = "LAUST230000000000003"
+bulk_file = "la.data.26.Maine"
+
+[freshness]
+summary_grace_days = 2
+sources = [
+  { label = "Meetings (city calendar)", file = "meetings/status.json", max_days = 2 },
+]
+
+# Who represents you (the Officials page). Kept by hand from official city
+# and school websites; checked is the date the list was last checked against
+# them. Only city- and school-issued email addresses, and the mayor's office
+# phone. Every seat but the mayor's and one School Committee seat is elected by
+# ward. The ward file is data/static/lewiston-wards-2020.geojson: the seven
+# wards drawn after the 2020 Census, from the city's own map service, with 2020
+# population (37,121 in all, about 5,300 a ward). Terms are from the city's schedule for its move to
+# staggered terms (charter sections 2.01 and 5.01): the seats elected in 2023
+# for three years end in January 2027, those elected in 2025 for two in
+# January 2028.
+[officials]
+checked = "2026-10-04"
+wards_file = "lewiston-wards-2020.geojson"
+wards_publisher = "the City of Lewiston"
+wards_year = 2020
+wards_url = "https://maps2.lewistonmaine.gov/arcgis/rest/services/Public/Wards_council/MapServer/0"
+
+# Elected in the run-off of December 12, 2023 (official results).
+[[officials.bodies]]
+name = "Mayor"
+url = "https://www.lewistonmaine.gov/1182/Mayor-Carl-L-Sheline"
+note = "Elected citywide. This term is three years, as the city moves to staggered terms; from 2027 on, two years. The mayor presides over the City Council."
+members = [
+  { name = "Carl L. Sheline", seat = "Citywide", term_ends = "2027-01", email = "csheline@lewistonmaine.gov", phone = "(207) 513-3121" },
+]
+
+# From the city's Elected Officials page and each councilor's page; Wards 1, 3
+# and 7 elected on November 4, 2025, Wards 2, 4 and 6 on November 7, 2023
+# (official results). The councilor elected for Ward 5 in 2025 left the seat;
+# the council appointed Chrissy Noble on January 20, 2026 (its minutes). The
+# council elected David Chittim its president on January 5, 2026 (its minutes).
+[[officials.bodies]]
+name = "City Council"
+url = "https://www.lewistonmaine.gov/1346/Elected-Officials-and-City-Ward-Map"
+note = "Seven councilors, each elected by one of the city's seven wards. The mayor presides."
+members = [
+  { name = "Joshua L. Nagine", seat = "Ward 1", ward = 1, term_ends = "2028-01", email = "jnagine@lewistonmaine.gov", url = "https://www.lewistonmaine.gov/1340/Ward-1-Councilor-Joshua-Nagine" },
+  { name = "Susan G. Longchamps", seat = "Ward 2", ward = 2, term_ends = "2027-01", email = "slongchamps@lewistonmaine.gov", url = "https://www.lewistonmaine.gov/1341/Ward-2-Councilor-Susan-Longchamps" },
+  { name = "Scott A. Harriman", seat = "Ward 3", ward = 3, term_ends = "2028-01", email = "sharriman@lewistonmaine.gov", url = "https://www.lewistonmaine.gov/1184/Ward-3-Councilor-Scott-A-Harriman" },
+  { name = "Michael R. Roy", seat = "Ward 4", ward = 4, term_ends = "2027-01", email = "mroy@lewistonmaine.gov", url = "https://www.lewistonmaine.gov/1342/Ward-4-Councilor-Michael-Roy" },
+  { name = "Chrissy Noble", seat = "Ward 5", ward = 5, role = "Appointed January 2026 to fill a vacancy", term_ends = "2028-01", email = "cnoble@lewistonmaine.gov", url = "https://www.lewistonmaine.gov/1421/Ward-5-Councilor-Chrissy-Noble" },
+  { name = "David B. Chittim", seat = "Ward 6", ward = 6, role = "City Council President", term_ends = "2027-01", email = "dchittim@lewistonmaine.gov", url = "https://www.lewistonmaine.gov/1344/Ward-6-Councilor-David-Chittim" },
+  { name = "Bret Martel", seat = "Ward 7", ward = 7, term_ends = "2028-01", email = "bmartel@lewistonmaine.gov", url = "https://www.lewistonmaine.gov/1419/WARD-7-Councilor-Bret-Martel" },
+]
+
+# From the school department's School Committee page and the committee's
+# minutes of September 21, 2026 (members present). Wards 2, 4 and 6 and the
+# at-large seat elected on November 4, 2025, Wards 1 and 3 on November 7, 2023
+# (official results). The council filled the Ward 5 seat on January 20, 2026
+# and the Ward 7 seat on July 21, 2026 (its minutes), until January 2027; the
+# school department's page doesn't list Ward 7 or its address yet. Chair since
+# February 2, 2026, and Vice Chair since March 9, 2026 (the committee's
+# minutes). The council's representative is elected by the council each year.
+[[officials.bodies]]
+name = "School Committee"
+url = "https://www.lewistonpublicschools.org/en-US/school-committee-bc9f3846"
+note = "Seven members elected by ward and one at-large, and a city councilor chosen by the City Council."
+members = [
+  { name = "Luke Jensen", seat = "At-large", term_ends = "2028-01", email = "lukejensen@lewistonpublicschools.org" },
+  { name = "Phoenix McLaughlin", seat = "Ward 1", ward = 1, role = "Chair", term_ends = "2027-01", email = "pmclaughlin@lewistonpublicschools.org" },
+  { name = "Janet Beaudoin", seat = "Ward 2", ward = 2, role = "Vice Chair", term_ends = "2028-01", email = "jbeaudoin@lewistonpublicschools.org" },
+  { name = "Elizabeth Eames", seat = "Ward 3", ward = 3, term_ends = "2027-01", email = "eeames@lewistonpublicschools.org" },
+  { name = "Julia Harper", seat = "Ward 4", ward = 4, term_ends = "2028-01", email = "jharper@lewistonpublicschools.org" },
+  { name = "Lynnea Hawkins", seat = "Ward 5", ward = 5, role = "Appointed January 2026 to fill a vacancy", term_ends = "2027-01", email = "lhawkins@lewistonpublicschools.org" },
+  { name = "Meghan Hird", seat = "Ward 6", ward = 6, term_ends = "2028-01", email = "mhird@lewistonpublicschools.org" },
+  { name = "Emily Levasseur", seat = "Ward 7", ward = 7, role = "Appointed July 2026 to fill a vacancy", term_ends = "2027-01" },
+  { name = "Scott A. Harriman", seat = "City Council representative", email = "sharriman@lewistonpublicschools.org" },
+]
+
+# The town's own text in Spanish, keyed by its English as written above or as
+# the data writes it (board names). Plain Spanish addressed as usted, following
+# the engine's site/strings/es-guide.md and Lawrence's and Manchester's tables
+# where the English is the same. A board's name is given in Spanish only; the
+# site shows its English name after it. Not checked by a person: the site says
+# it's translated with AI.
+[strings.es]
+# The masthead and the share text.
+"Public data on how Lewiston, Maine decides and spends. Updated daily." = "Datos públicos sobre cómo Lewiston, Maine, toma decisiones y gasta su dinero. Se actualizan a diario."
+"An independent guide to city government in Lewiston, Maine" = "Una guía independiente sobre el gobierno de la ciudad de Lewiston, Maine"
+
+# Section summaries (the engine translates the section names every town shares).
+"When the City Council, the Finance Committee, the Planning Board, and the city's other boards meet, with agendas, and minutes from January 2026 on." = "Cuándo se reúnen el Concejo Municipal, el Comité de Finanzas, la Junta de Planificación y las demás juntas de la ciudad, con sus agendas, y las actas desde enero de 2026."
+"The city's tax rate and what the property tax raises, compared with Maine's other towns, and the average single-family tax bill." = "La tasa del impuesto a la propiedad de la ciudad y lo que recauda, comparadas con las de los demás municipios de Maine, y la factura promedio del impuesto a la propiedad de una casa unifamiliar."
+"Lewiston Public Schools' graduation rate, absenteeism, state test results, and spending per pupil, with the state's." = "La tasa de graduación de las Escuelas Públicas de Lewiston, el ausentismo, los resultados de los exámenes estatales y el gasto por estudiante, comparados con los del estado."
+"The mayor, City Council, and School Committee, by office and by ward, and how to reach them." = "El alcalde, el Concejo Municipal y el Comité Escolar, por cargo y por distrito, y cómo comunicarse con ellos."
+
+# Where the city posts agendas and minutes, and the data the site keeps up to date.
+"city's Archive Center" = "Centro de Archivos de la ciudad"
+"Meetings (city calendar)" = "Reuniones (calendario de la ciudad)"
+
+# How to take part.
+"Any Lewiston resident or taxpayer may speak during the public comment period of a regular meeting, for up to 3 minutes. Residents who can't attend can email comments on an agenda item to publiccomments@lewistonmaine.gov, and they are forwarded to the mayor and councilors before the meeting." = "Cualquier residente o contribuyente de Lewiston puede hablar durante el turno de comentarios del público en una reunión regular, hasta 3 minutos. Quienes no puedan asistir pueden enviar sus comentarios sobre un punto de la agenda por correo electrónico a publiccomments@lewistonmaine.gov, y se envían al alcalde y a los concejales antes de la reunión."
+"Mayor & City Council page" = "Página del Alcalde y el Concejo Municipal"
+"the City of Lewiston's YouTube channel" = "el canal de YouTube de la Ciudad de Lewiston"
+"Public comments must be made in person at School Committee meetings." = "Los comentarios del público se hacen en persona en las reuniones del Comité Escolar."
+"School Committee page" = "Página del Comité Escolar"
+"Lewiston Public Schools' archived meeting videos" = "los videos de reuniones anteriores de las Escuelas Públicas de Lewiston"
+
+# Glossary definitions (the terms themselves stay as the agendas write them).
+"A part of a public meeting closed to the public. State law (1 MRSA §405) allows it only for specific reasons, such as lawsuits, real estate, or personnel matters." = "Una parte de una reunión pública que se hace a puerta cerrada. La ley estatal (1 MRSA §405) la permite solo por razones específicas, como demandas, bienes raíces o asuntos de personal."
+"Maine Revised Statutes Annotated, the state's laws." = "Estatutos Revisados Anotados de Maine (Maine Revised Statutes Annotated), las leyes del estado."
+"Routine items, marked with an asterisk on the City Council's agenda, voted on together in one motion unless a councilor or a resident asks to take one up separately." = "Asuntos de rutina, marcados con un asterisco en la agenda del Concejo Municipal, que se votan juntos en una sola moción, a menos que un concejal o un residente pida tratar alguno por separado."
+"The City Council's first vote on an ordinance or an amendment to one. It takes effect only after a second vote, final passage, at a later meeting." = "La primera votación del Concejo Municipal sobre una ordenanza o una enmienda a una ordenanza. Solo entra en vigor después de una segunda votación, la aprobación final (final passage), en una reunión posterior."
+"Tax increment financing: an agreement under which some of the new property tax from a development goes back to the project, or to public improvements around it, for a set number of years." = "Financiamiento por incremento de impuestos (tax increment financing): un acuerdo por el cual parte del nuevo impuesto a la propiedad que genera un proyecto vuelve al proyecto, o a mejoras públicas a su alrededor, durante un número fijo de años."
+"An agreement under a TIF in which the city pays a developer back part of the new property tax its project brings in." = "Un acuerdo dentro de un TIF por el cual la ciudad le devuelve a un desarrollador parte del nuevo impuesto a la propiedad que genera su proyecto."
+"Lewiston Capital Improvement Program: the city's plan for buildings, roads, vehicles, and other long-lived purchases over the next several years." = "Programa de Mejoras de Capital de Lewiston (Lewiston Capital Improvement Program): el plan de la ciudad para edificios, calles, vehículos y otras compras duraderas en los próximos años."
+"Community Development Block Grant: money from the federal government for housing and neighborhood projects that benefit people with low and moderate incomes." = "Subvención en Bloque para el Desarrollo Comunitario (Community Development Block Grant): dinero del gobierno federal para proyectos de vivienda y de los vecindarios que benefician a personas de ingresos bajos y moderados."
+
+# Officials: notes, seats, and roles.
+"Elected citywide. This term is three years, as the city moves to staggered terms; from 2027 on, two years. The mayor presides over the City Council." = "Elegido por toda la ciudad. Este mandato es de tres años, mientras la ciudad pasa a mandatos escalonados; desde 2027, de dos años. El alcalde preside el Concejo Municipal."
+"Seven councilors, each elected by one of the city's seven wards. The mayor presides." = "Siete concejales, cada uno elegido por uno de los siete distritos de la ciudad. El alcalde preside."
+"Seven members elected by ward and one at-large, and a city councilor chosen by the City Council." = "Siete miembros elegidos por distrito y uno por toda la ciudad, y un concejal elegido por el Concejo Municipal."
+"City Council President" = "Presidente del Concejo Municipal"
+"Vice Chair" = "Vicepresidente"
+"City Council representative" = "Representante del Concejo Municipal"
+"Appointed January 2026 to fill a vacancy" = "Por nombramiento en enero de 2026, para cubrir una vacante"
+"Appointed July 2026 to fill a vacancy" = "Por nombramiento en julio de 2026, para cubrir una vacante"
+
+# Boards, as the city calendar and the Archive Center name them (after the aliases above).
+"Finance Committee" = "Comité de Finanzas"
+"Public Art Committee" = "Comité de Arte Público"
+"Public Safety Committee" = "Comité de Seguridad Pública"
+"9-1-1 Committee" = "Comité del 9-1-1"
+"Community Development Block Grant Committee" = "Comité de la Subvención en Bloque para el Desarrollo Comunitario"
+"Historic Preservation Review Board" = "Junta de Revisión de Preservación Histórica"
