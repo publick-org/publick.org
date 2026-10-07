@@ -1,6 +1,9 @@
 # Runs the engine's minutes prompt against the real model, on minutes whose
 # decisions were checked by hand (the engine's evals/minutes.json and
-# pipeline/evaluate.py), before a prompt change ships. Started by hand only:
+# pipeline/evaluate.py), before a prompt change ships; or, with the set
+# "translations", its translation prompt on one town's summaries
+# (evals/translations.json, pipeline/evaluate_translations.py), reporting how
+# many pass and why the rest don't (about a cent a summary). Started by hand only:
 # Actions -> Evaluate -> Run workflow, with the engine branch, tag, or commit
 # to run (a pull request's branch, before it's merged).
 #
@@ -20,6 +23,11 @@ on:
         description: "The engine's branch, tag, or commit to run"
         required: true
         default: main
+      set:
+        description: "Which prompt's set: minutes, or translations"
+        type: choice
+        options: [minutes, translations]
+        default: minutes
       only:
         description: "One document of the set, by name (empty for all)"
         required: false
@@ -51,10 +59,13 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           ONLY: ${{ inputs.only }}
+          SET: ${{ inputs.set }}
         # The report goes to the run's summary whether or not the run passes.
         run: |
           status=0
-          python -m pipeline.evaluate ${ONLY:+--only "$ONLY"} --json evaluation.json > evaluation.md || status=$?
+          # --set only for the translations, so an engine from before it had one still runs the minutes.
+          [ "$SET" = translations ] && set_args=(--set translations) || set_args=()
+          python -m pipeline.evaluate "${set_args[@]}" ${ONLY:+--only "$ONLY"} --json evaluation.json > evaluation.md || status=$?
           cat evaluation.md
           cat evaluation.md >> "$GITHUB_STEP_SUMMARY"
           exit "$status"
