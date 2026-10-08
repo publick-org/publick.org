@@ -1,13 +1,13 @@
 {
-  "headline": "Elección de oficiales, repaso de las funciones de la comisión y solicitudes de refugios para autobús y de una carrera de 5 km",
-  "summary": "La Comisión de Transporte elegirá a sus oficiales y repasará su ordenanza, sus responsabilidades y lo que se espera en las reuniones. También hablará sobre las regulaciones de tráfico y estacionamiento, una solicitud de refugios para autobús de Fair Shair, ayuda para la carrera de 5 km Wobble Before You Gobble, las solicitudes pendientes de la Traffic Commission y el calendario de reuniones.",
+  "headline": "Elección de oficiales, repaso de las funciones de la comisión y solicitudes de refugios para autobús y de una carrera de 5k",
+  "summary": "La Comisión de Transporte elegirá a sus oficiales y repasará su ordenanza, sus responsabilidades y lo que se espera en las reuniones. También hablará sobre las regulaciones de tráfico y estacionamiento, una solicitud de refugios para autobús de Fair Shair, ayuda para la carrera de 5k Wobble Before You Gobble, las solicitudes pendientes de la Traffic Commission y el calendario de reuniones.",
   "items": [
     "Elección de oficiales",
     "Repaso de la ordenanza y las responsabilidades de la comisión",
     "Lo que se espera en las reuniones",
     "Regulaciones de tráfico y estacionamiento",
     "Solicitud de refugios para autobús de Fair Shair",
-    "Solicitud de ayuda para la carrera de 5 km Wobble Before You Gobble",
+    "Solicitud de ayuda para la carrera de 5k Wobble Before You Gobble",
     "Solicitudes pendientes de la Traffic Commission",
     "Calendario de reuniones"
   ],
@@ -15,15 +15,15 @@
   "kind": "agenda",
   "source_sha256": "0e630168d7f34ff935c2c708e8046fbf381cfc3b9b5486941dc7b0c12209f9d3",
   "source_hash": "47e9d8a611e5ec82e2de6a1b0423ab9e9f49533db6055ea8e7655bcef06be2e2",
-  "check": "headline: amounts' scale differs (million, billion)",
-  "review": "not reviewed: the check failed",
-  "attempts": 1,
+  "check": "ok",
+  "review": "summary: The translation says \"La Comisión de Transporte\", but the English only says \"The commission\" and never names a Transportation Commission. The commission's name is added, and it may be wrong, since the English also mentions the \"Traffic Commission\" as a separate body.; \"Traffic Commission\" is left in English inside the Spanish sentence. It is the name of a board, not a person, place, business, or program, so it should be translated (\"Comisión de Tránsito\").; items 7: \"Traffic Commission\" is left in English in the Spanish text. The board name should be translated (\"Comisión de Tránsito\").",
+  "attempts": 2,
   "model": "claude-sonnet-5-5",
   "prompt_version": 4,
-  "generated_at": "2026-10-07T07:27:02-04:00",
+  "generated_at": "2026-10-08T05:23:07-04:00",
   "usage": {
-    "input_tokens": 1510,
-    "output_tokens": 373
+    "input_tokens": 1978,
+    "output_tokens": 370
   },
-  "cost": 0.00675
+  "cost": 0.01533
 }
