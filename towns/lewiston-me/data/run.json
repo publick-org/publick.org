@@ -1,46 +1,46 @@
 {
   "town": "lewiston",
   "folder": "lewiston-me",
-  "started_at": "2026-10-07T13:32:48+00:00",
-  "finished_at": "2026-10-07T13:41:22+00:00",
-  "engine": "v1.42.0",
+  "started_at": "2026-10-08T10:08:18+00:00",
+  "finished_at": "2026-10-08T10:14:02+00:00",
+  "engine": "v1.44.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 481.3
+      "seconds": 315.4
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 2.7
+      "seconds": 1.5
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 31.6
+      "seconds": 20.2
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 7.8
+      "seconds": 5.6
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 1.0
+      "seconds": 0.7
     }
   ],
   "update": {
     "town": "lewiston",
     "sources": "all",
-    "started_at": "2026-10-07T13:32:48+00:00",
+    "started_at": "2026-10-08T10:08:18+00:00",
     "ok": true,
     "steps": [
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.1,
+        "seconds": 6.0,
         "cadence": "continuous"
       },
       {
@@ -64,7 +64,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 127.1,
+        "seconds": 31.8,
         "cadence": "continuous"
       },
       {
@@ -81,7 +81,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 261.9,
+        "seconds": 186.5,
         "cadence": "continuous"
       },
       {
@@ -91,7 +91,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch unemployment",
@@ -100,7 +100,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -109,7 +109,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 1 days ago; checked every 30 days"
+        "skipped": "checked 2 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -118,7 +118,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch housing figures",
@@ -127,7 +127,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -179,7 +179,7 @@
     {
       "label": "Meetings (city calendar)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-07T09:32:48-04:00",
+      "updated_at": "2026-10-08T06:08:18-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -256,9 +256,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-08T08:54:56+00:00",
-  "data_bytes": 570679,
-  "data_bytes_added": 171382,
+  "last_good_at": "2026-10-08T10:14:02+00:00",
+  "data_bytes": 617100,
+  "data_bytes_added": 46473,
   "activity": {
     "boards": 9,
     "meetings_by_date": {
@@ -268,8 +268,8 @@
     }
   },
   "fact_checks": {
-    "summaries": 27,
-    "ok": 20,
+    "summaries": 28,
+    "ok": 21,
     "failed": 3,
     "weak": 1,
     "unchecked": 3,
@@ -277,7 +277,5 @@
     "held_back": 3,
     "entries_not_shown": 5,
     "vote_counts_left_out": 1
-  },
-  "published_at": "2026-10-08T08:54:56+00:00",
-  "published_engine": "v1.44.0"
+  }
 }
