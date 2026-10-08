@@ -3,14 +3,21 @@
 # pipeline/evaluate.py), before a prompt change ships; or, with the set
 # "translations", its translation prompt on one town's summaries
 # (evals/translations.json, pipeline/evaluate_translations.py), reporting how
-# many pass and why the rest don't (about a cent a summary). Started by hand only:
+# many pass and why the rest don't (about a cent a summary); or, with the set
+# "batch", the minutes set sent through the Message Batches API at each of the
+# given efforts (pipeline/evaluate_batch.py): how long a batch takes, and what a
+# lower effort does to the summaries, before deciding whether the daily runs
+# send summaries as a batch (half the price) and at what effort. Run it more than
+# once, at the hour the daily runs do: a batch's time varies with the API's load.
+# Started by hand only:
 # Actions -> Evaluate -> Run workflow, with the engine branch, tag, or commit
 # to run (a pull request's branch, before it's merged).
 #
 # The report is the run's summary; every result is saved as the artifact
-# evaluation.json. It fails when a wrong outcome would be shown. A run costs
-# about $1 to $2 on the network's Anthropic key, outside the towns' summary
-# budget.
+# evaluation.json. It fails when a wrong outcome would be shown (not the
+# batch set, an experiment). A run costs about $1 to $2 on the network's
+# Anthropic key, outside the towns' summary budget; the batch set about half
+# that for each effort.
 #
 # It gets the Anthropic key and nothing else, reads this repository only, and
 # never runs on a push or a pull request.
@@ -24,14 +31,18 @@ on:
         required: true
         default: main
       set:
-        description: "Which prompt's set: minutes, or translations"
+        description: "Which prompt's set: minutes, translations, or batch (the minutes as a batch, by effort)"
         type: choice
-        options: [minutes, translations]
+        options: [minutes, translations, batch]
         default: minutes
       only:
         description: "One document of the set, by name (empty for all)"
         required: false
         default: ""
+      efforts:
+        description: "For the batch set: the efforts, comma-separated"
+        required: false
+        default: "low,medium,high"
 
 permissions:
   contents: read
@@ -39,7 +50,8 @@ permissions:
 jobs:
   evaluate:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    # The batch set waits up to 100 minutes for its batches.
+    timeout-minutes: 130
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -60,11 +72,16 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           ONLY: ${{ inputs.only }}
           SET: ${{ inputs.set }}
+          EFFORTS: ${{ inputs.efforts }}
         # The report goes to the run's summary whether or not the run passes.
         run: |
           status=0
-          # --set only for the translations, so an engine from before it had one still runs the minutes.
-          [ "$SET" = translations ] && set_args=(--set translations) || set_args=()
+          # --set only for the others, so an engine from before it had one still runs the minutes.
+          case "$SET" in
+            translations) set_args=(--set translations) ;;
+            batch) set_args=(--set batch --efforts "$EFFORTS" --wait-minutes 100) ;;
+            *) set_args=() ;;
+          esac
           python -m pipeline.evaluate "${set_args[@]}" ${ONLY:+--only "$ONLY"} --json evaluation.json > evaluation.md || status=$?
           cat evaluation.md
           cat evaluation.md >> "$GITHUB_STEP_SUMMARY"
