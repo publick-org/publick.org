@@ -24,7 +24,11 @@
 #              publishes its towns before it commits their data: built from
 #              the branch meanwhile, a town would go back to older data.
 #   pull_request  Builds and checks every page of the towns a change touches.
-#              Nothing is published.
+#              Nothing is published. An engine update's (engine.yml's, from
+#              its engine-version branch) checks every page of the canaries,
+#              the fewest towns with every kind of town between them (the
+#              engine's network.py canaries), and a sample of the rest, so it
+#              grows with the kinds of town rather than their number.
 #   workflow_dispatch  Any towns, with or without fetching, and with a choice of
 #              which data to fetch (figures alone takes minutes; 311 is the slow
 #              part). With fetching, pages are sampled as on a daily run;
@@ -127,6 +131,7 @@ jobs:
       home: ${{ steps.plan.outputs.home }}
       prune: ${{ steps.plan.outputs.prune }}
       sample: ${{ steps.plan.outputs.sample }}
+      full_towns: ${{ steps.plan.outputs.full_towns }}
       summary_allowance: ${{ steps.budget.outputs.allowance }}
       summary_backlog_allowance: ${{ steps.budget.outputs.backlog_allowance }}
       engine: ${{ steps.engine.outputs.ref }}
@@ -194,10 +199,11 @@ jobs:
           SOURCES: ${{ inputs.sources || 'all' }}
           BEFORE: ${{ github.event.before }}
           BASE: ${{ github.event.pull_request.base.sha }}
+          HEAD_REF: ${{ github.head_ref }}
           GH_TOKEN: ${{ github.token }}
         run: |
           args=()
-          batch=1; fetch=false; deploy=true; home=false; prune=false; sample=false; sources=all; daily=false
+          batch=1; fetch=false; deploy=true; home=false; prune=false; sample=false; sources=all; daily=false; full=""
           [ "$EVENT" = schedule ] || { [ "$EVENT" = workflow_dispatch ] && [ "$DAILY" = true ]; } && daily=true
           case "$EVENT" in
             schedule | workflow_dispatch)
@@ -234,6 +240,12 @@ jobs:
               # A pull request checks every page, and builds the homepage to check it, but publishes nothing.
               # After it merges, the push checks a sample: the pages were checked on the pull request.
               if [ "$EVENT" = pull_request ]; then deploy=false; else sample=true; fi
+              # An engine update (engine.yml's pull request): every page of the canaries, a sample of the rest.
+              # An engine without the command checks every page of every town, as before.
+              if [ "$EVENT" = pull_request ] && [ "$HEAD_REF" = engine-version ]; then
+                full=$(python -m pipeline.network canaries 2>/dev/null || true)
+                echo "Every page of: ${full:-every town}"
+              fi
               ;;
           esac
           matrix=$(python -m pipeline.network plan "${args[@]}" --batch-size "$batch")
@@ -260,6 +272,7 @@ jobs:
             echo "home=$home"
             echo "prune=$prune"
             echo "sample=$sample"
+            echo "full_towns=$full"
           } >> "$GITHUB_OUTPUT"
 
       # Each town's share, for this run, of what's left of the month's summary budget. Only a run that
@@ -393,6 +406,8 @@ jobs:
           FETCH: ${{ needs.plan.outputs.fetch == 'true' && '--fetch' || '' }}
           DEPLOY: ${{ needs.plan.outputs.deploy == 'true' && '--deploy' || '' }}
           SAMPLE: ${{ needs.plan.outputs.sample == 'true' && '--sample-checks' || '' }}
+          # On an engine update's pull request, the towns checked on every page; the rest are sampled.
+          FULL_TOWNS: ${{ needs.plan.outputs.full_towns }}
           # Only when some data is left out, so a run fetching everything works with any engine.
           SOURCES: ${{ needs.plan.outputs.fetch == 'true' && needs.plan.outputs.sources != 'all' && format('--sources {0}', needs.plan.outputs.sources) || '' }}
           # No keys on a pull request's run: it doesn't fetch or publish, and its build and checks use none.
@@ -407,13 +422,15 @@ jobs:
           SITES_BUCKET: ${{ github.event_name != 'pull_request' && secrets.SITES_BUCKET || '' }}
           SITES_ACCESS_KEY_ID: ${{ github.event_name != 'pull_request' && secrets.SITES_ACCESS_KEY_ID || '' }}
           SITES_SECRET_ACCESS_KEY: ${{ github.event_name != 'pull_request' && secrets.SITES_SECRET_ACCESS_KEY || '' }}
-        # $FETCH, $DEPLOY, $SAMPLE and $SOURCES are unquoted on purpose: each is a flag (and its value) or nothing.
+        # $FETCH, $DEPLOY, $sample and $SOURCES are unquoted on purpose: each is a flag (and its value) or nothing.
         # A town that fails, or whose commit fails, doesn't stop the next; the step fails at the end if either did.
         run: |
           read -ra towns <<< "$TOWNS"
           status=0
           for town in "${towns[@]}"; do
-            python -m pipeline.network run --towns "$town" $FETCH $SOURCES $DEPLOY $SAMPLE --reports reports || status=1
+            sample=$SAMPLE
+            if [ -n "$FULL_TOWNS" ] && [[ " $FULL_TOWNS " != *" $town "* ]]; then sample=--sample-checks; fi
+            python -m pipeline.network run --towns "$town" $FETCH $SOURCES $DEPLOY $sample --reports reports || status=1
             if [ "$COMMIT" = true ]; then
               .publick-engine/.github/scripts/commit-data.sh "Update data for $town" "towns/$town/data" || status=1
             fi
