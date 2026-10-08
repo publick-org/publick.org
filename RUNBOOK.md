@@ -21,7 +21,7 @@ Times are UTC. Eastern is UTC−4 in summer, UTC−5 in winter.
 | When | What | Started by |
 |---|---|---|
 | 08:20 | The engine's release: everything merged to the engine's `main` since the last release, if its tests passed | The scheduler Worker (GitHub's schedule is a late backup) |
-| 08:40 | `engine.yml`: a pull request moving `engine-version` to that release, checked on every page of every town, merged if all pass | The scheduler Worker |
+| 08:40 | `engine.yml`: a pull request moving `engine-version` to that release, checked on every town (every page of the canaries, a sample of the rest), merged if all pass, or all but a few towns, which are held back | The scheduler Worker |
 | 09:05 to 14:05, hourly | `network.yml` daily runs: each start takes the towns that are due | The scheduler Worker; GitHub's 12:17 is a backup |
 | Sundays, 5:30 PM Eastern | Each town in `DIGEST_TOWNS` (`wrangler.scheduler.toml`) emailed its weekly digest; a failure opens **The weekly digest didn't send** | The scheduler Worker, checking hourly on Sundays and Mondays (UTC) |
 
@@ -35,7 +35,9 @@ or a workflow change), and a workflow change applies to the next run.
 **Check, in this order:**
 
 1. **The engine pull request** (titled "Engine vX.Y.Z"): merged by itself, or
-   still open with a failed run. The workflow's failure emails the owner.
+   still open with a failed run. The workflow's failure emails the owner. An
+   open issue labeled `engine held back` names towns it merged without (see
+   below).
 2. **[publick.org/status/](https://publick.org/status/)**: every town
    "Up to date" after the last daily start, about 14:30.
 3. **The "Towns need attention" issue** (label `towns behind`): open means a
@@ -64,6 +66,20 @@ The towns stay on the engine they have; nothing's broken for readers.
    engine's.
 4. If the engine pull request didn't open at all, check that
    `ENGINE_PR_TOKEN` hasn't expired (the workflow's log says so).
+
+### Towns held back by an engine
+
+A few towns failed the engine pull request's checks twice, so it merged
+without them (the issue labeled `engine held back` names them and links the
+run). Readers see each one's site as it was: a build that fails its checks
+isn't published. Its data is still fetched each day, but its site won't
+update until it passes.
+
+1. Open the run the issue links and find the check each town failed.
+2. If the engine is at fault, fix it as above; the town's next daily run
+   publishes it. If the town is (a changed city page), fix its config.
+3. Close the issue once each town is published again (the status page shows
+   it up to date).
 
 ### A town is behind
 

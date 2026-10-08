@@ -31,7 +31,7 @@ scripts/build_home.py         Writes the homepage's town lists, by state, with t
 scripts/build_status.py       Writes the network status page, publick.org/status/
 scripts/make_share_image.py   Draws home/share/publick.png, the homepage's card on Substack and social media
 .github/workflows/network.yml The daily runs, and builds on push and pull request
-.github/workflows/engine.yml  Moves engine-version to each new engine release once every town passes on it
+.github/workflows/engine.yml  Moves engine-version to each new engine release once the towns pass on it
 .github/workflows/evaluate.yml Runs the engine's minutes prompt against the real model before a prompt change ships (by hand)
 .github/workflows/worker.yml  Deploys both Workers (by hand)
 ```
@@ -69,11 +69,16 @@ Worker, which picks the site by hostname: `gloucester-ma.publick.org` is
 - **The engine, once a day, by itself** (`engine.yml`, 08:40 UTC): the
   scheduler Worker starts the engine's release at 08:20 and this at 08:40
   (GitHub's own schedules for both are a late backup). After the release, it opens a pull request moving `engine-version` to
-  it, waits for that pull request's run to build and check every page of
-  every town, and merges it if every town passes; the merge publishes them.
-  If a town fails, the pull request stays open, the towns stay where they
-  are, and the failed workflow emails the owner. So the towns take at most
-  one new engine a day, and only one that passed on all of them. For an
+  it, waits for that pull request's run to build and check every town (every
+  page of the canaries, the fewest towns with every kind of town between them,
+  and a sample of the rest), and merges it if every town passes; the merge
+  publishes them. A run that fails has its failed jobs run once more. If a few
+  towns still fail (at most one in 20, and at least one), it merges anyway and
+  holds them back: each keeps the site it has, and an issue (label
+  `engine held back`) names them. If more fail, or anything but a town, the
+  pull request stays open, the towns stay where they are, and the failed
+  workflow emails the owner. So the towns take at most one new engine a day,
+  and only one that passed on nearly all of them. For an
   urgent fix, release the engine now (its **Actions → Release → Run
   workflow**) and run **Actions → Engine**.
 - **On a pull request:** builds and checks the towns it touches. Nothing is published.
