@@ -493,7 +493,8 @@ jobs:
         with:
           python-version: "3.12"
 
-      - run: pip install boto3
+      # At the engine's version (its requirements.txt), since it runs with the storage keys.
+      - run: pip install boto3==1.43.106
 
       # The town lists, from towns/.
       - name: Build the homepage
@@ -587,7 +588,8 @@ jobs:
         with:
           python-version: "3.12"
 
-      - run: pip install boto3
+      # At the engine's version (its requirements.txt), since it runs with the storage keys.
+      - run: pip install boto3==1.43.106
 
       - name: Prune old builds
         env:
