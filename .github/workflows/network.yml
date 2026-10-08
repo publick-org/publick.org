@@ -45,7 +45,9 @@
 # long each took last time (the engine's plan). Each town's data is committed
 # as soon as it's done, so a job that dies (its runner lost, as on 2026-10-07)
 # loses only the town it was on. Other runs are small, so each town gets its own
-# job and they run side by side. Within a job, the browser checks use every core.
+# job and they run side by side, up to MAX_JOBS jobs: past that, a job takes
+# more towns (a pull request or push that touches every town, once there are
+# more towns than that). Within a job, the browser checks use every core.
 name: Network
 
 on:
@@ -95,6 +97,9 @@ env:
   # Towns per job on a scheduled run. Each job installs Python and the browser for the checks once, then runs
   # its towns in turn. Other runs have one town per job.
   BATCH_SIZE: 4
+  # The most jobs one run's matrix has: GitHub refuses a matrix of more than 256. A run with more towns than
+  # this many jobs at their batch size puts more towns in each job instead.
+  MAX_JOBS: "100"
   # The network's monthly budget for AI summaries and translations, in dollars, shared by every town.
   SUMMARY_BUDGET: "80"
   # A month with a budget of its own, as YYYY-MM=dollars (empty for none).
@@ -232,6 +237,12 @@ jobs:
               ;;
           esac
           matrix=$(python -m pipeline.network plan "${args[@]}" --batch-size "$batch")
+          if [ "$(jq '.include | length' <<< "$matrix")" -gt "$MAX_JOBS" ]; then
+            count=$(jq '[.include[].towns | split(" ")[]] | length' <<< "$matrix")
+            batch=$(( (count + MAX_JOBS - 1) / MAX_JOBS ))
+            echo "$count towns: $batch a job, to stay within $MAX_JOBS jobs"
+            matrix=$(python -m pipeline.network plan "${args[@]}" --batch-size "$batch")
+          fi
           echo "$matrix"
           any=$([ "$matrix" = '{"include": []}' ] && echo false || echo true)
           # A run that fetches records each town's result (data/run.json), and one that publishes without fetching
@@ -482,7 +493,8 @@ jobs:
         with:
           python-version: "3.12"
 
-      - run: pip install boto3
+      # At the engine's version (its requirements.txt), since it runs with the storage keys.
+      - run: pip install boto3==1.43.106
 
       # The town lists, from towns/.
       - name: Build the homepage
@@ -576,7 +588,8 @@ jobs:
         with:
           python-version: "3.12"
 
-      - run: pip install boto3
+      # At the engine's version (its requirements.txt), since it runs with the storage keys.
+      - run: pip install boto3==1.43.106
 
       - name: Prune old builds
         env:
