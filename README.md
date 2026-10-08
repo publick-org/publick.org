@@ -32,8 +32,10 @@ scripts/build_status.py       Writes the network status page, publick.org/status
 scripts/make_share_image.py   Draws home/share/publick.png, the homepage's card on Substack and social media
 .github/workflows/network.yml The daily runs, and builds on push and pull request
 .github/workflows/engine.yml  Moves engine-version to each new engine release once the towns pass on it
-.github/workflows/evaluate.yml Runs the engine's minutes prompt against the real model before a prompt change ships (by hand)
-.github/workflows/worker.yml  Deploys both Workers (by hand)
+.github/workflows/evaluate.yml Runs the engine's minutes or translation prompt against the real model before a prompt change
+                              ships, or the minutes as a batch at each effort, to measure the Batches API (by hand)
+.github/workflows/worker.yml  Deploys both Workers: by itself when engine-version moves to an engine whose Workers changed,
+                              or wrangler.scheduler.toml changes; by hand for a change to wrangler.toml
 ```
 
 ## How it runs
@@ -54,7 +56,7 @@ Worker, which picks the site by hostname: `gloucester-ma.publick.org` is
     isn't saved or is over a week old.
   - Each town then fetches its own new data, is built and checked, published
     if the checks pass, and its data committed as soon as it's done. Towns run
-    in batches of four per job, up to ten jobs at a time, the slow ones spread
+    in batches of four per job (more, past `MAX_JOBS`, 100 jobs), up to ten jobs at a time, the slow ones spread
     over the jobs by how long each took last time. Daily runs, runs by hand
     that fetch, and pushes to `main` give the accessibility checks a sample of
     each town's pages (every hand-written page, and the first and largest of

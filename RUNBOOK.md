@@ -201,11 +201,15 @@ documents go first, so upcoming agendas are the last to stop.
 - **An urgent engine fix:** merge it, run the engine's **Actions → Release →
   Run workflow**, then **Actions → Engine → Run workflow** here. The engine
   pull request still checks every town before it merges.
-- **The Workers:** **Actions → Worker** deploys both from the engine at
-  `engine-version`. It never runs on its own, because the sites Worker's
-  routes decide which hostnames it answers: a mistake there takes every site
-  down. Deploy it after a release that changes `worker/`, and look at a
-  town's site and `publick.org/status/` right after.
+- **The Workers:** `worker.yml` deploys both from the engine at
+  `engine-version`. It runs by itself when `engine-version` moves to an
+  engine whose `worker/` changed (most releases don't, and it deploys
+  nothing), and when `wrangler.scheduler.toml` changes; look at a town's
+  site and `publick.org/status/` after one. A change to `wrangler.toml`
+  alone deploys only by hand (**Actions → Worker**): its routes decide which
+  hostnames the sites Worker answers, and a mistake there takes every site
+  down. Any deploy uses `wrangler.toml` as it is on `main`, so change it only
+  when it's ready to go live.
 
 ## Secrets and when they expire
 
