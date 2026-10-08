@@ -271,10 +271,13 @@ prefix = "manchester-nh"
 # Plain-English agenda text and previews, and decisions from minutes, written by
 # a language model and labeled as AI-generated on the site. Cached by document
 # hash. Each run does the most useful first (upcoming agendas, then the newest
-# minutes) and stops at max_per_run documents or max_cost_per_run dollars, so the
-# minutes saved before summaries started are worked through over a few days.
+# minutes) and stops at max_per_run documents or max_cost_per_run dollars. Only
+# meetings from `since` on are summarized (decided 2026-10-08, to keep the
+# monthly budget for new towns): earlier meetings keep the summaries they have,
+# and the rest link their documents.
 [summaries]
 model = "claude-sonnet-5"
+since = "2026-07-01"
 max_per_run = 40
 # Prices per million tokens, for the spending limit below.
 input_price = 2.0
