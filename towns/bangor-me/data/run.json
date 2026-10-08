@@ -1,16 +1,16 @@
 {
   "town": "bangor",
   "folder": "bangor-me",
-  "started_at": "2026-10-07T09:07:05+00:00",
-  "finished_at": "2026-10-07T09:35:30+00:00",
-  "engine": "v1.42.0",
+  "started_at": "2026-10-08T09:10:33+00:00",
+  "finished_at": "2026-10-08T09:16:05+00:00",
+  "engine": "v1.44.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 1647.4
+      "seconds": 271.3
     },
     {
       "name": "Build site",
@@ -22,25 +22,25 @@
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 45.6
+      "seconds": 47.7
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 11.1
+      "seconds": 8.4
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.8
+      "seconds": 0.6
     }
   ],
   "update": {
     "town": "bangor",
     "sources": "all",
-    "started_at": "2026-10-07T09:07:05+00:00",
+    "started_at": "2026-10-08T09:10:33+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 15.8,
+        "seconds": 15.9,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 15.5,
+        "seconds": 15.4,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 209.3,
+        "seconds": 135.9,
         "cadence": "continuous"
       },
       {
@@ -90,7 +90,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.2,
         "cadence": "continuous"
       },
       {
@@ -100,7 +100,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -109,7 +109,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 1 days ago; checked every 30 days"
+        "skipped": "checked 2 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -118,7 +118,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch housing figures",
@@ -127,7 +127,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -151,7 +151,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.2,
         "cadence": "continuous"
       },
       {
@@ -159,7 +159,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1405.2,
+        "seconds": 102.7,
         "cadence": "continuous"
       },
       {
@@ -172,26 +172,26 @@
       }
     ]
   },
-  "stale": false,
+  "stale": true,
   "sources": [
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-07T05:07:06-04:00",
+      "updated_at": "2026-10-08T05:10:34-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-10-07T05:11:07-04:00",
+      "updated_at": "2026-10-08T05:13:22-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-10-07T05:34:33-04:00",
+      "updated_at": "2026-10-08T05:15:04-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -248,17 +248,19 @@
       "file": "summaries",
       "updated_at": null,
       "max_days": 2,
-      "stale": false,
-      "waiting": [],
-      "waiting_count": 0
+      "stale": true,
+      "waiting": [
+        "agenda for Planning Board, 2026-10-06"
+      ],
+      "waiting_count": 1
     }
   ],
   "failing": [],
   "deployed": true,
   "ok": true,
   "last_good_at": "2026-10-08T08:55:11+00:00",
-  "data_bytes": 1275191,
-  "data_bytes_added": 450066,
+  "data_bytes": 1292212,
+  "data_bytes_added": 16778,
   "activity": {
     "boards": 27,
     "meetings_by_date": {
@@ -267,12 +269,13 @@
       "2026-10-14": 2,
       "2026-10-15": 1,
       "2026-10-19": 3,
-      "2026-10-20": 2
+      "2026-10-20": 2,
+      "2026-10-21": 1
     }
   },
   "fact_checks": {
-    "summaries": 25,
-    "ok": 18,
+    "summaries": 26,
+    "ok": 19,
     "failed": 5,
     "weak": 0,
     "unchecked": 2,
@@ -280,7 +283,5 @@
     "held_back": 5,
     "entries_not_shown": 14,
     "vote_counts_left_out": 14
-  },
-  "published_at": "2026-10-08T08:55:11+00:00",
-  "published_engine": "v1.44.0"
+  }
 }
