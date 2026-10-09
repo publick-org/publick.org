@@ -3,7 +3,7 @@
   "summary": "El comité revisó cuatro cambios propuestos a ordenanzas sobre la Comisión de Licencias y Cumplimiento de Cannabis, los fideicomisarios del cementerio, la Junta de Manejo de Emergencias y las tarifas de permisos de construcción. El comité pospuso la ordenanza de la comisión de cannabis, recomendó favorablemente la ordenanza de los fideicomisarios del cementerio por una votación de 3-1, enmendó y luego recomendó favorablemente la ordenanza de manejo de emergencias, y recomendó favorablemente la ordenanza de las tarifas de permisos de construcción.",
   "decisions": [
     "Se pospuso la Ordenanza 317-26 (cambios a la Comisión de Licencias y Cumplimiento de Cannabis) por votación unánime.",
-    "Se recomendó favorablemente al Concejo Municipal la Ordenanza 318-26 (cambios a los fideicomisarios del cementerio) por votación de viva voz de 3-1, con el voto en contra del concejal O'Malley.",
+    "Se recomendó favorablemente al Concejo Municipal la Ordenanza 318-26 (cambios a los fideicomisarios del cementerio) por votación de viva voz de 3-1, con el voto en contra de Councillor O'Malley.",
     "Se enmendó la Ordenanza 319-26 (cambios a la Junta de Manejo de Emergencias) por votación unánime.",
     "Se recomendó favorablemente al Concejo Municipal la Ordenanza 319-26 (cambios a la Junta de Manejo de Emergencias), según fue enmendada, por votación unánime.",
     "Se recomendó favorablemente al Concejo Municipal la Ordenanza 320-26 (aumento de las tarifas de permisos de construcción de $16 a $18) por votación unánime."
@@ -12,15 +12,16 @@
   "kind": "minutes",
   "source_sha256": "c6499dd8cb44ca88363d2f48066af3c57c16389b02578e16d3db9dde64d54589",
   "source_hash": "fbdf01470128668cba866a2d027610b98eb8b16d9f4cc412162a3a0e9f6c122b",
-  "check": "decisions 2: Councillor not in the translation",
-  "review": "not reviewed: the check failed",
-  "attempts": 1,
+  "check": "ok",
+  "review": "decisions 2: El título en inglés \"Councillor\" quedó sin traducir en la oración en español: \"Councillor O'Malley\". Debería ser \"concejal O'Malley\". El nombre propio sí se queda igual, pero el cargo no.",
+  "attempts": 2,
   "model": "claude-sonnet-5-5",
   "prompt_version": 4,
-  "generated_at": "2026-10-09T05:25:36-04:00",
+  "generated_at": "2026-10-09T08:53:04-04:00",
   "usage": {
-    "input_tokens": 1732,
-    "output_tokens": 655
+    "input_tokens": 2471,
+    "output_tokens": 656
   },
-  "cost": 0.010014
+  "cost": 0.017804,
+  "replaced_cost": 0.010014
 }
