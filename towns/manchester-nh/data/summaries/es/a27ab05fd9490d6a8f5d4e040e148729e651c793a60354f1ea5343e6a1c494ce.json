@@ -1,5 +1,5 @@
 {
-  "headline": "El Comité de Finanzas aprobó una serie de resoluciones del Programa de Mejoras Comunitarias, dejó pendientes las resoluciones de bonos y aprobó autorizaciones de presupuesto sujetas a la adopción final de las resoluciones.",
+  "headline": "Se aprobó una serie de resoluciones del Programa de Mejoras Comunitarias, se dejaron pendientes las resoluciones de bonos y se aprobaron autorizaciones de presupuesto sujetas a la adopción final de las resoluciones.",
   "summary": "El comité revisó una lista de resoluciones que modifican el Programa de Mejoras Comunitarias para varios años fiscales. Votó que deben aprobarse e inscribirse. También revisó resoluciones de bonos para cosas como autobuses, sistemas de tecnología, obras en las calles y proyectos de aguas residuales. Votó que deben aprobarse y quedar pendientes para una próxima reunión. Se aprobaron autorizaciones de presupuesto para numerosos proyectos, sujetas a la adopción final de las resoluciones relacionadas.",
   "decisions": [
     "Se votó que las resoluciones deben aprobarse e inscribirse.",
@@ -11,14 +11,15 @@
   "source_sha256": "a27ab05fd9490d6a8f5d4e040e148729e651c793a60354f1ea5343e6a1c494ce",
   "source_hash": "0e4576eca55fe22f301855a09ded37d573d0843f40b9bc003e04f6f3997c0bfb",
   "check": "ok",
-  "review": "headline: The Spanish adds \"El Comité de Finanzas\" as the subject. The English names no Finance Committee, only \"the committee\", so the added name could mislead readers. Also, \"Passed\" resolutions that \"ought to pass\" are recommendations, not final passage. The Spanish \"aprobó\" states a final decision.",
-  "attempts": 1,
+  "review": "headline: El original dice que se aprobaron (\"passed\") las resoluciones del Programa de Mejoras Comunitarias, pero en la fuente solo se votó que \"deben aprobarse e inscribirse\" (recomendación del comité). Presentarlo como aprobación final cambia una recomendación en una decisión.; summary: Se añadió \"para una próxima reunión\", que no aparece en el original (\"layover\"). Es información agregada.; decisions 2: Se añadió \"para una próxima reunión\", que no aparece en el original (\"layover\").",
+  "attempts": 2,
   "model": "claude-sonnet-5-5",
   "prompt_version": 4,
-  "generated_at": "2026-10-08T05:31:55-04:00",
+  "generated_at": "2026-10-09T05:23:12-04:00",
   "usage": {
-    "input_tokens": 1502,
-    "output_tokens": 420
+    "input_tokens": 2088,
+    "output_tokens": 416
   },
-  "cost": 0.012802
+  "cost": 0.015016,
+  "replaced_cost": 0.012802
 }
