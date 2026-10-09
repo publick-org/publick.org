@@ -1,24 +1,25 @@
 {
-  "headline": "Aprobó reelecciones de miembros de la junta y la tarifa del club de golf, cada una con votación de 2-0",
-  "summary": "El comité aprobó las reelecciones de diez miembros del Consejo de Desarrollo Económico y Comunitario, entre ellos James Muse, Diantha Phothisan, Jason Consalvo, Donna Musumeci, Thomas Holland, Christopher Wrenn, Nathan Seavey, Zach Servideo, Dan Allon y Kevin Grant. También aprobó la reelección de Christopher Tatnall al mismo consejo y aprobó la Tarifa de Miembros del Club de Golf y Tenis de Beverly para 2026.",
+  "headline": "Se aprobaron nuevos nombramientos para juntas y el cuadro de tarifas del club de golf, cada uno por votación de 2-0",
+  "summary": "El comité aprobó volver a nombrar a diez miembros del Economic and Community Development Council, entre ellos James Muse, Diantha Phothisan, Jason Consalvo, Donna Musumeci, Thomas Holland, Christopher Wrenn, Nathan Seavey, Zach Servideo, Dan Allon y Kevin Grant. También aprobó volver a nombrar a Christopher Tatnall en el mismo consejo y aprobó el Beverly Golf and Tennis Club 2026 Member Rate Schedule.",
   "decisions": [
-    "Aprobó los nombramientos nuevos de James Muse, Diantha Phothisan, Jason Consalvo, Donna Musumeci, Thomas Holland, Christopher Wrenn, Nathan Seavey, Zach Servideo, Dan Allon y Kevin Grant al Consejo de Desarrollo Económico y Comunitario, 2-0 (Orden #094).",
-    "Aprobó el nombramiento nuevo de Christopher Tatnall, 91R Hale Street, al Consejo de Desarrollo Económico y Comunitario, 2-0 (Orden #096).",
-    "Aprobó la Tarifa de Miembros del Club de Golf y Tenis de Beverly para 2026, 2-0 (Orden #097)."
+    "Se aprobó volver a nombrar a James Muse, Diantha Phothisan, Jason Consalvo, Donna Musumeci, Thomas Holland, Christopher Wrenn, Nathan Seavey, Zach Servideo, Dan Allon y Kevin Grant en el Economic and Community Development Council, 2-0 (Orden #094).",
+    "Se aprobó volver a nombrar a Christopher Tatnall, de 91R Hale Street, en el Economic and Community Development Council, 2-0 (Orden #096).",
+    "Se aprobó el Beverly Golf and Tennis Club 2026 Member Rate Schedule, 2-0 (Orden #097)."
   ],
   "language": "es",
   "kind": "minutes",
   "source_sha256": "3a600e55e47de0bb0babd7599333a10e34221f0c39b4eb0fc1fbed8b08a3aba5",
   "source_hash": "d7f2d1927fd394e0955a2a6738a8d60868630d80ad31a48cf4fabde673129924",
   "check": "ok",
-  "review": "headline: \"Reappointments\" is translated as \"reelecciones\" (re-elections). Appointments are not elections, so this changes what happened. It should be \"renombramientos\" or \"reappointments\" in the sense of reappointed.; summary: \"Reappointments\" is translated as \"reelecciones\" (re-elections) twice. The committee reappointed these people, it did not re-elect them.; decisions 1: \"Reappointments\" is translated as \"nombramientos nuevos\" (new appointments). These are reappointments of existing members, so this changes the meaning.; decisions 2: \"Reappointment\" is translated as \"nombramiento nuevo\" (new appointment). This is a reappointment, so the meaning is changed.",
-  "attempts": 2,
-  "model": "claude-haiku-4-5-20251001",
-  "prompt_version": 3,
-  "generated_at": "2026-10-05T05:08:35-04:00",
+  "review": "headline: \"nuevos nombramientos\" (new appointments) changes the meaning: these were reappointments (\"volver a nombrar\"), not new appointments.; summary: \"Economic and Community Development Council\" and \"Beverly Golf and Tennis Club 2026 Member Rate Schedule\" are left in English. The council name is a board name and should be translated (e.g., Consejo de Desarrollo Económico y Comunitario). The rate schedule is not a proper name of a person, place, business or program and should be translated (e.g., cuadro de tarifas para socios de 2026 del Beverly Golf and Tennis Club).; decisions 1: \"Economic and Community Development Council\" is a board name left in English; it should be translated into Spanish.; decisions 2: \"Economic and Community Development Council\" is a board name left in English; it should be translated into Spanish.; decisions 3: \"Member Rate Schedule\" is left in English; it should be translated (e.g., cuadro de tarifas para socios de 2026).",
+  "attempts": 1,
+  "model": "claude-sonnet-5-5",
+  "prompt_version": 4,
+  "generated_at": "2026-10-09T08:53:04-04:00",
   "usage": {
-    "input_tokens": 1226,
-    "output_tokens": 371
+    "input_tokens": 1673,
+    "output_tokens": 484
   },
-  "cost": 0.009507
+  "cost": 0.017114,
+  "replaced_cost": 0.009507
 }

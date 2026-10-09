@@ -1,25 +1,26 @@
 {
-  "headline": "Aprobó enmiendas al Capítulo 117-Animales y volvió a nombrar a Timothy R. Creamer como Alguacil, ambos 3-0.",
-  "summary": "El comité aprobó las enmiendas propuestas al Capítulo 117-Animales, Orden #058A, agregando una nueva sección sobre alimentar animales salvajes, con cambios hechos durante la reunión. El comité también aprobó volver a nombrar a Timothy R. Creamer, 36 Appleton Avenue, para servir como Alguacil, Orden #112.",
+  "headline": "Se aprobaron las enmiendas al Capítulo 117-Animales y se volvió a nombrar a Timothy R. Creamer como alguacil, ambas por 3-0.",
+  "summary": "El Comité de Asuntos Legales del Concejo Municipal aprobó las enmiendas propuestas al Capítulo 117-Animales, Orden #058A, que añaden una nueva sección sobre la alimentación de animales silvestres, con cambios hechos durante la reunión. El comité también aprobó volver a nombrar a Timothy R. Creamer, de 36 Appleton Avenue, para servir como alguacil, Orden #112.",
   "decisions": [
-    "Aprobó enmiendas al Capítulo 117-Animales, Orden #058A, 3-0.",
-    "Aprobó volver a nombrar a Timothy R. Creamer, 36 Appleton Avenue, como Alguacil, Orden #112, 3-0.",
-    "Aprobó moción para eliminar la sección 117-21 de las enmiendas a la Orden #058A, 3-0.",
-    "Aprobó moción para aceptar la redacción sugerida por Solicitor Dole para la sección A de la enmienda, 3-0."
+    "Se aprobaron las enmiendas al Capítulo 117-Animales, Orden #058A, por 3-0.",
+    "Se aprobó volver a nombrar a Timothy R. Creamer, de 36 Appleton Avenue, como alguacil, Orden #112, por 3-0.",
+    "Se aprobó la moción de eliminar la sección 117-21 de las enmiendas a la Orden #058A, por 3-0.",
+    "Se aprobó la moción de aceptar el texto sugerido por Solicitor Dole para la sección A de la enmienda, por 3-0."
   ],
   "language": "es",
   "kind": "minutes",
   "source_sha256": "14dd285fa780078a196178c74d81f6e5829f461f2b651f51c94bf3603c933760",
   "source_hash": "9840559b4cefee636531b5896180430959e31dbebec2419255b037c7aaeae313",
   "check": "ok",
-  "review": "decisions 4: English word \"Solicitor\" left untranslated in the Spanish sentence. It is a title (city attorney), not part of a name, and should be translated, e.g. \"el Asesor Jurídico Dole\" or \"la abogada municipal\" without stating gender.",
-  "attempts": 2,
-  "model": "claude-haiku-4-5-20251001",
-  "prompt_version": 3,
-  "generated_at": "2026-10-06T05:08:53-04:00",
+  "review": "summary: The Spanish adds \"El Comité de Asuntos Legales del Concejo Municipal\", a committee name that is not in the English, which only says \"The committee\". This adds information that was not in the source.; decisions 4: \"Solicitor\" is left in English in the Spanish sentence. It is a role title, not a name, and should be translated (e.g., \"el abogado municipal Dole\" or \"la persona asesora legal\"). Using \"el abogado\" would also state a gender the English does not give.",
+  "attempts": 1,
+  "model": "claude-sonnet-5-5",
+  "prompt_version": 4,
+  "generated_at": "2026-10-09T08:53:04-04:00",
   "usage": {
-    "input_tokens": 1159,
-    "output_tokens": 313
+    "input_tokens": 1566,
+    "output_tokens": 423
   },
-  "cost": 0.006908
+  "cost": 0.013792,
+  "replaced_cost": 0.006908
 }

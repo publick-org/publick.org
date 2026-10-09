@@ -1,23 +1,24 @@
 {
-  "headline": "Aprobó el contrato de la Directora de la Biblioteca para 2026-2029 y las actas de la reunión del 24 de febrero de 2026",
-  "summary": "La junta revisó los presupuestos de FY2026 y FY2027, discutió el riesgo de Marblehead de perder la certificación de la biblioteca, y escuchó actualizaciones sobre reparaciones de edificios y vehículos incluyendo el proyecto de HVAC y la puerta del garaje de la bibliobús. La junta también cubrió colecciones, eventos de participación comunitaria, y programas. La junta aprobó el contrato de la Directora de la Biblioteca para 2026-2029.",
+  "headline": "Se aprobó el contrato de la directora o del director de la biblioteca para 2026-2029 y las actas de la reunión del 24 de febrero de 2026",
+  "summary": "La Junta de Síndicos de la Biblioteca revisó los presupuestos de los años fiscales 2026 y 2027. También habló del riesgo de que Marblehead pierda la acreditación de su biblioteca. Además, recibió información actualizada sobre reparaciones de edificios y vehículos, incluidos el proyecto del sistema de calefacción, ventilación y aire acondicionado y la puerta del garaje del bibliobús. La junta también trató temas de colecciones, eventos de participación comunitaria y programas. La junta aprobó el contrato del director de la biblioteca para 2026-2029.",
   "decisions": [
-    "Aceptó las actas de la reunión del 24 de febrero de 2026, como fue enmendado. La moción pasó 7-0.",
-    "Aprobó el contrato de la Directora de la Biblioteca para 2026-2029. La moción pasó 7-0."
+    "Se aceptaron las actas de la reunión del 24 de febrero de 2026, con cambios. La moción se aprobó 7-0.",
+    "Se aprobó el contrato del director de la biblioteca para 2026-2029. La moción se aprobó 7-0."
   ],
   "language": "es",
   "kind": "minutes",
   "source_sha256": "ce742e76919f6f1a65d5c9a4af1c5b1456851ed38fe85113d5b4d7a17e9d8165",
   "source_hash": "889a98b3fb25e1bd8bf6c6ef15a4afb7357debbb3ed7a8ef208783bd92423fa4",
   "check": "ok",
-  "review": "headline: The English says \"Library Director\" with no gender, but the translation uses \"la Directora\", which states she is female.; summary: The English says \"Library Director\" with no gender, but the translation uses \"la Directora\" in the last sentence, which states she is female. Also, \"la puerta del garaje de la bibliobús\" is wrong: \"bibliobús\" is masculine, so it should be \"del bibliobús\".; decisions 2: The English says \"Library Director\" with no gender, but the translation uses \"la Directora\", which states she is female.",
-  "attempts": 2,
-  "model": "claude-haiku-4-5-20251001",
-  "prompt_version": 3,
-  "generated_at": "2026-10-06T05:08:53-04:00",
+  "review": "summary: The English says \"the board\" without naming it, but the translation adds \"La Junta de Síndicos de la Biblioteca\", a board name not in the source. It also says \"del director de la biblioteca\", which assumes the Library Director is male, though the English gives no gender (the headline avoids this).; decisions 2: \"del director de la biblioteca\" states the Library Director's gender as male, but the English doesn't give it.",
+  "attempts": 1,
+  "model": "claude-sonnet-5-5",
+  "prompt_version": 4,
+  "generated_at": "2026-10-09T08:53:04-04:00",
   "usage": {
-    "input_tokens": 1096,
-    "output_tokens": 264
+    "input_tokens": 1467,
+    "output_tokens": 368
   },
-  "cost": 0.007314
+  "cost": 0.012374,
+  "replaced_cost": 0.007314
 }
