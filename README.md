@@ -22,7 +22,7 @@ towns/<town>-<state>/         One folder per town, laid out as a town repository
 states/ma/                    Statewide sources, fetched once for every town: Massachusetts's DLS reports (other
                               states' figures are saved in the engine, or fetched by each town)
 wrangler.toml                 The Worker that serves every site from the sites bucket
-wrangler.scheduler.toml       The Worker that starts the daily runs on time
+wrangler.scheduler.toml       The Worker that starts the daily runs on time, and checks every site loads, hourly
 scripts/import-town.sh        Copies a town's own repository into towns/ (how the first three towns moved in)
 scripts/build_home.py         Writes the homepage's town lists, by state, with the network's counts (from each
                               town's data/run.json), and a page for each state with 10 or more towns; and the
@@ -109,6 +109,14 @@ one that's caught up, sends nothing. If the daily runs stop altogether, the sche
 **The network's daily runs have stopped** (label `network stopped`) after 30
 hours, and closes it when a run finishes. A pull request's run still fails when
 a town does, so a broken site can't be merged.
+
+Between the daily runs, the scheduler loads publick.org and every town's
+homepage (from the network's sitemap) through the sites Worker every hour, at
+:50. A site that doesn't load, tried twice a few seconds apart, opens an issue such as
+**gloucester-ma.publick.org isn't loading** (label `site down`, assigned to `ALERT_ASSIGNEE` in
+`wrangler.scheduler.toml`); the issue lists every site down while any is, and
+is closed when all load again. It sees what the sites Worker serves, not what's
+in front of it (DNS, its routes).
 
 ## Status page
 
