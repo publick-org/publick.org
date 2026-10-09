@@ -1,5 +1,5 @@
 {
-  "headline": "La Junta de Finanzas aprobó la resolución de bonos para mejoras de capital del año fiscal 2027 y recomendó al Concejo Municipal la resolución de la subvención de la Northern Border Regional Commission.",
+  "headline": "Se aprobó la resolución de bonos para mejoras de capital del año fiscal 2027 y se recomendó al Concejo Municipal la resolución de la subvención de la Northern Border Regional Commission.",
   "summary": "La Junta adoptó su agenda de asuntos consentidos, que incluyó la aprobación de las actas del 28 de septiembre de 2026 y una resolución que autoriza los acuerdos de subvención con la Northern Border Regional Commission. La Junta también aprobó una resolución sobre los bonos para mejoras de capital y mejoras públicas de infraestructura del año fiscal 2027, y recomendó que el Concejo omita la lectura y la apruebe.",
   "decisions": [
     "Adoptó la agenda de asuntos consentidos, que incluyó una resolución que recomienda que el Concejo Municipal autorice al director de Obras Públicas a firmar acuerdos de subvención con la Northern Border Regional Commission (NBRC).",
@@ -10,14 +10,15 @@
   "source_sha256": "2377da3b9812b38075ceb86ce6366d52ba5675e31ce97b725cba0a967df887c9",
   "source_hash": "5741c1c28714d038d0cdcaeace8c6237e0edc7281468ce731e1a1b6307e60d81",
   "check": "ok",
-  "review": "headline: The English names no board. The translation adds 'La Junta de Finanzas' (Finance Board), which the source does not say. The summary only says 'the Board'.",
-  "attempts": 1,
+  "review": "summary: The English says the consent agenda included a resolution authorizing the grant agreements. The headline and decisions 1 say the Board recommended that City Council authorize them. The summary drops 'recommending' and presents the Board's resolution as an authorization, so a recommendation is shown as a decision.",
+  "attempts": 2,
   "model": "claude-sonnet-5-5",
   "prompt_version": 4,
-  "generated_at": "2026-10-09T05:49:33-04:00",
+  "generated_at": "2026-10-09T08:53:13-04:00",
   "usage": {
-    "input_tokens": 1528,
-    "output_tokens": 427
+    "input_tokens": 2068,
+    "output_tokens": 420
   },
-  "cost": 0.013434
+  "cost": 0.01375,
+  "replaced_cost": 0.013434
 }

@@ -1,8 +1,8 @@
 {
   "town": "burlington",
   "folder": "burlington-vt",
-  "started_at": "2026-10-09T09:48:24+00:00",
-  "finished_at": "2026-10-09T10:05:47+00:00",
+  "started_at": "2026-10-09T12:52:36+00:00",
+  "finished_at": "2026-10-09T13:06:45+00:00",
   "engine": "v1.46.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 959.5
+      "seconds": 769.0
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 9.1
+      "seconds": 10.1
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 50.7
+      "seconds": 55.9
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 22.3
+      "seconds": 12.0
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.8
+      "seconds": 0.6
     }
   ],
   "update": {
     "town": "burlington",
-    "sources": "all",
-    "started_at": "2026-10-09T09:48:24+00:00",
+    "sources": "meetings",
+    "started_at": "2026-10-09T12:52:37+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 51.8,
+        "seconds": 33.9,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 15.8,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 595.7,
+        "seconds": 733.5,
         "cadence": "continuous"
       },
       {
@@ -154,22 +154,6 @@
         "error": null,
         "seconds": 0.2,
         "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 294.9,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Compute 311 scorecard",
-        "ok": true,
-        "required": true,
-        "error": null,
-        "seconds": 0.5,
-        "cadence": "continuous"
       }
     ]
   },
@@ -178,7 +162,7 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-09T05:48:25-04:00",
+      "updated_at": "2026-10-09T08:52:37-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -269,9 +253,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-09T10:05:47+00:00",
-  "data_bytes": 3636461,
-  "data_bytes_added": 142317,
+  "last_good_at": "2026-10-09T13:06:45+00:00",
+  "data_bytes": 3932411,
+  "data_bytes_added": 296027,
   "activity": {
     "boards": 52,
     "meetings_by_date": {
@@ -284,14 +268,14 @@
     }
   },
   "fact_checks": {
-    "summaries": 103,
-    "ok": 93,
-    "failed": 5,
+    "summaries": 126,
+    "ok": 115,
+    "failed": 8,
     "weak": 0,
-    "unchecked": 5,
+    "unchecked": 3,
     "not_yet": 0,
-    "held_back": 5,
-    "entries_not_shown": 14,
-    "vote_counts_left_out": 14
+    "held_back": 8,
+    "entries_not_shown": 19,
+    "vote_counts_left_out": 22
   }
 }

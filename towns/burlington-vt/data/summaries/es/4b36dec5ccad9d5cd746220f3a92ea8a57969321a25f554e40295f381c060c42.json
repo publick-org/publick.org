@@ -3,25 +3,25 @@
   "summary": "La Junta adoptó una agenda de consentimiento que aprobó las actas del 24 de agosto de 2026, recomendó que el City Council acepte una subvención de $1,274,268 para desvío judicial y recomendó dos enmiendas al presupuesto de REIB, de $5,000 y $500. La Junta también aprobó la Lista de Compras de Flota del año fiscal 27 y recomendó que el City Council la apruebe. La lista autoriza gastos de hasta $1,974,788.00 y métodos para deshacerse de vehículos. El personal presentó un informe de Ingresos Brutos del año fiscal 26, y la Junta realizó una sesión ejecutiva sobre un posible acuerdo en un caso de litigio.",
   "decisions": [
     "Se aprobaron las actas de la reunión de la Junta de Finanzas del 24 de agosto de 2026 como parte de la agenda de consentimiento.",
-    "Se aprobó y se recomendó que el City Council acepte la Subvención #02100-FY27-CN del Estado de Vermont, por $1,274,268, para continuar los servicios de desvío judicial y de supervisión previa al juicio hasta el 30 de junio de 2027.",
+    "Se aprobó y se recomendó que el City Council acepte la Subvención #02100-FY27-CN del Estado de Vermont, por $1,274,268, para continuar los servicios de desvío judicial y los servicios previos al juicio hasta el 30 de junio de 2027.",
     "Se aprobó y se recomendó una enmienda de $5,000 al presupuesto para apoyar un pago al Richard Kemp Center.",
     "Se aprobó y se recomendó una enmienda de $500 al presupuesto para apoyar un pago al Back to School Event.",
-    "Se aprobó y se recomendó la Lista de Compras de Flota del año fiscal 27, que autoriza compras de vehículos que no excedan $1,974,788.00, las enmiendas al presupuesto relacionadas y la venta o retiro de los vehículos reemplazados."
+    "Se aprobó y se recomendó la Lista de Compras de Flota del año fiscal 27, que autoriza compras de vehículos que no excedan $1,974,788.00, las enmiendas al presupuesto relacionadas y el desecho de los vehículos reemplazados."
   ],
   "language": "es",
   "kind": "minutes",
   "source_sha256": "4b36dec5ccad9d5cd746220f3a92ea8a57969321a25f554e40295f381c060c42",
   "source_hash": "ef788c6ed82d616a76ddedb8ec1282e70619386eaefccf7aee3d638c5cf57c24",
   "check": "ok",
-  "review": "decisions 5: The English says \"disposal of replaced vehicles\". The Spanish says \"la venta o retiro de los vehículos\", which narrows the meaning to sale or removal. Disposal methods are not specified in the English.; decisions 2: The English says \"court diversion and pretrial services\". The Spanish says \"servicios de desvío judicial y de supervisión previa al juicio\", which adds the word \"supervisión\" for pretrial services.",
-  "attempts": 1,
+  "review": "summary: The English says the Board recommended two REIB budget amendments, and the Spanish keeps that. But the English says the Board held an executive session on a potential litigation settlement, while the Spanish adds 'en un caso de litigio', which is a minor expansion. More importantly, 'Gross Receipts' is rendered as 'Ingresos Brutos', which is a different concept (gross receipts means total receipts, often a tax). This is a mistranslation risk, but the main error is that 'City Council' is left in English inside a Spanish sentence.; decisions 2: 'City Council' is left in English inside a Spanish sentence; it should be translated (Concejo Municipal). Also 'Grant Award' is shortened to 'Subvención', leaving out 'Award'.",
+  "attempts": 2,
   "model": "claude-sonnet-5-5",
   "prompt_version": 4,
-  "generated_at": "2026-10-09T05:49:33-04:00",
+  "generated_at": "2026-10-09T08:53:13-04:00",
   "usage": {
-    "input_tokens": 1720,
-    "output_tokens": 706
+    "input_tokens": 2637,
+    "output_tokens": 702
   },
-  "cost": 0.019032,
-  "replaced_cost": 0.016444
+  "cost": 0.021008,
+  "replaced_cost": 0.035476
 }
