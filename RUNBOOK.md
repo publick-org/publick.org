@@ -23,6 +23,7 @@ Times are UTC. Eastern is UTC−4 in summer, UTC−5 in winter.
 | 08:20 | The engine's release: everything merged to the engine's `main` since the last release, if its tests passed | The scheduler Worker (GitHub's schedule is a late backup) |
 | 08:40 | `engine.yml`: a pull request moving `engine-version` to that release, checked on every town (every page of the canaries, a sample of the rest), merged if all pass, or all but a few towns, which are held back | The scheduler Worker |
 | 09:05 to 14:05, hourly | `network.yml` daily runs: each start takes the towns that are due | The scheduler Worker; GitHub's 12:17 is a backup |
+| Every hour, at :50 | Every site's homepage loaded through the sites Worker; one that doesn't load opens **site down** | The scheduler Worker |
 | Sundays, 5:30 PM Eastern | Each town in `DIGEST_TOWNS` (`wrangler.scheduler.toml`) emailed its weekly digest; a failure opens **The weekly digest didn't send** | The scheduler Worker, checking hourly on Sundays and Mondays (UTC) |
 
 So anything merged to the engine's `main` before 08:20 goes to every town
@@ -117,6 +118,32 @@ workflow**. The scheduler's starts then fail harmlessly, the sites keep
 their last builds, and after 30 hours the scheduler opens "The network's
 daily runs have stopped", as expected. **Enable workflow** turns it back on; the next start
 takes every town that's due.
+
+### A site is down
+
+The scheduler loads publick.org and every town's homepage (the towns in
+publick.org/sitemap.xml) through the sites Worker every hour, at :50. A site
+that doesn't load, tried twice a few seconds apart, opens an issue such as
+**gloucester-ma.publick.org isn't loading** (label `site down`, assigned to
+`ALERT_ASSIGNEE`), with why: an HTTP status, an empty or partial page, or the
+sitemap itself not loading. While any
+site is down the issue keeps the list up to date; when every site loads again
+the scheduler comments and closes it, so there's nothing to close by hand.
+
+1. Open the site. If it loads, it was brief; the next check closes the issue.
+2. **Every site down**, or the sitemap: the sites Worker. Read its logs in
+   Cloudflare (**Workers & Pages → publick-sites → Logs**), and check whether
+   **Actions → Worker** just deployed it (it does by itself when
+   `engine-version` moves to an engine whose Workers changed). To go back,
+   set `engine-version` to the earlier release and merge: the push redeploys
+   the Workers from it and republishes every town.
+3. **One town down**: its newest build. Roll it back (below), then read the
+   last run that published it.
+
+The check sees only what the sites Worker serves: a DNS or route problem in
+front of it won't open the issue. If the scheduler can't reach GitHub it
+can't open one either; its errors are in **Workers & Pages →
+publick-scheduler → Logs**.
 
 ### A site is broken, or shows something wrong
 
