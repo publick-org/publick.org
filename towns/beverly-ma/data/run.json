@@ -1,46 +1,46 @@
 {
   "town": "beverly",
   "folder": "beverly-ma",
-  "started_at": "2026-10-08T09:10:44+00:00",
-  "finished_at": "2026-10-08T09:17:05+00:00",
-  "engine": "v1.44.0",
+  "started_at": "2026-10-09T09:10:16+00:00",
+  "finished_at": "2026-10-09T09:20:26+00:00",
+  "engine": "v1.46.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 303.9
+      "seconds": 531.1
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 8.7
+      "seconds": 10.3
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 35.9
+      "seconds": 45.8
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 20.5
+      "seconds": 22.3
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.9
+      "seconds": 0.8
     }
   ],
   "update": {
     "town": "beverly",
     "sources": "all",
-    "started_at": "2026-10-08T09:10:44+00:00",
+    "started_at": "2026-10-09T09:10:16+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 36.9,
+        "seconds": 37.1,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 5.1,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 260.9,
+        "seconds": 466.3,
         "cadence": "continuous"
       },
       {
@@ -92,16 +92,15 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 6 days ago; checked every 30 days"
+        "skipped": "checked 7 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 6 days ago; checked every 7 days"
+        "seconds": 0.7,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch school figures",
@@ -110,7 +109,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 6 days ago; checked every 30 days"
+        "skipped": "checked 7 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -119,16 +118,15 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 6 days ago; checked every 30 days"
+        "skipped": "checked 7 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 6 days ago; checked every 7 days"
+        "seconds": 25.5,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch place",
@@ -152,7 +150,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.2,
         "cadence": "continuous"
       },
       {
@@ -175,12 +173,12 @@
       }
     ]
   },
-  "stale": true,
+  "stale": false,
   "sources": [
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-08T05:10:44-04:00",
+      "updated_at": "2026-10-09T05:10:17-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -223,7 +221,7 @@
     {
       "label": "Unemployment rate (BLS)",
       "file": "labor/unemployment.json",
-      "updated_at": "2026-10-01T11:16:57-04:00",
+      "updated_at": "2026-10-09T05:18:40-04:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
@@ -235,7 +233,7 @@
     {
       "label": "Housing figures",
       "file": "housing/housing.json",
-      "updated_at": "2026-10-01T11:17:02-04:00",
+      "updated_at": "2026-10-09T05:18:41-04:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
@@ -249,40 +247,36 @@
       "file": "summaries",
       "updated_at": null,
       "max_days": 2,
-      "stale": true,
-      "waiting": [
-        "agenda for City Council, 2026-10-05"
-      ],
-      "waiting_count": 1
+      "stale": false,
+      "waiting": [],
+      "waiting_count": 0
     }
   ],
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-05T08:54:12+00:00",
-  "data_bytes": 2002114,
-  "data_bytes_added": 81408,
+  "last_good_at": "2026-10-09T09:20:26+00:00",
+  "data_bytes": 2035448,
+  "data_bytes_added": 33333,
   "activity": {
-    "boards": 52,
+    "boards": 53,
     "meetings_by_date": {
-      "2026-10-08": 5,
-      "2026-10-13": 5,
-      "2026-10-14": 1,
-      "2026-10-15": 1,
-      "2026-10-19": 2
+      "2026-10-13": 7,
+      "2026-10-14": 2,
+      "2026-10-15": 2,
+      "2026-10-19": 2,
+      "2026-10-22": 1
     }
   },
   "fact_checks": {
-    "summaries": 131,
-    "ok": 100,
+    "summaries": 137,
+    "ok": 93,
     "failed": 0,
     "weak": 2,
-    "unchecked": 29,
+    "unchecked": 42,
     "not_yet": 0,
     "held_back": 0,
     "entries_not_shown": 0,
     "vote_counts_left_out": 11
-  },
-  "published_at": "2026-10-09T08:55:48+00:00",
-  "published_engine": "v1.46.0"
+  }
 }
