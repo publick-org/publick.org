@@ -1,8 +1,8 @@
 {
   "town": "manchester",
   "folder": "manchester-nh",
-  "started_at": "2026-10-09T09:21:50+00:00",
-  "finished_at": "2026-10-09T10:11:37+00:00",
+  "started_at": "2026-10-09T12:52:38+00:00",
+  "finished_at": "2026-10-09T13:05:53+00:00",
   "engine": "v1.46.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 2888.7
+      "seconds": 696.4
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 9.2
+      "seconds": 9.3
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 71.5
+      "seconds": 72.3
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 15.6
+      "seconds": 16.2
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.9
+      "seconds": 1.1
     }
   ],
   "update": {
     "town": "manchester",
-    "sources": "all",
-    "started_at": "2026-10-09T09:21:50+00:00",
+    "sources": "meetings",
+    "started_at": "2026-10-09T12:52:38+00:00",
     "ok": true,
     "steps": [
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 4.1,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 452.0,
+        "seconds": 619.4,
         "cadence": "continuous"
       },
       {
@@ -101,7 +101,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -128,7 +128,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 2 days ago; checked every 7 days"
+        "skipped": "checked 3 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -154,22 +154,6 @@
         "error": null,
         "seconds": 0.2,
         "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 2353.1,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Compute 311 scorecard",
-        "ok": true,
-        "required": true,
-        "error": null,
-        "seconds": 3.0,
-        "cadence": "continuous"
       }
     ]
   },
@@ -178,7 +162,7 @@
     {
       "label": "Meetings (city calendar and CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-09T05:21:51-04:00",
+      "updated_at": "2026-10-09T08:52:38-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -269,9 +253,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-09T10:11:37+00:00",
-  "data_bytes": 13181149,
-  "data_bytes_added": 415049,
+  "last_good_at": "2026-10-09T13:05:53+00:00",
+  "data_bytes": 13282570,
+  "data_bytes_added": 101501,
   "activity": {
     "boards": 27,
     "meetings_by_date": {
