@@ -1,8 +1,8 @@
 {
   "town": "beverly",
   "folder": "beverly-ma",
-  "started_at": "2026-10-09T09:10:16+00:00",
-  "finished_at": "2026-10-09T09:20:26+00:00",
+  "started_at": "2026-10-09T12:52:36+00:00",
+  "finished_at": "2026-10-09T13:07:37+00:00",
   "engine": "v1.46.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 531.1
+      "seconds": 818.1
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 10.3
+      "seconds": 9.8
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 45.8
+      "seconds": 47.2
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 22.3
+      "seconds": 24.6
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.8
+      "seconds": 0.9
     }
   ],
   "update": {
     "town": "beverly",
-    "sources": "all",
-    "started_at": "2026-10-09T09:10:16+00:00",
+    "sources": "meetings",
+    "started_at": "2026-10-09T12:52:37+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 37.1,
+        "seconds": 24.8,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 466.3,
+        "seconds": 791.8,
         "cadence": "continuous"
       },
       {
@@ -99,8 +99,9 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.7,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -125,8 +126,9 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 25.5,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -152,24 +154,6 @@
         "error": null,
         "seconds": 0.2,
         "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [seeclickfix] in the config"
-      },
-      {
-        "name": "Compute 311 scorecard",
-        "ok": true,
-        "required": true,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [seeclickfix] in the config"
       }
     ]
   },
@@ -178,7 +162,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-09T05:10:17-04:00",
+      "updated_at": "2026-10-09T08:52:37-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -255,25 +239,25 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-09T09:20:26+00:00",
-  "data_bytes": 2035448,
-  "data_bytes_added": 33333,
+  "last_good_at": "2026-10-09T13:07:37+00:00",
+  "data_bytes": 2115168,
+  "data_bytes_added": 79972,
   "activity": {
     "boards": 53,
     "meetings_by_date": {
       "2026-10-13": 7,
-      "2026-10-14": 2,
-      "2026-10-15": 2,
+      "2026-10-14": 4,
+      "2026-10-15": 3,
       "2026-10-19": 2,
       "2026-10-22": 1
     }
   },
   "fact_checks": {
-    "summaries": 137,
+    "summaries": 139,
     "ok": 93,
     "failed": 0,
     "weak": 2,
-    "unchecked": 42,
+    "unchecked": 44,
     "not_yet": 0,
     "held_back": 0,
     "entries_not_shown": 0,
