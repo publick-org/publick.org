@@ -132,11 +132,12 @@ the scheduler comments and closes it, so there's nothing to close by hand.
 
 1. Open the site. If it loads, it was brief; the next check closes the issue.
 2. **Every site down**, or the sitemap: the sites Worker. Read its logs in
-   Cloudflare (**Workers & Pages → publick-sites → Logs**), and check whether
-   **Actions → Worker** just deployed it (it does by itself when
-   `engine-version` moves to an engine whose Workers changed). To go back,
-   set `engine-version` to the earlier release and merge: the push redeploys
-   the Workers from it and republishes every town.
+   Cloudflare (**Workers & Pages → publick-sites → Logs**), and whether
+   **Actions → Worker** just deployed it, or an open **Deploy the sites
+   Worker** issue says the engine moved past it. To go back, set
+   `engine-version` to the earlier release and merge (the push republishes
+   every town on it), then run **Actions → Worker** to deploy the sites
+   Worker from it.
 3. **One town down**: its newest build. Roll it back (below), then read the
    last run that published it.
 
@@ -228,15 +229,20 @@ documents go first, so upcoming agendas are the last to stop.
 - **An urgent engine fix:** merge it, run the engine's **Actions → Release →
   Run workflow**, then **Actions → Engine → Run workflow** here. The engine
   pull request still checks every town before it merges.
-- **The Workers:** `worker.yml` deploys both from the engine at
-  `engine-version`. It runs by itself when `engine-version` moves to an
-  engine whose `worker/` changed (most releases don't, and it deploys
-  nothing), and when `wrangler.scheduler.toml` changes; look at a town's
-  site and `publick.org/status/` after one. A change to `wrangler.toml`
-  alone deploys only by hand (**Actions → Worker**): its routes decide which
-  hostnames the sites Worker answers, and a mistake there takes every site
-  down. Any deploy uses `wrangler.toml` as it is on `main`, so change it only
-  when it's ready to go live.
+- **The Workers:** `worker.yml` deploys them from the engine at
+  `engine-version`. By itself it deploys only the scheduler: when
+  `engine-version` moves to an engine whose scheduler changed (most releases
+  don't), or `wrangler.scheduler.toml` changes. The sites Worker serves every
+  site, so a mistake in it takes them all down at once: it's deployed only by
+  hand (decided 2026-10-10). When `engine-version` moves to an engine whose
+  sites Worker changed, an issue, **Deploy the sites Worker for engine
+  vX.Y.Z**, says so: run **Actions → Worker → Run workflow** (it deploys
+  both), look at a town's site and `publick.org/status/`, and close the
+  issue. Until then the old sites Worker serves the new builds; if a site
+  stops loading, the hourly check opens **site down**. A change to
+  `wrangler.toml` (its routes decide which hostnames the sites Worker
+  answers) also deploys only by hand; any deploy uses it as it is on `main`,
+  so change it only when it's ready to go live.
 
 ## Secrets and when they expire
 

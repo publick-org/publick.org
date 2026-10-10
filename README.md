@@ -34,8 +34,9 @@ scripts/make_share_image.py   Draws home/share/publick.png, the homepage's card 
 .github/workflows/engine.yml  Moves engine-version to each new engine release once the towns pass on it
 .github/workflows/evaluate.yml Runs the engine's minutes or translation prompt against the real model before a prompt change
                               ships, or the minutes as a batch at each effort, to measure the Batches API (by hand)
-.github/workflows/worker.yml  Deploys both Workers: by itself when engine-version moves to an engine whose Workers changed,
-                              or wrangler.scheduler.toml changes; by hand for a change to wrangler.toml
+.github/workflows/worker.yml  Deploys the Workers: the scheduler by itself when engine-version moves to an engine whose
+                              scheduler changed, or wrangler.scheduler.toml changes; the sites Worker only by hand (an
+                              engine whose sites Worker changed opens an issue asking for it)
 ```
 
 ## How it runs
