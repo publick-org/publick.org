@@ -22,7 +22,7 @@ Times are UTC. Eastern is UTC−4 in summer, UTC−5 in winter.
 |---|---|---|
 | 08:20 | The engine's release: everything merged to the engine's `main` since the last release, if its tests passed | The scheduler Worker (GitHub's schedule is a late backup) |
 | 08:40 | `engine.yml`: a pull request moving `engine-version` to that release, checked on every town (every page of the canaries, a sample of the rest), merged if all pass, or all but a few towns, which are held back | The scheduler Worker |
-| 09:05 to 14:05, hourly | `network.yml` daily runs: each start takes the towns that are due | The scheduler Worker; GitHub's 12:17 is a backup |
+| 09:05 to 14:05, hourly | `network.yml` daily runs: each start takes the towns that are due; each town's summaries go as one batch, collected and published at the end of its job | The scheduler Worker; GitHub's 12:17 is a backup |
 | Every hour, at :50 | Every site's homepage loaded through the sites Worker; one that doesn't load opens **site down** | The scheduler Worker |
 | Sundays, 5:30 PM Eastern | Each town in `DIGEST_TOWNS` (`wrangler.scheduler.toml`) emailed its weekly digest; a failure opens **The weekly digest didn't send** | The scheduler Worker, checking hourly on Sundays and Mondays (UTC) |
 

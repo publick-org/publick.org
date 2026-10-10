@@ -66,6 +66,14 @@ Worker, which picks the site by hostname: `gloucester-ma.publick.org` is
   - AI summaries and translations share one budget, `SUMMARY_BUDGET` ($80 a
     month, decided 2026-10-03; a month can have its own in `SUMMARY_BUDGET_MONTH`): each run gives each of its towns a share of what's left, new
     documents first.
+  - A run that fetches sends each town's summaries as one batch, at half the
+    price (decided 2026-10-10), and publishes the town without them. Once the
+    job's towns are done, it collects each batch, sends one at a time whatever
+    a batch didn't make or hadn't finished half an hour after it was sent, and
+    publishes the town again (commit "Add summaries for <town>"). So a new
+    summary is up within about half an hour of its town's run. A batch a job
+    couldn't collect is collected by the town's next run. Pull requests and
+    rebuilds send none.
 - **On push to `main`:** rebuilds and publishes the towns the push touched (every
   town when `engine-version` or a workflow changed), records that in their run
   records, and rebuilds the homepage and status page. Data isn't fetched.

@@ -415,6 +415,9 @@ jobs:
           # Empty unless the run fetches; then the town summarizes within these, new documents first.
           PUBLICK_SUMMARY_ALLOWANCE: ${{ needs.plan.outputs.summary_allowance }}
           PUBLICK_SUMMARY_BACKLOG_ALLOWANCE: ${{ needs.plan.outputs.summary_backlog_allowance }}
+          # A fetching run sends each town's summaries as one batch, at half the price; the loop below
+          # collects them once the job's towns are done (the engine's pipeline/summarize.py).
+          PUBLICK_SUMMARY_BATCH: ${{ needs.plan.outputs.fetch == 'true' && github.event_name != 'pull_request' && '1' || '' }}
           BLS_API_KEY: ${{ github.event_name != 'pull_request' && secrets.BLS_API_KEY || '' }}
           STORAGE_ACCESS_KEY_ID: ${{ github.event_name != 'pull_request' && secrets.STORAGE_ACCESS_KEY_ID || '' }}
           STORAGE_SECRET_ACCESS_KEY: ${{ github.event_name != 'pull_request' && secrets.STORAGE_SECRET_ACCESS_KEY || '' }}
@@ -435,6 +438,18 @@ jobs:
               .publick-engine/.github/scripts/commit-data.sh "Update data for $town" "towns/$town/data" || status=1
             fi
           done
+          # Then each town's batch of summaries, in the same order: the first towns' batches have had the
+          # others' time to finish. Collected (or, past half an hour, cancelled and the rest sent one at a time),
+          # the town is published again with them. Only with an engine that sends them.
+          if [ -n "$PUBLICK_SUMMARY_BATCH" ] && python -m pipeline.network run --help | grep -q -- --collect; then
+            for town in "${towns[@]}"; do
+              [ -f "towns/$town/data/summary-batch.json" ] || continue
+              python -m pipeline.network run --towns "$town" --collect $DEPLOY --sample-checks || status=1
+              if [ "$COMMIT" = true ]; then
+                .publick-engine/.github/scripts/commit-data.sh "Add summaries for $town" "towns/$town/data" || status=1
+              fi
+            done
+          fi
           exit "$status"
 
       # The data is kept even if a town's build or checks failed, as each town's own workflow did. Each town's
