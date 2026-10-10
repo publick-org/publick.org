@@ -1,6 +1,6 @@
 {
   "headline": "La Comisión de Derechos Humanos y Vivienda Justa aprobó las actas de la reunión anterior y habló sobre la traducción del folleto, la ampliación del plan de vivienda justa y la planificación de eventos para Juneteenth y Pride in the Park.",
-  "summary": "La comisión aprobó las actas de la reunión anterior después de que Taylor pidiera una corrección en el registro de su asistencia. Los miembros hablaron sobre la impresión y la traducción del folleto, revisaron el plan de vivienda justa de la ciudad en comparación con el de Somerville y planificaron las mesas informativas para Juneteenth, Pride in the Park y National Night Out. El grupo también trató los procedimientos de votación que exige la ley y una presentación reciente sobre vivienda justa a nivel estatal que se hizo ante el gobernador.",
+  "summary": "La comisión aprobó las actas de la reunión anterior después de que Taylor pidiera una corrección en el registro de su asistencia. Los miembros hablaron sobre la impresión y la traducción del folleto, revisaron el plan de vivienda justa de la ciudad en comparación con el de Somerville y planificaron las mesas informativas (tabling) para Juneteenth, Pride in the Park y National Night Out. El grupo también trató los procedimientos de votación que exige la ley y una presentación reciente sobre vivienda justa a nivel estatal que se hizo ante el gobernador.",
   "decisions": [
     "Se aprobaron las actas de la reunión anterior, por moción de Maria, después de hablar sobre las correcciones relacionadas con la asistencia de Taylor."
   ],
@@ -8,15 +8,16 @@
   "kind": "minutes",
   "source_sha256": "ad9a373fa17f3d5115e556734813652814841fe5b4e12b410accfc211a79e9bd",
   "source_hash": "c0181887d5ded582aa15cd897d04c7dd0b40e7f3a279aab098ad3a1328f6d6d4",
-  "check": "summary: tabled in the English, not in the translation",
-  "review": "not reviewed: the check failed",
-  "attempts": 1,
+  "check": "ok",
+  "review": "headline: The translation adds \"La Comisión de Derechos Humanos y Vivienda Justa\" as the subject. The English headline names no commission, and this name appears nowhere in the source, so it is an invented name.; summary: The English word \"tabling\" is left in the Spanish sentence in parentheses. It is not a name, and here it is also an unclear term. It should be removed or fully translated.",
+  "attempts": 2,
   "model": "claude-sonnet-5-5",
   "prompt_version": 4,
-  "generated_at": "2026-10-09T08:53:04-04:00",
+  "generated_at": "2026-10-10T05:19:02-04:00",
   "usage": {
-    "input_tokens": 1496,
-    "output_tokens": 366
+    "input_tokens": 1934,
+    "output_tokens": 371
   },
-  "cost": 0.006652
+  "cost": 0.013202,
+  "replaced_cost": 0.006652
 }
