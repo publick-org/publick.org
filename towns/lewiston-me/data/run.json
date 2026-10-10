@@ -1,8 +1,8 @@
 {
   "town": "lewiston",
   "folder": "lewiston-me",
-  "started_at": "2026-10-09T12:52:35+00:00",
-  "finished_at": "2026-10-09T12:58:38+00:00",
+  "started_at": "2026-10-10T09:10:22+00:00",
+  "finished_at": "2026-10-10T09:13:20+00:00",
   "engine": "v1.46.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 319.5
+      "seconds": 131.5
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 4.1
+      "seconds": 4.2
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 30.7
+      "seconds": 33.5
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 7.8
+      "seconds": 7.4
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 1.0
+      "seconds": 0.7
     }
   ],
   "update": {
     "town": "lewiston",
-    "sources": "meetings",
-    "started_at": "2026-10-09T12:52:35+00:00",
+    "sources": "all",
+    "started_at": "2026-10-10T09:10:22+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 90.7,
+        "seconds": 90.6,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.4,
+        "seconds": 1.3,
         "cadence": "continuous"
       },
       {
@@ -64,7 +64,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 32.1,
+        "seconds": 31.7,
         "cadence": "continuous"
       },
       {
@@ -81,7 +81,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 194.4,
+        "seconds": 6.8,
         "cadence": "continuous"
       },
       {
@@ -91,7 +91,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 3 days ago; checked every 7 days"
+        "skipped": "checked 4 days ago; checked every 7 days"
       },
       {
         "name": "Fetch unemployment",
@@ -100,7 +100,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 3 days ago; checked every 7 days"
+        "skipped": "checked 4 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -109,7 +109,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 3 days ago; checked every 30 days"
+        "skipped": "checked 4 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -118,7 +118,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 3 days ago; checked every 7 days"
+        "skipped": "checked 4 days ago; checked every 7 days"
       },
       {
         "name": "Fetch housing figures",
@@ -127,7 +127,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 3 days ago; checked every 7 days"
+        "skipped": "checked 4 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -153,6 +153,24 @@
         "error": null,
         "seconds": 0.2,
         "cadence": "continuous"
+      },
+      {
+        "name": "Fetch 311 requests",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [seeclickfix] in the config"
+      },
+      {
+        "name": "Compute 311 scorecard",
+        "ok": true,
+        "required": true,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [seeclickfix] in the config"
       }
     ]
   },
@@ -161,7 +179,7 @@
     {
       "label": "Meetings (city calendar)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-09T08:52:36-04:00",
+      "updated_at": "2026-10-10T05:10:23-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -238,9 +256,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-09T12:58:38+00:00",
-  "data_bytes": 705096,
-  "data_bytes_added": 54780,
+  "last_good_at": "2026-10-10T09:13:20+00:00",
+  "data_bytes": 704295,
+  "data_bytes_added": -340,
   "activity": {
     "boards": 9,
     "meetings_by_date": {
