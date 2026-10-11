@@ -1,6 +1,6 @@
 {
   "headline": "Conteo de FWAB y boletas del extranjero para las Elecciones Estatales del 3 de noviembre de 2026.",
-  "summary": "La junta contará las Federal Write-In Absentee Ballots (FWAB) y las boletas enviadas por correo desde fuera de Estados Unidos para las Elecciones Estatales del 3 de noviembre de 2026, si tienen matasellos del 3 de noviembre de 2026 y se reciben antes del plazo de las 5:00 p. m. del 13 de noviembre de 2026.",
+  "summary": "La junta contará las boletas federales de voto en ausencia con candidato escrito a mano (FWAB) y las boletas enviadas por correo desde fuera de Estados Unidos para las Elecciones Estatales del 3 de noviembre de 2026, si tienen matasellos del 3 de noviembre de 2026 y se reciben antes del plazo de las 5:00 p. m. del 13 de noviembre de 2026.",
   "items": [
     "Conteo de las FWAB y de las boletas enviadas por correo desde fuera de Estados Unidos para las Elecciones Estatales del 3 de noviembre de 2026, con matasellos del 3 de noviembre de 2026 y recibidas por paquete postal a más tardar en el plazo de las 5:00 p. m. del 13 de noviembre de 2026 (MGL c. 54, §95)"
   ],
@@ -9,14 +9,15 @@
   "source_sha256": "e40c7b4d056a324d37e19639cf07d8874e17fb8ba54aa9aa8fa52bd4ab44e5fb",
   "source_hash": "45ca6c68e57f89e70656f4ef323132e40e750ef382865a88487b86c72664efb3",
   "check": "ok",
-  "review": "summary: The English name 'Federal Write-In Absentee Ballots' is left in English inside the Spanish sentence. It is a descriptive term, not a program name, so it should be translated (e.g., 'boletas federales de voto en ausencia con candidato escrito a mano').",
-  "attempts": 1,
+  "review": "summary: The English says ballots must be postmarked by November 3, 2026. The Spanish \"tienen matasellos del 3 de noviembre\" says they carry that postmark, which drops \"by\" (the cutoff). It should read \"con matasellos a más tardar el 3 de noviembre\". Also \"antes del plazo de las 5:00 p. m.\" is a slightly different cutoff from \"by the deadline\"; \"a más tardar\" would be faithful.; items 1: \"postmarked by November 3\" is translated as \"con matasellos del 3 de noviembre\", which drops \"by\" (the cutoff). It should say \"a más tardar el 3 de noviembre\".",
+  "attempts": 2,
   "model": "claude-sonnet-5-5",
   "prompt_version": 4,
-  "generated_at": "2026-10-10T05:18:59-04:00",
+  "generated_at": "2026-10-11T05:17:19-04:00",
   "usage": {
-    "input_tokens": 1405,
-    "output_tokens": 336
+    "input_tokens": 1888,
+    "output_tokens": 344
   },
-  "cost": 0.01114
+  "cost": 0.013782,
+  "replaced_cost": 0.01114
 }
