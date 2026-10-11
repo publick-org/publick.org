@@ -1,46 +1,46 @@
 {
   "town": "wallingford",
   "folder": "wallingford-ct",
-  "started_at": "2026-10-10T09:14:32+00:00",
-  "finished_at": "2026-10-10T09:18:19+00:00",
-  "engine": "v1.46.0",
+  "started_at": "2026-10-11T09:12:55+00:00",
+  "finished_at": "2026-10-11T09:14:55+00:00",
+  "engine": "v1.47.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 193.7
+      "seconds": 71.1
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 6.5
+      "seconds": 5.7
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 34.0
+      "seconds": 31.9
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 4.3
+      "seconds": 10.3
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.5
+      "seconds": 1.0
     }
   ],
   "update": {
     "town": "wallingford",
     "sources": "all",
-    "started_at": "2026-10-10T09:14:32+00:00",
+    "started_at": "2026-10-11T09:12:55+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 7.7,
+        "seconds": 8.9,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.0,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -73,7 +73,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 43.3,
+        "seconds": 37.0,
         "cadence": "continuous"
       },
       {
@@ -81,7 +81,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 141.4,
+        "seconds": 17.8,
         "cadence": "continuous"
       },
       {
@@ -91,7 +91,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 5 days ago; checked every 30 days"
+        "skipped": "checked 6 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -100,7 +100,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -109,16 +109,15 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 8 days ago; checked every 30 days"
+        "skipped": "checked 9 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "yearly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "seconds": 6.4,
+        "cadence": "yearly"
       },
       {
         "name": "Fetch housing figures",
@@ -127,14 +126,14 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.1,
+        "seconds": 0.2,
         "cadence": "continuous"
       },
       {
@@ -151,7 +150,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.1,
+        "seconds": 0.2,
         "cadence": "continuous"
       },
       {
@@ -179,14 +178,14 @@
     {
       "label": "Meetings (town website)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-10T05:14:32-04:00",
+      "updated_at": "2026-10-11T05:12:55-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Board of Education meetings (school district website)",
       "file": "meetings/finalsite_status.json",
-      "updated_at": "2026-10-10T05:14:41-04:00",
+      "updated_at": "2026-10-11T05:13:04-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -205,7 +204,7 @@
     {
       "label": "City budget",
       "file": "finance/budget.json",
-      "updated_at": "2026-10-04T08:10:13-04:00",
+      "updated_at": "2026-10-11T05:13:59-04:00",
       "max_days": null,
       "cadence": "yearly",
       "failing": 0,
@@ -263,9 +262,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-11T08:54:19+00:00",
-  "data_bytes": 927351,
-  "data_bytes_added": 32590,
+  "last_good_at": "2026-10-11T09:14:55+00:00",
+  "data_bytes": 927403,
+  "data_bytes_added": -172,
   "activity": {
     "boards": 26,
     "meetings_by_date": {
@@ -288,7 +287,5 @@
     "held_back": 3,
     "entries_not_shown": 9,
     "vote_counts_left_out": 17
-  },
-  "published_at": "2026-10-11T08:54:19+00:00",
-  "published_engine": "v1.47.0"
+  }
 }
