@@ -24,7 +24,11 @@
 #              publishes its towns before it commits their data: built from
 #              the branch meanwhile, a town would go back to older data.
 #   pull_request  Builds and checks every page of the towns a change touches.
-#              Nothing is published.
+#              Nothing is published. An engine update's (engine.yml's, from
+#              its engine-version branch) checks every page of the canaries,
+#              the fewest towns with every kind of town between them (the
+#              engine's network.py canaries), and a sample of the rest, so it
+#              grows with the kinds of town rather than their number.
 #   workflow_dispatch  Any towns, with or without fetching, and with a choice of
 #              which data to fetch (figures alone takes minutes; 311 is the slow
 #              part). With fetching, pages are sampled as on a daily run;
@@ -41,8 +45,13 @@
 # and gives each town in the run its share of what's left.
 #
 # Scheduled runs put four towns in a job, so Python and the browser are
-# installed once for all four. Other runs are small, so each town gets its own
-# job and they run side by side. Within a job, the browser checks use every core.
+# installed once for all four, with the slow towns spread over the jobs by how
+# long each took last time (the engine's plan). Each town's data is committed
+# as soon as it's done, so a job that dies (its runner lost, as on 2026-10-07)
+# loses only the town it was on. Other runs are small, so each town gets its own
+# job and they run side by side, up to MAX_JOBS jobs: past that, a job takes
+# more towns (a pull request or push that touches every town, once there are
+# more towns than that). Within a job, the browser checks use every core.
 name: Network
 
 on:
@@ -92,6 +101,9 @@ env:
   # Towns per job on a scheduled run. Each job installs Python and the browser for the checks once, then runs
   # its towns in turn. Other runs have one town per job.
   BATCH_SIZE: 4
+  # The most jobs one run's matrix has: GitHub refuses a matrix of more than 256. A run with more towns than
+  # this many jobs at their batch size puts more towns in each job instead.
+  MAX_JOBS: "100"
   # The network's monthly budget for AI summaries and translations, in dollars, shared by every town.
   SUMMARY_BUDGET: "80"
   # A month with a budget of its own, as YYYY-MM=dollars (empty for none).
@@ -119,6 +131,7 @@ jobs:
       home: ${{ steps.plan.outputs.home }}
       prune: ${{ steps.plan.outputs.prune }}
       sample: ${{ steps.plan.outputs.sample }}
+      full_towns: ${{ steps.plan.outputs.full_towns }}
       summary_allowance: ${{ steps.budget.outputs.allowance }}
       summary_backlog_allowance: ${{ steps.budget.outputs.backlog_allowance }}
       engine: ${{ steps.engine.outputs.ref }}
@@ -186,10 +199,11 @@ jobs:
           SOURCES: ${{ inputs.sources || 'all' }}
           BEFORE: ${{ github.event.before }}
           BASE: ${{ github.event.pull_request.base.sha }}
+          HEAD_REF: ${{ github.head_ref }}
           GH_TOKEN: ${{ github.token }}
         run: |
           args=()
-          batch=1; fetch=false; deploy=true; home=false; prune=false; sample=false; sources=all; daily=false
+          batch=1; fetch=false; deploy=true; home=false; prune=false; sample=false; sources=all; daily=false; full=""
           [ "$EVENT" = schedule ] || { [ "$EVENT" = workflow_dispatch ] && [ "$DAILY" = true ]; } && daily=true
           case "$EVENT" in
             schedule | workflow_dispatch)
@@ -226,9 +240,21 @@ jobs:
               # A pull request checks every page, and builds the homepage to check it, but publishes nothing.
               # After it merges, the push checks a sample: the pages were checked on the pull request.
               if [ "$EVENT" = pull_request ]; then deploy=false; else sample=true; fi
+              # An engine update (engine.yml's pull request): every page of the canaries, a sample of the rest.
+              # An engine without the command checks every page of every town, as before.
+              if [ "$EVENT" = pull_request ] && [ "$HEAD_REF" = engine-version ]; then
+                full=$(python -m pipeline.network canaries 2>/dev/null || true)
+                echo "Every page of: ${full:-every town}"
+              fi
               ;;
           esac
           matrix=$(python -m pipeline.network plan "${args[@]}" --batch-size "$batch")
+          if [ "$(jq '.include | length' <<< "$matrix")" -gt "$MAX_JOBS" ]; then
+            count=$(jq '[.include[].towns | split(" ")[]] | length' <<< "$matrix")
+            batch=$(( (count + MAX_JOBS - 1) / MAX_JOBS ))
+            echo "$count towns: $batch a job, to stay within $MAX_JOBS jobs"
+            matrix=$(python -m pipeline.network plan "${args[@]}" --batch-size "$batch")
+          fi
           echo "$matrix"
           any=$([ "$matrix" = '{"include": []}' ] && echo false || echo true)
           # A run that fetches records each town's result (data/run.json), and one that publishes without fetching
@@ -246,6 +272,7 @@ jobs:
             echo "home=$home"
             echo "prune=$prune"
             echo "sample=$sample"
+            echo "full_towns=$full"
           } >> "$GITHUB_OUTPUT"
 
       # Each town's share, for this run, of what's left of the month's summary budget. Only a run that
@@ -370,12 +397,17 @@ jobs:
           pip install -r .publick-engine/requirements.txt -r .publick-engine/requirements-dev.txt
           python -m playwright install --with-deps chromium
 
+      # One town at a time, each one's data committed when it's done (on a fetching run outside a pull request).
       - name: Update, build, check, and publish
         env:
           TOWNS: ${{ matrix.towns }}
+          COMMIT: ${{ needs.plan.outputs.fetch == 'true' && github.event_name != 'pull_request' }}
+          COMMIT_ATTEMPTS: 10
           FETCH: ${{ needs.plan.outputs.fetch == 'true' && '--fetch' || '' }}
           DEPLOY: ${{ needs.plan.outputs.deploy == 'true' && '--deploy' || '' }}
           SAMPLE: ${{ needs.plan.outputs.sample == 'true' && '--sample-checks' || '' }}
+          # On an engine update's pull request, the towns checked on every page; the rest are sampled.
+          FULL_TOWNS: ${{ needs.plan.outputs.full_towns }}
           # Only when some data is left out, so a run fetching everything works with any engine.
           SOURCES: ${{ needs.plan.outputs.fetch == 'true' && needs.plan.outputs.sources != 'all' && format('--sources {0}', needs.plan.outputs.sources) || '' }}
           # No keys on a pull request's run: it doesn't fetch or publish, and its build and checks use none.
@@ -383,6 +415,9 @@ jobs:
           # Empty unless the run fetches; then the town summarizes within these, new documents first.
           PUBLICK_SUMMARY_ALLOWANCE: ${{ needs.plan.outputs.summary_allowance }}
           PUBLICK_SUMMARY_BACKLOG_ALLOWANCE: ${{ needs.plan.outputs.summary_backlog_allowance }}
+          # A fetching run sends each town's summaries as one batch, at half the price; the loop below
+          # collects them once the job's towns are done (the engine's pipeline/summarize.py).
+          PUBLICK_SUMMARY_BATCH: ${{ needs.plan.outputs.fetch == 'true' && github.event_name != 'pull_request' && '1' || '' }}
           BLS_API_KEY: ${{ github.event_name != 'pull_request' && secrets.BLS_API_KEY || '' }}
           STORAGE_ACCESS_KEY_ID: ${{ github.event_name != 'pull_request' && secrets.STORAGE_ACCESS_KEY_ID || '' }}
           STORAGE_SECRET_ACCESS_KEY: ${{ github.event_name != 'pull_request' && secrets.STORAGE_SECRET_ACCESS_KEY || '' }}
@@ -390,10 +425,35 @@ jobs:
           SITES_BUCKET: ${{ github.event_name != 'pull_request' && secrets.SITES_BUCKET || '' }}
           SITES_ACCESS_KEY_ID: ${{ github.event_name != 'pull_request' && secrets.SITES_ACCESS_KEY_ID || '' }}
           SITES_SECRET_ACCESS_KEY: ${{ github.event_name != 'pull_request' && secrets.SITES_SECRET_ACCESS_KEY || '' }}
-        # $FETCH, $DEPLOY, $SAMPLE and $SOURCES are unquoted on purpose: each is a flag (and its value) or nothing.
-        run: python -m pipeline.network run --towns "$TOWNS" $FETCH $SOURCES $DEPLOY $SAMPLE --reports reports
+        # $FETCH, $DEPLOY, $sample and $SOURCES are unquoted on purpose: each is a flag (and its value) or nothing.
+        # A town that fails, or whose commit fails, doesn't stop the next; the step fails at the end if either did.
+        run: |
+          read -ra towns <<< "$TOWNS"
+          status=0
+          for town in "${towns[@]}"; do
+            sample=$SAMPLE
+            if [ -n "$FULL_TOWNS" ] && [[ " $FULL_TOWNS " != *" $town "* ]]; then sample=--sample-checks; fi
+            python -m pipeline.network run --towns "$town" $FETCH $SOURCES $DEPLOY $sample --reports reports || status=1
+            if [ "$COMMIT" = true ]; then
+              .publick-engine/.github/scripts/commit-data.sh "Update data for $town" "towns/$town/data" || status=1
+            fi
+          done
+          # Then each town's batch of summaries, in the same order: the first towns' batches have had the
+          # others' time to finish. Collected (or, past half an hour, cancelled and the rest sent one at a time),
+          # the town is published again with them. Only with an engine that sends them.
+          if [ -n "$PUBLICK_SUMMARY_BATCH" ] && python -m pipeline.network run --help | grep -q -- --collect; then
+            for town in "${towns[@]}"; do
+              [ -f "towns/$town/data/summary-batch.json" ] || continue
+              python -m pipeline.network run --towns "$town" --collect $DEPLOY --sample-checks || status=1
+              if [ "$COMMIT" = true ]; then
+                .publick-engine/.github/scripts/commit-data.sh "Add summaries for $town" "towns/$town/data" || status=1
+              fi
+            done
+          fi
+          exit "$status"
 
-      # The data is kept even if a town's build or checks failed, as each town's own workflow did.
+      # The data is kept even if a town's build or checks failed, as each town's own workflow did. Each town's
+      # was committed as it finished; this catches any that couldn't be, after the step above failed.
       - name: Commit data
         if: ${{ !cancelled() && needs.plan.outputs.fetch == 'true' && github.event_name != 'pull_request' }}
         env:
@@ -465,7 +525,8 @@ jobs:
         with:
           python-version: "3.12"
 
-      - run: pip install boto3
+      # At the engine's version (its requirements.txt), since it runs with the storage keys.
+      - run: pip install boto3==1.43.106
 
       # The town lists, from towns/.
       - name: Build the homepage
@@ -559,7 +620,8 @@ jobs:
         with:
           python-version: "3.12"
 
-      - run: pip install boto3
+      # At the engine's version (its requirements.txt), since it runs with the storage keys.
+      - run: pip install boto3==1.43.106
 
       - name: Prune old builds
         env:
