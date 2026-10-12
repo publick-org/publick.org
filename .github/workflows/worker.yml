@@ -182,22 +182,34 @@ jobs:
       - name: Make each digest town's Buttondown tag
         env:
           BUTTONDOWN_SUBSCRIBE_KEY: ${{ secrets.BUTTONDOWN_SUBSCRIBE_KEY }}
+          # Buttondown requires a color for a new tag (it refused one without, 2026-10-12); only its dashboard shows it.
+          TAG_COLOR: "#215367"
         run: |
           if [ -z "$BUTTONDOWN_SUBSCRIBE_KEY" ]; then
             echo "::warning::BUTTONDOWN_SUBSCRIBE_KEY isn't set, so no tags are made."
             exit 0
           fi
           towns=$(sed -n 's/^DIGEST_TOWNS = "\(.*\)"$/\1/p' wrangler.scheduler.toml | tr ',' ' ')
+          # The tags already there, by name (Buttondown pages its list; 100 is more than the network has).
+          status=$(curl -sS -o tags.json -w '%{http_code}' "https://api.buttondown.com/v1/tags?page_size=100" \
+            -H "Authorization: Token $BUTTONDOWN_SUBSCRIBE_KEY")
+          if [ "$status" != 200 ]; then
+            echo "::error::Listing the tags: HTTP $status $(cat tags.json)"
+            exit 1
+          fi
+          jq -r '.results[].name' tags.json > tag-names.txt
           failed=0
           for host in $towns; do
             tag="${host%%.*}-en"
+            if grep -qxF "$tag" tag-names.txt; then
+              echo "The tag $tag is there."
+              continue
+            fi
             status=$(curl -sS -o tag.json -w '%{http_code}' -X POST https://api.buttondown.com/v1/tags \
               -H "Authorization: Token $BUTTONDOWN_SUBSCRIBE_KEY" -H "Content-Type: application/json" \
-              -d "{\"name\": \"$tag\"}")
+              -d "{\"name\": \"$tag\", \"color\": \"$TAG_COLOR\"}")
             if [ "$status" = 201 ]; then
               echo "Made the tag $tag."
-            elif grep -q name_already_exists tag.json; then
-              echo "The tag $tag is there."
             else
               echo "::error::Making the tag $tag: HTTP $status $(cat tag.json)"
               failed=1
