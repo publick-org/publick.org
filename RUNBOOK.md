@@ -259,6 +259,7 @@ README's "Setup, once" says what each holds.
 | `BLS_API_KEY` | When revoked | Unemployment figures fall behind |
 | `BUTTONDOWN_SUBSCRIBE_KEY` | When revoked | The digest's signup form says it didn't go through. Make a new key in Buttondown (**API → Keys**: subscribers read and write, sending disabled), then run **Actions → Worker** |
 | `BUTTONDOWN_SEND_KEY` | When revoked | The weekly digest isn't sent, and the scheduler opens an issue. Make a new key (emails read and write, sending enabled), then run **Actions → Worker** |
+| `DIGEST_TEST_RECIPIENTS` | Never (addresses, not a key) | **Actions → Digest test** sends nothing; change it to change who gets the tests |
 
 Put each expiry date in a calendar when the token is made.
 
