@@ -106,8 +106,9 @@ env:
   MAX_JOBS: "100"
   # The network's monthly budget for AI summaries and translations, in dollars, shared by every town.
   SUMMARY_BUDGET: "80"
-  # A month with a budget of its own, as YYYY-MM=dollars (empty for none).
-  SUMMARY_BUDGET_MONTH: ""
+  # A month with a budget of its own, as YYYY-MM=dollars (empty for none). October 2026: $200, for the
+  # backlogs of the month's launches (Lowell, then Waltham, Chicopee, and Fitchburg).
+  SUMMARY_BUDGET_MONTH: "2026-10=200"
   # Who the daily issue for towns that need attention is assigned to, so it reaches them.
   ALERT_ASSIGNEE: NasTber
   # A daily run takes the towns whose last fetching run finished more than this many hours ago.
