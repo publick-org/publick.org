@@ -1,0 +1,64 @@
+# Where scripts/radar.py looks for local conversations a Publick site could
+# answer. Each town lists its own subreddits (every new post counts) and the
+# shared, wider subreddits it is talked about in (a post counts only when it
+# names the town). Bluesky is searched for every town by name; `hints` are
+# the words that tell this town's posts from another place of the same name
+# (Manchester, England; Burlington, Ontario), and a Bluesky post must carry
+# one of them.
+
+[towns.gloucester-ma]
+subreddits = ["Gloucester"]
+shared = ["northshore", "massachusetts"]
+hints = ["MA", "Mass", "Massachusetts", "Cape Ann", "Rockport", "North Shore"]
+
+[towns.beverly-ma]
+subreddits = ["BeverlyMA"]
+shared = ["northshore", "massachusetts"]
+hints = ["MA", "Mass", "Massachusetts", "North Shore", "Salem"]
+
+[towns.lowell-ma]
+subreddits = ["lowell"]
+shared = ["merrimackvalley", "massachusetts"]
+hints = ["MA", "Mass", "Massachusetts", "Merrimack", "UMass Lowell"]
+
+[towns.lawrence-ma]
+subreddits = ["LawrenceMA"]
+shared = ["merrimackvalley", "massachusetts"]
+hints = ["MA", "Mass", "Massachusetts", "Merrimack", "Essex County"]
+
+[towns.malden-ma]
+subreddits = ["Malden"]
+shared = ["massachusetts"]
+hints = ["MA", "Mass", "Massachusetts", "Medford", "Everett"]
+
+[towns.manchester-nh]
+subreddits = ["manchesternh"]
+shared = ["newhampshire"]
+hints = ["NH", "New Hampshire", "Queen City", "aldermen"]
+
+[towns.bangor-me]
+subreddits = ["Bangor"]
+shared = ["Maine"]
+hints = ["ME", "Maine", "Brewer", "Orono"]
+
+[towns.lewiston-me]
+subreddits = []
+shared = ["Maine"]
+hints = ["ME", "Maine", "Auburn", "Androscoggin"]
+
+[towns.burlington-vt]
+subreddits = ["burlington"]
+shared = ["vermont"]
+hints = ["VT", "Vermont", "BTV", "Winooski", "Church Street"]
+
+[towns.south-kingstown-ri]
+subreddits = []
+shared = ["RhodeIsland"]
+# The town's villages are how people name it.
+names = ["South Kingstown", "Wakefield", "Peace Dale", "Matunuck"]
+hints = ["RI", "Rhode Island", "URI", "Narragansett"]
+
+[towns.wallingford-ct]
+subreddits = []
+shared = ["Connecticut"]
+hints = ["CT", "Connecticut", "Meriden", "New Haven"]

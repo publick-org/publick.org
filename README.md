@@ -33,6 +33,8 @@ scripts/build_home.py         Writes the homepage's town lists, by state, with t
                               every town's sitemaps) and robots.txt
 scripts/build_status.py       Writes the network status page, publick.org/status/
 scripts/make_share_image.py   Draws home/share/publick.png, the homepage's card on Substack and social media
+scripts/radar.py              Lists local conversations (town subreddits, Bluesky) a town's site could answer, for a
+                              person to reply to by hand; it posts nothing. Where it looks is scripts/radar.toml (by hand)
 .github/workflows/network.yml The daily runs, and builds on push and pull request
 .github/workflows/engine.yml  Moves engine-version to each new engine release once the towns pass on it
 .github/workflows/evaluate.yml Runs the engine's minutes or translation prompt against the real model before a prompt change
