@@ -99,6 +99,10 @@ shows no ward map; a town with neither (Bangor) has no 311 section yet.
       have typos. When two official pages disagree (a member's name, an
       address), use the body's own newest page or minutes.
 - [ ] **Officers**: use the body's own titles (President or Chair).
+- [ ] **Next election** (`[officials] next_election`): the date of the
+      town's next regular municipal election, from the city's election
+      calendar or its charter. A vacancy filled by a special election is
+      said in the body's `note` until then.
 
 ## 5. The config
 
