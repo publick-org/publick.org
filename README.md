@@ -17,7 +17,9 @@ home/                         The publick.org homepage (index.html) and the page
 towns/<town>-<state>/         One folder per town, laid out as a town repository is:
   config/<town>.toml            everything town-specific
   data/                         collected data, committed by the daily run, with run.json (its last
-                                daily run) and summary-costs.json (its AI summaries' cost, by month)
+                                daily run) and summary-costs.json (its AI summaries' cost, by month);
+                                a 311 town's requests and scorecard are kept in the documents bucket
+                                instead, from the engine release of 2026-10-13 (below)
   site/static/                  files that replace or add to the engine's (the share image)
 states/ma/                    Statewide sources, fetched once for every town: Massachusetts's DLS reports (other
                               states' figures are saved in the engine, or fetched by each town)
@@ -74,6 +76,13 @@ Worker, which picks the site by hostname: `gloucester-ma.publick.org` is
     summary is up within about half an hour of its town's run. A batch a job
     couldn't collect is collected by the town's next run. Pull requests and
     rebuilds send none.
+- **311 data** (from the engine release of 2026-10-13, publick-engine#115):
+  a 311 town's `data/311/requests.json` and `scorecard.json`, most of what
+  the repository grew by, are kept in the documents bucket under
+  `<town>-<state>/data/311/`, read from its public address by any build and
+  saved back by the daily run; git keeps `311/status.json`. Once a daily run
+  on that release has saved them, `.gitignore` takes the two files out of
+  git (their history stays).
 - **On push to `main`:** rebuilds and publishes the towns the push touched (every
   town when `engine-version` or a workflow changed), records that in their run
   records, and rebuilds the homepage and status page. Data isn't fetched.
@@ -99,7 +108,12 @@ Worker, which picks the site by hostname: `gloucester-ma.publick.org` is
   town's readers alone. The signup form on a town's `/digest/` page (its
   config's `[digest] signup`) posts to the sites Worker, which passes the
   address on to Buttondown, within the `SIGNUP_LIMITER` rate limit
-  (`wrangler.toml`). See the engine README's Weekly digest.
+  (`wrangler.toml`). Every town but Lowell has both since 2026-10-12 (#72);
+  a new town joins once it has a few weeks of meetings: its `[digest]`
+  table, its place in `DIGEST_TOWNS`, then **Actions → Worker**, which makes
+  its Buttondown tag. A run makes two requests for each town and two more,
+  within the free plan's 50 up to 24 towns. See the engine README's Weekly
+  digest.
 - **By hand** (**Actions → Network → Run workflow**): tick **daily** for a daily
   run, as the scheduler starts; or any towns, with or without fetching; with no
   towns named, every town and the homepage.
@@ -170,7 +184,8 @@ engine's package for that state (the engine README's States section): its
 state has a package. Start from a town in the same state: Gloucester or Malden
 for Massachusetts, Manchester for New Hampshire, Wallingford for Connecticut,
 Burlington for Vermont, Lewiston or Bangor for Maine, South Kingstown for
-Rhode Island. A town in a state the engine has
+Rhode Island; Lowell for a Massachusetts city whose Agenda Center has every
+board and no calendar. A town in a state the engine has
 no package for leaves those tables and the budget and schools sections out; it
 still gets meetings, 311, unemployment, and housing. List each source in its `[freshness]` table, so the
 status page shows it.
