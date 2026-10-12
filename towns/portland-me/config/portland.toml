@@ -1,0 +1,473 @@
+# Site configuration for Portland, Maine. Everything town-specific lives here;
+# the code is the Publick engine (github.com/publick-org/publick-engine).
+#
+# Maine's largest city. Portland's boards post their meetings, agendas, and
+# minutes on the city's CivicClerk portal (portlandme.portal.civicclerk.com),
+# read as [meetings.civicclerk], as Burlington's and South Kingstown's are: the
+# City Council, its standing committees, and the city's boards and
+# commissions. The council's minutes are text PDFs. Every public body on the
+# portal is collected, 34 with their committees, subcommittees, and panels;
+# only entries that aren't a meeting of a city body are left out
+# ([meetings.civicclerk] exclude_pattern). The Board of Public Education
+# posts its meetings on Diligent Community
+# (portlandschools.community.highbond.com; BoardDocs before 2025), which the
+# engine can't read yet, so its meetings aren't collected for now; its
+# members are on the Officials page, and the district's figures still come
+# from the state ([schools]). The city answers requests on SeeClickFix as
+# Portland 311 ([seeclickfix]). The engine's Maine package gives the tax rate
+# and what the property tax raises, from Maine Revenue Services ([finance]),
+# and school figures, from the Department of Education's ESSA Dashboard;
+# housing and unemployment come from the Census and BLS, as for every town.
+#
+# The site is in English and Spanish ([site] languages), as every town's is.
+# The first runs draft the Spanish for the town's own text; [strings.es], at
+# the end, can correct it.
+
+[site]
+name = "Portland Publick"
+# The masthead shows name_prefix in dark ink and name_suffix in the accent
+# color: the town, then the network.
+name_prefix = "Portland "
+name_suffix = "Publick"
+domain = "portland-me.publick.org"
+# The network of town sites this one belongs to, named in every page footer.
+network = "Publick"
+network_url = "https://publick.org"
+tagline = "Public data on how Portland, Maine decides and spends. Updated daily."
+# One line under the name at the top of every page.
+masthead = "An independent guide to city government in Portland, Maine"
+repo_url = "https://github.com/publick-org/publick.org"
+# Public contact address. Shown on the About and Accessibility pages when set.
+contact_email = "portland-me@publick.org"
+timezone = "America/New_York"
+user_agent = "portland-me.publick.org (+https://portland-me.publick.org/about/)"
+# English at the site's root, Spanish under /es/.
+languages = ["en", "es"]
+
+# The city's own colors, as it set them on its CivicClerk portal and its
+# Portland 311 portal on SeeClickFix: its deep teal (#003b4d, both portals'
+# headers and buttons, 12.1:1 on white), the portal's darker shade of it
+# (15.3:1), and its light tint. The accent is the cyan of the city's "P" logo
+# (#63cfe3 on the 311 portal, 1.8:1), darkened until it passes on white and
+# on the tint (5.4 and 4.5 to 1). The city website's own stylesheet
+# (portlandmaine.gov) couldn't be read when the town was added: the site's
+# server leaves out its certificate's intermediate, so automated requests
+# can't verify it.
+[site.colors]
+primary = "#003b4d"
+primary_dark = "#002935"
+primary_soft = "#e6eced"
+accent = "#187485"
+
+[town]
+name = "Portland"
+# The 311 and Officials pages call the council's districts "District 1" to "District 5", as the city does.
+areas = "districts"
+state = "Maine"
+state_abbr = "ME"
+official_site = "https://www.portlandmaine.gov"
+
+# Sections appear in the main navigation in this order. Each one is a folder
+# under site/pages/<slug>/ and is served at https://<domain>/<slug>/.
+[[sections]]
+slug = "meetings"
+title = "Meetings"
+summary = "When the City Council, its committees, and the city's boards and commissions meet, with agendas, and minutes from January 2026 on."
+status = "live"
+
+[[sections]]
+slug = "311"
+title = "311 Requests"
+nav = "311"
+summary = "How fast the city responds to Portland 311 requests on SeeClickFix, by category and council district."
+status = "live"
+
+[[sections]]
+slug = "budget"
+title = "City budget"
+nav = "Budget"
+summary = "The city's tax rate and what the property tax raises, compared with Maine's other towns."
+status = "live"
+
+[[sections]]
+slug = "schools"
+title = "Schools"
+summary = "Portland Public Schools' graduation rate, absenteeism, state test results, and spending per pupil, with the state's."
+status = "live"
+
+[[sections]]
+slug = "housing"
+title = "Housing"
+summary = "New homes permitted, home values and rents, and the housing stock."
+status = "live"
+
+[[sections]]
+slug = "officials"
+title = "Who represents you"
+nav = "Officials"
+summary = "The mayor, the City Council, and the Board of Public Education, by district, and how to reach them."
+status = "live"
+
+[[sections]]
+slug = "about"
+title = "About"
+summary = "Data sources, update schedule, metric definitions, and corrections."
+status = "live"
+
+# Page view counting with GoatCounter, on the network's site; prefix is this
+# town's folder.
+[analytics]
+goatcounter = "publick"
+prefix = "portland-me"
+public_stats = ""
+
+# Public meetings, from the city's CivicClerk portal. The portal files each
+# meeting under a category, but the engine reads a meeting's board from its
+# title ("Hybrid Planning Board Meeting 9-22-2026", "Remote Finance Committee
+# Meeting"), matched to the longest of these it contains, ignoring case,
+# punctuation, and "&" versus "and". The council's standing committees are
+# named as the council's, as in its Rules of Procedure (Rule 34) and the
+# order appointing them each December, so they're listed with the council.
+[meetings]
+calendar_url = "https://portlandme.portal.civicclerk.com"
+archive_url = "https://portlandme.portal.civicclerk.com"
+archive_name = "city's CivicClerk portal"
+governing_body = "City Council"
+# The home page always shows these in full, with the governing body.
+main_boards = ["Planning Board", "City Council Finance Committee"]
+request_delay = 3.0
+boards = [
+  "City Council",
+  "City Council Finance Committee",
+  "City Council Health and Human Services and Public Safety Committee",
+  "City Council Housing and Economic Development Committee",
+  "City Council Legislative and Nominating Committee",
+  "City Council Sustainability and Transportation Committee",
+  "City Council Rules Committee",
+  "Planning Board",
+  "Zoning Board of Appeals",
+  "Historic Preservation Board",
+  "Board of Assessment Review",
+  "Rent Board",
+  "Civilian Police Review Board",
+  "Civilian Police Review Board Subcommittee",
+  "Police Citizen Review Subcommittee",
+  "Parks Commission",
+  "Land Bank Commission",
+  "Ethics Commission",
+  "Social Housing Task Force",
+  "Peaks Island Council",
+  "Portland Fish Pier Authority",
+  "Portland Fish Pier Authority Finance Subcommittee",
+  "Portland Fish Pier Authority Fish Exchange Subcommittee",
+  "Portland Development Corporation",
+  "Creative Portland Corporation",
+  "Public Art Committee",
+  "Public Art Committee Art Selection Panel",
+  "Public Art Committee Temporary Art Review Panel",
+  "CDBG Priority Setting Task Force",
+  "CDBG Allocation Committee",
+  "CDBG Working Group",
+  "Jetport Noise Advisory Committee",
+  "Civil Service Employment Subcommittee",
+  "City Clerk Search Subcommittee",
+]
+
+# Other names the portal's titles use for a board.
+[meetings.aliases]
+# The council's committees, as their meetings are titled ("HHS and Public
+# Safety Meeting", "Legislative Nominating Committee - Interviews",
+# "Nominating Committee Meeting - October 13, 2026", "Ad Hoc Rules Committee
+# Meeting"). The Finance Committee's joint meetings with the school board's
+# ("Remote Joint City/School Finance Committee Meeting") are filed with it.
+"Finance Committee" = "City Council Finance Committee"
+"HHS and Public Safety" = "City Council Health and Human Services and Public Safety Committee"
+"Housing & Economic Development Committee" = "City Council Housing and Economic Development Committee"
+"Legislative/Nominating Committee" = "City Council Legislative and Nominating Committee"
+"Nominating Committee" = "City Council Legislative and Nominating Committee"
+"Sustainability & Transportation Committee" = "City Council Sustainability and Transportation Committee"
+"Rules Committee" = "City Council Rules Committee"
+# A council workshop on the task force's work, not a meeting of the task force.
+"City Council Workshop - Social Housing Task Force" = "City Council"
+# The Civilian Police Review Board, as one entry spells it, and the Police
+# Citizen Review Subcommittee ("PCRS Meeting"), which met until the board's
+# new ordinance (the subcommittee's agenda of January 14, 2026).
+"Citizen Police Review Board" = "Civilian Police Review Board"
+"PCRS" = "Police Citizen Review Subcommittee"
+# The Peaks Island Council, as the portal files it; its entries are titled
+# "Peaks Island" alone.
+"Peaks Island" = "Peaks Island Council"
+# The Fish Pier Authority's board of directors and its two subcommittees,
+# titled "Portland Fish Pier Authority Board - Finance Subcommittee", so a
+# subcommittee is listed with the authority rather than as the board.
+"Portland Fish Pier Authority Board - Finance Subcommittee" = "Portland Fish Pier Authority Finance Subcommittee"
+"Portland Fish Pier Authority Board - Portland Fish Exchange Subcommittee" = "Portland Fish Pier Authority Fish Exchange Subcommittee"
+# Creative Portland's board ("Creative Portland Board Meeting"), filed on the
+# portal as the Creative Portland Corporation.
+"Creative Portland" = "Creative Portland Corporation"
+# The Public Art Committee's panels, each titled with its project ("Temporary
+# Art Review Panel - Dana Street roadway mural", "Public Art Selection Panel -
+# Portland Harbor Common"), listed with the committee.
+"Temporary Art Review Panel" = "Public Art Committee Temporary Art Review Panel"
+"Public Art Selection Panel" = "Public Art Committee Art Selection Panel"
+# The CDBG Working Group's meeting for grant applicants.
+"Mandatory CDBG Applicant Meeting" = "CDBG Working Group"
+
+[meetings.civicclerk]
+api_url = "https://portlandme.api.civicclerk.com/v1"
+portal_url = "https://portlandme.portal.civicclerk.com"
+# Meetings, agendas, and minutes are collected from here on. The council took
+# office at its inaugural meeting of December 1, 2025.
+since = "2026-01-01"
+# Left out: entries that aren't a meeting of a city body. The councilors'
+# district meetings ("In-Person District 3 Meeting", "District 5
+# Annual Meeting"), the council's island tour, community feedback meetings, a
+# staff event, a stream test, untitled entries ("One Time Event"), and the
+# Legislative/Nominating Committee's placeholder slot ("Fourth Tuesday of
+# Every Month meeting"), which has no agenda.
+exclude_pattern = '\bDistrict \d (Annual )?Meeting\b|\bIsland Tour\b|\bCommunity Feedback Meeting\b|\bPartial Closure\b|\bLive Stream Test\b|^One Time Event$|\bFourth Tuesday of Every Month\b'
+
+# Agenda and minutes PDFs, in the network's documents bucket. So are the 311
+# requests and scorecard ([seeclickfix] below), which this town's .gitignore
+# keeps out of git.
+[storage]
+endpoint = "https://6bbfee5a3892553c7993dbfa4b4e8453.r2.cloudflarestorage.com"
+bucket = "publick-documents"
+public_url = "https://files.publick.org"
+prefix = "portland-me"
+
+# Agenda previews and decisions from minutes, written by a language model and
+# labeled as AI-generated on the site, and their Spanish translations. Within
+# the network's monthly budget. Only meetings from `since` on are summarized,
+# so the city's first months don't take the month's budget; older meetings
+# keep their records and documents. The portal's bodies posted about 39
+# agendas and minutes a month in 2026 (about 6 of them the council's); the
+# engine saves each meeting's agenda, not its packet (the council's run to 240
+# to 320 pages).
+[summaries]
+model = "claude-sonnet-5"
+max_per_run = 40
+input_price = 2.0
+output_price = 10.0
+max_cost_per_run = 5.0
+since = "2026-07-01"
+
+# How residents can take part, per board, shown on its meeting pages. Only
+# what the city has published; each entry names its source. From the
+# Council's Rules of Procedure for 2025-2026 (Rule 32), adopted at its
+# inaugural meeting, and the written comment notice on each of its agendas.
+# Meetings are streamed and recorded on the city's CivicClerk portal.
+[participation."City Council"]
+comment = "Anyone may speak once on an agenda item, for up to three minutes, when the Council takes it up and before it deliberates; on matters not on the agenda, in the public comment period at 5:00 p.m. Speakers give their name and city of residence. Written comments on an agenda item can be emailed to publiccomment@portlandmaine.gov by noon the day before the meeting, with the commenter's name and legal address."
+source_title = "City Council inaugural meeting of December 1, 2025: agenda and Rules of Procedure"
+source_url = "https://portlandme.portal.civicclerk.com/event/8370/files"
+video_title = "the city's CivicClerk portal"
+video_url = "https://portlandme.portal.civicclerk.com"
+
+# Terms that come up on agendas and minutes, explained on each meeting page
+# where they appear. Acronyms match exactly; other terms ignore case. An entry
+# with bodies is shown only on those boards' meetings.
+[[glossary]]
+term = "executive session"
+definition = "A part of a public meeting closed to the public. Maine's Freedom of Access Act (1 M.R.S. § 405) allows it only for specific reasons, such as lawsuits, real estate, contracts, or personnel matters."
+
+[[glossary]]
+term = "M.R.S."
+definition = "Maine Revised Statutes, the state's laws."
+
+[[glossary]]
+term = "consent items"
+bodies = ["City Council"]
+definition = "Routine items, such as business licenses and event approvals, that the City Council takes up together, with one motion and one public comment period."
+
+[[glossary]]
+term = "first reading"
+bodies = ["City Council"]
+definition = "An item's first presentation at a City Council meeting. An item the agenda says must be read on two separate days is voted on at a later meeting."
+
+[[glossary]]
+term = "Municipal Officers' Approval"
+bodies = ["City Council"]
+definition = "The City Council's approval, as the city's municipal officers, of a business's application, such as for outdoor dining or entertainment."
+
+[[glossary]]
+term = "TIF"
+definition = "Tax increment financing: a district where some of the property tax from new development is set aside, for public projects or for the development itself."
+
+[[glossary]]
+term = "credit enhancement agreement"
+definition = "An agreement, under a tax increment financing (TIF) district, in which the city returns part of a development's new property tax to its owner."
+
+[[glossary]]
+term = "CDBG"
+definition = "Community Development Block Grant: federal money, from the Department of Housing and Urban Development, for housing and neighborhood projects that serve low- and moderate-income residents."
+
+# Tax rate and property tax (pipeline/states/me/), from Maine Revenue Services'
+# Municipal Valuation Return Statistical Summary, where the city is
+# "PORTLAND". There's no average single-family tax bill: Portland's rows in
+# the Maine GeoLibrary's parcel table (GEOCODE 05170) all have land use "0",
+# so its homes can't be picked out, and their total ($12.9 billion) is 0.87
+# of the city's 2024 taxable land and buildings, below the engine's check. So
+# the tax bill's keys (megis_geocode, single_family_use) are left out.
+[finance]
+mrs_municipality = "Portland"
+
+# Schools: the Department of Education's ESSA Dashboard, where the district is
+# "Portland Public Schools".
+[schools]
+doe_district = "Portland Public Schools"
+district_name = "Portland Public Schools"
+
+# Housing: Census building permits (state and place FIPS codes) and the
+# American Community Survey through Census Reporter (geo ids). Portland is a
+# Census place, Portland city (23-60545).
+[housing]
+bps_region = "Northeast Region"
+bps_prefix = "ne"
+bps_state = "23"
+bps_place = "60545"
+census_geo = "16000US2360545"
+state_geo = "04000US23"
+
+# Unemployment rate (BLS Local Area Unemployment Statistics, area
+# CT2360545000000, Portland city). City rates are not seasonally adjusted; the
+# state series is shown for context. bulk_file is the state's file under
+# download.bls.gov/pub/time.series/la/, used when the API refuses.
+[labor]
+local_series = "LAUCT236054500000003"
+state_series = "LAUST230000000000003"
+bulk_file = "la.data.26.Maine"
+
+# 311 requests, from SeeClickFix (public requests only). The city's
+# organization is 611 ("Portland 311"), the one its SeeClickFix portal belongs
+# to; its Open311 services (seeclickfix.com/open311/v2/611/services.json) are
+# 77 request types, all the City of Portland's, so no departments are needed.
+# About 30 requests a day (100 from October 9 to 12, 2026). The requests and
+# scorecard are kept in the documents bucket ([storage]), not in git: the
+# town's .gitignore leaves data/311/requests.json and scorecard.json out, and
+# git keeps only data/311/status.json.
+[seeclickfix]
+organization_id = 611
+open311_base = "https://seeclickfix.com/open311/v2"
+api_base = "https://seeclickfix.com/api/v2"
+report_url = "https://seeclickfix.com/web_portal/9Sds4Ebv9yf9nC8e9yhDf5MP/report/category"
+# SeeClickFix documents a limit of 20 requests per minute.
+request_delay = 3.2
+recent_days = 21
+max_details_per_run = 700
+time_budget_seconds = 2400
+# The month the full history starts (python -m pipeline.fetch_311 --backfill).
+# At Portland's volume, about 8,500 requests; their exact times then fill in
+# at up to 700 a day.
+history_since = "2026-01"
+# Requests about a household, shown only to the block, besides the engine's
+# own list (which already has "Homeless Camp", "Noise", and "Police Issue").
+sensitive_categories = ["Bedbugs", "Hoarding", "Housing Violation", "Landlord/Tenant Issues", "No Heat", "No Water", "Request a housing inspection"]
+# The council's five districts, as redrawn after the 2020 Census and adopted
+# on June 22, 2022, from the city's GIS, with each district's 2020 population
+# (the census blocks inside it, 68,408 in all, the city's 2020 count). The
+# pages call them districts ([town] areas).
+precincts_file = "portland-districts-2022.geojson"
+wards_publisher = "the City of Portland"
+wards_year = 2022
+wards_url = "https://gis.portlandmaine.gov/maps/rest/services/Political/Council_Districts/MapServer/112"
+
+# Repeat locations: requests in the same category within radius_m meters and
+# window_days days of each other are grouped as one place.
+[seeclickfix.repeats]
+radius_m = 50
+window_days = 60
+recent_open_days = 30
+
+# How often each data source should update. The daily run fails when one goes
+# longer than max_days, and the About page lists them. Figures published
+# monthly or yearly are judged by the engine (pipeline/rhythms.py).
+[freshness]
+summary_grace_days = 2
+sources = [
+  { label = "Meetings (CivicClerk)", file = "meetings/status.json", max_days = 2 },
+  { label = "311 requests", file = "311/status.json", max_days = 2 },
+  { label = "311 scorecard", file = "311/scorecard.json", field = "generated_at", max_days = 2 },
+]
+
+# Who represents you (the Officials page). Kept by hand from official city
+# and school websites and records; checked is the date the list was last
+# checked against them. Only city- and school-issued email addresses, and the
+# mayor's office phone. The district file is
+# data/static/portland-districts-2022.geojson ([seeclickfix]): a district
+# seat's ward is its council district, and the Board of Public Education is
+# elected from the same five districts. Terms are from the City Clerk's
+# election returns, read into the record at each inaugural meeting (the
+# council's agendas and minutes of December 4, 2023, December 2, 2024, and
+# December 1, 2025): the mayor's four years and the councilors' three begin
+# at the inaugural meeting, on the first Monday in December, so they end in
+# December. The city's website (portlandmaine.gov) couldn't be read when the
+# town was added (see [site.colors]), so the councilors' and the mayor's email
+# addresses, the mayor's office phone, and the council's page are left out
+# until they're checked there.
+[officials]
+checked = "2026-10-12"
+# The next regular municipal election: Tuesday, November 3, 2026 (Order
+# 53-26/27, setting the polls' hours, on the council's agenda of October 5,
+# 2026). Up on that ballot: on the City Council, the at-large seat of April
+# D. Fournier and the District 4 and 5 seats (Anna Bullett, Kate Sykes),
+# elected in 2023 for three years; on the Board of Public Education, the
+# at-large seat of Usira Ali and the District 4 and 5 seats (Fatuma Noor,
+# Sarah Brydon), whose terms end in 2026 (the district's Board Members page).
+# Once the City Clerk certifies the results, update those members and their
+# term_ends, and checked; the winners take office in December.
+next_election = "2026-11-03"
+
+# Elected citywide on November 7, 2023, for four years (the City Clerk's
+# returns, read at the inaugural meeting of December 4, 2023).
+[[officials.bodies]]
+name = "Mayor"
+note = "Elected citywide for four years. The mayor presides over the City Council and votes as one of its nine members."
+members = [
+  { name = "Mark Dion", seat = "Citywide", term_ends = "2027-12" },
+]
+
+# Names and seats as the council's agendas list them (agenda of October 5,
+# 2026), confirmed against the City Clerk's returns of the elections of
+# November 7, 2023 (Fournier, Bullett, Sykes), November 5, 2024 (Grant,
+# Michniewicz, Pelletier), and November 4, 2025 (Ali, Phillips), and the roll
+# call of the council's minutes of September 21, 2026. The mayor appointed
+# Councilor Ali Mayor Pro Tempore on December 1, 2025 (Order 92-25/26).
+[[officials.bodies]]
+name = "City Council"
+note = "The mayor and eight councilors: five elected by district and three at-large, for three years. The mayor presides."
+members = [
+  { name = "Sarah Michniewicz", seat = "District 1", ward = 1, term_ends = "2027-12" },
+  { name = "Wesley Pelletier", seat = "District 2", ward = 2, term_ends = "2027-12" },
+  { name = "Regina L. Phillips", seat = "District 3", ward = 3, term_ends = "2028-12" },
+  { name = "Anna Bullett", seat = "District 4", ward = 4, term_ends = "2026-12" },
+  { name = "Kate Sykes", seat = "District 5", ward = 5, term_ends = "2026-12" },
+  { name = "Pious Ali", seat = "At-large", role = "Mayor Pro Tempore", term_ends = "2028-12" },
+  { name = "April D. Fournier", seat = "At-large", term_ends = "2026-12" },
+  { name = "Benjamin Grant", seat = "At-large", term_ends = "2027-12" },
+]
+
+# From the district's Board Members page (seats, officers, the year each term
+# ends, and school-issued email addresses). The board's own meetings portal
+# (Diligent Community) names the District 2 member Abdul Ali, as his address
+# (aliab@) does; the Board Members page has "Ali Ali". The board inaugurated
+# its members on December 9, 2025 (its meetings portal), so terms end in
+# December. Not checked against the election returns, which are on the city's
+# website. The four student representatives don't vote and aren't listed.
+# The board posts its meetings on Diligent Community, which the engine can't
+# read yet, so it has no meetings page to link and no [participation].
+[[officials.bodies]]
+name = "Board of Public Education"
+url = "https://www.portlandschools.org/about/board-of-education/board-members"
+note = "Nine members: five elected by district and four at-large. Its meetings aren't listed on this site yet: the board posts them on Diligent, which the site can't read."
+members = [
+  { name = "Abusana \"Micky\" Bondo", seat = "District 1", ward = 1, role = "Board Vice Chair", term_ends = "2027-12", email = "bondom@portlandschools.org" },
+  { name = "Abdul Ali", seat = "District 2", ward = 2, term_ends = "2027-12", email = "aliab@portlandschools.org" },
+  { name = "Julianne Opperman", seat = "District 3", ward = 3, term_ends = "2028-12", email = "opperj@portlandschools.org" },
+  { name = "Fatuma Noor", seat = "District 4", ward = 4, term_ends = "2026-12", email = "noorf@portlandschools.org" },
+  { name = "Sarah Brydon", seat = "District 5", ward = 5, term_ends = "2026-12", email = "brydos@portlandschools.org" },
+  { name = "Sarah Lentz", seat = "At-large", role = "Board Chair", term_ends = "2028-12", email = "lentzs@portlandschools.org" },
+  { name = "Usira Ali", seat = "At-large", term_ends = "2026-12", email = "aliu@portlandschools.org" },
+  { name = "Maya Lena", seat = "At-large", term_ends = "2027-12", email = "lenam@portlandschools.org" },
+  { name = "Jayne Sawtelle", seat = "At-large", term_ends = "2028-12", email = "sawtej@portlandschools.org" },
+]
