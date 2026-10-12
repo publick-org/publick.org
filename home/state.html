@@ -10,7 +10,7 @@
   <meta property="og:site_name" content="Publick">
   <meta property="og:title" content="Publick in {state}">
   <meta property="og:url" content="https://publick.org/{abbr}/">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self'; img-src 'self' data: https://publick.goatcounter.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
   <meta name="color-scheme" content="light">
   <meta name="theme-color" content="#faf7f0">
   <link rel="preload" href="../fonts/public-sans-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -55,7 +55,10 @@
         <li><a href="../status/">Network status</a></li>
         <li><a href="https://github.com/publick-org">Source code on GitHub</a></li>
       </ul>
+      <p class="small">We count visits with <a href="https://www.goatcounter.com">GoatCounter</a>, without cookies, and keep nothing that identifies you.</p>
     </div>
   </footer>
+  <!-- The visit count, as on the homepage (home/index.html): an image GoatCounter counts, under home/. -->
+  <img class="counter" src="https://publick.goatcounter.com/count?p=home/{abbr}/&amp;t={state}" alt="" width="1" height="1">
 </body>
 </html>

@@ -18,7 +18,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <!-- For search engines: the network's name and logo in their results. Data, not a script, so the policy below allows it. -->
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://publick.org/#website","name":"Publick","url":"https://publick.org/","inLanguage":"en","description":"Publick is a network of free, independent websites that publish each town's public record every day.","publisher":{"@id":"https://publick.org/#organization"}},{"@type":"Organization","@id":"https://publick.org/#organization","name":"Publick","url":"https://publick.org/","logo":"https://publick.org/apple-touch-icon.png","sameAs":["https://github.com/publick-org"]}]}</script>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self'; img-src 'self' data: https://publick.goatcounter.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
   <meta name="color-scheme" content="light">
   <meta name="theme-color" content="#faf7f0">
   <link rel="preload" href="fonts/public-sans-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -46,16 +46,18 @@
       <!-- The town lists are written by scripts/build_home.py: live towns from towns/,
            grouped by state, and the counts from their run records. Edit those, not the
            lists. -->
-      <section aria-labelledby="towns-heading">
-        <h2 id="towns-heading" class="first">Find your town</h2>
-        <!-- towns:live -->
-        <!-- /towns:live -->
+      <!-- What Publick is comes first: most visitors arrive from a link shared elsewhere, not knowing. -->
+      <section aria-labelledby="about-heading">
+        <h2 id="about-heading" class="first">What Publick is</h2>
+        <p class="lede">Publick is a network of free, independent websites. Each one publishes a town's public record every day: meeting agendas and minutes as readable text with summaries, who represents you, 311 requests, what's happening on each street, and budget, schools and housing data.</p>
+        <p>And every Sunday evening, a free weekly email: your town's meetings for the week ahead, and what was decided. Sign up on your town's site.</p>
+        <p class="independent">Independent. Not run by or affiliated with any city or town government.</p>
       </section>
 
-      <section aria-labelledby="about-heading">
-        <h2 id="about-heading">What Publick is</h2>
-        <p class="lede">Publick is a network of free, independent websites. Each one publishes a town's public record every day: meeting agendas and minutes as readable text with summaries, who represents you, 311 requests, what's happening on each street, and budget, schools and housing data.</p>
-        <p class="independent">Independent. Not run by or affiliated with any city or town government.</p>
+      <section aria-labelledby="towns-heading">
+        <h2 id="towns-heading">Find your town</h2>
+        <!-- towns:live -->
+        <!-- /towns:live -->
       </section>
 
       <section aria-labelledby="request-heading" class="request">
@@ -75,7 +77,11 @@
         <li><a href="status/">Network status</a></li>
         <li><a href="https://github.com/publick-org">Source code on GitHub</a></li>
       </ul>
+      <p class="small">We count visits with <a href="https://www.goatcounter.com">GoatCounter</a>, without cookies, and keep nothing that identifies you.</p>
     </div>
   </footer>
+  <!-- The visit count, as the town sites keep theirs (on the network's GoatCounter site, each site's
+       pages under its own folder: this page is home/), with no script: an image GoatCounter counts. -->
+  <img class="counter" src="https://publick.goatcounter.com/count?p=home/&amp;t=Publick" alt="" width="1" height="1">
 </body>
 </html>

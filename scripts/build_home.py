@@ -9,7 +9,10 @@ a town appears once it has a folder.
 The counts at the top (towns, boards followed, meetings in the next 7 days)
 come from each town's data/run.json, written by its daily run, never from its
 meeting files, so the build stays quick at any size. Until every town's run
-record has them, only the number of towns is shown.
+record has them, only the number of towns is shown. Each town's card says the
+same of the town (its meetings this week, from its run record, when it has
+any) and whether it sends the weekly digest by email ([digest] signup in its
+config).
 
 Everything else on the pages is home/index.html and home/state.html as
 written; the generated parts go between their <!-- towns:... --> markers.
@@ -57,7 +60,7 @@ def live_towns(root: Path) -> list[dict]:
         activity = json.loads(record.read_text(encoding="utf-8")).get("activity") if record.exists() else None
         towns.append({"name": site["name"], "domain": site["domain"], "url": f"https://{site['domain']}",
                       "town": town["name"], "state": town["state"], "state_abbr": town["state_abbr"].lower(),
-                      "activity": activity})
+                      "activity": activity, "digest": bool(config.get("digest", {}).get("signup"))})
     return sorted(towns, key=lambda t: (t["state"], t["town"]))
 
 
@@ -73,30 +76,48 @@ def plural(n: int, one: str, many: str) -> str:
     return f"{n:,} {one if n == 1 else many}"
 
 
+def coming(town: dict, today: date) -> int | None:
+    """A town's meetings in the next COMING_DAYS days, from its run record; None without one."""
+    if not town["activity"]:
+        return None
+    last = (today + timedelta(days=COMING_DAYS - 1)).isoformat()
+    return sum(n for day, n in town["activity"]["meetings_by_date"].items() if today.isoformat() <= day <= last)
+
+
 def glance_html(towns: list[dict], today: date) -> str:
     """The network at a glance: its towns, and, once every town's run record has them, the
     boards it follows and its meetings in the next COMING_DAYS days."""
     items = [("towns", len(towns), "town", "towns")]
     if towns and all(t["activity"] for t in towns):
-        last = (today + timedelta(days=COMING_DAYS - 1)).isoformat()
-        coming = sum(n for t in towns for day, n in t["activity"]["meetings_by_date"].items()
-                     if today.isoformat() <= day <= last)
+        coming_total = sum(coming(t, today) for t in towns)
         boards = sum(t["activity"]["boards"] for t in towns)
         items += [("boards", boards, "board or committee followed", "boards and committees followed"),
-                  ("meetings", coming, f"public meeting in the next {COMING_DAYS} days",
+                  ("meetings", coming_total, f"public meeting in the next {COMING_DAYS} days",
                    f"public meetings in the next {COMING_DAYS} days")]
     lis = "".join(f'\n          <li><strong>{n:,}</strong> {one if n == 1 else many}</li>' for _, n, one, many in items)
     return f'\n        <ul class="glance" aria-label="The network today">{lis}\n        </ul>'
 
 
-def town_cards(towns: list[dict], indent: str) -> str:
+def card_news(town: dict, today: date) -> str:
+    """What a town's card says of it: its meetings this week (as its own home page counts them, the
+    next COMING_DAYS days), when it has any, and whether it sends the weekly digest by email."""
+    parts = []
+    if n := coming(town, today):
+        parts.append(plural(n, "meeting this week", "meetings this week"))
+    if town["digest"]:
+        parts.append("Weekly email")
+    # Each part kept whole, so a narrow card breaks the line between them.
+    return f'<span class="news">{" · ".join(f"<span>{p}</span>" for p in parts)}</span>' if parts else ""
+
+
+def town_cards(towns: list[dict], indent: str, today: date) -> str:
     items = "".join(
         f'\n{indent}  <li><a href="{escape(t["url"])}"><span class="name">{escape(t["town"])}</span>'
-        f'<span class="domain">{escape(t["domain"])}</span></a></li>' for t in towns)
+        f'<span class="domain">{escape(t["domain"])}</span>{card_news(t, today)}</a></li>' for t in towns)
     return f'\n{indent}<ul class="town-cards">{items}\n{indent}</ul>'
 
 
-def states_html(towns: list[dict]) -> str:
+def states_html(towns: list[dict], today: date) -> str:
     parts = []
     for state, abbr, ts in by_state(towns):
         count = plural(len(ts), "town", "towns")
@@ -106,7 +127,7 @@ def states_html(towns: list[dict]) -> str:
             continue
         parts.append(f'\n        <section class="state" aria-labelledby="state-{abbr}">\n'
                      f'          <h3 id="state-{abbr}">{escape(state)} <span class="count">{count}</span></h3>'
-                     f'{town_cards(ts, "          ")}\n'
+                     f'{town_cards(ts, "          ", today)}\n'
                      f'        </section>')
     return "".join(parts)
 
@@ -121,19 +142,20 @@ def fill(page: str, name: str, block: str, source: str) -> str:
 def render(page: str, root: Path, today: date | None = None) -> str:
     today = today or datetime.now(timezone.utc).date()
     live = live_towns(root)
-    block = glance_html(live, today) + states_html(live)
+    block = glance_html(live, today) + states_html(live, today)
     return fill(page, "live", block, "home/index.html")
 
 
-def state_pages(template: str, root: Path) -> dict[str, str]:
+def state_pages(template: str, root: Path, today: date | None = None) -> dict[str, str]:
     """The page for each state with STATE_PAGE_AT towns or more, by its folder (its abbreviation)."""
+    today = today or datetime.now(timezone.utc).date()
     pages = {}
     for state, abbr, ts in by_state(live_towns(root)):
         if len(ts) < STATE_PAGE_AT:
             continue
         page = template.replace("{state}", escape(state)).replace("{abbr}", abbr)
         page = page.replace("{count}", plural(len(ts), "town", "towns"))
-        pages[abbr] = fill(page, "state", town_cards(ts, "        "), "home/state.html")
+        pages[abbr] = fill(page, "state", town_cards(ts, "        ", today), "home/state.html")
     return pages
 
 

@@ -26,8 +26,9 @@ states/ma/                    Statewide sources, fetched once for every town: Ma
 wrangler.toml                 The Worker that serves every site from the sites bucket
 wrangler.scheduler.toml       The Worker that starts the daily runs on time, and checks every site loads, hourly
 scripts/import-town.sh        Copies a town's own repository into towns/ (how the first three towns moved in)
-scripts/build_home.py         Writes the homepage's town lists, by state, with the network's counts (from each
-                              town's data/run.json), and a page for each state with 10 or more towns; and the
+scripts/build_home.py         Writes the homepage's town lists, by state, with the network's counts and each town's
+                              meetings this week (from each town's data/run.json) and whether it sends the weekly
+                              email, and a page for each state with 10 or more towns; and the
                               network's sitemap.xml (an index of the homepage's and
                               every town's sitemaps) and robots.txt
 scripts/build_status.py       Writes the network status page, publick.org/status/
