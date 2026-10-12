@@ -194,6 +194,16 @@ Kingstown it is November 3, 2026, and for Burlington Town Meeting Day, March
 an appointment to fill a vacancy, new council or committee officers). Update
 the members and `checked` in one pull request.
 
+## Testing the weekly digest
+
+**Actions → Digest test → Run workflow** sends each town's newest issue now,
+as it would go on Sunday, to the addresses in `DIGEST_TEST_RECIPIENTS` and
+no subscriber, with `[Test]` before its subject. Left empty, **engine** sends
+the issue on the town's site now; given an engine branch, tag, or commit,
+the town is built with that engine first, to see an engine change's email
+before it's released. The newest issue is the last Sunday's: a new one
+appears on its Sunday.
+
 ## Checking meetings by hand
 
 About once a week while towns are added, compare each town's upcoming
@@ -270,6 +280,7 @@ In this repository's **Settings → Secrets and variables → Actions**:
 | `ENGINE_PR_TOKEN` | For `engine.yml`, which moves the engine each day: a fine-grained personal access token with resource owner `publick-org`, this repository only, and **Contents** and **Pull requests** read and write. Required: what the workflow's own token pushes, opens, or merges starts no other workflow, so the pull request wouldn't be checked and the merge wouldn't publish. It expires; replace it before it does (until then the engine doesn't move, and the workflow's failure emails the owner) |
 | `BUTTONDOWN_SUBSCRIBE_KEY` | For the weekly digest's signup form, which the sites Worker answers: a Buttondown API key with subscribers read and write, and sending disabled, so it can't send email. Without it, the form says it didn't go through |
 | `BUTTONDOWN_SEND_KEY` | For the weekly digest's Sunday send, from the scheduler Worker: a Buttondown API key with emails read and write, and sending enabled. Without it, nothing is sent |
+| `DIGEST_TEST_RECIPIENTS` | The addresses **Actions → Digest test** sends a test of the weekly digest to, separated by commas. A secret so they stay out of the public run logs. Without it, the test sends nothing |
 | `SCHEDULER_GITHUB_TOKEN` | For the scheduler Worker: a fine-grained personal access token with resource owner `publick-org`, for this repository with **Actions** and **Issues** read and write, and for `publick-engine` with **Actions** read and write (widened 2026-10-03, so the scheduler can start the engine's release). It expires (the current one, made 2026-09-30, about 2027-10-01); replace it (then run **Actions → Worker**) before it does. Until then, runs fall back to GitHub's own schedule |
 
 The scheduler's Cron Triggers also need the Cloudflare account to have a
