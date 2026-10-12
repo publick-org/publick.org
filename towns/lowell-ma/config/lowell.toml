@@ -1,0 +1,297 @@
+# Site configuration for Lowell, Massachusetts. Everything town-specific lives
+# here; the code is the Publick engine (github.com/publick-org/publick-engine).
+#
+# Lowell's website runs on CivicPlus, and every board posts agendas and minutes
+# in the Agenda Center: the City Council, each of its subcommittees (each in a
+# category of its own), and the School Committee and its subcommittees. Most
+# agendas are made in the Agenda Center's builder (read since engine v1.46.0).
+# The city calendar lists only holidays, so a meeting is listed once its agenda
+# is posted. There is no 311 section: the city takes service requests through
+# Lowell 311, on Tyler Technologies' portal, which publishes no data. The state
+# sources (DLS, DESE, BLS, Census, the Subsidized Housing Inventory) are the
+# same as Malden's.
+#
+# The site is in English and Spanish ([site] languages), as every town's is.
+# The first runs draft the Spanish for the town's own text; [strings.es], at
+# the end, can correct it.
+
+[site]
+name = "Lowell Publick"
+# The masthead shows name_prefix in dark ink and name_suffix in the accent
+# color: the town, then the network.
+name_prefix = "Lowell "
+name_suffix = "Publick"
+domain = "lowell-ma.publick.org"
+# The network of town sites this one belongs to, named in every page footer.
+network = "Publick"
+network_url = "https://publick.org"
+tagline = "Public data on how Lowell, Massachusetts decides and spends. Updated daily."
+# One line under the name at the top of every page.
+masthead = "An independent guide to city government in Lowell, Massachusetts"
+repo_url = "https://github.com/publick-org/publick.org"
+# Public contact address. Shown on the About and Accessibility pages when set.
+contact_email = "lowell-ma@publick.org"
+timezone = "America/New_York"
+user_agent = "lowell-ma.publick.org (+https://lowell-ma.publick.org/about/)"
+# English at the site's root, Spanish under /es/.
+languages = ["en", "es"]
+
+# From the city website's stylesheet (lowellma.gov): its slate blue (the most
+# used after white), its dark navy, a light tint of the slate blue, and its
+# green. Each passes WCAG AA on white as it is (8.4, 11.6, and 4.8 to 1). The
+# bright blue CivicPlus uses for links (#0098f7, 3.1 to 1) doesn't pass.
+[site.colors]
+primary = "#215367"
+primary_dark = "#0f3c5b"
+primary_soft = "#e9eef0"
+accent = "#437d6a"
+
+[town]
+name = "Lowell"
+state = "Massachusetts"
+state_abbr = "MA"
+official_site = "https://www.lowellma.gov"
+
+# Sections appear in the main navigation in this order. Each one is a folder
+# under site/pages/<slug>/ and is served at https://<domain>/<slug>/.
+[[sections]]
+slug = "meetings"
+title = "Meetings"
+summary = "Every board and committee meeting in the city's Agenda Center, with agendas, and minutes from January 2026 on."
+status = "live"
+
+[[sections]]
+slug = "schools"
+title = "Schools"
+summary = "Graduation, attendance, and MCAS results compared with the state."
+status = "live"
+
+[[sections]]
+slug = "budget"
+title = "City budget"
+nav = "Budget"
+summary = "Where general fund money comes from and how it is spent, reserves, and the property tax limit."
+status = "live"
+
+[[sections]]
+slug = "housing"
+title = "Housing"
+summary = "New homes permitted, home values and rents, affordable housing, and the housing stock."
+status = "live"
+
+[[sections]]
+slug = "officials"
+title = "Who represents you"
+nav = "Officials"
+summary = "The mayor, City Council, and School Committee, by office and by district, and how to reach them."
+status = "live"
+
+[[sections]]
+slug = "about"
+title = "About"
+summary = "Data sources, update schedule, metric definitions, and corrections."
+status = "live"
+
+# Page view counting with GoatCounter, on the network's site; prefix is this
+# town's folder.
+[analytics]
+goatcounter = "publick"
+prefix = "lowell-ma"
+public_stats = ""
+
+# Public meetings, from the city's Agenda Center.
+[meetings]
+base_url = "https://www.lowellma.gov"
+archive_url = "https://www.lowellma.gov/AgendaCenter"
+archive_name = "city's Agenda Center"
+# The city's site resets some connections; a slower pace and the client's retries help.
+request_delay = 5.0
+max_event_pages = 40
+
+# Agenda Center categories renamed to the board's usual name: the council's
+# subcommittees all spelled "Subcommittee", as its newer categories are, the
+# Commission on Disability as its own agendas name it, and the School
+# Committee's Safety Subcommittee (its notices come from the Superintendent).
+[meetings.aliases]
+"City Council Auditor/ Clerk Oversight and Personnel Sub Committee" = "City Council Auditor/Clerk Oversight and Personnel Subcommittee"
+"City Council Arts and Culture Sub Committee" = "City Council Arts and Culture Subcommittee"
+"City Council Downtown Redevelopment Sub Committee" = "City Council Downtown Redevelopment Subcommittee"
+"City Council Economic / Downtown Development Sub Committee" = "City Council Economic and Downtown Development Subcommittee"
+"City Council Education Partnerships Sub Committee" = "City Council Education Partnerships Subcommittee"
+"City Council Environment & Flood Issues Sub Committee" = "City Council Environment and Flood Issues Subcommittee"
+"City Council Finance Sub Committee" = "City Council Finance Subcommittee"
+"City Council Housing Sub Committee" = "City Council Housing Subcommittee"
+"City Council Municipal Facilities Sub Committee" = "City Council Municipal Facilities Subcommittee"
+"City Council Neighborhoods Sub Committee" = "City Council Neighborhoods Subcommittee"
+"City Council Non-Profit Organizations Sub Committee" = "City Council Non-Profit Organizations Subcommittee"
+"City Council Parks and Recreation Sub Committee" = "City Council Parks and Recreation Subcommittee"
+"City Council Public Safety Sub Committee" = "City Council Public Safety Subcommittee"
+"City Council Rules Sub Committee" = "City Council Rules Subcommittee"
+"City Council Senior Citizens Sub Committee" = "City Council Senior Citizens Subcommittee"
+"City Council Special Events Sub Committee" = "City Council Special Events Subcommittee"
+"City Council Technologies and Utilities Sub Committee" = "City Council Technologies and Utilities Subcommittee"
+"City Council Transportation Sub Committee" = "City Council Transportation Subcommittee"
+"City Council Youth Services Sub Committee" = "City Council Youth Services Subcommittee"
+"City Council Zoning Sub Committee" = "City Council Zoning Subcommittee"
+"Board of Disabilities Commission" = "Commission on Disability"
+"Safety Subcommittee" = "School Committee Safety Subcommittee"
+
+[meetings.agenda_center]
+base_url = "https://www.lowellma.gov"
+# The first run lists meetings from here, and minutes are collected from here on.
+since = "2026-01-01"
+# Not meetings: notices that the council released earlier executive sessions' minutes.
+exclude_categories = ["CITY COUNCIL EXECUTIVE SESSION MINUTES"]
+
+# Agenda and minutes PDFs live in the network's documents bucket, not in git
+# (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID, STORAGE_SECRET_ACCESS_KEY.
+[storage]
+endpoint = "https://6bbfee5a3892553c7993dbfa4b4e8453.r2.cloudflarestorage.com"
+bucket = "publick-documents"
+public_url = "https://files.publick.org"
+prefix = "lowell-ma"
+
+# Plain-English agenda text and previews, and decisions from minutes, written by
+# a language model and labeled as AI-generated on the site. Only meetings from
+# `since` on are summarized, about three months before launch, so the town's
+# history doesn't take the month's budget.
+[summaries]
+model = "claude-sonnet-5"
+since = "2026-07-01"
+max_per_run = 40
+# Prices per million tokens, for the spending limit below.
+input_price = 2.0
+output_price = 10.0
+# A ceiling for one run. The network's monthly summary budget (SUMMARY_BUDGET in
+# .github/workflows/network.yml) decides what each run may spend, new documents first.
+max_cost_per_run = 5.0
+
+# How residents can take part, per board, shown on its meeting pages. From
+# the notice on each agenda; the Council's Rules (Rule 26) add a three-minute
+# limit, and that a speaker keeps to the agenda item. Both boards' meetings are
+# broadcast and kept for replay by LTC (Lowell Telecommunications Corporation),
+# which the city's Council page and the district's School Committee page link.
+[participation."City Council"]
+comment = "Residents can speak on a specific agenda item, in person or by Zoom. Email the City Clerk at mgeary@lowellma.gov, or call 978-674-4161, before 4:00 PM on the day of the meeting, naming the item and giving a phone number."
+source_title = "City Council agenda of October 13, 2026"
+source_url = "https://www.lowellma.gov/AgendaCenter/ViewFile/Agenda/_10132026-4062?html=true"
+video_title = "LTC (Lowell Telecommunications Corporation)"
+video_url = "https://www.ltc.org/on-demand/ch6/city-council/"
+
+[participation."School Committee"]
+comment = "Residents can speak on an agenda item. Email the Superintendent at skeo@lowell.k12.ma.us, or call 978-674-4324, before 2:00 PM on the day of the meeting, naming the item and giving a phone number and email address."
+source_title = "School Committee agenda of October 7, 2026"
+source_url = "https://www.lowellma.gov/AgendaCenter/ViewFile/Agenda/_10072026-4044?html=true"
+video_title = "LTC (Lowell Telecommunications Corporation)"
+video_url = "https://www.ltc.org/on-demand/ch6/school-committee/"
+
+# School district figures from the state's education data portal (DESE).
+[schools]
+district_code = "01600000"
+district_name = "Lowell Public Schools"
+portal = "https://educationtocareer.data.mass.gov"
+
+# Tax bill and budget figures (Mass. Division of Local Services). Some DLS
+# reports take the name, others the DOR code.
+[finance]
+dls_municipality = "Lowell"
+dls_code = "160"
+
+# Housing: Census building permits (state and place FIPS codes), American
+# Community Survey through Census Reporter (geo ids), and the state's
+# Subsidized Housing Inventory PDF (the town's name as the PDF lists it).
+[housing]
+bps_region = "Northeast Region"
+bps_prefix = "ne"
+bps_state = "25"
+bps_place = "37000"
+census_geo = "16000US2537000"
+state_geo = "04000US25"
+shi_url = "https://www.mass.gov/doc/subsidized-housing-inventory-2/download"
+shi_name = "Lowell"
+
+# Unemployment rate (BLS Local Area Unemployment Statistics). City rates are
+# not seasonally adjusted; the state series is shown for context.
+[labor]
+local_series = "LAUCT253700000000003"
+state_series = "LAUST250000000000003"
+
+# How often each data source should update. Figures published monthly or yearly
+# are judged by the engine, by the period they cover (pipeline/rhythms.py).
+[freshness]
+summary_grace_days = 2
+sources = [
+  { label = "Meetings (Agenda Center)", file = "meetings/status.json", max_days = 2 },
+]
+
+# The About page's "What this site doesn't cover": why there's no 311 section.
+[absences]
+311 = "The city takes service requests through Lowell 311, on a portal that needs an account and publishes no data."
+
+# Who represents you (the Officials page). Kept by hand from official city
+# and school websites; checked is the date the list was last checked against
+# them. Only city- and school-issued email addresses, and the mayor's office
+# phone. The ward file is data/static/lowell-precincts-2022.geojson (MassGIS):
+# the council's eight districts are the city's eight wards, and each School
+# Committee district is two wards (the precincts in the official results).
+# No official page gives the terms' end (two years, from the first Monday in
+# January, by the Plan E charter), so term_ends is left out.
+[officials]
+checked = "2026-10-12"
+# The next regular municipal election (Plan E, M.G.L. c. 43 § 109: the Tuesday
+# after the first Monday of November in odd years).
+next_election = "2027-11-02"
+wards_file = "lowell-precincts-2022.geojson"
+wards_publisher = "MassGIS"
+wards_year = "2022"
+wards_url = "https://gis.data.mass.gov/maps/aec5130790814ace94438d3bcf23cf9a"
+
+# Chosen by the council from its members at its organizational meeting of
+# January 5, 2026 (its minutes). The phone is the City Council office's, which
+# the Mayor's page gives.
+[[officials.bodies]]
+name = "Mayor"
+url = "https://www.lowellma.gov/549/City-Mayor"
+note = "Chosen by the City Council from among its members. Chairs the City Council and the School Committee. The city's manager, appointed by the council, runs its departments."
+members = [
+  { name = "Erik R. Gitschier", seat = "At-large councillor", phone = "(978) 674-4040" },
+]
+
+# Elected on November 4, 2025 (official results); the Vice Chair chosen on
+# January 5, 2026 (the council's minutes). District 1 is vacant: Councilor
+# Daniel P. Rourke resigned, and on October 6, 2026 the council called a
+# special election for February 2, 2027 (the city's election alert). The
+# council publishes no members' email addresses, only a contact form.
+[[officials.bodies]]
+name = "City Council"
+url = "https://www.lowellma.gov/517/City-Council"
+note = "Eight councillors elected by district and three at-large, for two years. District 1 (Ward 1) is vacant until a special election on February 2, 2027. Councillors are reached through the council's contact form."
+members = [
+  { name = "Corey Robinson", seat = "District 2", ward = 2 },
+  { name = "Belinda M. Juran", seat = "District 3", ward = 3 },
+  { name = "Sean McDonough", seat = "District 4", ward = 4 },
+  { name = "Kimberly Scott", seat = "District 5", ward = 5 },
+  { name = "Sokhary Chau", seat = "District 6", ward = 6 },
+  { name = "Sidney L. Liang", seat = "District 7", ward = 7 },
+  { name = "John Descoteaux", seat = "District 8", ward = 8 },
+  { name = "Erik R. Gitschier", seat = "At-large", role = "Mayor" },
+  { name = "Vesna Nuon", seat = "At-large", role = "Vice Chair" },
+  { name = "Rita Mercier", seat = "At-large" },
+]
+
+# Elected on November 4, 2025 (official results); the Vice Chairperson chosen
+# on January 5, 2026 (the committee's minutes). Names as the district's School
+# Committee page gives them; email addresses from its Contact Us page.
+[[officials.bodies]]
+name = "School Committee"
+url = "https://www.lowell.k12.ma.us/departments/school-committee/welcome"
+note = "Four members elected by district (each two wards) and two at-large, for two years, and the mayor as chair."
+members = [
+  { name = "Erik R. Gitschier", seat = "Mayor", role = "Chair" },
+  { name = "Fred Bahou", seat = "District 1", wards = [1, 8], email = "fbahou@lowell.k12.ma.us" },
+  { name = "Eileen DelRossi", seat = "District 2", wards = [2, 4], email = "edelrossi@lowell.k12.ma.us" },
+  { name = "Dave Conway", seat = "District 3", wards = [3, 5], role = "Vice Chairperson", email = "djconway@lowell.k12.ma.us" },
+  { name = "Dominik Lay", seat = "District 4", wards = [6, 7], email = "dlay@lowell.k12.ma.us" },
+  { name = "Danielle McFadden", seat = "At-large", email = "dmcfadden@lowell.k12.ma.us" },
+  { name = "Connie Martin", seat = "At-large", email = "cmartin@lowell.k12.ma.us" },
+]
