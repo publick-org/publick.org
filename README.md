@@ -186,13 +186,23 @@ district of wards, as on Beverly's School Committee).
 ## Keeping officials current
 
 Each town's `[officials]` table is kept by hand. Check every town's members
-against the city and school websites after each municipal election (the next
-for Beverly, Gloucester, Lawrence, Malden, Manchester, and Wallingford is November
-2027; new terms start in January 2028; for Bangor, Lewiston, and South
-Kingstown it is November 3, 2026, and for Burlington Town Meeting Day, March
-2, 2027, with new terms from the first Monday in April), and whenever a seat changes between elections (a resignation,
-an appointment to fill a vacancy, new council or committee officers). Update
-the members and `checked` in one pull request.
+against the city and school websites after each municipal election, and
+whenever a seat changes between elections (a resignation, an appointment to
+fill a vacancy, new council or committee officers). Update the members and
+`checked` in one pull request.
+
+Each table's `next_election` is the town's next municipal election: November
+3, 2026 for Bangor, Lewiston, and South Kingstown; Town Meeting Day, March 2,
+2027, for Burlington; November 2, 2027 for Beverly, Gloucester, Lawrence,
+Lowell, Malden, Manchester, and Wallingford. From the engine release that
+reads it (publick-engine#114), a list is due a check on election day, or once
+new terms begin if that's later (the first month a member's `term_ends` on or
+after the election's month, such as January 2027 for Lewiston and April 2027
+for Burlington; a town with no `term_ends`, such as Lowell, is due on election
+day). A week after, a list whose `checked` is
+earlier shows as behind on the town's About page and the status page, and
+the town goes into **Towns need attention**. After checking, set
+`next_election` to the election after; until then, the daily run warns.
 
 ## Testing the weekly digest
 
