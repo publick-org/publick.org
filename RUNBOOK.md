@@ -21,8 +21,9 @@ Times are UTC. Eastern is UTC−4 in summer, UTC−5 in winter.
 | When | What | Started by |
 |---|---|---|
 | 08:20 | The engine's release: everything merged to the engine's `main` since the last release, if its tests passed | The scheduler Worker (GitHub's schedule is a late backup) |
-| 08:40 | `engine.yml`: a pull request moving `engine-version` to that release, checked on every page of every town, merged if all pass | The scheduler Worker |
-| 09:05 to 14:05, hourly | `network.yml` daily runs: each start takes the towns that are due | The scheduler Worker; GitHub's 12:17 is a backup |
+| 08:40 | `engine.yml`: a pull request moving `engine-version` to that release, checked on every town (every page of the canaries, a sample of the rest), merged if all pass, or all but a few towns, which are held back | The scheduler Worker |
+| 09:05 to 14:05, hourly | `network.yml` daily runs: each start takes the towns that are due; each town's summaries go as one batch, collected and published at the end of its job | The scheduler Worker; GitHub's 12:17 is a backup |
+| Every hour, at :50 | Every site's homepage loaded through the sites Worker; one that doesn't load opens **site down** | The scheduler Worker |
 | Sundays, 5:30 PM Eastern | Each town in `DIGEST_TOWNS` (`wrangler.scheduler.toml`) emailed its weekly digest; a failure opens **The weekly digest didn't send** | The scheduler Worker, checking hourly on Sundays and Mondays (UTC) |
 
 So anything merged to the engine's `main` before 08:20 goes to every town
@@ -35,7 +36,9 @@ or a workflow change), and a workflow change applies to the next run.
 **Check, in this order:**
 
 1. **The engine pull request** (titled "Engine vX.Y.Z"): merged by itself, or
-   still open with a failed run. The workflow's failure emails the owner.
+   still open with a failed run. The workflow's failure emails the owner. An
+   open issue labeled `engine held back` names towns it merged without (see
+   below).
 2. **[publick.org/status/](https://publick.org/status/)**: every town
    "Up to date" after the last daily start, about 14:30.
 3. **The "Towns need attention" issue** (label `towns behind`): open means a
@@ -65,6 +68,20 @@ The towns stay on the engine they have; nothing's broken for readers.
 4. If the engine pull request didn't open at all, check that
    `ENGINE_PR_TOKEN` hasn't expired (the workflow's log says so).
 
+### Towns held back by an engine
+
+A few towns failed the engine pull request's checks twice, so it merged
+without them (the issue labeled `engine held back` names them and links the
+run). Readers see each one's site as it was: a build that fails its checks
+isn't published. Its data is still fetched each day, but its site won't
+update until it passes.
+
+1. Open the run the issue links and find the check each town failed.
+2. If the engine is at fault, fix it as above; the town's next daily run
+   publishes it. If the town is (a changed city page), fix its config.
+3. Close the issue once each town is published again (the status page shows
+   it up to date).
+
 ### A town is behind
 
 From the issue, then the town's last fetching run:
@@ -93,6 +110,42 @@ The scheduler opens **The network's daily runs have stopped** (label
 3. If the run itself fails before any town, read its plan job: usually a
    workflow change or GitHub itself.
 
+### Pausing the daily runs
+
+To stop every run for a while (a source that must not be asked again, a
+broken engine you can't roll back yet): **Actions → Network → ⋯ → Disable
+workflow**. The scheduler's starts then fail harmlessly, the sites keep
+their last builds, and after 30 hours the scheduler opens "The network's
+daily runs have stopped", as expected. **Enable workflow** turns it back on; the next start
+takes every town that's due.
+
+### A site is down
+
+The scheduler loads publick.org and every town's homepage (the towns in
+publick.org/sitemap.xml) through the sites Worker every hour, at :50. A site
+that doesn't load, tried twice a few seconds apart, opens an issue such as
+**gloucester-ma.publick.org isn't loading** (label `site down`, assigned to
+`ALERT_ASSIGNEE`), with why: an HTTP status, an empty or partial page, or the
+sitemap itself not loading. While any
+site is down the issue keeps the list up to date; when every site loads again
+the scheduler comments and closes it, so there's nothing to close by hand.
+
+1. Open the site. If it loads, it was brief; the next check closes the issue.
+2. **Every site down**, or the sitemap: the sites Worker. Read its logs in
+   Cloudflare (**Workers & Pages → publick-sites → Logs**), and whether
+   **Actions → Worker** just deployed it, or an open **Deploy the sites
+   Worker** issue says the engine moved past it. To go back, set
+   `engine-version` to the earlier release and merge (the push republishes
+   every town on it), then run **Actions → Worker** to deploy the sites
+   Worker from it.
+3. **One town down**: its newest build. Roll it back (below), then read the
+   last run that published it.
+
+The check sees only what the sites Worker serves: a DNS or route problem in
+front of it won't open the issue. If the scheduler can't reach GitHub it
+can't open one either; its errors are in **Workers & Pages →
+publick-scheduler → Logs**.
+
 ### A site is broken, or shows something wrong
 
 Roll the town back to its previous build, then fix forward. With the sites
@@ -108,6 +161,28 @@ about ten publishes. To take every town back to an older engine, set
 `engine-version` to the earlier release and merge; the push run publishes
 every town on it.
 
+### Many more readers than usual
+
+A news story or a shared link can bring more readers in an hour than a
+usual week. The sites are static, so the one limit that bites is
+Cloudflare's plan. The account is on Workers' free plan (decided 2026-10-07
+to stay on it for now), and the Worker doesn't yet keep the sites' files in
+Cloudflare's cache (engine #88, merged and deployed after the move to the
+paid plan):
+
+1. **Workers & Pages → publick-sites → Metrics**: requests, errors, and
+   CPU time. On the free plan, past 100,000 requests a day every site gets
+   Cloudflare's error 1027 until midnight UTC: move the account to Workers
+   Paid (**Workers & Pages → Plans**), which takes effect at once.
+2. **R2 → publick-sites → Metrics**: reads should stay low while the Worker's
+   cache is working (after engine #88). Until then, reads climb with the
+   requests.
+3. If one town's signup form is being abused (many signups in the Worker's
+   logs; after engine #88, "over the rate limit"), turn that town's
+   `[digest] signup` off and merge; the form is gone on the next build.
+4. GoatCounter counts page views on its own limits; missed counts don't
+   affect the sites.
+
 ### A reader reports an error
 
 The "Report an error" buttons go to each town's `contact_email`.
@@ -118,10 +193,16 @@ The "Report an error" buttons go to each town's `contact_email`.
   meetings by hand"). It can go up in English.
 - **A summary that's wrong**: read the document first. If the city's
   document says it (a typo in the minutes), the summary is right to copy
-  it. If the summary is wrong, there's no switch yet to hold back one
-  summary: roll the town back if the harm is serious, and fix it in the
-  engine (a fact-check rule, or a prompt change with its version raised).
-  A switch for this is a gap to close.
+  it. If the summary is wrong, take it down at once with a
+  `[[summaries.withheld]]` entry in the town's config (engine #90, merged
+  2026-10-07: `board`
+  and `date`, or `meeting`, with `kind = "minutes"` or `"agenda"` and the
+  date `checked`) and merge: the push publishes the town without it, and its
+  meeting page says it was taken down while the error is checked. Then fix
+  the cause in the engine (a fact-check rule, or a prompt change with its
+  version raised), and remove the entry once a new summary is right. Until
+  engine #90 reaches `engine-version`, rolling the town back is the only way,
+  and the next daily run publishes the summary again.
 - **An official listed wrong**: fix the town's `[officials]` table and its
   `checked` date, from the city's own pages.
 
@@ -148,11 +229,20 @@ documents go first, so upcoming agendas are the last to stop.
 - **An urgent engine fix:** merge it, run the engine's **Actions → Release →
   Run workflow**, then **Actions → Engine → Run workflow** here. The engine
   pull request still checks every town before it merges.
-- **The Workers:** **Actions → Worker** deploys both from the engine at
-  `engine-version`. It never runs on its own, because the sites Worker's
-  routes decide which hostnames it answers: a mistake there takes every site
-  down. Deploy it after a release that changes `worker/`, and look at a
-  town's site and `publick.org/status/` right after.
+- **The Workers:** `worker.yml` deploys them from the engine at
+  `engine-version`. By itself it deploys only the scheduler: when
+  `engine-version` moves to an engine whose scheduler changed (most releases
+  don't), or `wrangler.scheduler.toml` changes. The sites Worker serves every
+  site, so a mistake in it takes them all down at once: it's deployed only by
+  hand (decided 2026-10-10). When `engine-version` moves to an engine whose
+  sites Worker changed, an issue, **Deploy the sites Worker for engine
+  vX.Y.Z**, says so: run **Actions → Worker → Run workflow** (it deploys
+  both), look at a town's site and `publick.org/status/`, and close the
+  issue. Until then the old sites Worker serves the new builds; if a site
+  stops loading, the hourly check opens **site down**. A change to
+  `wrangler.toml` (its routes decide which hostnames the sites Worker
+  answers) also deploys only by hand; any deploy uses it as it is on `main`,
+  so change it only when it's ready to go live.
 
 ## Secrets and when they expire
 
@@ -169,6 +259,7 @@ README's "Setup, once" says what each holds.
 | `BLS_API_KEY` | When revoked | Unemployment figures fall behind |
 | `BUTTONDOWN_SUBSCRIBE_KEY` | When revoked | The digest's signup form says it didn't go through. Make a new key in Buttondown (**API → Keys**: subscribers read and write, sending disabled), then run **Actions → Worker** |
 | `BUTTONDOWN_SEND_KEY` | When revoked | The weekly digest isn't sent, and the scheduler opens an issue. Make a new key (emails read and write, sending enabled), then run **Actions → Worker** |
+| `DIGEST_TEST_RECIPIENTS` | Never (addresses, not a key) | **Actions → Digest test** sends nothing; change it to change who gets the tests |
 
 Put each expiry date in a calendar when the token is made.
 
@@ -181,6 +272,8 @@ Put each expiry date in a calendar when the token is made.
   (README, "Keeping officials current", which lists each town's dates). The
   next is November 3, 2026, for Bangor, Lewiston, and South Kingstown.
 - **New Hampshire's yearly figures**, when the status page shows them behind
-  (README, "New Hampshire's yearly figures").
+  (README, "New Hampshire's yearly figures"). Vermont's, Maine's, and Rhode
+  Island's are saved into the engine once a year too (the engine README's
+  States section); Rhode Island's are downloaded by hand in a browser.
 - **A new town's email routing rule**, in Cloudflare's dashboard, when the
   town is added (`ADDING-A-TOWN.md`).

@@ -9,6 +9,7 @@ each record and in git history.
 | `meetings/meetings.json` | One record per public meeting since January 2026: board, date, status (cancelled, removed), links to its agenda and minutes, and every change since it was first seen, including revised agendas | The city's [Agenda Center](https://www.cityofmalden.org/AgendaCenter) (public records) |
 | `meetings/status.json` | When the Agenda Center was last checked, for the site and the stale-data alert | Derived |
 | Agendas and minutes (PDF) | Each agenda (upcoming meetings) and set of minutes as the city posted it, kept in the network's documents bucket at `files.publick.org/malden-ma/` rather than in git | City of Malden Agenda Center (public records) |
+| `summaries/`, `summaries/es/` | AI-written summaries of agendas and minutes, and their Spanish translations, each checked against its document and labeled as AI-generated on the site | Publick, from the documents above |
 | `311/requests.json` | One record per public SeeClickFix request: category, location, ward, status, and submitted/acknowledged/closed/reopened times. No descriptions, photos, or reporter details | [SeeClickFix](https://seeclickfix.com), [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/) |
 | `311/scorecard.json` | Metrics shown on the 311 page, recomputed daily | Derived from `311/requests.json`; same license |
 | `finance/tax_bill.json` | Average single-family tax bill, recent fiscal years | [Mass. Division of Local Services, Municipal Databank](https://dls-gw.dor.state.ma.us/reports/rdPage.aspx?rdReport=AverageSingleTaxBill.SingleFamTaxBill_wRange) (public record) |
@@ -20,3 +21,7 @@ each record and in git history.
 
 Data derived from SeeClickFix is shared under the same CC BY-NC-SA 3.0 license,
 with attribution to seeclickfix.com.
+
+What Publick makes here (the summaries and translations, and figures it
+calculates) is under CC BY 4.0, with credit; the repository's `LICENSE` says
+how, and what keeps its own terms.

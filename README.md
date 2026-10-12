@@ -19,10 +19,11 @@ towns/<town>-<state>/         One folder per town, laid out as a town repository
   data/                         collected data, committed by the daily run, with run.json (its last
                                 daily run) and summary-costs.json (its AI summaries' cost, by month)
   site/static/                  files that replace or add to the engine's (the share image)
-states/ma/                    Statewide sources, fetched once for every town: Massachusetts's DLS reports
+states/ma/                    Statewide sources, fetched once for every town: Massachusetts's DLS reports (other
+                              states' figures are saved in the engine, or fetched by each town)
 wrangler.toml                 The Worker that serves every site from the sites bucket
-wrangler.scheduler.toml       The Worker that starts the daily runs on time
-scripts/import-town.sh        Copies a town's own repository into towns/
+wrangler.scheduler.toml       The Worker that starts the daily runs on time, and checks every site loads, hourly
+scripts/import-town.sh        Copies a town's own repository into towns/ (how the first three towns moved in)
 scripts/build_home.py         Writes the homepage's town lists, by state, with the network's counts (from each
                               town's data/run.json), and a page for each state with 10 or more towns; and the
                               network's sitemap.xml (an index of the homepage's and
@@ -30,9 +31,12 @@ scripts/build_home.py         Writes the homepage's town lists, by state, with t
 scripts/build_status.py       Writes the network status page, publick.org/status/
 scripts/make_share_image.py   Draws home/share/publick.png, the homepage's card on Substack and social media
 .github/workflows/network.yml The daily runs, and builds on push and pull request
-.github/workflows/engine.yml  Moves engine-version to each new engine release once every town passes on it
-.github/workflows/evaluate.yml Runs the engine's minutes prompt against the real model before a prompt change ships (by hand)
-.github/workflows/worker.yml  Deploys both Workers (by hand)
+.github/workflows/engine.yml  Moves engine-version to each new engine release once the towns pass on it
+.github/workflows/evaluate.yml Runs the engine's minutes or translation prompt against the real model before a prompt change
+                              ships, or the minutes as a batch at each effort, to measure the Batches API (by hand)
+.github/workflows/worker.yml  Deploys the Workers: the scheduler by itself when engine-version moves to an engine whose
+                              scheduler changed, or wrangler.scheduler.toml changes; the sites Worker only by hand (an
+                              engine whose sites Worker changed opens an issue asking for it)
 ```
 
 ## How it runs
@@ -45,34 +49,57 @@ Worker, which picks the site by hostname: `gloucester-ma.publick.org` is
 - **Daily**, started every hour from 09:05 to 14:05 UTC by the
   `publick-scheduler` Worker (`wrangler.scheduler.toml`), with one GitHub
   schedule (12:17 UTC) as a backup, since GitHub starts those late or not at
-  all. Each start takes the towns that are due (their last daily run
-  finished more than `DUE_HOURS`, 18, ago), oldest first; a start with nothing
+  all. Each start takes the towns that are due (their last fetching run,
+  daily or by hand, finished more than `DUE_HOURS`, 18, ago), oldest first; a start with nothing
   due does nothing, and the next start makes up a missed one.
   - The statewide job fetches the sources a state's towns share, once for all
     of them, into `states/`: Massachusetts's DLS reports, only when a report
     isn't saved or is over a week old.
   - Each town then fetches its own new data, is built and checked, published
-    if the checks pass, and its data committed. Towns run in batches of four
-    per job, up to ten jobs at a time. Daily runs give the accessibility checks
-    a sample of each town's pages (every hand-written page, and the first and
-    largest of each kind of record page); every other run checks every page.
+    if the checks pass, and its data committed as soon as it's done. Towns run
+    in batches of four per job (more, past `MAX_JOBS`, 100 jobs), up to ten jobs at a time, the slow ones spread
+    over the jobs by how long each took last time. Daily runs, runs by hand
+    that fetch, and pushes to `main` give the accessibility checks a sample of
+    each town's pages (every hand-written page, and the first and largest of
+    each kind of record page); pull requests and rebuilds by hand without
+    fetching check every page.
   - AI summaries and translations share one budget, `SUMMARY_BUDGET` ($80 a
     month, decided 2026-10-03; a month can have its own in `SUMMARY_BUDGET_MONTH`): each run gives each of its towns a share of what's left, new
     documents first.
+  - A run that fetches sends each town's summaries as one batch, at half the
+    price (decided 2026-10-10), and publishes the town without them. Once the
+    job's towns are done, it collects each batch, sends one at a time whatever
+    a batch didn't make or hadn't finished half an hour after it was sent, and
+    publishes the town again (commit "Add summaries for <town>"). So a new
+    summary is up within about half an hour of its town's run. A batch a job
+    couldn't collect is collected by the town's next run. Pull requests and
+    rebuilds send none.
 - **On push to `main`:** rebuilds and publishes the towns the push touched (every
   town when `engine-version` or a workflow changed), records that in their run
   records, and rebuilds the homepage and status page. Data isn't fetched.
 - **The engine, once a day, by itself** (`engine.yml`, 08:40 UTC): the
   scheduler Worker starts the engine's release at 08:20 and this at 08:40
   (GitHub's own schedules for both are a late backup). After the release, it opens a pull request moving `engine-version` to
-  it, waits for that pull request's run to build and check every page of
-  every town, and merges it if every town passes; the merge publishes them.
-  If a town fails, the pull request stays open, the towns stay where they
-  are, and the failed workflow emails the owner. So the towns take at most
-  one new engine a day, and only one that passed on all of them. For an
+  it, waits for that pull request's run to build and check every town (every
+  page of the canaries, the fewest towns with every kind of town between them,
+  and a sample of the rest), and merges it if every town passes; the merge
+  publishes them. A run that fails has its failed jobs run once more. If a few
+  towns still fail (at most one in 20, and at least one), it merges anyway and
+  holds them back: each keeps the site it has, and an issue (label
+  `engine held back`) names them. If more fail, or anything but a town, the
+  pull request stays open, the towns stay where they are, and the failed
+  workflow emails the owner. So the towns take at most one new engine a day,
+  and only one that passed on nearly all of them. For an
   urgent fix, release the engine now (its **Actions → Release → Run
   workflow**) and run **Actions → Engine**.
 - **On a pull request:** builds and checks the towns it touches. Nothing is published.
+- **The weekly digest**, each Sunday at 5:30 PM in the town's time: the
+  scheduler Worker emails each town in its `DIGEST_TOWNS`
+  (`wrangler.scheduler.toml`) its newest issue through Buttondown, to that
+  town's readers alone. The signup form on a town's `/digest/` page (its
+  config's `[digest] signup`) posts to the sites Worker, which passes the
+  address on to Buttondown, within the `SIGNUP_LIMITER` rate limit
+  (`wrangler.toml`). See the engine README's Weekly digest.
 - **By hand** (**Actions → Network → Run workflow**): tick **daily** for a daily
   run, as the scheduler starts; or any towns, with or without fetching; with no
   towns named, every town and the homepage.
@@ -91,6 +118,14 @@ one that's caught up, sends nothing. If the daily runs stop altogether, the sche
 **The network's daily runs have stopped** (label `network stopped`) after 30
 hours, and closes it when a run finishes. A pull request's run still fails when
 a town does, so a broken site can't be merged.
+
+Between the daily runs, the scheduler loads publick.org and every town's
+homepage (from the network's sitemap) through the sites Worker every hour, at
+:50. A site that doesn't load, tried twice a few seconds apart, opens an issue such as
+**gloucester-ma.publick.org isn't loading** (label `site down`, assigned to `ALERT_ASSIGNEE` in
+`wrangler.scheduler.toml`); the issue lists every site down while any is, and
+is closed when all load again. It sees what the sites Worker serves, not what's
+in front of it (DNS, its routes).
 
 ## Status page
 
@@ -131,11 +166,13 @@ towns.
 
 The town's tax, budget, and school figures come from its state, through the
 engine's package for that state (the engine README's States section): its
-`[finance]` and `[schools]` tables take that state's keys. Start from a town in
-the same state: Gloucester or Malden for Massachusetts, Manchester for New
-Hampshire. A town in a state the engine has no package for leaves those tables
-and the budget and schools sections out; it still gets meetings, 311,
-unemployment, and housing. List each source in its `[freshness]` table, so the
+`[finance]` and `[schools]` tables take that state's keys. Every New England
+state has a package. Start from a town in the same state: Gloucester or Malden
+for Massachusetts, Manchester for New Hampshire, Wallingford for Connecticut,
+Burlington for Vermont, Lewiston or Bangor for Maine, South Kingstown for
+Rhode Island. A town in a state the engine has
+no package for leaves those tables and the budget and schools sections out; it
+still gets meetings, 311, unemployment, and housing. List each source in its `[freshness]` table, so the
 status page shows it.
 
 Add the `officials` section and an `[officials]` table (the engine README's
@@ -156,6 +193,16 @@ Kingstown it is November 3, 2026, and for Burlington Town Meeting Day, March
 2, 2027, with new terms from the first Monday in April), and whenever a seat changes between elections (a resignation,
 an appointment to fill a vacancy, new council or committee officers). Update
 the members and `checked` in one pull request.
+
+## Testing the weekly digest
+
+**Actions → Digest test → Run workflow** sends each town's newest issue now,
+as it would go on Sunday, to the addresses in `DIGEST_TEST_RECIPIENTS` and
+no subscriber, with `[Test]` before its subject. Left empty, **engine** sends
+the issue on the town's site now; given an engine branch, tag, or commit,
+the town is built with that engine first, to see an engine change's email
+before it's released. The newest issue is the last Sunday's: a new one
+appears on its Sunday.
 
 ## Checking meetings by hand
 
@@ -214,6 +261,12 @@ In the Cloudflare account that holds `publick.org`:
 5. **Workers Routes:** any other hostname under `publick.org` that must not
    reach the Worker needs a route with **no Worker**, such as
    `files.publick.org/*` (the documents bucket).
+6. **Workers Paid plan** (**Workers & Pages → Plans**, $5 a month). Every
+   request to every site, each page and its CSS, scripts, and images, runs the
+   sites Worker. The free plan refuses requests past 100,000 a day, on every
+   site at once, until midnight UTC; the paid plan includes 10 million a month.
+   It also lets the digest's send make more than 50 requests a run. Not
+   done yet: decided 2026-10-07 to stay on the free plan for now.
 
 In this repository's **Settings → Secrets and variables → Actions**:
 
@@ -227,6 +280,7 @@ In this repository's **Settings → Secrets and variables → Actions**:
 | `ENGINE_PR_TOKEN` | For `engine.yml`, which moves the engine each day: a fine-grained personal access token with resource owner `publick-org`, this repository only, and **Contents** and **Pull requests** read and write. Required: what the workflow's own token pushes, opens, or merges starts no other workflow, so the pull request wouldn't be checked and the merge wouldn't publish. It expires; replace it before it does (until then the engine doesn't move, and the workflow's failure emails the owner) |
 | `BUTTONDOWN_SUBSCRIBE_KEY` | For the weekly digest's signup form, which the sites Worker answers: a Buttondown API key with subscribers read and write, and sending disabled, so it can't send email. Without it, the form says it didn't go through |
 | `BUTTONDOWN_SEND_KEY` | For the weekly digest's Sunday send, from the scheduler Worker: a Buttondown API key with emails read and write, and sending enabled. Without it, nothing is sent |
+| `DIGEST_TEST_RECIPIENTS` | The addresses **Actions → Digest test** sends a test of the weekly digest to, separated by commas. A secret so they stay out of the public run logs. Without it, the test sends nothing |
 | `SCHEDULER_GITHUB_TOKEN` | For the scheduler Worker: a fine-grained personal access token with resource owner `publick-org`, for this repository with **Actions** and **Issues** read and write, and for `publick-engine` with **Actions** read and write (widened 2026-10-03, so the scheduler can start the engine's release). It expires (the current one, made 2026-09-30, about 2027-10-01); replace it (then run **Actions → Worker**) before it does. Until then, runs fall back to GitHub's own schedule |
 
 The scheduler's Cron Triggers also need the Cloudflare account to have a

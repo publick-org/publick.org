@@ -1,8 +1,17 @@
 # Deploys the network's Workers, from the engine at the version in
 # engine-version: the one that serves every site (wrangler.toml), and the
-# scheduler that starts the daily runs (wrangler.scheduler.toml). Run by hand
-# after changing any of them: the sites Worker's routes decide which hostnames
-# it answers, so it never deploys on its own.
+# scheduler that starts the daily runs (wrangler.scheduler.toml).
+#
+# Run by hand (Run workflow), it deploys both. By itself, on a push, it deploys
+# only the scheduler: when engine-version moves to an engine whose scheduler
+# changed, or wrangler.scheduler.toml changes (a new Cron Trigger). The sites
+# Worker serves every site, so a mistake in it takes them all down at once: it
+# is deployed only by hand (decided 2026-10-10). When engine-version moves to
+# an engine whose sites Worker changed, the push opens an issue, "Deploy the
+# sites Worker", saying so; deploy it then (Run workflow), and look at a town's
+# site after. The scheduler's hourly check opens "site down" if a site stops
+# loading. wrangler.toml decides which hostnames the sites Worker answers;
+# what's on main is what any deploy uses, so change it only when it's ready.
 #
 # The scheduler needs a GitHub token to start runs: the repository secret
 # SCHEDULER_GITHUB_TOKEN, a fine-grained token for this repository with
@@ -17,10 +26,19 @@
 name: Worker
 
 on:
+  push:
+    branches: [main]
+    paths: [engine-version, wrangler.scheduler.toml]
   workflow_dispatch:
 
 permissions:
   contents: read
+  issues: write  # the "Deploy the sites Worker" issue
+
+# One deploy at a time, in order.
+concurrency:
+  group: worker
+  cancel-in-progress: false
 
 jobs:
   deploy:
@@ -34,27 +52,91 @@ jobs:
       - id: engine
         run: echo "ref=$(tr -d '[:space:]' < engine-version)" >> "$GITHUB_OUTPUT"
 
+      # With its history, to compare the Workers between the engine versions a push moved between.
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
           repository: publick-org/publick-engine
           ref: ${{ steps.engine.outputs.ref }}
           path: .publick-engine
+          fetch-depth: 0
+
+      # Run by hand: both. A push: the scheduler when its config changed, or its files did between the old
+      # engine-version and the new (anything it can't compare deploys it); never the sites Worker, but
+      # whether its files changed, for the issue below.
+      - id: decide
+        env:
+          EVENT: ${{ github.event_name }}
+          BEFORE: ${{ github.event.before }}
+          NEW: ${{ steps.engine.outputs.ref }}
+        run: |
+          # Each Worker's files in the engine's worker/ (digest.js is in both).
+          scheduler_files=(worker/scheduler-index.js worker/scheduler.js worker/digest.js worker/package.json)
+          sites_files=(worker/index.js worker/sites.js worker/digest.js worker/package.json)
+          scheduler=true; sites=true; sites_changed=false; old=""
+          if [ "$EVENT" = push ]; then
+            sites=false
+            if git fetch --quiet --depth=1 origin "$BEFORE" 2>/dev/null; then
+              old=$(git show "$BEFORE:engine-version" 2>/dev/null | tr -d '[:space:]')
+            fi
+            if [ -n "$old" ] && git -C .publick-engine diff --quiet "$old" "$NEW" -- "${scheduler_files[@]}" 2>/dev/null \
+              && git diff --quiet "$BEFORE" HEAD -- wrangler.scheduler.toml; then
+              echo "The scheduler is the same in $old and $NEW, and its config didn't change."
+              scheduler=false
+            fi
+            if [ -n "$old" ] && [ "$old" != "$NEW" ] \
+              && ! git -C .publick-engine diff --quiet "$old" "$NEW" -- "${sites_files[@]}" 2>/dev/null; then
+              echo "The sites Worker changed from $old to $NEW: deploy it by hand."
+              sites_changed=true
+            fi
+          fi
+          echo "scheduler=$scheduler, sites=$sites"
+          {
+            echo "scheduler=$scheduler"
+            echo "sites=$sites"
+            echo "sites_changed=$sites_changed"
+            echo "old=$old"
+            echo "deploy=$([ "$scheduler" = true ] || [ "$sites" = true ] && echo true || echo false)"
+          } >> "$GITHUB_OUTPUT"
+
+      # A push that moved to an engine whose sites Worker changed: an issue, so it's deployed by hand.
+      - name: Ask for the sites Worker's deploy
+        if: steps.decide.outputs.sites_changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          OLD: ${{ steps.decide.outputs.old }}
+          NEW: ${{ steps.engine.outputs.ref }}
+          ALERT_ASSIGNEE: NasTber
+        run: |
+          title="Deploy the sites Worker for engine $NEW"
+          if [ -n "$(gh issue list --repo "$GITHUB_REPOSITORY" --state open --search "\"$title\" in:title" --json number --jq '.[].number')" ]; then
+            echo "An issue is already open."
+            exit 0
+          fi
+          compare="https://github.com/publick-org/publick-engine/compare/$OLD...$NEW"
+          gh issue create --repo "$GITHUB_REPOSITORY" --title "$title" \
+            ${ALERT_ASSIGNEE:+--assignee "$ALERT_ASSIGNEE"} \
+            --body "engine-version moved from $OLD to $NEW, and the sites Worker changed between them ([the changes]($compare), under worker/). It serves every site, so it's deployed only by hand: **Actions → Worker → Run workflow**, then look at a town's site and https://publick.org/status/. Close this issue once it's deployed. See the RUNBOOK's \"Releasing by hand\"."
 
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        if: steps.decide.outputs.deploy == 'true'
         with:
           node-version: "22"
 
       - name: Test the Workers
+        if: steps.decide.outputs.deploy == 'true'
         run: node --test .publick-engine/worker/sites.test.js .publick-engine/worker/scheduler.test.js
 
+      # wrangler at an exact version (here and below), since it runs with the Cloudflare token: moved by hand.
       - name: Deploy the sites Worker
+        if: steps.decide.outputs.sites == 'true'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        run: npx --yes wrangler@4 deploy
+        run: npx --yes wrangler@4.137.0 deploy
 
       - name: Give the sites Worker the digest signup's key
+        if: steps.decide.outputs.sites == 'true'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -64,11 +146,12 @@ jobs:
             echo "::warning::BUTTONDOWN_SUBSCRIBE_KEY isn't set, so the digest's signup form can't sign anyone up."
             exit 0
           fi
-          printf '%s' "$BUTTONDOWN_SUBSCRIBE_KEY" | npx --yes wrangler@4 secret put BUTTONDOWN_SUBSCRIBE_KEY
+          printf '%s' "$BUTTONDOWN_SUBSCRIBE_KEY" | npx --yes wrangler@4.137.0 secret put BUTTONDOWN_SUBSCRIBE_KEY
 
       # After the sites Worker, which its service binding names. The token is set right after the deploy
       # (a secret can only be set on a Worker that exists); a start in between would only fail once.
       - name: Deploy the scheduler
+        if: steps.decide.outputs.scheduler == 'true'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -78,10 +161,11 @@ jobs:
             echo "::warning::SCHEDULER_GITHUB_TOKEN isn't set, so the scheduler isn't deployed; runs start on GitHub's schedule."
             exit 0
           fi
-          npx --yes wrangler@4 deploy -c wrangler.scheduler.toml
-          printf '%s' "$SCHEDULER_GITHUB_TOKEN" | npx --yes wrangler@4 secret put GITHUB_TOKEN -c wrangler.scheduler.toml
+          npx --yes wrangler@4.137.0 deploy -c wrangler.scheduler.toml
+          printf '%s' "$SCHEDULER_GITHUB_TOKEN" | npx --yes wrangler@4.137.0 secret put GITHUB_TOKEN -c wrangler.scheduler.toml
 
       - name: Give the scheduler the digest send's key
+        if: steps.decide.outputs.scheduler == 'true'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -92,7 +176,7 @@ jobs:
             echo "::warning::The scheduler or BUTTONDOWN_SEND_KEY isn't there, so the weekly digest isn't sent."
             exit 0
           fi
-          printf '%s' "$BUTTONDOWN_SEND_KEY" | npx --yes wrangler@4 secret put BUTTONDOWN_SEND_KEY -c wrangler.scheduler.toml
+          printf '%s' "$BUTTONDOWN_SEND_KEY" | npx --yes wrangler@4.137.0 secret put BUTTONDOWN_SEND_KEY -c wrangler.scheduler.toml
 
       # Last, so a failure here never stops a deploy. A tag already there is left as it is (its color too).
       - name: Make each digest town's Buttondown tag

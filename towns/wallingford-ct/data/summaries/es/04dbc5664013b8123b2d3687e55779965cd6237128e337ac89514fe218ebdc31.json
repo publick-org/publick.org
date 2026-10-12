@@ -1,32 +1,34 @@
 {
-  "headline": "Informe financiero, reportes de cafetería y actualizaciones de proyectos de mantenimiento e instalaciones.",
-  "summary": "La reunión cubrirá el informe financiero incluyendo actualizaciones de fondos y lo que va del año, reportes de operaciones de la cafetería, y una actualización sobre proyectos de mantenimiento e instalaciones.",
+  "headline": "El Comité de Operaciones revisará informes financieros, informes de la cafetería y novedades de los proyectos de mantenimiento e instalaciones.",
+  "summary": "La reunión incluye el informe financiero del distrito, con el Fondo del 2% y la solicitud de transferencia del año fiscal 2026-2027, los informes de operación de la cafetería y una actualización de los proyectos de mantenimiento e instalaciones.",
   "items": [
-    "Informe Financiero: Proyección Financiera",
-    "Informe Financiero: Reporte Munis del Año Fiscal",
-    "Informe Financiero: Fondo del 2%",
-    "Informe Financiero: Waterfall/Plan de Mejoras de Capital (enlace solamente, sin documento)",
-    "Informe Financiero: Solicitud de Transferencia Año Fiscal 2026-2027",
-    "Reportes de Cafetería: Resumen del Reporte de Cafetería",
-    "Reportes de Cafetería: Reporte de Comparación de Ganancias-Pérdidas del Año Fiscal",
-    "Reportes de Cafetería: Resumen de Comidas de Operaciones de Cafetería",
-    "Reportes de Cafetería: Reporte de Balance Sheet de Munis",
-    "Reportes de Cafetería: Registro de Oportunidades de Mejora (no actualizado, enlace solamente, sin documento)",
-    "Actualización de Proyectos de Mantenimiento/Instalaciones: Resumen del Proyecto"
+    "Comentarios del público",
+    "Proyección financiera",
+    "Informe Munis del año hasta la fecha",
+    "Fondo del 2%",
+    "Cascada/Plan de Mejoras de Capital",
+    "Solicitud de transferencia del año fiscal 2026-2027",
+    "Resumen del informe de la cafetería",
+    "Informe comparativo de ganancias y pérdidas del año hasta la fecha",
+    "Resumen de comidas de las operaciones de la cafetería",
+    "Informe del balance general de Munis",
+    "Registro de oportunidades de mejora",
+    "Actualización de los proyectos de mantenimiento e instalaciones: resumen de proyectos"
   ],
   "language": "es",
   "kind": "agenda",
   "source_sha256": "04dbc5664013b8123b2d3687e55779965cd6237128e337ac89514fe218ebdc31",
-  "source_hash": "0f046b19bdd73f080e9387083194c4e80258979a765a14632de6b86f10324ada",
+  "source_hash": "5e51ae2fbe3f3f847b939d3a838fc41d114943926605fcfc0b2d2f127dfec910",
   "check": "ok",
-  "review": "items 2: \"YTD\" (year to date) is translated as \"del Año Fiscal\" (of the fiscal year), which changes the meaning. YTD means the period so far this year, not the whole fiscal year.; items 7: \"YTD\" is translated as \"del Año Fiscal\" (of the fiscal year), which changes the meaning. It should be \"lo que va del año\" or similar.; items 9: \"Balance Sheet\" is left in English inside the Spanish sentence. It should be \"Balance General\".",
+  "review": "items 5: \"Waterfall\" is a budgeting/financial term (a waterfall report), not a natural waterfall. Translating it as \"Cascada\" is a mistranslation that misleads readers into thinking of a water feature. It should be left in a form that conveys the financial meaning, e.g. \"Informe en cascada\" or kept as \"Waterfall\" as a report name.",
   "attempts": 2,
-  "model": "claude-haiku-4-5-20251001",
-  "prompt_version": 3,
-  "generated_at": "2026-10-03T08:07:22-04:00",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": 4,
+  "generated_at": "2026-10-10T05:15:25-04:00",
   "usage": {
-    "input_tokens": 1168,
-    "output_tokens": 357
+    "input_tokens": 2100,
+    "output_tokens": 364
   },
-  "cost": 0.008801
+  "cost": 0.013942,
+  "replaced_cost": 0.02567
 }

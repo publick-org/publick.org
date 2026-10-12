@@ -7,11 +7,21 @@
 # So every town takes at most one new engine a day, and only one that passed
 # on every town.
 #
-# If any town fails, nothing is merged: the pull request stays open with its
-# failed run, the towns stay on the engine they have, and this workflow fails,
-# which emails the owner. Fix the engine (the next day's release is checked
-# the same way), or merge the pull request by hand. Rolling back is moving
-# engine-version back by hand.
+# The pull request's run checks every page of the canaries (the fewest towns
+# with every kind of town between them) and a sample of the rest (network.yml).
+# If it fails, its failed jobs are run once more, since one town's flaky check
+# shouldn't hold every town back a day. If towns still fail, and they're few
+# (at most HELD_SHARE of the towns, and at least one), it's merged anyway and
+# those towns are held back: each keeps the site it has (a build that fails
+# its checks isn't published), and an issue names them, assigned to
+# ALERT_ASSIGNEE. Its data is still fetched every day. Once the engine or the
+# town is fixed, its next run publishes it again.
+#
+# If more towns fail, or anything but a town (the plan, say), nothing is
+# merged: the pull request stays open with its failed run, the towns stay on
+# the engine they have, and this workflow fails, which emails the owner. Fix
+# the engine (the next day's release is checked the same way), or merge the
+# pull request by hand. Rolling back is moving engine-version back by hand.
 #
 # An urgent fix: release the engine now (its Actions -> Release -> Run
 # workflow), then run this (Actions -> Engine -> Run workflow).
@@ -35,6 +45,11 @@ permissions:
 jobs:
   move:
     runs-on: ubuntu-latest
+    # This workflow's own token runs a failed check's jobs again, and opens the issue naming towns held back.
+    permissions:
+      contents: read
+      actions: write
+      issues: write
     # The pull request's run checks every page of every town: about half an hour today.
     timeout-minutes: 180
     steps:
@@ -48,8 +63,12 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.ENGINE_PR_TOKEN }}
           BRANCH: engine-version
-          # How long to wait for the pull request's run before giving up (it's left open).
+          # How long to wait for the pull request's run, retry included, before giving up (it's left open).
           WAIT_MINUTES: 170
+          # The most towns an update may hold back, as one in this many (at least one): 20 is 5%.
+          HELD_SHARE: 20
+          WORKFLOW_TOKEN: ${{ github.token }}
+          ALERT_ASSIGNEE: NasTber
         run: |
           if [ -z "$GH_TOKEN" ]; then
             echo "::error::Set the repository secret ENGINE_PR_TOKEN (see this file's comments): without it the pull request's checks don't run and the merge doesn't publish."
@@ -74,7 +93,7 @@ jobs:
 
           Changes: https://github.com/publick-org/publick-engine/compare/$current...$newest
 
-          Opened by .github/workflows/engine.yml, which merges it by itself once this pull request's run has built and checked every page of every town with $newest. If a town fails, it stays open and the towns stay on $current."
+          Opened by .github/workflows/engine.yml, which merges it by itself once this pull request's run has built and checked every town with $newest (every page of the canaries, a sample of the rest). A failed job runs once more; a town that still fails is held back, if few are, and an issue names it. Otherwise it stays open and the towns stay on $current."
           number=$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number // empty')
           if [ -n "$number" ]; then
             gh pr edit "$number" --title "Engine $newest" --body "$body"
@@ -83,28 +102,62 @@ jobs:
             number=$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number')
           fi
 
-          # The pull request's run of network.yml, for this commit.
+          # The pull request's run of network.yml, for this commit, waited for until the given attempt of it
+          # (1, or 2 once its failed jobs run again) is done.
           deadline=$(( $(date +%s) + WAIT_MINUTES * 60 ))
-          while :; do
-            run=$(gh run list --workflow network.yml --event pull_request --commit "$sha" --limit 1 \
-              --json status,conclusion,url --jq '.[0] // empty')
-            status=waiting; conclusion=""
-            if [ -n "$run" ]; then
-              status=$(jq -r .status <<< "$run")
-              conclusion=$(jq -r '.conclusion // ""' <<< "$run")
-            fi
-            [ "$status" = completed ] && break
-            if [ "$(date +%s)" -ge "$deadline" ]; then
-              echo "::error::Pull request #$number's checks didn't finish in $WAIT_MINUTES minutes; it's left open, and the towns stay on $current."
+          run=""
+          wait_for() {
+            while :; do
+              [ -n "$run" ] || run=$(gh run list --workflow network.yml --event pull_request --commit "$sha" --limit 1 \
+                --json databaseId --jq '.[0].databaseId // empty')
+              state="waiting"
+              if [ -n "$run" ]; then
+                state=$(gh run view "$run" --json status,attempt --jq '"\(.status) \(.attempt)"')
+                [ "$state" = "completed $1" ] && return 0
+              fi
+              if [ "$(date +%s)" -ge "$deadline" ]; then
+                echo "::error::Pull request #$number's checks didn't finish in $WAIT_MINUTES minutes; it's left open, and the towns stay on $current."
+                exit 1
+              fi
+              echo "Pull request #$number's checks: $state"
+              sleep 60
+            done
+          }
+          wait_for 1
+          url=$(gh run view "$run" --json url --jq .url)
+          conclusion=$(gh run view "$run" --json conclusion --jq .conclusion)
+          if [ "$conclusion" != success ]; then
+            echo "::warning::Pull request #$number's checks ended '$conclusion' ($url): running its failed jobs once more."
+            GH_TOKEN="$WORKFLOW_TOKEN" gh run rerun "$run" --failed
+            wait_for 2
+            conclusion=$(gh run view "$run" --json conclusion --jq .conclusion)
+          fi
+          held=()
+          if [ "$conclusion" != success ]; then
+            # The jobs that failed: towns (a job is named for its town), and anything else, which blocks the
+            # merge. The report fails whenever a town does, so it isn't counted.
+            others=()
+            while IFS= read -r name; do
+              if [ -d "towns/$name/config" ]; then held+=("$name"); elif [ "$name" != report ]; then others+=("$name"); fi
+            done < <(gh run view "$run" --json jobs \
+              --jq '.jobs[] | select(.conclusion == "failure" or .conclusion == "timed_out" or .conclusion == "cancelled") | .name')
+            towns=$(find towns -mindepth 2 -maxdepth 2 -name config -type d | wc -l)
+            allowed=$(( towns / HELD_SHARE )); [ "$allowed" -ge 1 ] || allowed=1
+            if [ ${#others[@]} -gt 0 ] || [ ${#held[@]} -eq 0 ] || [ ${#held[@]} -gt "$allowed" ]; then
+              echo "::error::Pull request #$number's checks ended '$conclusion' twice ($url): ${#held[@]} towns failed (at most $allowed may be held back)${others:+, and ${others[*]}}. Not merged, and the towns stay on $current."
               exit 1
             fi
-            echo "Pull request #$number's checks: $status"
-            sleep 60
-          done
-          url=$(jq -r .url <<< "$run")
-          if [ "$conclusion" != success ]; then
-            echo "::error::Pull request #$number's checks ended '$conclusion' ($url): not merged, and the towns stay on $current."
-            exit 1
+            list=$(printf -- '- %s\n' "${held[@]}")
+            note="These failed their checks twice ($url), so they're held back:
+          $list
+          Each keeps the site it has, and its data is still fetched every day; its next run publishes it once the engine or the town is fixed."
+            GH_TOKEN="$WORKFLOW_TOKEN" gh pr comment "$number" --body "Merging with every town but these. $note"
+            title="Towns held back by engine $newest"
+            GH_TOKEN="$WORKFLOW_TOKEN" gh label create "engine held back" --color B60205 \
+              --description "A town whose site failed its checks on a new engine" 2>/dev/null || true
+            GH_TOKEN="$WORKFLOW_TOKEN" gh issue create --title "$title" --label "engine held back" \
+              ${ALERT_ASSIGNEE:+--assignee "$ALERT_ASSIGNEE"} \
+              --body "Engine [$newest](https://github.com/publick-org/publick-engine/releases/tag/$newest) moved every town but these. $note Close this issue when they're published again."
           fi
           gh pr merge "$number" --merge --match-head-commit "$sha" --delete-branch
-          echo "Merged #$number: every town moves to $newest on the push run that follows."
+          echo "Merged #$number: every town${held:+ but ${held[*]}} moves to $newest on the push run that follows."
