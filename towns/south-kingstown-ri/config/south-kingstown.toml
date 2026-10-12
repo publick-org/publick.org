@@ -110,6 +110,14 @@ goatcounter = "publick"
 prefix = "south-kingstown-ri"
 public_stats = ""
 
+# The weekly digest's email signup, on /digest/ (the engine's pipeline/digest.py). The form posts
+# to this site's /digest/subscribe, which the sites Worker answers (worker/digest.js) and passes on
+# to Buttondown with the tag south-kingstown-ri-en. The About page names who keeps the addresses.
+[digest]
+signup = true
+provider = "Buttondown"
+privacy_url = "https://buttondown.com/legal/privacy"
+
 # Public meetings, from the town's CivicClerk portal (the address the town's
 # Agendas and Minutes page gives for January 2026 on). Earlier meetings are on
 # ClerkBase, linked from the same page.
