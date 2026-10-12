@@ -214,7 +214,7 @@ When the month's budget is spent, towns stop making summaries and
 translations until the next month; everything else keeps running. New
 documents go first, so upcoming agendas are the last to stop.
 
-- The budget is `SUMMARY_BUDGET` in `network.yml` ($80 a month), and a
+- The budget is `SUMMARY_BUDGET` in `network.yml` ($110 a month), and a
   single month's can be set in `SUMMARY_BUDGET_MONTH` (`2026-12=100`).
   Changing it is a pull request to this repository; it applies to the next
   run.
