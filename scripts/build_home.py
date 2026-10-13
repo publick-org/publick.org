@@ -10,9 +10,8 @@ The counts at the top (towns, boards followed, meetings in the next 7 days)
 come from each town's data/run.json, written by its daily run, never from its
 meeting files, so the build stays quick at any size. Until every town's run
 record has them, only the number of towns is shown. Each town's card says the
-same of the town (its meetings this week, from its run record, when it has
-any) and whether it sends the weekly digest by email ([digest] signup in its
-config).
+same of the town: its meetings this week, from its run record, when it has
+any.
 
 Everything else on the pages is home/index.html and home/state.html as
 written; the generated parts go between their <!-- towns:... --> markers.
@@ -60,7 +59,7 @@ def live_towns(root: Path) -> list[dict]:
         activity = json.loads(record.read_text(encoding="utf-8")).get("activity") if record.exists() else None
         towns.append({"name": site["name"], "domain": site["domain"], "url": f"https://{site['domain']}",
                       "town": town["name"], "state": town["state"], "state_abbr": town["state_abbr"].lower(),
-                      "activity": activity, "digest": bool(config.get("digest", {}).get("signup"))})
+                      "activity": activity})
     return sorted(towns, key=lambda t: (t["state"], t["town"]))
 
 
@@ -100,14 +99,10 @@ def glance_html(towns: list[dict], today: date) -> str:
 
 def card_news(town: dict, today: date) -> str:
     """What a town's card says of it: its meetings this week (as its own home page counts them, the
-    next COMING_DAYS days), when it has any, and whether it sends the weekly digest by email."""
-    parts = []
+    next COMING_DAYS days), when it has any."""
     if n := coming(town, today):
-        parts.append(plural(n, "meeting this week", "meetings this week"))
-    if town["digest"]:
-        parts.append("Weekly email")
-    # Each part kept whole, so a narrow card breaks the line between them.
-    return f'<span class="news">{" · ".join(f"<span>{p}</span>" for p in parts)}</span>' if parts else ""
+        return f'<span class="news">{plural(n, "meeting this week", "meetings this week")}</span>'
+    return ""
 
 
 def town_cards(towns: list[dict], indent: str, today: date) -> str:
