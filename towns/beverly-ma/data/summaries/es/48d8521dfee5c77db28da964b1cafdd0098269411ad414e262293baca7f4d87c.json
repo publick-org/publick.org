@@ -1,6 +1,6 @@
 {
-  "headline": "Se aprobaron los fondos de contrapartida de la Seaport Grant, nuevos nombramientos en juntas, renovaciones de licencias y cambios a ordenanzas, y las audiencias sobre instalaciones subterráneas de servicios públicos pasaron a fechas posteriores.",
-  "summary": "El Concejo celebró audiencias públicas sobre las peticiones de National Grid y GONETSPEED para instalar instalaciones subterráneas de servicios públicos. La mayoría pasó al 17 de febrero o al 2 de marzo de 2026, después de que se retirara una petición. Los miembros aprobaron una transferencia de fondos de $137,500 como contrapartida de una Seaport Economic Grant, una donación de $2,000 para la biblioteca, varios nuevos nombramientos en juntas, dos renovaciones de licencias de vehículos de motor, una Home Rule Petition sobre la edad de retiro del jefe de la policía, la concesión de servidumbres en Cabot Street y las primeras votaciones sobre cambios a las ordenanzas de licencias de perreras y control de animales. El Concejo también fijó audiencias públicas para transferencias de presupuesto al Dispatch Department y al fondo Recreation Enterprise, y aprobó un aumento de salario para el analista de presupuesto del Concejo por 8-1.",
+  "headline": "Se aprobaron los fondos de contrapartida de la Seaport Grant, varios nuevos nombramientos de miembros de juntas que ya servían, renovaciones de licencias y cambios a ordenanzas, y las audiencias sobre instalaciones subterráneas de servicios públicos pasaron a fechas posteriores.",
+  "summary": "El Concejo celebró audiencias públicas sobre las peticiones de National Grid y GONETSPEED para instalar instalaciones subterráneas de servicios públicos. La mayoría pasó al 17 de febrero o al 2 de marzo de 2026, después de que se retirara una petición. Los miembros aprobaron una transferencia de fondos de $137,500 como contrapartida de una Seaport Economic Grant, una donación de $2,000 para la biblioteca, varios casos en que se volvió a nombrar a miembros de juntas, dos renovaciones de licencias de vehículos de motor, una Home Rule Petition sobre la edad de retiro del jefe de la policía, la concesión de servidumbres en Cabot Street y las primeras votaciones sobre cambios a las ordenanzas de licencias de perreras y control de animales. El Concejo también fijó audiencias públicas para transferencias de presupuesto al Dispatch Department y al fondo Recreation Enterprise, y aprobó un aumento de salario para el analista de presupuesto del Concejo por 8-1.",
   "decisions": [
     "Se tomó nota de que el peticionario retiró la Order #047, National Grid Petition #31234447, sobre instalaciones subterráneas en Bow/Wallis/Cabot/Abbott Streets.",
     "Se pasó la audiencia pública sobre la Order #048 (National Grid Petition #31247668, Dodge Street) al 17 de febrero de 2026, 9-0.",
@@ -37,14 +37,16 @@
   "source_sha256": "48d8521dfee5c77db28da964b1cafdd0098269411ad414e262293baca7f4d87c",
   "source_hash": "993440fb0413a9589ce20023f0bb37e972a7a97873b64696992614a9dabdb091",
   "check": "ok",
-  "review": "headline: Dice \"nuevos nombramientos en juntas\", pero el original habla de reappointments (volver a nombrar), no de nombramientos nuevos. Cambia el sentido.; summary: Dice \"varios nuevos nombramientos en juntas\", pero el original dice reappointments (volver a nombrar), no nombramientos nuevos.",
-  "attempts": 1,
+  "review": "headline: The English says the Council approved the Seaport Grant match funding and the rest while \"continuing\" the hearings. The Spanish says \"varios nuevos nombramientos\" (several new appointments) for \"board reappointments\". These were reappointments, not new appointments, and \"que ya servían\" does not fix this. Also \"Seaport Grant\" is left in English, and the sentence structure shifts the hearings into a passive clause that says they \"pasaron\" to later dates, which is acceptable. The main problem is \"nuevos nombramientos\".; decisions 9: \"Notice of Filing and Public Hearings\" is a document title left in English inside a Spanish sentence. It is not a name of a person, place, or business, so it should be translated.",
+  "attempts": 2,
   "model": "claude-sonnet-5-5",
   "prompt_version": 4,
-  "generated_at": "2026-10-09T08:53:04-04:00",
+  "generated_at": "2026-10-13T05:12:10-04:00",
   "usage": {
-    "input_tokens": 2893,
-    "output_tokens": 2097
+    "input_tokens": 4118,
+    "output_tokens": 2116,
+    "cache_read_input_tokens": 1129
   },
-  "cost": 0.040176
+  "cost": 0.042089,
+  "replaced_cost": 0.040176
 }

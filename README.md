@@ -66,8 +66,8 @@ Worker, which picks the site by hostname: `gloucester-ma.publick.org` is
     each town's pages (every hand-written page, and the first and largest of
     each kind of record page); pull requests and rebuilds by hand without
     fetching check every page.
-  - AI summaries and translations share one budget, `SUMMARY_BUDGET` ($80 a
-    month, decided 2026-10-03; a month can have its own in `SUMMARY_BUDGET_MONTH`): each run gives each of its towns a share of what's left, new
+  - AI summaries and translations share one budget, `SUMMARY_BUDGET` ($110 a
+    month from November 2026, for 15 towns; $80 before, decided 2026-10-03; a month can have its own in `SUMMARY_BUDGET_MONTH`): each run gives each of its towns a share of what's left, new
     documents first.
   - A run that fetches sends each town's summaries as one batch, at half the
     price (decided 2026-10-10), and publishes the town without them. Once the
