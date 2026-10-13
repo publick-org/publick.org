@@ -45,11 +45,13 @@ permissions:
 jobs:
   move:
     runs-on: ubuntu-latest
-    # This workflow's own token runs a failed check's jobs again, and opens the issue naming towns held back.
+    # This workflow's own token runs a failed check's jobs again, says on the pull request which towns are
+    # held back, and opens the issue naming them.
     permissions:
       contents: read
       actions: write
       issues: write
+      pull-requests: write
     # The pull request's run checks every page of every town: about half an hour today.
     timeout-minutes: 180
     steps:
