@@ -111,7 +111,8 @@ Worker, which picks the site by hostname: `gloucester-ma.publick.org` is
   town's readers alone. The signup form on a town's `/digest/` page (its
   config's `[digest] signup`) posts to the sites Worker, which passes the
   address on to Buttondown, within the `SIGNUP_LIMITER` rate limit
-  (`wrangler.toml`). Every town but Lowell has both since 2026-10-12 (#72);
+  (`wrangler.toml`). Every town but Lowell has both since 2026-10-12 (#72),
+  and Methuen, Waltham, Portland, and Nashua (live 2026-10-13) don't yet;
   a new town joins once it has a few weeks of meetings: its `[digest]`
   table, its place in `DIGEST_TOWNS`, then **Actions → Worker**, which makes
   its Buttondown tag. A run makes two requests for each town and two more,
@@ -188,7 +189,10 @@ state has a package. Start from a town in the same state: Gloucester or Malden
 for Massachusetts, Manchester for New Hampshire, Wallingford for Connecticut,
 Burlington for Vermont, Lewiston or Bangor for Maine, South Kingstown for
 Rhode Island; Lowell for a Massachusetts city whose Agenda Center has every
-board and no calendar. A town in a state the engine has
+board and no calendar; Nashua for a New Hampshire city on CivicClerk. Portland
+for a city whose areas are council districts (`[town] areas`), and Methuen,
+Waltham, or Nashua for a school board whose district posts its agendas and
+minutes on one page of links (`[page_meetings]`). A town in a state the engine has
 no package for leaves those tables and the budget and schools sections out; it
 still gets meetings, 311, unemployment, and housing. List each source in its `[freshness]` table, so the
 status page shows it.
@@ -210,9 +214,11 @@ fill a vacancy, new council or committee officers). Update the members and
 `checked` in one pull request.
 
 Each table's `next_election` is the town's next municipal election: November
-3, 2026 for Bangor, Lewiston, and South Kingstown; Town Meeting Day, March 2,
-2027, for Burlington; November 2, 2027 for Beverly, Gloucester, Lawrence,
-Lowell, Malden, Manchester, and Wallingford. From the engine release that
+3, 2026 for Bangor, Lewiston, Portland, and South Kingstown; Town Meeting
+Day, March 2, 2027, for Burlington; November 2, 2027 for Beverly, Gloucester,
+Lawrence, Lowell, Malden, Manchester, Methuen, Nashua, Waltham, and
+Wallingford. Portland's winners take office at the council's inaugural
+meeting, the first Monday of December. From the engine release that
 reads it (publick-engine#114), a list is due a check on election day, or once
 new terms begin if that's later (the first month a member's `term_ends` on or
 after the election's month, such as January 2027 for Lewiston and April 2027
