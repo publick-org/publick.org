@@ -6,12 +6,13 @@
 # agendas and minutes in the Agenda Center; the city calendar has a calendar
 # for each board, which lists their meetings before the agendas are posted.
 # The School Committee posts its agendas and minutes on the school district's
-# website, each a file on Google Drive linked from one page, which the engine
-# doesn't read: its meetings come from the city's main calendar, and some of
-# its agendas from the Agenda Center's School Department category. There is no
-# 311 section: the city takes service requests through its Report a Concern
-# portal, on iWorQ, and isn't on SeeClickFix. The state sources (DLS, DESE,
-# BLS, Census, the Subsidized Housing Inventory) are the same as Malden's.
+# website, each a file on Google Drive linked from one page, which
+# [page_meetings] reads; the city's Main Calendar gives the times of some of
+# its meetings, and the Agenda Center's School Department category, with a few
+# of its agendas, isn't read. There is no 311 section: the city takes service
+# requests through its Report a Concern portal, on iWorQ, and isn't on
+# SeeClickFix. The state sources (DLS, DESE, BLS, Census, the Subsidized
+# Housing Inventory) are the same as Malden's.
 #
 # The site is in English and Spanish ([site] languages), as every town's is.
 # The first runs draft the Spanish for the town's own text; [strings.es], at
@@ -60,7 +61,7 @@ official_site = "https://www.city.waltham.ma.us"
 [[sections]]
 slug = "meetings"
 title = "Meetings"
-summary = "Every board and committee meeting on the city's calendar and in its Agenda Center, with agendas, and minutes from January 2026 on."
+summary = "Every board and committee meeting on the city's calendar and in its Agenda Center, and the School Committee's, with agendas, and minutes from January 2026 on."
 status = "live"
 
 [[sections]]
@@ -116,11 +117,16 @@ max_event_pages = 40
 # has a calendar of its own (the License Commission's, the Recreation
 # Department's, Traffic Engineering's for the Traffic Commission); the School
 # Committee's meetings are on the Main Calendar, among community events and
-# school holidays. The patterns keep the meetings, and leave out fairs, open
-# houses, and the city's neighborhood meetings on street projects. The
-# Planning Department's calendar (its CDBG hearings) is left out: the Agenda
-# Center lists them. A meeting on the calendar and in the Agenda Center is
-# shown once.
+# school holidays ("Waltham School Committee Meeting", from June 2026 on, at
+# 6:00 or 7:00 PM), and are shown with the district's listing of the same
+# meeting ([page_meetings], below). The patterns keep the meetings, and leave
+# out fairs, open houses, and the city's neighborhood meetings on street
+# projects, and the calendar's special meetings of the School Committee
+# ("Waltham School Committee Special Meeting", June 23, 2026): the district's
+# page named that one by its date alone, so the two listings, one special and
+# one not, would have been shown as two meetings. The Planning Department's
+# calendar (its CDBG hearings) is left out: the Agenda Center lists them. A
+# meeting on the calendar and in the Agenda Center is shown once.
 [meetings.civicplus]
 calendars = [
   "City Council",
@@ -136,15 +142,14 @@ calendars = [
   "Zoning Board of Appeals",
 ]
 include_pattern = '\b(board|commission|committee|council|ZBA|bio-?safety)\b'
-exclude_pattern = '\b(candidates?|forum|fair|festival|open house|registration|to discuss)\b'
+exclude_pattern = '\b(candidates?|forum|fair|festival|open house|registration|to discuss|school committee special meeting|special meeting of the waltham school committee)\b'
 
 # Agenda Center categories, and calendar names, renamed to the board's usual
 # name. The City Council's standing committees each have a category of their
 # own; here they're named as on the council's page (city.waltham.ma.us/1341),
 # as Lawrence's are. The License Commission and the Recreation Board as the
-# city's pages for them name them, the School Committee's agendas from the
-# School Department's category, and the Biosafety Committee as its page names
-# it ("Waltham Biosafety Committee").
+# city's pages for them name them, and the Biosafety Committee as its page
+# names it ("Waltham Biosafety Committee").
 [meetings.aliases]
 "Economic & Community Development" = "City Council Economic and Community Development Committee"
 "Finance Committee" = "City Council Finance Committee"
@@ -155,7 +160,6 @@ exclude_pattern = '\b(candidates?|forum|fair|festival|open house|registration|to
 "Community Preservation" = "Community Preservation Committee"
 "Licensing Commission" = "License Commission"
 "Parks Recreation Board" = "Recreation Board"
-"School Department" = "School Committee"
 # The calendar's names for boards the Agenda Center names otherwise. The
 # council's committee nights are "Waltham Committee Meetings" on its calendar.
 # The calendar is read before the Agenda Center, so on the first run its names
@@ -175,6 +179,13 @@ exclude_pattern = '\b(candidates?|forum|fair|festival|open house|registration|to
 base_url = "https://www.city.waltham.ma.us"
 # The first run lists meetings from here, and minutes are collected from here on.
 since = "2026-01-01"
+# The School Department's category has the School Committee's agendas for
+# five of its 27 meetings of 2026 (June 17 and 23, July 9, September 16) and
+# no minutes. The district's page has all of them, with their minutes
+# ([page_meetings], below), so the category is left out; its two June 23
+# postings, a "Special Meeting", which the page names by its date alone,
+# would have been shown as a meeting of their own.
+exclude_categories = ["School Department"]
 
 # The council meets on the second and fourth Mondays, and its committees on
 # the first and third (the 2026 City Council Card). Each committee night is
@@ -198,6 +209,26 @@ since = "2026-01-01"
 # Conservation Commission.
 [meetings.agenda_center.committees."Conservation Commission"]
 "Conservation Trust Fund" = "Board of Trustees of the Conservation Trust Fund"
+
+# The School Committee's meetings, agendas and minutes, from the district's
+# "Minutes and Documentation" page: under each month, links to Google Drive
+# files, each naming its meeting ("September 16, 2026 Agenda", "September 16,
+# 2026 Minutes", "June 10, 2026 Special Meeting"), a Spanish copy of most
+# agendas, and a Drive folder of "Additional Resources". Its budget workshops
+# and public hearings ("April 15, 2026 Public Hearing - FY '27 Operating
+# Budget", held the evening of a regular meeting) are meetings of their own.
+# The page gives no times; a meeting on the city's Main Calendar has its time.
+[page_meetings]
+page_url = "https://www.walthampublicschools.org/minutes-and-documentation"
+source_name = "Waltham Public Schools"
+# The first run lists meetings from here, and documents are collected from here on.
+since = "2026-01-01"
+body = "School Committee"
+# The Spanish copies of the agendas ("Agenda (Español)") are left out.
+exclude_pattern = "Español"
+# A special meeting's, workshop's or hearing's agenda is linked by its name
+# alone ("June 10, 2026 Special Meeting").
+agenda_pattern = '\bagenda\b|special meeting|workshop|public hearing'
 
 # Agenda and minutes PDFs live in the network's documents bucket, not in git
 # (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID, STORAGE_SECRET_ACCESS_KEY.
@@ -322,6 +353,7 @@ state_series = "LAUST250000000000003"
 summary_grace_days = 2
 sources = [
   { label = "Meetings (Agenda Center)", file = "meetings/status.json", max_days = 2 },
+  { label = "School Committee meetings (school district website)", file = "meetings/page_status.json", max_days = 2 },
 ]
 
 # The About page's "What this site doesn't cover": why there's no 311 section.
