@@ -19,7 +19,7 @@ towns/<town>-<state>/         One folder per town, laid out as a town repository
   data/                         collected data, committed by the daily run, with run.json (its last
                                 daily run) and summary-costs.json (its AI summaries' cost, by month);
                                 a 311 town's requests and scorecard are kept in the documents bucket
-                                instead, from the engine release of 2026-10-13 (below)
+                                instead, since 2026-10-13 (below)
   site/static/                  files that replace or add to the engine's (the share image)
 states/ma/                    Statewide sources, fetched once for every town: Massachusetts's DLS reports (other
                               states' figures are saved in the engine, or fetched by each town)
@@ -77,13 +77,15 @@ Worker, which picks the site by hostname: `gloucester-ma.publick.org` is
     summary is up within about half an hour of its town's run. A batch a job
     couldn't collect is collected by the town's next run. Pull requests and
     rebuilds send none.
-- **311 data** (from the engine release of 2026-10-13, publick-engine#115):
+- **311 data** (since engine v1.51.0, publick-engine#115 and #121):
   a 311 town's `data/311/requests.json` and `scorecard.json`, most of what
   the repository grew by, are kept in the documents bucket under
   `<town>-<state>/data/311/`, read from its public address by any build and
-  saved back by the daily run; git keeps `311/status.json`. Once a daily run
-  on that release has saved them, `.gitignore` takes the two files out of
-  git (their history stays).
+  saved back by the daily run; git keeps `311/status.json`. The daily run of
+  2026-10-13 saved every 311 town's there, and `.gitignore` has kept them
+  out of git since (their history stays). A new 311 town's first run saves
+  its files to the bucket from whatever its pull request committed, such as
+  a backfill (`fetch_311 --backfill`), and the bucket's copy wins after that.
 - **On push to `main`:** rebuilds and publishes the towns the push touched (every
   town when `engine-version` or a workflow changed), records that in their run
   records, and rebuilds the homepage and status page. Data isn't fetched.
