@@ -27,7 +27,9 @@ not weeks.
       folders (Gloucester), or in the city's Agenda Center with everything
       else. The engine reads Agenda Centers, Drive folders laid out one per
       committee, a Finalsite district's board posts, a district's calendar
-      feed, and a page of a board's dates. Not yet: BoardDocs, Diligent
+      feed, a page of a board's dates, and a page that links each meeting's
+      agenda and minutes (`[page_meetings]`: Methuen, Waltham, Nashua). Not
+      yet: BoardDocs, Diligent
       Community, nested Drive folders; leave the board out and say so in the
       pull request.
 - [ ] **Minutes.** Download two or three. A scanned PDF (no text to select)
