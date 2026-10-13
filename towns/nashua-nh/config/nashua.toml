@@ -1,0 +1,548 @@
+# Site configuration for Nashua, New Hampshire. Everything town-specific lives
+# here; the code is the Publick engine (github.com/publick-org/publick-engine).
+# Build with: python -m pipeline.build_site (with the engine on PYTHONPATH)
+#
+# Nashua's website runs on CivicPlus, but its Agenda Center has nothing after
+# 2025: since January 2026 every city body posts its meetings, agendas, and
+# minutes on the city's CivicClerk portal, read as [meetings.civicclerk], as
+# Burlington's are. The minutes are text PDFs. The Board of Education posts its
+# agendas and minutes as Google Drive files on a page of the school district's
+# Finalsite website, and its committees' on a page each, which [page_meetings]
+# reads; the district's figures come from the state ([schools]). There is no
+# 311 section: the city takes Public Works requests through a SeeClickFix
+# portal whose requests aren't public ([absences]). Its tax rate,
+# tax bill, budget, and school figures are New Hampshire's (the engine's
+# pipeline/states/nh/, whose statewide files already have Nashua's rows).
+#
+# The site is in English and Spanish ([site] languages), as every town's is.
+# The first runs draft the Spanish for the town's own text; [strings.es], at
+# the end, can correct it.
+
+[site]
+name = "Nashua Publick"
+# The masthead shows name_prefix in dark ink and name_suffix in the accent
+# color: the town, then the network.
+name_prefix = "Nashua "
+name_suffix = "Publick"
+domain = "nashua-nh.publick.org"
+# The network of town sites this one belongs to, named in every page footer.
+network = "Publick"
+network_url = "https://publick.org"
+tagline = "Public data on how Nashua, New Hampshire decides and spends. Updated daily."
+# One line under the name at the top of every page.
+masthead = "An independent guide to city government in Nashua, New Hampshire"
+repo_url = "https://github.com/publick-org/publick.org"
+# Public contact address. Shown on the About and Accessibility pages when set.
+contact_email = "nashua-nh@publick.org"
+timezone = "America/New_York"
+user_agent = "nashua-nh.publick.org (+https://nashua-nh.publick.org/about/)"
+# English at the site's root, Spanish under /es/.
+languages = ["en", "es"]
+
+# From the city website's stylesheet (nashuanh.gov): its blue (headlines and
+# table headers, the most used after white and black, 10.7:1 on white), its
+# navy (widget titles and buttons, 18.1:1), a light tint of the blue, and its
+# red (the site's link color, 6.2:1). The bright blue CivicPlus uses for some
+# links (#0098f7, 3.1:1) doesn't pass WCAG AA on white, so it isn't used.
+[site.colors]
+primary = "#0b406e"
+primary_dark = "#021240"
+primary_soft = "#e7ecf1"
+accent = "#bc2024"
+
+[town]
+name = "Nashua"
+state = "New Hampshire"
+state_abbr = "NH"
+official_site = "https://www.nashuanh.gov"
+
+# Sections appear in the main navigation in this order. Each one is a folder
+# under site/pages/<slug>/ and is served at https://<domain>/<slug>/.
+[[sections]]
+slug = "meetings"
+title = "Meetings"
+summary = "When the Board of Aldermen, its committees, the city's boards and commissions, and the Board of Education and its committees meet, with agendas, and minutes from January 2026 on."
+status = "live"
+
+[[sections]]
+slug = "budget"
+title = "City budget"
+nav = "Budget"
+summary = "The city's property tax rate and where the tax goes, what it raises per resident, and the average single-family tax bill."
+status = "live"
+
+[[sections]]
+slug = "schools"
+title = "Schools"
+summary = "Nashua School District's graduation rate, state test results, and cost per pupil, with the state's."
+status = "live"
+
+[[sections]]
+slug = "housing"
+title = "Housing"
+summary = "New homes permitted, home values and rents, and the housing stock."
+status = "live"
+
+[[sections]]
+slug = "officials"
+title = "Who represents you"
+nav = "Officials"
+summary = "The mayor, the Board of Aldermen, and the Board of Education, by office and by ward, and how to reach them."
+status = "live"
+
+[[sections]]
+slug = "about"
+title = "About"
+summary = "Data sources, update schedule, metric definitions, and corrections."
+status = "live"
+
+# Page view counting with GoatCounter, on the network's site; prefix is this
+# town's folder.
+[analytics]
+goatcounter = "publick"
+prefix = "nashua-nh"
+public_stats = ""
+
+# Public meetings, from the city's CivicClerk portal (the "Agendas & Minutes
+# Portal" button on the city's home page, and the "View Most Recent Agendas and
+# Minutes" link on its Board of Aldermen page): the Board of Aldermen, its
+# standing and special committees, and the city's boards and commissions. The
+# portal files about one in ten meetings under a catch-all category ("Boards &
+# Committees", "General", "Economic Development"); the engine files each by its
+# own name instead, so those go with their boards (a Conservation Commission site
+# walk, the Board of Public Works Retirement System Trustees). The city calendar
+# (nashuanh.gov/Calendar.aspx) lists the same meetings under the portal's names,
+# so it isn't read.
+[meetings]
+calendar_url = "https://nashuanh.portal.civicclerk.com"
+archive_url = "https://nashuanh.portal.civicclerk.com"
+archive_name = "city's CivicClerk portal"
+governing_body = "Board of Aldermen"
+# The city's site resets some connections; a slower pace and the client's retries help.
+request_delay = 3.0
+# One name per public body, as the city's pages and the portal name it. A portal
+# entry is filed under the longest of these it contains ("Special Board of
+# Aldermen - Public Hearing - R-26-053", "Board of Public Works Retirement System
+# Trustees Regular Meeting"), ignoring case, punctuation, and "&" versus "and".
+# The aldermen's committees keep the city's own names, as on the Board of
+# Aldermen's agendas ("Assigned to the BUDGET REVIEW COMMITTEE").
+boards = [
+  "Board of Aldermen",
+  "Budget Review Committee",
+  "Finance Committee",
+  "Committee on Infrastructure",
+  "Human Affairs Committee",
+  "Personnel/Administrative Affairs Committee",
+  "Planning and Economic Development Committee",
+  "Environment and Energy Committee",
+  "Ad Hoc Joint Committee on Capital Expenditures and Debt Service Planning",
+  "Pennichuck Water Special Committee",
+  "Joint Special School Building Committee",
+  "Joint Board of Public Works and Committee on Infrastructure",
+  "Capital Improvements Committee",
+  "Electric Aggregation Committee",
+  "Ethics Review Committee",
+  "Board of Public Works",
+  "Holman Stadium Activation Committee",
+  "Board of Public Works Retirement System Trustees",
+  "Planning Board",
+  "Zoning Board of Adjustment",
+  "Conservation Commission",
+  "Historic District Commission",
+  "Board of Assessors",
+  "Board of Fire Commissioners",
+  "Board of Health",
+  "Public Health Advisory Council",
+  "Public Health Ethics Committee",
+  "Board of Registrars",
+  "Trustees of Trust Funds",
+  "Nashua Public Library Board of Trustees",
+  "Hunt Memorial Building Board of Trustees",
+  "Edgewood/Suburban Cemetery Trustees",
+  "Woodlawn/Pinewood Cemetery Trustees",
+  "Arts Commission",
+  "Arts Commission Grants Subcommittee",
+  "Arts Commission Project Subcommittee",
+  "Keefe Auditorium Commission",
+  "Nashua Center for the Arts Board of Trustees",
+  "Nashua Center for the Arts Board of Trustees Community Benefits Subcommittee",
+  "NPAC Corp.",
+  "201 Main Street Real Estate Corp.",
+  "Conway Ice Rink Commission",
+  "Greeley Park Advisory Committee",
+  "Mine Falls Park Advisory Committee",
+  "Cable Television Advisory Board",
+  "Citizen's Advisory Commission",
+  "Cultural Connections Committee",
+  "Downtown Improvement Committee",
+  "Housing Revolving Fund Committee",
+  "Greater Nashua Revolving Loan Fund",
+  "Business and Industrial Development Authority",
+  "Nashua Housing and Redevelopment Authority",
+  "Mayor's Opioid Taskforce",
+  "Opioid Fatality Review Committee Workgroup",
+  "Encampment Workgroup",
+  "Mayor's Veterans Council",
+  "Ambulance Advisory Committee",
+  "Local Emergency Planning Committee",
+]
+
+# Other names the portal uses for a board. The joint meetings of the Committee
+# on Infrastructure with the Police Commission or the Library Trustees go with
+# the committee, which calls them; with the Board of Public Works, under the
+# joint body the city has a page and a portal category for.
+[meetings.aliases]
+"Committee on Infrastructure and Board of Public Works" = "Joint Board of Public Works and Committee on Infrastructure"
+"BPW Special" = "Board of Public Works"
+"Board of Fire Commission" = "Board of Fire Commissioners"
+"Historic District" = "Historic District Commission"
+"Grants Sub-Com" = "Arts Commission Grants Subcommittee"
+"NAC sub-committee, grants" = "Arts Commission Grants Subcommittee"
+"NAC project sub-committee" = "Arts Commission Project Subcommittee"
+"BIDA" = "Business and Industrial Development Authority"
+"Trustees of the Trust Funds" = "Trustees of Trust Funds"
+"Trustee of Trust Funds" = "Trustees of Trust Funds"
+"Nashua Housing and Redevelopment" = "Nashua Housing and Redevelopment Authority"
+"Mine Falls Advisory Committee" = "Mine Falls Park Advisory Committee"
+"Housing Revolving Fund" = "Housing Revolving Fund Committee"
+"Revolving Loan Fund" = "Greater Nashua Revolving Loan Fund"
+"Hunt Board of Trustees" = "Hunt Memorial Building Board of Trustees"
+"Edgewood/Suburban Trustees" = "Edgewood/Suburban Cemetery Trustees"
+"Woodlawn/Pinewood Cemetery Trustee" = "Woodlawn/Pinewood Cemetery Trustees"
+"201 Main St. Real Estate Corp." = "201 Main Street Real Estate Corp."
+"Ad Hoc Committee on Capital Expenditures and Debt Svc Planning" = "Ad Hoc Joint Committee on Capital Expenditures and Debt Service Planning"
+"Ad Hoc Joint Committee on Capital Expenditures and Debt Svc Planning" = "Ad Hoc Joint Committee on Capital Expenditures and Debt Service Planning"
+
+[meetings.civicclerk]
+api_url = "https://nashuanh.api.civicclerk.com/v1"
+portal_url = "https://nashuanh.portal.civicclerk.com"
+# Meetings, agendas, and minutes are collected from here on: the current Board
+# of Aldermen took office at its organizational meeting on January 4, 2026, and
+# the city's meetings moved to the portal in January.
+since = "2026-01-01"
+# Left out:
+# - Pennichuck Corporation's own meetings (its board of directors, its
+#   subsidiaries' boards, its committees, and its shareholder meetings): a
+#   corporation the city owns as sole shareholder, not a city body, whose
+#   portal entries are notices, with an agenda or minutes for 1 of 16 meetings
+#   from April to September 2026. The aldermen's Pennichuck Water Special
+#   Committee is kept.
+# - Events that aren't a meeting of a city body: the inauguration ceremony (the
+#   Board of Aldermen's organizational meeting after it is kept), the portal's
+#   placeholder "One Time Event" entries, the Resource Center's resident
+#   sessions ("Resource Center - Stakeholders", not the aldermen's special
+#   meetings on it), the Multicultural Festival, an alderman's ward meeting
+#   ("Invitation to the 2nd Ward 5 Meeting"), and project information
+#   meetings ("Lock & Whitney Transportation Alternative Project Meeting",
+#   "West Hollis Street Corridor Presentation & Discussion").
+# - A bare "SITE WALK- 5 ROBY STREET", which repeats the Conservation
+#   Commission's own entry for the same walk.
+exclude_pattern = '^(?!.*special committee).*\bpennichuck\b|^inauguration$|^one time event$|^resource center\b|\bmulticultural festival\b|^invitation to\b|\bproject meeting$|\bcorridor presentation\b|^site walk\b'
+
+# Where the city's own listing is wrong, found by hand: shown on the meeting's
+# page with the reason and how it's known. Once the city changes the listing
+# after `checked`, the correction comes down until it's checked again.
+#
+# The portal lists three entries named "Finance Committee" in the Committee on
+# Infrastructure's category, each at 7:00 PM on the fourth Wednesday, the same
+# time as that committee's own entry for the day. The Finance Committee meets on
+# the first and third Wednesdays, and has its own entries for those months.
+[[meetings.corrections]]
+board = "Finance Committee"
+date = "2027-01-27"
+doubtful = true
+checked = "2026-10-12"
+note = "The city's portal lists this under the Committee on Infrastructure, which meets at the same time that day. The Finance Committee meets on the first and third Wednesdays, and has its own January meeting on January 20. This entry is most likely the Committee on Infrastructure's, misnamed. Check with the city before going."
+evidence = "https://nashuanh.portal.civicclerk.com/event/4745/files"
+
+[[meetings.corrections]]
+board = "Finance Committee"
+date = "2027-02-24"
+doubtful = true
+checked = "2026-10-12"
+note = "The city's portal lists this under the Committee on Infrastructure, which meets at the same time that day. The Finance Committee meets on the first and third Wednesdays, and has its own February meeting on February 17. This entry is most likely the Committee on Infrastructure's, misnamed. Check with the city before going."
+evidence = "https://nashuanh.portal.civicclerk.com/event/4746/files"
+
+[[meetings.corrections]]
+board = "Finance Committee"
+date = "2027-03-24"
+doubtful = true
+checked = "2026-10-12"
+note = "The city's portal lists this under the Committee on Infrastructure, which meets at the same time that day. The Finance Committee meets on the first and third Wednesdays, and has its own March meeting on March 17. This entry is most likely the Committee on Infrastructure's, misnamed. Check with the city before going."
+evidence = "https://nashuanh.portal.civicclerk.com/event/4747/files"
+
+# The Board of Education's meetings, agendas and minutes, from the district's
+# "BOE Meeting Agendas and Minutes" page: under each month, a line for each
+# meeting ("August 24, 2026 - Public Hearing", "July 13, 2026 (Special BOE)"),
+# then its links, "Agenda and Attachments" and "Minutes" (Google Drive files),
+# some with "Non-Public Minutes" or a presentation. The page gives no times. A
+# public hearing on the evening of a meeting is a meeting of its own.
+# January 5, 2026 is one line for the organizational meeting and the regular
+# meeting after it: the organizational meeting's agenda and minutes, listed
+# first, are the meeting's; the regular meeting's are kept in its record as
+# links, which meeting pages don't show. A meeting the page lists with no
+# documents (February 23, 2026, "CANCELLED") isn't recorded. The page lists the meeting of April 13, 2026 (so its agenda says) as "April 13,
+# 2016", under April 2026: that date falls before since, so the meeting isn't
+# listed until the district corrects it. The Board's calendar feed (iCal)
+# isn't read: it gives meetings as repeating events (RRULE), and
+# [ical_meetings] reads one meeting an event (UID).
+[page_meetings]
+page_url = "https://www.nashua.edu/our-district/board-of-education/boe-meeting-agendas-and-minutes"
+source_name = "Nashua School District"
+# The first run lists meetings from here, and documents are collected from here on.
+since = "2026-01-01"
+body = "Board of Education"
+# A link labelled minutes, but not "Non-Public Minutes", which stays a link.
+minutes_pattern = '^(?!.*\bnon-?public\b).*\bminutes\b'
+
+# The Board's standing committees, each with a page of its own under the one
+# above, named as the Board's Policy BDE (Committees and Delegates, March 2,
+# 2026) and their agendas name them ("FINANCE AND OPERATIONS COMMITTEE"), with
+# "Board of Education" in front: the Board of Aldermen has a Finance Committee,
+# a Budget Review Committee and a Personnel/Administrative Affairs Committee of
+# its own. The JSSBC page's Joint Special School Building Committee, with the
+# aldermen, is on the city's portal ([meetings] boards), so isn't read here.
+[page_meetings.pages]
+"https://www.nashua.edu/our-district/board-of-education/boe-meeting-agendas-and-minutes/policy" = "Board of Education Policy Committee"
+"https://www.nashua.edu/our-district/board-of-education/boe-meeting-agendas-and-minutes/budget-committee" = "Board of Education Budget Committee"
+"https://www.nashua.edu/our-district/board-of-education/boe-meeting-agendas-and-minutes/curriculum-and-evaluation" = "Board of Education Curriculum and Evaluation Committee"
+"https://www.nashua.edu/our-district/board-of-education/boe-meeting-agendas-and-minutes/finance-and-operations" = "Board of Education Finance and Operations Committee"
+"https://www.nashua.edu/our-district/board-of-education/boe-meeting-agendas-and-minutes/human-resources" = "Board of Education Human Resources Committee"
+
+# Agenda and minutes PDFs live in the network's documents bucket, not in git
+# (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID, STORAGE_SECRET_ACCESS_KEY.
+[storage]
+endpoint = "https://6bbfee5a3892553c7993dbfa4b4e8453.r2.cloudflarestorage.com"
+bucket = "publick-documents"
+public_url = "https://files.publick.org"
+prefix = "nashua-nh"
+
+# Plain-English agenda text and previews, and decisions from minutes, written by
+# a language model and labeled as AI-generated on the site. Only meetings from
+# `since` on are summarized, about three months before launch, so the town's
+# history doesn't take the month's budget.
+[summaries]
+model = "claude-sonnet-5"
+since = "2026-07-01"
+max_per_run = 40
+# Prices per million tokens, for the spending limit below.
+input_price = 2.0
+output_price = 10.0
+# A ceiling for one run. The network's monthly summary budget (SUMMARY_BUDGET in
+# .github/workflows/network.yml) decides what each run may spend, new documents first.
+max_cost_per_run = 5.0
+
+# How residents can take part, per board, shown on its meeting pages. Only
+# what the city has published; each entry names its source. The order of
+# business is the Board's agenda's; that the public may speak, and the
+# broadcast on Channel 16 with recordings online, are from its page on the
+# city's website, which links Nashua Community Television's page.
+[participation."Board of Aldermen"]
+comment = "Residents can speak at each regular meeting twice: early in the meeting, on items the Board expects to act on that evening, and near its end, in the period for general public comment."
+source_title = "Board of Aldermen agenda of September 22, 2026"
+source_url = "https://nashuanh.portal.civicclerk.com/event/4580/files"
+video_title = "Nashua's Government TV 16"
+video_url = "https://www.nashuanh.gov/318/CTV---Nashua-Community-Television"
+
+# From the Board of Education's Policy BEDH (Public Comment & Participation at
+# Board Meetings, approved December 19, 2022), on its Policies and Procedures
+# page. Its agendas say its meetings are broadcast live on Nashua ETV (Comcast
+# channel 22), whose page on the district's website has the stream and video on
+# demand.
+[participation."Board of Education"]
+comment = "Residents can speak in two 15-minute public comment periods at each regular Board meeting, for three minutes each: at the start, on items on the agenda, and at the end, on other district matters. Sign up before the meeting; speakers are called in that order, and give their name for the record. Comments about individual students or staff go to the Superintendent instead."
+source_title = "the Board of Education's Policy BEDH"
+source_url = "https://www.nashua.edu/fs/resource-manager/view/1fe6998c-bd2f-4524-8a22-6b67276a3bf0"
+video_title = "Nashua ETV (Channel 22)"
+video_url = "https://www.nashua.edu/families-community/nashua-etv"
+
+# Terms that come up on agendas and minutes, explained on each meeting page
+# where they appear. Acronyms match exactly; other terms ignore case. From the
+# City Charter (joint convention, § 87), the city's Ordinances & City Charter
+# page (ordinances and resolutions), and the Board of Aldermen's own agendas
+# and minutes.
+[[glossary]]
+term = "non-public session"
+definition = "A part of a meeting closed to the public. New Hampshire's Right-to-Know Law (RSA 91-A) allows it only for certain reasons, such as buying or selling property, personnel matters, or labor negotiations."
+
+[[glossary]]
+term = "RSA"
+definition = "Revised Statutes Annotated, New Hampshire's state laws."
+
+[[glossary]]
+term = "NRO"
+definition = "Nashua Revised Ordinances, the city's local laws."
+
+[[glossary]]
+term = "first reading"
+bodies = ["Board of Aldermen"]
+definition = "The first time the Board of Aldermen takes up a new resolution or ordinance. The President usually then assigns it to a committee to review before the Board votes on it."
+
+[[glossary]]
+term = "resolution"
+definition = "A formal decision of the Board of Aldermen, such as approving spending, a bond, or a budget. Numbered R- with the year, as in R-26-053."
+
+[[glossary]]
+term = "ordinance"
+definition = "A city law passed by the Board of Aldermen. Numbered O- with the year, as in O-26-017."
+
+[[glossary]]
+term = "joint convention"
+definition = "The Board of Aldermen meeting together with another board, such as the Library Trustees or a cemetery's trustees, to elect that board's members, as the City Charter provides."
+
+[[glossary]]
+term = "tabled"
+definition = "Set aside by a vote, to take up later. A tabled item comes back when the board votes to take it off the table."
+
+[[glossary]]
+term = "BPW"
+definition = "Board of Public Works, the elected board that oversees the city's Division of Public Works, with the mayor as its chair."
+
+[[glossary]]
+term = "Pennichuck"
+definition = "Pennichuck Corporation, the water utility the city owns as its sole shareholder. It reports to the Board of Aldermen every quarter."
+
+[[glossary]]
+term = "TIF"
+definition = "Tax increment financing: a district where the extra property tax from its growth in value is set aside to pay for public projects there."
+
+[[glossary]]
+term = "ZBA"
+definition = "Zoning Board of Adjustment."
+
+# Tax rate, property tax, and the average single-family tax bill
+# (pipeline/states/nh/). The tax rates are the New Hampshire DRA's, from the
+# engine's yearly statewide figures, where the city is "Nashua"; the average
+# bill is calculated from them and NH GRANIT's parcel map. The city publishes
+# its budget as ClearGov budget books and PDFs, not a table on a page, so the
+# budget page links them (budget_documents_url) rather than reading one.
+[finance]
+dra_municipality = "Nashua"
+budget_documents_url = "https://www.nashuanh.gov/1451/Budgets"
+
+# Schools: the New Hampshire Department of Education's statewide figures,
+# where the district is "Nashua".
+[schools]
+doe_district = "Nashua"
+district_name = "Nashua School District"
+
+# Housing: Census building permits (state and place FIPS codes) and American
+# Community Survey through Census Reporter (geo ids).
+[housing]
+bps_region = "Northeast Region"
+bps_prefix = "ne"
+bps_state = "33"
+bps_place = "50260"
+census_geo = "16000US3350260"
+state_geo = "04000US33"
+
+# Unemployment rate (BLS Local Area Unemployment Statistics): Nashua city is
+# CT3350260000000 in la.area. City rates are not seasonally adjusted; the
+# state series is shown for context.
+[labor]
+local_series = "LAUCT335026000000003"
+state_series = "LAUST330000000000003"
+bulk_file = "la.data.36.NewHampshire"
+
+# How often each data source should update. Figures published monthly or yearly
+# are judged by the engine, by the period they cover (pipeline/rhythms.py).
+[freshness]
+summary_grace_days = 2
+sources = [
+  { label = "Meetings (CivicClerk)", file = "meetings/status.json", max_days = 2 },
+  { label = "Board of Education meetings (school district website)", file = "meetings/page_status.json", max_days = 2 },
+]
+
+# The About page's "What this site doesn't cover": why there's no 311 section.
+# The city's SeeClickFix page links a SeeClickFix web portal; on 2026-10-12
+# SeeClickFix's public listing for Nashua had two city-acknowledged requests in
+# 2026 and none closed since January 2025.
+[absences]
+311 = "The city takes Public Works requests through a SeeClickFix portal whose requests aren't made public, so there's no data to show."
+
+# Who represents you (the Officials page). Kept by hand from official city
+# and school websites; checked is the date the list was last checked against
+# them. Only city- and school-issued email addresses, and the mayor's office
+# phone (the city's pages also list aldermen's and school board members' own
+# phone numbers, which are left out). The ward file is
+# data/static/nashua-wards-2022.geojson: NH GRANIT's 2022 voting wards, as for
+# Manchester, with 2020 census population (the sum of the census blocks
+# inside each ward, 91,322 in all, the city's 2020 count). Terms from the City
+# Charter (the city's PDF, as of January 1, 2026): the mayor four years (§ 40),
+# ward aldermen two, at-large aldermen four, three at each election, all
+# taking office at the inauguration on the first Sunday after the first
+# working day of January (§ 41); Board of Education members four years from
+# January 1 (§ 75).
+[officials]
+checked = "2026-10-12"
+# The next regular municipal election: the first Tuesday after the first Monday
+# of November in odd years (City Charter § 5; the clerk's Election Results page
+# lists them).
+next_election = "2027-11-02"
+wards_file = "nashua-wards-2022.geojson"
+wards_publisher = "NH GRANIT"
+wards_year = 2022
+wards_url = "https://www.arcgis.com/home/item.html?id=3d1a8bdf3eaa49e09cf5d9da5b56bf9c"
+
+# Elected November 7, 2023 (official results). Email and phone from the Mayor's
+# Office page.
+[[officials.bodies]]
+name = "Mayor"
+url = "https://www.nashuanh.gov/148/Mayors-Office"
+note = "Elected citywide for four years."
+members = [
+  { name = "Jim Donchess", seat = "Citywide", term_ends = "2028-01", email = "nashuamayor@nashuanh.gov", phone = "(603) 589-3260" },
+]
+
+# Names, seats, and email addresses from the Board of Aldermen's page on the
+# city's website. Elected November 4, 2025 (the ward aldermen and three at-large)
+# and November 7, 2023 (the other three at-large), by the official results; the
+# President and Vice President elected at the organizational meeting of January
+# 4, 2026 (its minutes). Ward 1's alderman elected in 2025, Stephen Chess, is on
+# the roll until April 14, 2026; after the seat fell vacant, the Board elected
+# James Ravan to it on May 20, 2026 (the special meeting's minutes), until the
+# term's end (Charter § 44). All 15 are on the roll
+# of September 22, 2026 (the newest minutes).
+[[officials.bodies]]
+name = "Board of Aldermen"
+url = "https://www.nashuanh.gov/514/Board-of-Aldermen"
+note = "Nine aldermen elected by ward for two years, and six at-large for four years, three at each city election. The Board elects its President, who presides."
+members = [
+  { name = "James Ravan", seat = "Ward 1", ward = 1, role = "Elected by the Board in May 2026 to fill a vacancy", term_ends = "2028-01", email = "ravanj@nashuanh.gov" },
+  { name = "Richard A. Dowd", seat = "Ward 2", ward = 2, term_ends = "2028-01", email = "dowdr@nashuanh.gov" },
+  { name = "Patricia Klee", seat = "Ward 3", ward = 3, term_ends = "2028-01", email = "kleep@nashuanh.gov" },
+  { name = "Thomas Lopez", seat = "Ward 4", ward = 4, term_ends = "2028-01", email = "lopezt@nashuanh.gov" },
+  { name = "Paula Johnson", seat = "Ward 5", ward = 5, term_ends = "2028-01", email = "johnsonp2@nashuanh.gov" },
+  { name = "Vengerflutta Smith", seat = "Ward 6", ward = 6, term_ends = "2028-01", email = "smithv@nashuanh.gov" },
+  { name = "Tim Sennott", seat = "Ward 7", ward = 7, term_ends = "2028-01", email = "sennottt@nashuanh.gov" },
+  { name = "Derek Thibeault", seat = "Ward 8", ward = 8, term_ends = "2028-01", email = "thibeaultd@nashuanh.gov" },
+  { name = "John Sullivan", seat = "Ward 9", ward = 9, term_ends = "2028-01", email = "sullivanj@nashuanh.gov" },
+  { name = "Lori Wilshire", seat = "At-large", role = "President", term_ends = "2028-01", email = "wilshirel@nashuanh.gov" },
+  { name = "Ben Clemons", seat = "At-large", role = "Vice President", term_ends = "2028-01", email = "clemonsb@nashuanh.gov" },
+  { name = "Michael B. O'Brien, Sr.", seat = "At-large", term_ends = "2028-01", email = "obrienm@nashuanh.gov" },
+  { name = "Shoshanna Kelly", seat = "At-large", term_ends = "2030-01", email = "kellys@nashuanh.gov" },
+  { name = "Alicia Gregg", seat = "At-large", term_ends = "2030-01", email = "gregga@nashuanh.gov" },
+  { name = "Amber Morgan", seat = "At-large", term_ends = "2030-01", email = "morgana@nashuanh.gov" },
+]
+
+# Names and email addresses from the district's BOE Members page. Elected
+# November 7, 2023 (Bishop, Giglio, Johnson, Lopez, Prinn) and November 4, 2025
+# (Lamphier, Lewis, Raymond, Salvi), by the official results; Shewanda Lopez was
+# elected as Shewanda Daniels Williams, and her district address still is. The
+# President and Clerk elected at the organizational meeting of January 5, 2026
+# (its minutes); all nine are on the roll of September 28, 2026.
+[[officials.bodies]]
+name = "Board of Education"
+url = "https://www.nashua.edu/our-district/board-of-education"
+note = "Nine members elected citywide for four years, four or five at each city election."
+members = [
+  { name = "Jennifer Bishop", seat = "At-large", role = "President", term_ends = "2028-01", email = "bishopj@nashua.edu" },
+  { name = "Heather Raymond", seat = "At-large", role = "Clerk", term_ends = "2030-01", email = "raymondh@nashua.edu" },
+  { name = "Sharon Giglio", seat = "At-large", term_ends = "2028-01", email = "giglios@nashua.edu" },
+  { name = "Rob Johnson", seat = "At-large", term_ends = "2028-01", email = "johnsonr@nashua.edu" },
+  { name = "Regan Lamphier", seat = "At-large", term_ends = "2030-01", email = "lamphierr@nashua.edu" },
+  { name = "Jaimeika Lewis", seat = "At-large", term_ends = "2030-01", email = "lewisj@nashua.edu" },
+  { name = "Shewanda Lopez", seat = "At-large", term_ends = "2028-01", email = "danielswilliamss@nashua.edu" },
+  { name = "Kirsten Prinn", seat = "At-large", term_ends = "2028-01", email = "prinnk@nashua.edu" },
+  { name = "Santosh Salvi", seat = "At-large", term_ends = "2030-01", email = "salvisa@nashua.edu" },
+]
