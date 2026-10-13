@@ -1,0 +1,409 @@
+# Site configuration for Methuen, Massachusetts. Everything town-specific lives
+# here; the code is the Publick engine (github.com/publick-org/publick-engine).
+#
+# Methuen's website runs on CivicPlus. Its boards post agendas and minutes in
+# the Agenda Center: the City Council, its committees (each in a category of
+# its own), and the city's boards and commissions. The city calendar's
+# "Meetings Calendar" lists meetings before their agendas are posted, with
+# times and places ([meetings.civicplus]). The Archive Center (/Archive.aspx)
+# holds budgets, reports and newsletters, and no agendas or minutes, so it isn't
+# read; the council's vote records ("Meeting Votes") are in the Document
+# Center, which the engine doesn't read, and its minutes, in the Agenda Center,
+# have the same votes. The School Committee posts on the school district's
+# Finalsite website, as a table with a row a meeting linking its posting,
+# agenda, minutes and video (Google Drive files and YouTube), which
+# [page_meetings] reads. 311 requests are on SeeClickFix. The state sources (DLS,
+# DESE, BLS, Census, the Subsidized Housing Inventory) are the same as Malden's.
+#
+# The site is in English and Spanish ([site] languages), as every town's is.
+# The first runs draft the Spanish for the town's own text; [strings.es] can
+# correct it.
+
+[site]
+name = "Methuen Publick"
+# The masthead shows name_prefix in dark ink and name_suffix in the accent
+# color: the town, then the network.
+name_prefix = "Methuen "
+name_suffix = "Publick"
+domain = "methuen-ma.publick.org"
+# The network of town sites this one belongs to, named in every page footer.
+network = "Publick"
+network_url = "https://publick.org"
+tagline = "Public data on how Methuen, Massachusetts responds, decides, and spends. Updated daily."
+# One line under the name at the top of every page.
+masthead = "An independent guide to city government in Methuen, Massachusetts"
+repo_url = "https://github.com/publick-org/publick.org"
+# Public contact address. Shown on the About and Accessibility pages when set.
+contact_email = "methuen-ma@publick.org"
+timezone = "America/New_York"
+user_agent = "methuen-ma.publick.org (+https://methuen-ma.publick.org/about/)"
+# English at the site's root, Spanish under /es/.
+languages = ["en", "es"]
+
+# From the city website's theme stylesheet (methuen.gov): its indigo (the most
+# used after white and black: headlines, the footer, the sidebar), the dark
+# navy of its homepage controls, a light tint of the indigo, and its orange
+# (widget rules), darkened to pass. Contrast on white: 11.6, 15.4, and 5.0 to
+# 1. The orange as it is (#dc780d, 3.1 to 1) and the bright blue CivicPlus
+# uses for links (#0098f7, 3.1 to 1) don't pass.
+[site.colors]
+primary = "#362b80"
+primary_dark = "#072642"
+primary_soft = "#ebeaf2"
+accent = "#a95c0a"
+
+[town]
+name = "Methuen"
+state = "Massachusetts"
+state_abbr = "MA"
+official_site = "https://www.methuen.gov"
+
+# Sections appear in the main navigation in this order. Each one is a folder
+# under site/pages/<slug>/ and is served at https://<domain>/<slug>/.
+[[sections]]
+slug = "meetings"
+title = "Meetings"
+summary = "Every board and committee meeting on the city calendar and in its Agenda Center, and the School Committee's, with agendas, and minutes from January 2026 on."
+status = "live"
+
+[[sections]]
+slug = "311"
+title = "311 Requests"
+nav = "311"
+summary = "How fast the city responds to service requests on SeeClickFix, by category and voting precinct."
+status = "live"
+
+[[sections]]
+slug = "schools"
+title = "Schools"
+summary = "Graduation, attendance, and MCAS results compared with the state."
+status = "live"
+
+[[sections]]
+slug = "budget"
+title = "City budget"
+nav = "Budget"
+summary = "Where general fund money comes from and how it is spent, reserves, and the property tax limit."
+status = "live"
+
+[[sections]]
+slug = "housing"
+title = "Housing"
+summary = "New homes permitted, home values and rents, affordable housing, and the housing stock."
+status = "live"
+
+[[sections]]
+slug = "officials"
+title = "Who represents you"
+nav = "Officials"
+summary = "The mayor, City Council, and School Committee, and how to reach them."
+status = "live"
+
+[[sections]]
+slug = "about"
+title = "About"
+summary = "Data sources, update schedule, metric definitions, and corrections."
+status = "live"
+
+# Page view counting with GoatCounter, on the network's site; prefix is this
+# town's folder.
+[analytics]
+goatcounter = "publick"
+prefix = "methuen-ma"
+public_stats = ""
+
+# Public meetings, from the city's calendar and Agenda Center.
+[meetings]
+base_url = "https://www.methuen.gov"
+archive_url = "https://www.methuen.gov/AgendaCenter"
+archive_name = "city's Agenda Center"
+# The city's site resets some connections; a slower pace and the client's retries help.
+request_delay = 5.0
+max_event_pages = 40
+
+# The city calendar, read month by month: the "Meetings Calendar" (its other
+# calendar is "Community Events"), with each meeting's time and place before
+# its agenda is posted. A meeting on the calendar and in the Agenda Center is
+# shown once.
+[meetings.civicplus]
+calendars = ["Meetings Calendar"]
+
+# Agenda Center categories renamed to the board's usual name. The council's
+# committees each have a category of their own, named without the council;
+# their agendas are the City Council office's, and the council's page lists
+# them as its committees.
+[meetings.aliases]
+"Finance Committee" = "City Council Finance Committee"
+"Public Safety Committee" = "City Council Public Safety Committee"
+"Economic Development" = "City Council Economic Development Committee"
+"Recreation Committee" = "City Council Recreation Committee"
+"Veterans Affairs" = "City Council Veterans Affairs Committee"
+"Unaccepted Ways Task Force" = "City Council Unaccepted Ways Task Force"
+# The Agenda Center's short names for boards the calendar names in full (the
+# ZBA as the city's Boards and Commissions page describes it).
+"Housing Authority" = "Methuen Housing Authority"
+"Zoning Board" = "Zoning Board of Appeals"
+
+[meetings.agenda_center]
+base_url = "https://www.methuen.gov"
+# The first run lists meetings from here, and minutes are collected from here on.
+since = "2026-01-01"
+
+# The council's joint meeting with the School Committee (January 21, 2026) is
+# posted under both boards' categories; it's one meeting of its own. The
+# School Committee's category has nothing else: the committee posts on the
+# district's website ([page_meetings], below).
+[meetings.agenda_center.committees."City Council"]
+"School Committee" = "Joint City Council and School Committee"
+
+[meetings.agenda_center.committees."School Committee"]
+"City Council" = "Joint City Council and School Committee"
+
+# The School Committee's meetings, agendas and minutes, from the district's
+# "Meetings, Documents and Recordings" page: a table under a tab for each school
+# year, a row a meeting, with its date, its name ("Business Meeting", "Policy
+# Subcommittee"), and links labelled "Posting", "Agenda", "Minutes" and "Video"
+# (YouTube for the committee's meetings, Drive files for its subcommittees').
+# Its agendas give 6:00 PM, as the district's Meeting Calendar page says of
+# every meeting unless noted; the table gives no times, so none are shown.
+[page_meetings]
+page_url = "https://www.methuen.k12.ma.us/school-community/meetings-documents"
+source_name = "Methuen Public Schools"
+# The first run lists meetings from here, and documents are collected from here on.
+since = "2026-01-01"
+body = "School Committee"
+
+# The names in the table's rows for the committee's subcommittees, and the
+# joint meeting with the City Council the Agenda Center also posts.
+[page_meetings.bodies]
+"Policy Subcommittee" = "School Committee Policy Subcommittee"
+"Finance Subcommittee" = "School Committee Finance Subcommittee"
+"Finance Sub-Committee" = "School Committee Finance Subcommittee"
+"Budget Subcommittee" = "School Committee Budget Subcommittee"
+"Joint Meeting - City Council" = "Joint City Council and School Committee"
+
+# 311 requests, from SeeClickFix (public requests only). The city's
+# organization is 1452 ("City of Methuen"), the one its "Report a Concern"
+# link goes to; its Open311 services
+# (seeclickfix.com/open311/v2/1452/services.json) are 43 request types, all the
+# city's own departments' (Public Works, Health, Building, Police, the
+# Commission on Disability, City Administration), so no departments are needed.
+# The city acknowledges and closes most requests (63 of 74 in the first week of
+# March 2026 were closed).
+[seeclickfix]
+organization_id = 1452
+open311_base = "https://seeclickfix.com/open311/v2"
+api_base = "https://seeclickfix.com/api/v2"
+report_url = "https://seeclickfix.com/web_portal/H3G6t5xibMNrZURsJP8tbLwm/report/category"
+# SeeClickFix documents a limit of 20 requests per minute.
+request_delay = 3.2
+recent_days = 21
+max_details_per_run = 700
+time_budget_seconds = 2400
+# The month the full history starts (python -m pipeline.fetch_311 --backfill).
+# Older requests are included only while they are still open.
+history_since = "2026-01"
+# The Police and Health Departments' request types are complaints about a
+# person or a household, but their names don't say so ("Drug activity,
+# non-emergent", "Pest Infestations"), so they're listed here: their requests
+# are shown to the block, as the engine's own sensitive categories are.
+sensitive_categories = [
+  "Speeding, signage, or any other traffic safety concern",
+  "Loud music, abandoned bicycle, suspicious activity, or any non-emergent illegal activity",
+  "Drug activity, non-emergent",
+  "Parking complaint, non- emergent",
+  "Out-of-State improperly registered vehicle",
+  "Animal related concerns, dead animal in roadway",
+  "Food Safety Violations",
+  "Pest Infestations",
+  "Public Health Nuisances",
+  "Sewage and Septic Issues",
+  "Trash and Waste Violations",
+  "Smoking Violations",
+  "Water Quality Concerns",
+  "Toxic Materials Exposure",
+  "Property Maintenance Issues",
+  "Rental Property Inspections",
+  "General Health Department Inquiry",
+  "Occupancy Limit Violations",
+]
+# Methuen has no wards: its areas are its 15 voting precincts, from MassGIS's
+# 2022 file (TOWN='METHUEN', which has no WARD), each its own area as South
+# Kingstown's are. The election results' sub-precincts 6A and 13A are parts of
+# Precincts 6 and 13 there.
+areas = "precincts"
+precincts_file = "methuen-precincts-2022.geojson"
+wards_publisher = "MassGIS"
+wards_year = "2022"
+wards_url = "https://gis.data.mass.gov/maps/aec5130790814ace94438d3bcf23cf9a"
+
+# Repeat locations: requests in the same category within radius_m meters and
+# window_days days of each other are grouped as one place.
+[seeclickfix.repeats]
+radius_m = 50
+window_days = 60
+recent_open_days = 30
+
+# Agenda and minutes PDFs live in the network's documents bucket, not in git
+# (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID, STORAGE_SECRET_ACCESS_KEY.
+[storage]
+endpoint = "https://6bbfee5a3892553c7993dbfa4b4e8453.r2.cloudflarestorage.com"
+bucket = "publick-documents"
+public_url = "https://files.publick.org"
+prefix = "methuen-ma"
+
+# Plain-English agenda text and previews, and decisions from minutes, written by
+# a language model and labeled as AI-generated on the site. Only meetings from
+# `since` on are summarized, about three months before launch, so the town's
+# history doesn't take the month's budget.
+[summaries]
+model = "claude-sonnet-5"
+since = "2026-07-01"
+max_per_run = 40
+# Prices per million tokens, for the spending limit below.
+input_price = 2.0
+output_price = 10.0
+# A ceiling for one run. The network's monthly summary budget (SUMMARY_BUDGET in
+# .github/workflows/network.yml) decides what each run may spend, new documents first.
+max_cost_per_run = 5.0
+
+# How residents can take part, per board, shown on its meeting pages. From
+# Rule XI of the council's Rules and Procedures (as amended February 5, 2024,
+# the version the council's page links). The council's meetings are broadcast
+# and kept on demand by Methuen Community Studios, which each agenda links.
+[participation."City Council"]
+comment = "Residents can speak in the public participation period near the start of every council meeting, for up to five minutes, keeping to their subject. Give the Council Clerk's office (978-983-8510) your name, address and subject beforehand; speakers are heard in that order."
+source_title = "City Council Rules and Procedures (Rule XI)"
+source_url = "https://www.methuen.gov/DocumentCenter/View/3321/Rules-and-Regulations-2024---Amended-2-5-2024---FINAL"
+video_title = "Methuen Community Studios"
+video_url = "https://methuentv.cablecast.tv/internetchannel?site=2"
+
+# From the committee's Policy BEDH, "Public Participation: Guidelines for Public
+# Comment" (readopted January 13, 2025), on the district's Policies page. Its
+# meetings are streamed and kept on the district's YouTube channel, which the
+# district's website and the committee's table of meetings link.
+[participation."School Committee"]
+comment = "Residents can speak for up to five minutes in the public comment period near the start of each business, workshop and special meeting, on an agenda item or anything else within the committee's responsibility, after writing their name and address on the sign-up sheet. When a meeting is held remotely, send a written statement of no more than one page to the Superintendent's Office by 3:00 PM that day."
+source_title = "the School Committee's Policy BEDH"
+source_url = "https://drive.google.com/file/d/1wfSOigwLj_x-wiux02tSdZnFUQaAxJaA/view?usp=sharing"
+video_title = "Methuen Public Schools on YouTube"
+video_url = "https://www.youtube.com/channel/UCez3QQIzOP9up4JK-B08L5g"
+
+# Terms that come up on agendas and minutes, explained on each meeting page
+# where they appear. Acronyms match exactly; other terms ignore case.
+[[glossary]]
+term = "executive session"
+definition = "A part of a public meeting closed to the public. State law allows it only for specific reasons, such as lawsuits, negotiations, or personnel matters."
+
+[[glossary]]
+term = "M.G.L."
+definition = "Massachusetts General Laws, the state's laws."
+
+# School district figures from the state's education data portal (DESE).
+[schools]
+district_code = "01810000"
+district_name = "Methuen Public Schools"
+portal = "https://educationtocareer.data.mass.gov"
+
+# Tax bill and budget figures (Mass. Division of Local Services). Some DLS
+# reports take the name, others the DOR code.
+[finance]
+dls_municipality = "Methuen"
+dls_code = "181"
+
+# Housing: Census building permits (state and place FIPS codes), American
+# Community Survey through Census Reporter (geo ids), and the state's
+# Subsidized Housing Inventory PDF (the town's name as the PDF lists it).
+# Census Reporter's place is "Methuen Town" (2540710); the permits file and
+# BLS list the city under 40675.
+[housing]
+bps_region = "Northeast Region"
+bps_prefix = "ne"
+bps_state = "25"
+bps_place = "40675"
+census_geo = "16000US2540710"
+state_geo = "04000US25"
+shi_url = "https://www.mass.gov/doc/subsidized-housing-inventory-2/download"
+shi_name = "Methuen"
+
+# Unemployment rate (BLS Local Area Unemployment Statistics, area
+# CT2540675000000, Methuen city). City rates are not seasonally adjusted; the
+# state series is shown for context.
+[labor]
+local_series = "LAUCT254067500000003"
+state_series = "LAUST250000000000003"
+
+# How often each data source should update. Figures published monthly or yearly
+# are judged by the engine, by the period they cover (pipeline/rhythms.py).
+[freshness]
+summary_grace_days = 2
+sources = [
+  { label = "Meetings (Agenda Center)", file = "meetings/status.json", max_days = 2 },
+  { label = "School Committee meetings (school district website)", file = "meetings/page_status.json", max_days = 2 },
+  { label = "311 requests", file = "311/status.json", max_days = 2 },
+  { label = "311 scorecard", file = "311/scorecard.json", field = "generated_at", max_days = 2 },
+]
+
+# Who represents you (the Officials page). Kept by hand from official city
+# and school websites; checked is the date the list was last checked against
+# them. Only city- and school-issued email addresses, and the mayor's office
+# phone (the councillors' and School Committee members' own phones, which the
+# city's and the district's pages list, aren't used). Terms are two years, from
+# January, by the Home Rule Charter (Sections 2-1, 3-1 and 4-1).
+#
+# Methuen has no wards. The council's three districts are groups of voting
+# precincts (the council's page and the official results of November 4, 2025),
+# and the precinct file could draw them, but the Officials page calls every
+# area a ward, so the district seats aren't tied to it: the council's note says
+# which precincts make each district, and the page has no map.
+[officials]
+checked = "2026-10-12"
+# The next regular city election (Charter Section 7-1: the first Tuesday after
+# the first Monday in November of each odd-numbered year).
+next_election = "2027-11-02"
+
+[[officials.bodies]]
+name = "Mayor"
+url = "https://www.methuen.gov/262/Office-of-the-Mayor"
+note = "Elected citywide for two years. Chairs the School Committee."
+members = [
+  { name = "David P. “D.J.” Beauregard, Jr.", seat = "Citywide", term_ends = "2028-01", phone = "(978) 983-8505" },
+]
+
+# Elected on November 4, 2025 (the city's certified results); the Chair and
+# Vice Chair chosen on January 5, 2026 (the council's minutes), as the
+# council's page gives them. Email addresses from the council's page.
+[[officials.bodies]]
+name = "City Council"
+url = "https://www.methuen.gov/322/City-Council"
+note = "Nine councillors elected for two years: three at-large, and two from each of three districts. The East District is Precincts 3, 7, 9, 12 and 13 (with 13A); the Central District Precincts 1, 2, 6 (with 6A), 10 and 14; the West District Precincts 4, 5, 8, 11 and 15."
+members = [
+  { name = "Neily Soto", seat = "East District", role = "Chair", term_ends = "2028-01", email = "nsoto@ci.methuen.ma.us" },
+  { name = "Ronald Marsan", seat = "East District", term_ends = "2028-01", email = "rmarsan@ci.methuen.ma.us" },
+  { name = "Ella MacLaren", seat = "Central District", term_ends = "2028-01", email = "emaclaren@ci.methuen.ma.us" },
+  { name = "Yanilda Santos", seat = "Central District", term_ends = "2028-01", email = "ysantos@ci.methuen.ma.us" },
+  { name = "Mike Simard", seat = "West District", term_ends = "2028-01", email = "msimard@ci.methuen.ma.us" },
+  { name = "Patricia Valley", seat = "West District", term_ends = "2028-01", email = "pvalley@ci.methuen.ma.us" },
+  { name = "Jana Zanni Pesce", seat = "At-large", role = "Vice Chair", term_ends = "2028-01", email = "jpesce@ci.methuen.ma.us" },
+  { name = "Ryan DiZoglio", seat = "At-large", term_ends = "2028-01", email = "rdizoglio@ci.methuen.ma.us" },
+  { name = "John Drew", seat = "At-large", term_ends = "2028-01", email = "jdrew@ci.methuen.ma.us" },
+]
+
+# Elected on November 4, 2025 (the city's certified results), except Alejandro
+# Baez, whom the committee elected on February 25, 2026 to the seat Kristen
+# Maxwell left, for the rest of her term (its minutes); the Vice Chair and
+# Secretary chosen on January 12, 2026 (its minutes). Names and email addresses
+# as the district's School Committee directory gives them.
+[[officials.bodies]]
+name = "School Committee"
+url = "https://www.methuen.k12.ma.us/school-community/directory"
+note = "Six members elected at-large for two years, and the mayor as chair."
+members = [
+  { name = "David P. “D.J.” Beauregard, Jr.", seat = "Mayor", role = "Chairperson", term_ends = "2028-01", email = "dbeauregard@ci.methuen.ma.us" },
+  { name = "Nicholas DiZoglio", seat = "At-large", role = "Vice Chair", term_ends = "2028-01", email = "nsdizoglio@methuen.k12.ma.us" },
+  { name = "Mary Beth Donovan-Grassi", seat = "At-large", role = "Secretary", term_ends = "2028-01", email = "mydonovan@methuen.k12.ma.us" },
+  { name = "Martha McCarthy Sirois", seat = "At-large", term_ends = "2028-01", email = "mamccarthysirois@methuen.k12.ma.us" },
+  { name = "Laurie Keegan", seat = "At-large", term_ends = "2028-01", email = "lakeegan@methuen.k12.ma.us" },
+  { name = "Kenneth Willette", seat = "At-large", term_ends = "2028-01", email = "khwillette@methuen.k12.ma.us" },
+  { name = "Alejandro Baez", seat = "At-large", term_ends = "2028-01", email = "aobaez@methuen.k12.ma.us" },
+]

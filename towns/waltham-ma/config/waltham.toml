@@ -1,0 +1,442 @@
+# Site configuration for Waltham, Massachusetts. Everything town-specific lives
+# here; the code is the Publick engine (github.com/publick-org/publick-engine).
+#
+# Waltham's website runs on CivicPlus. The City Council and its standing
+# committees (each in a category of its own) and the city's other boards post
+# agendas and minutes in the Agenda Center; the city calendar has a calendar
+# for each board, which lists their meetings before the agendas are posted.
+# The School Committee posts its agendas and minutes on the school district's
+# website, each a file on Google Drive linked from one page, which
+# [page_meetings] reads; the city's Main Calendar gives the times of some of
+# its meetings, and the Agenda Center's School Department category, with a few
+# of its agendas, isn't read. There is no 311 section: the city takes service
+# requests through its Report a Concern portal, on iWorQ, and isn't on
+# SeeClickFix. The state sources (DLS, DESE, BLS, Census, the Subsidized
+# Housing Inventory) are the same as Malden's.
+#
+# The site is in English and Spanish ([site] languages), as every town's is.
+# The first runs draft the Spanish for the town's own text; [strings.es], at
+# the end, can correct it.
+
+[site]
+name = "Waltham Publick"
+# The masthead shows name_prefix in dark ink and name_suffix in the accent
+# color: the town, then the network.
+name_prefix = "Waltham "
+name_suffix = "Publick"
+domain = "waltham-ma.publick.org"
+# The network of town sites this one belongs to, named in every page footer.
+network = "Publick"
+network_url = "https://publick.org"
+tagline = "Public data on how Waltham, Massachusetts decides and spends. Updated daily."
+# One line under the name at the top of every page.
+masthead = "An independent guide to city government in Waltham, Massachusetts"
+repo_url = "https://github.com/publick-org/publick.org"
+# Public contact address. Shown on the About and Accessibility pages when set.
+contact_email = "waltham-ma@publick.org"
+timezone = "America/New_York"
+user_agent = "waltham-ma.publick.org (+https://waltham-ma.publick.org/about/)"
+# English at the site's root, Spanish under /es/.
+languages = ["en", "es"]
+
+# From the city website's stylesheet (city.waltham.ma.us): its link blue, its
+# dark navy (headlines, the menu, the footer), a light tint of the blue, and
+# its maroon (section titles and the bar under the footer). Each passes WCAG
+# AA on white as it is (8.6, 15.9, and 10.9 to 1). The bright blue CivicPlus
+# uses elsewhere (#0098f7, 3.1 to 1) doesn't pass.
+[site.colors]
+primary = "#0d41b5"
+primary_dark = "#0d204a"
+primary_soft = "#e7ecf8"
+accent = "#7d0818"
+
+[town]
+name = "Waltham"
+state = "Massachusetts"
+state_abbr = "MA"
+official_site = "https://www.city.waltham.ma.us"
+
+# Sections appear in the main navigation in this order. Each one is a folder
+# under site/pages/<slug>/ and is served at https://<domain>/<slug>/.
+[[sections]]
+slug = "meetings"
+title = "Meetings"
+summary = "Every board and committee meeting on the city's calendar and in its Agenda Center, and the School Committee's, with agendas, and minutes from January 2026 on."
+status = "live"
+
+[[sections]]
+slug = "schools"
+title = "Schools"
+summary = "Graduation, attendance, and MCAS results compared with the state."
+status = "live"
+
+[[sections]]
+slug = "budget"
+title = "City budget"
+nav = "Budget"
+summary = "Where general fund money comes from and how it is spent, reserves, and the property tax limit."
+status = "live"
+
+[[sections]]
+slug = "housing"
+title = "Housing"
+summary = "New homes permitted, home values and rents, affordable housing, and the housing stock."
+status = "live"
+
+[[sections]]
+slug = "officials"
+title = "Who represents you"
+nav = "Officials"
+summary = "The mayor, City Council, and School Committee, by office and by ward, and how to reach them."
+status = "live"
+
+[[sections]]
+slug = "about"
+title = "About"
+summary = "Data sources, update schedule, metric definitions, and corrections."
+status = "live"
+
+# Page view counting with GoatCounter, on the network's site; prefix is this
+# town's folder.
+[analytics]
+goatcounter = "publick"
+prefix = "waltham-ma"
+public_stats = ""
+
+# Public meetings, from the city's CivicPlus calendar and Agenda Center.
+[meetings]
+base_url = "https://www.city.waltham.ma.us"
+archive_url = "https://www.city.waltham.ma.us/AgendaCenter"
+archive_name = "city's Agenda Center"
+# The city's site resets some connections; a slower pace and the client's retries help.
+request_delay = 5.0
+max_event_pages = 40
+
+# The city calendar, read month by month ([meetings.civicplus]): the meetings
+# the city lists before their agendas are posted, with their times. Each board
+# has a calendar of its own (the License Commission's, the Recreation
+# Department's, Traffic Engineering's for the Traffic Commission); the School
+# Committee's meetings are on the Main Calendar, among community events and
+# school holidays ("Waltham School Committee Meeting", from June 2026 on, at
+# 6:00 or 7:00 PM), and are shown with the district's listing of the same
+# meeting ([page_meetings], below). The patterns keep the meetings, and leave
+# out fairs, open houses, and the city's neighborhood meetings on street
+# projects, and the calendar's special meetings of the School Committee
+# ("Waltham School Committee Special Meeting", June 23, 2026): the district's
+# page named that one by its date alone, so the two listings, one special and
+# one not, would have been shown as two meetings. The Planning Department's
+# calendar (its CDBG hearings) is left out: the Agenda Center lists them. A
+# meeting on the calendar and in the Agenda Center is shown once.
+[meetings.civicplus]
+calendars = [
+  "City Council",
+  "Main Calendar",
+  "Board of Survey & Planning",
+  "Community Preservation",
+  "Conservation Commission",
+  "Health Department",
+  "Historical Commission",
+  "License Commission",
+  "Recreation Department",
+  "Traffic Engineering",
+  "Zoning Board of Appeals",
+]
+include_pattern = '\b(board|commission|committee|council|ZBA|bio-?safety)\b'
+exclude_pattern = '\b(candidates?|forum|fair|festival|open house|registration|to discuss|school committee special meeting|special meeting of the waltham school committee)\b'
+
+# Agenda Center categories, and calendar names, renamed to the board's usual
+# name. The City Council's standing committees each have a category of their
+# own; here they're named as on the council's page (city.waltham.ma.us/1341),
+# as Lawrence's are. The License Commission and the Recreation Board as the
+# city's pages for them name them, and the Biosafety Committee as its page
+# names it ("Waltham Biosafety Committee").
+[meetings.aliases]
+"Economic & Community Development" = "City Council Economic and Community Development Committee"
+"Finance Committee" = "City Council Finance Committee"
+"Licenses & Franchises Committee" = "City Council Licenses and Franchises Committee"
+"Long Term Debt Committee" = "City Council Long Term Debt and Capital Planning Committee"
+"Ordinances & Rules Committee" = "City Council Ordinances and Rules Committee"
+"Public Works Committee" = "City Council Public Works and Public Safety Committee"
+"Community Preservation" = "Community Preservation Committee"
+"Licensing Commission" = "License Commission"
+"Parks Recreation Board" = "Recreation Board"
+# The calendar's names for boards the Agenda Center names otherwise. The
+# council's committee nights are "Waltham Committee Meetings" on its calendar.
+# The calendar is read before the Agenda Center, so on the first run its names
+# with "Waltham" in front would be recorded as boards of their own.
+"Waltham City Council" = "City Council"
+"Waltham Board of Health" = "Board of Health"
+"Waltham Historical Commission" = "Historical Commission"
+"Waltham School Committee" = "School Committee"
+"Board of Survey & Planning" = "Board of Survey and Planning"
+"Waltham Committee Meetings" = "City Council Committees"
+"Last Council Meeting before the New Year Begins" = "City Council"
+"License Commission Public" = "License Commission"
+"Public Meeting for ZBA" = "Zoning Board of Appeals"
+"Waltham Bio-Safety" = "Biosafety Committee"
+
+[meetings.agenda_center]
+base_url = "https://www.city.waltham.ma.us"
+# The first run lists meetings from here, and minutes are collected from here on.
+since = "2026-01-01"
+# The School Department's category has the School Committee's agendas for
+# five of its 27 meetings of 2026 (June 17 and 23, July 9, September 16) and
+# no minutes. The district's page has all of them, with their minutes
+# ([page_meetings], below), so the category is left out; its two June 23
+# postings, a "Special Meeting", which the page names by its date alone,
+# would have been shown as a meeting of their own.
+exclude_categories = ["School Department"]
+
+# The council meets on the second and fourth Mondays, and its committees on
+# the first and third (the 2026 City Council Card). Each committee night is
+# posted under the City Council as one docket for every committee meeting
+# that night ("Waltham Committee Meeting Docket and Agendas"; "City Council
+# Meeting Materials Agenda" until April), with the Committee of the Whole's
+# minutes: here it is "City Council Committees", the whole night's
+# docket. The committees' own minutes are in their categories. "City Council Meeting Materials (No Agenda)" of
+# January 4, 2026 (the inaugural meeting) and "Waltham Committee Meetings" of
+# May 26, 2026 (a council meeting, by its minutes) stay the council's.
+[meetings.agenda_center.committees."City Council"]
+"Committee Meeting Docket" = "City Council Committees"
+"Council Committee Meetings" = "City Council Committees"
+"Meeting Materials Agenda" = "City Council Committees"
+
+# The Biosafety Committee's agendas are posted under the Board of Health.
+[meetings.agenda_center.committees."Board of Health"]
+"Bio-Safety" = "Biosafety Committee"
+
+# The Conservation Trust Fund's trustees post their annual meeting under the
+# Conservation Commission.
+[meetings.agenda_center.committees."Conservation Commission"]
+"Conservation Trust Fund" = "Board of Trustees of the Conservation Trust Fund"
+
+# The School Committee's meetings, agendas and minutes, from the district's
+# "Minutes and Documentation" page: under each month, links to Google Drive
+# files, each naming its meeting ("September 16, 2026 Agenda", "September 16,
+# 2026 Minutes", "June 10, 2026 Special Meeting"), a Spanish copy of most
+# agendas, and a Drive folder of "Additional Resources". Its budget workshops
+# and public hearings ("April 15, 2026 Public Hearing - FY '27 Operating
+# Budget", held the evening of a regular meeting) are meetings of their own.
+# The page gives no times; a meeting on the city's Main Calendar has its time.
+[page_meetings]
+page_url = "https://www.walthampublicschools.org/minutes-and-documentation"
+source_name = "Waltham Public Schools"
+# The first run lists meetings from here, and documents are collected from here on.
+since = "2026-01-01"
+body = "School Committee"
+# The Spanish copies of the agendas ("Agenda (Español)") are left out.
+exclude_pattern = "Español"
+# A special meeting's, workshop's or hearing's agenda is linked by its name
+# alone ("June 10, 2026 Special Meeting").
+agenda_pattern = '\bagenda\b|special meeting|workshop|public hearing'
+
+# Agenda and minutes PDFs live in the network's documents bucket, not in git
+# (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID, STORAGE_SECRET_ACCESS_KEY.
+[storage]
+endpoint = "https://6bbfee5a3892553c7993dbfa4b4e8453.r2.cloudflarestorage.com"
+bucket = "publick-documents"
+public_url = "https://files.publick.org"
+prefix = "waltham-ma"
+
+# Plain-English agenda text and previews, and decisions from minutes, written by
+# a language model and labeled as AI-generated on the site. Only meetings from
+# `since` on are summarized, about three months before launch, so the town's
+# history doesn't take the month's budget.
+[summaries]
+model = "claude-sonnet-5"
+since = "2026-07-01"
+max_per_run = 40
+# Prices per million tokens, for the spending limit below.
+input_price = 2.0
+output_price = 10.0
+# A ceiling for one run. The network's monthly summary budget (SUMMARY_BUDGET in
+# .github/workflows/network.yml) decides what each run may spend, new documents first.
+max_cost_per_run = 5.0
+
+# How residents can take part, per board, shown on its meeting pages. The
+# council's dockets name no public comment period; its minutes show residents
+# heard at its public hearings (the City Clerk reads the notice, then those in
+# favor, in opposition, and neutral speak), and others only when the council
+# suspends its Rule 9. Both boards' meetings are broadcast and kept for replay
+# by WCAC, which the council's page ("Waltham's MAC-TV") and the district's
+# School Committee page link.
+[participation."City Council"]
+comment = "Residents can speak at the public hearings held during regular Council meetings, such as on licenses and special permits: in favor, in opposition, or neutral, after the City Clerk reads the hearing notice."
+source_title = "City Council minutes of September 14, 2026"
+source_url = "https://www.city.waltham.ma.us/AgendaCenter/ViewFile/Minutes/_09142026-680"
+video_title = "MAC-TV (WCAC)"
+video_url = "https://www.wcac.org/government"
+
+# From the School Committee's Policy Manual (policies BEDH and BEDH-E, approved
+# February 5, 2025), which the district's website links.
+[participation."School Committee"]
+comment = "Waltham residents and members of the school community can speak for one minute each during a 15-minute public comment period at the start of regular meetings, on agenda items or district matters. Sign in with your name, address, and affiliation five minutes before the meeting starts. Longer written comments can be given to the Committee before or after the meeting."
+source_title = "the School Committee's Policy Manual"
+source_url = "https://www.walthampublicschools.org/school-committee-policy-manual-2026"
+video_title = "MAC-TV (WCAC)"
+video_url = "https://www.wcac.org/government"
+
+# Terms that come up on agendas and minutes, explained on each meeting page
+# where they appear. Acronyms match exactly; other terms ignore case. An entry
+# with bodies is shown only on those boards' meetings. The Committee of the
+# Whole from the 2026 City Council Card; special permit from the council's
+# dockets; CPC from the city's Community Preservation page; the rest as
+# Malden's config gives them.
+[[glossary]]
+term = "executive session"
+definition = "A part of a public meeting closed to the public. State law allows it only for specific reasons, such as lawsuits, negotiations, or personnel matters."
+
+[[glossary]]
+term = "M.G.L."
+definition = "Massachusetts General Laws, the state's laws."
+
+[[glossary]]
+term = "Open Meeting Law"
+definition = "The state law (M.G.L. Chapter 30A, Sections 18 to 25) that requires public boards to meet in public, post notice of their meetings in advance, and keep minutes."
+
+[[glossary]]
+term = "Committee of the Whole"
+bodies = ["City Council", "City Council Committees"]
+definition = "The whole City Council meeting as a committee, chaired by the Council's Vice President, to discuss matters before they come back to a regular Council meeting."
+
+[[glossary]]
+term = "special permit"
+bodies = ["City Council", "City Council Ordinances and Rules Committee", "Zoning Board of Appeals", "Board of Survey and Planning"]
+definition = "Permission, under the city's Zoning Ordinance, for a use that is allowed in a district only if a city board approves it. In Waltham, many are granted by the City Council after a public hearing."
+
+[[glossary]]
+term = "CPC"
+definition = "Community Preservation Committee, which manages the city's Community Preservation Act fund."
+
+[[glossary]]
+term = "CPA"
+definition = "Community Preservation Act. A local property tax surcharge, with state matching money, that pays for open space, historic preservation, affordable housing, and recreation."
+
+[[glossary]]
+term = "CDBG"
+definition = "Community Development Block Grant: federal money, from the Department of Housing and Urban Development, for housing and neighborhood projects that serve low- and moderate-income residents."
+
+# School district figures from the state's education data portal (DESE).
+[schools]
+district_code = "03080000"
+district_name = "Waltham Public Schools"
+portal = "https://educationtocareer.data.mass.gov"
+
+# Tax bill and budget figures (Mass. Division of Local Services). Some DLS
+# reports take the name, others the DOR code.
+[finance]
+dls_municipality = "Waltham"
+dls_code = "308"
+
+# Housing: Census building permits (state and place FIPS codes), American
+# Community Survey through Census Reporter (geo ids), and the state's
+# Subsidized Housing Inventory PDF (the town's name as the PDF lists it).
+[housing]
+bps_region = "Northeast Region"
+bps_prefix = "ne"
+bps_state = "25"
+bps_place = "72600"
+census_geo = "16000US2572600"
+state_geo = "04000US25"
+shi_url = "https://www.mass.gov/doc/subsidized-housing-inventory-2/download"
+shi_name = "Waltham"
+
+# Unemployment rate (BLS Local Area Unemployment Statistics). City rates are
+# not seasonally adjusted; the state series is shown for context.
+[labor]
+local_series = "LAUCT257260000000003"
+state_series = "LAUST250000000000003"
+
+# How often each data source should update. Figures published monthly or yearly
+# are judged by the engine, by the period they cover (pipeline/rhythms.py).
+[freshness]
+summary_grace_days = 2
+sources = [
+  { label = "Meetings (Agenda Center)", file = "meetings/status.json", max_days = 2 },
+  { label = "School Committee meetings (school district website)", file = "meetings/page_status.json", max_days = 2 },
+]
+
+# The About page's "What this site doesn't cover": why there's no 311 section.
+[absences]
+311 = "The city takes service requests through its Report a Concern portal, on iWorQ, which publishes no data."
+
+# Who represents you (the Officials page). Kept by hand from official city
+# and school websites; checked is the date the list was last checked against
+# them. Only city- and school-issued email addresses, and the mayor's office
+# phone. The ward file is data/static/waltham-precincts-2022.geojson
+# (MassGIS): the council's nine ward seats are the city's nine wards, two
+# precincts each, as in the official results.
+[officials]
+checked = "2026-10-12"
+# The next regular municipal election. The council's page says elections are
+# held in the fall of odd-numbered years; the city's certified results show
+# them on the Tuesday after the first Monday of November (November 7, 2023,
+# November 4, 2025). The charter, on eCode360, couldn't be read: it answers
+# with a browser check.
+next_election = "2027-11-02"
+wards_file = "waltham-precincts-2022.geojson"
+wards_publisher = "MassGIS"
+wards_year = "2022"
+wards_url = "https://gis.data.mass.gov/maps/aec5130790814ace94438d3bcf23cf9a"
+
+# Elected on November 7, 2023 (certified results); the office wasn't on the
+# ballot of November 4, 2025. Email and phone from the Mayor's Office page (the
+# 2026 City Council Card gives 314-3101). No official page gives the term's
+# end, so term_ends is left out.
+[[officials.bodies]]
+name = "Mayor"
+url = "https://www.city.waltham.ma.us/1714/Mayors-Office"
+note = "Elected citywide. Chairs the School Committee."
+members = [
+  { name = "Jeannette A. McCarthy", seat = "Citywide", email = "mayor@city.waltham.ma.us", phone = "(781) 314-3100" },
+]
+
+# Elected on November 4, 2025 (certified results). Names, officers and email
+# addresses from the council's page, which also gives the terms: two years,
+# from the first Sunday in January of even-numbered years. The President is
+# elected by the council each year, and appoints the Vice President. All
+# fifteen were present at the council's meeting of May 26, 2026 (its minutes).
+[[officials.bodies]]
+name = "City Council"
+url = "https://www.city.waltham.ma.us/1341/City-Council"
+note = "Nine councillors elected by ward and six at-large, for two years."
+members = [
+  { name = "Anthony LaFauci", seat = "Ward 1", ward = 1, term_ends = "2028-01", email = "alafauci@city.waltham.ma.us" },
+  { name = "Caren Dunn", seat = "Ward 2", ward = 2, term_ends = "2028-01", email = "cdunn@city.waltham.ma.us" },
+  { name = "Bill Hanley", seat = "Ward 3", ward = 3, term_ends = "2028-01", email = "whanley@city.waltham.ma.us" },
+  { name = "John J. McLaughlin", seat = "Ward 4", ward = 4, term_ends = "2028-01", email = "jmclaughlin@city.waltham.ma.us" },
+  { name = "Joseph P. LaCava", seat = "Ward 5", ward = 5, term_ends = "2028-01", email = "jlacava@city.waltham.ma.us" },
+  { name = "Sean Durkee", seat = "Ward 6", ward = 6, term_ends = "2028-01", email = "sdurkee@city.waltham.ma.us" },
+  { name = "Paul S. Katz", seat = "Ward 7", ward = 7, term_ends = "2028-01", email = "pkatz@city.waltham.ma.us" },
+  { name = "Cathyann Harris", seat = "Ward 8", ward = 8, term_ends = "2028-01", email = "charris@city.waltham.ma.us" },
+  { name = "Robert G. Logan", seat = "Ward 9", ward = 9, role = "President", term_ends = "2028-01", email = "rlogan@city.waltham.ma.us" },
+  { name = "Colleen Bradley-MacArthur", seat = "At-large", term_ends = "2028-01", email = "cbmacarthur@city.waltham.ma.us" },
+  { name = "Paul J. Brasco", seat = "At-large", term_ends = "2028-01", email = "pbrasco@city.waltham.ma.us" },
+  { name = "Tim King", seat = "At-large", term_ends = "2028-01", email = "tking@city.waltham.ma.us" },
+  { name = "Randall J. LeBlanc", seat = "At-large", role = "Vice President", term_ends = "2028-01", email = "rleblanc@city.waltham.ma.us" },
+  { name = "Emma Tzioumis", seat = "At-large", term_ends = "2028-01", email = "etzioumis@city.waltham.ma.us" },
+  { name = "Carlos A. Vidal", seat = "At-large", term_ends = "2028-01", email = "cvidal@city.waltham.ma.us" },
+]
+
+# Names, roles and email addresses from the district's School Committee page;
+# its About page gives the seats and the four-year terms, but not when they
+# end, so term_ends is left out. Debra Coleman, Sabrina DeJoannis and Tammy
+# Wong-Bigelow were elected on November 4, 2025, Edmund Tarallo and James
+# Zanghi on November 7, 2023 (certified results); Elizabeth AlJammal was
+# elected to the seat Margaret Donnelly left, as a member until 2028, by the
+# joint convention of the City Council and School Committee on January 20,
+# 2026, 15 votes to 4 (the convention's minutes, in the city's Agenda Center). The Vice Chair chosen on January 7, 2026
+# (its minutes). All seven were present at its meeting of September 16, 2026.
+[[officials.bodies]]
+name = "School Committee"
+url = "https://www.walthampublicschools.org/school-committee-2"
+note = "Six members elected at large for four years, and the mayor as chair."
+members = [
+  { name = "Jeannette A. McCarthy", seat = "Mayor", role = "Chairperson" },
+  { name = "Debra Coleman", seat = "At-large", role = "Vice Chair", email = "debracoleman@walthampublicschools.org" },
+  { name = "Elizabeth AlJammal", seat = "At-large", email = "lizaljammal@walthampublicschools.org" },
+  { name = "Sabrina DeJoannis", seat = "At-large", email = "sabrinadejoannis@walthampublicschools.org" },
+  { name = "Edmund Tarallo", seat = "At-large", email = "edmundtarallo@walthampublicschools.org" },
+  { name = "Tammy Wong-Bigelow", seat = "At-large", email = "tammywongbigelow@walthampublicschools.org" },
+  { name = "James Zanghi", seat = "At-large", email = "jameszanghi@walthampublicschools.org" },
+]
