@@ -13,6 +13,9 @@ record has them, only the number of towns is shown. Each town's card says the
 same of the town: its meetings this week, from its run record, when it has
 any.
 
+The Open data section lists each town's export, /data/meetings.json, and its
+Data page, both built by the engine with the town's site.
+
 Everything else on the pages is home/index.html and home/state.html as
 written; the generated parts go between their <!-- towns:... --> markers.
 
@@ -127,6 +130,15 @@ def states_html(towns: list[dict], today: date) -> str:
     return "".join(parts)
 
 
+def data_html(towns: list[dict]) -> str:
+    """Each town's open data export (the engine's /data/meetings.json) and its Data page, by state."""
+    items = "".join(
+        f'\n          <li><span class="name">{escape(t["town"])}, {escape(t["state_abbr"].upper())}</span>: '
+        f'<a href="{escape(t["url"])}/data/meetings.json">meetings.json</a> · '
+        f'<a href="{escape(t["url"])}/data/">about the data</a></li>' for t in towns)
+    return f'\n        <ul class="data-list">{items}\n        </ul>'
+
+
 def fill(page: str, name: str, block: str, source: str) -> str:
     pattern = re.compile(rf"(<!-- towns:{name} -->).*?(<!-- /towns:{name} -->)", re.S)
     if not pattern.search(page):
@@ -138,7 +150,7 @@ def render(page: str, root: Path, today: date | None = None) -> str:
     today = today or datetime.now(timezone.utc).date()
     live = live_towns(root)
     block = glance_html(live, today) + states_html(live, today)
-    return fill(page, "live", block, "home/index.html")
+    return fill(fill(page, "live", block, "home/index.html"), "data", data_html(live), "home/index.html")
 
 
 def state_pages(template: str, root: Path, today: date | None = None) -> dict[str, str]:
