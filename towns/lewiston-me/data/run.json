@@ -1,46 +1,46 @@
 {
   "town": "lewiston",
   "folder": "lewiston-me",
-  "started_at": "2026-10-13T09:13:24+00:00",
-  "finished_at": "2026-10-13T09:16:36+00:00",
-  "engine": "v1.51.0",
+  "started_at": "2026-10-14T09:13:58+00:00",
+  "finished_at": "2026-10-14T09:17:55+00:00",
+  "engine": "v1.55.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 149.1
+      "seconds": 192.8
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 6.1
+      "seconds": 3.7
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 36.6
+      "seconds": 30.9
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 3.6
+      "seconds": 7.9
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.5
+      "seconds": 1.0
     }
   ],
   "update": {
     "town": "lewiston",
     "sources": "all",
-    "started_at": "2026-10-13T09:13:24+00:00",
+    "started_at": "2026-10-14T09:13:58+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 85.7,
+        "seconds": 85.9,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.1,
+        "seconds": 1.6,
         "cadence": "continuous"
       },
       {
@@ -64,7 +64,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 33.1,
+        "seconds": 103.0,
         "cadence": "continuous"
       },
       {
@@ -77,11 +77,20 @@
         "skipped": "no [finalsite_meetings] in the config"
       },
       {
+        "name": "Fetch school board documents",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [page_meetings] in the config"
+      },
+      {
         "name": "Summarize agendas",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.7,
+        "seconds": 1.6,
         "cadence": "continuous"
       },
       {
@@ -89,16 +98,18 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.5,
-        "cadence": "yearly"
+        "seconds": 0,
+        "cadence": "yearly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch unemployment",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.6,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -107,23 +118,25 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 7 days ago; checked every 30 days"
+        "skipped": "checked 8 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
-        "cadence": "yearly"
+        "seconds": 0,
+        "cadence": "yearly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 24.4,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -175,7 +188,7 @@
     {
       "label": "Meetings (city calendar)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-13T05:13:24-04:00",
+      "updated_at": "2026-10-14T05:13:58-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -263,8 +276,8 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-14T08:58:26+00:00",
-  "data_bytes": 704830,
+  "last_good_at": "2026-10-14T09:17:55+00:00",
+  "data_bytes": 704868,
   "data_bytes_added": 0,
   "activity": {
     "boards": 9,
@@ -284,7 +297,5 @@
     "held_back": 3,
     "entries_not_shown": 6,
     "vote_counts_left_out": 1
-  },
-  "published_at": "2026-10-14T08:58:26+00:00",
-  "published_engine": "v1.55.0"
+  }
 }
