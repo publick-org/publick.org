@@ -1,46 +1,46 @@
 {
   "town": "bangor",
   "folder": "bangor-me",
-  "started_at": "2026-10-13T09:10:12+00:00",
-  "finished_at": "2026-10-13T09:13:22+00:00",
-  "engine": "v1.51.0",
+  "started_at": "2026-10-14T09:10:57+00:00",
+  "finished_at": "2026-10-14T09:13:56+00:00",
+  "engine": "v1.55.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 116.7
+      "seconds": 104.8
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 9.0
+      "seconds": 7.5
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 47.4
+      "seconds": 45.5
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 18.9
+      "seconds": 19.7
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.9
+      "seconds": 0.8
     }
   ],
   "update": {
     "town": "bangor",
     "sources": "all",
-    "started_at": "2026-10-13T09:10:12+00:00",
+    "started_at": "2026-10-14T09:10:57+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 15.9,
+        "seconds": 15.8,
         "cadence": "continuous"
       },
       {
@@ -78,11 +78,20 @@
         "skipped": "no [finalsite_meetings] in the config"
       },
       {
+        "name": "Fetch school board documents",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [page_meetings] in the config"
+      },
+      {
         "name": "Summarize agendas",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 2.0,
+        "seconds": 6.1,
         "cadence": "continuous"
       },
       {
@@ -98,8 +107,9 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.6,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -108,23 +118,25 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 7 days ago; checked every 30 days"
+        "skipped": "checked 8 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
-        "cadence": "yearly"
+        "seconds": 0,
+        "cadence": "yearly",
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 24.7,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -156,7 +168,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 56.0,
+        "seconds": 65.5,
         "cadence": "continuous"
       },
       {
@@ -164,7 +176,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 0.9,
+        "seconds": 1.0,
         "cadence": "continuous"
       }
     ]
@@ -174,21 +186,21 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-13T05:10:13-04:00",
+      "updated_at": "2026-10-14T05:10:58-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-10-13T05:11:12-04:00",
+      "updated_at": "2026-10-14T05:11:36-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-10-13T05:12:08-04:00",
+      "updated_at": "2026-10-14T05:12:41-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -264,19 +276,19 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-14T08:58:57+00:00",
-  "data_bytes": 1708138,
-  "data_bytes_added": 3318,
+  "last_good_at": "2026-10-14T09:13:56+00:00",
+  "data_bytes": 1709752,
+  "data_bytes_added": 420784,
   "activity": {
-    "boards": 27,
+    "boards": 28,
     "meetings_by_date": {
-      "2026-10-13": 1,
       "2026-10-14": 2,
       "2026-10-15": 1,
       "2026-10-19": 3,
-      "2026-10-20": 2,
+      "2026-10-20": 3,
       "2026-10-21": 1,
-      "2026-10-26": 2
+      "2026-10-26": 2,
+      "2026-10-27": 2
     }
   },
   "fact_checks": {
@@ -289,7 +301,5 @@
     "held_back": 6,
     "entries_not_shown": 18,
     "vote_counts_left_out": 14
-  },
-  "published_at": "2026-10-14T08:58:57+00:00",
-  "published_engine": "v1.55.0"
+  }
 }
