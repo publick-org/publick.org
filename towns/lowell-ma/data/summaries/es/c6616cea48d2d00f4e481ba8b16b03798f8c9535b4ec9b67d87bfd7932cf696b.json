@@ -15,7 +15,7 @@
     "Se remitió al City Manager la solicitud de instalar una señal de pare en todas las direcciones con luz intermitente al pie de Mt. Pleasant y 1st Street Blvd.",
     "Se remitió al City Manager la solicitud de instalar un letrero LED intermitente de velocidad en Varnum Ave.",
     "Se remitió al City Manager la solicitud de un informe detallado sobre la capacidad de alcantarillado de la ciudad.",
-    "Se remitió al City Manager la solicitud de un informe sobre los pros y los contras de una ordenanza que cierre todos los bares y restaurantes a la medianoche, adoptada con votación nominal de 10-0.",
+    "Se remitió al City Manager la solicitud de un informe sobre los pros y los contras de una ordenanza que cierre todos los bares y restaurantes a la medianoche. La votación para remitirla se adoptó con votación nominal de 10-0.",
     "Se remitió al City Manager la solicitud de trabajar con el National Park Service para que el Ladd and Whitney Monument sea reconocido como Monumento Histórico Nacional.",
     "Se remitió al City Manager la solicitud de trabajar con el Lowell Historic Board para restaurar y agrandar el retrato del alcalde Charles D. Palmer.",
     "Se adoptó la votación para aceptar el obsequio de una placa conmemorativa del bicentenario, con votación nominal de 10-0.",
@@ -39,15 +39,16 @@
   "source_sha256": "c6616cea48d2d00f4e481ba8b16b03798f8c9535b4ec9b67d87bfd7932cf696b",
   "source_hash": "f9da351b7a65a5bb78ac9ff476d2460a64eb6bd218ac715dae46fd04025b1b05",
   "check": "ok",
-  "review": "decisions 14: The English says the request for a report was referred to the City Manager, and that the vote on this referral was adopted 10-0. The Spanish says the ordinance itself was adopted: 'una ordenanza que cierre... adoptada con votación nominal'. Because of where 'adoptada' sits, it modifies the ordinance (feminine) and not the referral, so a reader would think the city adopted a closing ordinance.",
-  "attempts": 1,
+  "review": "summary: \"Wire Inspector\" and \"City Manager\" are left in English inside the Spanish sentence. These are role titles, not names of people, places or programs, so they should be translated (inspector de cableado, administrador de la ciudad).",
+  "attempts": 2,
   "model": "claude-sonnet-5-5",
   "prompt_version": 4,
-  "generated_at": "2026-10-13T08:18:22-04:00",
+  "generated_at": "2026-10-14T06:09:27-04:00",
   "usage": {
-    "input_tokens": 1746,
-    "output_tokens": 2112,
+    "input_tokens": 4143,
+    "output_tokens": 2121,
     "cache_read_input_tokens": 1129
   },
-  "cost": 0.036979
+  "cost": 0.041341,
+  "replaced_cost": 0.036979
 }
