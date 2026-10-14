@@ -219,9 +219,8 @@ prefix = "malden-ma"
 # a language model and labeled as AI-generated on the site. Cached by document
 # hash. Each run does the most useful first (upcoming agendas, then the newest
 # minutes) and stops at max_per_run documents or max_cost_per_run dollars. Only
-# meetings from `since` on are summarized (decided 2026-10-08, to keep the
-# monthly budget for new towns): earlier meetings keep the summaries they have,
-# and the rest link their documents.
+# meetings from `since` on are summarized: earlier meetings keep the summaries
+# they have, and the rest link their documents.
 [summaries]
 model = "claude-sonnet-5"
 since = "2026-07-01"

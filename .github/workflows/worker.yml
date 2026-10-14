@@ -6,7 +6,7 @@
 # only the scheduler: when engine-version moves to an engine whose scheduler
 # changed, or wrangler.scheduler.toml changes (a new Cron Trigger). The sites
 # Worker serves every site, so a mistake in it takes them all down at once: it
-# is deployed only by hand (decided 2026-10-10). When engine-version moves to
+# is deployed only by hand. When engine-version moves to
 # an engine whose sites Worker changed, the push opens an issue, "Deploy the
 # sites Worker", saying so; deploy it then (Run workflow), and look at a town's
 # site after. The scheduler's hourly check opens "site down" if a site stops
