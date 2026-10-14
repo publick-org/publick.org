@@ -6,6 +6,41 @@ Lawrence, Burlington, and the towns in publick.org #58; each step names where
 the answer comes from, so a town the engine already reads takes an afternoon,
 not weeks.
 
+## Start with the helper
+
+From this repository, with the engine checked out next to it:
+
+```
+PYTHONPATH=../publick-engine python -m pipeline.new_town <Town> <state> <city website URL>
+```
+
+It does steps 1 to 6 as far as public sources answer them, and marks the
+rest for a person (the engine's `pipeline/new_town.py`):
+
+- **Step 1:** whether the city's site is CivicPlus (Agenda Center, Archive
+  Center, and its calendars, by name) or has a CivicClerk portal; two or
+  three minutes files, and whether they're scans; SeeClickFix's places named
+  for the town. It stops at a browser check, and at a meeting platform the
+  engine doesn't read, and says so.
+- **Steps 2 and 3:** the BLS series and the Census place in any state; in
+  Massachusetts also the DLS name and DOR code, the DESE district, and the
+  MassGIS ward file. Other states' own codes and wards are marked.
+- **Step 4:** a skeleton only. A person fills in the officials from official
+  pages.
+- **Step 5:** the config, from the closest live town (the same meeting
+  platform and state), with the colors from the city's stylesheet. No
+  `[digest]`: that's step 8.
+- **Step 6:** in a copy, so `data/` stays empty: a build with no data, four
+  weeks of meetings fetched (`--full` for everything from `since`), a second
+  build, the site checks, and `pipeline.listings`. Then the share image.
+
+It writes `towns/<town>-<state>/` (the config, `data/static/` with the ward
+file, the share image) and `new-town-<town>-<state>.md`, a report of what it
+found, where each answer came from, and what's left. Everything left is a
+`# To fill in:` comment in the config: work through them with the steps
+below, deleting each as it's done. The town's site checks fail while any is
+left. Then publish (step 7).
+
 ## 1. What the city uses
 
 - [ ] **Meetings.** Open the city's website. A CivicPlus site (a "Powered by
@@ -115,11 +150,6 @@ shows no ward map; a town with neither (Bangor) has no 311 section yet.
       tables above, and `[freshness]` (drop 311 if the town has none).
 - [ ] **Colors** (`[site.colors]`): the most-used colors in the city
       website's stylesheet; each must reach 4.5:1 on white.
-- [ ] **Weekly digest by email**: copy `[digest]` from any town's config
-      (`signup`, `provider`, `privacy_url`), and add `<town>-<state>.publick.org`
-      to `DIGEST_TOWNS` in `wrangler.scheduler.toml`. Once the town is
-      published, run **Actions → Worker**: it also makes the town's
-      Buttondown tag, `<town>-<state>-en`.
 - [ ] **City calendar** (`[meetings.civicplus]`, for a CivicPlus city): the
       calendar read month by month, with `calendars` naming the city's
       calendar of public meetings ("City Meetings"), even when the Agenda
@@ -181,8 +211,17 @@ shows no ward map; a town with neither (Bangor) has no 311 section yet.
       launch, so the town's history doesn't take the month's budget (older
       meetings keep their records and documents). The month's budget and the town's own limit per
       run still apply.
-- [ ] Add a `<town>-<state>@publick.org` rule in Cloudflare (**Email
-      Routing → Routing rules → Create address**, **Send to an email**), so
-      mail to the site's `contact_email` is forwarded.
+- [ ] Nothing for email: a catch-all rule in Cloudflare's Email Routing
+      forwards every `@publick.org` address, the site's `contact_email`
+      among them.
 - [ ] Add the town to the README's "Keeping officials current" election
       dates if they differ.
+
+## 8. A week after launch
+
+- [ ] **Weekly digest by email**, once the town has a full week of
+      meetings to send: copy `[digest]` from any town's config (`signup`,
+      `provider`, `privacy_url`), and add `<town>-<state>.publick.org` to
+      `DIGEST_TOWNS` in `wrangler.scheduler.toml`. Once that's merged, run
+      **Actions → Worker**: it also makes the town's Buttondown tag,
+      `<town>-<state>-en`.

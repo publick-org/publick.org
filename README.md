@@ -109,9 +109,9 @@ Worker, which picks the site by hostname: `gloucester-ma.publick.org` is
   town's readers alone. The signup form on a town's `/digest/` page (its
   config's `[digest] signup`) posts to the sites Worker, which passes the
   address on to Buttondown, within the `SIGNUP_LIMITER` rate limit
-  (`wrangler.toml`). A new town joins once it has a few weeks of meetings: its `[digest]`
-  table, its place in `DIGEST_TOWNS`, then **Actions → Worker**, which makes
-  its Buttondown tag. A run makes two requests for each town and two more. See the engine README's Weekly
+  (`wrangler.toml`). A new town joins a full week after its launch, not at
+  launch (ADDING-A-TOWN.md, step 8): its `[digest]` table, its place in
+  `DIGEST_TOWNS`, then **Actions → Worker**, which makes its Buttondown tag. A run makes two requests for each town and two more. See the engine README's Weekly
   digest.
 - **By hand** (**Actions → Network → Run workflow**): tick **daily** for a daily
   run, as the scheduler starts; or any towns, with or without fetching; with no
@@ -157,7 +157,10 @@ costs or how much data it keeps.
 ## Adding a town
 
 The step-by-step checklist, from finding what the city uses to the first
-published site, is [ADDING-A-TOWN.md](ADDING-A-TOWN.md). In short:
+published site, is [ADDING-A-TOWN.md](ADDING-A-TOWN.md). It starts with the
+engine's helper, `python -m pipeline.new_town <Town> <state> <city website
+URL>`, which writes the town's folder with everything left for a person
+marked `# To fill in:`. In short:
 
 Add `towns/<town>-<state>/` with its `config/<town>.toml` (start from the
 engine's `tests/fixtures/town/config/gloucester.toml` and its README), an
@@ -167,9 +170,9 @@ empty `data/`, and optionally `site/static/share/<town>.png`. Set
 Add an `[analytics]` table with `goatcounter = "publick"` and `prefix` set to
 the town's folder, so its page views count on the network's GoatCounter site,
 and a `[storage]` table for the `publick-documents` bucket with `prefix` set to
-the town's folder too (it defaults to the config file's name). Add a
-`<town>-<state>@publick.org` rule in Cloudflare Email Routing for its
-`contact_email`.
+the town's folder too (it defaults to the config file's name). Its
+`contact_email`, `<town>-<state>@publick.org`, needs no rule of its own: the
+catch-all rule in Cloudflare Email Routing (Setup, step 7) forwards it.
 Merge, then run the workflow for the town by hand to fetch its data (set
 `catch_up` to a few dollars to summarize its first months' documents in that
 run, within the month's budget). No DNS
@@ -292,6 +295,9 @@ In the Cloudflare account that holds `publick.org`:
 6. **Workers Paid plan** (**Workers & Pages → Plans**). Every request to every
    site, each page and its CSS, scripts, and images, runs the sites Worker, and
    the digest's send makes two requests a town each run.
+7. **Email Routing → Routing rules → Catch-all address**, *Send to an email*:
+   every `@publick.org` address, each town's `contact_email` among them, is
+   forwarded.
 
 In this repository's **Settings → Secrets and variables → Actions**:
 
