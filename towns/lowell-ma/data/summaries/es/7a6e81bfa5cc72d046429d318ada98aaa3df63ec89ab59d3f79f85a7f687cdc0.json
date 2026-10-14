@@ -4,22 +4,23 @@
   "decisions": [
     "Se aprobaron las actas de la reunión de la Junta de Salud del 3 de junio de 2026.",
     "Se recomendó usar fondos del acuerdo por los opioides para la propuesta de PrideStar EMS de administrar buprenorfina antes de llegar al hospital, con el voto a favor de todos los miembros presentes.",
-    "Se aprobó la solicitud de variante del Título V para 31 Pemberton Street y se autorizó al director de Servicios de Salud y Humanos a firmar los documentos relacionados, con el voto a favor de todos los miembros presentes."
+    "Se aprobó la solicitud de variante del Título V para 31 Pemberton Street y se autorizó a quien ocupa la dirección de Salud y Servicios Humanos a firmar los documentos relacionados, con el voto a favor de todos los miembros presentes."
   ],
   "language": "es",
   "kind": "minutes",
   "source_sha256": "7a6e81bfa5cc72d046429d318ada98aaa3df63ec89ab59d3f79f85a7f687cdc0",
   "source_hash": "c3943fafc7865b9ecfda7ea2b898d5d7715acb22e0ee87b60cf24e54749ed4b8",
   "check": "ok",
-  "review": "decisions 3: Se cambió el nombre del cargo: \"Director of Health & Human Services\" aparece como \"director de Servicios de Salud y Humanos\", y debería ser \"Servicios de Salud y Humanos\" (Health & Human Services) como departamento, o \"Director de Salud y Servicios Humanos\". Además, se asigna género masculino (\"director\") sin que el inglés lo indique.",
-  "attempts": 1,
+  "review": "headline: The headline says the board approved the use of the funds ('Aprueban el uso de fondos'), but the English says the board recommended them (see the summary and decisions 2). A recommendation is reported as a decision.",
+  "attempts": 2,
   "model": "claude-sonnet-5-5",
   "prompt_version": 4,
-  "generated_at": "2026-10-14T06:09:27-04:00",
+  "generated_at": "2026-10-14T06:15:21-04:00",
   "usage": {
-    "input_tokens": 441,
-    "output_tokens": 510,
+    "input_tokens": 1146,
+    "output_tokens": 518,
     "cache_read_input_tokens": 1129
   },
-  "cost": 0.010189
+  "cost": 0.010955,
+  "replaced_cost": 0.010189
 }
