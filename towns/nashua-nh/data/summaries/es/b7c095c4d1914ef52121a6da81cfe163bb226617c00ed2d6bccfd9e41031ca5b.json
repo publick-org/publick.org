@@ -4,22 +4,23 @@
   "decisions": [
     "Se aprobaron las actas de agosto.",
     "Se aprobó el cambio de David a la redacción de la actualización de la tasa de interés.",
-    "Se aprobó permitir que el personal de la Ciudad busque un acuerdo de cobro con Rhum Bar, con un acuerdo mínimo equivalente a su deuda del capital y con el personal autorizado para negociar los intereses y los cargos."
+    "Se aprobó permitir que el personal de la Ciudad busque un acuerdo de cobro con Rhum Bar, con un acuerdo mínimo equivalente a su deuda principal y con el personal autorizado para negociar los intereses y los cargos."
   ],
   "language": "es",
   "kind": "minutes",
   "source_sha256": "b7c095c4d1914ef52121a6da81cfe163bb226617c00ed2d6bccfd9e41031ca5b",
   "source_hash": "de4cdb5ef4fbb01b5c6dd65db8a4ec1112e8eabaacf8397a99aec4e1e776c234",
   "check": "ok",
-  "review": "decisions 3: \"deuda del capital\" is a mistranslation of \"principal debt\". It reads as debt of the capital (city), when it means the principal amount owed. It should be \"deuda principal\" or \"capital adeudado\".",
-  "attempts": 1,
+  "review": "ok",
+  "attempts": 2,
   "model": "claude-sonnet-5-5",
   "prompt_version": 4,
-  "generated_at": "2026-10-13T09:27:48-04:00",
+  "generated_at": "2026-10-14T06:04:51-04:00",
   "usage": {
-    "input_tokens": 299,
-    "output_tokens": 318,
+    "input_tokens": 751,
+    "output_tokens": 317,
     "cache_read_input_tokens": 1129
   },
-  "cost": 0.006679
+  "cost": 0.006621,
+  "replaced_cost": 0.006679
 }

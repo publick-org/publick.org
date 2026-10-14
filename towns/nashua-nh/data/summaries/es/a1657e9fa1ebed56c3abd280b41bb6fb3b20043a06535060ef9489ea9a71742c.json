@@ -3,8 +3,8 @@
   "summary": "La Junta de Fiduciarios aprobó las actas del 31 de julio de 2026, tres asuntos de beneficios de jubilación y por fallecimiento, y habló de la revisión que sigue haciendo el abogado sobre la redacción de la ordenanza y de las actualizaciones del IRS. Los fiduciarios también hablaron de las prácticas para tachar información en documentos públicos. La próxima reunión se programó para el 25 de septiembre de 2026.",
   "decisions": [
     "Se aprobaron las actas de la reunión del 31 de julio de 2026.",
-    "Se aprobó el beneficio de jubilación de Brian S. Ricard, con un beneficio para el anualista contingente de $3,128.12 al mes.",
-    "Se aprobó el beneficio de jubilación de Michael E. Whalen, con un beneficio para el anualista contingente de $3,586.36 al mes.",
+    "Se aprobó el beneficio de jubilación de Brian S. Ricard, con un beneficio para el beneficiario contingente de $3,128.12 al mes.",
+    "Se aprobó el beneficio de jubilación de Michael E. Whalen, con un beneficio para el beneficiario contingente de $3,586.36 al mes.",
     "Se aprobó una distribución del beneficio por fallecimiento en un solo pago de $145,046.32, que incluye el beneficio por fallecimiento estándar de $3,000, a Patricia Grimes Patrician como beneficiaria de Andrew M. Patrician."
   ],
   "language": "es",
@@ -12,15 +12,16 @@
   "source_sha256": "a1657e9fa1ebed56c3abd280b41bb6fb3b20043a06535060ef9489ea9a71742c",
   "source_hash": "4450557c377091465335d4f7c8a403b7747a1dfd611f63521c4760ba9c48d0fe",
   "check": "ok",
-  "review": "decisions 2: \"Contingent Annuitant\" is rendered \"anualista contingente\", which is not a recognized Spanish term and would confuse readers. The usual meaning is the person who receives the benefit after the retiree dies (beneficiario contingente / beneficiario sobreviviente). This is a mistranslation.; decisions 3: \"Contingent Annuitant\" is rendered \"anualista contingente\", which is not a recognized Spanish term and would confuse readers. The usual meaning is the person who receives the benefit after the retiree dies (beneficiario contingente / beneficiario sobreviviente). This is a mistranslation.",
-  "attempts": 1,
+  "review": "decisions 4: The English says Patricia Grimes Patrician is 'beneficiary' with no gender given. The Spanish 'beneficiaria' states she is female, which the English does not say.",
+  "attempts": 2,
   "model": "claude-sonnet-5-5",
   "prompt_version": 4,
-  "generated_at": "2026-10-13T09:27:48-04:00",
+  "generated_at": "2026-10-14T06:04:51-04:00",
   "usage": {
-    "input_tokens": 444,
-    "output_tokens": 490,
+    "input_tokens": 1207,
+    "output_tokens": 494,
     "cache_read_input_tokens": 1129
   },
-  "cost": 0.010881
+  "cost": 0.010775,
+  "replaced_cost": 0.010881
 }

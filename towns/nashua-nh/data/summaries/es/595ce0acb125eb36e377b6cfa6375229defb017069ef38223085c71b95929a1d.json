@@ -2,23 +2,24 @@
   "headline": "Se aprobaron $1,400 para la limpieza interior de Gatehouse y $24,713 para el diseño y los permisos del Seventh Street Bridge",
   "summary": "El Mine Falls Park Trail Committee aprobó gastar hasta $1,400 para limpiar el interior de Gatehouse y aprobó una propuesta de $24,713 de Hoyle Tanner para el trabajo de diseño y permisos del Seventh Street Bridge. El comité también habló sobre el informe del ingeniero estructural de Gatehouse, los problemas con animales silvestres en Gatehouse, el nuevo puente propuesto, las prioridades del Whipple Street Bridge, los proyectos del Trail Day y otros asuntos pendientes, como las bicicletas motorizadas, los letreros sobre el exceso de velocidad de las bicicletas y los campamentos.",
   "decisions": [
-    "Se aprobó un presupuesto que no pasa de $1,400 para limpiar el interior de Gatehouse, incluidas las ventanas interiores.",
+    "Se aprobó un presupuesto con un máximo de $1,400 para limpiar el interior de Gatehouse, incluidas las ventanas interiores.",
     "Se aprobó la propuesta de Hoyle Tanner de aproximadamente $24,713 para el diseño y los permisos del Seventh Street Bridge."
   ],
   "language": "es",
   "kind": "minutes",
   "source_sha256": "595ce0acb125eb36e377b6cfa6375229defb017069ef38223085c71b95929a1d",
   "source_hash": "0f089e72a8dde242b852ad2e5dc53149479ed162f4057c3c0773b3a541367f0b",
-  "check": "decisions 1: the translation says no where the English doesn't",
-  "review": "not reviewed: the check failed",
-  "attempts": 1,
+  "check": "ok",
+  "review": "summary: \"Mine Falls Park Trail Committee\" is the name of a board and was left in English, so Spanish readers get no translation of it. Also, \"Trail Day\" is left in English. These are untranslated English words in a Spanish sentence. Neither is a person, place, business or program name that can stay as is.",
+  "attempts": 2,
   "model": "claude-sonnet-5-5",
   "prompt_version": 4,
-  "generated_at": "2026-10-13T09:27:48-04:00",
+  "generated_at": "2026-10-14T06:04:51-04:00",
   "usage": {
-    "input_tokens": 389,
-    "output_tokens": 423,
+    "input_tokens": 890,
+    "output_tokens": 612,
     "cache_read_input_tokens": 1129
   },
-  "cost": 0.005234
+  "cost": 0.011369,
+  "replaced_cost": 0.005234
 }
