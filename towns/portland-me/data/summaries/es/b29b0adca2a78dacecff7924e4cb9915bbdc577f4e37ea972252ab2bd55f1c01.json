@@ -1,29 +1,30 @@
 {
-  "headline": "El Concejo aceptó $500,000 y $1,000,000 en fondos de la EPA para terrenos industriales contaminados, adoptó las prioridades de CDBG para 2027-2031 y remitió una ordenanza sobre medianas viales a un comité, 7-1.",
-  "summary": "El Concejo aprobó varias órdenes de licencias de bebidas alcohólicas y de entretenimiento, aceptó subvenciones de la EPA para terrenos industriales contaminados y adoptó las prioridades de la Subvención en Bloque para el Desarrollo Comunitario para 2027-2031. Remitió una ordenanza sobre medianas viales al Sustainability and Transportation Committee y pospuso para el 5 de octubre de 2026 una orden de licencia para un restaurante. Otros asuntos, entre ellos una resolución sobre las reglas del Concejo y dos órdenes de fondos, solo tuvieron primera lectura.",
+  "headline": "El Concejo aceptó $500,000 y $1,000,000 en fondos de la EPA para terrenos industriales contaminados, adoptó las prioridades de CDBG para 2027-2031 y envió una ordenanza sobre medianas al comité por 7-1.",
+  "summary": "El Concejo aprobó varias órdenes de licencias de bebidas alcohólicas y de entretenimiento, aceptó subvenciones de la EPA para terrenos industriales contaminados y adoptó las prioridades de la Subvención en Bloque para el Desarrollo Comunitario para 2027-2031. Envió una ordenanza sobre medianas al Sustainability and Transportation Committee y pospuso para el 5 de octubre de 2026 una orden de licencia de un restaurante. Varios otros asuntos, entre ellos una resolución sobre las reglas del Concejo y dos órdenes de fondos, tuvieron solo la primera lectura.",
   "decisions": [
-    "Aprobó las actas de la reunión especial del Concejo de la Ciudad del 9 de septiembre de 2026, 8-0.",
+    "Aprobó las actas de la reunión especial del Concejo Municipal del 9 de septiembre de 2026, 8-0.",
     "Aprobó la Orden 40-26/27, que declara el 4 de octubre de 2026 como el 35.º Maine Marathon, Half Marathon & Relay Festival anual, junto con las Órdenes 41 y 42, como asuntos de consenso, 8-0.",
-    "Pospuso para la reunión del 5 de octubre de 2026 la Orden 43-26/27, que otorga aprobación a Chez Mere Jos African Restaurant LLC, con el nombre comercial Chez Biso, en 11 Brown Street.",
+    "Pospuso para la reunión del 5 de octubre de 2026 la Orden 43-26/27, que otorga aprobación a Chez Mere Jos African Restaurant LLC, que opera como Chez Biso, en 11 Brown Street.",
     "Aprobó la Orden 38-26/27, que acepta y asigna $500,000 de la EPA para la evaluación de terrenos industriales contaminados, 8-0.",
     "Aprobó la Orden 39-26/27, que acepta y asigna $1,000,000 para la limpieza de terrenos industriales contaminados, 8-0.",
-    "Adoptó la Orden 44-26/27, con las recomendaciones del grupo de trabajo para establecer las prioridades de CDBG de 2026 y las prioridades del Plan Consolidado de 5 años de Vivienda y Desarrollo Urbano para 2027-2031, 8-0.",
-    "Remitió la Orden 45-26/27, una ordenanza sobre medianas viales, al Sustainability and Transportation Committee, 7-1, con el voto en contra del concejal Pelletier."
+    "Adoptó la Orden 44-26/27, las recomendaciones del grupo de trabajo para establecer las prioridades de CDBG de 2026 y las prioridades del Plan Consolidado de 5 años de Vivienda y Desarrollo Urbano para 2027-2031, 8-0.",
+    "Envió la Orden 45-26/27, una ordenanza sobre medianas, al Sustainability and Transportation Committee, 7-1, con el voto en contra del concejal Pelletier."
   ],
   "language": "es",
   "kind": "minutes",
   "source_sha256": "b29b0adca2a78dacecff7924e4cb9915bbdc577f4e37ea972252ab2bd55f1c01",
   "source_hash": "e78e2a50443d2c2a94e0fd9b055d17f003640d24fdf13df57a9b2603daf703a4",
-  "check": "decisions 4: Brownfields not in the translation",
-  "review": "not reviewed: the check failed",
-  "attempts": 1,
+  "check": "ok",
+  "review": "summary: The name of the committee, \"Sustainability and Transportation Committee\", is left in English in the Spanish sentence. It should be translated (for example, \"Comité de Sostenibilidad y Transporte\").; decisions 7: The name of the committee, \"Sustainability and Transportation Committee\", is left in English in the Spanish sentence. It should be translated (for example, \"Comité de Sostenibilidad y Transporte\"). Also, \"concejal Pelletier\" states a gender the English does not give.",
+  "attempts": 2,
   "model": "claude-sonnet-5-5",
   "prompt_version": 4,
-  "generated_at": "2026-10-13T10:01:33-04:00",
+  "generated_at": "2026-10-14T05:24:49-04:00",
   "usage": {
     "input_tokens": 714,
-    "output_tokens": 855,
+    "output_tokens": 840,
     "cache_read_input_tokens": 1129
   },
-  "cost": 0.010204
+  "cost": 0.015895,
+  "replaced_cost": 0.010204
 }

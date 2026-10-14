@@ -1,8 +1,8 @@
 {
   "headline": "La junta rechazó la apelación de la tasación del impuesto a la propiedad de 522 Island Ave., Parcel ID 090 AA004001, presentada por Theodore W. Haykal.",
-  "summary": "Board of Assessment Review escuchó la apelación de Theodore W. Haykal sobre la tasación de 522 Island Ave., Parcel ID 090 AA004001. Después de las presentaciones del apelante y del tasador, la junta determinó que tenía jurisdicción, rechazó la apelación y autorizó al abogado de la junta a preparar una decisión por escrito.",
+  "summary": "La Junta de Revisión de Tasaciones escuchó la apelación de Theodore W. Haykal sobre la tasación de 522 Island Ave., Parcel ID 090 AA004001. Después de las presentaciones del apelante y del tasador, la junta determinó que tenía jurisdicción, rechazó la apelación y autorizó al abogado de la junta a preparar una decisión por escrito.",
   "decisions": [
-    "Aprobó las actas de la reunión del 14 de septiembre de 2026 de Board of Assessment Review en una votación nominal de 3-0.",
+    "Aprobó las actas de la reunión del 14 de septiembre de 2026 de la Junta de Revisión de Tasaciones en una votación nominal de 3-0.",
     "Determinó que la junta tiene jurisdicción para atender la apelación de 522 Island Ave., en una votación nominal de 3-0.",
     "Rechazó la apelación de la tasación de 522 Island Ave., al determinar que el solicitante no cumplió con su obligación de demostrar que la tasación estaba considerablemente sobrevalorada, en una votación nominal de 3-0.",
     "Autorizó al abogado de la junta a preparar una decisión por escrito para ser revisada y firmada en un plazo de 10 días, en una votación nominal de 3-0."
@@ -12,15 +12,16 @@
   "source_sha256": "8222efc9d1d5163304a395665d2d869e0f030a1eaad837c0a08d269c86468d00",
   "source_hash": "2a7734a500b2b5d8a5c0d5514eb6f8e3b7985bd2e188322e0dd66715e534c4f8",
   "check": "ok",
-  "review": "summary: The name of the board, \"Board of Assessment Review\", is left in English as the subject of the sentence with no Spanish rendering (e.g., \"La Junta de Revisión de Tasaciones\"). An English board name was left inside a Spanish sentence, and a resident can't tell it is a board.; decisions 1: The board name \"Board of Assessment Review\" is left in English inside the Spanish sentence instead of being translated (e.g., \"Junta de Revisión de Tasaciones\").",
-  "attempts": 1,
+  "review": "decisions 3: \"el solicitante\" da el género masculino del apelante, que el inglés no indica (\"the applicant\", \"their burden\"). Además, en el resumen se usa \"apelante\" y aquí \"solicitante\", lo que cambia el término.; summary: \"el apelante\" y \"el tasador\" indican un género que el inglés no da (\"the appellant\", \"the Assessor\").",
+  "attempts": 2,
   "model": "claude-sonnet-5-5",
   "prompt_version": 4,
-  "generated_at": "2026-10-13T10:01:33-04:00",
+  "generated_at": "2026-10-14T05:24:49-04:00",
   "usage": {
-    "input_tokens": 466,
-    "output_tokens": 458,
+    "input_tokens": 1149,
+    "output_tokens": 472,
     "cache_read_input_tokens": 1129
   },
-  "cost": 0.010103
+  "cost": 0.011367,
+  "replaced_cost": 0.010103
 }
