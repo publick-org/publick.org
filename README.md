@@ -2,8 +2,7 @@
 
 The Publick network: the publick.org homepage and every town's site, run
 from this one repository with the [Publick engine](https://github.com/publick-org/publick-engine)
-at the version in `engine-version`. What's planned is in the engine's
-
+at the version in `engine-version`.
 
 ```
 LICENSE                       What may be reused and how: CC BY 4.0 for what Publick makes, the credit line,
@@ -65,7 +64,8 @@ Worker, which picks the site by hostname: `gloucester-ma.publick.org` is
     each town's pages (every hand-written page, and the first and largest of
     each kind of record page); pull requests and rebuilds by hand without
     fetching check every page.
-  - AI summaries and translations share one budget, `SUMMARY_BUDGET`: each run gives each of its towns a share of what's left, new
+  - AI summaries and translations share one budget, `SUMMARY_BUDGET` (dollars a
+    month; a month can have its own in `SUMMARY_BUDGET_MONTH`): each run gives each of its towns a share of what's left, new
     documents first.
   - A run that fetches sends each town's summaries as one batch, at half the
     price, and publishes the town without them. Once the
@@ -109,11 +109,9 @@ Worker, which picks the site by hostname: `gloucester-ma.publick.org` is
   town's readers alone. The signup form on a town's `/digest/` page (its
   config's `[digest] signup`) posts to the sites Worker, which passes the
   address on to Buttondown, within the `SIGNUP_LIMITER` rate limit
-  (`wrangler.toml`). Every town but Lowell has both since 2026-10-12 (#72),
-  and Methuen, Waltham, Portland, and Nashua (live 2026-10-13) don't yet;
-  a new town joins once it has a few weeks of meetings: its `[digest]`
+  (`wrangler.toml`). A new town joins once it has a few weeks of meetings: its `[digest]`
   table, its place in `DIGEST_TOWNS`, then **Actions → Worker**, which makes
-  its Buttondown tag. A run makes two requests for each town and two more,. See the engine README's Weekly
+  its Buttondown tag. A run makes two requests for each town and two more. See the engine README's Weekly
   digest.
 - **By hand** (**Actions → Network → Run workflow**): tick **daily** for a daily
   run, as the scheduler starts; or any towns, with or without fetching; with no
@@ -139,8 +137,7 @@ homepage (from the network's sitemap) through the sites Worker every hour, at
 :50. A site that doesn't load, tried twice a few seconds apart, opens an issue such as
 **gloucester-ma.publick.org isn't loading** (label `site down`, assigned to `ALERT_ASSIGNEE` in
 `wrangler.scheduler.toml`); the issue lists every site down while any is, and
-is closed when all load again. It sees what the sites Worker serves, not what's
-in front of it (DNS, its routes).
+is closed when all load again.
 
 ## Status page
 
@@ -292,12 +289,9 @@ In the Cloudflare account that holds `publick.org`:
 5. **Workers Routes:** any other hostname under `publick.org` that must not
    reach the Worker needs a route with **no Worker**, such as
    `files.publick.org/*` (the documents bucket).
-6. **Workers plan** (**Workers & Pages → Plans**, $5 a month). Every
-   request to every site, each page and its CSS, scripts, and images, runs the
-   sites Worker. The free plan refuses requests past 100,000 a day, on every
-   site at once, until midnight UTC; the paid plan includes 10 million a month.
-   It also lets the digest's send make more than 50 requests a run. Not
-
+6. **Workers plan** (**Workers & Pages → Plans**). Every request to every
+   site, each page and its CSS, scripts, and images, runs the sites Worker, and
+   the digest's send makes two requests a town each run.
 
 In this repository's **Settings → Secrets and variables → Actions**:
 
@@ -312,7 +306,7 @@ In this repository's **Settings → Secrets and variables → Actions**:
 | `BUTTONDOWN_SUBSCRIBE_KEY` | For the weekly digest's signup form, which the sites Worker answers: a Buttondown API key with subscribers read and write, and sending disabled, so it can't send email. Without it, the form says it didn't go through |
 | `BUTTONDOWN_SEND_KEY` | For the weekly digest's Sunday send, from the scheduler Worker: a Buttondown API key with emails read and write, and sending enabled. Without it, nothing is sent |
 | `DIGEST_TEST_RECIPIENTS` | The addresses **Actions → Digest test** sends a test of the weekly digest to, separated by commas. A secret so they stay out of the public run logs. Without it, the test sends nothing |
-| `SCHEDULER_GITHUB_TOKEN` | For the scheduler Worker: a fine-grained personal access token with resource owner `publick-org`, for this repository with **Actions** and **Issues** read and write, and for `publick-engine` with **Actions** read and write (widened 2026-10-03, so the scheduler can start the engine's release). It expires (the current one, made 2026-09-30, about 2027-10-01); replace it (then run **Actions → Worker**) before it does. Until then, runs fall back to GitHub's own schedule |
+| `SCHEDULER_GITHUB_TOKEN` | For the scheduler Worker: a fine-grained personal access token with resource owner `publick-org`, for this repository with **Actions** and **Issues** read and write, and for `publick-engine` with **Actions** read and write (so the scheduler can start the engine's release). |
 
 The scheduler's Cron Triggers also need the Cloudflare account to have a
 `workers.dev` subdomain: opening **Workers & Pages** in the dashboard once
