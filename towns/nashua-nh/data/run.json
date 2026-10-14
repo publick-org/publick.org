@@ -1,46 +1,46 @@
 {
   "town": "nashua",
   "folder": "nashua-nh",
-  "started_at": "2026-10-13T13:16:09+00:00",
-  "finished_at": "2026-10-13T13:27:45+00:00",
-  "engine": "v1.53.0",
+  "started_at": "2026-10-14T09:59:07+00:00",
+  "finished_at": "2026-10-14T10:10:49+00:00",
+  "engine": "v1.55.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 615.0
+      "seconds": 636.1
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 11.8
+      "seconds": 8.7
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 49.7
+      "seconds": 31.6
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 13.3
+      "seconds": 25.3
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.4
+      "seconds": 0.5
     }
   ],
   "update": {
     "town": "nashua",
     "sources": "all",
-    "started_at": "2026-10-13T13:16:10+00:00",
+    "started_at": "2026-10-14T09:59:07+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 165.8,
+        "seconds": 63.7,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 178.7,
+        "seconds": 177.7,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 206.0,
+        "seconds": 101.8,
         "cadence": "continuous"
       },
       {
@@ -90,7 +90,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 35.6,
+        "seconds": 292.4,
         "cadence": "continuous"
       },
       {
@@ -98,47 +98,52 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.6,
-        "cadence": "yearly"
+        "seconds": 0,
+        "cadence": "yearly",
+        "skipped": "checked 0 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.6,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
-        "cadence": "yearly"
+        "seconds": 0,
+        "cadence": "yearly",
+        "skipped": "checked 0 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
-        "cadence": "yearly"
+        "seconds": 0,
+        "cadence": "yearly",
+        "skipped": "checked 0 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 24.5,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
+        "seconds": 0.2,
         "cadence": "continuous"
       },
       {
@@ -155,7 +160,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.2,
         "cadence": "continuous"
       },
       {
@@ -183,14 +188,14 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-13T09:16:10-04:00",
+      "updated_at": "2026-10-14T05:59:07-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Board of Education meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-10-13T09:21:55-04:00",
+      "updated_at": "2026-10-14T06:03:09-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -278,34 +283,32 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-14T09:00:28+00:00",
-  "data_bytes": 768146,
-  "data_bytes_added": 690837,
+  "last_good_at": "2026-10-14T10:10:49+00:00",
+  "data_bytes": 2452655,
+  "data_bytes_added": 62401,
   "activity": {
     "boards": 64,
     "meetings_by_date": {
-      "2026-10-13": 4,
       "2026-10-14": 6,
       "2026-10-15": 3,
       "2026-10-16": 1,
-      "2026-10-19": 1,
+      "2026-10-19": 2,
       "2026-10-20": 2,
       "2026-10-21": 2,
       "2026-10-22": 3,
-      "2026-10-26": 3
+      "2026-10-26": 3,
+      "2026-10-27": 3
     }
   },
   "fact_checks": {
-    "summaries": 0,
-    "ok": 0,
-    "failed": 0,
-    "weak": 0,
+    "summaries": 78,
+    "ok": 70,
+    "failed": 6,
+    "weak": 2,
     "unchecked": 0,
     "not_yet": 0,
-    "held_back": 0,
-    "entries_not_shown": 0,
-    "vote_counts_left_out": 0
-  },
-  "published_at": "2026-10-14T09:00:28+00:00",
-  "published_engine": "v1.55.0"
+    "held_back": 6,
+    "entries_not_shown": 7,
+    "vote_counts_left_out": 38
+  }
 }
