@@ -13,6 +13,10 @@ record has them, only the number of towns is shown. Each town's card says the
 same of the town: its meetings this week, from its run record, when it has
 any.
 
+The open data page, publick.org/data/ (from home/data.html), lists each live
+town's export, /data/meetings.json, and its Data page, both built by the engine
+with the town's site.
+
 Everything else on the pages is home/index.html and home/state.html as
 written; the generated parts go between their <!-- towns:... --> markers.
 
@@ -127,6 +131,18 @@ def states_html(towns: list[dict], today: date) -> str:
     return "".join(parts)
 
 
+def data_html(towns: list[dict]) -> str:
+    """The open data page's table: each town's Data page (named for the town) and its export, the
+    engine's /data/meetings.json."""
+    rows = "".join(
+        f'\n          <tr><th scope="row"><a href="{escape(t["url"])}/data/">{escape(t["town"])}, {escape(t["state_abbr"].upper())}</a></th>'
+        f'<td><a href="{escape(t["url"])}/data/meetings.json">meetings.json</a></td></tr>' for t in towns)
+    return ('\n      <div class="table-scroll" role="region" aria-labelledby="data-caption" tabindex="0">'
+            '\n        <table>\n          <caption id="data-caption">Each town\'s file</caption>'
+            '\n          <thead><tr><th scope="col">Town and its Data page</th><th scope="col">Download</th></tr></thead>'
+            f'\n          <tbody>{rows}\n          </tbody>\n        </table>\n      </div>')
+
+
 def fill(page: str, name: str, block: str, source: str) -> str:
     pattern = re.compile(rf"(<!-- towns:{name} -->).*?(<!-- /towns:{name} -->)", re.S)
     if not pattern.search(page):
@@ -167,6 +183,7 @@ def sitemap(states: list[str], today: date) -> str:
     which changes only when a town is added: it has no date, as the day it last changed isn't known."""
     entries = [f"  <url><loc>{SITE}/</loc><lastmod>{today.isoformat()}</lastmod></url>"]
     entries += [f"  <url><loc>{SITE}/{abbr}/</loc></url>" for abbr in sorted(states)]
+    entries.append(f"  <url><loc>{SITE}/data/</loc></url>")
     return ('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
             + "\n".join(entries) + "\n</urlset>\n")
 
@@ -181,13 +198,17 @@ def main() -> int:
     if out.resolve() == source.resolve():
         raise SystemExit("--out must be a new folder, not home/: the pages are built from home/'s templates")
     shutil.rmtree(out, ignore_errors=True)
-    shutil.copytree(source, out, ignore=shutil.ignore_patterns("state.html"))
+    shutil.copytree(source, out, ignore=shutil.ignore_patterns("state.html", "data.html"))
     (out / "index.html").write_text(render((source / "index.html").read_text(encoding="utf-8"), args.root),
                                     encoding="utf-8")
     states = state_pages((source / "state.html").read_text(encoding="utf-8"), args.root)
     for abbr, page in states.items():
         (out / abbr).mkdir(parents=True, exist_ok=True)
         (out / abbr / "index.html").write_text(page, encoding="utf-8")
+    (out / "data").mkdir(parents=True, exist_ok=True)
+    (out / "data" / "index.html").write_text(
+        fill((source / "data.html").read_text(encoding="utf-8"), "data", data_html(live_towns(args.root)), "home/data.html"),
+        encoding="utf-8")
     (out / "sitemap-home.xml").write_text(sitemap(list(states), datetime.now(timezone.utc).date()), encoding="utf-8")
     (out / "sitemap.xml").write_text(sitemap_index(live_towns(args.root)), encoding="utf-8")
     (out / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8")
