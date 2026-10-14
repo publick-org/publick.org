@@ -40,7 +40,7 @@
 # hours. It's closed when every town is caught up. A pull request's run fails
 # if any town does, so a broken site can't be merged.
 #
-# AI summaries share one monthly budget, SUMMARY_BUDGET dollars: the plan job
+# AI summaries share one monthly budget, the SUMMARY_BUDGET secret: the plan job
 # adds up what every town spent this month (towns/*/data/summary-costs.json)
 # and gives each town in the run its share of what's left.
 #
@@ -104,10 +104,6 @@ env:
   # The most jobs one run's matrix has: GitHub refuses a matrix of more than 256. A run with more towns than
   # this many jobs at their batch size puts more towns in each job instead.
   MAX_JOBS: "100"
-  # The network's monthly budget for AI summaries and translations, in dollars, shared by every town.
-  SUMMARY_BUDGET: "110"
-  # A month with a budget of its own, as YYYY-MM=dollars (empty for none).
-  SUMMARY_BUDGET_MONTH: "2026-10=200"
   # Who the daily issue for towns that need attention is assigned to, so it reaches them.
   ALERT_ASSIGNEE: NasTber
   # A daily run takes the towns whose last fetching run finished more than this many hours ago.
@@ -284,17 +280,26 @@ jobs:
           # A manual run's catch-up for older documents (a new town's first months), never above its
           # share of what's left of the month.
           CATCH_UP: ${{ github.event_name == 'workflow_dispatch' && !inputs.daily && inputs.catch_up || '' }}
+          # Secrets, so they're masked in the run's public log: the network's monthly budget for AI
+          # summaries and translations, in dollars, shared by every town; and a month with a budget of
+          # its own, as YYYY-MM=dollars (unset for none).
+          SUMMARY_BUDGET: ${{ secrets.SUMMARY_BUDGET }}
+          SUMMARY_BUDGET_MONTH: ${{ secrets.SUMMARY_BUDGET_MONTH }}
         run: |
+          if [ -z "$SUMMARY_BUDGET" ]; then
+            echo "::error::Set the repository secret SUMMARY_BUDGET (dollars a month): without it no summaries are made."
+            exit 1
+          fi
           towns=$(jq '[.include[].towns | split(" ")[]] | length' <<< "$MATRIX")
           monthly="$SUMMARY_BUDGET"
           [ "${SUMMARY_BUDGET_MONTH%%=*}" = "$(date -u +%Y-%m)" ] && monthly="${SUMMARY_BUDGET_MONTH#*=}"
+          # Not printed: the log is public, and the budget's figures stay out of it.
           budget=$(python -m pipeline.network budget --monthly "$monthly" --towns-in-run "$towns")
-          echo "$budget"
           allowance=$(jq -r .allowance <<< "$budget")
           backlog=$(jq -r .backlog_allowance <<< "$budget")
           if [ -n "$CATCH_UP" ]; then
             backlog=$(python -c 'import sys; print(round(min(float(sys.argv[1]), float(sys.argv[2])), 2))' "$CATCH_UP" "$allowance")
-            echo "Catch-up: older documents may use \$$backlog in this run"
+            echo "Catch-up: older documents may use up to the catch-up amount in this run"
           fi
           {
             echo "allowance=$allowance"

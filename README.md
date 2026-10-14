@@ -64,8 +64,8 @@ Worker, which picks the site by hostname: `gloucester-ma.publick.org` is
     each town's pages (every hand-written page, and the first and largest of
     each kind of record page); pull requests and rebuilds by hand without
     fetching check every page.
-  - AI summaries and translations share one budget, `SUMMARY_BUDGET` (dollars a
-    month; a month can have its own in `SUMMARY_BUDGET_MONTH`): each run gives each of its towns a share of what's left, new
+  - AI summaries and translations share one budget, the repository secret `SUMMARY_BUDGET` (dollars a
+    month; a month can have its own in the secret `SUMMARY_BUDGET_MONTH`, as `YYYY-MM=dollars`): each run gives each of its towns a share of what's left, new
     documents first.
   - A run that fetches sends each town's summaries as one batch, at half the
     price, and publishes the town without them. Once the
@@ -305,6 +305,7 @@ In this repository's **Settings → Secrets and variables → Actions**:
 | `ENGINE_PR_TOKEN` | For `engine.yml`, which moves the engine each day: a fine-grained personal access token with resource owner `publick-org`, this repository only, and **Contents** and **Pull requests** read and write. Required: what the workflow's own token pushes, opens, or merges starts no other workflow, so the pull request wouldn't be checked and the merge wouldn't publish. It expires; replace it before it does (until then the engine doesn't move, and the workflow's failure emails the owner) |
 | `BUTTONDOWN_SUBSCRIBE_KEY` | For the weekly digest's signup form, which the sites Worker answers: a Buttondown API key with subscribers read and write, and sending disabled, so it can't send email. Without it, the form says it didn't go through |
 | `BUTTONDOWN_SEND_KEY` | For the weekly digest's Sunday send, from the scheduler Worker: a Buttondown API key with emails read and write, and sending enabled. Without it, nothing is sent |
+| `SUMMARY_BUDGET`, `SUMMARY_BUDGET_MONTH` | The monthly budget for AI summaries and translations, in dollars, and optionally a month with its own (`YYYY-MM=dollars`). Secrets rather than variables, so they're masked in the public run logs. Without `SUMMARY_BUDGET`, a run that fetches stops at its plan |
 | `DIGEST_TEST_RECIPIENTS` | The addresses **Actions → Digest test** sends a test of the weekly digest to, separated by commas. A secret so they stay out of the public run logs. Without it, the test sends nothing |
 | `SCHEDULER_GITHUB_TOKEN` | For the scheduler Worker: a fine-grained personal access token with resource owner `publick-org`, for this repository with **Actions** and **Issues** read and write, and for `publick-engine` with **Actions** read and write (so the scheduler can start the engine's release). It expires; replace it (then run **Actions → Worker**) before it does. Until then, runs fall back to GitHub's own schedule |
 
