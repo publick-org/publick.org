@@ -1,34 +1,34 @@
 {
   "town": "lowell",
   "folder": "lowell-ma",
-  "started_at": "2026-10-13T12:10:02+00:00",
-  "finished_at": "2026-10-13T12:18:20+00:00",
-  "engine": "v1.51.0",
+  "started_at": "2026-10-14T10:04:14+00:00",
+  "finished_at": "2026-10-14T10:11:42+00:00",
+  "engine": "v1.55.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 448.5
+      "seconds": 387.8
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 5.0
+      "seconds": 4.9
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 26.1
+      "seconds": 36.9
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 13.6
+      "seconds": 17.4
     },
     {
       "name": "Check live site",
@@ -40,7 +40,7 @@
   "update": {
     "town": "lowell",
     "sources": "all",
-    "started_at": "2026-10-13T12:10:03+00:00",
+    "started_at": "2026-10-14T10:04:14+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 5.6,
+        "seconds": 15.5,
         "cadence": "continuous"
       },
       {
@@ -78,11 +78,20 @@
         "skipped": "no [finalsite_meetings] in the config"
       },
       {
+        "name": "Fetch school board documents",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [page_meetings] in the config"
+      },
+      {
         "name": "Summarize agendas",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 145.8,
+        "seconds": 75.8,
         "cadence": "continuous"
       },
       {
@@ -92,7 +101,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 0 days ago; checked every 30 days"
+        "skipped": "checked 1 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -101,7 +110,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -110,7 +119,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 0 days ago; checked every 30 days"
+        "skipped": "checked 1 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -119,7 +128,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 0 days ago; checked every 30 days"
+        "skipped": "checked 1 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -128,7 +137,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -180,7 +189,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-13T08:10:03-04:00",
+      "updated_at": "2026-10-14T06:04:14-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -268,28 +277,26 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-14T08:58:26+00:00",
-  "data_bytes": 975390,
-  "data_bytes_added": 32105,
+  "last_good_at": "2026-10-14T10:11:42+00:00",
+  "data_bytes": 1150077,
+  "data_bytes_added": 47307,
   "activity": {
     "boards": 40,
     "meetings_by_date": {
-      "2026-10-13": 3,
       "2026-10-14": 3,
+      "2026-10-15": 2,
       "2026-10-19": 1
     }
   },
   "fact_checks": {
-    "summaries": 33,
-    "ok": 28,
+    "summaries": 46,
+    "ok": 39,
     "failed": 3,
     "weak": 0,
-    "unchecked": 2,
+    "unchecked": 4,
     "not_yet": 0,
     "held_back": 3,
     "entries_not_shown": 1,
-    "vote_counts_left_out": 14
-  },
-  "published_at": "2026-10-14T08:58:26+00:00",
-  "published_engine": "v1.55.0"
+    "vote_counts_left_out": 27
+  }
 }
