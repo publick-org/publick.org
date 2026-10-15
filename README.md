@@ -68,13 +68,13 @@ Worker, which picks the site by hostname: `gloucester-ma.publick.org` is
     month; a month can have its own in `SUMMARY_BUDGET_MONTH`): each run gives each of its towns a share of what's left, new
     documents first.
   - A run that fetches sends each town's summaries as one batch, at half the
-    price, and publishes the town without them. Once the
-    job's towns are done, it collects each batch, sends one at a time whatever
-    a batch didn't make or hadn't finished half an hour after it was sent, and
-    publishes the town again (commit "Add summaries for <town>"). So a new
-    summary is up within about half an hour of its town's run. A batch a job
-    couldn't collect is collected by the town's next run. Pull requests and
-    rebuilds send none.
+    price, and publishes the town without them. After each of the job's
+    towns, the earlier towns' batches that have ended are collected and those
+    towns published again (commit "Add summaries for <town>"); once the job's
+    towns are done, it waits for the rest, sends one at a time whatever a batch
+    didn't make or hadn't finished half an hour after it was sent, and
+    publishes those towns again. A batch a job couldn't collect is collected by
+    the town's next run. Pull requests and rebuilds send none.
 - **311 data** (since engine v1.51.0, publick-engine#115 and #121):
   a 311 town's `data/311/requests.json` and `scorecard.json`, most of what
   the repository grew by, are kept in the documents bucket under
