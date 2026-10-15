@@ -23,6 +23,10 @@
 # form (subscribers read and write, sending disabled), and BUTTONDOWN_SEND_KEY for the
 # scheduler's Sunday send (emails read and write, sending enabled). Each town in the scheduler's
 # DIGEST_TOWNS gets its Buttondown tag (<town>-<state>-en) here, made if it isn't there yet.
+#
+# The scheduler submits each new town's sitemap to Google Search Console (the engine's
+# worker/search.js) with GSC_SERVICE_ACCOUNT_JSON, set when it's there: the JSON key of a Google
+# service account that is a user of the publick.org Search Console property, with Full permission.
 name: Worker
 
 on:
@@ -71,7 +75,7 @@ jobs:
           NEW: ${{ steps.engine.outputs.ref }}
         run: |
           # Each Worker's files in the engine's worker/ (digest.js is in both).
-          scheduler_files=(worker/scheduler-index.js worker/scheduler.js worker/digest.js worker/package.json)
+          scheduler_files=(worker/scheduler-index.js worker/scheduler.js worker/digest.js worker/search.js worker/package.json)
           sites_files=(worker/index.js worker/sites.js worker/digest.js worker/package.json)
           scheduler=true; sites=true; sites_changed=false; old=""
           if [ "$EVENT" = push ]; then
@@ -177,6 +181,20 @@ jobs:
             exit 0
           fi
           printf '%s' "$BUTTONDOWN_SEND_KEY" | npx --yes wrangler@4.137.0 secret put BUTTONDOWN_SEND_KEY -c wrangler.scheduler.toml
+
+      - name: Give the scheduler the Search Console key
+        if: steps.decide.outputs.scheduler == 'true'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          SCHEDULER_GITHUB_TOKEN: ${{ secrets.SCHEDULER_GITHUB_TOKEN }}
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$SCHEDULER_GITHUB_TOKEN" ] || [ -z "$GSC_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::warning::The scheduler or GSC_SERVICE_ACCOUNT_JSON isn't there, so new towns' sitemaps aren't submitted to Search Console."
+            exit 0
+          fi
+          printf '%s' "$GSC_SERVICE_ACCOUNT_JSON" | npx --yes wrangler@4.137.0 secret put GSC_SERVICE_ACCOUNT_JSON -c wrangler.scheduler.toml
 
       # Last, so a failure here never stops a deploy. A tag already there is left as it is (its color too).
       - name: Make each digest town's Buttondown tag
