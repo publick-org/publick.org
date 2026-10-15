@@ -15,9 +15,9 @@ home/                         The publick.org homepage (index.html) and the page
 towns/<town>-<state>/         One folder per town, laid out as a town repository is:
   config/<town>.toml            everything town-specific
   data/                         collected data, committed by the daily run, with run.json (its last
-                                daily run) and summary-costs.json (its AI summaries' cost, by month);
-                                a 311 town's requests and scorecard are kept in the documents bucket
-                                instead, since 2026-10-13 (below)
+                                daily run); a 311 town's requests and scorecard are kept in the documents
+                                bucket instead, since 2026-10-13 (below), and what its AI summaries cost
+                                in the private store (below), never in git
   site/static/                  files that replace or add to the engine's (the share image)
 states/ma/                    Statewide sources, fetched once for every town: Massachusetts's DLS reports (other
                               states' figures are saved in the engine, or fetched by each town)
@@ -64,9 +64,14 @@ Worker, which picks the site by hostname: `gloucester-ma.publick.org` is
     each town's pages (every hand-written page, and the first and largest of
     each kind of record page); pull requests and rebuilds by hand without
     fetching check every page.
-  - AI summaries and translations share one budget, `SUMMARY_BUDGET` (dollars a
-    month; a month can have its own in `SUMMARY_BUDGET_MONTH`): each run gives each of its towns a share of what's left, new
-    documents first.
+  - AI summaries and translations share one monthly budget, the secret
+    `SUMMARY_BUDGET` (a month can have its own in the secret `SUMMARY_BUDGET_MONTH`):
+    each run gives each of its towns a share of what's left, new documents first.
+    What each town spends is kept in the private store, a bucket nothing serves
+    (the engine's README, Cost records), not in git; the run's `budget` job reads
+    it, and prints how much of the budget is used and each town's share as
+    fractions, never as amounts, since the run logs are public. A manual run's
+    `catch_up` is a percent of the month's budget.
   - A run that fetches sends each town's summaries as one batch, at half the
     price, and publishes the town without them. After each of the job's
     towns, the earlier towns' batches that have ended are collected and those
@@ -121,7 +126,7 @@ Worker, which picks the site by hostname: `gloucester-ma.publick.org` is
 
 A daily run doesn't fail when a town does; its data is still committed. Instead,
 one GitHub issue, **Towns need attention** (label `towns behind`, assigned to
-`ALERT_ASSIGNEE` in `network.yml`), is opened when a town has had no good
+the account in the `ALERT_ASSIGNEE` secret), is opened when a town has had no good
 update (published, with fresh data) for 30 hours, or a figure source's checks
 keep failing, or a state's statewide checks have failed three times in a row.
 Each daily run updates it and closes it when every town is caught up. An edit
@@ -135,8 +140,8 @@ a town does, so a broken site can't be merged.
 Between the daily runs, the scheduler loads publick.org and every town's
 homepage (from the network's sitemap) through the sites Worker every hour, at
 :50. A site that doesn't load, tried twice a few seconds apart, opens an issue such as
-**gloucester-ma.publick.org isn't loading** (label `site down`, assigned to `ALERT_ASSIGNEE` in
-`wrangler.scheduler.toml`); the issue lists every site down while any is, and
+**gloucester-ma.publick.org isn't loading** (label `site down`, assigned to the account in the
+`ALERT_ASSIGNEE` secret, which **Actions → Worker** gives the scheduler); the issue lists every site down while any is, and
 is closed when all load again.
 
 ## Status page
@@ -174,8 +179,8 @@ the town's folder too (it defaults to the config file's name). Its
 `contact_email`, `<town>-<state>@publick.org`, needs no rule of its own: the
 catch-all rule in Cloudflare Email Routing (Setup, step 7) forwards it.
 Merge, then run the workflow for the town by hand to fetch its data (set
-`catch_up` to a few dollars to summarize its first months' documents in that
-run, within the month's budget). No DNS
+`catch_up` to a few percent of the month's budget to summarize its first
+months' documents in that run, within the town's share). No DNS
 change is needed: the homepage lists the town under its state on its own, and gives the state its own page once it has 10
 towns.
 
@@ -298,6 +303,9 @@ In the Cloudflare account that holds `publick.org`:
 7. **Email Routing → Routing rules → Catch-all address**, *Send to an email*:
    every `@publick.org` address, each town's `contact_email` among them, is
    forwarded.
+8. **R2 → Create bucket** for the cost records, with no public address (no
+   custom domain, no `r2.dev` address, no Worker binding), and an R2 API token
+   for it (the engine's README, Cost records).
 
 In this repository's **Settings → Secrets and variables → Actions**:
 
@@ -312,6 +320,11 @@ In this repository's **Settings → Secrets and variables → Actions**:
 | `BUTTONDOWN_SUBSCRIBE_KEY` | For the weekly digest's signup form, which the sites Worker answers: a Buttondown API key with subscribers read and write, and sending disabled, so it can't send email. Without it, the form says it didn't go through |
 | `BUTTONDOWN_SEND_KEY` | For the weekly digest's Sunday send, from the scheduler Worker: a Buttondown API key with emails read and write, and sending enabled. Without it, nothing is sent |
 | `DIGEST_TEST_RECIPIENTS` | The addresses **Actions → Digest test** sends a test of the weekly digest to, separated by commas. A secret so they stay out of the public run logs. Without it, the test sends nothing |
+| `PRIVATE_ENDPOINT`, `PRIVATE_BUCKET` | The cost records' bucket (step 8): `https://<account id>.r2.cloudflarestorage.com`, and its name |
+| `PRIVATE_ACCESS_KEY_ID`, `PRIVATE_SECRET_ACCESS_KEY` | The R2 token from step 8 |
+| `SUMMARY_BUDGET` | The network's monthly budget for AI summaries and translations, in dollars. A secret, so the run logs never show it. Without it, no town summarizes |
+| `SUMMARY_BUDGET_MONTH` | A month with a budget of its own, as `YYYY-MM=dollars` (several separated by commas); empty for none |
+| `ALERT_ASSIGNEE` | The GitHub account the alert issues are assigned to (network, engine, and Worker workflows, and the scheduler Worker). A secret, so the run logs don't name it. Without it, they're assigned to no one |
 | `SCHEDULER_GITHUB_TOKEN` | For the scheduler Worker: a fine-grained personal access token with resource owner `publick-org`, for this repository with **Actions** and **Issues** read and write, and for `publick-engine` with **Actions** read and write (so the scheduler can start the engine's release). It expires; replace it (then run **Actions → Worker**) before it does. Until then, runs fall back to GitHub's own schedule |
 
 The scheduler's Cron Triggers also need the Cloudflare account to have a

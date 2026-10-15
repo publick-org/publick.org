@@ -36,13 +36,17 @@
 #
 # A run that fetches doesn't fail when a town does: the town's data is still
 # committed, and one GitHub issue, opened or updated after each daily run and
-# assigned to ALERT_ASSIGNEE, lists the towns without a good update in 30
+# assigned to the ALERT_ASSIGNEE secret's account, lists the towns without a good update in 30
 # hours. It's closed when every town is caught up. A pull request's run fails
 # if any town does, so a broken site can't be merged.
 #
-# AI summaries share one monthly budget, SUMMARY_BUDGET dollars: the plan job
-# adds up what every town spent this month (towns/*/data/summary-costs.json)
-# and gives each town in the run its share of what's left.
+# AI summaries share one monthly budget, the secret SUMMARY_BUDGET (and
+# SUMMARY_BUDGET_MONTH for a month with its own): the plan job adds up what
+# every town spent this month, from the towns' cost records in the private
+# store (PRIVATE_*; the engine's README, Cost records), and gives each town in
+# the run its share of what's left, as a fraction of the month's budget, which
+# the town's summaries step makes dollars again with the same secrets. The cost
+# records are never in git, and no step prints an amount: the run logs are public.
 #
 # Scheduled runs put four towns in a job, so Python and the browser are
 # installed once for all four, with the slow towns spread over the jobs by how
@@ -82,7 +86,7 @@ on:
         options: [all, figures, meetings, "311"]
         default: all
       catch_up:
-        description: "For a new town's first runs: dollars its older documents may use for summaries in this run (empty for the usual share). Capped by what's left of the month's budget and the town's own limit per run"
+        description: "For a new town's first runs: the percent of the month's summary budget its older documents may use in this run (empty for the usual share). Capped by the town's share of what's left of the month's budget and its own limit per run"
         type: string
         default: ""
 
@@ -104,12 +108,6 @@ env:
   # The most jobs one run's matrix has: GitHub refuses a matrix of more than 256. A run with more towns than
   # this many jobs at their batch size puts more towns in each job instead.
   MAX_JOBS: "100"
-  # The network's monthly budget for AI summaries and translations, in dollars, shared by every town.
-  SUMMARY_BUDGET: "110"
-  # A month with a budget of its own, as YYYY-MM=dollars (empty for none).
-  SUMMARY_BUDGET_MONTH: "2026-10=200"
-  # Who the daily issue for towns that need attention is assigned to, so it reaches them.
-  ALERT_ASSIGNEE: NasTber
   # A daily run takes the towns whose last fetching run finished more than this many hours ago.
   DUE_HOURS: "18"
   PYTHONPATH: ${{ github.workspace }}/.publick-engine
@@ -132,8 +130,6 @@ jobs:
       prune: ${{ steps.plan.outputs.prune }}
       sample: ${{ steps.plan.outputs.sample }}
       full_towns: ${{ steps.plan.outputs.full_towns }}
-      summary_allowance: ${{ steps.budget.outputs.allowance }}
-      summary_backlog_allowance: ${{ steps.budget.outputs.backlog_allowance }}
       engine: ${{ steps.engine.outputs.ref }}
     steps:
       # A push waits for a daily or manual run in progress. That run publishes each town before it commits
@@ -160,8 +156,8 @@ jobs:
             sleep 60
           done
 
-      # The towns' config files, summary costs, and run records: enough to list them, pick the ones that
-      # are due, and share out the summary budget, without downloading any town's data. Outside a pull
+      # The towns' config files and run records: enough to list them and pick the ones that are due, without
+      # downloading any town's data. Outside a pull
       # request, the branch as it is when the run starts, not when it was queued: a run that waited
       # behind another sees the towns that one just updated.
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -173,7 +169,6 @@ jobs:
           sparse-checkout: |
             /engine-version
             /towns/*/config/
-            /towns/*/data/summary-costs.json
             /towns/*/data/run.json
 
       - id: engine
@@ -275,30 +270,79 @@ jobs:
             echo "full_towns=$full"
           } >> "$GITHUB_OUTPUT"
 
-      # Each town's share, for this run, of what's left of the month's summary budget. Only a run that
-      # fetches makes summaries.
+  # Each town's share, for this run, of what's left of the month's summary budget, as a fraction of the budget:
+  # the job prints how much of the budget is used, and the shares, as fractions, never an amount. It reads what
+  # each town spent from the private store, importing a town's summary-costs.json from git the first time (the
+  # engine's README, Cost records). Only a run that fetches makes summaries. A job of its own, so the budget's
+  # and the private store's secrets are in no other job's outputs: GitHub drops an output that contains a
+  # secret's value. For the same reason the shares go out with their digits as letters (0-9 as a-j), since a
+  # short number such as the budget could be part of a share's digits.
+  budget:
+    needs: plan
+    if: needs.plan.outputs.fetch == 'true' && needs.plan.outputs.towns == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      allowance_share: ${{ steps.budget.outputs.allowance_share }}
+      backlog_share: ${{ steps.budget.outputs.backlog_share }}
+    steps:
+      # The towns' config files, and any summary-costs.json still in git, which is imported into the private store
+      # once, before the town's first run with the private store deletes it from git. The branch as it is now.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          ref: ${{ github.ref }}
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /towns/*/config/
+            /towns/*/data/summary-costs.json
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          repository: publick-org/publick-engine
+          ref: ${{ needs.plan.outputs.engine }}
+          path: .publick-engine
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+
       - id: budget
-        if: steps.plan.outputs.fetch == 'true' && steps.plan.outputs.towns == 'true'
         env:
-          MATRIX: ${{ steps.plan.outputs.matrix }}
-          # A manual run's catch-up for older documents (a new town's first months), never above its
-          # share of what's left of the month.
+          MATRIX: ${{ needs.plan.outputs.matrix }}
+          # A manual run's catch-up for older documents (a new town's first months), as a percent of the month's
+          # budget, never above its share of what's left of the month.
           CATCH_UP: ${{ github.event_name == 'workflow_dispatch' && !inputs.daily && inputs.catch_up || '' }}
+          SUMMARY_BUDGET: ${{ secrets.SUMMARY_BUDGET }}
+          SUMMARY_BUDGET_MONTH: ${{ secrets.SUMMARY_BUDGET_MONTH }}
+          PRIVATE_ENDPOINT: ${{ secrets.PRIVATE_ENDPOINT }}
+          PRIVATE_BUCKET: ${{ secrets.PRIVATE_BUCKET }}
+          PRIVATE_ACCESS_KEY_ID: ${{ secrets.PRIVATE_ACCESS_KEY_ID }}
+          PRIVATE_SECRET_ACCESS_KEY: ${{ secrets.PRIVATE_SECRET_ACCESS_KEY }}
         run: |
+          if [ -z "$SUMMARY_BUDGET" ]; then
+            # Without the budget there's nothing to share: the towns run, and summarize nothing.
+            echo "::warning::The SUMMARY_BUDGET secret isn't set, so no town summarizes in this run."
+            printf 'allowance_share=a\nbacklog_share=a\n' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          # At the engine's version (its requirements.txt), since it runs with the private store's keys.
+          pip install --quiet boto3==1.43.106
           towns=$(jq '[.include[].towns | split(" ")[]] | length' <<< "$MATRIX")
-          monthly="$SUMMARY_BUDGET"
-          [ "${SUMMARY_BUDGET_MONTH%%=*}" = "$(date -u +%Y-%m)" ] && monthly="${SUMMARY_BUDGET_MONTH#*=}"
-          budget=$(python -m pipeline.network budget --monthly "$monthly" --towns-in-run "$towns")
-          echo "$budget"
-          allowance=$(jq -r .allowance <<< "$budget")
-          backlog=$(jq -r .backlog_allowance <<< "$budget")
+          # The shares on stdout; the budget's use, as a fraction, on stderr, for this log.
+          budget=$(python -m pipeline.network budget --towns-in-run "$towns")
+          allowance=$(jq -r .allowance_share <<< "$budget")
+          backlog=$(jq -r .backlog_share <<< "$budget")
           if [ -n "$CATCH_UP" ]; then
-            backlog=$(python -c 'import sys; print(round(min(float(sys.argv[1]), float(sys.argv[2])), 2))' "$CATCH_UP" "$allowance")
-            echo "Catch-up: older documents may use \$$backlog in this run"
+            backlog=$(python -c 'import sys; print(round(min(float(sys.argv[1]) / 100, float(sys.argv[2])), 10))' "$CATCH_UP" "$allowance")
+            echo "Catch-up: older documents may use up to $CATCH_UP% of the month's budget in this run, within the town's share"
           fi
           {
-            echo "allowance=$allowance"
-            echo "backlog_allowance=$backlog"
+            echo "allowance_share=$(tr '0-9' 'a-j' <<< "$allowance")"
+            echo "backlog_share=$(tr '0-9' 'a-j' <<< "$backlog")"
           } >> "$GITHUB_OUTPUT"
 
   # Statewide sources (Massachusetts's DLS reports), fetched once for every town before the towns run, into
@@ -347,8 +391,9 @@ jobs:
         run: .publick-engine/.github/scripts/commit-data.sh "Update statewide sources" states
 
   towns:
-    needs: [plan, states]
-    # The towns run whether the statewide step ran, was skipped (a pull request, a rebuild), or failed.
+    needs: [plan, states, budget]
+    # The towns run whether the statewide step or the budget ran, was skipped (a pull request, a rebuild), or
+    # failed; without the budget's shares, a fetching run's towns summarize nothing.
     if: ${{ !cancelled() && needs.plan.outputs.towns == 'true' }}
     name: ${{ matrix.name }}
     runs-on: ubuntu-latest
@@ -412,9 +457,19 @@ jobs:
           SOURCES: ${{ needs.plan.outputs.fetch == 'true' && needs.plan.outputs.sources != 'all' && format('--sources {0}', needs.plan.outputs.sources) || '' }}
           # No keys on a pull request's run: it doesn't fetch or publish, and its build and checks use none.
           ANTHROPIC_API_KEY: ${{ github.event_name != 'pull_request' && secrets.ANTHROPIC_API_KEY || '' }}
-          # Empty unless the run fetches; then the town summarizes within these, new documents first.
-          PUBLICK_SUMMARY_ALLOWANCE: ${{ needs.plan.outputs.summary_allowance }}
-          PUBLICK_SUMMARY_BACKLOG_ALLOWANCE: ${{ needs.plan.outputs.summary_backlog_allowance }}
+          # Empty unless the run fetches; then the town summarizes within these, new documents first: each a
+          # fraction of the month's budget, its digits as letters (the budget job), made dollars by the summaries
+          # step with the budget's secrets. Without the budget job's, none ("a", 0).
+          ALLOWANCE_SHARE: ${{ needs.plan.outputs.fetch == 'true' && (needs.budget.outputs.allowance_share || 'a') || '' }}
+          BACKLOG_SHARE: ${{ needs.plan.outputs.fetch == 'true' && (needs.budget.outputs.backlog_share || 'a') || '' }}
+          SUMMARY_BUDGET: ${{ github.event_name != 'pull_request' && secrets.SUMMARY_BUDGET || '' }}
+          SUMMARY_BUDGET_MONTH: ${{ github.event_name != 'pull_request' && secrets.SUMMARY_BUDGET_MONTH || '' }}
+          # The private store, where each town's costs are kept (the engine gives these, and the budget's, to the
+          # summaries step alone).
+          PRIVATE_ENDPOINT: ${{ github.event_name != 'pull_request' && secrets.PRIVATE_ENDPOINT || '' }}
+          PRIVATE_BUCKET: ${{ github.event_name != 'pull_request' && secrets.PRIVATE_BUCKET || '' }}
+          PRIVATE_ACCESS_KEY_ID: ${{ github.event_name != 'pull_request' && secrets.PRIVATE_ACCESS_KEY_ID || '' }}
+          PRIVATE_SECRET_ACCESS_KEY: ${{ github.event_name != 'pull_request' && secrets.PRIVATE_SECRET_ACCESS_KEY || '' }}
           # A fetching run sends each town's summaries as one batch, at half the price; the loop below
           # collects them once the job's towns are done (the engine's pipeline/summarize.py).
           PUBLICK_SUMMARY_BATCH: ${{ needs.plan.outputs.fetch == 'true' && github.event_name != 'pull_request' && '1' || '' }}
@@ -428,6 +483,11 @@ jobs:
         # $FETCH, $DEPLOY, $sample and $SOURCES are unquoted on purpose: each is a flag (and its value) or nothing.
         # A town that fails, or whose commit fails, doesn't stop the next; the step fails at the end if either did.
         run: |
+          if [ -n "$ALLOWANCE_SHARE" ]; then
+            PUBLICK_SUMMARY_ALLOWANCE_SHARE=$(tr 'a-j' '0-9' <<< "$ALLOWANCE_SHARE")
+            PUBLICK_SUMMARY_BACKLOG_SHARE=$(tr 'a-j' '0-9' <<< "$BACKLOG_SHARE")
+            export PUBLICK_SUMMARY_ALLOWANCE_SHARE PUBLICK_SUMMARY_BACKLOG_SHARE
+          fi
           read -ra towns <<< "$TOWNS"
           status=0
           # With an engine that can, after each town, the earlier towns' batches of summaries that have ended
@@ -529,7 +589,6 @@ jobs:
             /scripts/
             /towns/*/config/
             /towns/*/data/run.json
-            /towns/*/data/summary-costs.json
 
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -562,6 +621,8 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
           LABEL: towns behind
+          # Who the issue is assigned to, so it reaches them; a secret, so the log doesn't name them. Unset, no one.
+          ALERT_ASSIGNEE: ${{ secrets.ALERT_ASSIGNEE }}
         run: |
           body=$(python -m pipeline.network behind)
           gh label create "$LABEL" --color D93F0B --description "Towns without a good daily update" --force
@@ -575,7 +636,8 @@ jobs:
                 gh issue comment "$number" --body "$comment"
               fi
             else
-              gh issue create --title "Towns need attention" --label "$LABEL" --assignee "$ALERT_ASSIGNEE" --body "$body"
+              gh issue create --title "Towns need attention" --label "$LABEL" ${ALERT_ASSIGNEE:+--assignee "$ALERT_ASSIGNEE"} \
+                --body "$body"
             fi
           elif [ -n "$number" ]; then
             gh issue close "$number" --comment "Every town is caught up."
