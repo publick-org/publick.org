@@ -25,21 +25,13 @@ name = "Lewiston Publick"
 # The masthead shows name_prefix in dark ink and name_suffix in the accent
 # color: the town, then the network.
 name_prefix = "Lewiston "
-name_suffix = "Publick"
 domain = "lewiston-me.publick.org"
-# The network of town sites this one belongs to, named in every page footer.
-network = "Publick"
-network_url = "https://publick.org"
 tagline = "Public data on how Lewiston, Maine decides and spends. Updated daily."
 # One line under the name at the top of every page.
 masthead = "An independent guide to city government in Lewiston, Maine"
-repo_url = "https://github.com/publick-org/publick.org"
 # Public contact address. Shown on the About and Accessibility pages when set.
 contact_email = "lewiston-me@publick.org"
-timezone = "America/New_York"
 user_agent = "lewiston-me.publick.org (+https://lewiston-me.publick.org/about/)"
-# English at the site's root, Spanish under /es/.
-languages = ["en", "es"]
 
 # From the city website's stylesheet (lewistonmaine.gov): its navy (the toolbar
 # and calendar headings), a darker navy, a light tint of the navy, and its
@@ -53,7 +45,6 @@ accent = "#b7582e"
 
 [town]
 name = "Lewiston"
-state = "Maine"
 state_abbr = "ME"
 official_site = "https://www.lewistonmaine.gov"
 
@@ -100,17 +91,13 @@ status = "live"
 # Page view counting with GoatCounter, on the network's site; prefix is this
 # town's folder.
 [analytics]
-goatcounter = "publick"
 prefix = "lewiston-me"
-public_stats = ""
 
 # The weekly digest's email signup, on /digest/ (the engine's pipeline/digest.py). The form posts
 # to this site's /digest/subscribe, which the sites Worker answers (worker/digest.js) and passes on
 # to Buttondown with the tag lewiston-me-en. The About page names who keeps the addresses.
 [digest]
-signup = true
-provider = "Buttondown"
-privacy_url = "https://buttondown.com/legal/privacy"
+# The network's settings (defaults/network.toml): having the table turns the signup on.
 
 # Public meetings, from the city's CivicPlus calendar, with agendas linked
 # from its events into the Archive Center.
@@ -194,9 +181,6 @@ since = "2026-01-01"
 
 # Agenda and minutes PDFs, in the network's documents bucket.
 [storage]
-endpoint = "https://6bbfee5a3892553c7993dbfa4b4e8453.r2.cloudflarestorage.com"
-bucket = "publick-documents"
-public_url = "https://files.publick.org"
 prefix = "lewiston-me"
 
 # Agenda previews and decisions from minutes, written by a language model and
@@ -207,11 +191,6 @@ prefix = "lewiston-me"
 # full packets (109 pages for October 6, 2026); those over the engine's 100-page
 # limit get no preview, but their minutes do.
 [summaries]
-model = "claude-sonnet-5"
-max_per_run = 40
-input_price = 2.0
-output_price = 10.0
-max_cost_per_run = 5.0
 since = "2026-07-01"
 
 # How residents can take part, per board, shown on its meeting pages. Only
@@ -234,11 +213,9 @@ video_url = "https://www.youtube.com/channel/UCyvRhXaDrDfofhDvkf5Q9bw/videos"
 # where they appear. Acronyms match exactly; other terms ignore case.
 [[glossary]]
 term = "executive session"
-definition = "A part of a public meeting closed to the public. State law (1 MRSA §405) allows it only for specific reasons, such as lawsuits, real estate, or personnel matters."
 
 [[glossary]]
 term = "MRSA"
-definition = "Maine Revised Statutes Annotated, the state's laws."
 
 [[glossary]]
 term = "consent agenda"
@@ -287,12 +264,8 @@ district_name = "Lewiston Public Schools"
 # American Community Survey through Census Reporter (geo ids). Lewiston is a
 # Census place, Lewiston city (23-38740).
 [housing]
-bps_region = "Northeast Region"
-bps_prefix = "ne"
-bps_state = "23"
 bps_place = "38740"
 census_geo = "16000US2338740"
-state_geo = "04000US23"
 
 # Unemployment rate (BLS Local Area Unemployment Statistics, area
 # CT2338740000000, Lewiston city). City rates are not seasonally adjusted; the
@@ -300,11 +273,8 @@ state_geo = "04000US23"
 # download.bls.gov/pub/time.series/la/, used when the API refuses.
 [labor]
 local_series = "LAUCT233874000000003"
-state_series = "LAUST230000000000003"
-bulk_file = "la.data.26.Maine"
 
 [freshness]
-summary_grace_days = 2
 sources = [
   { label = "Meetings (city calendar)", file = "meetings/status.json", max_days = 2 },
 ]
@@ -410,8 +380,6 @@ members = [
 "Lewiston Public Schools' archived meeting videos" = "los videos de reuniones anteriores de las Escuelas Públicas de Lewiston"
 
 # Glossary definitions (the terms themselves stay as the agendas write them).
-"A part of a public meeting closed to the public. State law (1 MRSA §405) allows it only for specific reasons, such as lawsuits, real estate, or personnel matters." = "Una parte de una reunión pública que se hace a puerta cerrada. La ley estatal (1 MRSA §405) la permite solo por razones específicas, como demandas, bienes raíces o asuntos de personal."
-"Maine Revised Statutes Annotated, the state's laws." = "Estatutos Revisados Anotados de Maine (Maine Revised Statutes Annotated), las leyes del estado."
 "Routine items, marked with an asterisk on the City Council's agenda, voted on together in one motion unless a councilor or a resident asks to take one up separately." = "Asuntos de rutina, marcados con un asterisco en la agenda del Concejo Municipal, que se votan juntos en una sola moción, a menos que un concejal o un residente pida tratar alguno por separado."
 "The City Council's first vote on an ordinance or an amendment to one. It takes effect only after a second vote, final passage, at a later meeting." = "La primera votación del Concejo Municipal sobre una ordenanza o una enmienda a una ordenanza. Solo entra en vigor después de una segunda votación, la aprobación final (final passage), en una reunión posterior."
 "Tax increment financing: an agreement under which some of the new property tax from a development goes back to the project, or to public improvements around it, for a set number of years." = "Financiamiento por incremento de impuestos (tax increment financing): un acuerdo por el cual parte del nuevo impuesto a la propiedad que genera un proyecto vuelve al proyecto, o a mejoras públicas a su alrededor, durante un número fijo de años."

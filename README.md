@@ -13,12 +13,16 @@ ADDING-A-TOWN.md              The checklist for adding a town, from an empty fol
 home/                         The publick.org homepage (index.html) and the page for a state with many towns
                               (state.html); their town lists are filled in by scripts/build_home.py
 towns/<town>-<state>/         One folder per town, laid out as a town repository is:
-  config/<town>.toml            everything town-specific
+  config/<town>.toml            everything town-specific, over the settings in defaults/
   data/                         collected data, committed by the daily run, with run.json (its last
                                 daily run) and summary-costs.json (its AI summaries' cost, by month);
                                 a 311 town's requests and scorecard are kept in the documents bucket
                                 instead, since 2026-10-13 (below)
   site/static/                  files that replace or add to the engine's (the share image)
+defaults/network.toml         The settings every town shares ([summaries] model and prices, the documents bucket,
+                              GoatCounter, 311 and digest settings), under each town's own config (below)
+defaults/states/<st>.toml     The settings every town in a state shares (its name, Census and BLS codes, the
+                              glossary's definitions of its laws' terms)
 states/ma/                    Statewide sources, fetched once for every town: Massachusetts's DLS reports (other
                               states' figures are saved in the engine, or fetched by each town)
 wrangler.toml                 The Worker that serves every site from the sites bucket
@@ -165,12 +169,11 @@ marked `# To fill in:`. In short:
 Add `towns/<town>-<state>/` with its `config/<town>.toml` (start from the
 engine's `tests/fixtures/town/config/gloucester.toml` and its README), an
 empty `data/`, and optionally `site/static/share/<town>.png`. Set
-`[site] domain` to `<town>-<state>.publick.org` and `network_url` to
-`https://publick.org`, which links the network's name in every page footer.
-Add an `[analytics]` table with `goatcounter = "publick"` and `prefix` set to
-the town's folder, so its page views count on the network's GoatCounter site,
-and a `[storage]` table for the `publick-documents` bucket with `prefix` set to
-the town's folder too (it defaults to the config file's name). Its
+`[site] domain` to `<town>-<state>.publick.org` and `[town] state_abbr` to
+the state's code. Add an `[analytics]` table with `prefix` set to the town's
+folder, so its page views count apart on the network's GoatCounter site, and a
+`[storage]` table with `prefix` set to the town's folder too (it defaults to
+the config file's name). Its
 `contact_email`, `<town>-<state>@publick.org`, needs no rule of its own: the
 catch-all rule in Cloudflare Email Routing (Setup, step 7) forwards it.
 Merge, then run the workflow for the town by hand to fetch its data (set
@@ -178,6 +181,25 @@ Merge, then run the workflow for the town by hand to fetch its data (set
 run, within the month's budget). No DNS
 change is needed: the homepage lists the town under its state on its own, and gives the state its own page once it has 10
 towns.
+
+What every town shares is in `defaults/network.toml`, and what every town in
+a state shares in `defaults/states/<st>.toml`: the footer's network name and
+link, the GoatCounter site, the documents bucket, the summaries' model and
+prices, the 311 and digest settings, the state's name and codes, and the
+glossary's definitions of its laws' terms. A town's config leaves them out and
+takes them from there; a value it sets itself wins. A table there fills in the
+town's table of the same name only when the town has it (an empty `[digest]`
+turns the signup on), and a `[[glossary]]` entry with only its `term` takes
+the definition from the `[terms]` there. The engine's `pipeline/config.py`
+checks both files (its README's "Settings shared by a network's towns"), and
+
+```
+PYTHONPATH=../publick-engine PUBLICK_TOWN_DIR=towns/<town>-<state> python -m pipeline.config show
+```
+
+prints a town's config with the file each value came from. A change to
+`defaults/network.toml` rebuilds every town, and one to a state's file that
+state's towns.
 
 The town's tax, budget, and school figures come from its state, through the
 engine's package for that state (the engine README's States section): its

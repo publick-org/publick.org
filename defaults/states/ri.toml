@@ -1,0 +1,32 @@
+# Settings every town in Rhode Island shares, under each town's own config
+# (towns/<town>-ri/config/<town>.toml), which wins, and over the network's
+# (defaults/network.toml). See defaults/network.toml for how they merge.
+
+[town]
+state = "Rhode Island"
+
+# Housing: Census building permits (the state's FIPS code and Census region) and
+# American Community Survey figures for the state, through Census Reporter, for
+# context. A town's [housing] gives its own place.
+[housing]
+bps_region = "Northeast Region"
+bps_prefix = "ne"
+bps_state = "44"
+state_geo = "04000US44"
+
+# Unemployment rate (BLS Local Area Unemployment Statistics): the state series,
+# shown for context with each town's own, from BLS's file for Rhode Island.
+[labor]
+state_series = "LAUST440000000000003"
+bulk_file = "la.data.47.RhodeIsland"
+
+# Glossary definitions for Rhode Island law and its terms: a town's [[glossary]] entry
+# with only its term takes the definition from here.
+[terms]
+"executive session" = "A part of a public meeting closed to the public. Rhode Island's Open Meetings Act (R.I.G.L. § 42-46-5) allows it only for specific reasons, such as lawsuits, collective bargaining, buying land, or personnel matters."
+"RIGL" = "Rhode Island General Laws, the state's laws."
+
+# The definitions above in Spanish.
+[strings.es]
+"A part of a public meeting closed to the public. Rhode Island's Open Meetings Act (R.I.G.L. § 42-46-5) allows it only for specific reasons, such as lawsuits, collective bargaining, buying land, or personnel matters." = "Una parte de una reunión pública que se hace a puerta cerrada. La Ley de Reuniones Abiertas de Rhode Island (R.I.G.L. § 42-46-5) la permite solo por razones específicas, como demandas, negociaciones colectivas, compra de terrenos o asuntos de personal."
+"Rhode Island General Laws, the state's laws." = "Leyes Generales de Rhode Island (Rhode Island General Laws), las leyes del estado."
