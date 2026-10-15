@@ -1,0 +1,38 @@
+# Settings every town in Maine shares, under each town's own config
+# (towns/<town>-me/config/<town>.toml), which wins, and over the network's
+# (defaults/network.toml). See defaults/network.toml for how they merge.
+
+[town]
+state = "Maine"
+
+# Housing: Census building permits (the state's FIPS code and Census region) and
+# American Community Survey figures for the state, through Census Reporter, for
+# context. A town's [housing] gives its own place.
+[housing]
+bps_region = "Northeast Region"
+bps_prefix = "ne"
+bps_state = "23"
+state_geo = "04000US23"
+
+# Unemployment rate (BLS Local Area Unemployment Statistics): the state series,
+# shown for context with each town's own, from BLS's file for Maine.
+[labor]
+state_series = "LAUST230000000000003"
+bulk_file = "la.data.26.Maine"
+
+# Glossary definitions for Maine law and its terms: a town's [[glossary]] entry
+# with only its term takes the definition from here.
+[terms]
+"executive session" = "A part of a public meeting closed to the public. Maine's Freedom of Access Act (1 M.R.S. § 405) allows it only for specific reasons, such as lawsuits, real estate, contracts, or personnel matters."
+"M.R.S." = "Maine Revised Statutes, the state's laws."
+"M.R.S.A." = "Maine Revised Statutes Annotated, the state's laws."
+"MRSA" = "Maine Revised Statutes Annotated, the state's laws."
+"TIF" = "Tax increment financing: a district where some of the property tax from new development is set aside, for public projects or for the development itself."
+"credit enhancement agreement" = "An agreement, under a tax increment financing (TIF) district, in which the city returns part of a development's new property tax to its owner."
+
+# The definitions above in Spanish.
+[strings.es]
+"A part of a public meeting closed to the public. Maine's Freedom of Access Act (1 M.R.S. § 405) allows it only for specific reasons, such as lawsuits, real estate, contracts, or personnel matters." = "Una parte de una reunión pública que se hace a puerta cerrada. La Ley de Libertad de Acceso de Maine (Freedom of Access Act, 1 M.R.S. § 405) la permite solo por razones específicas, como demandas, bienes raíces, contratos o asuntos de personal."
+"Maine Revised Statutes Annotated, the state's laws." = "Estatutos Revisados Anotados de Maine (Maine Revised Statutes Annotated), las leyes del estado."
+"Tax increment financing: a district where some of the property tax from new development is set aside, for public projects or for the development itself." = "Financiamiento por incremento de impuestos (tax increment financing): una zona donde parte del impuesto a la propiedad que generan las nuevas construcciones se reserva para proyectos públicos o para el propio proyecto."
+"An agreement, under a tax increment financing (TIF) district, in which the city returns part of a development's new property tax to its owner." = "Un acuerdo, dentro de una zona de financiamiento por incremento de impuestos (TIF), en el que la ciudad le devuelve al dueño de un proyecto parte del nuevo impuesto a la propiedad que este genera."

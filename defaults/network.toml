@@ -1,0 +1,105 @@
+# Settings every town in the network shares. Each town's config
+# (towns/<town>-<state>/config/<town>.toml) is read over its state's
+# (defaults/states/<st>.toml), and that over this file: a town's own value wins,
+# and tables merge key by key. A table here fills in a town's table of the same
+# name only when the town's config has that table ([seeclickfix] completes a
+# 311 town's, and gives 311 to no other); [terms] and [strings] go to every
+# town. The engine's pipeline/config.py says what may be set here, and
+#
+#   PUBLICK_TOWN_DIR=towns/<town>-<state> python -m pipeline.config show
+#
+# prints a town's config with the file each value came from.
+
+[site]
+# The network of town sites each one belongs to, named in every page footer;
+# the masthead shows the town's name_prefix, then name_suffix in the accent
+# color.
+name_suffix = "Publick"
+network = "Publick"
+network_url = "https://publick.org"
+repo_url = "https://github.com/publick-org/publick.org"
+timezone = "America/New_York"
+# English at the site's root, Spanish under /es/.
+languages = ["en", "es"]
+
+# Page view counting with GoatCounter (goatcounter.com): no cookies, no
+# personal data, and never what someone searched for. Every town counts on the
+# network's site, publick; a town's [analytics] prefix is its folder, put in
+# front of every page path so the one dashboard can tell the towns apart.
+# public_stats is the dashboard's public URL, if it has one; the About page
+# links it.
+[analytics]
+goatcounter = "publick"
+public_stats = ""
+
+# Agenda and minutes PDFs live in the network's documents bucket, not in git
+# (see the engine's pipeline/documents.py), each town under its [storage]
+# prefix. Keys: STORAGE_ACCESS_KEY_ID, STORAGE_SECRET_ACCESS_KEY.
+[storage]
+endpoint = "https://6bbfee5a3892553c7993dbfa4b4e8453.r2.cloudflarestorage.com"
+bucket = "publick-documents"
+public_url = "https://files.publick.org"
+
+# Plain-English agenda text and previews, and decisions from minutes, written by
+# a language model and labeled as AI-generated on the site. Each run does the
+# most useful first (upcoming agendas, then the newest minutes) and stops at
+# max_per_run documents or max_cost_per_run dollars. A town's [summaries] gives
+# its own `since`: only meetings from then on are summarized.
+[summaries]
+model = "claude-sonnet-5"
+max_per_run = 40
+# Prices per million tokens, for the spending limit below.
+input_price = 2.0
+output_price = 10.0
+# A ceiling for one run. The network's monthly summary budget (SUMMARY_BUDGET in
+# .github/workflows/network.yml) decides what each run may spend, new documents first.
+max_cost_per_run = 5.0
+
+# New agendas and minutes can wait this long for a summary before the daily run
+# flags them. Older ones are summarized a little each day within the network's
+# budget and aren't counted.
+[freshness]
+summary_grace_days = 2
+
+# The weekly digest's email signup, on /digest/ (the engine's pipeline/digest.py),
+# for a town whose config has [digest]. The form posts to the site's
+# /digest/subscribe, which the sites Worker answers (worker/digest.js) and
+# passes on to Buttondown with the town's tag, <town>-<state>-en. The About page
+# names who keeps the addresses.
+[digest]
+signup = true
+provider = "Buttondown"
+privacy_url = "https://buttondown.com/legal/privacy"
+
+# 311 requests from SeeClickFix (public requests only), for a town whose config
+# has [seeclickfix], with its organization_id and report_url.
+[seeclickfix]
+open311_base = "https://seeclickfix.com/open311/v2"
+api_base = "https://seeclickfix.com/api/v2"
+# SeeClickFix documents a limit of 20 requests per minute.
+request_delay = 3.2
+recent_days = 21
+max_details_per_run = 700
+time_budget_seconds = 2400
+
+# Repeat locations: requests in the same category within radius_m meters and
+# window_days days of each other are grouped as one place.
+[seeclickfix.repeats]
+radius_m = 50
+window_days = 60
+recent_open_days = 30
+
+# Glossary definitions, by term, for terms that mean the same everywhere. A
+# town's [[glossary]] entry that gives only its term takes the definition from
+# here, or from its state's [terms], which wins.
+[terms]
+"ADA" = "Americans with Disabilities Act, the federal law on access for people with disabilities."
+"CDBG" = "Community Development Block Grant: federal money, from the Department of Housing and Urban Development, for housing and neighborhood projects that serve low- and moderate-income residents."
+"Committee of the Whole" = "The full City Council meeting as a committee, to discuss a matter before voting on it at a regular meeting."
+"tabled" = "Set aside by a vote, to take up later. A tabled item comes back when the board votes to take it off the table."
+
+# The definitions above in Spanish, where the engine's own translations
+# (site/strings/es.po) don't have them.
+[strings.es]
+"Community Development Block Grant: federal money, from the Department of Housing and Urban Development, for housing and neighborhood projects that serve low- and moderate-income residents." = "Subvención en Bloque para el Desarrollo Comunitario (Community Development Block Grant): dinero federal del Departamento de Vivienda y Desarrollo Urbano para proyectos de vivienda y de barrios que benefician a residentes de ingresos bajos y moderados."
+"Set aside by a vote, to take up later. A tabled item comes back when the board votes to take it off the table." = "Dejado de lado mediante una votación, para tratarlo más adelante. Un asunto dejado sobre la mesa vuelve cuando la junta vota para retomarlo."

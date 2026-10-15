@@ -1,0 +1,34 @@
+# Settings every town in New Hampshire shares, under each town's own config
+# (towns/<town>-nh/config/<town>.toml), which wins, and over the network's
+# (defaults/network.toml). See defaults/network.toml for how they merge.
+
+[town]
+state = "New Hampshire"
+
+# Housing: Census building permits (the state's FIPS code and Census region) and
+# American Community Survey figures for the state, through Census Reporter, for
+# context. A town's [housing] gives its own place.
+[housing]
+bps_region = "Northeast Region"
+bps_prefix = "ne"
+bps_state = "33"
+state_geo = "04000US33"
+
+# Unemployment rate (BLS Local Area Unemployment Statistics): the state series,
+# shown for context with each town's own, from BLS's file for New Hampshire.
+[labor]
+state_series = "LAUST330000000000003"
+bulk_file = "la.data.36.NewHampshire"
+
+# Glossary definitions for New Hampshire law and its terms: a town's
+# [[glossary]] entry with only its term takes the definition from here.
+[terms]
+"non-public session" = "A part of a meeting closed to the public. New Hampshire's Right-to-Know Law (RSA 91-A) allows it only for certain reasons, such as buying or selling property, personnel matters, or labor negotiations."
+"RSA" = "Revised Statutes Annotated, New Hampshire's state laws."
+"ZBA" = "Zoning Board of Adjustment."
+
+# The definitions above in Spanish.
+[strings.es]
+"A part of a meeting closed to the public. New Hampshire's Right-to-Know Law (RSA 91-A) allows it only for certain reasons, such as buying or selling property, personnel matters, or labor negotiations." = "Una parte de una reunión que se hace a puerta cerrada. La Ley del Derecho a Saber de New Hampshire (Right-to-Know Law, RSA 91-A) la permite solo por ciertas razones, como la compra o venta de propiedades, asuntos de personal o negociaciones laborales."
+"Revised Statutes Annotated, New Hampshire's state laws." = "Estatutos Revisados Anotados (Revised Statutes Annotated), las leyes del estado de New Hampshire."
+"Zoning Board of Adjustment." = "Junta de Ajustes de Zonificación."

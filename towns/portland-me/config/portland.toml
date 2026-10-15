@@ -27,21 +27,13 @@ name = "Portland Publick"
 # The masthead shows name_prefix in dark ink and name_suffix in the accent
 # color: the town, then the network.
 name_prefix = "Portland "
-name_suffix = "Publick"
 domain = "portland-me.publick.org"
-# The network of town sites this one belongs to, named in every page footer.
-network = "Publick"
-network_url = "https://publick.org"
 tagline = "Public data on how Portland, Maine decides and spends. Updated daily."
 # One line under the name at the top of every page.
 masthead = "An independent guide to city government in Portland, Maine"
-repo_url = "https://github.com/publick-org/publick.org"
 # Public contact address. Shown on the About and Accessibility pages when set.
 contact_email = "portland-me@publick.org"
-timezone = "America/New_York"
 user_agent = "portland-me.publick.org (+https://portland-me.publick.org/about/)"
-# English at the site's root, Spanish under /es/.
-languages = ["en", "es"]
 
 # The city's own colors, as it set them on its CivicClerk portal and its
 # Portland 311 portal on SeeClickFix: its deep teal (#003b4d, both portals'
@@ -62,7 +54,6 @@ accent = "#187485"
 name = "Portland"
 # The 311 and Officials pages call the council's districts "District 1" to "District 5", as the city does.
 areas = "districts"
-state = "Maine"
 state_abbr = "ME"
 official_site = "https://www.portlandmaine.gov"
 
@@ -116,9 +107,7 @@ status = "live"
 # Page view counting with GoatCounter, on the network's site; prefix is this
 # town's folder.
 [analytics]
-goatcounter = "publick"
 prefix = "portland-me"
-public_stats = ""
 
 # Public meetings, from the city's CivicClerk portal. The portal files each
 # meeting under a category, but the engine reads a meeting's board from its
@@ -230,9 +219,6 @@ exclude_pattern = '\bDistrict \d (Annual )?Meeting\b|\bIsland Tour\b|\bCommunity
 # requests and scorecard ([seeclickfix] below), which this town's .gitignore
 # keeps out of git.
 [storage]
-endpoint = "https://6bbfee5a3892553c7993dbfa4b4e8453.r2.cloudflarestorage.com"
-bucket = "publick-documents"
-public_url = "https://files.publick.org"
 prefix = "portland-me"
 
 # Agenda previews and decisions from minutes, written by a language model and
@@ -244,11 +230,6 @@ prefix = "portland-me"
 # engine saves each meeting's agenda, not its packet (the council's run to 240
 # to 320 pages).
 [summaries]
-model = "claude-sonnet-5"
-max_per_run = 40
-input_price = 2.0
-output_price = 10.0
-max_cost_per_run = 5.0
 since = "2026-07-01"
 
 # How residents can take part, per board, shown on its meeting pages. Only
@@ -268,11 +249,9 @@ video_url = "https://portlandme.portal.civicclerk.com"
 # with bodies is shown only on those boards' meetings.
 [[glossary]]
 term = "executive session"
-definition = "A part of a public meeting closed to the public. Maine's Freedom of Access Act (1 M.R.S. § 405) allows it only for specific reasons, such as lawsuits, real estate, contracts, or personnel matters."
 
 [[glossary]]
 term = "M.R.S."
-definition = "Maine Revised Statutes, the state's laws."
 
 [[glossary]]
 term = "consent items"
@@ -291,15 +270,12 @@ definition = "The City Council's approval, as the city's municipal officers, of 
 
 [[glossary]]
 term = "TIF"
-definition = "Tax increment financing: a district where some of the property tax from new development is set aside, for public projects or for the development itself."
 
 [[glossary]]
 term = "credit enhancement agreement"
-definition = "An agreement, under a tax increment financing (TIF) district, in which the city returns part of a development's new property tax to its owner."
 
 [[glossary]]
 term = "CDBG"
-definition = "Community Development Block Grant: federal money, from the Department of Housing and Urban Development, for housing and neighborhood projects that serve low- and moderate-income residents."
 
 # Tax rate and property tax (pipeline/states/me/), from Maine Revenue Services'
 # Municipal Valuation Return Statistical Summary, where the city is
@@ -321,12 +297,8 @@ district_name = "Portland Public Schools"
 # American Community Survey through Census Reporter (geo ids). Portland is a
 # Census place, Portland city (23-60545).
 [housing]
-bps_region = "Northeast Region"
-bps_prefix = "ne"
-bps_state = "23"
 bps_place = "60545"
 census_geo = "16000US2360545"
-state_geo = "04000US23"
 
 # Unemployment rate (BLS Local Area Unemployment Statistics, area
 # CT2360545000000, Portland city). City rates are not seasonally adjusted; the
@@ -334,8 +306,6 @@ state_geo = "04000US23"
 # download.bls.gov/pub/time.series/la/, used when the API refuses.
 [labor]
 local_series = "LAUCT236054500000003"
-state_series = "LAUST230000000000003"
-bulk_file = "la.data.26.Maine"
 
 # 311 requests, from SeeClickFix (public requests only). The city's
 # organization is 611 ("Portland 311"), the one its SeeClickFix portal belongs
@@ -347,14 +317,7 @@ bulk_file = "la.data.26.Maine"
 # git keeps only data/311/status.json.
 [seeclickfix]
 organization_id = 611
-open311_base = "https://seeclickfix.com/open311/v2"
-api_base = "https://seeclickfix.com/api/v2"
 report_url = "https://seeclickfix.com/web_portal/9Sds4Ebv9yf9nC8e9yhDf5MP/report/category"
-# SeeClickFix documents a limit of 20 requests per minute.
-request_delay = 3.2
-recent_days = 21
-max_details_per_run = 700
-time_budget_seconds = 2400
 # The month the full history starts (python -m pipeline.fetch_311 --backfill).
 # At Portland's volume, about 8,500 requests; their exact times then fill in
 # at up to 700 a day.
@@ -370,13 +333,6 @@ precincts_file = "portland-districts-2022.geojson"
 wards_publisher = "the City of Portland"
 wards_year = 2022
 wards_url = "https://gis.portlandmaine.gov/maps/rest/services/Political/Council_Districts/MapServer/112"
-
-# Repeat locations: requests in the same category within radius_m meters and
-# window_days days of each other are grouped as one place.
-[seeclickfix.repeats]
-radius_m = 50
-window_days = 60
-recent_open_days = 30
 
 # How often each data source should update. The daily run fails when one goes
 # longer than max_days, and the About page lists them. Figures published
@@ -414,7 +370,6 @@ exclude_pattern = '^Joint\b'
 "Ad-hoc Committee on the District's Commitment to Equity" = "Ad-hoc Committee on Equity, Belonging, and Supportive Schools"
 
 [freshness]
-summary_grace_days = 2
 sources = [
   { label = "Meetings (CivicClerk)", file = "meetings/status.json", max_days = 2 },
   { label = "Board of Public Education meetings (Diligent Community)", file = "meetings/diligent_status.json", max_days = 2 },

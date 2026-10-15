@@ -23,21 +23,13 @@ name = "Nashua Publick"
 # The masthead shows name_prefix in dark ink and name_suffix in the accent
 # color: the town, then the network.
 name_prefix = "Nashua "
-name_suffix = "Publick"
 domain = "nashua-nh.publick.org"
-# The network of town sites this one belongs to, named in every page footer.
-network = "Publick"
-network_url = "https://publick.org"
 tagline = "Public data on how Nashua, New Hampshire decides and spends. Updated daily."
 # One line under the name at the top of every page.
 masthead = "An independent guide to city government in Nashua, New Hampshire"
-repo_url = "https://github.com/publick-org/publick.org"
 # Public contact address. Shown on the About and Accessibility pages when set.
 contact_email = "nashua-nh@publick.org"
-timezone = "America/New_York"
 user_agent = "nashua-nh.publick.org (+https://nashua-nh.publick.org/about/)"
-# English at the site's root, Spanish under /es/.
-languages = ["en", "es"]
 
 # From the city website's stylesheet (nashuanh.gov): its blue (headlines and
 # table headers, the most used after white and black, 10.7:1 on white), its
@@ -52,7 +44,6 @@ accent = "#bc2024"
 
 [town]
 name = "Nashua"
-state = "New Hampshire"
 state_abbr = "NH"
 official_site = "https://www.nashuanh.gov"
 
@@ -99,9 +90,7 @@ status = "live"
 # Page view counting with GoatCounter, on the network's site; prefix is this
 # town's folder.
 [analytics]
-goatcounter = "publick"
 prefix = "nashua-nh"
-public_stats = ""
 
 # Public meetings, from the city's CivicClerk portal (the "Agendas & Minutes
 # Portal" button on the city's home page, and the "View Most Recent Agendas and
@@ -312,9 +301,6 @@ minutes_pattern = '^(?!.*\bnon-?public\b).*\bminutes\b'
 # Agenda and minutes PDFs live in the network's documents bucket, not in git
 # (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID, STORAGE_SECRET_ACCESS_KEY.
 [storage]
-endpoint = "https://6bbfee5a3892553c7993dbfa4b4e8453.r2.cloudflarestorage.com"
-bucket = "publick-documents"
-public_url = "https://files.publick.org"
 prefix = "nashua-nh"
 
 # Plain-English agenda text and previews, and decisions from minutes, written by
@@ -322,15 +308,7 @@ prefix = "nashua-nh"
 # `since` on are summarized, about three months before launch, so the town's
 # history doesn't take the month's budget.
 [summaries]
-model = "claude-sonnet-5"
 since = "2026-07-01"
-max_per_run = 40
-# Prices per million tokens, for the spending limit below.
-input_price = 2.0
-output_price = 10.0
-# A ceiling for one run. The network's monthly summary budget (SUMMARY_BUDGET in
-# .github/workflows/network.yml) decides what each run may spend, new documents first.
-max_cost_per_run = 5.0
 
 # How residents can take part, per board, shown on its meeting pages. Only
 # what the city has published; each entry names its source. The order of
@@ -363,11 +341,9 @@ video_url = "https://www.nashua.edu/families-community/nashua-etv"
 # and minutes.
 [[glossary]]
 term = "non-public session"
-definition = "A part of a meeting closed to the public. New Hampshire's Right-to-Know Law (RSA 91-A) allows it only for certain reasons, such as buying or selling property, personnel matters, or labor negotiations."
 
 [[glossary]]
 term = "RSA"
-definition = "Revised Statutes Annotated, New Hampshire's state laws."
 
 [[glossary]]
 term = "NRO"
@@ -392,7 +368,6 @@ definition = "The Board of Aldermen meeting together with another board, such as
 
 [[glossary]]
 term = "tabled"
-definition = "Set aside by a vote, to take up later. A tabled item comes back when the board votes to take it off the table."
 
 [[glossary]]
 term = "BPW"
@@ -408,7 +383,6 @@ definition = "Tax increment financing: a district where the extra property tax f
 
 [[glossary]]
 term = "ZBA"
-definition = "Zoning Board of Adjustment."
 
 # Tax rate, property tax, and the average single-family tax bill
 # (pipeline/states/nh/). The tax rates are the New Hampshire DRA's, from the
@@ -429,25 +403,18 @@ district_name = "Nashua School District"
 # Housing: Census building permits (state and place FIPS codes) and American
 # Community Survey through Census Reporter (geo ids).
 [housing]
-bps_region = "Northeast Region"
-bps_prefix = "ne"
-bps_state = "33"
 bps_place = "50260"
 census_geo = "16000US3350260"
-state_geo = "04000US33"
 
 # Unemployment rate (BLS Local Area Unemployment Statistics): Nashua city is
 # CT3350260000000 in la.area. City rates are not seasonally adjusted; the
 # state series is shown for context.
 [labor]
 local_series = "LAUCT335026000000003"
-state_series = "LAUST330000000000003"
-bulk_file = "la.data.36.NewHampshire"
 
 # How often each data source should update. Figures published monthly or yearly
 # are judged by the engine, by the period they cover (pipeline/rhythms.py).
 [freshness]
-summary_grace_days = 2
 sources = [
   { label = "Meetings (CivicClerk)", file = "meetings/status.json", max_days = 2 },
   { label = "Board of Education meetings (school district website)", file = "meetings/page_status.json", max_days = 2 },

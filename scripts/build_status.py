@@ -24,7 +24,7 @@ The page's last-daily-run meta tag is when the most recent town's daily run
 finished; the publick-scheduler Worker reads it to tell when the network's
 runs have stopped altogether.
 
-    python scripts/build_status.py --out _home
+    PYTHONPATH=../publick-engine python scripts/build_status.py --out _home
 """
 
 from __future__ import annotations
@@ -32,10 +32,13 @@ from __future__ import annotations
 import argparse
 import json
 import sys
-import tomllib
 from datetime import datetime, timezone
 from html import escape
 from pathlib import Path
+
+# Each town's config as the engine reads it, over the network's shared settings (defaults/network.toml,
+# defaults/states/<st>.toml): the engine is on PYTHONPATH, as for building a town.
+from pipeline.config import read_config
 from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -86,7 +89,7 @@ def load_towns(root: Path) -> list[dict]:
         configs = list((folder / "config").glob("*.toml")) if folder.is_dir() else []
         if len(configs) != 1:
             continue
-        config = tomllib.loads(configs[0].read_text(encoding="utf-8"))
+        config = read_config(configs[0], root)
         record_path = folder / RUN_RECORD
         towns.append({"folder": folder.name, "name": config["site"]["name"],
                       "url": f"https://{config['site']['domain']}", "domain": config["site"]["domain"],

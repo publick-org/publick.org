@@ -12,26 +12,16 @@ name = "Gloucester Publick"
 # town, then the network. The icon (site/static/favicon.svg) is the network's
 # P in the headline font, the same for every town.
 name_prefix = "Gloucester "
-name_suffix = "Publick"
 domain = "gloucester-ma.publick.org"
-# The network of town sites this one belongs to, named in every page footer.
-# network_url links the name once the network has its own home page.
-network = "Publick"
-network_url = "https://publick.org"
 tagline = "Public data on how Gloucester, Massachusetts responds, decides, and spends. Updated daily."
 # One line under the name at the top of every page.
 masthead = "An independent guide to city government in Gloucester, Massachusetts"
-repo_url = "https://github.com/publick-org/publick.org"
 # Public contact address. Shown on the About and Accessibility pages when set.
 contact_email = "gloucester-ma@publick.org"
-timezone = "America/New_York"
 user_agent = "gloucester-ma.publick.org (+https://gloucester-ma.publick.org/about/)"
-# English at the site's root, Spanish under /es/.
-languages = ["en", "es"]
 
 [town]
 name = "Gloucester"
-state = "Massachusetts"
 state_abbr = "MA"
 official_site = "https://gloucester-ma.gov"
 
@@ -90,17 +80,13 @@ status = "live"
 # public_stats is the dashboard's public URL, if it has one; the About page
 # links it.
 [analytics]
-goatcounter = "publick"
 prefix = "gloucester-ma"
-public_stats = ""
 
 # The weekly digest's email signup, on /digest/ (the engine's pipeline/digest.py). The form posts
 # to this site's /digest/subscribe, which the sites Worker answers (worker/digest.js) and passes on
 # to Buttondown with the tag gloucester-ma-en. The About page names who keeps the addresses.
 [digest]
-signup = true
-provider = "Buttondown"
-privacy_url = "https://buttondown.com/legal/privacy"
+# The network's settings (defaults/network.toml): having the table turns the signup on.
 
 # Public meetings, from the city's CivicPlus calendar.
 [meetings]
@@ -134,45 +120,21 @@ max_event_pages = 40
 # 311 requests, from SeeClickFix (public requests only).
 [seeclickfix]
 organization_id = 547
-open311_base = "https://seeclickfix.com/open311/v2"
-api_base = "https://seeclickfix.com/api/v2"
 report_url = "https://www.gloucester-ma.gov/835/Citizen-Request"
-# SeeClickFix documents a limit of 20 requests per minute.
-request_delay = 3.2
-recent_days = 21
-max_details_per_run = 700
-time_budget_seconds = 2400
 # The month the full history starts (python -m pipeline.fetch_311 --backfill).
 # Older requests are included only while they are still open.
 history_since = "2024-01"
 precincts_file = "gloucester-precincts-2022.geojson"
 
-# Repeat locations: requests in the same category within radius_m meters and
-# window_days days of each other are grouped as one place.
-[seeclickfix.repeats]
-radius_m = 50
-window_days = 60
-recent_open_days = 30
-
-# Plain-English agenda text and previews, written by a language model and
-# labeled as AI-generated on the site. Cached by document hash.
 [storage]
 # Agenda and minutes PDFs live in this Cloudflare R2 bucket, not in git (see
 # pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID, STORAGE_SECRET_ACCESS_KEY.
-endpoint = "https://6bbfee5a3892553c7993dbfa4b4e8453.r2.cloudflarestorage.com"
-bucket = "publick-documents"
-public_url = "https://files.publick.org"
 prefix = "gloucester-ma"
 
+# Plain-English agenda text and previews, written by a language model and
+# labeled as AI-generated on the site. Cached by document hash.
 [summaries]
-model = "claude-sonnet-5"
 max_per_run = 50
-# Prices per million tokens, for the spending limit below.
-input_price = 2.0
-output_price = 10.0
-# A ceiling for one run. The network's monthly summary budget (SUMMARY_BUDGET in
-# .github/workflows/network.yml) decides what each run may spend, new documents first.
-max_cost_per_run = 5.0
 
 # Context for unusual months on the 311 scorecard. Each note must cite a source.
 [[seeclickfix.annotations]]
@@ -206,23 +168,18 @@ source_url = "https://schoolcommittee.gloucesterschools.com/"
 # "bodies" for a term that means something different at other boards.
 [[glossary]]
 term = "executive session"
-definition = "A part of a public meeting closed to the public. State law allows it only for specific reasons, such as lawsuits, negotiations, or personnel matters."
 
 [[glossary]]
 term = "M.G.L."
-definition = "Massachusetts General Laws, the state's laws."
 
 [[glossary]]
 term = "ADA"
-definition = "Americans with Disabilities Act, the federal law on access for people with disabilities."
 
 [[glossary]]
 term = "CPA"
-definition = "Community Preservation Act. A local property tax surcharge, with state matching money, that pays for open space, historic preservation, affordable housing, and recreation."
 
 [[glossary]]
 term = "ZBA"
-definition = "Zoning Board of Appeals."
 
 [[glossary]]
 term = "MACRIS"
@@ -285,7 +242,6 @@ minutes_since = "2026-06-28"
 [schools]
 district_code = "01070000"
 district_name = "Gloucester Public Schools"
-portal = "https://educationtocareer.data.mass.gov"
 report_name = "Gloucester Schools Report"
 report_url = "https://gloucesterschoolsreport.com"
 
@@ -301,13 +257,8 @@ budget_documents_url = "https://www.gloucester-ma.gov/559/Budgets"
 # Community Survey through Census Reporter (geo ids), and the state's
 # Subsidized Housing Inventory PDF (the town's name as the PDF lists it).
 [housing]
-bps_region = "Northeast Region"
-bps_prefix = "ne"
-bps_state = "25"
 bps_place = "26150"
 census_geo = "16000US2526150"
-state_geo = "04000US25"
-shi_url = "https://www.mass.gov/doc/subsidized-housing-inventory-2/download"
 shi_name = "Gloucester"
 
 # Building and demolition permits, from the city's Data Hub: a CSV of every
@@ -324,7 +275,6 @@ years = 3
 # not seasonally adjusted; the state series is shown for context.
 [labor]
 local_series = "LAUCT252615000000003"
-state_series = "LAUST250000000000003"
 
 # How often each data source should update. The daily run fails (and GitHub
 # emails the owner) when one goes longer than max_days, and the About page
@@ -332,7 +282,6 @@ state_series = "LAUST250000000000003"
 [freshness]
 # Sources that change daily. Figures published monthly or yearly (tax bill, budget, schools,
 # unemployment, housing) are judged by the engine, by the period they cover (pipeline/rhythms.py).
-summary_grace_days = 2
 sources = [
   { label = "Meetings calendar", file = "meetings/status.json", max_days = 2 },
   { label = "311 requests", file = "311/status.json", max_days = 2 },
@@ -444,7 +393,6 @@ members = [
 "School Committee website" = "Sitio web del Comité Escolar"
 
 # Glossary definitions (the terms themselves stay as the agendas write them).
-"Zoning Board of Appeals." = "Junta de Apelaciones de Zonificación."
 "Massachusetts Cultural Resource Information System, the state's inventory of historic buildings and places." = "Sistema de Información sobre Recursos Culturales de Massachusetts (Massachusetts Cultural Resource Information System), el inventario estatal de edificios y lugares históricos."
 "Certificate of Appropriateness: the commission's approval for exterior changes to a building in a historic district." = "Certificado de Adecuación (Certificate of Appropriateness): la aprobación de la comisión para hacer cambios en el exterior de un edificio en un distrito histórico."
 "Public Employee Retirement Administration Commission, the state agency that oversees Massachusetts public retirement systems." = "Comisión de Administración del Retiro de los Empleados Públicos (Public Employee Retirement Administration Commission), la agencia estatal que supervisa los sistemas públicos de retiro de Massachusetts."
