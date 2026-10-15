@@ -9,15 +9,27 @@
 # lower effort does to the summaries, before deciding whether the daily runs
 # send summaries as a batch (half the price) and at what effort. Run it more than
 # once, at the hour the daily runs do: a batch's time varies with the API's load.
+# With the set "shadow", the agendas and minutes of the engine's fact check
+# sample (evals/factcheck/, pipeline/evaluate_shadow.py) are summarized again and
+# checked as the site checks them, beside the summaries this repository
+# published, with no answers written down by hand: the fact check grades both.
+#
+# Any set can be run with another model ("model", with "input_price" and
+# "output_price" for a model the engine has no list prices for) and effort
+# ("effort"; the batch set takes "efforts" instead); the translations set also
+# with another reviewing model ("review_model"). Left empty, each set runs as it
+# always has, so an engine from before these options still runs. The report and
+# evaluation.json name the model, the effort, the tokens, and the cost of each
+# document, so two runs can be compared.
 # Started by hand only:
 # Actions -> Evaluate -> Run workflow, with the engine branch, tag, or commit
 # to run (a pull request's branch, before it's merged).
 #
 # The report is the run's summary; every result is saved as the artifact
 # evaluation.json. It fails when a wrong outcome would be shown (not the
-# batch set, an experiment). A run costs about $1 to $2 on the network's
-# Anthropic key, outside the towns' summary budget; the batch set about half
-# that for each effort.
+# batch set, an experiment; the shadow set only when a request can't be
+# made). A run costs about $1 to $2 on the network's Anthropic key, outside the
+# towns' summary budget; the batch set about half that for each effort.
 #
 # It gets the Anthropic key and nothing else, reads this repository only, and
 # never runs on a push or a pull request.
@@ -31,18 +43,38 @@ on:
         required: true
         default: main
       set:
-        description: "Which prompt's set: minutes, translations, or batch (the minutes as a batch, by effort)"
+        description: "Which set: minutes, translations, batch (the minutes as a batch, by effort), or shadow (published summaries made again)"
         type: choice
-        options: [minutes, translations, batch]
+        options: [minutes, translations, batch, shadow]
         default: minutes
       only:
-        description: "One document of the set, by name (empty for all)"
+        description: "One document of the set, by name (for shadow: its town and the start of its sha256; empty for all)"
         required: false
         default: ""
       efforts:
         description: "For the batch set: the efforts, comma-separated"
         required: false
         default: "low,medium,high"
+      model:
+        description: "The model (empty for the set's own; for translations, the translator)"
+        required: false
+        default: ""
+      input_price:
+        description: "The model's input price per million tokens (empty for its list price)"
+        required: false
+        default: ""
+      output_price:
+        description: "The model's output price per million tokens (empty for its list price)"
+        required: false
+        default: ""
+      effort:
+        description: "The effort: low, medium, high, xhigh, or max (empty for none sent, the model's default; not for the batch set)"
+        required: false
+        default: ""
+      review_model:
+        description: "For the translations set: the reviewing model (empty for the set's own)"
+        required: false
+        default: ""
 
 permissions:
   contents: read
@@ -73,6 +105,11 @@ jobs:
           ONLY: ${{ inputs.only }}
           SET: ${{ inputs.set }}
           EFFORTS: ${{ inputs.efforts }}
+          MODEL: ${{ inputs.model }}
+          INPUT_PRICE: ${{ inputs.input_price }}
+          OUTPUT_PRICE: ${{ inputs.output_price }}
+          EFFORT: ${{ inputs.effort }}
+          REVIEW_MODEL: ${{ inputs.review_model }}
         # The report goes to the run's summary whether or not the run passes.
         run: |
           status=0
@@ -80,9 +117,25 @@ jobs:
           case "$SET" in
             translations) set_args=(--set translations) ;;
             batch) set_args=(--set batch --efforts "$EFFORTS" --wait-minutes 100) ;;
+            shadow) set_args=(--set shadow) ;;
             *) set_args=() ;;
           esac
-          python -m pipeline.evaluate "${set_args[@]}" ${ONLY:+--only "$ONLY"} --json evaluation.json > evaluation.md || status=$?
+          # Each option only when it's given, so an engine from before it still runs.
+          if [ -n "$EFFORT" ] && [ "$SET" = batch ]; then
+            echo "::error::The batch set takes its efforts from \"efforts\", not \"effort\"."
+            exit 1
+          fi
+          if [ -n "$REVIEW_MODEL" ] && [ "$SET" != translations ]; then
+            echo "::error::\"review_model\" is for the translations set only."
+            exit 1
+          fi
+          model_args=()
+          if [ -n "$MODEL" ]; then model_args+=(--model "$MODEL"); fi
+          if [ -n "$INPUT_PRICE" ]; then model_args+=(--input-price "$INPUT_PRICE"); fi
+          if [ -n "$OUTPUT_PRICE" ]; then model_args+=(--output-price "$OUTPUT_PRICE"); fi
+          if [ -n "$EFFORT" ]; then model_args+=(--effort "$EFFORT"); fi
+          if [ -n "$REVIEW_MODEL" ]; then model_args+=(--review-model "$REVIEW_MODEL"); fi
+          python -m pipeline.evaluate "${set_args[@]}" "${model_args[@]}" ${ONLY:+--only "$ONLY"} --json evaluation.json > evaluation.md || status=$?
           cat evaluation.md
           cat evaluation.md >> "$GITHUB_STEP_SUMMARY"
           exit "$status"
