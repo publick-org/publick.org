@@ -9,11 +9,10 @@
 # portal is collected, 34 with their committees, subcommittees, and panels;
 # only entries that aren't a meeting of a city body are left out
 # ([meetings.civicclerk] exclude_pattern). The Board of Public Education
-# posts its meetings on Diligent Community
-# (portlandschools.community.highbond.com; BoardDocs before 2025), which the
-# engine can't read yet, so its meetings aren't collected for now; its
-# members are on the Officials page, and the district's figures still come
-# from the state ([schools]). The city answers requests on SeeClickFix as
+# posts its meetings, agendas, and minutes on Diligent Community
+# (portlandschools.community.highbond.com; BoardDocs before 2025), read as
+# [diligent_meetings]; its members are on the Officials page, and the
+# district's figures come from the state ([schools]). The city answers requests on SeeClickFix as
 # Portland 311 ([seeclickfix]). The engine's Maine package gives the tax rate
 # and what the property tax raises, from Maine Revenue Services ([finance]),
 # and school figures, from the Department of Education's ESSA Dashboard;
@@ -72,7 +71,7 @@ official_site = "https://www.portlandmaine.gov"
 [[sections]]
 slug = "meetings"
 title = "Meetings"
-summary = "When the City Council, its committees, and the city's boards and commissions meet, with agendas, and minutes from January 2026 on."
+summary = "When the City Council, its committees, the city's boards and commissions, and the Board of Public Education meet, with agendas, and minutes from January 2026 on."
 status = "live"
 
 [[sections]]
@@ -382,10 +381,43 @@ recent_open_days = 30
 # How often each data source should update. The daily run fails when one goes
 # longer than max_days, and the About page lists them. Figures published
 # monthly or yearly are judged by the engine (pipeline/rhythms.py).
+# The Board of Public Education's and its committees' meetings, agendas and
+# minutes, from the district's Diligent Community portal. The portal's meeting
+# types aren't always the board (a retreat, a budget forum and the ad-hoc
+# committee are filed under the Attendance Boundaries Advisory Committee), so
+# the board is found in the meeting's name first; a name with none of these is
+# the board's own. The board approves its minutes in a later meeting's packet;
+# none are posted on the portal on their own. The joint meetings of the city's
+# and the district's finance committees are left out: the city hosts them and
+# lists them on its own portal, as the City Council Finance Committee's.
+[diligent_meetings]
+page_url = "https://portlandschools.community.highbond.com/Portal/"
+source_name = "Portland Public Schools"
+since = "2026-01-01"
+body = "Board of Public Education"
+minutes = false
+exclude_pattern = '^Joint\b'
+
+[diligent_meetings.bodies]
+"Business Meeting" = "Board of Public Education"
+"Board of Public Education" = "Board of Public Education"
+"Board Retreat" = "Board of Public Education"
+"Public Forum" = "Board of Public Education"
+"Delegation Meeting" = "Board of Public Education"
+"Finance, Personnel and Operations Committee" = "Board of Public Education Finance, Personnel and Operations Committee"
+"Policy Committee" = "Board of Public Education Policy Committee"
+"Curriculum and Student Success Committee" = "Board of Public Education Curriculum and Student Success Committee"
+"Public and Legislative Affairs Committee" = "Board of Public Education Public and Legislative Affairs Committee"
+"Appointments Committee" = "Board of Public Education Appointments Committee"
+"Attendance Boundaries Advisory Committee" = "Attendance Boundaries Advisory Committee"
+"Boundary Committee" = "Attendance Boundaries Advisory Committee"
+"Ad-hoc Committee on the District's Commitment to Equity" = "Ad-hoc Committee on Equity, Belonging, and Supportive Schools"
+
 [freshness]
 summary_grace_days = 2
 sources = [
   { label = "Meetings (CivicClerk)", file = "meetings/status.json", max_days = 2 },
+  { label = "Board of Public Education meetings (Diligent Community)", file = "meetings/diligent_status.json", max_days = 2 },
   { label = "311 requests", file = "311/status.json", max_days = 2 },
   { label = "311 scorecard", file = "311/scorecard.json", field = "generated_at", max_days = 2 },
 ]
