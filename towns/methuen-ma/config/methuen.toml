@@ -314,14 +314,15 @@ dls_code = "181"
 # Housing: Census building permits (state and place FIPS codes), American
 # Community Survey through Census Reporter (geo ids), and the state's
 # Subsidized Housing Inventory PDF (the town's name as the PDF lists it).
-# Census Reporter's place is "Methuen Town" (2540710); the permits file and
-# BLS list the city under 40675.
+# The Census Bureau lists the city as "Methuen city" (2540675), the code the
+# permits file and BLS use; its former "Methuen Town" (2540710) is no longer
+# in the ACS 5-year release or TIGERweb.
 [housing]
 bps_region = "Northeast Region"
 bps_prefix = "ne"
 bps_state = "25"
 bps_place = "40675"
-census_geo = "16000US2540710"
+census_geo = "16000US2540675"
 state_geo = "04000US25"
 shi_url = "https://www.mass.gov/doc/subsidized-housing-inventory-2/download"
 shi_name = "Methuen"
