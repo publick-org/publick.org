@@ -1,46 +1,46 @@
 {
   "town": "waltham",
   "folder": "waltham-ma",
-  "started_at": "2026-10-14T09:15:05+00:00",
-  "finished_at": "2026-10-14T09:22:52+00:00",
-  "engine": "v1.55.0",
+  "started_at": "2026-10-15T09:20:05+00:00",
+  "finished_at": "2026-10-15T09:22:36+00:00",
+  "engine": "v1.56.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 411.3
+      "seconds": 91.8
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 5.9
+      "seconds": 5.7
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 34.5
+      "seconds": 37.2
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 11.1
+      "seconds": 14.4
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.6
+      "seconds": 0.7
     }
   ],
   "update": {
     "town": "waltham",
     "sources": "all",
-    "started_at": "2026-10-14T09:15:05+00:00",
+    "started_at": "2026-10-15T09:20:06+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 15.7,
+        "seconds": 15.9,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 325.9,
+        "seconds": 36.4,
         "cadence": "continuous"
       },
       {
@@ -82,15 +82,33 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.2,
+        "seconds": 3.8,
         "cadence": "continuous"
+      },
+      {
+        "name": "Fetch Diligent Community meetings",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [diligent_meetings] in the config"
+      },
+      {
+        "name": "Fetch Open Meetings portal meetings",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [opengov_meetings] in the config"
       },
       {
         "name": "Summarize agendas",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 67.8,
+        "seconds": 34.9,
         "cadence": "continuous"
       },
       {
@@ -100,7 +118,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 0 days ago; checked every 30 days"
+        "skipped": "checked 1 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -109,7 +127,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -118,7 +136,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 0 days ago; checked every 30 days"
+        "skipped": "checked 1 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -127,7 +145,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 0 days ago; checked every 30 days"
+        "skipped": "checked 1 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -136,7 +154,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -188,14 +206,14 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-14T05:15:05-04:00",
+      "updated_at": "2026-10-15T05:20:06-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-10-14T05:20:47-04:00",
+      "updated_at": "2026-10-15T05:20:58-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -283,17 +301,17 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-15T08:59:58+00:00",
-  "data_bytes": 810072,
-  "data_bytes_added": 24176,
+  "last_good_at": "2026-10-15T09:22:36+00:00",
+  "data_bytes": 823378,
+  "data_bytes_added": 13022,
   "activity": {
     "boards": 22,
     "meetings_by_date": {
-      "2026-10-14": 1,
       "2026-10-15": 1,
       "2026-10-19": 1,
       "2026-10-22": 1,
-      "2026-10-26": 1
+      "2026-10-26": 1,
+      "2026-10-28": 1
     }
   },
   "fact_checks": {
@@ -306,7 +324,5 @@
     "held_back": 4,
     "entries_not_shown": 17,
     "vote_counts_left_out": 0
-  },
-  "published_at": "2026-10-15T08:59:58+00:00",
-  "published_engine": "v1.56.0"
+  }
 }
