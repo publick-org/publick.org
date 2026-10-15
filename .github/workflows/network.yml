@@ -486,7 +486,12 @@ jobs:
           if [ -n "$ALLOWANCE_SHARE" ]; then
             PUBLICK_SUMMARY_ALLOWANCE_SHARE=$(tr 'a-j' '0-9' <<< "$ALLOWANCE_SHARE")
             PUBLICK_SUMMARY_BACKLOG_SHARE=$(tr 'a-j' '0-9' <<< "$BACKLOG_SHARE")
-            export PUBLICK_SUMMARY_ALLOWANCE_SHARE PUBLICK_SUMMARY_BACKLOG_SHARE
+            # An engine from before the shares reads these instead: none, so it summarizes nothing rather than
+            # summarize with no network limit. An engine with the shares uses the shares.
+            PUBLICK_SUMMARY_ALLOWANCE=0
+            PUBLICK_SUMMARY_BACKLOG_ALLOWANCE=0
+            export PUBLICK_SUMMARY_ALLOWANCE_SHARE PUBLICK_SUMMARY_BACKLOG_SHARE PUBLICK_SUMMARY_ALLOWANCE \
+              PUBLICK_SUMMARY_BACKLOG_ALLOWANCE
           fi
           read -ra towns <<< "$TOWNS"
           status=0
