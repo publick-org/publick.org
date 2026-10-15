@@ -6,12 +6,10 @@
 # CivicPlus, but since January 2026 the Town Council and the town's boards post
 # their meetings, agendas, and minutes on the town's CivicClerk portal
 # ([meetings.civicclerk]); earlier ones are on ClerkBase, which the engine
-# doesn't read. The School Committee posts on BoardDocs and the Secretary of
-# State's Open Meetings portal, neither of which the engine reads (and BoardDocs
-# refuses automated requests), so its meetings aren't collected; its members
-# are on the Officials page. The district's website (SchoolMessenger Presence)
-# has no calendar feed for [ical_meetings], and its year's meeting dates are a
-# PDF, which [schedule_meetings] doesn't read. Service requests are on SeeClickFix, which the
+# doesn't read. The School Committee posts on BoardDocs, which refuses
+# automated requests, and files its notices, agendas, and minutes with the
+# Secretary of State's Open Meetings portal, as every Rhode Island public body
+# does, read as [opengov_meetings]; its members are on the Officials page. Service requests are on SeeClickFix, which the
 # town started using in July 2026 ([seeclickfix]). The engine's Rhode Island
 # package gives the tax rates, levy, and assessed values, from the Division of
 # Municipal Finance ([finance]; Rhode Island has no tax bill source), and school
@@ -61,7 +59,7 @@ official_site = "https://www.southkingstownri.gov"
 [[sections]]
 slug = "meetings"
 title = "Meetings"
-summary = "When the Town Council and the town's boards and commissions meet, with agendas, and minutes from January 2026 on."
+summary = "When the Town Council, the town's boards and commissions, and the School Committee meet, with agendas, and minutes from January 2026 on."
 status = "live"
 
 [[sections]]
@@ -297,10 +295,21 @@ radius_m = 50
 window_days = 60
 recent_open_days = 30
 
+# The School Committee's meetings, agendas and minutes, from the Secretary of
+# State's Open Meetings portal, where the public body is named exactly so.
+[opengov_meetings]
+page_url = "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201"
+source_name = "Rhode Island Open Meetings portal"
+since = "2026-01-01"
+
+[opengov_meetings.bodies]
+"South Kingstown School Committee" = "School Committee"
+
 [freshness]
 summary_grace_days = 2
 sources = [
   { label = "Meetings (CivicClerk)", file = "meetings/status.json", max_days = 2 },
+  { label = "School Committee meetings (Open Meetings portal)", file = "meetings/opengov_status.json", max_days = 2 },
   { label = "311 requests", file = "311/status.json", max_days = 2 },
   { label = "311 scorecard", file = "311/scorecard.json", field = "generated_at", max_days = 2 },
 ]
@@ -357,7 +366,8 @@ members = [
 "Town budget" = "Presupuesto del pueblo"
 
 # Section summaries (the engine translates the section names every town shares).
-"When the Town Council and the town's boards and commissions meet, with agendas, and minutes from January 2026 on." = "Cuándo se reúnen el Concejo Municipal y las juntas y comisiones del municipio, con sus agendas, y las actas desde enero de 2026."
+"When the Town Council, the town's boards and commissions, and the School Committee meet, with agendas, and minutes from January 2026 on." = "Cuándo se reúnen el Concejo Municipal, las juntas y comisiones del municipio y el Comité Escolar, con sus agendas, y las actas desde enero de 2026."
+"School Committee meetings (Open Meetings portal)" = "Reuniones del Comité Escolar (portal de Reuniones Abiertas)"
 "How fast the town responds to service requests on SeeClickFix, by category and voting precinct." = "Qué tan rápido responde el municipio a las solicitudes de servicio en SeeClickFix, por categoría y por precinto electoral."
 "The town's property tax rates, what the property tax raises, and property tax per resident, compared with the state." = "Las tasas del impuesto a la propiedad del municipio, lo que recauda ese impuesto y el impuesto a la propiedad por residente, comparados con el estado."
 "Graduation, attendance, state test results, and spending per pupil compared with the state." = "Graduación, asistencia, resultados de los exámenes estatales y gasto por estudiante, comparados con el estado."
