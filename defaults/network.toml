@@ -46,14 +46,36 @@ public_url = "https://files.publick.org"
 # max_per_run documents or max_cost_per_run dollars. A town's [summaries] gives
 # its own `since`: only meetings from then on are summarized.
 [summaries]
-model = "claude-sonnet-5"
+model = "claude-haiku-5-5"
+# Sent with every summary and transcription request, one at a time or in a
+# batch (low, medium, high, xhigh, or max).
+effort = "high"
 max_per_run = 40
-# Prices per million tokens, for the spending limit below.
-input_price = 2.0
-output_price = 10.0
+# Prices per million tokens, for the spending limit below. A batch is priced at
+# half of each.
+input_price = 0.1
+output_price = 0.5
+# A request whose prompt is over long_prompt_tokens is priced, input and output,
+# at the long prices: in the ledger, and in the estimate that decides whether a
+# document fits a run's budget before it's sent.
+long_prompt_tokens = 100_000
+long_input_price = 0.5
+long_output_price = 2.5
 # A ceiling for one run. The network's monthly summary budget (SUMMARY_BUDGET in
 # .github/workflows/network.yml) decides what each run may spend, new documents first.
 max_cost_per_run = 5.0
+# Summaries in the site's other languages, translated from the English summary,
+# with their prices per million tokens (a translation's prompt is far under
+# long_prompt_tokens).
+translation_model = "claude-haiku-5-5"
+translation_effort = "high"
+translation_input_price = 0.1
+translation_output_price = 0.5
+# The AI review of each translation's meaning, by a second model.
+translation_review_model = "claude-sonnet-5-5"
+translation_review_effort = "low"
+translation_review_input_price = 2.0
+translation_review_output_price = 10.0
 
 # New agendas and minutes can wait this long for a summary before the daily run
 # flags them. Older ones are summarized a little each day within the network's
