@@ -430,6 +430,13 @@ jobs:
         run: |
           read -ra towns <<< "$TOWNS"
           status=0
+          # With an engine that can, after each town, the earlier towns' batches of summaries that have ended
+          # are collected and their towns published again, so none waits for the job's last town.
+          ready=""
+          if [ -n "$PUBLICK_SUMMARY_BATCH" ] && python -m pipeline.network run --help | grep -q -- --ready; then
+            ready=1
+          fi
+          done_towns=()
           for town in "${towns[@]}"; do
             sample=$SAMPLE
             if [ -n "$FULL_TOWNS" ] && [[ " $FULL_TOWNS " != *" $town "* ]]; then sample=--sample-checks; fi
@@ -437,10 +444,20 @@ jobs:
             if [ "$COMMIT" = true ]; then
               .publick-engine/.github/scripts/commit-data.sh "Update data for $town" "towns/$town/data" || status=1
             fi
+            if [ -n "$ready" ]; then
+              for earlier in "${done_towns[@]}"; do
+                [ -f "towns/$earlier/data/summary-batch.json" ] || continue
+                python -m pipeline.network run --towns "$earlier" --collect --ready $DEPLOY --sample-checks || status=1
+                if [ "$COMMIT" = true ] && [ ! -f "towns/$earlier/data/summary-batch.json" ]; then
+                  .publick-engine/.github/scripts/commit-data.sh "Add summaries for $earlier" "towns/$earlier/data" || status=1
+                fi
+              done
+            fi
+            done_towns+=("$town")
           done
-          # Then each town's batch of summaries, in the same order: the first towns' batches have had the
-          # others' time to finish. Collected (or, past half an hour, cancelled and the rest sent one at a time),
-          # the town is published again with them. Only with an engine that sends them.
+          # Then each town's batch of summaries not collected yet, in the same order, waited for: collected (or,
+          # past half an hour after it was sent, cancelled and the rest sent one at a time), the town is
+          # published again with them. Only with an engine that sends them.
           if [ -n "$PUBLICK_SUMMARY_BATCH" ] && python -m pipeline.network run --help | grep -q -- --collect; then
             for town in "${towns[@]}"; do
               [ -f "towns/$town/data/summary-batch.json" ] || continue
