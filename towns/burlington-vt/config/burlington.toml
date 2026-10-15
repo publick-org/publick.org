@@ -6,10 +6,10 @@
 # but its Agenda Center is empty: every city body posts its meetings, agendas,
 # and minutes on the city's CivicClerk portal, read as [meetings.civicclerk],
 # as Manchester's aldermen are. The minutes are text PDFs. The Burlington
-# School Board posts on Diligent Community (bsdvt.community.highbond.com),
-# which the engine can't read yet, so the school board's meetings are left out
-# for now; the district's figures still come from the state ([schools]). The
-# city answers requests on SeeClickFix ([seeclickfix]). The engine's Vermont
+# School Board and its committees post their meetings, agendas, and minutes on
+# Diligent Community (bsdvt.community.highbond.com), read as
+# [diligent_meetings]; the district's figures come from the state ([schools]).
+# The city answers requests on SeeClickFix ([seeclickfix]). The engine's Vermont
 # package gives the tax rates, what the property tax raises, and the average
 # homestead tax bill, from the Department of Taxes ([finance]), and school
 # figures, from the Agency of Education; housing and unemployment come from
@@ -64,7 +64,7 @@ official_site = "https://www.burlingtonvt.gov"
 [[sections]]
 slug = "meetings"
 title = "Meetings"
-summary = "When the City Council, its committees, and the city's boards and commissions meet, with agendas, and minutes from April 2026 on."
+summary = "When the City Council, its committees, the city's boards and commissions, and the School Board meet, with agendas, and minutes from April 2026 on."
 status = "live"
 
 [[sections]]
@@ -416,10 +416,26 @@ bulk_file = "la.data.53.Vermont"
 # How often each data source should update. The daily run fails (and GitHub
 # emails the owner) when one goes longer than max_days, and the About page
 # lists them. Figures published monthly or yearly are judged by the engine.
+# The School Board's and its committees' meetings, agendas and minutes, from the
+# district's Diligent Community portal. Each meeting type is a board, but some
+# are written with "BSD" before them and some without.
+[diligent_meetings]
+page_url = "https://bsdvt.community.highbond.com/Portal/"
+source_name = "Burlington School District"
+since = "2026-01-01"
+
+[diligent_meetings.bodies]
+"BSD School Board Meeting" = "School Board"
+"Finance & Facilities Committee" = "School Board Finance and Facilities Committee"
+"Policy & Governance Committee" = "School Board Policy and Governance Committee"
+"Curriculum Committee" = "School Board Curriculum Committee"
+"Diversity, Equity & Inclusion Committee" = "School Board Diversity, Equity and Inclusion Committee"
+
 [freshness]
 summary_grace_days = 2
 sources = [
   { label = "Meetings (CivicClerk)", file = "meetings/status.json", max_days = 2 },
+  { label = "School Board meetings (Diligent Community)", file = "meetings/diligent_status.json", max_days = 2 },
   { label = "311 requests", file = "311/status.json", max_days = 2 },
   { label = "311 scorecard", file = "311/scorecard.json", field = "generated_at", max_days = 2 },
 ]
@@ -513,7 +529,12 @@ members = [
 "An independent guide to city government in Burlington, Vermont" = "Una guía independiente sobre el gobierno de la ciudad de Burlington, Vermont"
 
 # Section summaries (the engine translates the section names every town shares).
-"When the City Council, its committees, and the city's boards and commissions meet, with agendas, and minutes from April 2026 on." = "Cuándo se reúnen el Concejo Municipal, sus comités y las juntas y comisiones de la ciudad, con sus agendas, y las actas desde abril de 2026."
+"When the City Council, its committees, the city's boards and commissions, and the School Board meet, with agendas, and minutes from April 2026 on." = "Cuándo se reúnen el Concejo Municipal, sus comités, las juntas y comisiones de la ciudad y la Junta Escolar, con sus agendas, y las actas desde abril de 2026."
+"School Board meetings (Diligent Community)" = "Reuniones de la Junta Escolar (Diligent Community)"
+"School Board Finance and Facilities Committee" = "Comité de Finanzas e Instalaciones de la Junta Escolar"
+"School Board Policy and Governance Committee" = "Comité de Políticas y Gobernanza de la Junta Escolar"
+"School Board Curriculum Committee" = "Comité de Currículo de la Junta Escolar"
+"School Board Diversity, Equity and Inclusion Committee" = "Comité de Diversidad, Equidad e Inclusión de la Junta Escolar"
 "How fast the city responds to SeeClickFix requests, by category and ward." = "Qué tan rápido responde la ciudad a las solicitudes de SeeClickFix, por categoría y por distrito."
 "The city's tax rates, what the property tax raises for the city and for schools, and the average homestead tax bill." = "Las tasas de impuestos de la ciudad, lo que recauda el impuesto a la propiedad para la ciudad y para las escuelas, y la factura promedio del impuesto a la propiedad de una vivienda principal (homestead)."
 "Burlington School District's graduation rate, attendance, state test results, and spending per pupil, with the state's." = "La tasa de graduación del Distrito Escolar de Burlington, la asistencia, los resultados de los exámenes estatales y el gasto por estudiante, comparados con los del estado."
