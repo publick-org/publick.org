@@ -2,8 +2,8 @@
   "headline": "Audiencias públicas sobre una unidad de vivienda accesoria en 48 Essex Street y un centro de cuidado infantil en 200 Exchange Street.",
   "summary": "El Comité de Revisión de Planos del Sitio realizará audiencias públicas sobre una unidad de vivienda accesoria propuesta en 48 Essex Street y un centro de cuidado infantil de KinderCare Education propuesto en 200 Exchange Street. También revisará las actas de septiembre y tratará otros asuntos.",
   "items": [
-    "Revisión de planos del sitio para una unidad de vivienda accesoria en 48 Essex Street (Parcel ID 083 402 224), solicitud de permiso #RES-078067-2026, para construir una unidad de vivienda accesoria en el garaje independiente existente de dos pisos, accesoria a la vivienda de dos familias existente",
-    "Revisión de planos del sitio para usos como centro educativo, religioso o de cuidado infantil en 200 Exchange Street (Parcel ID 051 278 801), solicitud de permiso #CMID078749-2026, para ocupar el edificio existente con un centro educativo de cuidado infantil (KinderCare Education)",
+    "Revisión de planos del sitio para una unidad de vivienda accesoria en 48 Essex Street (número de parcela 083 402 224), solicitud de permiso #RES-078067-2026, para construir una unidad de vivienda accesoria en el garaje independiente de dos pisos que ya existe, como complemento de la vivienda para dos familias que ya existe",
+    "Revisión de planos del sitio para usos como centro educativo, religioso o de cuidado infantil en 200 Exchange Street (número de parcela 051 278 801), solicitud de permiso #CMID078749-2026, para ocupar el edificio existente con un centro educativo de cuidado infantil (KinderCare Education)",
     "Otros asuntos que se presenten debidamente ante el Comité",
     "Próxima reunión programada: 24 de noviembre de 2026"
   ],
@@ -12,15 +12,16 @@
   "source_sha256": "b0b1e05af20aef6f946019f54ba4cc41433f7c879a05f0405297006e5b88e432",
   "source_hash": "1833db0952263f5947d04c9d79799e49ce53558c33849f1f596bc9f6e3f21ea5",
   "check": "ok",
-  "review": "items 1: The English words \"Parcel ID\" were left in the Spanish text. It should be \"número de parcela\" or \"identificación de parcela\". (Street names and proper names are exempt, but this is a generic term.) Also, \"accesoria a la vivienda de dos familias\" is awkward but keeps the meaning.; items 2: The English words \"Parcel ID\" were left in the Spanish text. It should be \"número de parcela\" or similar.",
-  "attempts": 1,
+  "review": "summary: The English says only \"The committee\" and never names it. The translation adds a name, \"Comité de Revisión de Planos del Sitio\", which the source text doesn't give. It should read \"El comité\".",
+  "attempts": 2,
   "model": "claude-sonnet-5-5",
   "prompt_version": 4,
-  "generated_at": "2026-10-14T06:11:46-04:00",
+  "generated_at": "2026-10-15T05:31:44-04:00",
   "usage": {
-    "input_tokens": 475,
-    "output_tokens": 464,
+    "input_tokens": 1145,
+    "output_tokens": 468,
     "cache_read_input_tokens": 1125
   },
-  "cost": 0.009978
+  "cost": 0.010376,
+  "replaced_cost": 0.009978
 }
