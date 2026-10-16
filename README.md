@@ -22,7 +22,7 @@ towns/<town>-<state>/         One folder per town, laid out as a town repository
 defaults/network.toml         The settings every town shares ([summaries] model and prices, the documents bucket,
                               GoatCounter, 311 and digest settings), under each town's own config (below)
 defaults/states/<st>.toml     The settings every town in a state shares (its name, Census and BLS codes, the
-                              glossary's definitions of its laws' terms)
+                              glossary of its civic terms and laws, in each language)
 states/ma/                    Statewide sources, fetched once for every town: Massachusetts's DLS reports (other
                               states' figures are saved in the engine, or fetched by each town)
 wrangler.toml                 The Worker that serves every site from the sites bucket
@@ -186,11 +186,21 @@ What every town shares is in `defaults/network.toml`, and what every town in
 a state shares in `defaults/states/<st>.toml`: the footer's network name and
 link, the GoatCounter site, the documents bucket, the summaries' model and
 prices, the 311 and digest settings, the state's name and codes, and the
-glossary's definitions of its laws' terms. A town's config leaves them out and
-takes them from there; a value it sets itself wins. A table there fills in the
-town's table of the same name only when the town has it (an empty `[digest]`
-turns the signup on), and a `[[glossary]]` entry with only its `term` takes
-the definition from the `[terms]` there. The engine's `pipeline/config.py`
+glossary. A town's config leaves them out and takes them from there; a value
+it sets itself wins. A table there fills in the town's table of the same name
+only when the town has it (an empty `[digest]` turns the signup on).
+
+The glossary is `[terms]`: the civic terms that read the same everywhere in
+`defaults/network.toml` (consent agenda, variance, town meeting, warrant
+article), and each state's laws and words in its file (Massachusetts's free
+cash and Order of Conditions, New Hampshire's non-public session), the
+state's winning. Each term has a column for each language, its wording there
+and its definition; another language is another column. Every town gets them
+all: its glossary page, the definitions on its meeting pages, and the words
+its translator is given and checked against (the engine's
+`pipeline/glossary.py`). A town's own `[[glossary]]` entries are only what
+means something of its own there (Nashua's ordinance numbers, Gloucester's
+Retirement Board warrant), and win over a term of the same name. The engine's `pipeline/config.py`
 checks both files (its README's "Settings shared by a network's towns"), and
 
 ```

@@ -20,13 +20,23 @@ state_geo = "04000US50"
 state_series = "LAUST500000000000003"
 bulk_file = "la.data.53.Vermont"
 
-# Glossary definitions for Vermont law and its terms: a town's [[glossary]] entry
-# with only its term takes the definition from here.
-[terms]
-"executive session" = "A part of a public meeting closed to the public. Vermont's Open Meeting Law allows it only for specific reasons, such as lawsuits, contracts, or personnel matters, and no final decision may be made in it."
-"VSA" = "Vermont Statutes Annotated, the state's laws (also written V.S.A.)."
+# The glossary: Vermont's terms, its laws and what they call things, each in
+# every language the sites have (see defaults/network.toml). They win over the
+# network's terms of the same name; a town's own [[glossary]] entry wins over
+# both.
 
-# The definitions above in Spanish.
-[strings.es]
-"A part of a public meeting closed to the public. Vermont's Open Meeting Law allows it only for specific reasons, such as lawsuits, contracts, or personnel matters, and no final decision may be made in it." = "Una parte de una reunión pública que se hace a puerta cerrada. La ley de reuniones abiertas de Vermont la permite solo por razones específicas, como demandas, contratos o asuntos de personal, y en ella no se puede tomar ninguna decisión final."
-"Vermont Statutes Annotated, the state's laws (also written V.S.A.)." = "Estatutos Anotados de Vermont (Vermont Statutes Annotated), las leyes del estado (también se escribe V.S.A.)."
+[terms."executive session"]
+en = { definition = "A part of a public meeting closed to the public. Vermont's Open Meeting Law allows it only for specific reasons, such as lawsuits, contracts, or personnel matters, and no final decision may be made in it." }
+es = { term = "sesión ejecutiva", definition = "Una parte de una reunión pública que se hace a puerta cerrada. La ley de reuniones abiertas de Vermont la permite solo por razones específicas, como demandas, contratos o asuntos de personal, y en ella no se puede tomar ninguna decisión final." }
+
+[terms."grand list"]
+en = { definition = "The total listed value of a city's or town's taxable property. Property tax rates are applied to it." }
+es = { term = "lista general de bienes gravables (grand list)", definition = "El valor total registrado de las propiedades sujetas a impuestos de una ciudad o un pueblo. Las tasas del impuesto a la propiedad se aplican sobre él." }
+
+[terms."Town Meeting Day"]
+en = { definition = "The first Tuesday in March, when Vermont's towns hold town meeting and many cities and towns vote on their budgets and elect their officials." }
+es = { term = "Día de la Asamblea Municipal (Town Meeting Day)", definition = "El primer martes de marzo, cuando los pueblos de Vermont celebran su asamblea municipal y muchas ciudades y pueblos votan sus presupuestos y eligen a sus funcionarios." }
+
+[terms.VSA]
+en = { definition = "Vermont Statutes Annotated, the state's laws (also written V.S.A.).", also = ["V.S.A."] }
+es = { term = "Estatutos Anotados de Vermont (VSA)", definition = "Estatutos Anotados de Vermont (Vermont Statutes Annotated), las leyes del estado (también se escribe V.S.A.).", also = ["V.S.A."] }

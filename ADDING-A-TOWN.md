@@ -180,10 +180,12 @@ shows no ward map; a town with neither (Bangor) has no 311 section yet.
       the committee's own name decides. A board name ending in "Meeting"
       makes titles read "… Meeting Meeting".
 - [ ] **Sections**: only what the town has. No 311 section without 311 data.
-- [ ] **Glossary**: terms that come up in this city's agendas. A term
-      whose definition is in `[terms]` in `defaults/` (the state's laws,
-      "executive session") needs only its `term` line; give a `definition`
-      only where the town's meaning differs.
+- [ ] **Glossary**: the network's and the state's terms (`[terms]` in
+      `defaults/`) are in every town's glossary already. Add a
+      `[[glossary]]` entry, with its `definition`, only for a term of the
+      town's own (its own offices and ordinances), or one it uses in another
+      sense than the state's. A term every town in the state would need goes
+      in the state's file instead, with its Spanish.
 - [ ] **Spanish**: every town launches in English and Spanish (`[site]
       languages` in `defaults/network.toml`). Nothing else to do: the first
       runs draft the town's own text (tagline, boards, seats) and translate

@@ -20,19 +20,27 @@ state_geo = "04000US23"
 state_series = "LAUST230000000000003"
 bulk_file = "la.data.26.Maine"
 
-# Glossary definitions for Maine law and its terms: a town's [[glossary]] entry
-# with only its term takes the definition from here.
-[terms]
-"executive session" = "A part of a public meeting closed to the public. Maine's Freedom of Access Act (1 M.R.S. § 405) allows it only for specific reasons, such as lawsuits, real estate, contracts, or personnel matters."
-"M.R.S." = "Maine Revised Statutes, the state's laws."
-"M.R.S.A." = "Maine Revised Statutes Annotated, the state's laws."
-"MRSA" = "Maine Revised Statutes Annotated, the state's laws."
-"TIF" = "Tax increment financing: a district where some of the property tax from new development is set aside, for public projects or for the development itself."
-"credit enhancement agreement" = "An agreement, under a tax increment financing (TIF) district, in which the city returns part of a development's new property tax to its owner."
+# The glossary: Maine's terms, its laws and what they call things, each in
+# every language the sites have (see defaults/network.toml). They win over the
+# network's terms of the same name; a town's own [[glossary]] entry wins over
+# both.
 
-# The definitions above in Spanish.
-[strings.es]
-"A part of a public meeting closed to the public. Maine's Freedom of Access Act (1 M.R.S. § 405) allows it only for specific reasons, such as lawsuits, real estate, contracts, or personnel matters." = "Una parte de una reunión pública que se hace a puerta cerrada. La Ley de Libertad de Acceso de Maine (Freedom of Access Act, 1 M.R.S. § 405) la permite solo por razones específicas, como demandas, bienes raíces, contratos o asuntos de personal."
-"Maine Revised Statutes Annotated, the state's laws." = "Estatutos Revisados Anotados de Maine (Maine Revised Statutes Annotated), las leyes del estado."
-"Tax increment financing: a district where some of the property tax from new development is set aside, for public projects or for the development itself." = "Financiamiento por incremento de impuestos (tax increment financing): una zona donde parte del impuesto a la propiedad que generan las nuevas construcciones se reserva para proyectos públicos o para el propio proyecto."
-"An agreement, under a tax increment financing (TIF) district, in which the city returns part of a development's new property tax to its owner." = "Un acuerdo, dentro de una zona de financiamiento por incremento de impuestos (TIF), en el que la ciudad le devuelve al dueño de un proyecto parte del nuevo impuesto a la propiedad que este genera."
+[terms."credit enhancement agreement"]
+en = { definition = "An agreement, under a tax increment financing (TIF) district, in which the city or town returns part of a development's new property tax to its owner." }
+es = { term = "acuerdo de mejora crediticia (credit enhancement agreement)", definition = "Un acuerdo, dentro de una zona de financiamiento por incremento de impuestos (TIF), en el que la ciudad o el pueblo le devuelve al dueño de un proyecto parte del nuevo impuesto a la propiedad que este genera.", also = ["acuerdo de mejora de crédito"] }
+
+[terms."executive session"]
+en = { definition = "A part of a public meeting closed to the public. Maine's Freedom of Access Act (1 M.R.S. § 405) allows it only for specific reasons, such as lawsuits, real estate, contracts, or personnel matters." }
+es = { term = "sesión ejecutiva", definition = "Una parte de una reunión pública que se hace a puerta cerrada. La Ley de Libertad de Acceso de Maine (Freedom of Access Act, 1 M.R.S. § 405) la permite solo por razones específicas, como demandas, bienes raíces, contratos o asuntos de personal." }
+
+[terms."M.R.S."]
+en = { definition = "Maine Revised Statutes, the state's laws." }
+es = { term = "Estatutos Revisados de Maine (M.R.S.)", definition = "Estatutos Revisados de Maine (Maine Revised Statutes), las leyes del estado." }
+
+[terms."M.R.S.A."]
+en = { definition = "Maine Revised Statutes Annotated, the state's laws.", also = ["MRSA"] }
+es = { term = "Estatutos Revisados Anotados de Maine (M.R.S.A.)", definition = "Estatutos Revisados Anotados de Maine (Maine Revised Statutes Annotated), las leyes del estado.", also = ["MRSA"] }
+
+[terms."ought to pass"]
+en = { definition = "A committee's recommendation that the full board or council approve an item. \"Ought not to pass\" recommends voting it down." }
+es = { term = "debe aprobarse (ought to pass)", definition = "La recomendación de un comité de que la junta o el concejo apruebe un asunto. «Ought not to pass» recomienda rechazarlo.", pattern = '\bdeb\w*\s+(?:ser\s+)?aprob\w*|\brecomend\w*[^.;]{0,40}\baprob\w*' }
