@@ -23,21 +23,13 @@ name = "Waltham Publick"
 # The masthead shows name_prefix in dark ink and name_suffix in the accent
 # color: the town, then the network.
 name_prefix = "Waltham "
-name_suffix = "Publick"
 domain = "waltham-ma.publick.org"
-# The network of town sites this one belongs to, named in every page footer.
-network = "Publick"
-network_url = "https://publick.org"
 tagline = "Public data on how Waltham, Massachusetts decides and spends. Updated daily."
 # One line under the name at the top of every page.
 masthead = "An independent guide to city government in Waltham, Massachusetts"
-repo_url = "https://github.com/publick-org/publick.org"
 # Public contact address. Shown on the About and Accessibility pages when set.
 contact_email = "waltham-ma@publick.org"
-timezone = "America/New_York"
 user_agent = "waltham-ma.publick.org (+https://waltham-ma.publick.org/about/)"
-# English at the site's root, Spanish under /es/.
-languages = ["en", "es"]
 
 # From the city website's stylesheet (city.waltham.ma.us): its link blue, its
 # dark navy (headlines, the menu, the footer), a light tint of the blue, and
@@ -52,7 +44,6 @@ accent = "#7d0818"
 
 [town]
 name = "Waltham"
-state = "Massachusetts"
 state_abbr = "MA"
 official_site = "https://www.city.waltham.ma.us"
 
@@ -99,9 +90,7 @@ status = "live"
 # Page view counting with GoatCounter, on the network's site; prefix is this
 # town's folder.
 [analytics]
-goatcounter = "publick"
 prefix = "waltham-ma"
-public_stats = ""
 
 # Public meetings, from the city's CivicPlus calendar and Agenda Center.
 [meetings]
@@ -233,9 +222,6 @@ agenda_pattern = '\bagenda\b|special meeting|workshop|public hearing'
 # Agenda and minutes PDFs live in the network's documents bucket, not in git
 # (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID, STORAGE_SECRET_ACCESS_KEY.
 [storage]
-endpoint = "https://6bbfee5a3892553c7993dbfa4b4e8453.r2.cloudflarestorage.com"
-bucket = "publick-documents"
-public_url = "https://files.publick.org"
 prefix = "waltham-ma"
 
 # Plain-English agenda text and previews, and decisions from minutes, written by
@@ -243,15 +229,7 @@ prefix = "waltham-ma"
 # `since` on are summarized, about three months before launch, so the town's
 # history doesn't take the month's budget.
 [summaries]
-model = "claude-sonnet-5"
 since = "2026-07-01"
-max_per_run = 40
-# Prices per million tokens, for the spending limit below.
-input_price = 2.0
-output_price = 10.0
-# A ceiling for one run. The network's monthly summary budget (SUMMARY_BUDGET in
-# .github/workflows/network.yml) decides what each run may spend, new documents first.
-max_cost_per_run = 5.0
 
 # How residents can take part, per board, shown on its meeting pages. The
 # council's dockets name no public comment period; its minutes show residents
@@ -284,15 +262,12 @@ video_url = "https://www.wcac.org/government"
 # Malden's config gives them.
 [[glossary]]
 term = "executive session"
-definition = "A part of a public meeting closed to the public. State law allows it only for specific reasons, such as lawsuits, negotiations, or personnel matters."
 
 [[glossary]]
 term = "M.G.L."
-definition = "Massachusetts General Laws, the state's laws."
 
 [[glossary]]
 term = "Open Meeting Law"
-definition = "The state law (M.G.L. Chapter 30A, Sections 18 to 25) that requires public boards to meet in public, post notice of their meetings in advance, and keep minutes."
 
 [[glossary]]
 term = "Committee of the Whole"
@@ -306,21 +281,17 @@ definition = "Permission, under the city's Zoning Ordinance, for a use that is a
 
 [[glossary]]
 term = "CPC"
-definition = "Community Preservation Committee, which manages the city's Community Preservation Act fund."
 
 [[glossary]]
 term = "CPA"
-definition = "Community Preservation Act. A local property tax surcharge, with state matching money, that pays for open space, historic preservation, affordable housing, and recreation."
 
 [[glossary]]
 term = "CDBG"
-definition = "Community Development Block Grant: federal money, from the Department of Housing and Urban Development, for housing and neighborhood projects that serve low- and moderate-income residents."
 
 # School district figures from the state's education data portal (DESE).
 [schools]
 district_code = "03080000"
 district_name = "Waltham Public Schools"
-portal = "https://educationtocareer.data.mass.gov"
 
 # Tax bill and budget figures (Mass. Division of Local Services). Some DLS
 # reports take the name, others the DOR code.
@@ -332,25 +303,18 @@ dls_code = "308"
 # Community Survey through Census Reporter (geo ids), and the state's
 # Subsidized Housing Inventory PDF (the town's name as the PDF lists it).
 [housing]
-bps_region = "Northeast Region"
-bps_prefix = "ne"
-bps_state = "25"
 bps_place = "72600"
 census_geo = "16000US2572600"
-state_geo = "04000US25"
-shi_url = "https://www.mass.gov/doc/subsidized-housing-inventory-2/download"
 shi_name = "Waltham"
 
 # Unemployment rate (BLS Local Area Unemployment Statistics). City rates are
 # not seasonally adjusted; the state series is shown for context.
 [labor]
 local_series = "LAUCT257260000000003"
-state_series = "LAUST250000000000003"
 
 # How often each data source should update. Figures published monthly or yearly
 # are judged by the engine, by the period they cover (pipeline/rhythms.py).
 [freshness]
-summary_grace_days = 2
 sources = [
   { label = "Meetings (Agenda Center)", file = "meetings/status.json", max_days = 2 },
   { label = "School Committee meetings (school district website)", file = "meetings/page_status.json", max_days = 2 },

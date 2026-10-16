@@ -24,21 +24,13 @@ name = "Methuen Publick"
 # The masthead shows name_prefix in dark ink and name_suffix in the accent
 # color: the town, then the network.
 name_prefix = "Methuen "
-name_suffix = "Publick"
 domain = "methuen-ma.publick.org"
-# The network of town sites this one belongs to, named in every page footer.
-network = "Publick"
-network_url = "https://publick.org"
 tagline = "Public data on how Methuen, Massachusetts responds, decides, and spends. Updated daily."
 # One line under the name at the top of every page.
 masthead = "An independent guide to city government in Methuen, Massachusetts"
-repo_url = "https://github.com/publick-org/publick.org"
 # Public contact address. Shown on the About and Accessibility pages when set.
 contact_email = "methuen-ma@publick.org"
-timezone = "America/New_York"
 user_agent = "methuen-ma.publick.org (+https://methuen-ma.publick.org/about/)"
-# English at the site's root, Spanish under /es/.
-languages = ["en", "es"]
 
 # From the city website's theme stylesheet (methuen.gov): its indigo (the most
 # used after white and black: headlines, the footer, the sidebar), the dark
@@ -54,7 +46,6 @@ accent = "#a95c0a"
 
 [town]
 name = "Methuen"
-state = "Massachusetts"
 state_abbr = "MA"
 official_site = "https://www.methuen.gov"
 
@@ -108,9 +99,7 @@ status = "live"
 # Page view counting with GoatCounter, on the network's site; prefix is this
 # town's folder.
 [analytics]
-goatcounter = "publick"
 prefix = "methuen-ma"
-public_stats = ""
 
 # Public meetings, from the city's calendar and Agenda Center.
 [meetings]
@@ -192,14 +181,7 @@ body = "School Committee"
 # March 2026 were closed).
 [seeclickfix]
 organization_id = 1452
-open311_base = "https://seeclickfix.com/open311/v2"
-api_base = "https://seeclickfix.com/api/v2"
 report_url = "https://seeclickfix.com/web_portal/H3G6t5xibMNrZURsJP8tbLwm/report/category"
-# SeeClickFix documents a limit of 20 requests per minute.
-request_delay = 3.2
-recent_days = 21
-max_details_per_run = 700
-time_budget_seconds = 2400
 # The month the full history starts (python -m pipeline.fetch_311 --backfill).
 # Older requests are included only while they are still open.
 history_since = "2026-01"
@@ -237,19 +219,9 @@ wards_publisher = "MassGIS"
 wards_year = "2022"
 wards_url = "https://gis.data.mass.gov/maps/aec5130790814ace94438d3bcf23cf9a"
 
-# Repeat locations: requests in the same category within radius_m meters and
-# window_days days of each other are grouped as one place.
-[seeclickfix.repeats]
-radius_m = 50
-window_days = 60
-recent_open_days = 30
-
 # Agenda and minutes PDFs live in the network's documents bucket, not in git
 # (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID, STORAGE_SECRET_ACCESS_KEY.
 [storage]
-endpoint = "https://6bbfee5a3892553c7993dbfa4b4e8453.r2.cloudflarestorage.com"
-bucket = "publick-documents"
-public_url = "https://files.publick.org"
 prefix = "methuen-ma"
 
 # Plain-English agenda text and previews, and decisions from minutes, written by
@@ -257,15 +229,7 @@ prefix = "methuen-ma"
 # `since` on are summarized, about three months before launch, so the town's
 # history doesn't take the month's budget.
 [summaries]
-model = "claude-sonnet-5"
 since = "2026-07-01"
-max_per_run = 40
-# Prices per million tokens, for the spending limit below.
-input_price = 2.0
-output_price = 10.0
-# A ceiling for one run. The network's monthly summary budget (SUMMARY_BUDGET in
-# .github/workflows/network.yml) decides what each run may spend, new documents first.
-max_cost_per_run = 5.0
 
 # How residents can take part, per board, shown on its meeting pages. From
 # Rule XI of the council's Rules and Procedures (as amended February 5, 2024,
@@ -293,17 +257,14 @@ video_url = "https://www.youtube.com/channel/UCez3QQIzOP9up4JK-B08L5g"
 # where they appear. Acronyms match exactly; other terms ignore case.
 [[glossary]]
 term = "executive session"
-definition = "A part of a public meeting closed to the public. State law allows it only for specific reasons, such as lawsuits, negotiations, or personnel matters."
 
 [[glossary]]
 term = "M.G.L."
-definition = "Massachusetts General Laws, the state's laws."
 
 # School district figures from the state's education data portal (DESE).
 [schools]
 district_code = "01810000"
 district_name = "Methuen Public Schools"
-portal = "https://educationtocareer.data.mass.gov"
 
 # Tax bill and budget figures (Mass. Division of Local Services). Some DLS
 # reports take the name, others the DOR code.
@@ -318,13 +279,8 @@ dls_code = "181"
 # permits file and BLS use; its former "Methuen Town" (2540710) is no longer
 # in the ACS 5-year release or TIGERweb.
 [housing]
-bps_region = "Northeast Region"
-bps_prefix = "ne"
-bps_state = "25"
 bps_place = "40675"
 census_geo = "16000US2540675"
-state_geo = "04000US25"
-shi_url = "https://www.mass.gov/doc/subsidized-housing-inventory-2/download"
 shi_name = "Methuen"
 
 # Unemployment rate (BLS Local Area Unemployment Statistics, area
@@ -332,12 +288,10 @@ shi_name = "Methuen"
 # state series is shown for context.
 [labor]
 local_series = "LAUCT254067500000003"
-state_series = "LAUST250000000000003"
 
 # How often each data source should update. Figures published monthly or yearly
 # are judged by the engine, by the period they cover (pipeline/rhythms.py).
 [freshness]
-summary_grace_days = 2
 sources = [
   { label = "Meetings (Agenda Center)", file = "meetings/status.json", max_days = 2 },
   { label = "School Committee meetings (school district website)", file = "meetings/page_status.json", max_days = 2 },

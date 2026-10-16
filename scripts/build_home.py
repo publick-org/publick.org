@@ -28,7 +28,7 @@ town, and a new town is in it from its first build. robots.txt names it. The
 status page, which build_status.py adds, is kept out of search results, so out
 of the sitemap.
 
-    python scripts/build_home.py --out _home    # the pages to publish
+    PYTHONPATH=../publick-engine python scripts/build_home.py --out _home    # the pages to publish
 """
 
 from __future__ import annotations
@@ -38,10 +38,13 @@ import json
 import re
 import shutil
 import sys
-import tomllib
 from datetime import date, datetime, timedelta, timezone
 from html import escape
 from pathlib import Path
+
+# Each town's config as the engine reads it, over the network's shared settings (defaults/network.toml,
+# defaults/states/<st>.toml): the engine is on PYTHONPATH, as for building a town.
+from pipeline.config import read_config
 
 ROOT = Path(__file__).resolve().parent.parent
 # A state with this many live towns gets its own page.
@@ -57,7 +60,7 @@ def live_towns(root: Path) -> list[dict]:
         configs = list((folder / "config").glob("*.toml")) if folder.is_dir() else []
         if len(configs) != 1:
             continue
-        config = tomllib.loads(configs[0].read_text(encoding="utf-8"))
+        config = read_config(configs[0], root)
         site, town = config["site"], config["town"]
         record = folder / "data" / "run.json"
         activity = json.loads(record.read_text(encoding="utf-8")).get("activity") if record.exists() else None

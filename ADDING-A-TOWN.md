@@ -148,6 +148,11 @@ shows no ward map; a town with neither (Bangor) has no 311 section yet.
       (name, domain `<town>-<state>.publick.org`, `contact_email`,
       `user_agent`), `[town]`, `[analytics] prefix`, `[storage] prefix`, the
       tables above, and `[freshness]` (drop 311 if the town has none).
+      What every town shares, or every town in the state, isn't in a
+      town's config: it's in `defaults/network.toml` and
+      `defaults/states/<st>.toml` (README, "Adding a town"), picked by
+      `[town] state_abbr`. Leave it out, or set the town's own value where
+      it differs.
 - [ ] **Colors** (`[site.colors]`): the most-used colors in the city
       website's stylesheet; each must reach 4.5:1 on white.
 - [ ] **City calendar** (`[meetings.civicplus]`, for a CivicPlus city): the
@@ -175,14 +180,17 @@ shows no ward map; a town with neither (Bangor) has no 311 section yet.
       the committee's own name decides. A board name ending in "Meeting"
       makes titles read "… Meeting Meeting".
 - [ ] **Sections**: only what the town has. No 311 section without 311 data.
-- [ ] **Glossary**: terms that come up in this city's agendas.
-- [ ] **Spanish**: `languages = ["en", "es"]` in `[site]`. Every town launches
-      in both. Nothing else to do: the first runs draft the town's own text
-      (tagline, boards, seats) and translate its summaries, each checked
-      without AI and reviewed by a second AI model; anything that fails is
-      shown in English. No person checks the Spanish, and the site says so.
-      Role titles in Spanish use the generic form ("Vicepresidente"), since
-      the holder changes.
+- [ ] **Glossary**: terms that come up in this city's agendas. A term
+      whose definition is in `[terms]` in `defaults/` (the state's laws,
+      "executive session") needs only its `term` line; give a `definition`
+      only where the town's meaning differs.
+- [ ] **Spanish**: every town launches in English and Spanish (`[site]
+      languages` in `defaults/network.toml`). Nothing else to do: the first
+      runs draft the town's own text (tagline, boards, seats) and translate
+      its summaries, each checked without AI and reviewed by a second AI
+      model; anything that fails is shown in English. No person checks the
+      Spanish, and the site says so. Role titles in Spanish use the generic
+      form ("Vicepresidente"), since the holder changes.
 
 ## 6. Check before merging
 
@@ -220,8 +228,9 @@ shows no ward map; a town with neither (Bangor) has no 311 section yet.
 ## 8. A week after launch
 
 - [ ] **Weekly digest by email**, once the town has a full week of
-      meetings to send: copy `[digest]` from any town's config (`signup`,
-      `provider`, `privacy_url`), and add `<town>-<state>.publick.org` to
+      meetings to send: add an empty `[digest]` table to its config (the
+      signup's settings are in `defaults/network.toml`), and add
+      `<town>-<state>.publick.org` to
       `DIGEST_TOWNS` in `wrangler.scheduler.toml`. Once that's merged, run
       **Actions → Worker**: it also makes the town's Buttondown tag,
       `<town>-<state>-en`.
