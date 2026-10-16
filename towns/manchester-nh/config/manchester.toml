@@ -16,21 +16,13 @@ name = "Manchester Publick"
 # town, then the network. The icon (site/static/favicon.svg) is the network's
 # P in the headline font, the same for every town.
 name_prefix = "Manchester "
-name_suffix = "Publick"
 domain = "manchester-nh.publick.org"
-# The network of town sites this one belongs to, named in every page footer.
-network = "Publick"
-network_url = "https://publick.org"
 tagline = "Public data on how Manchester, New Hampshire is doing. Updated daily."
 # One line under the name at the top of every page.
 masthead = "An independent guide to city government in Manchester, New Hampshire"
-repo_url = "https://github.com/publick-org/publick.org"
 # Public contact address. Shown on the About and Accessibility pages when set.
 contact_email = "manchester-nh@publick.org"
-timezone = "America/New_York"
 user_agent = "manchester-nh.publick.org (+https://manchester-nh.publick.org/about/)"
-# English at the site's root, Spanish under /es/.
-languages = ["en", "es"]
 
 # The city's own colors, from manchesternh.gov's stylesheet: its blue (links,
 # buttons), navy (headings), a light tint of the blue, and its deep red (the
@@ -43,7 +35,6 @@ accent = "#7c2629"
 
 [town]
 name = "Manchester"
-state = "New Hampshire"
 state_abbr = "NH"
 official_site = "https://www.manchesternh.gov"
 
@@ -102,17 +93,13 @@ status = "live"
 # public_stats is the dashboard's public URL, if it has one; the About page
 # links it.
 [analytics]
-goatcounter = "publick"
 prefix = "manchester-nh"
-public_stats = ""
 
 # The weekly digest's email signup, on /digest/ (the engine's pipeline/digest.py). The form posts
 # to this site's /digest/subscribe, which the sites Worker answers (worker/digest.js) and passes on
 # to Buttondown with the tag manchester-nh-en. The About page names who keeps the addresses.
 [digest]
-signup = true
-provider = "Buttondown"
-privacy_url = "https://buttondown.com/legal/privacy"
+# The network's settings (defaults/network.toml): having the table turns the signup on.
 
 # Public meetings, from two places. The Board of Mayor and Aldermen, its
 # committees, and the City Clerk's boards are on the city's CivicClerk portal
@@ -229,11 +216,9 @@ video_url = "https://www.manchestertv.org/22"
 # Improvement Program, and Zoning Board pages, and the city's own minutes.
 [[glossary]]
 term = "non-public session"
-definition = "A part of a meeting closed to the public. New Hampshire's Right-to-Know Law (RSA 91-A) allows it only for certain reasons, such as buying or selling property, personnel matters, or labor negotiations."
 
 [[glossary]]
 term = "RSA"
-definition = "Revised Statutes Annotated, New Hampshire's state laws."
 
 [[glossary]]
 term = "BMA"
@@ -250,7 +235,6 @@ definition = "Routine items, chosen by the City Clerk with the mayor, that the B
 
 [[glossary]]
 term = "tabled"
-definition = "Set aside by a vote, to take up later. A tabled item comes back when the board votes to take it off the table."
 
 [[glossary]]
 term = "receive and file"
@@ -262,7 +246,6 @@ definition = "Tax increment financing: a district where the extra property tax f
 
 [[glossary]]
 term = "ZBA"
-definition = "Zoning Board of Adjustment."
 
 [[glossary]]
 term = "variance"
@@ -271,9 +254,6 @@ definition = "Permission from the Zoning Board of Adjustment to use or build on 
 # Agenda and minutes PDFs live in the network's documents bucket, not in git
 # (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID, STORAGE_SECRET_ACCESS_KEY.
 [storage]
-endpoint = "https://6bbfee5a3892553c7993dbfa4b4e8453.r2.cloudflarestorage.com"
-bucket = "publick-documents"
-public_url = "https://files.publick.org"
 prefix = "manchester-nh"
 
 # Plain-English agenda text and previews, and decisions from minutes, written by
@@ -283,15 +263,7 @@ prefix = "manchester-nh"
 # meetings from `since` on are summarized: earlier meetings keep the summaries
 # they have, and the rest link their documents.
 [summaries]
-model = "claude-sonnet-5"
 since = "2026-07-01"
-max_per_run = 40
-# Prices per million tokens, for the spending limit below.
-input_price = 2.0
-output_price = 10.0
-# A ceiling for one run. The network's monthly summary budget (SUMMARY_BUDGET in
-# .github/workflows/network.yml) decides what each run may spend, new documents first.
-max_cost_per_run = 5.0
 
 # Tax rate, property tax, and the city's budget (pipeline/states/nh/). The tax
 # rates are the New Hampshire DRA's, from the engine's yearly statewide
@@ -314,12 +286,8 @@ district_name = "Manchester School District"
 # Community Survey through Census Reporter (geo ids). The Massachusetts-only
 # parts (shi_url, and parcel counts from [finance]) are left out.
 [housing]
-bps_region = "Northeast Region"
-bps_prefix = "ne"
-bps_state = "33"
 bps_place = "45140"
 census_geo = "16000US3345140"
-state_geo = "04000US33"
 
 # 311 requests, from SeeClickFix (public requests only). The city's organization
 # (512) covers Public Works, Parking, Police, and Water Works; departments leaves
@@ -327,16 +295,9 @@ state_geo = "04000US33"
 # the few request types SeeClickFix lists under no department.
 [seeclickfix]
 organization_id = 512
-open311_base = "https://seeclickfix.com/open311/v2"
-api_base = "https://seeclickfix.com/api/v2"
 departments = ["City of Manchester DPW", "City of Manchester - Parking", "City of Manchester - Police"]
 scope_note = "Requests to Public Works, such as potholes, trash and recycling pickups, streetlights, signs, and trees; to Parking, for parking enforcement and broken meters; and to Police, for non-emergency calls, property conditions, and fireworks. Water Works' lead service line survey isn't included."
 report_url = "https://www.manchesternh.gov/residents/manchester-nh-connect"
-# SeeClickFix documents a limit of 20 requests per minute.
-request_delay = 3.2
-recent_days = 21
-max_details_per_run = 700
-time_budget_seconds = 2400
 # The month the full history starts (python -m pipeline.fetch_311 --backfill).
 # Older requests are included only while they are still open.
 history_since = "2024-01"
@@ -347,21 +308,12 @@ wards_publisher = "NH GRANIT"
 wards_year = 2022
 wards_url = "https://www.arcgis.com/home/item.html?id=3d1a8bdf3eaa49e09cf5d9da5b56bf9c"
 
-# Repeat locations: requests in the same category within radius_m meters and
-# window_days days of each other are grouped as one place.
-[seeclickfix.repeats]
-radius_m = 50
-window_days = 60
-recent_open_days = 30
-
 # Unemployment rate (BLS Local Area Unemployment Statistics). City rates are
 # not seasonally adjusted; the state series is shown for context. bulk_file is
 # the state's file under download.bls.gov/pub/time.series/la/, used when the
 # API refuses.
 [labor]
 local_series = "LAUCT334514000000003"
-state_series = "LAUST330000000000003"
-bulk_file = "la.data.36.NewHampshire"
 
 # How often each data source should update. The daily run fails (and GitHub
 # emails the owner) when one goes longer than max_days, and the About page
@@ -369,10 +321,6 @@ bulk_file = "la.data.36.NewHampshire"
 [freshness]
 # Sources that change daily. Figures published monthly or yearly (tax bill, budget, schools,
 # unemployment, housing) are judged by the engine, by the period they cover (pipeline/rhythms.py).
-# New agendas and minutes can wait this long for a summary before the daily run
-# flags them. Older ones are summarized a little each day within the network's
-# budget and aren't counted.
-summary_grace_days = 2
 sources = [
   { label = "Meetings (city calendar and CivicClerk)", file = "meetings/status.json", max_days = 2 },
   { label = "311 requests", file = "311/status.json", max_days = 2 },
@@ -476,15 +424,11 @@ members = [
 "Manchester Public TV's Channel 22" = "el Canal 22 de Manchester Public TV"
 
 # Glossary definitions (the terms themselves stay as the agendas write them).
-"A part of a meeting closed to the public. New Hampshire's Right-to-Know Law (RSA 91-A) allows it only for certain reasons, such as buying or selling property, personnel matters, or labor negotiations." = "Una parte de una reunión que se hace a puerta cerrada. La Ley del Derecho a Saber de New Hampshire (Right-to-Know Law, RSA 91-A) la permite solo por ciertas razones, como la compra o venta de propiedades, asuntos de personal o negociaciones laborales."
-"Revised Statutes Annotated, New Hampshire's state laws." = "Estatutos Revisados Anotados (Revised Statutes Annotated), las leyes del estado de New Hampshire."
 "Board of Mayor and Aldermen, the city's governing body: the mayor and 14 aldermen." = "Junta del Alcalde y Concejales (Board of Mayor and Aldermen), el órgano de gobierno de la ciudad: el alcalde y 14 concejales."
 "Community Improvement Program: the city's plan for paying for capital projects and special programs, with grants, city bonds, and city cash. The Board of Mayor and Aldermen adopts one each year." = "Programa de Mejoras Comunitarias (Community Improvement Program): el plan de la ciudad para pagar proyectos de inversión de capital y programas especiales con subvenciones, bonos de la ciudad y efectivo de la ciudad. La Junta del Alcalde y Concejales aprueba uno cada año."
 "Routine items, chosen by the City Clerk with the mayor, that the Board approves together in one vote. Any member can have an item removed and taken up on its own." = "Asuntos de rutina, escogidos por el Secretario Municipal junto con el alcalde, que la Junta aprueba juntos en una sola votación. Cualquier miembro puede pedir que se saque un asunto para tratarlo por separado."
-"Set aside by a vote, to take up later. A tabled item comes back when the board votes to take it off the table." = "Dejado de lado mediante una votación, para tratarlo más adelante. Un asunto dejado sobre la mesa vuelve cuando la junta vota para retomarlo."
 "To accept a letter, report, or other document into the record, without taking any other action on it." = "Aceptar una carta, un informe u otro documento para que conste en el registro, sin tomar ninguna otra medida al respecto."
 "Tax increment financing: a district where the extra property tax from its growth in value is set aside to pay for public projects, such as roads or a parking garage." = "Financiamiento por incremento de impuestos (tax increment financing): una zona donde el impuesto a la propiedad adicional que genera el aumento de su valor se reserva para pagar proyectos públicos, como calles o un estacionamiento."
-"Zoning Board of Adjustment." = "Junta de Ajustes de Zonificación."
 "Permission from the Zoning Board of Adjustment to use or build on a property in a way the zoning ordinance doesn't allow. The board grants one only if five tests are met, among them that following the rule exactly would cause an unnecessary hardship." = "Un permiso de la Junta de Ajustes de Zonificación para usar o construir en una propiedad de una forma que la ordenanza de zonificación no permite. La junta lo concede solo si se cumplen cinco requisitos, entre ellos que aplicar la regla al pie de la letra causaría una dificultad innecesaria."
 
 # Where the city posts agendas and minutes, and the data the site keeps up to date.

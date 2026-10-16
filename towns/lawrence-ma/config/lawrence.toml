@@ -19,21 +19,13 @@ name = "Lawrence Publick"
 # The masthead shows name_prefix in dark ink and name_suffix in the accent
 # color: the town, then the network.
 name_prefix = "Lawrence "
-name_suffix = "Publick"
 domain = "lawrence-ma.publick.org"
-# The network of town sites this one belongs to, named in every page footer.
-network = "Publick"
-network_url = "https://publick.org"
 tagline = "Public data on how Lawrence, Massachusetts decides and spends. Updated daily."
 # One line under the name at the top of every page.
 masthead = "An independent guide to city government in Lawrence, Massachusetts"
-repo_url = "https://github.com/publick-org/publick.org"
 # Public contact address. Shown on the About and Accessibility pages when set.
 contact_email = "lawrence-ma@publick.org"
-timezone = "America/New_York"
 user_agent = "lawrence-ma.publick.org (+https://lawrence-ma.publick.org/about/)"
-# English at the site's root, Spanish under /es/.
-languages = ["en", "es"]
 
 # From the city website's theme (cityoflawrence.com): its navy and its green;
 # each passes WCAG AA on white. Its gold (#ffcc00) doesn't, so it isn't used.
@@ -45,7 +37,6 @@ accent = "#09846d"
 
 [town]
 name = "Lawrence"
-state = "Massachusetts"
 state_abbr = "MA"
 official_site = "https://www.cityoflawrence.com"
 
@@ -92,17 +83,13 @@ status = "live"
 # Page view counting with GoatCounter, on the network's site; prefix is this
 # town's folder.
 [analytics]
-goatcounter = "publick"
 prefix = "lawrence-ma"
-public_stats = ""
 
 # The weekly digest's email signup, on /digest/ (the engine's pipeline/digest.py). The form posts
 # to this site's /digest/subscribe, which the sites Worker answers (worker/digest.js) and passes on
 # to Buttondown with the tag lawrence-ma-en. The About page names who keeps the addresses.
 [digest]
-signup = true
-provider = "Buttondown"
-privacy_url = "https://buttondown.com/legal/privacy"
+# The network's settings (defaults/network.toml): having the table turns the signup on.
 
 # Public meetings, from the city's CivicPlus calendar and Agenda Center.
 [meetings]
@@ -159,20 +146,13 @@ since = "2026-01-01"
 
 # Agenda and minutes PDFs, in the network's documents bucket.
 [storage]
-endpoint = "https://6bbfee5a3892553c7993dbfa4b4e8453.r2.cloudflarestorage.com"
-bucket = "publick-documents"
-public_url = "https://files.publick.org"
 prefix = "lawrence-ma"
 
 # Agenda previews and decisions from minutes, written by a language model and
 # labeled as AI-generated on the site, and their Spanish translations (Claude
 # Haiku 4.5, the engine's default). Within the network's monthly budget.
 [summaries]
-model = "claude-sonnet-5"
-max_per_run = 40
-input_price = 2.0
-output_price = 10.0
-max_cost_per_run = 5.0
+# The network's settings (defaults/network.toml), with no `since`: every meeting is summarized.
 
 # How residents can take part, per board, shown on its meeting pages. Only
 # what the city or the school district has published; each entry names its source.
@@ -191,15 +171,12 @@ video_url = "https://www.youtube.com/@LawrencePublicSchools"
 # where they appear. Acronyms match exactly; other terms ignore case.
 [[glossary]]
 term = "executive session"
-definition = "A part of a public meeting closed to the public. State law allows it only for specific reasons, such as lawsuits, negotiations, or personnel matters."
 
 [[glossary]]
 term = "M.G.L."
-definition = "Massachusetts General Laws, the state's laws."
 
 [[glossary]]
 term = "Committee of the Whole"
-definition = "The full City Council meeting as a committee, to discuss a matter before voting on it at a regular meeting."
 
 [[glossary]]
 term = "CBA"
@@ -213,7 +190,6 @@ definition = "Cost-of-living adjustment: a raise in pay or a pension to keep up 
 [schools]
 district_code = "01490000"
 district_name = "Lawrence Public Schools"
-portal = "https://educationtocareer.data.mass.gov"
 
 # Tax bill and budget figures (Mass. Division of Local Services).
 [finance]
@@ -223,22 +199,15 @@ dls_code = "149"
 # Housing: Census building permits and the American Community Survey, and the
 # state's Subsidized Housing Inventory.
 [housing]
-bps_region = "Northeast Region"
-bps_prefix = "ne"
-bps_state = "25"
 bps_place = "34550"
 census_geo = "16000US2534550"
-state_geo = "04000US25"
-shi_url = "https://www.mass.gov/doc/subsidized-housing-inventory-2/download"
 shi_name = "Lawrence"
 
 # Unemployment rate (BLS Local Area Unemployment Statistics, area CT2534550000000).
 [labor]
 local_series = "LAUCT253455000000003"
-state_series = "LAUST250000000000003"
 
 [freshness]
-summary_grace_days = 2
 sources = [
   { label = "Meetings (Agenda Center)", file = "meetings/status.json", max_days = 2 },
 ]

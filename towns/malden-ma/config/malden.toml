@@ -15,21 +15,13 @@ name = "Malden Publick"
 # The masthead shows name_prefix in dark ink and name_suffix in the accent
 # color: the town, then the network.
 name_prefix = "Malden "
-name_suffix = "Publick"
 domain = "malden-ma.publick.org"
-# The network of town sites this one belongs to, named in every page footer.
-network = "Publick"
-network_url = "https://publick.org"
 tagline = "Public data on how Malden, Massachusetts responds, decides, and spends. Updated daily."
 # One line under the name at the top of every page.
 masthead = "An independent guide to city government in Malden, Massachusetts"
-repo_url = "https://github.com/publick-org/publick.org"
 # Public contact address. Shown on the About and Accessibility pages when set.
 contact_email = "malden-ma@publick.org"
-timezone = "America/New_York"
 user_agent = "malden-ma.publick.org (+https://malden-ma.publick.org/about/)"
-# English at the site's root, Spanish under /es/.
-languages = ["en", "es"]
 
 # From the city website's stylesheet (cityofmalden.org): its blue (links and the
 # banner), its dark navy (headings and the active tab), a light tint of the
@@ -44,7 +36,6 @@ accent = "#5f7701"
 
 [town]
 name = "Malden"
-state = "Massachusetts"
 state_abbr = "MA"
 official_site = "https://www.cityofmalden.org"
 
@@ -102,17 +93,13 @@ status = "live"
 # public_stats is the dashboard's public URL, if it has one; the About page
 # links it.
 [analytics]
-goatcounter = "publick"
 prefix = "malden-ma"
-public_stats = ""
 
 # The weekly digest's email signup, on /digest/ (the engine's pipeline/digest.py). The form posts
 # to this site's /digest/subscribe, which the sites Worker answers (worker/digest.js) and passes on
 # to Buttondown with the tag malden-ma-en. The About page names who keeps the addresses.
 [digest]
-signup = true
-provider = "Buttondown"
-privacy_url = "https://buttondown.com/legal/privacy"
+# The network's settings (defaults/network.toml): having the table turns the signup on.
 
 # Public meetings, from the city's CivicPlus calendar and Agenda Center.
 [meetings]
@@ -184,14 +171,7 @@ body = "School Committee"
 # 311 requests, from SeeClickFix (public requests only).
 [seeclickfix]
 organization_id = 337
-open311_base = "https://seeclickfix.com/open311/v2"
-api_base = "https://seeclickfix.com/api/v2"
 report_url = "https://seeclickfix.com/malden"
-# SeeClickFix documents a limit of 20 requests per minute.
-request_delay = 3.2
-recent_days = 21
-max_details_per_run = 700
-time_budget_seconds = 2400
 # The month the full history starts (python -m pipeline.fetch_311 --backfill).
 # Older requests are included only while they are still open.
 history_since = "2025-01"
@@ -200,19 +180,9 @@ wards_publisher = "MassGIS"
 wards_year = "2022"
 wards_url = "https://gis.data.mass.gov/maps/aec5130790814ace94438d3bcf23cf9a"
 
-# Repeat locations: requests in the same category within radius_m meters and
-# window_days days of each other are grouped as one place.
-[seeclickfix.repeats]
-radius_m = 50
-window_days = 60
-recent_open_days = 30
-
 # Agenda and minutes PDFs live in the network's documents bucket, not in git
 # (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID, STORAGE_SECRET_ACCESS_KEY.
 [storage]
-endpoint = "https://6bbfee5a3892553c7993dbfa4b4e8453.r2.cloudflarestorage.com"
-bucket = "publick-documents"
-public_url = "https://files.publick.org"
 prefix = "malden-ma"
 
 # Plain-English agenda text and previews, and decisions from minutes, written by
@@ -222,16 +192,7 @@ prefix = "malden-ma"
 # meetings from `since` on are summarized: earlier meetings keep the summaries
 # they have, and the rest link their documents.
 [summaries]
-model = "claude-sonnet-5"
 since = "2026-07-01"
-# Raised from 10 with max_cost_per_run below; about 12 cents a summary.
-max_per_run = 40
-# Prices per million tokens, for the spending limit below.
-input_price = 2.0
-output_price = 10.0
-# A ceiling for one run. The network's monthly summary budget (SUMMARY_BUDGET in
-# .github/workflows/network.yml) decides what each run may spend, new documents first.
-max_cost_per_run = 5.0
 
 # How residents can take part, per board, shown on its meeting pages. Only
 # what the city and the school district have published; each entry names its
@@ -262,19 +223,15 @@ video_url = "https://www.maldenps.org/district-information/school-committee/scho
 # (Beverly's) sums it up.
 [[glossary]]
 term = "executive session"
-definition = "A part of a public meeting closed to the public. State law allows it only for specific reasons, such as lawsuits, negotiations, or personnel matters."
 
 [[glossary]]
 term = "M.G.L."
-definition = "Massachusetts General Laws, the state's laws."
 
 [[glossary]]
 term = "ADA"
-definition = "Americans with Disabilities Act, the federal law on access for people with disabilities."
 
 [[glossary]]
 term = "CPA"
-definition = "Community Preservation Act. A local property tax surcharge, with state matching money, that pays for open space, historic preservation, affordable housing, and recreation."
 
 [[glossary]]
 term = "MBTA Communities"
@@ -282,7 +239,6 @@ definition = "The state law (Section 3A of the Zoning Act) requiring cities near
 
 [[glossary]]
 term = "Open Meeting Law"
-definition = "The state law (M.G.L. Chapter 30A, Sections 18 to 25) that requires public boards to meet in public, post notice of their meetings in advance, and keep minutes."
 
 [[glossary]]
 term = "consent agenda"
@@ -295,17 +251,14 @@ definition = "Office of Strategic Planning and Community Development, the city o
 
 [[glossary]]
 term = "CDBG"
-definition = "Community Development Block Grant: federal money, from the Department of Housing and Urban Development, for housing and neighborhood projects that serve low- and moderate-income residents."
 
 [[glossary]]
 term = "CPC"
-definition = "Community Preservation Committee, which manages the city's Community Preservation Act fund."
 
 # School district figures from the state's education data portal (DESE).
 [schools]
 district_code = "01650000"
 district_name = "Malden Public Schools"
-portal = "https://educationtocareer.data.mass.gov"
 
 # Tax bill and budget figures (Mass. Division of Local Services). Some DLS
 # reports take the name, others the DOR code.
@@ -317,30 +270,20 @@ dls_code = "165"
 # Community Survey through Census Reporter (geo ids), and the state's
 # Subsidized Housing Inventory PDF (the town's name as the PDF lists it).
 [housing]
-bps_region = "Northeast Region"
-bps_prefix = "ne"
-bps_state = "25"
 bps_place = "37875"
 census_geo = "16000US2537875"
-state_geo = "04000US25"
-shi_url = "https://www.mass.gov/doc/subsidized-housing-inventory-2/download"
 shi_name = "Malden"
 
 # Unemployment rate (BLS Local Area Unemployment Statistics). City rates are
 # not seasonally adjusted; the state series is shown for context.
 [labor]
 local_series = "LAUCT253787500000003"
-state_series = "LAUST250000000000003"
 
 # How often each data source should update. The daily run fails when one goes
 # longer than max_days, and the About page lists them.
 [freshness]
 # Sources that change daily. Figures published monthly or yearly (tax bill, budget, schools,
 # unemployment, housing) are judged by the engine, by the period they cover (pipeline/rhythms.py).
-# New agendas and minutes can wait this long for a summary before the daily run
-# flags them. Older ones are summarized a little each day within the network's
-# budget and aren't counted.
-summary_grace_days = 2
 sources = [
   { label = "Meetings (Agenda Center)", file = "meetings/status.json", max_days = 2 },
   { label = "311 requests", file = "311/status.json", max_days = 2 },
@@ -426,11 +369,8 @@ members = [
 
 # Glossary definitions (the terms themselves stay as the agendas write them).
 "The state law (Section 3A of the Zoning Act) requiring cities near MBTA service to allow multifamily housing by right in at least one district." = "La ley estatal (sección 3A de la Ley de Zonificación, Zoning Act) que exige a las ciudades cerca del servicio de la MBTA permitir viviendas multifamiliares sin necesidad de un permiso especial en al menos una zona."
-"The state law (M.G.L. Chapter 30A, Sections 18 to 25) that requires public boards to meet in public, post notice of their meetings in advance, and keep minutes." = "La ley estatal de reuniones abiertas (capítulo 30A, secciones 18 a 25, de las Leyes Generales de Massachusetts), que exige que las juntas públicas se reúnan en público, anuncien sus reuniones con anticipación y lleven actas."
 "Routine items, such as minutes, that the Council approves together in one vote. A councillor can ask to take an item off to discuss or amend it separately." = "Asuntos de rutina, como las actas, que el Concejo aprueba juntos en una sola votación. Un concejal puede pedir que se saque un asunto para tratarlo o enmendarlo por separado."
 "Office of Strategic Planning and Community Development, the city office for planning, housing, community and economic development, and grants." = "Oficina de Planificación Estratégica y Desarrollo Comunitario (Office of Strategic Planning and Community Development), la oficina de la ciudad encargada de la planificación, la vivienda, el desarrollo comunitario y económico, y las subvenciones."
-"Community Development Block Grant: federal money, from the Department of Housing and Urban Development, for housing and neighborhood projects that serve low- and moderate-income residents." = "Subvención en Bloque para el Desarrollo Comunitario (Community Development Block Grant): dinero federal del Departamento de Vivienda y Desarrollo Urbano para proyectos de vivienda y de barrios que benefician a residentes de ingresos bajos y moderados."
-"Community Preservation Committee, which manages the city's Community Preservation Act fund." = "Comité de Preservación Comunitaria (Community Preservation Committee), que administra el fondo de la Ley de Preservación Comunitaria de la ciudad."
 
 # Officials: notes, seats, and roles.
 "Eight councillors elected by ward and three at-large, for two years." = "Ocho concejales elegidos por distrito y tres por toda la ciudad, por dos años."

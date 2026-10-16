@@ -1,46 +1,46 @@
 {
   "town": "gloucester",
   "folder": "gloucester-ma",
-  "started_at": "2026-10-15T09:12:50+00:00",
-  "finished_at": "2026-10-15T09:20:03+00:00",
-  "engine": "v1.56.0",
+  "started_at": "2026-10-16T09:12:34+00:00",
+  "finished_at": "2026-10-16T09:17:48+00:00",
+  "engine": "v1.57.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 352.9
+      "seconds": 230.2
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 11.7
+      "seconds": 10.8
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 57.9
+      "seconds": 59.7
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 15.7
+      "seconds": 10.4
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 1.0
+      "seconds": 1.1
     }
   ],
   "update": {
     "town": "gloucester",
     "sources": "all",
-    "started_at": "2026-10-15T09:12:50+00:00",
+    "started_at": "2026-10-16T09:12:34+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 121.0,
+        "seconds": 108.9,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 10.0,
+        "seconds": 16.1,
         "cadence": "continuous"
       },
       {
@@ -64,7 +64,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 30.0,
+        "seconds": 20.5,
         "cadence": "continuous"
       },
       {
@@ -108,7 +108,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 84.8,
+        "seconds": 60.5,
         "cadence": "continuous"
       },
       {
@@ -118,7 +118,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 18 days ago; checked every 30 days"
+        "skipped": "checked 19 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -127,7 +127,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -136,7 +136,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 15 days ago; checked every 30 days"
+        "skipped": "checked 16 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -145,7 +145,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 17 days ago; checked every 30 days"
+        "skipped": "checked 18 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -154,7 +154,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -162,6 +162,14 @@
         "required": false,
         "error": null,
         "seconds": 0.2,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch address ranges",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 4.9,
         "cadence": "continuous"
       },
       {
@@ -185,7 +193,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 104.5,
+        "seconds": 16.6,
         "cadence": "continuous"
       },
       {
@@ -193,7 +201,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 1.4,
+        "seconds": 1.5,
         "cadence": "continuous"
       }
     ]
@@ -203,21 +211,21 @@
     {
       "label": "Meetings calendar",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-15T05:12:51-04:00",
+      "updated_at": "2026-10-16T05:12:35-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-10-15T05:16:57-04:00",
+      "updated_at": "2026-10-16T05:16:06-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-10-15T05:18:42-04:00",
+      "updated_at": "2026-10-16T05:16:23-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -231,7 +239,7 @@
     {
       "label": "School Committee documents (Google Drive)",
       "file": "meetings/drive_status.json",
-      "updated_at": "2026-10-15T05:15:02-04:00",
+      "updated_at": "2026-10-16T05:14:40-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -319,13 +327,12 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-15T17:27:37+00:00",
-  "data_bytes": 9559791,
-  "data_bytes_added": 6556598,
+  "last_good_at": "2026-10-16T09:50:12+00:00",
+  "data_bytes": 9853704,
+  "data_bytes_added": 6680548,
   "activity": {
     "boards": 41,
     "meetings_by_date": {
-      "2026-10-15": 2,
       "2026-10-19": 2,
       "2026-10-20": 2,
       "2026-10-21": 3,
@@ -335,16 +342,16 @@
     }
   },
   "fact_checks": {
-    "summaries": 99,
-    "ok": 87,
-    "failed": 5,
+    "summaries": 107,
+    "ok": 94,
+    "failed": 6,
     "weak": 0,
     "unchecked": 6,
     "not_yet": 1,
-    "held_back": 5,
-    "entries_not_shown": 7,
-    "vote_counts_left_out": 28
+    "held_back": 6,
+    "entries_not_shown": 8,
+    "vote_counts_left_out": 29
   },
-  "published_at": "2026-10-15T17:27:37+00:00",
-  "published_engine": "v1.56.0"
+  "published_at": "2026-10-16T09:50:12+00:00",
+  "published_engine": "v1.57.0"
 }
