@@ -25,21 +25,79 @@ state_series = "LAUST250000000000003"
 [schools]
 portal = "https://educationtocareer.data.mass.gov"
 
-# Glossary definitions for Massachusetts law and its terms: a town's
-# [[glossary]] entry with only its term takes the definition from here. The
-# Open Meeting Law as a Massachusetts school district's policy manual
-# (Beverly's) sums it up.
-[terms]
-"executive session" = "A part of a public meeting closed to the public. State law allows it only for specific reasons, such as lawsuits, negotiations, or personnel matters."
-"M.G.L." = "Massachusetts General Laws, the state's laws."
-"Open Meeting Law" = "The state law (M.G.L. Chapter 30A, Sections 18 to 25) that requires public boards to meet in public, post notice of their meetings in advance, and keep minutes."
-"CPA" = "Community Preservation Act. A local property tax surcharge, with state matching money, that pays for open space, historic preservation, affordable housing, and recreation."
-"CPC" = "Community Preservation Committee, which manages the city's Community Preservation Act fund."
-"ZBA" = "Zoning Board of Appeals."
+# The glossary: Massachusetts's terms, its laws and what they call things, each in
+# every language the sites have (see defaults/network.toml). They win over the
+# network's terms of the same name; a town's own [[glossary]] entry wins over
+# both.
 
-# The definitions above in Spanish, where the engine's own translations
-# (site/strings/es.po) don't have them.
-[strings.es]
-"The state law (M.G.L. Chapter 30A, Sections 18 to 25) that requires public boards to meet in public, post notice of their meetings in advance, and keep minutes." = "La ley estatal de reuniones abiertas (capítulo 30A, secciones 18 a 25, de las Leyes Generales de Massachusetts), que exige que las juntas públicas se reúnan en público, anuncien sus reuniones con anticipación y lleven actas."
-"Community Preservation Committee, which manages the city's Community Preservation Act fund." = "Comité de Preservación Comunitaria (Community Preservation Committee), que administra el fondo de la Ley de Preservación Comunitaria de la ciudad."
-"Zoning Board of Appeals." = "Junta de Apelaciones de Zonificación."
+[terms.CPA]
+en = { definition = "Community Preservation Act. A local property tax surcharge, with state matching money, that pays for open space, historic preservation, affordable housing, and recreation." }
+es = { term = "Ley de Preservación Comunitaria (CPA)", definition = "Ley de Preservación Comunitaria (Community Preservation Act): un recargo local al impuesto a la propiedad, con fondos estatales equivalentes, que paga espacios abiertos, preservación histórica, vivienda asequible y recreación." }
+
+[terms.CPC]
+en = { definition = "Community Preservation Committee, which reviews requests for Community Preservation Act money and recommends how to spend it." }
+es = { term = "Comité de Preservación Comunitaria (CPC)", definition = "Comité de Preservación Comunitaria (Community Preservation Committee), que estudia las solicitudes de fondos de la Ley de Preservación Comunitaria y recomienda cómo usarlos." }
+
+[terms."creditable service"]
+en = { definition = "Time worked that counts toward a public employee's pension." }
+es = { term = "servicio acreditable (creditable service)", definition = "El tiempo trabajado que cuenta para la pensión de un empleado público." }
+
+[terms."executive session"]
+en = { definition = "A part of a public meeting closed to the public. State law allows it only for specific reasons, such as lawsuits, negotiations, or personnel matters." }
+es = { term = "sesión ejecutiva", definition = "Una parte de una reunión pública que se hace a puerta cerrada. La ley estatal la permite solo por razones específicas, como demandas, negociaciones o asuntos de personal." }
+
+[terms."free cash"]
+en = { definition = "Money left over from the last fiscal year, once the state certifies it, that the council or town meeting can vote to spend or save." }
+es = { term = "efectivo disponible (free cash)", definition = "Dinero que sobró del año fiscal anterior, una vez que el estado lo certifica, y que el concejo o la asamblea municipal puede votar para gastar o ahorrar." }
+
+[terms.levy]
+en = { definition = "The total property tax a city or town raises in a year. Proposition 2½ limits how much it can grow each year: the levy limit.", pattern = '(?<!\bto\s)\b(?:tax\s+)?lev(?:y|ies)\b(?!\s+(?:a|an|the|fines?|fees?|taxes)\b)' }
+es = { term = "recaudación de impuestos (levy)", definition = "El total del impuesto a la propiedad que recauda una ciudad o un pueblo en un año. La Proposición 2½ limita cuánto puede crecer cada año: el límite de recaudación (levy limit).", also = ["recaudación"] }
+
+[terms."M.G.L."]
+en = { definition = "Massachusetts General Laws, the state's laws." }
+es = { term = "Leyes Generales de Massachusetts (M.G.L.)", definition = "Leyes Generales de Massachusetts (Massachusetts General Laws), las leyes del estado." }
+
+[terms.MACRIS]
+en = { definition = "Massachusetts Cultural Resource Information System, the state's inventory of historic buildings and places." }
+es = { term = "MACRIS", definition = "El Sistema de Información de Recursos Culturales de Massachusetts (Massachusetts Cultural Resource Information System), el inventario estatal de edificios y lugares históricos." }
+
+[terms."MBTA Communities"]
+en = { definition = "The state law (Section 3A of the Zoning Act) requiring cities and towns near MBTA service to allow multifamily housing by right in at least one district." }
+es = { term = "MBTA Communities", definition = "La ley estatal (sección 3A de la Ley de Zonificación) que exige que las ciudades y los pueblos con servicio de la MBTA permitan viviendas multifamiliares sin permiso especial en al menos una zona." }
+
+[terms."Notice of Intent"]
+en = { definition = "An application to the Conservation Commission, under the state's Wetlands Protection Act, for work in or near wetlands, rivers, or the coast." }
+es = { term = "Aviso de Intención (Notice of Intent)", definition = "Una solicitud a la Comisión de Conservación, bajo la Ley de Protección de Humedales del estado, para hacer obras en humedales, ríos o la costa, o cerca de ellos.", also = ["notificación de intención"] }
+
+[terms."Open Meeting Law"]
+en = { definition = "The state law (M.G.L. Chapter 30A, Sections 18 to 25) that requires public boards to meet in public, post notice of their meetings in advance, and keep minutes." }
+es = { term = "Ley de Reuniones Abiertas (Open Meeting Law)", definition = "La ley estatal de reuniones abiertas (capítulo 30A, secciones 18 a 25, de las Leyes Generales de Massachusetts), que exige que las juntas públicas se reúnan en público, anuncien sus reuniones con anticipación y lleven actas." }
+
+[terms."Order of Conditions"]
+en = { definition = "The Conservation Commission's permit for work in or near wetlands, with the conditions the work must follow." }
+es = { term = "orden de condiciones (Order of Conditions)", definition = "El permiso de la Comisión de Conservación para hacer obras en humedales o cerca de ellos, con las condiciones que deben cumplir." }
+
+[terms.PERAC]
+en = { definition = "Public Employee Retirement Administration Commission, the state agency that oversees Massachusetts public retirement systems." }
+es = { term = "Comisión de Administración de Jubilaciones de Empleados Públicos (PERAC)", definition = "Comisión de Administración de Jubilaciones de Empleados Públicos (Public Employee Retirement Administration Commission), la agencia estatal que supervisa los sistemas públicos de jubilación de Massachusetts." }
+
+[terms.PRIM]
+en = { definition = "Pension Reserves Investment Management Board, which manages the PRIT fund." }
+es = { term = "Junta de Gestión de Inversiones de las Reservas de Pensiones (PRIM)", definition = "Junta de Gestión de Inversiones de las Reservas de Pensiones (Pension Reserves Investment Management Board), que administra el fondo PRIT." }
+
+[terms.PRIT]
+en = { definition = "Pension Reserves Investment Trust, the state-run investment fund that local retirement systems can invest in." }
+es = { term = "Fideicomiso de Inversión de las Reservas de Pensiones (PRIT)", definition = "Fideicomiso de Inversión de las Reservas de Pensiones (Pension Reserves Investment Trust), el fondo de inversión del estado en el que pueden invertir los sistemas locales de jubilación." }
+
+[terms."special permit"]
+en = { definition = "Permission from a board the zoning names, such as the Zoning Board of Appeals or the Planning Board, for a use or project the zoning allows only with that board's approval." }
+es = { term = "permiso especial", definition = "Permiso de una junta que nombra la zonificación, como la Junta de Apelaciones de Zonificación o la Junta de Planificación, para un uso o un proyecto que la zonificación permite solo con la aprobación de esa junta." }
+
+[terms.superannuation]
+en = { definition = "Retirement based on age and years of service, rather than disability." }
+es = { term = "jubilación por edad (superannuation)", definition = "Jubilación por la edad y los años de servicio, y no por discapacidad." }
+
+[terms.ZBA]
+en = { definition = "Zoning Board of Appeals." }
+es = { term = "Junta de Apelaciones de Zonificación (ZBA)", definition = "Junta de Apelaciones de Zonificación (Zoning Board of Appeals)." }

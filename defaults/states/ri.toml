@@ -20,13 +20,19 @@ state_geo = "04000US44"
 state_series = "LAUST440000000000003"
 bulk_file = "la.data.47.RhodeIsland"
 
-# Glossary definitions for Rhode Island law and its terms: a town's [[glossary]] entry
-# with only its term takes the definition from here.
-[terms]
-"executive session" = "A part of a public meeting closed to the public. Rhode Island's Open Meetings Act (R.I.G.L. § 42-46-5) allows it only for specific reasons, such as lawsuits, collective bargaining, buying land, or personnel matters."
-"RIGL" = "Rhode Island General Laws, the state's laws."
+# The glossary: Rhode Island's terms, its laws and what they call things, each in
+# every language the sites have (see defaults/network.toml). They win over the
+# network's terms of the same name; a town's own [[glossary]] entry wins over
+# both.
 
-# The definitions above in Spanish.
-[strings.es]
-"A part of a public meeting closed to the public. Rhode Island's Open Meetings Act (R.I.G.L. § 42-46-5) allows it only for specific reasons, such as lawsuits, collective bargaining, buying land, or personnel matters." = "Una parte de una reunión pública que se hace a puerta cerrada. La Ley de Reuniones Abiertas de Rhode Island (R.I.G.L. § 42-46-5) la permite solo por razones específicas, como demandas, negociaciones colectivas, compra de terrenos o asuntos de personal."
-"Rhode Island General Laws, the state's laws." = "Leyes Generales de Rhode Island (Rhode Island General Laws), las leyes del estado."
+[terms."executive session"]
+en = { definition = "A part of a public meeting closed to the public. Rhode Island's Open Meetings Act (R.I.G.L. § 42-46-5) allows it only for specific reasons, such as lawsuits, collective bargaining, buying land, or personnel matters." }
+es = { term = "sesión ejecutiva", definition = "Una parte de una reunión pública que se hace a puerta cerrada. La Ley de Reuniones Abiertas de Rhode Island (R.I.G.L. § 42-46-5) la permite solo por razones específicas, como demandas, negociaciones colectivas, compra de terrenos o asuntos de personal." }
+
+[terms.RIGL]
+en = { definition = "Rhode Island General Laws, the state's laws.", also = ["R.I.G.L."] }
+es = { term = "Leyes Generales de Rhode Island (RIGL)", definition = "Leyes Generales de Rhode Island (Rhode Island General Laws), las leyes del estado.", also = ["R.I.G.L."] }
+
+[terms."victualling license"]
+en = { definition = "A license to serve food to the public, renewed each year. Rhode Island law calls a restaurant a victualler.", also = ["victualing license"] }
+es = { term = "licencia de venta de comidas (victualling license)", definition = "Una licencia para servir comida al público, que se renueva cada año. La ley de Rhode Island llama a un restaurante «victualler»." }
