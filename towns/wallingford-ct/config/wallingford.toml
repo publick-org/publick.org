@@ -19,20 +19,13 @@ name = "Wallingford Publick"
 # The masthead shows name_prefix in dark ink and name_suffix in the accent
 # color: the town, then the network.
 name_prefix = "Wallingford "
-name_suffix = "Publick"
 domain = "wallingford-ct.publick.org"
-# The network of town sites this one belongs to, named in every page footer.
-network = "Publick"
-network_url = "https://publick.org"
 tagline = "Public data on how Wallingford, Connecticut decides and spends. Updated daily."
 # One line under the name at the top of every page.
 masthead = "An independent guide to town government in Wallingford, Connecticut"
-repo_url = "https://github.com/publick-org/publick.org"
 # Public contact address. Shown on the About and Accessibility pages when set.
 contact_email = "wallingford-ct@publick.org"
-timezone = "America/New_York"
 user_agent = "wallingford-ct.publick.org (+https://wallingford-ct.publick.org/about/)"
-languages = ["en", "es"]
 
 # From the town website's stylesheet (wallingfordct.gov); each passes WCAG AA
 # on white. The accent is the site's green (#0e956b) darkened to pass.
@@ -44,7 +37,6 @@ accent = "#0c855f"
 
 [town]
 name = "Wallingford"
-state = "Connecticut"
 state_abbr = "CT"
 official_site = "https://www.wallingfordct.gov"
 
@@ -91,17 +83,13 @@ status = "live"
 # Page view counting with GoatCounter, on the network's site; prefix is this
 # town's folder.
 [analytics]
-goatcounter = "publick"
 prefix = "wallingford-ct"
-public_stats = ""
 
 # The weekly digest's email signup, on /digest/ (the engine's pipeline/digest.py). The form posts
 # to this site's /digest/subscribe, which the sites Worker answers (worker/digest.js) and passes on
 # to Buttondown with the tag wallingford-ct-en. The About page names who keeps the addresses.
 [digest]
-signup = true
-provider = "Buttondown"
-privacy_url = "https://buttondown.com/legal/privacy"
+# The network's settings (defaults/network.toml): having the table turns the signup on.
 
 # Public meetings, from the town website's meetings calendar and its Minutes &
 # Agendas page.
@@ -180,19 +168,12 @@ schedule_url = "https://www.wallingford.k12.ct.us/board-of-education/board-of-ed
 
 # Agenda and minutes PDFs, in the network's documents bucket.
 [storage]
-endpoint = "https://6bbfee5a3892553c7993dbfa4b4e8453.r2.cloudflarestorage.com"
-bucket = "publick-documents"
-public_url = "https://files.publick.org"
 prefix = "wallingford-ct"
 
 # Agenda previews and decisions from minutes, written by a language model and
 # labeled as AI-generated on the site. Within the network's monthly budget.
 [summaries]
-model = "claude-sonnet-5"
-max_per_run = 40
-input_price = 2.0
-output_price = 10.0
-max_cost_per_run = 5.0
+# The network's settings (defaults/network.toml), with no `since`: every meeting is summarized.
 
 # How residents can take part, per board, shown on its meeting pages. Only
 # what the town or the school district has published; each entry names its source.
@@ -218,11 +199,9 @@ video_url = "https://www.youtube.com/@WPSConnections"
 
 [[glossary]]
 term = "executive session"
-definition = "A part of a public meeting closed to the public. State law allows it only for specific reasons, such as lawsuits, real estate purchases, or personnel matters."
 
 [[glossary]]
 term = "C.G.S."
-definition = "Connecticut General Statutes, the state's laws."
 
 [[glossary]]
 term = "consent agenda"
@@ -255,21 +234,14 @@ district_name = "Wallingford Public Schools"
 # Connecticut's planning regions replaced its counties in 2022, so the town's
 # Census code is 0917078740 (0900978740 before).
 [housing]
-bps_region = "Northeast Region"
-bps_prefix = "ne"
-bps_state = "09"
 bps_mcd = "78740"
 census_geo = "06000US0917078740"
-state_geo = "04000US09"
 
 # Unemployment rate (BLS Local Area Unemployment Statistics, Wallingford town).
 [labor]
 local_series = "LAUCS097874000000003"
-state_series = "LAUST090000000000003"
-bulk_file = "la.data.13.Connecticut"
 
 [freshness]
-summary_grace_days = 2
 sources = [
   { label = "Meetings (town website)", file = "meetings/status.json", max_days = 2 },
   { label = "Board of Education meetings (school district website)", file = "meetings/finalsite_status.json", max_days = 2 },
@@ -353,8 +325,6 @@ members = [
 "Wallingford Public Schools' YouTube channel" = "el canal de YouTube de las Escuelas Públicas de Wallingford"
 
 # Glossary definitions (the terms themselves stay as the agendas write them).
-"A part of a public meeting closed to the public. State law allows it only for specific reasons, such as lawsuits, real estate purchases, or personnel matters." = "Una parte de una reunión pública que se hace a puerta cerrada. La ley estatal la permite solo por razones específicas, como demandas, compras de bienes raíces o asuntos de personal."
-"Connecticut General Statutes, the state's laws." = "Estatutos Generales de Connecticut (Connecticut General Statutes), las leyes del estado."
 "Routine items, such as tax refunds and approving past minutes, voted on together in one motion unless a member asks to take one up separately." = "Asuntos de rutina, como devoluciones de impuestos y la aprobación de actas anteriores, que se votan juntos en una sola moción, a menos que un miembro pida tratar alguno por separado."
 "The board, appointed by the mayor, that oversees the town's own electric, water, and sewer utilities." = "La comisión, nombrada por el alcalde, que supervisa los servicios de electricidad, agua y alcantarillado que son del propio municipio."
 

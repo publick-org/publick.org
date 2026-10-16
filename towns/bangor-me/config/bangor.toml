@@ -26,21 +26,13 @@ name = "Bangor Publick"
 # The masthead shows name_prefix in dark ink and name_suffix in the accent
 # color: the town, then the network.
 name_prefix = "Bangor "
-name_suffix = "Publick"
 domain = "bangor-me.publick.org"
-# The network of town sites this one belongs to, named in every page footer.
-network = "Publick"
-network_url = "https://publick.org"
 tagline = "Public data on how Bangor, Maine decides and spends. Updated daily."
 # One line under the name at the top of every page.
 masthead = "An independent guide to city government in Bangor, Maine"
-repo_url = "https://github.com/publick-org/publick.org"
 # Public contact address. Shown on the About and Accessibility pages when set.
 contact_email = "bangor-me@publick.org"
-timezone = "America/New_York"
 user_agent = "bangor-me.publick.org (+https://bangor-me.publick.org/about/)"
-# English at the site's root, Spanish under /es/.
-languages = ["en", "es"]
 
 # From the city website's stylesheet (bangormaine.gov): its blue (headings,
 # widget titles), the darker blue its tabs fade to, a light tint of the blue,
@@ -55,7 +47,6 @@ accent = "#d32101"
 
 [town]
 name = "Bangor"
-state = "Maine"
 state_abbr = "ME"
 official_site = "https://www.bangormaine.gov"
 
@@ -109,17 +100,13 @@ status = "live"
 # Page view counting with GoatCounter, on the network's site; prefix is this
 # town's folder.
 [analytics]
-goatcounter = "publick"
 prefix = "bangor-me"
-public_stats = ""
 
 # The weekly digest's email signup, on /digest/ (the engine's pipeline/digest.py). The form posts
 # to this site's /digest/subscribe, which the sites Worker answers (worker/digest.js) and passes on
 # to Buttondown with the tag bangor-me-en. The About page names who keeps the addresses.
 [digest]
-signup = true
-provider = "Buttondown"
-privacy_url = "https://buttondown.com/legal/privacy"
+# The network's settings (defaults/network.toml): having the table turns the signup on.
 
 # Public meetings, from the city's CivicPlus calendar and Agenda Center.
 [meetings]
@@ -174,9 +161,6 @@ exclude_categories = ["Weekly Full Packets"]
 
 # Agenda and minutes PDFs, in the network's documents bucket.
 [storage]
-endpoint = "https://6bbfee5a3892553c7993dbfa4b4e8453.r2.cloudflarestorage.com"
-bucket = "publick-documents"
-public_url = "https://files.publick.org"
 prefix = "bangor-me"
 
 # Agenda previews and decisions from minutes, written by a language model and
@@ -188,11 +172,6 @@ prefix = "bangor-me"
 # posted with their full packets (119 pages for September 28, 2026); those
 # over the engine's 100-page limit get no preview, but their minutes do.
 [summaries]
-model = "claude-sonnet-5"
-max_per_run = 40
-input_price = 2.0
-output_price = 10.0
-max_cost_per_run = 5.0
 since = "2026-07-01"
 
 # How residents can take part, per board, shown on its meeting pages. Only
@@ -216,15 +195,12 @@ video_url = "https://www.youtube.com/playlist?list=PL_WsDrL4bMJQz7rIVPiqI7SIT366
 # with bodies is shown only on those boards' meetings.
 [[glossary]]
 term = "executive session"
-definition = "A part of a public meeting closed to the public. Maine's Freedom of Access Act allows it only for specific reasons, such as lawsuits, real estate, or personnel matters."
 
 [[glossary]]
 term = "M.R.S.A."
-definition = "Maine Revised Statutes Annotated, the state's laws."
 
 [[glossary]]
 term = "MRSA"
-definition = "Maine Revised Statutes Annotated, the state's laws."
 
 [[glossary]]
 term = "consent agenda"
@@ -243,15 +219,12 @@ definition = "A kind of City Council vote. In Bangor, the Council appropriates m
 
 [[glossary]]
 term = "TIF"
-definition = "Tax increment financing: a district where some of the property tax from new development is set aside, for public projects or for the development itself."
 
 [[glossary]]
 term = "credit enhancement agreement"
-definition = "An agreement, under a tax increment financing (TIF) district, in which the city returns part of a development's new property tax to its owner."
 
 [[glossary]]
 term = "CDBG"
-definition = "Community Development Block Grant: federal money, from the Department of Housing and Urban Development, for housing and neighborhood projects that serve low- and moderate-income residents."
 
 [[glossary]]
 term = "quitclaim deed"
@@ -281,12 +254,8 @@ district_name = "Bangor School Department"
 # Community Survey through Census Reporter (geo ids). Bangor is a Census place
 # (Bangor city, 02795) and reports its permits every month.
 [housing]
-bps_region = "Northeast Region"
-bps_prefix = "ne"
-bps_state = "23"
 bps_place = "02795"
 census_geo = "16000US2302795"
-state_geo = "04000US23"
 
 # Unemployment rate (BLS Local Area Unemployment Statistics, area
 # CT2302795000000, Bangor city). City rates are not seasonally adjusted; the
@@ -294,8 +263,6 @@ state_geo = "04000US23"
 # download.bls.gov/pub/time.series/la/, used when the API refuses.
 [labor]
 local_series = "LAUCT230279500000003"
-state_series = "LAUST230000000000003"
-bulk_file = "la.data.26.Maine"
 
 # 311 requests, from SeeClickFix (public requests only). The city's
 # organization is 1848 ("Bangor, ME"), the one its "Report a Concern" link
@@ -305,30 +272,15 @@ bulk_file = "la.data.26.Maine"
 # pages show requests by category, with no areas.
 [seeclickfix]
 organization_id = 1848
-open311_base = "https://seeclickfix.com/open311/v2"
-api_base = "https://seeclickfix.com/api/v2"
 report_url = "https://seeclickfix.com/web_portal/qr1HKu9VATJDXPsPAsSja62Q/report/category"
-# SeeClickFix documents a limit of 20 requests per minute.
-request_delay = 3.2
-recent_days = 21
-max_details_per_run = 700
-time_budget_seconds = 2400
 # The month the full history starts (python -m pipeline.fetch_311 --backfill).
 history_since = "2026-01"
-
-[seeclickfix.repeats]
-radius_m = 50
-window_days = 60
-recent_open_days = 30
 
 # How often each data source should update. The daily run fails when one goes
 # longer than max_days, and the About page lists them.
 [freshness]
 # Figures published monthly or yearly (schools, unemployment, housing)
 # are judged by the engine, by the period they cover (pipeline/rhythms.py).
-# New agendas and minutes can wait this long for a summary before the daily run
-# flags them.
-summary_grace_days = 2
 sources = [
   { label = "Meetings (Agenda Center)", file = "meetings/status.json", max_days = 2 },
   { label = "311 requests", file = "311/status.json", max_days = 2 },
@@ -415,14 +367,9 @@ members = [
 "the School Committee's meetings on YouTube" = "las reuniones del Comité Escolar en YouTube"
 
 # Glossary definitions (the terms themselves stay as the agendas write them).
-"A part of a public meeting closed to the public. Maine's Freedom of Access Act allows it only for specific reasons, such as lawsuits, real estate, or personnel matters." = "Una parte de una reunión pública que se hace a puerta cerrada. La Ley de Libertad de Acceso de Maine (Freedom of Access Act) la permite solo por razones específicas, como demandas, bienes raíces o asuntos de personal."
-"Maine Revised Statutes Annotated, the state's laws." = "Estatutos Revisados de Maine (Maine Revised Statutes Annotated), las leyes del estado."
 "Routine items the City Council adopts together in one motion without discussion. An item is taken up separately only if a councilor asks." = "Asuntos de rutina que el Concejo Municipal aprueba juntos en una sola moción, sin discusión. Un asunto se trata por separado solo si un concejal lo pide."
 "A resolve or ordinance's introduction at a City Council meeting. The Council votes on it at a later meeting, often after a committee has reviewed it." = "La presentación de una resolución (resolve) o de una ordenanza en una reunión del Concejo Municipal. El Concejo la vota en una reunión posterior, a menudo después de que un comité la revise."
 "A kind of City Council vote. In Bangor, the Council appropriates money and accepts grants by resolve." = "Un tipo de votación del Concejo Municipal. En Bangor, el Concejo asigna dinero y acepta subvenciones mediante una resolución (resolve)."
-"Tax increment financing: a district where some of the property tax from new development is set aside, for public projects or for the development itself." = "Financiamiento por incremento de impuestos (tax increment financing): una zona donde parte del impuesto a la propiedad que generan las nuevas construcciones se reserva para proyectos públicos o para el propio proyecto."
-"An agreement, under a tax increment financing (TIF) district, in which the city returns part of a development's new property tax to its owner." = "Un acuerdo, dentro de una zona de financiamiento por incremento de impuestos (TIF), en el que la ciudad le devuelve al dueño de un proyecto parte del nuevo impuesto a la propiedad que este genera."
-"Community Development Block Grant: federal money, from the Department of Housing and Urban Development, for housing and neighborhood projects that serve low- and moderate-income residents." = "Subvención en Bloque para el Desarrollo Comunitario (Community Development Block Grant): dinero federal del Departamento de Vivienda y Desarrollo Urbano para proyectos de vivienda y de barrios que benefician a residentes de ingresos bajos y moderados."
 "A deed in which the city gives up whatever claim it has to a property, such as one it took for unpaid taxes." = "Una escritura en la que la ciudad renuncia a cualquier derecho que tenga sobre una propiedad, por ejemplo, una que tomó por impuestos no pagados."
 
 # Officials: notes, seats, and roles.

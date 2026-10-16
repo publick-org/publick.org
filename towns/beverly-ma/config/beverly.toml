@@ -18,21 +18,13 @@ name = "Beverly Publick"
 # The masthead shows name_prefix in dark ink and name_suffix in the accent
 # color: the town, then the network.
 name_prefix = "Beverly "
-name_suffix = "Publick"
 domain = "beverly-ma.publick.org"
-# The network of town sites this one belongs to, named in every page footer.
-network = "Publick"
-network_url = "https://publick.org"
 tagline = "Public data on how Beverly, Massachusetts decides and spends. Updated daily."
 # One line under the name at the top of every page.
 masthead = "An independent guide to city government in Beverly, Massachusetts"
-repo_url = "https://github.com/publick-org/publick.org"
 # Public contact address. Shown on the About and Accessibility pages when set.
 contact_email = "beverly-ma@publick.org"
-timezone = "America/New_York"
 user_agent = "beverly-ma.publick.org (+https://beverly-ma.publick.org/about/)"
-# English at the site's root, Spanish under /es/.
-languages = ["en", "es"]
 
 # From the city website's theme (beverlyma.gov); each passes WCAG AA on white.
 [site.colors]
@@ -43,7 +35,6 @@ accent = "#803e3e"
 
 [town]
 name = "Beverly"
-state = "Massachusetts"
 state_abbr = "MA"
 official_site = "https://www.beverlyma.gov"
 
@@ -90,17 +81,13 @@ status = "live"
 # Page view counting with GoatCounter, on the network's site; prefix is this
 # town's folder.
 [analytics]
-goatcounter = "publick"
 prefix = "beverly-ma"
-public_stats = ""
 
 # The weekly digest's email signup, on /digest/ (the engine's pipeline/digest.py). The form posts
 # to this site's /digest/subscribe, which the sites Worker answers (worker/digest.js) and passes on
 # to Buttondown with the tag beverly-ma-en. The About page names who keeps the addresses.
 [digest]
-signup = true
-provider = "Buttondown"
-privacy_url = "https://buttondown.com/legal/privacy"
+# The network's settings (defaults/network.toml): having the table turns the signup on.
 
 # Public meetings, from the city's CivicPlus calendar and Agenda Center.
 [meetings]
@@ -167,19 +154,12 @@ since = "2026-09-01"
 
 # Agenda and minutes PDFs, in the network's documents bucket.
 [storage]
-endpoint = "https://6bbfee5a3892553c7993dbfa4b4e8453.r2.cloudflarestorage.com"
-bucket = "publick-documents"
-public_url = "https://files.publick.org"
 prefix = "beverly-ma"
 
 # Agenda previews and decisions from minutes, written by a language model and
 # labeled as AI-generated on the site. Within the network's monthly budget.
 [summaries]
-model = "claude-sonnet-5"
-max_per_run = 40
-input_price = 2.0
-output_price = 10.0
-max_cost_per_run = 5.0
+# The network's settings (defaults/network.toml), with no `since`: every meeting is summarized.
 
 # How residents can take part, per board, shown on its meeting pages. Only
 # what the city and the school district have published; each entry names its
@@ -212,19 +192,15 @@ video_url = "https://www.beverlyschools.org/apps/pages/index.jsp?uREC_ID=2083091
 # District Commission's Rules of Procedure.
 [[glossary]]
 term = "executive session"
-definition = "A part of a public meeting closed to the public. State law allows it only for specific reasons, such as lawsuits, negotiations, or personnel matters."
 
 [[glossary]]
 term = "M.G.L."
-definition = "Massachusetts General Laws, the state's laws."
 
 [[glossary]]
 term = "Committee of the Whole"
-definition = "The full City Council meeting as a committee, to discuss a matter before voting on it at a regular meeting."
 
 [[glossary]]
 term = "CPA"
-definition = "Community Preservation Act. A local property tax surcharge, with state matching money, that pays for open space, historic preservation, affordable housing, and recreation."
 
 [[glossary]]
 term = "CPC"
@@ -232,7 +208,6 @@ definition = "Community Preservation Committee, which reviews applications for C
 
 [[glossary]]
 term = "ZBA"
-definition = "Zoning Board of Appeals."
 
 [[glossary]]
 term = "special permit"
@@ -258,7 +233,6 @@ definition = "Under the city's Demolition Delay Ordinance, the Historic District
 [schools]
 district_code = "00300000"
 district_name = "Beverly Public Schools"
-portal = "https://educationtocareer.data.mass.gov"
 
 # Tax bill and budget figures (Mass. Division of Local Services).
 [finance]
@@ -268,22 +242,15 @@ dls_code = "30"
 # Housing: Census building permits and the American Community Survey, and the
 # state's Subsidized Housing Inventory.
 [housing]
-bps_region = "Northeast Region"
-bps_prefix = "ne"
-bps_state = "25"
 bps_place = "05595"
 census_geo = "16000US2505595"
-state_geo = "04000US25"
-shi_url = "https://www.mass.gov/doc/subsidized-housing-inventory-2/download"
 shi_name = "Beverly"
 
 # Unemployment rate (BLS Local Area Unemployment Statistics, area CT2505595000000).
 [labor]
 local_series = "LAUCT250559500000003"
-state_series = "LAUST250000000000003"
 
 [freshness]
-summary_grace_days = 2
 sources = [
   { label = "Meetings (Agenda Center)", file = "meetings/status.json", max_days = 2 },
 ]
@@ -367,7 +334,6 @@ members = [
 
 # Glossary definitions (the terms themselves stay as the agendas write them).
 "Community Preservation Committee, which reviews applications for Community Preservation Act money and recommends projects to the City Council." = "Comité de Preservación Comunitaria (Community Preservation Committee), que revisa las solicitudes de fondos de la Ley de Preservación Comunitaria y recomienda proyectos al Concejo Municipal."
-"Zoning Board of Appeals." = "Junta de Apelaciones de Zonificación."
 "Permission from a city board, such as the Zoning Board of Appeals, for a use or project that the zoning ordinance allows only with the board's approval, given after a public hearing." = "Permiso especial (special permit): autorización de una junta de la ciudad, como la Junta de Apelaciones de Zonificación, para un uso o proyecto que la ordenanza de zonificación permite solo con la aprobación de la junta, después de una audiencia pública."
 "Permission from the Zoning Board of Appeals to depart from the zoning ordinance, such as to build closer to a lot line than it allows. It can be granted only when the shape, soil, or slope of the land would make following the rules a substantial hardship." = "Variación (variance): permiso de la Junta de Apelaciones de Zonificación para apartarse de la ordenanza de zonificación, por ejemplo, para construir más cerca del límite del terreno de lo permitido. Solo se puede conceder cuando la forma, el suelo o la pendiente del terreno harían que cumplir las reglas fuera una carga considerable."
 "An application to the Conservation Commission, under the state's Wetlands Protection Act, for work in or near wetlands. If the commission approves, it issues an Order of Conditions." = "Aviso de Intención (Notice of Intent): una solicitud a la Comisión de Conservación, bajo la Ley de Protección de Humedales del estado, para hacer obras en humedales o cerca de ellos. Si la comisión la aprueba, emite una Orden de Condiciones (Order of Conditions)."

@@ -1,0 +1,45 @@
+# Settings every town in Massachusetts shares, under each town's own config
+# (towns/<town>-ma/config/<town>.toml), which wins, and over the network's
+# (defaults/network.toml). See defaults/network.toml for how they merge.
+
+[town]
+state = "Massachusetts"
+
+# Housing: Census building permits (the state's FIPS code and Census region) and
+# American Community Survey figures for the state, through Census Reporter, for
+# context, and the state's Subsidized Housing Inventory PDF. A town's [housing]
+# gives its own place, and its name as the PDF lists it (shi_name).
+[housing]
+bps_region = "Northeast Region"
+bps_prefix = "ne"
+bps_state = "25"
+state_geo = "04000US25"
+shi_url = "https://www.mass.gov/doc/subsidized-housing-inventory-2/download"
+
+# Unemployment rate (BLS Local Area Unemployment Statistics): the state series,
+# shown for context with each town's own.
+[labor]
+state_series = "LAUST250000000000003"
+
+# School district figures from the state's education data portal (DESE).
+[schools]
+portal = "https://educationtocareer.data.mass.gov"
+
+# Glossary definitions for Massachusetts law and its terms: a town's
+# [[glossary]] entry with only its term takes the definition from here. The
+# Open Meeting Law as a Massachusetts school district's policy manual
+# (Beverly's) sums it up.
+[terms]
+"executive session" = "A part of a public meeting closed to the public. State law allows it only for specific reasons, such as lawsuits, negotiations, or personnel matters."
+"M.G.L." = "Massachusetts General Laws, the state's laws."
+"Open Meeting Law" = "The state law (M.G.L. Chapter 30A, Sections 18 to 25) that requires public boards to meet in public, post notice of their meetings in advance, and keep minutes."
+"CPA" = "Community Preservation Act. A local property tax surcharge, with state matching money, that pays for open space, historic preservation, affordable housing, and recreation."
+"CPC" = "Community Preservation Committee, which manages the city's Community Preservation Act fund."
+"ZBA" = "Zoning Board of Appeals."
+
+# The definitions above in Spanish, where the engine's own translations
+# (site/strings/es.po) don't have them.
+[strings.es]
+"The state law (M.G.L. Chapter 30A, Sections 18 to 25) that requires public boards to meet in public, post notice of their meetings in advance, and keep minutes." = "La ley estatal de reuniones abiertas (capítulo 30A, secciones 18 a 25, de las Leyes Generales de Massachusetts), que exige que las juntas públicas se reúnan en público, anuncien sus reuniones con anticipación y lleven actas."
+"Community Preservation Committee, which manages the city's Community Preservation Act fund." = "Comité de Preservación Comunitaria (Community Preservation Committee), que administra el fondo de la Ley de Preservación Comunitaria de la ciudad."
+"Zoning Board of Appeals." = "Junta de Apelaciones de Zonificación."

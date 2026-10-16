@@ -16,7 +16,9 @@
 #              of each kind of record page (the engine's site_checks/pages.py).
 #              Then republishes the homepage, for its status page (publick.org/status/).
 #   push       Rebuilds and publishes the towns a change touched (all of them
-#              when engine-version or a workflow changed), records that in each
+#              when engine-version, a workflow, or defaults/network.toml
+#              changed; a state's towns when defaults/states/<st>.toml
+#              did), records that in each
 #              town's run record (data/run.json), and rebuilds the homepage and
 #              its status page. No fetching. The browser checks run on a
 #              sample of pages: the pull request already checked every one.
@@ -160,10 +162,10 @@ jobs:
             sleep 60
           done
 
-      # The towns' config files, summary costs, and run records: enough to list them, pick the ones that
-      # are due, and share out the summary budget, without downloading any town's data. Outside a pull
-      # request, the branch as it is when the run starts, not when it was queued: a run that waited
-      # behind another sees the towns that one just updated.
+      # The towns' config files and the settings they share (defaults/), summary costs, and run records:
+      # enough to list them, pick the ones that are due, and share out the summary budget, without
+      # downloading any town's data. Outside a pull request, the branch as it is when the run starts, not
+      # when it was queued: a run that waited behind another sees the towns that one just updated.
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
@@ -172,6 +174,7 @@ jobs:
           sparse-checkout-cone-mode: false
           sparse-checkout: |
             /engine-version
+            /defaults/
             /towns/*/config/
             /towns/*/data/summary-costs.json
             /towns/*/data/run.json
@@ -236,7 +239,7 @@ jobs:
                 git diff --name-only "$since" HEAD > changed.txt
               fi
               args+=(--changed changed.txt)
-              grep -qE '^(home|scripts)/|^towns/[^/]+/config/' changed.txt && home=true
+              grep -qE '^(home|scripts|defaults)/|^towns/[^/]+/config/' changed.txt && home=true
               # A pull request checks every page, and builds the homepage to check it, but publishes nothing.
               # After it merges, the push checks a sample: the pages were checked on the pull request.
               if [ "$EVENT" = pull_request ]; then deploy=false; else sample=true; fi
@@ -320,6 +323,7 @@ jobs:
           sparse-checkout-cone-mode: false
           sparse-checkout: |
             /.github/
+            /defaults/
             /towns/*/config/
             /states/
 
@@ -372,12 +376,12 @@ jobs:
           filter: blob:none
           sparse-checkout: .github
 
-      # This batch's towns, and the statewide sources their steps read (states/).
+      # This batch's towns, the settings they share (defaults/), and the statewide sources their steps read (states/).
       - env:
           TOWNS: ${{ matrix.towns }}
         run: |
           read -ra towns <<< "$TOWNS"
-          git sparse-checkout add "${towns[@]/#/towns/}" states
+          git sparse-checkout add "${towns[@]/#/towns/}" defaults states
 
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -525,6 +529,7 @@ jobs:
           sparse-checkout-cone-mode: false
           sparse-checkout: |
             /engine-version
+            /defaults/
             /home/
             /scripts/
             /towns/*/config/
