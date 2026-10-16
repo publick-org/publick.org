@@ -13,8 +13,8 @@
 # shouldn't hold every town back a day. If towns still fail, and they're few
 # (at most HELD_SHARE of the towns, and at least one), it's merged anyway and
 # those towns are held back: each keeps the site it has (a build that fails
-# its checks isn't published), and an issue names them, assigned to
-# ALERT_ASSIGNEE. Its data is still fetched every day. Once the engine or the
+# its checks isn't published), and an issue names them, assigned to the
+# ALERT_ASSIGNEE secret's account. Its data is still fetched every day. Once the engine or the
 # town is fixed, its next run publishes it again.
 #
 # If more towns fail, or anything but a town (the plan, say), nothing is
@@ -70,7 +70,8 @@ jobs:
           # The most towns an update may hold back, as one in this many (at least one): 20 is 5%.
           HELD_SHARE: 20
           WORKFLOW_TOKEN: ${{ github.token }}
-          ALERT_ASSIGNEE: NasTber
+          # Who the issue is assigned to; a secret, so the log doesn't name them. Unset, no one.
+          ALERT_ASSIGNEE: ${{ secrets.ALERT_ASSIGNEE }}
         run: |
           if [ -z "$GH_TOKEN" ]; then
             echo "::error::Set the repository secret ENGINE_PR_TOKEN (see this file's comments): without it the pull request's checks don't run and the merge doesn't publish."

@@ -110,7 +110,8 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           OLD: ${{ steps.decide.outputs.old }}
           NEW: ${{ steps.engine.outputs.ref }}
-          ALERT_ASSIGNEE: NasTber
+          # Who the issue is assigned to; a secret, so the log doesn't name them. Unset, no one.
+          ALERT_ASSIGNEE: ${{ secrets.ALERT_ASSIGNEE }}
         run: |
           title="Deploy the sites Worker for engine $NEW"
           if [ -n "$(gh issue list --repo "$GITHUB_REPOSITORY" --state open --search "\"$title\" in:title" --json number --jq '.[].number')" ]; then
@@ -167,6 +168,22 @@ jobs:
           fi
           npx --yes wrangler@4.137.0 deploy -c wrangler.scheduler.toml
           printf '%s' "$SCHEDULER_GITHUB_TOKEN" | npx --yes wrangler@4.137.0 secret put GITHUB_TOKEN -c wrangler.scheduler.toml
+
+      # Who the scheduler's issues ("network stopped", "digest not sent", "site down") are assigned to, so they
+      # reach them: a secret on the Worker, from the repository secret, so neither its config nor a log names them.
+      - name: Give the scheduler who its issues go to
+        if: steps.decide.outputs.scheduler == 'true'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          SCHEDULER_GITHUB_TOKEN: ${{ secrets.SCHEDULER_GITHUB_TOKEN }}
+          ALERT_ASSIGNEE: ${{ secrets.ALERT_ASSIGNEE }}
+        run: |
+          if [ -z "$SCHEDULER_GITHUB_TOKEN" ] || [ -z "$ALERT_ASSIGNEE" ]; then
+            echo "::warning::The scheduler or ALERT_ASSIGNEE isn't there, so its issues are assigned to no one."
+            exit 0
+          fi
+          printf '%s' "$ALERT_ASSIGNEE" | npx --yes wrangler@4.137.0 secret put ALERT_ASSIGNEE -c wrangler.scheduler.toml
 
       - name: Give the scheduler the digest send's key
         if: steps.decide.outputs.scheduler == 'true'

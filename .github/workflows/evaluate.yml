@@ -3,7 +3,7 @@
 # pipeline/evaluate.py), before a prompt change ships; or, with the set
 # "translations", its translation prompt on one town's summaries
 # (evals/translations.json, pipeline/evaluate_translations.py), reporting how
-# many pass and why the rest don't (about a cent a summary); or, with the set
+# many pass and why the rest don't; or, with the set
 # "batch", the minutes set sent through the Message Batches API at each of the
 # given efforts (pipeline/evaluate_batch.py): how long a batch takes, and what a
 # lower effort does to the summaries, before deciding whether the daily runs
@@ -19,8 +19,9 @@
 # ("effort"; the batch set takes "efforts" instead); the translations set also
 # with another reviewing model ("review_model"). Left empty, each set runs as it
 # always has, so an engine from before these options still runs. The report and
-# evaluation.json name the model, the effort, the tokens, and the cost of each
-# document, so two runs can be compared.
+# evaluation.json name the model, the effort, and the tokens of each document,
+# so two runs can be compared. What the run cost is left out of both
+# (PUBLICK_HIDE_COSTS): the run's summary and artifacts are public.
 # Started by hand only:
 # Actions -> Evaluate -> Run workflow, with the engine branch, tag, or commit
 # to run (a pull request's branch, before it's merged).
@@ -28,8 +29,8 @@
 # The report is the run's summary; every result is saved as the artifact
 # evaluation.json. It fails when a wrong outcome would be shown (not the
 # batch set, an experiment; the shadow set only when a request can't be
-# made). A run costs about $1 to $2 on the network's Anthropic key, outside the
-# towns' summary budget; the batch set about half that for each effort.
+# made). It runs on the network's Anthropic key, outside the towns' summary
+# budget.
 #
 # It gets the Anthropic key and nothing else, reads this repository only, and
 # never runs on a push or a pull request.
@@ -110,6 +111,8 @@ jobs:
           OUTPUT_PRICE: ${{ inputs.output_price }}
           EFFORT: ${{ inputs.effort }}
           REVIEW_MODEL: ${{ inputs.review_model }}
+          # The report and evaluation.json leave out what the run cost (an engine from before this shows it).
+          PUBLICK_HIDE_COSTS: "1"
         # The report goes to the run's summary whether or not the run passes.
         run: |
           status=0
