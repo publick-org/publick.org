@@ -215,8 +215,8 @@ shows no ward map; a town with neither (Bangor) has no 311 section yet.
       No DNS change; the homepage lists the town under its state by itself.
       A run collects up to 60 minutes; run it again until none are waiting.
       Its older documents get a small share of the summary budget each run;
-      to summarize its first months in a day, set **catch_up** (dollars, e.g.
-      3) on a manual run. Only meetings from `[summaries] since` on are
+      to summarize its first months in a day, set **catch_up** (a percent of
+      the month's budget, e.g. 3) on a manual run. Only meetings from `[summaries] since` on are
       summarized: set it to the first of the month about three months before
       launch, so the town's history doesn't take the month's budget (older
       meetings keep their records and documents). The month's budget and the town's own limit per

@@ -5,6 +5,12 @@ towns/*/_site/
 towns/*/data/311/requests.json
 towns/*/data/311/scorecard.json
 
+# What each town's AI summaries cost, kept in the private store (the engine's README, Cost records). A town's
+# summary-costs.json still in git is imported into the store by the first daily run with it, and deleted by
+# the town's first run after that, which commits the deletion.
+towns/*/data/summary-costs.json
+towns/*/data/costs/
+
 # The Publick engine, when checked out here by the workflows
 .publick-engine/
 
