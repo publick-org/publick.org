@@ -20,13 +20,19 @@ state_geo = "04000US09"
 state_series = "LAUST090000000000003"
 bulk_file = "la.data.13.Connecticut"
 
-# Glossary definitions for Connecticut law and its terms: a town's [[glossary]] entry
-# with only its term takes the definition from here.
-[terms]
-"executive session" = "A part of a public meeting closed to the public. State law allows it only for specific reasons, such as lawsuits, real estate purchases, or personnel matters."
-"C.G.S." = "Connecticut General Statutes, the state's laws."
+# The glossary: Connecticut's terms, its laws and what they call things, each in
+# every language the sites have (see defaults/network.toml). They win over the
+# network's terms of the same name; a town's own [[glossary]] entry wins over
+# both.
 
-# The definitions above in Spanish.
-[strings.es]
-"A part of a public meeting closed to the public. State law allows it only for specific reasons, such as lawsuits, real estate purchases, or personnel matters." = "Una parte de una reunión pública que se hace a puerta cerrada. La ley estatal la permite solo por razones específicas, como demandas, compras de bienes raíces o asuntos de personal."
-"Connecticut General Statutes, the state's laws." = "Estatutos Generales de Connecticut (Connecticut General Statutes), las leyes del estado."
+[terms."C.G.S."]
+en = { definition = "Connecticut General Statutes, the state's laws." }
+es = { term = "Estatutos Generales de Connecticut (C.G.S.)", definition = "Estatutos Generales de Connecticut (Connecticut General Statutes), las leyes del estado." }
+
+[terms."executive session"]
+en = { definition = "A part of a public meeting closed to the public. State law allows it only for specific reasons, such as lawsuits, real estate purchases, or personnel matters." }
+es = { term = "sesión ejecutiva", definition = "Una parte de una reunión pública que se hace a puerta cerrada. La ley estatal la permite solo por razones específicas, como demandas, compras de bienes raíces o asuntos de personal." }
+
+[terms."special permit"]
+en = { definition = "Permission from the planning and zoning commission for a use the zoning regulations allow only with its approval, usually after a public hearing." }
+es = { term = "permiso especial", definition = "Permiso de la comisión de planificación y zonificación para un uso que el reglamento de zonificación permite solo con su aprobación, normalmente después de una audiencia pública." }
