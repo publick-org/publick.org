@@ -1,199 +1,54 @@
 {
   "town": "south-kingstown",
   "folder": "south-kingstown-ri",
-  "started_at": "2026-10-16T09:10:16+00:00",
-  "finished_at": "2026-10-16T09:16:13+00:00",
-  "engine": "v1.57.0",
+  "started_at": "2026-10-16T15:34:43+00:00",
+  "finished_at": "2026-10-16T15:38:24+00:00",
+  "engine": "v1.59.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 286.0
+      "seconds": 122.2
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 9.5
+      "seconds": 8.4
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 55.7
+      "seconds": 56.5
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 10.9
+      "seconds": 32.8
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.7
+      "seconds": 1.0
     }
   ],
   "update": {
     "town": "south-kingstown",
-    "sources": "all",
-    "started_at": "2026-10-16T09:10:16+00:00",
+    "sources": "311",
+    "started_at": "2026-10-16T15:34:43+00:00",
     "ok": true,
     "steps": [
-      {
-        "name": "Fetch meetings",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 45.9,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Fetch minutes",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0.3,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Fetch School Committee documents",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [drive_meetings] in the config"
-      },
-      {
-        "name": "Fetch school board meetings",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [finalsite_meetings] in the config"
-      },
-      {
-        "name": "Fetch school board documents",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [page_meetings] in the config"
-      },
-      {
-        "name": "Fetch Diligent Community meetings",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [diligent_meetings] in the config"
-      },
-      {
-        "name": "Fetch Open Meetings portal meetings",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 203.2,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Summarize agendas",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 19.0,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Fetch tax bill",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0.2,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Fetch unemployment",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 2 days ago; checked every 7 days"
-      },
-      {
-        "name": "Fetch school figures",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "yearly",
-        "skipped": "checked 2 days ago; checked every 30 days"
-      },
-      {
-        "name": "Fetch budget figures",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "yearly",
-        "skipped": "checked 2 days ago; checked every 7 days"
-      },
-      {
-        "name": "Fetch housing figures",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 2 days ago; checked every 7 days"
-      },
-      {
-        "name": "Fetch place",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0.2,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Fetch address ranges",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0.2,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Fetch building permits",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [permits] in the config"
-      },
-      {
-        "name": "Move saved documents to storage",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0.2,
-        "cadence": "continuous"
-      },
       {
         "name": "Fetch 311 requests",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 15.4,
+        "seconds": 120.2,
         "cadence": "continuous"
       },
       {
@@ -201,7 +56,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 0.8,
+        "seconds": 1.4,
         "cadence": "continuous"
       }
     ]
@@ -225,14 +80,14 @@
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-10-16T05:14:46-04:00",
+      "updated_at": "2026-10-16T11:34:43-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-10-16T05:15:02-04:00",
+      "updated_at": "2026-10-16T11:36:44-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -308,9 +163,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-16T14:29:19+00:00",
-  "data_bytes": 1324085,
-  "data_bytes_added": 370950,
+  "last_good_at": "2026-10-16T15:38:24+00:00",
+  "data_bytes": 1622197,
+  "data_bytes_added": 327188,
   "activity": {
     "boards": 21,
     "meetings_by_date": {
@@ -322,8 +177,8 @@
     }
   },
   "fact_checks": {
-    "summaries": 26,
-    "ok": 24,
+    "summaries": 43,
+    "ok": 41,
     "failed": 1,
     "weak": 1,
     "unchecked": 0,
@@ -331,7 +186,5 @@
     "held_back": 1,
     "entries_not_shown": 2,
     "vote_counts_left_out": 2
-  },
-  "published_at": "2026-10-16T14:29:19+00:00",
-  "published_engine": "v1.59.0"
+  }
 }
