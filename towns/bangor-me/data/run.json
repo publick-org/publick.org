@@ -1,46 +1,46 @@
 {
   "town": "bangor",
   "folder": "bangor-me",
-  "started_at": "2026-10-15T09:13:39+00:00",
-  "finished_at": "2026-10-15T09:21:42+00:00",
-  "engine": "v1.56.0",
+  "started_at": "2026-10-16T09:10:28+00:00",
+  "finished_at": "2026-10-16T09:13:14+00:00",
+  "engine": "v1.57.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 417.3
+      "seconds": 109.5
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 9.0
+      "seconds": 6.8
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 37.1
+      "seconds": 33.6
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 21.1
+      "seconds": 14.8
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.8
+      "seconds": 0.7
     }
   ],
   "update": {
     "town": "bangor",
     "sources": "all",
-    "started_at": "2026-10-15T09:13:39+00:00",
+    "started_at": "2026-10-16T09:10:29+00:00",
     "ok": true,
     "steps": [
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 15.9,
+        "seconds": 20.7,
         "cadence": "continuous"
       },
       {
@@ -109,7 +109,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 324.3,
+        "seconds": 54.7,
         "cadence": "continuous"
       },
       {
@@ -136,7 +136,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 9 days ago; checked every 30 days"
+        "skipped": "checked 10 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -165,6 +165,14 @@
         "cadence": "continuous"
       },
       {
+        "name": "Fetch address ranges",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.2,
+        "cadence": "continuous"
+      },
+      {
         "name": "Fetch building permits",
         "ok": true,
         "required": false,
@@ -186,7 +194,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 59.1,
+        "seconds": 15.6,
         "cadence": "continuous"
       },
       {
@@ -194,7 +202,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 0.9,
+        "seconds": 0.7,
         "cadence": "continuous"
       }
     ]
@@ -204,21 +212,21 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-15T05:13:40-04:00",
+      "updated_at": "2026-10-16T05:10:29-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-10-15T05:19:37-04:00",
+      "updated_at": "2026-10-16T05:12:02-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-10-15T05:20:36-04:00",
+      "updated_at": "2026-10-16T05:12:17-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -294,19 +302,19 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-15T17:27:33+00:00",
-  "data_bytes": 1717946,
-  "data_bytes_added": 427281,
+  "last_good_at": "2026-10-16T09:43:21+00:00",
+  "data_bytes": 1820241,
+  "data_bytes_added": 526898,
   "activity": {
     "boards": 28,
     "meetings_by_date": {
-      "2026-10-15": 1,
-      "2026-10-19": 3,
+      "2026-10-19": 4,
       "2026-10-20": 3,
       "2026-10-21": 1,
       "2026-10-26": 2,
       "2026-10-27": 2,
-      "2026-10-28": 1
+      "2026-10-28": 1,
+      "2026-10-29": 1
     }
   },
   "fact_checks": {
@@ -320,6 +328,6 @@
     "entries_not_shown": 18,
     "vote_counts_left_out": 14
   },
-  "published_at": "2026-10-15T17:27:33+00:00",
-  "published_engine": "v1.56.0"
+  "published_at": "2026-10-16T09:43:21+00:00",
+  "published_engine": "v1.57.0"
 }
