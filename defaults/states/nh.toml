@@ -20,15 +20,23 @@ state_geo = "04000US33"
 state_series = "LAUST330000000000003"
 bulk_file = "la.data.36.NewHampshire"
 
-# Glossary definitions for New Hampshire law and its terms: a town's
-# [[glossary]] entry with only its term takes the definition from here.
-[terms]
-"non-public session" = "A part of a meeting closed to the public. New Hampshire's Right-to-Know Law (RSA 91-A) allows it only for certain reasons, such as buying or selling property, personnel matters, or labor negotiations."
-"RSA" = "Revised Statutes Annotated, New Hampshire's state laws."
-"ZBA" = "Zoning Board of Adjustment."
+# The glossary: New Hampshire's terms, its laws and what they call things, each in
+# every language the sites have (see defaults/network.toml). They win over the
+# network's terms of the same name; a town's own [[glossary]] entry wins over
+# both.
 
-# The definitions above in Spanish.
-[strings.es]
-"A part of a meeting closed to the public. New Hampshire's Right-to-Know Law (RSA 91-A) allows it only for certain reasons, such as buying or selling property, personnel matters, or labor negotiations." = "Una parte de una reunión que se hace a puerta cerrada. La Ley del Derecho a Saber de New Hampshire (Right-to-Know Law, RSA 91-A) la permite solo por ciertas razones, como la compra o venta de propiedades, asuntos de personal o negociaciones laborales."
-"Revised Statutes Annotated, New Hampshire's state laws." = "Estatutos Revisados Anotados (Revised Statutes Annotated), las leyes del estado de New Hampshire."
-"Zoning Board of Adjustment." = "Junta de Ajustes de Zonificación."
+[terms."non-public session"]
+en = { definition = "A part of a meeting closed to the public. New Hampshire's Right-to-Know Law (RSA 91-A) allows it only for certain reasons, such as buying or selling property, personnel matters, or labor negotiations." }
+es = { term = "sesión no pública", definition = "Una parte de una reunión que se hace a puerta cerrada. La Ley del Derecho a Saber de New Hampshire (Right-to-Know Law, RSA 91-A) la permite solo por ciertas razones, como la compra o venta de propiedades, asuntos de personal o negociaciones laborales.", also = ["sesión a puerta cerrada"] }
+
+[terms."ought to pass"]
+en = { definition = "A committee's recommendation that the full board or council approve an item. \"Ought not to pass\" recommends voting it down." }
+es = { term = "debe aprobarse (ought to pass)", definition = "La recomendación de un comité de que la junta o el concejo apruebe un asunto. «Ought not to pass» recomienda rechazarlo.", pattern = '\bdeb\w*\s+(?:ser\s+)?aprob\w*|\brecomend\w*[^.;]{0,40}\baprob\w*' }
+
+[terms.RSA]
+en = { definition = "Revised Statutes Annotated, New Hampshire's state laws." }
+es = { term = "Estatutos Revisados Anotados (RSA)", definition = "Estatutos Revisados Anotados (Revised Statutes Annotated), las leyes del estado de New Hampshire." }
+
+[terms.ZBA]
+en = { definition = "Zoning Board of Adjustment." }
+es = { term = "Junta de Ajustes de Zonificación (ZBA)", definition = "Junta de Ajustes de Zonificación (Zoning Board of Adjustment)." }

@@ -111,17 +111,83 @@ radius_m = 50
 window_days = 60
 recent_open_days = 30
 
-# Glossary definitions, by term, for terms that mean the same everywhere. A
-# town's [[glossary]] entry that gives only its term takes the definition from
-# here, or from its state's [terms], which wins.
-[terms]
-"ADA" = "Americans with Disabilities Act, the federal law on access for people with disabilities."
-"CDBG" = "Community Development Block Grant: federal money, from the Department of Housing and Urban Development, for housing and neighborhood projects that serve low- and moderate-income residents."
-"Committee of the Whole" = "The full City Council meeting as a committee, to discuss a matter before voting on it at a regular meeting."
-"tabled" = "Set aside by a vote, to take up later. A tabled item comes back when the board votes to take it off the table."
+# The glossary: terms that read the same in every state, each in every language
+# the sites have (pipeline/glossary.py in the engine). Each is in every town's
+# glossary page and its meeting pages, and the translator is given it and
+# checked against it; a state's term of the same name wins. A term is keyed by
+# its English; each language's column gives its wording there (term) and its
+# definition, and, where it's written other ways, also or pattern. Where
+# Spanish has no word for a term, its wording keeps the English in
+# parentheses. Another language is another column.
 
-# The definitions above in Spanish, where the engine's own translations
-# (site/strings/es.po) don't have them.
-[strings.es]
-"Community Development Block Grant: federal money, from the Department of Housing and Urban Development, for housing and neighborhood projects that serve low- and moderate-income residents." = "Subvención en Bloque para el Desarrollo Comunitario (Community Development Block Grant): dinero federal del Departamento de Vivienda y Desarrollo Urbano para proyectos de vivienda y de barrios que benefician a residentes de ingresos bajos y moderados."
-"Set aside by a vote, to take up later. A tabled item comes back when the board votes to take it off the table." = "Dejado de lado mediante una votación, para tratarlo más adelante. Un asunto dejado sobre la mesa vuelve cuando la junta vota para retomarlo."
+[terms.abatement]
+en = { definition = "A reduction or cancellation of a property tax bill, granted by the assessors, for example after an error in the assessment.", also = ["abate"] }
+es = { term = "reducción de impuestos (abatement)", definition = "Una rebaja o cancelación de la factura del impuesto a la propiedad, que otorgan los tasadores, por ejemplo después de un error en la tasación.", pattern = '\b(?:reduc|rebaj|exonera|condon)\w*' }
+
+[terms.ADA]
+en = { definition = "Americans with Disabilities Act, the federal law on access for people with disabilities." }
+es = { term = "Ley de Estadounidenses con Discapacidades (ADA)", definition = "La Ley de Estadounidenses con Discapacidades (Americans with Disabilities Act), la ley federal sobre el acceso de las personas con discapacidades." }
+
+[terms.CBA]
+en = { definition = "Collective bargaining agreement: a contract between the city or town and a union of its employees, setting pay and working conditions." }
+es = { term = "convenio colectivo (CBA)", definition = "Convenio colectivo (collective bargaining agreement): un contrato entre la ciudad o el pueblo y un sindicato de sus empleados, que fija el sueldo y las condiciones de trabajo." }
+
+[terms.CDBG]
+en = { definition = "Community Development Block Grant: federal money, from the Department of Housing and Urban Development, for housing and neighborhood projects that serve low- and moderate-income residents." }
+es = { term = "Subvención en Bloque para el Desarrollo Comunitario (CDBG)", definition = "Subvención en Bloque para el Desarrollo Comunitario (Community Development Block Grant): dinero federal del Departamento de Vivienda y Desarrollo Urbano para proyectos de vivienda y de barrios que benefician a residentes de ingresos bajos y moderados." }
+
+[terms.CIP]
+en = { definition = "Capital Improvement Program: the plan for buildings, roads, equipment, and other long-lasting purchases over the next several years, and how to pay for them." }
+es = { term = "Programa de Mejoras de Capital (CIP)", definition = "Programa de Mejoras de Capital (Capital Improvement Program): el plan de edificios, calles, equipos y otras compras duraderas para los próximos años, y de cómo pagarlas." }
+
+[terms.COLA]
+en = { definition = "Cost-of-living adjustment: a raise in pay or a pension to keep up with rising prices." }
+es = { term = "ajuste por costo de vida (COLA)", definition = "Ajuste por costo de vida (cost-of-living adjustment): un aumento del sueldo o de la pensión para compensar la subida de los precios." }
+
+[terms."Committee of the Whole"]
+en = { definition = "The full council or board meeting as a committee, to discuss a matter before voting on it at a regular meeting." }
+es = { term = "Comité Plenario (Committee of the Whole)", definition = "El concejo o la junta completa reunida como comité, para hablar de un asunto antes de votarlo en una reunión ordinaria." }
+
+[terms."consent agenda"]
+en = { definition = "Routine items, such as minutes and reports, voted on together in one motion without discussion. A member can ask to take any of them up separately." }
+es = { term = "agenda de consentimiento (consent agenda)", definition = "Asuntos de rutina, como actas e informes, que se votan juntos en una sola moción y sin discusión. Cualquier miembro puede pedir que uno se trate por separado.", also = ["calendario de consentimiento"] }
+
+[terms."first reading"]
+en = { definition = "The first time a council or board takes up an ordinance or other measure. It usually votes on it at a later meeting." }
+es = { term = "primera lectura", definition = "La primera vez que un concejo o una junta trata una ordenanza u otra medida. Normalmente la vota en una reunión posterior." }
+
+[terms."mill rate"]
+en = { definition = "The property tax rate, in dollars for each $1,000 of a property's assessed value. A mill is a tenth of a cent." }
+es = { term = "tasa por mil (mill rate)", definition = "La tasa del impuesto a la propiedad, en dólares por cada $1,000 del valor tasado de una propiedad. Un mil (mill) es la décima parte de un centavo." }
+
+[terms."quitclaim deed"]
+en = { definition = "A deed in which the city or town gives up whatever claim it has to a property, such as one it took for unpaid taxes." }
+es = { term = "escritura de renuncia (quitclaim deed)", definition = "Una escritura con la que la ciudad o el pueblo renuncia a cualquier derecho que tenga sobre una propiedad, como una que tomó por impuestos sin pagar.", also = ["escritura de cesión de derechos"] }
+
+[terms."receive and file"]
+en = { definition = "To accept a letter, report, or other document into the record, without taking any other action on it.", also = ["received and filed", "receives and files"] }
+es = { term = "recibir y archivar", definition = "Aceptar una carta, un informe u otro documento en el registro, sin tomar ninguna otra medida sobre él.", pattern = '\brecib\w*\s+y\s+(?:se\s+)?archiv\w*' }
+
+[terms."Select Board"]
+en = { definition = "The board of three to five elected residents that runs a town between town meetings: it sets policy, hires the town manager or administrator, and calls town meeting. Also called the Board of Selectmen or the Selectboard.", also = ["Board of Selectmen", "Selectboard", "selectmen"] }
+es = { term = "Junta de Gobierno (Select Board)", definition = "La junta de tres a cinco residentes elegidos que gobierna un pueblo entre una asamblea municipal y otra: fija las políticas, contrata al administrador del pueblo y convoca la asamblea municipal. También se llama Board of Selectmen o Selectboard." }
+
+[terms.tabled]
+en = { definition = "Set aside by a vote, to take up later. A tabled item comes back when the board votes to take it off the table." }
+es = { term = "pospuesto (tabled)", definition = "Dejado de lado mediante una votación, para tratarlo más adelante. Un asunto pospuesto vuelve cuando la junta vota para retomarlo.", pattern = '\b(?:pospu|pospon|posterg|aplaz|difiri|dej\w*\s+sobre\s+la\s+mesa|sobre\s+la\s+mesa)\w*' }
+
+[terms.TIF]
+en = { definition = "Tax increment financing: a district where some of the new property tax from development is set aside, for public projects or for the development itself." }
+es = { term = "financiamiento por incremento de impuestos (TIF)", definition = "Financiamiento por incremento de impuestos (tax increment financing): una zona donde parte del nuevo impuesto a la propiedad que generan las construcciones se reserva para proyectos públicos o para el propio proyecto." }
+
+[terms."town meeting"]
+en = { definition = "A meeting of a town's voters that acts as its legislature: it votes on the budget, local laws, and the other articles of the warrant. In a representative town meeting, elected members vote." }
+es = { term = "asamblea municipal (town meeting)", definition = "Una reunión de los votantes de un pueblo que hace de su poder legislativo: vota el presupuesto, las leyes locales y los demás artículos de la convocatoria. En una asamblea municipal representativa votan miembros elegidos." }
+
+[terms.variance]
+en = { definition = "Permission from the zoning board to use or build on a property in a way the zoning doesn't allow, such as closer to a lot line, because of a hardship particular to the property." }
+es = { term = "variación", definition = "Permiso de la junta de zonificación para usar una propiedad o construir en ella de una manera que la zonificación no permite, como más cerca del límite del terreno, por una dificultad propia de esa propiedad." }
+
+[terms."warrant article"]
+en = { definition = "One item on the warrant, the list of what a town meeting will vote on. Each article is voted on separately." }
+es = { term = "artículo de la convocatoria (warrant article)", definition = "Un asunto de la convocatoria (warrant), la lista de lo que votará una asamblea municipal. Cada artículo se vota por separado.", pattern = '\barticulos?\b[^.;:]{0,30}\bconvocatoria\b' }
