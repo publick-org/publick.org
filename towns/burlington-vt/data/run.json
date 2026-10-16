@@ -1,46 +1,46 @@
 {
   "town": "burlington",
   "folder": "burlington-vt",
-  "started_at": "2026-10-15T09:21:45+00:00",
-  "finished_at": "2026-10-15T09:30:55+00:00",
-  "engine": "v1.56.0",
+  "started_at": "2026-10-16T09:15:32+00:00",
+  "finished_at": "2026-10-16T09:21:29+00:00",
+  "engine": "v1.57.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 470.0
+      "seconds": 290.1
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 12.1
+      "seconds": 7.8
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 65.4
+      "seconds": 39.1
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 14.4
+      "seconds": 18.9
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.5
+      "seconds": 0.6
     }
   ],
   "update": {
     "town": "burlington",
     "sources": "all",
-    "started_at": "2026-10-15T09:21:45+00:00",
+    "started_at": "2026-10-16T09:15:32+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 33.5,
+        "seconds": 48.9,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 3.9,
+        "seconds": 0.9,
         "cadence": "continuous"
       },
       {
@@ -91,9 +91,8 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [diligent_meetings] in the config"
+        "seconds": 182.9,
+        "cadence": "continuous"
       },
       {
         "name": "Fetch Open Meetings portal meetings",
@@ -109,7 +108,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 80.0,
+        "seconds": 28.3,
         "cadence": "continuous"
       },
       {
@@ -119,7 +118,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 10 days ago; checked every 30 days"
+        "skipped": "checked 11 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -137,7 +136,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 10 days ago; checked every 30 days"
+        "skipped": "checked 11 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -146,7 +145,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 10 days ago; checked every 30 days"
+        "skipped": "checked 11 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -163,6 +162,14 @@
         "required": false,
         "error": null,
         "seconds": 0.2,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch address ranges",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 3.7,
         "cadence": "continuous"
       },
       {
@@ -187,7 +194,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 350.7,
+        "seconds": 24.0,
         "cadence": "continuous"
       },
       {
@@ -195,7 +202,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 1.1,
+        "seconds": 0.8,
         "cadence": "continuous"
       }
     ]
@@ -205,21 +212,28 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-15T05:21:46-04:00",
+      "updated_at": "2026-10-16T05:15:33-04:00",
+      "max_days": 2,
+      "stale": false
+    },
+    {
+      "label": "School Board meetings (Diligent Community)",
+      "file": "meetings/diligent_status.json",
+      "updated_at": "2026-10-16T05:16:22-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-10-15T05:23:43-04:00",
+      "updated_at": "2026-10-16T05:19:58-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-10-15T05:29:34-04:00",
+      "updated_at": "2026-10-16T05:20:22-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -307,13 +321,12 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-16T08:58:21+00:00",
-  "data_bytes": 4106886,
-  "data_bytes_added": 1996853,
+  "last_good_at": "2026-10-16T09:21:29+00:00",
+  "data_bytes": 4377621,
+  "data_bytes_added": 2249115,
   "activity": {
-    "boards": 53,
+    "boards": 58,
     "meetings_by_date": {
-      "2026-10-15": 2,
       "2026-10-16": 1,
       "2026-10-19": 4,
       "2026-10-20": 3,
@@ -323,16 +336,14 @@
     }
   },
   "fact_checks": {
-    "summaries": 135,
-    "ok": 127,
+    "summaries": 137,
+    "ok": 129,
     "failed": 8,
     "weak": 0,
     "unchecked": 0,
     "not_yet": 0,
     "held_back": 8,
     "entries_not_shown": 19,
-    "vote_counts_left_out": 22
-  },
-  "published_at": "2026-10-16T08:58:21+00:00",
-  "published_engine": "v1.57.0"
+    "vote_counts_left_out": 19
+  }
 }
