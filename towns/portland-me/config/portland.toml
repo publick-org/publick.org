@@ -307,6 +307,8 @@ report_url = "https://seeclickfix.com/web_portal/9Sds4Ebv9yf9nC8e9yhDf5MP/report
 # At Portland's volume, about 8,500 requests; their exact times then fill in
 # at up to 700 a day.
 history_since = "2026-01"
+# Requests a run may spend reading 311 history again (default 20): more, until its older months are read.
+catch_up_requests = 250
 # Requests about a household, shown only to the block, besides the engine's
 # own list (which already has "Homeless Camp", "Noise", and "Police Issue").
 sensitive_categories = ["Bedbugs", "Hoarding", "Housing Violation", "Landlord/Tenant Issues", "No Heat", "No Water", "Request a housing inspection"]
