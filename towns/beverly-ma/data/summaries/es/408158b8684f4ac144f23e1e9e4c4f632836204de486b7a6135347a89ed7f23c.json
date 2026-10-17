@@ -1,14 +1,14 @@
 {
-  "headline": "La junta analizará nuevos miembros, un nuevo presidente y vicepresidente, y los miembros del Comité de Subvenciones.",
-  "summary": "La Junta Directiva del Council on Aging revisará los informes de los comités, incluidas 2 subvenciones, y hablará sobre nuevos miembros, un nuevo presidente y vicepresidente, y los miembros del Comité de Subvenciones. El informe de la dirección trata sobre inquietudes del edificio, las finanzas y los próximos programas.",
+  "headline": "La junta discutirá nuevos miembros, una nueva presidencia y vicepresidencia, e integrantes del Grants Committee.",
+  "summary": "La Council on Aging Board of Directors revisará los informes de los comités, incluidas 2 subvenciones, y discutirá nuevos miembros, una nueva presidencia y vicepresidencia, e integrantes del Grants Committee. El informe de Chris Gomez, director, cubre problemas del edificio, finanzas y próximos programas.",
   "items": [
-    "Informe de la dirección, a cargo de Chris Gomez, dirección",
-    "Informe del Comité de Subvenciones - 2 subvenciones",
-    "Informe del Comité de Premios - no aplica",
-    "Novedades de Friends of BCOA",
-    "Conversación sobre nuevos miembros - bienvenida a Sheila Driscoll",
-    "Conversación sobre un nuevo presidente y vicepresidente",
-    "Conversación sobre los miembros del Comité de Subvenciones",
+    "Informe de Chris Gomez, director",
+    "Informe del Grants Committee - 2 subvenciones",
+    "Informe del Awards Committee - no aplica",
+    "Actualización de Friends of BCOA",
+    "Discusión sobre nuevos miembros - dar la bienvenida a Sheila Driscoll",
+    "Discusión sobre la nueva presidencia y vicepresidencia",
+    "Discusión sobre integrantes del Grants Committee",
     "Anuncios"
   ],
   "language": "es",
@@ -16,15 +16,17 @@
   "source_sha256": "408158b8684f4ac144f23e1e9e4c4f632836204de486b7a6135347a89ed7f23c",
   "source_hash": "0dbf6e54e6e183a1f111ab68e4137fdf304dc34333582cc8127d94d2502dacad",
   "check": "ok",
-  "review": "items 1: The title \"Director\" after Chris Gomez is rendered \"dirección\" (a department or office), which misstates the role. It should read \"director\" or \"directora\", but gender isn't given in the English, so wording like \"Director(a)\" or \"a cargo de Chris Gomez\" would be needed.",
-  "attempts": 2,
-  "model": "claude-sonnet-5-5",
-  "prompt_version": 4,
-  "generated_at": "2026-10-09T08:53:04-04:00",
+  "review": "headline: 'Grants Committee' se dejó en inglés dentro de la oración en español; es el nombre de un comité y debe traducirse (Comité de Subvenciones).; summary: 'Council on Aging Board of Directors' y 'Grants Committee' se dejaron en inglés; deben traducirse (Junta Directiva del Consejo para Personas Mayores, Comité de Subvenciones). Además, el original dice 'The Director's Report' sin nombrar a Chris Gomez; la traducción añade ese nombre y su cargo.; items 2: 'Grants Committee' se dejó en inglés; debe ser 'Comité de Subvenciones'.; items 3: 'Awards Committee' se dejó en inglés; debe ser 'Comité de Premios'.; items 7: 'Grants Committee' se dejó en inglés; debe ser 'Comité de Subvenciones'.",
+  "attempts": 1,
+  "model": "claude-haiku-5-5",
+  "prompt_version": 5,
+  "glossary": "7f8b3bb0bfba9e5c",
+  "generated_at": "2026-10-17T05:25:11-04:00",
   "usage": {
-    "input_tokens": 1949,
-    "output_tokens": 353
+    "input_tokens": 327,
+    "output_tokens": 2857,
+    "cache_read_input_tokens": 2066
   },
-  "cost": 0.013034,
-  "replaced_cost": 0.024542
+  "cost": 0.007483,
+  "replaced_cost": 0.037576
 }
