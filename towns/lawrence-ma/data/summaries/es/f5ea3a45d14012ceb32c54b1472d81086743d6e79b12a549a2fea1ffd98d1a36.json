@@ -1,12 +1,12 @@
 {
-  "headline": "Solicitud de licencia de estacionamiento/almacenamiento no relacionado con la aviación de Jay Staude, e informe sobre la administración del aeropuerto sobre 135 North Ramp Road NACC OOC.",
-  "summary": "La comisión considerará una solicitud de licencia de estacionamiento/almacenamiento no relacionado con la aviación de Jay Staude y escuchará un informe sobre la administración del aeropuerto sobre 135 North Ramp Road NACC OOC. También se presentarán informes del Finance Committee, del Lease Committee y sobre los procedimientos de seguridad del aeropuerto.",
+  "headline": "Solicitud de licencia de estacionamiento/almacenamiento no relacionado con la aviación de Jay Staude, e informe del gerente del aeropuerto sobre 135 North Ramp Road NACC OOC.",
+  "summary": "La comisión considerará una solicitud de licencia de estacionamiento/almacenamiento no relacionado con la aviación de Jay Staude y escuchará un informe del gerente del aeropuerto sobre 135 North Ramp Road NACC OOC. También se presentarán informes del Finance Committee, del Lease Committee y sobre los procedimientos de seguridad del aeropuerto.",
   "items": [
     "Informe del Finance Committee",
     "Informe del Lease Committee",
     "Informe sobre los procedimientos de seguridad del aeropuerto",
     "Solicitud de licencia de estacionamiento/almacenamiento no relacionado con la aviación; Jay Staude",
-    "Informe sobre la administración del aeropuerto: 135 North Ramp Road NACC OOC",
+    "Informe del gerente del aeropuerto: 135 North Ramp Road NACC OOC",
     "Comentarios del público",
     "Comentarios de la presidencia/de la comisión: correspondencia",
     "Comentarios de la presidencia/de la comisión: confirmar fechas y horas de las reuniones"
@@ -16,17 +16,17 @@
   "source_sha256": "f5ea3a45d14012ceb32c54b1472d81086743d6e79b12a549a2fea1ffd98d1a36",
   "source_hash": "6275f824d2a92f7562b44c6e670664944ffec4f0d0d1332bae02eab34e5d4390",
   "check": "ok",
-  "review": "headline: \"Airport Manager's report\" is rendered as \"informe sobre la administración del aeropuerto\", which turns a report by the manager into a report about airport administration. It should be the manager's report (informe del gerente/administrador del aeropuerto).; summary: \"Airport Manager's report\" is rendered as \"informe sobre la administración del aeropuerto\", which changes who gives the report. The committee names \"Finance Committee\" and \"Lease Committee\" are also left in English; they should be in Spanish (Comité de Finanzas, Comité de Arrendamiento).; items 1: \"Finance Committee\" is left in English within a Spanish sentence. It should be Comité de Finanzas.; items 2: \"Lease Committee\" is left in English within a Spanish sentence. It should be Comité de Arrendamiento.; items 5: \"Airport Manager's Report\" is rendered as \"Informe sobre la administración del aeropuerto\", which changes it from a report by the manager to a report about administration. It should be Informe del gerente del aeropuerto.",
-  "attempts": 1,
+  "review": "summary: \"Finance Committee\" and \"Lease Committee\" are left in English inside the Spanish sentence. They are not names of people, places, or businesses, so they should be translated (for example, \"Comité de Finanzas\" and \"Comité de Arrendamientos\").; items 1: \"Finance Committee\" is left in English in the Spanish text. It should be translated, for example \"Informe del Comité de Finanzas\".; items 2: \"Lease Committee\" is left in English in the Spanish text. It should be translated, for example \"Informe del Comité de Arrendamientos\".",
+  "attempts": 2,
   "model": "claude-haiku-5-5",
   "prompt_version": 5,
   "glossary": "7f8b3bb0bfba9e5c",
-  "generated_at": "2026-10-17T05:11:32-04:00",
+  "generated_at": "2026-10-17T05:48:05-04:00",
   "usage": {
-    "input_tokens": 357,
-    "output_tokens": 1772,
+    "input_tokens": 1194,
+    "output_tokens": 1690,
     "cache_read_input_tokens": 2066
   },
-  "cost": 0.007798,
-  "replaced_cost": 0.019465
+  "cost": 0.005909,
+  "replaced_cost": 0.027263
 }
