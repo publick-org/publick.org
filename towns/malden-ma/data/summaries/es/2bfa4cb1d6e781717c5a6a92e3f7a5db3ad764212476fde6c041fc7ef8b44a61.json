@@ -1,25 +1,28 @@
 {
-  "headline": "Se volvió a nombrar a la presidencia y a la secretaría, se nombró a una nueva persona como copresidencia, se pospusieron las actas de junio y se habló de la seguridad de las bicicletas y los patinetes eléctricos en el sendero para bicicletas.",
-  "summary": "El comité habló con el teniente Powell sobre la seguridad de las bicicletas y los patinetes eléctricos en el sendero para bicicletas. Se trataron los límites de velocidad, los límites de personal, las cámaras y lo que hacen comunidades vecinas como Saugus y Lynn. Las actas de la reunión de junio se pospusieron para la reunión de agosto. El comité hizo sus elecciones anuales, y los miembros también revisaron los planes de alcance a la comunidad y el seguimiento de tareas pendientes de reuniones anteriores.",
+  "headline": "Se reeligió a Chloe para la presidencia y a Brittany para la secretaría, se nombró a Kevin G. para la copresidencia, las actas de junio quedaron pospuestas (tabled) y se habló de la seguridad de bicicletas y patinetas eléctricas en la ciclovía.",
+  "summary": "El Comité Asesor Comunitario de la Policía habló de la seguridad de bicicletas eléctricas y patinetas eléctricas en la ciclovía con Powell, teniente de policía. Se habló de los límites de velocidad, los límites de personal, las cámaras y lo que hacen comunidades vecinas como Saugus y Lynn. Las actas de la reunión de junio se pospusieron para la reunión de agosto. El comité hizo sus elecciones anuales. Los miembros también revisaron planes de divulgación y el seguimiento de puntos de acción anteriores.",
   "decisions": [
-    "Se pospusieron las actas de la reunión de junio para la reunión de agosto.",
-    "Se volvió a elegir a Chloe como presidencia del comité, con la confirmación y aprobación de todos los demás miembros.",
-    "Se nombró a Kevin G. como copresidencia, con la confirmación y aprobación de todos los demás miembros.",
-    "Se volvió a elegir a Brittany como secretaría del comité, con la confirmación y aprobación de todos los demás miembros."
+    "Las actas de la reunión de junio se pospusieron para la reunión de agosto.",
+    "Se reeligió a Chloe para la presidencia, confirmada y aprobada por todos los miembros restantes.",
+    "Se nombró a Kevin G. para la copresidencia, confirmado y aprobado por todos los miembros restantes.",
+    "Se reeligió a Brittany para la secretaría, confirmada y aprobada por todos los miembros restantes."
   ],
   "language": "es",
   "kind": "minutes",
   "source_sha256": "2bfa4cb1d6e781717c5a6a92e3f7a5db3ad764212476fde6c041fc7ef8b44a61",
   "source_hash": "1be3a59432c55460087b1dc8a820658b4c3aae49441ecce7536efb61f6d8481b",
   "check": "ok",
-  "review": "headline: The English says \"Reelected\" Chair and Clerk (an election), but the translation says \"Se volvió a nombrar\" (reappointed). This changes elected to appointed.",
-  "attempts": 2,
-  "model": "claude-sonnet-5-5",
-  "prompt_version": 4,
-  "generated_at": "2026-10-08T05:23:07-04:00",
+  "review": "summary: The Spanish adds the committee name 'Comité Asesor Comunitario de la Policía', which does not appear in the English. Also 'tabled' was rendered 'pospusieron' without the required '(tabled)' note, though this is the first use in the summary text.",
+  "attempts": 1,
+  "model": "claude-haiku-5-5",
+  "prompt_version": 5,
+  "glossary": "7f8b3bb0bfba9e5c",
+  "generated_at": "2026-10-17T08:06:22-04:00",
   "usage": {
-    "input_tokens": 2422,
-    "output_tokens": 469
+    "input_tokens": 426,
+    "output_tokens": 3407,
+    "cache_read_input_tokens": 2070
   },
-  "cost": 0.01483
+  "cost": 0.00721,
+  "replaced_cost": 0.01483
 }

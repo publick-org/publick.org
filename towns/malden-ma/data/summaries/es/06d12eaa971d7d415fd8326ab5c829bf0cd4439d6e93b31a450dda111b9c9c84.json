@@ -1,25 +1,28 @@
 {
-  "headline": "Volvieron a nombrar a los oficiales de la junta, pospusieron la aprobación de las actas de abril y aceptaron los informes de tesorería y de superintendencia",
-  "summary": "La junta pospuso la aprobación de las actas de abril de 2026 hasta la reunión de junio. Aceptó el informe de tesorería, que muestra $13,178.29 en ingresos de abril para Perpetual Care, y aceptó el informe de superintendencia sobre nueve entierros en abril. La junta volvió a nombrar a James Tuxbury como presidente de la junta y a Sheila Fermano como secretaria de la junta, y dejó en espera la discusión de un proyecto propuesto de bancas hasta una reunión futura.",
+  "headline": "Se volvió a nombrar a los funcionarios de la junta, se pospuso (tabled) la aprobación de las actas de abril y se aceptaron los informes del tesorero y del superintendente",
+  "summary": "La Junta de Síndicos del Cementerio pospuso la aprobación de las actas de abril de 2026 hasta la reunión de junio. Aceptó el informe del tesorero, que muestra $13,178.29 en ingresos de abril para Perpetual Care. También aceptó el informe del superintendente, sobre nueve entierros en abril. Volvió a nombrar a James Tuxbury para la presidencia y a Sheila Fermano para la secretaría. Además, dejó en pausa la discusión sobre un proyecto propuesto de bancos hasta una reunión futura.",
   "decisions": [
-    "Se votó posponer la aprobación de las actas de abril de 2026 hasta la reunión de junio; todos a favor. APROBADA",
-    "Se votó aceptar el informe de tesorería tal como se leyó; todos a favor. APROBADA",
-    "Se votó aceptar el informe de superintendencia; todos a favor. APROBADA",
-    "Se votó volver a nombrar a James Tuxbury y a Sheila Fermano en los cargos de presidencia y secretaría, respectivamente; todos a favor. APROBADA"
+    "Votó para posponer la aprobación de las actas de abril de 2026 hasta la reunión de junio; todos a favor. APROBADA",
+    "Votó para aceptar el informe del tesorero tal como se leyó; todos a favor. APROBADA",
+    "Votó para aceptar el informe del superintendente; todos a favor. APROBADA",
+    "Votó para volver a nombrar a James Tuxbury para la presidencia y a Sheila Fermano para la secretaría; todos a favor. APROBADA"
   ],
   "language": "es",
   "kind": "minutes",
   "source_sha256": "06d12eaa971d7d415fd8326ab5c829bf0cd4439d6e93b31a450dda111b9c9c84",
   "source_hash": "c994eb5c710065f2c4b9e27087281e4d9fc4f66e5c95a47bc52b517eff9f4837",
   "check": "ok",
-  "review": "summary: The translation adds gender not given in English: 'secretaria de la junta' makes Sheila Fermano female (and 'presidente' makes Tuxbury male). It also adds 'de la junta' after each title. Likely gender is inferred from names, not stated in the English.",
-  "attempts": 2,
-  "model": "claude-sonnet-5-5",
-  "prompt_version": 4,
-  "generated_at": "2026-10-08T05:23:07-04:00",
+  "review": "summary: The English never says 'Board of Cemetery Trustees' (La Junta de Síndicos del Cementerio); the translation adds a board name that is not in the source. The English says only 'The board'.",
+  "attempts": 1,
+  "model": "claude-haiku-5-5",
+  "prompt_version": 5,
+  "glossary": "7f8b3bb0bfba9e5c",
+  "generated_at": "2026-10-17T08:06:22-04:00",
   "usage": {
-    "input_tokens": 2211,
-    "output_tokens": 442
+    "input_tokens": 433,
+    "output_tokens": 2948,
+    "cache_read_input_tokens": 2070
   },
-  "cost": 0.014396
+  "cost": 0.004774,
+  "replaced_cost": 0.014396
 }
