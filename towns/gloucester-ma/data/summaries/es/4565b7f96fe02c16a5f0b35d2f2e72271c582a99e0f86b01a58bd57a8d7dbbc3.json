@@ -1,31 +1,33 @@
 {
-  "headline": "El Subcomité de Edificios y Finanzas va a revisar las cuentas de actividades estudiantiles, los costos de educación especial y las transferencias del presupuesto.",
-  "summary": "El subcomité va a hablar de los saldos de las cuentas de actividades estudiantiles, de los costos de educación especial, incluidos la matrícula fuera del distrito y el transporte, y de las transferencias del presupuesto. El director financiero también presentará un informe.",
+  "headline": "El Subcomité de Edificios y Finanzas del Comité Escolar revisará las cuentas de actividades estudiantiles, los costos de educación especial y las transferencias presupuestarias.",
+  "summary": "El subcomité discutirá los saldos de las cuentas de actividades estudiantiles, los costos de educación especial, incluidos la matrícula fuera del distrito y el transporte, y las transferencias presupuestarias. La oficina financiera principal también dará un informe.",
   "items": [
-    "Informe del director financiero",
-    "Creación de cuenta de actividades - GHS Teatro/Drama",
-    "Votación y recomendación sobre los saldos de las cuentas de actividades del año fiscal 26",
-    "Reembolso Circuit Breaker del año fiscal 27",
+    "Informe de la Oficina Financiera Principal",
+    "Creación de cuenta de actividades - GHS Theatre/Drama",
+    "Votación para recomendar los saldos de actividades del año fiscal 26",
+    "Reembolso del Circuit Breaker del año fiscal 27",
     "Actualización trimestral de NEC",
     "Matrícula fuera del distrito",
     "Transporte fuera del distrito",
-    "Arreglos para reuniones futuras",
-    "Transferencias del presupuesto"
+    "Arreglo para futuras reuniones",
+    "Transferencias presupuestarias"
   ],
   "language": "es",
   "kind": "agenda",
   "source_sha256": "4565b7f96fe02c16a5f0b35d2f2e72271c582a99e0f86b01a58bd57a8d7dbbc3",
   "source_hash": "e7f851c3a1ff13bb083927192e5268069702cd5b746240df12b987453e684976",
   "check": "ok",
-  "review": "summary: The English says 'The Chief Financial Officer will also give a report' with no gender given. The Spanish 'El director financiero' states a male gender. It should be a neutral form such as 'La persona a cargo de las finanzas' or 'El/la director(a) financiero(a)'.; items 1: 'Chief Financial Officer' is translated as 'director financiero', which states a male gender that the English does not give. A neutral wording is needed.",
-  "attempts": 2,
-  "model": "claude-sonnet-5-5",
-  "prompt_version": 4,
-  "generated_at": "2026-10-09T08:54:47-04:00",
+  "review": "headline: The English says only \"Building and Finance Subcommittee\". The translation adds \"del Comité Escolar\" (of the School Committee), which the English does not state.; summary: \"Chief Financial Officer\" is translated as \"la oficina financiera principal\" (the main financial office). That names an office, not a person, and changes the role.; items 1: \"Chief Financial Officer's Report\" is translated as \"Oficina Financiera Principal\", which names an office instead of the officer and mistranslates the role.",
+  "attempts": 1,
+  "model": "claude-haiku-5-5",
+  "prompt_version": 5,
+  "glossary": "7f8b3bb0bfba9e5c",
+  "generated_at": "2026-10-17T07:43:02-04:00",
   "usage": {
-    "input_tokens": 2035,
-    "output_tokens": 323
+    "input_tokens": 379,
+    "output_tokens": 1643,
+    "cache_read_input_tokens": 2066
   },
-  "cost": 0.01341,
-  "replaced_cost": 0.025934
+  "cost": 0.005328,
+  "replaced_cost": 0.039344
 }
