@@ -277,8 +277,6 @@ report_url = "https://www.manchesternh.gov/residents/manchester-nh-connect"
 # The month the full history starts (python -m pipeline.fetch_311 --backfill).
 # Older requests are included only while they are still open.
 history_since = "2024-01"
-# Requests a run may spend reading 311 history again (default 20): more, until its older months are read.
-catch_up_requests = 250
 # Wards as of the city's 2021 redistricting, from NH GRANIT, with 2020 census
 # population (see data/README.md).
 precincts_file = "manchester-wards-2022.geojson"
