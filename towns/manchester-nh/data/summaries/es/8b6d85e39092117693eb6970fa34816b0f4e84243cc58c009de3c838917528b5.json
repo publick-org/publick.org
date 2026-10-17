@@ -1,23 +1,26 @@
 {
-  "headline": "Se aprobaron cambios de estacionamiento en las calles Elm y Chestnut, propuestos por la División de Tránsito, y se envió la enmienda a la ordenanza sobre PFAS a revisión técnica",
-  "summary": "El comité aprobó una serie de cambios de estacionamiento, parquímetros y zonas de carga y descarga en Elm Street y Chestnut Street, cerca de Hanover Street, presentados por la División de Tránsito. También votó que una enmienda a la ordenanza sobre las sustancias químicas PFAS debe aprobarse, y la envió al Comité de Proyectos de Ley en Segunda Lectura para su revisión técnica.",
+  "headline": "Aprobó cambios de estacionamiento de la División de Tránsito en Elm Street y Chestnut Street, y remitió la enmienda a la ordenanza sobre PFAS para revisión técnica",
+  "summary": "El comité aprobó un conjunto de cambios de estacionamiento, parquímetros y zonas de carga y descarga en Elm Street y Chestnut Street, cerca de Hanover Street, presentados por la División de Tránsito. También votó que una enmienda a la ordenanza relacionada con las sustancias químicas PFAS debe aprobarse (ought to pass) y la envió al Committee on Bills on Second Reading para revisión técnica.",
   "decisions": [
-    "Se aprobaron los cambios de estacionamiento, parquímetros y zonas de carga y descarga de la División de Tránsito en Elm Street y Chestnut Street, cerca de Hanover Street.",
-    "Se votó que la enmienda a la ordenanza sobre las sustancias químicas PFAS debe aprobarse, y se envió al Comité de Proyectos de Ley en Segunda Lectura para su revisión técnica."
+    "Aprobó los cambios de estacionamiento, parquímetros y zonas de carga y descarga de la División de Tránsito en Elm Street y Chestnut Street, cerca de Hanover Street.",
+    "Votó que la enmienda a la ordenanza sobre las sustancias químicas PFAS debe aprobarse y la remitió al Committee on Bills on Second Reading para revisión técnica."
   ],
   "language": "es",
   "kind": "minutes",
   "source_sha256": "8b6d85e39092117693eb6970fa34816b0f4e84243cc58c009de3c838917528b5",
   "source_hash": "1ea0dc0365e44566b51c20be7ad9d35c9d07cab1fb89fa87c80a453af3d7a409",
   "check": "ok",
-  "review": "ok",
-  "attempts": 2,
-  "model": "claude-sonnet-5-5",
-  "prompt_version": 4,
-  "generated_at": "2026-10-08T05:31:55-04:00",
+  "review": "summary: El nombre del comité 'Committee on Bills on Second Reading' se dejó en inglés dentro de la oración en español, sin traducción; debería traducirse (p. ej., 'Comité de Proyectos en Segunda Lectura'), ya que no es un nombre propio de persona, lugar, negocio o programa.; decisions 2: Se dejó en inglés el nombre 'Committee on Bills on Second Reading' en la oración en español; debe traducirse. Además falta '(ought to pass)' tras 'debe aprobarse', que según las reglas debe aparecer la primera vez que se usa el término en el texto.",
+  "attempts": 1,
+  "model": "claude-haiku-5-5",
+  "prompt_version": 5,
+  "glossary": "dfe3e38189624f78",
+  "generated_at": "2026-10-17T08:49:12-04:00",
   "usage": {
-    "input_tokens": 2125,
-    "output_tokens": 395
+    "input_tokens": 397,
+    "output_tokens": 1686,
+    "cache_read_input_tokens": 1665
   },
-  "cost": 0.013868
+  "cost": 0.006196,
+  "replaced_cost": 0.013868
 }
