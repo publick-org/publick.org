@@ -1,27 +1,28 @@
 {
-  "headline": "Se aprobaron las actas del 17 de julio, el Informe de Ejecutivo Director, incluidas las renovaciones de certificados de depósito, y las facturas hasta el cheque 73657.",
-  "summary": "La Autoridad aprobó las actas del 17 de julio de 2026, los informes operativos mensuales y el informe de la dirección ejecutiva, que incluye la construcción en Maynard Homes, el reemplazo de calderas y los esfuerzos para depurar la lista de espera, además de la renovación de certificados de depósito con Triangle Credit Union. También aprobó el pago de facturas y escuchó comentarios del público sobre la seguridad del edificio, problemas de mantenimiento y preocupaciones por actividad ilegal en una propiedad de la NHRA.",
+  "headline": "Aprobó las actas del 17 de julio, el Informe del Director Ejecutivo con la renovación de CD y las facturas hasta el cheque 73657.",
+  "summary": "La Autoridad aprobó las actas de su reunión del 17 de julio de 2026, los informes operativos mensuales y el Informe del Director Ejecutivo. Este informe cubre la construcción de Maynard Homes, el reemplazo de calderas y los esfuerzos para depurar la lista de espera, incluida la renovación de certificados de depósito (CD) con Triangle Credit Union. También aprobó el pago de facturas y escuchó comentarios del público sobre la seguridad de los edificios, problemas de mantenimiento y preocupaciones por actividad ilegal en una propiedad de NHRA.",
   "decisions": [
-    "Se aprobaron las actas de la reunión ordinaria del 17 de julio de 2026, con una revisión al comentario de la Sra. Honorow sobre la ciudadanía.",
-    "Se aceptaron las Comunicaciones, incluidos los informes operativos mensuales de julio de 2026.",
-    "Se aprobó el informe de la dirección ejecutiva, que incluye la renovación de certificados de depósito con Triangle Credit Union a un 4.00% de rendimiento porcentual anual.",
-    "Se aprobó el pago de las facturas de la Lista de Desembolsos de Efectivo, cheques número 73520 al 73657, y los cheques número 6068 al 6076 de Park View Apartments."
+    "Aprobó las actas de la reunión regular del 17 de julio de 2026, con una corrección al comentario de la Sra. Honorow sobre la ciudadanía.",
+    "Aceptó las Comunicaciones, incluidos los informes operativos mensuales de julio de 2026.",
+    "Aprobó el Informe del Director Ejecutivo, incluida la renovación de certificados de depósito (CD) con Triangle Credit Union a un rendimiento anual (APY) de 4.00%.",
+    "Aprobó el pago de facturas de la Lista de Desembolsos en Efectivo, cheques números 73520 al 73657, y los cheques de Park View Apartments números 6068 al 6076."
   ],
   "language": "es",
   "kind": "minutes",
   "source_sha256": "3e7795397ec3fd06679c37ea79e67b9afd80238bdd765a2ce7b19c5eab99ae52",
   "source_hash": "8458c56e6201e2e4c2f718658d0742ebfa3d9e52b6716268e800780b2171a4eb",
   "check": "ok",
-  "review": "headline: \"Informe de Ejecutivo Director\" is a garbled rendering of \"Executive Director's Report\". It should be \"Informe de la Dirección Ejecutiva\" or \"del director ejecutivo\". As written, the title is incorrect and reads as if the words were mixed up.",
-  "attempts": 2,
-  "model": "claude-sonnet-5-5",
-  "prompt_version": 4,
-  "generated_at": "2026-10-15T06:30:02-04:00",
+  "review": "headline: \"CD renewals\" se tradujo como \"la renovación de CD\" sin explicar la sigla; en el resumen se usa \"certificados de depósito (CD)\". Además, \"renewals\" es plural y se dejó en singular. Un lector no entendería \"CD\" solo; debería decir \"renovaciones de certificados de depósito\".",
+  "attempts": 1,
+  "model": "claude-haiku-5-5",
+  "prompt_version": 5,
+  "glossary": "6b5af23a628fa469",
+  "generated_at": "2026-10-17T05:50:50-04:00",
   "usage": {
-    "input_tokens": 1155,
-    "output_tokens": 525,
-    "cache_read_input_tokens": 1129
+    "input_tokens": 431,
+    "output_tokens": 2059,
+    "cache_read_input_tokens": 1702
   },
-  "cost": 0.011395,
-  "replaced_cost": 0.010497
+  "cost": 0.005016,
+  "replaced_cost": 0.021892
 }

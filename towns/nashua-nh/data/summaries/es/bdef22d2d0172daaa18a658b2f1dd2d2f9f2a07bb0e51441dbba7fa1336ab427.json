@@ -1,22 +1,23 @@
 {
-  "headline": "Se realizó una audiencia pública sobre pedir prestados $345,000 adicionales para el proyecto piloto de PFAS del vertedero Four Hills; no se registró ninguna votación sobre la resolución.",
-  "summary": "La Junta de Concejales (Board of Aldermen) realizó una audiencia pública sobre la Resolución R-26-057, que aprobaría pedir prestados $345,000 adicionales del Clean Water State Revolving Fund para el proyecto de prueba piloto de remoción y destrucción de PFAS y lixiviados del vertedero Four Hills. Nadie habló a favor ni en contra, y se cerró la audiencia. Las actas no registran ninguna votación sobre la resolución antes de que se levantara la sesión.",
+  "headline": "Se realizó una audiencia pública sobre pedir prestados $345,000 adicionales para el proyecto piloto de PFAS en el Four Hills Landfill; no se registró votación sobre la resolución.",
+  "summary": "El Board of Aldermen realizó una audiencia pública sobre la Resolución R-26-057, que aprobaría pedir prestados $345,000 adicionales al Clean Water State Revolving Fund para el proyecto piloto de prueba de remoción y destrucción de PFAS/lixiviados en el Four Hills Landfill. Nadie habló a favor ni en contra. Se cerró la audiencia. Las actas no registran una votación sobre la resolución antes de que se levantara la sesión.",
   "decisions": [],
   "language": "es",
   "kind": "minutes",
   "source_sha256": "bdef22d2d0172daaa18a658b2f1dd2d2f9f2a07bb0e51441dbba7fa1336ab427",
   "source_hash": "24bf6d49cbf5a5b7b5f08b92a0dd8dffe9a2b76212d435f62c27a555e805ee88",
   "check": "ok",
-  "review": "summary: \"Board of Aldermen\" is added in English in parentheses, but the English says only \"the Board\", and \"Junta de Concejales\" adds a body name that the source does not give. The fund name \"Clean Water State Revolving Fund\" is also left untranslated in the Spanish sentence; it is a program name, so this is minor. The added board name is the problem.",
-  "attempts": 2,
-  "model": "claude-sonnet-5-5",
-  "prompt_version": 4,
-  "generated_at": "2026-10-14T06:04:51-04:00",
+  "review": "summary: \"Board of Aldermen\" is left in English. The translation should render the board's name in Spanish (for example \"Junta de Concejales\"). Leaving it untranslated is not covered by the exception for names of people, places, businesses and programs.",
+  "attempts": 1,
+  "model": "claude-haiku-5-5",
+  "prompt_version": 5,
+  "glossary": "6b5af23a628fa469",
+  "generated_at": "2026-10-17T05:50:50-04:00",
   "usage": {
     "input_tokens": 264,
-    "output_tokens": 275,
-    "cache_read_input_tokens": 1129
+    "output_tokens": 1409,
+    "cache_read_input_tokens": 1702
   },
-  "cost": 0.006267,
-  "replaced_cost": 0.003354
+  "cost": 0.003196,
+  "replaced_cost": 0.009621
 }

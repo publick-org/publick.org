@@ -1,6 +1,6 @@
 {
-  "headline": "El Comité de Revisión del Presupuesto habló de sugerencias para la presentación del presupuesto del año fiscal 28; no se tomó ninguna acción.",
-  "summary": "Los concejales dieron al director financiero y a la administración sus comentarios sobre cómo organizar el presupuesto del año fiscal 28. Hablaron de temas como fechas de entrega más tempranas, explicaciones escritas de los cambios en cada partida, promedios de gastos de tres a cinco años, si se deben incluir los nombres de los empleados con sus salarios, el libro del presupuesto digital frente al impreso y la forma en que los departamentos hacen sus presentaciones. El presidente del comité dijo que la administración respondería a las sugerencias antes de una próxima reunión. No hubo votaciones sobre cambios al presupuesto.",
+  "headline": "El Budget Review Committee habló sobre sugerencias para la presentación del presupuesto del FY28; no se tomaron medidas.",
+  "summary": "Los concejales dieron comentarios a la oficina financiera (CFO) y a la administración sobre cómo dar formato al presupuesto del FY28. Los temas incluyeron fechas de entrega más tempranas, explicaciones narrativas de los cambios por partida presupuestaria, promedios de gasto de tres a cinco años, si se deben incluir los nombres de los empleados con sus salarios, el libro de presupuesto digital frente al impreso, y el estilo de presentación de los departamentos. Presidencia dijo que la administración respondería a las sugerencias antes de una reunión futura. No se hizo ninguna votación sobre cambios al presupuesto.",
   "decisions": [
     "Se levantó la sesión."
   ],
@@ -9,16 +9,17 @@
   "source_sha256": "1759b28034e2ee6efeb95cca0a0b1d4cfeddec2d2413db03ef79f18b750815a7",
   "source_hash": "76147f3e9040051ebf48980de3a0bd53671ae61f35003adeb61dd2facaefee6e",
   "check": "ok",
-  "review": "ok",
-  "attempts": 2,
-  "model": "claude-sonnet-5-5",
-  "prompt_version": 4,
-  "generated_at": "2026-10-14T06:04:51-04:00",
+  "review": "headline: El nombre del comité y la sigla quedaron en inglés dentro de la oración en español: \"Budget Review Committee\" no se tradujo (debería ser algo como \"Comité de Revisión del Presupuesto\"). Además, \"FY28\" se dejó en inglés en lugar de \"año fiscal 2028\" (\"año fiscal\" es el término requerido).; summary: \"FY28\" se dejó en inglés en vez de \"año fiscal 2028\". Además, \"CFO\" se tradujo como \"oficina financiera\", que cambia el cargo (es el director o la directora de finanzas, no una oficina). Y \"Presidencia dijo\" cambia al \"Chairman\" por una oficina, aunque eso es menor; lo principal son los errores anteriores. \"Aldermen\" como \"concejales\" es aceptable.",
+  "attempts": 1,
+  "model": "claude-haiku-5-5",
+  "prompt_version": 5,
+  "glossary": "6b5af23a628fa469",
+  "generated_at": "2026-10-17T05:50:50-04:00",
   "usage": {
     "input_tokens": 280,
-    "output_tokens": 310,
-    "cache_read_input_tokens": 1129
+    "output_tokens": 2214,
+    "cache_read_input_tokens": 1702
   },
-  "cost": 0.006597,
-  "replaced_cost": 0.003876
+  "cost": 0.006062,
+  "replaced_cost": 0.010473
 }
