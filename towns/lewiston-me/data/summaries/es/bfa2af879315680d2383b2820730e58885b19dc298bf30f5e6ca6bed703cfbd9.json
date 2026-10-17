@@ -1,9 +1,9 @@
 {
-  "headline": "Agenda de consentimiento solo con asuntos de personal y sesión de comentarios del público.",
-  "summary": "La reunión incluye un asunto de personal en la agenda de consentimiento y un período de comentarios del público sobre temas de las escuelas y la educación.",
+  "headline": "Agenda de consentimiento solo de personal y período de comentarios del público.",
+  "summary": "La reunión incluye un punto de personal en la agenda de consentimiento y un período de comentarios del público sobre temas escolares y educativos.",
   "items": [
-    "Presentación de los miembros del Comité Escolar",
-    "Agenda de consentimiento: Personal",
+    "Presentación de los miembros de School Committee",
+    "Agenda de consentimiento: personal",
     "Comentarios del público (hasta 3 minutos por persona, período de 30 minutos)"
   ],
   "language": "es",
@@ -11,14 +11,17 @@
   "source_sha256": "bfa2af879315680d2383b2820730e58885b19dc298bf30f5e6ca6bed703cfbd9",
   "source_hash": "a28a95522ba9aebb15876686821171ba09cc7b9ce7dafc725ca4509758a586a7",
   "check": "ok",
-  "review": "ok",
-  "attempts": 2,
-  "model": "claude-sonnet-5-5",
-  "prompt_version": 4,
-  "generated_at": "2026-10-08T06:10:27-04:00",
+  "review": "items 1: \"School Committee\" se dejó en inglés dentro de la oración en español. Debe traducirse, por ejemplo \"Presentación de los miembros del Comité Escolar\".",
+  "attempts": 1,
+  "model": "claude-haiku-5-5",
+  "prompt_version": 5,
+  "glossary": "ef7932921dbd7e00",
+  "generated_at": "2026-10-17T06:25:04-04:00",
   "usage": {
-    "input_tokens": 1591,
-    "output_tokens": 166
+    "input_tokens": 181,
+    "output_tokens": 787,
+    "cache_read_input_tokens": 1739
   },
-  "cost": 0.008324
+  "cost": 0.002533,
+  "replaced_cost": 0.008324
 }

@@ -1,25 +1,27 @@
 {
-  "headline": "Se aprobaron la segunda y la primera lectura de varias políticas escolares y se votó para expulsar a un estudiante hasta que un padre o una madre esté disponible.",
-  "summary": "El comité aprobó la agenda de consentimiento, que incluye contrataciones, traslados y renuncias de personal. Aprobó la segunda lectura de siete políticas con dos modificaciones y la primera lectura de una política nueva sobre los cargos del comité. Después de una sesión ejecutiva sobre una audiencia disciplinaria de un estudiante, el comité votó para expulsar al estudiante hasta que un padre o una madre esté disponible.",
+  "headline": "Aprobó la segunda lectura y la primera lectura de varias políticas escolares y votó para expulsar a un estudiante hasta que un padre o madre esté disponible.",
+  "summary": "El comité aprobó la agenda de consentimiento, que incluye contrataciones de personal, traslados y renuncias. Aprobó la segunda lectura de siete políticas, con dos cambios, y la primera lectura de una política nueva sobre los funcionarios del School Committee. Después de una sesión ejecutiva sobre una audiencia disciplinaria de un estudiante, el comité votó para expulsar al estudiante hasta que un padre o madre esté disponible.",
   "decisions": [
-    "Se aprobó la segunda lectura de siete políticas del Comité Escolar con dos modificaciones, 9-0.",
-    "Se aprobó la primera lectura de la política BDB – Cargos del Comité Escolar, 9-0.",
-    "Se votó para expulsar al Estudiante A hasta que un padre o una madre esté disponible, 9-0."
+    "Aprobó la segunda lectura de siete políticas del School Committee con dos cambios, 9-0.",
+    "Aprobó la primera lectura de la política BDB – School Committee Officers, 9-0.",
+    "Votó para expulsar a Student A hasta que un padre o madre esté disponible, 9-0."
   ],
   "language": "es",
   "kind": "minutes",
   "source_sha256": "d4bb1e2364e596c308e6214fe96f2fb95c45b98594cb7e130d7766338df88da5",
   "source_hash": "669b7d859e045e05c547cd7faba9e53ab68adb2af4bd5924a9a7d2b308bfc17f",
   "check": "ok",
-  "review": "ok",
-  "attempts": 2,
-  "model": "claude-sonnet-5-5",
-  "prompt_version": 4,
-  "generated_at": "2026-10-09T08:54:41-04:00",
+  "review": "summary: \"School Committee\" se dejó en inglés dentro de una oración en español (\"funcionarios del School Committee\"). El inglés dice \"committee officers\", y el nombre de una junta no es un nombre propio que pueda quedarse sin traducir. Debería decir algo como \"los funcionarios del comité\" o \"Comité Escolar\".; decisions 1: \"School Committee\" se dejó en inglés dentro de una oración en español. Debería traducirse como \"Comité Escolar\".; decisions 3: \"Student A\" se dejó en inglés. No es un nombre propio, sino una designación genérica para mantener el anonimato, y debería traducirse como \"Estudiante A\".",
+  "attempts": 1,
+  "model": "claude-haiku-5-5",
+  "prompt_version": 5,
+  "glossary": "ef7932921dbd7e00",
+  "generated_at": "2026-10-17T06:25:04-04:00",
   "usage": {
-    "input_tokens": 1901,
-    "output_tokens": 354
+    "input_tokens": 277,
+    "output_tokens": 1675,
+    "cache_read_input_tokens": 1743
   },
-  "cost": 0.011394,
-  "replaced_cost": 0.023484
+  "cost": 0.005627,
+  "replaced_cost": 0.034878
 }

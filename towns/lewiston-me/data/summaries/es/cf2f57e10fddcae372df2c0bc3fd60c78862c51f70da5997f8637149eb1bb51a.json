@@ -1,30 +1,33 @@
 {
-  "headline": "El concejo aprueba un acuerdo de servidumbre para una torre de telefonía celular, el plan maestro del aeropuerto, un contrato sindical y una subvención de seguridad nacional; rechaza la sesión ejecutiva.",
-  "summary": "El concejo aprobó la disposición de la propiedad en 12 Fair Street, convocó una audiencia pública sobre las enmiendas a la Carta Municipal, aprobó un acuerdo de servidumbre para el sitio de una torre de telefonía celular y respaldó el Auburn-Lewiston Airport Master Plan. También aprobó un convenio colectivo de trabajo con la Maine Service Employees Association y aceptó una subvención de $190,000 del Departamento de Seguridad Nacional. Una moción para pasar a sesión ejecutiva para hablar de un asunto legal no fue aprobada.",
+  "headline": "El City Council aprueba la servidumbre para una torre de telefonía celular, el plan maestro del aeropuerto, el contrato sindical y la subvención de seguridad nacional; rechaza la sesión ejecutiva.",
+  "summary": "El City Council aprobó la venta de 12 Fair Street, convocó una audiencia pública sobre enmiendas a la Carta de la Ciudad, aprobó un acuerdo de servidumbre para un sitio de torre de celular y apoyó el Plan Maestro del Aeropuerto Municipal de Auburn-Lewiston. También aprobó un convenio colectivo (CBA) con la Maine Service Employees Association y aceptó una subvención de Seguridad Nacional de $190,000. Una moción para entrar en sesión ejecutiva a fin de hablar de un asunto legal no fue aprobada.",
   "decisions": [
-    "Se aceptaron y se archivaron las actas de las reuniones del 18, el 25 y el 26 de agosto de 2026.",
-    "Se canceló la reunión del Concejo Municipal del 3 de noviembre de 2026 y se fijó una reunión ordinaria para el 17 de noviembre.",
-    "Se aprobó la disposición de la propiedad en 12 Fair Street a favor de Baxter Homes, LLC por $49,900.",
-    "Se convocó una audiencia pública sobre las enmiendas propuestas a la Carta Municipal, que se hará el 15 de septiembre.",
-    "Se aprobó un acuerdo de servidumbre con TPA VIII, LLC para el sitio de la torre de telefonía celular en 532 East Avenue.",
-    "Se aprobó apoyar la implementación del Auburn-Lewiston Municipal Airport Master Plan y del Five-Year Sponsor Commitment.",
-    "Se autorizó a la administración municipal a firmar un convenio colectivo de trabajo de tres años con la Maine Service Employees Association.",
-    "Se aceptó y se asignó la subvención del año fiscal 2025 del Departamento de Seguridad Nacional por $190,000.",
-    "La moción para pasar a sesión ejecutiva para hablar de un asunto legal con la oficina del abogado municipal no fue aprobada."
+    "Recibió y archivó las actas de las reuniones del 18, 25 y 26 de agosto de 2026.",
+    "Canceló la reunión del City Council del 3 de noviembre de 2026 y fijó una reunión ordinaria para el 17 de noviembre.",
+    "Aprobó la venta de 12 Fair Street a Baxter Homes, LLC por $49,900.",
+    "Convocó una audiencia pública sobre las enmiendas propuestas a la Carta de la Ciudad, que se realizará el 15 de septiembre.",
+    "Aprobó un acuerdo de servidumbre con TPA VIII, LLC para el sitio de la torre de celular en 532 East Avenue.",
+    "Aprobó apoyar la implementación del Plan Maestro del Aeropuerto Municipal de Auburn-Lewiston y del Compromiso de Cinco Años del Patrocinador.",
+    "Autorizó al administrador municipal a firmar un convenio colectivo de tres años con la Maine Service Employees Association.",
+    "Aceptó y asignó fondos de la subvención de Seguridad Nacional del año fiscal 2025, por $190,000.",
+    "La moción para entrar en sesión ejecutiva a fin de hablar de un asunto legal con el abogado de la Ciudad no fue aprobada."
   ],
   "language": "es",
   "kind": "minutes",
   "source_sha256": "cf2f57e10fddcae372df2c0bc3fd60c78862c51f70da5997f8637149eb1bb51a",
   "source_hash": "bd0b56685d603eaecd21ce5a307380bc351e1b46668c31b57dc9c671404953c8",
   "check": "ok",
-  "review": "decisions 7: El inglés dice que se autorizó al \"City Administrator\" (una persona con ese cargo), pero la traducción dice \"la administración municipal\", que es un órgano o departamento. Cambia quién firma el convenio.; decisions 9: El inglés dice \"con el City Attorney\" (el abogado municipal). La traducción dice \"con la oficina del abogado municipal\", lo cual cambia con quién se iba a hablar.",
-  "attempts": 2,
-  "model": "claude-sonnet-5-5",
-  "prompt_version": 4,
-  "generated_at": "2026-10-08T06:10:27-04:00",
+  "review": "headline: Se dejó en inglés \"City Council\" en una oración en español. Debe traducirse (por ejemplo, \"El Concejo Municipal\"). Además, el término CBA/convenio colectivo se tradujo como \"contrato sindical\", lo cual es aceptable, pero el texto en inglés no usa CBA aquí.; summary: \"City Council\" se dejó en inglés dentro de la oración en español. Además, \"disposition of 12 Fair Street\" se tradujo como \"venta\", lo cual cambia el significado (disposición puede ser venta, transferencia u otra forma); también \"Aeropuerto Municipal\" se agregó a \"Auburn-Lewiston Airport\" que en el original no dice Municipal.; decisions 2: \"City Council\" se dejó en inglés en una oración en español.; decisions 3: \"Disposition\" se tradujo como \"venta\", lo que añade un significado (que fue una venta) que el original no indica.; decisions 7: El convenio colectivo debería llevar \"(CBA)\" la primera vez que aparece en el texto? Ya apareció en el resumen; no es error. Sin embargo, \"City Administrator\" como \"administrador municipal\" añade género masculino no dado en el original.",
+  "attempts": 1,
+  "model": "claude-haiku-5-5",
+  "prompt_version": 5,
+  "glossary": "ef7932921dbd7e00",
+  "generated_at": "2026-10-17T06:25:04-04:00",
   "usage": {
-    "input_tokens": 2719,
-    "output_tokens": 769
+    "input_tokens": 596,
+    "output_tokens": 5066,
+    "cache_read_input_tokens": 1743
   },
-  "cost": 0.020824
+  "cost": 0.011352,
+  "replaced_cost": 0.020824
 }
