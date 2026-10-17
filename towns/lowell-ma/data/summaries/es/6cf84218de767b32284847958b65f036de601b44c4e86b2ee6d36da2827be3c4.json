@@ -1,10 +1,10 @@
 {
-  "headline": "La Comisión de Conservación revisará la limpieza de una alcantarilla en 451 Black Brook Drive, el plan de herbicida de CSX y una infracción por corte de árboles en 4 Epirus Drive.",
-  "summary": "La Comisión considerará una solicitud de Winnco para limpiar una alcantarilla en 451 Black Brook Drive y una solicitud de CSX Transportation para usar herbicida en el control de maleza a lo largo del Lowell Train Track Right-Of-Way. También tratará una Orden de Ejecución contra Alish y Jigarkumar Bhagat por cortar árboles cerca de una zona de amortiguamiento de humedal en 4 Epirus Drive.",
+  "headline": "La Conservation Commission revisará la limpieza de una alcantarilla en 451 Black Brook Drive, el plan de herbicidas de CSX y la infracción por tala de árboles en 4 Epirus Drive.",
+  "summary": "La Conservation Commission analizará una solicitud de Winnco para limpiar una alcantarilla en 451 Black Brook Drive, y una solicitud de CSX Transportation para usar herbicida para controlar la maleza a lo largo del Lowell Train Track Right-Of-Way. También tratará una orden de cumplimiento contra Alish y Jigarkumar Bhagat por cortar árboles cerca de una zona de amortiguamiento de humedales en 4 Epirus Drive.",
   "items": [
-    "Solicitud de Determinación de Aplicabilidad: Winnco, 451 Black Brook Drive, 01851 - aprobación para limpiar una alcantarilla existente dentro de la zona de amortiguamiento de humedal de 100 pies",
-    "Solicitud de Determinación de Aplicabilidad: CSX Transportation, Inc., Lowell Train Track Right-Of-Way - control de maleza con herbicida dentro de la zona de amortiguamiento de humedal de 100 pies",
-    "Orden de Ejecución: Alish y Jigarkumar Bhagat, 4 Epirus Drive, 01854 - infracción por cortar árboles a menos de 100 pies de una zona de amortiguamiento de vegetación colindante (BVW)",
+    "Solicitud de Determinación de Aplicabilidad: Winnco, 451 Black Brook Drive, 01851 - aprobación para limpiar la alcantarilla existente dentro de la zona de amortiguamiento de 100 pies de humedales",
+    "Solicitud de Determinación de Aplicabilidad: CSX Transportation, Inc., Lowell Train Track Right-Of-Way - control de maleza con herbicida dentro de la zona de amortiguamiento de 100 pies de humedales",
+    "Orden de cumplimiento: Alish y Jigarkumar Bhagat, 4 Epirus Drive, 01854 - infracción por cortar árboles a menos de 100 pies de una zona de amortiguamiento vegetada colindante (BVW)",
     "Revisión de las actas de la reunión del 23 de septiembre de 2026"
   ],
   "language": "es",
@@ -12,16 +12,17 @@
   "source_sha256": "6cf84218de767b32284847958b65f036de601b44c4e86b2ee6d36da2827be3c4",
   "source_hash": "a9c862face472ac8655757f3db6e8f5c7aff0749bd5c8535b3f4d1b1fdb54c7e",
   "check": "ok",
-  "review": "summary: \"Enforcement Order\" is translated as \"Orden de Ejecución\", which means an order of execution or carrying out. It should be \"Orden de Cumplimiento\" or \"Orden de Aplicación de la Ley\". The same error appears in items 3.; items 3: \"Enforcement Order\" is translated as \"Orden de Ejecución\", which is a mistranslation. It should be \"Orden de Cumplimiento\" or similar.",
-  "attempts": 2,
-  "model": "claude-sonnet-5-5",
-  "prompt_version": 4,
-  "generated_at": "2026-10-13T08:15:06-04:00",
+  "review": "headline: 'Conservation Commission' se dejó en inglés dentro de una oración en español; debe traducirse como 'Comisión de Conservación'.; summary: 'Conservation Commission' se dejó en inglés dentro de una oración en español; debe traducirse como 'Comisión de Conservación'. Además, 'Enforcement Order' es 'orden de cumplimiento' en minúscula, lo cual es aceptable, pero el nombre de la comisión sigue siendo un error.",
+  "attempts": 1,
+  "model": "claude-haiku-5-5",
+  "prompt_version": 5,
+  "glossary": "7f8b3bb0bfba9e5c",
+  "generated_at": "2026-10-17T05:52:40-04:00",
   "usage": {
-    "input_tokens": 1394,
-    "output_tokens": 543,
-    "cache_read_input_tokens": 1125
+    "input_tokens": 498,
+    "output_tokens": 2243,
+    "cache_read_input_tokens": 2066
   },
-  "cost": 0.01293,
-  "replaced_cost": 0.016768
+  "cost": 0.005956,
+  "replaced_cost": 0.029698
 }
