@@ -125,10 +125,30 @@ calendars = ["Affordable Housing Trust Fund Meetings", "Beautification Committee
 # A meeting on the calendar and in the Agenda Center is shown once.
 # To fill in: check the calendars read, and any left out that list meetings.
 
+# The calendars' and the CivicClerk portal's names for boards the Agenda Center
+# names otherwise. The Agenda Center's "Health" category is the regional North
+# Shore Public Health Collaborative, not the Board of Health.
 [meetings.aliases]
-# To fill in: board names the engine doesn't fix itself: a calendar meeting
-#   next to an Agenda Center one of the same day, not shown as one, needs an
-#   alias (python -m pipeline.listings, in the report).
+"Affordable Housing Trust" = "Affordable Housing Trust Fund"
+"Board of Library Trustees" = "Board of Public Library Trustees"
+"Community Preservation Committee CPA" = "Community Preservation Committee"
+"Conservation Commission Meetings" = "Conservation Commission"
+"Design Review Board Meetings" = "Design Review Board"
+"Health" = "North Shore Public Health Collaborative"
+"Joint Public Hearing with the City Council and The Planning Board" = "Joint City Council and Planning Board"
+"Joint Public Hearing with the Planning Board" = "Joint City Council and Planning Board"
+"Salem City Council" = "City Council"
+"Salem City Council Special" = "City Council"
+"Salem City Council Committee on Administration and Finance" = "City Council Committee on Administration and Finance"
+"Salem City Council Committee on Community and Economic Development" = "City Council Committee on Community and Economic Development"
+"Salem City Council Committee on Government Services" = "City Council Committee on Government Services"
+"Salem City Council Committee on Ordinances Licenses and Legal Affairs" = "City Council Committee on Ordinances, Licenses and Legal Affairs"
+"Salem City Council Committee on Ordinances, Licenses and Legal Affairs" = "City Council Committee on Ordinances, Licenses and Legal Affairs"
+"Salem City Council Committee on Public Health, Safety and Environment" = "City Council Committee on Public Health, Safety and Environment"
+"Salem Housing Authority Regular Board of Directors" = "Housing Authority Board"
+"Salem School Committee" = "School Committee"
+"Sustainability, Energy, Resiliency Committee" = "Sustainability, Energy, & Resiliency Committee"
+"Zero Waste Salem Committee" = "Zero Waste Salem"
 
 [meetings.agenda_center]
 base_url = "https://www.salemma.gov"
@@ -136,34 +156,33 @@ base_url = "https://www.salemma.gov"
 # on.
 since = "2026-01-01"
 
-# To fill in: [meetings.agenda_center.committees."<category>"]: committees and
-#   other bodies posted under another's category, each by a phrase in its
-#   titles: under "School Committee", "Agenda for Salem School Committee -
-#   Policy Subcommittee Meeting - June 2, 2026", "Agenda for Salem School
-#   Committee - Personnel Subcommittee Meeting - May 4, 2026", "Agenda for
-#   Salem School Committee - Policy Subcommittee Meeting - April 28, 2026";
-#   under "Housing Authority Board", "Agenda for Salem Housing Authority
-#   Regular Board of Directors Meeting April 8, 2026.", "Agenda for the Salem
-#   Housing Authority Regular Board of Directors Meeting July 8, 2026.",
-#   "Agenda for the Salem Housing Authority Regular Board of Directors Meeting
-#   May 13, 2026."; under "Zero Waste Salem", "Zero Waste Salem May 2026
-#   Committee Meeting", "Zero Waste Salem June 2026 Committee Meeting", "Zero
-#   Waste Salem March 2026 committee meeting"; under "Board of Public Library
-#   Trustees", "Board of Library Trustees Agenda", "Board of Library Trustees
-#   Meeting Agenda", "Board of Library Trustees Meeting Agenda June 2026";
-#   under "City Council", "Joint Public Hearing between the Salem City Council
-#   and the Planning Board", "Joint Public Hearing of the City Council and the
-#   Planning Board October 19, 2026", "Committee on Administration and Finance
-#   co-posted with the Committee of the Whole, January 21, 2026"; under
-#   "Planning Board", "Joint Public Hearing Planning Board/City Council Agenda
-#   Sept, 9 2026", "*Amended Joint Public Hearing City Council/Planning Board,
-#   Oct 19, 2026"; under "Registrars of Voters", "Board of Registrar of Voters
-#   meeting with the Committee on Government Services co-posted with the Comm.
-#   of the Whole, June 4, 2026", "Board of Registrar of Voters meeting with
-#   the Salem City Council Committee on Government Services co-posted with the
-#   Committee of the Whole"; under "Bicycling & Shared Path Advisory
-#   Committee", "6/24/2026 Joint Bicycling & Shared Path Advisory Committee
-#   and Transportation Commission Meeting Agenda".
+# Committees and other bodies posted under another's category, each by a
+# phrase in its titles. The council's standing committees post under "City
+# Council", usually co-posted with the Committee of the Whole; their names match
+# the calendar's "Salem City Council Committee on ...".
+[meetings.agenda_center.committees."City Council"]
+"Committee on Administration and Finance" = "City Council Committee on Administration and Finance"
+"Committee on Administrative and Finance" = "City Council Committee on Administration and Finance"
+"Committee on Community and Economic Development" = "City Council Committee on Community and Economic Development"
+"Committee on Government Services" = "City Council Committee on Government Services"
+"Committee on Ordinances, Licenses and Legal Affairs" = "City Council Committee on Ordinances, Licenses and Legal Affairs"
+"Committee on Public Health, Safety and Environment" = "City Council Committee on Public Health, Safety and Environment"
+"Planning Board" = "Joint City Council and Planning Board"
+
+[meetings.agenda_center.committees."Planning Board"]
+"City Council" = "Joint City Council and Planning Board"
+
+[meetings.agenda_center.committees."School Committee"]
+"Building and Grounds Subcommittee" = "School Committee Buildings and Grounds Subcommittee"
+"Buildings and Grounds Subcommittee" = "School Committee Buildings and Grounds Subcommittee"
+"Curriculum Subcommittee" = "School Committee Curriculum Subcommittee"
+"Personnel Subcommittee" = "School Committee Personnel Subcommittee"
+"Policy Subcommittee" = "School Committee Policy Subcommittee"
+
+# The Housing Authority's category also carries the board of Housing
+# Opportunities of Salem, Inc.
+[meetings.agenda_center.committees."Housing Authority Board"]
+"Housing Opportunities of Salem" = "Housing Opportunities of Salem Board of Directors"
 
 [meetings.civicclerk]
 api_url = "https://salemma.api.civicclerk.com/v1"
