@@ -1,20 +1,23 @@
 {
-  "headline": "La Comisión de la Biblioteca habló sobre la planificación de la renovación, los recortes al presupuesto y cambios a las políticas, sin tomar votaciones importantes.",
-  "summary": "La comisión escuchó informes sobre el proyecto de renovación de la biblioteca, que incluyen una solicitud de calificaciones (RFQ) para un administrador de construcción con riesgo (Construction Manager at Risk) y el próximo trabajo de Desarrollo del Diseño (Design Development). Se redujeron las horas del personal debido a los recortes en el presupuesto de la ciudad. El Comité de Políticas está terminando una política sobre exhibiciones y despliegue de arte (Art Exhibit and Display) y está redactando una política sobre mesas informativas (Tabling Policy).",
+  "headline": "La Comisión de la Biblioteca habló sobre planes de renovación, recortes al presupuesto y cambios de políticas, sin votaciones importantes.",
+  "summary": "La Comisión de la Biblioteca escuchó informes sobre el proyecto de renovación de la biblioteca. Incluyen una RFQ para un Construction Manager at Risk y el próximo trabajo de desarrollo del diseño. Se han reducido las horas de personal debido a las restricciones del presupuesto de la ciudad. El Comité de Políticas está terminando una política de exposiciones de arte y mientras tanto redacta una política de Tabling (mesas informativas).",
   "decisions": [],
   "language": "es",
   "kind": "minutes",
   "source_sha256": "d6297e5a8eb436558f55f6a0cfbe3eee041378f173c5db0a1cfe461311fcd929",
   "source_hash": "621b88c03523877350c9c8a9ae3877af6c38ec1a33de8467f2cd587aab40df61",
   "check": "ok",
-  "review": "ok",
-  "attempts": 1,
-  "model": "claude-sonnet-5-5",
-  "prompt_version": 4,
-  "generated_at": "2026-10-09T08:53:13-04:00",
+  "review": "summary: \"RFQ\" and \"Construction Manager at Risk\" are left in English with no Spanish rendering. They should be translated or explained, for example \"solicitud de cualificaciones\" and \"gerente de construcción con riesgo\". Also, the Tabling Policy is rendered as \"política de Tabling (mesas informativas)\", which leaves an English word in the Spanish sentence.",
+  "attempts": 2,
+  "model": "claude-haiku-5-5",
+  "prompt_version": 5,
+  "glossary": "2276695ce7030f16",
+  "generated_at": "2026-10-17T07:04:38-04:00",
   "usage": {
-    "input_tokens": 1373,
-    "output_tokens": 289
+    "input_tokens": 543,
+    "output_tokens": 1429,
+    "cache_read_input_tokens": 1662
   },
-  "cost": 0.010826
+  "cost": 0.003627,
+  "replaced_cost": 0.011622
 }

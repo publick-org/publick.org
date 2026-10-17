@@ -1,21 +1,23 @@
 {
-  "headline": "El Comité de Reducción de Impuestos habló sobre los procedimientos de las audiencias y del proceso; no se tomó ninguna decisión sobre reducciones de impuestos.",
-  "summary": "El comité se reunió para organizar su trabajo y habló sobre los procedimientos de las audiencias y del proceso. No asistió ningún miembro del público y no se decidió ningún caso de reducción de impuestos.",
+  "headline": "El Comité de Reducción de Impuestos del Concejo Municipal analizó los procedimientos para audiencias y para el proceso; no se tomaron decisiones sobre reducción de impuestos (abatement).",
+  "summary": "El comité se reunió para organizar su trabajo y analizó los procedimientos para audiencias y para el proceso. No asistió ningún miembro del público y no se decidió ningún caso de reducción de impuestos.",
   "decisions": [],
   "language": "es",
   "kind": "minutes",
   "source_sha256": "55d280eef9fb6616d302c5b05f95af68bb99ae5232a6b766c64fcc03aacb6a7d",
   "source_hash": "bd5863f58dda3044cf752d5ddaffb7774abdcdea9cd12095a05f8c5e2e81f87a",
   "check": "ok",
-  "review": "ok",
-  "attempts": 2,
-  "model": "claude-sonnet-5-5",
-  "prompt_version": 4,
-  "generated_at": "2026-10-09T08:53:13-04:00",
+  "review": "headline: The translation adds \"del Concejo Municipal\" (of the Municipal Council), which is not in the English. It makes the committee appear to belong to a council, and the source never says that. The term \"abatement\" in parentheses is also placed at the second use instead of the first. The first use is \"El Comité de Reducción de Impuestos\", so the parenthetical should follow it there.",
+  "attempts": 1,
+  "model": "claude-haiku-5-5",
+  "prompt_version": 5,
+  "glossary": "2276695ce7030f16",
+  "generated_at": "2026-10-17T07:04:38-04:00",
   "usage": {
-    "input_tokens": 1658,
-    "output_tokens": 157
+    "input_tokens": 208,
+    "output_tokens": 1074,
+    "cache_read_input_tokens": 1662
   },
-  "cost": 0.008708,
-  "replaced_cost": 0.01639
+  "cost": 0.003046,
+  "replaced_cost": 0.025098
 }

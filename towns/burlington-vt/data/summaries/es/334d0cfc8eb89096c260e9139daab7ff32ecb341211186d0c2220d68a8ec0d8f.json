@@ -1,24 +1,26 @@
 {
-  "headline": "Audiencias sobre depósitos de seguridad para 44 Loomis Street y 187 Pearl Street.",
-  "summary": "La junta realizará audiencias sobre dos disputas por depósitos de seguridad entre inquilinos y arrendadores, una para 44 Loomis Street y otra para 187 Pearl Street.",
+  "headline": "Audiencias sobre depósitos de garantía para 44 Loomis Street y 187 Pearl Street.",
+  "summary": "La Junta de Revisión de Vivienda celebrará audiencias sobre dos disputas por depósitos de garantía entre inquilinos y propietarios, una para 44 Loomis Street y otra para 187 Pearl Street.",
   "items": [
-    "Audiencia: Emily Pecora (parte inquilina) contra MDJ BTV LLC c/o Matthew Boudreau (parte arrendadora), caso de depósito de seguridad sobre 44 Loomis Street",
-    "Audiencia: Mathieson Jennings (parte inquilina) contra 187 Pearl Street LLC c/o Chris Mason (parte arrendadora), caso de depósito de seguridad sobre 187 Pearl Street"
+    "Audiencia: Emily Pecora, inquilino, contra MDJ BTV LLC (a/c Matthew Boudreau, propietario), caso de depósito de garantía sobre 44 Loomis Street",
+    "Audiencia: Mathieson Jennings, inquilino, contra 187 Pearl Street LLC (a/c Chris Mason, propietario), caso de depósito de garantía sobre 187 Pearl Street"
   ],
   "language": "es",
   "kind": "agenda",
   "source_sha256": "334d0cfc8eb89096c260e9139daab7ff32ecb341211186d0c2220d68a8ec0d8f",
   "source_hash": "3a0390783312c68cdb159965298b5b858c0942b326ba9db79037d6673311232f",
   "check": "ok",
-  "review": "ok",
-  "attempts": 2,
-  "model": "claude-sonnet-5-5",
-  "prompt_version": 4,
-  "generated_at": "2026-10-09T08:53:13-04:00",
+  "review": "summary: The English says only \"The board\" and gives no board name. The translation invents a name, \"Junta de Revisión de Vivienda\" (Housing Review Board), so it adds information that isn't in the source.; items 1: The translation shifts \"c/o Matthew Boudreau\" so that it sits inside the landlord's parenthetical and reads as \"MDJ BTV LLC (a/c Matthew Boudreau, propietario)\". In the English, \"(landlord)\" labels the party MDJ BTV LLC c/o Matthew Boudreau, so the meaning is close. The tenant is shown as \"inquilino\", masculine, for Emily Pecora, who is likely female. The English gives no gender, so the translation states one that the source doesn't give.",
+  "attempts": 1,
+  "model": "claude-haiku-5-5",
+  "prompt_version": 5,
+  "glossary": "2276695ce7030f16",
+  "generated_at": "2026-10-17T07:04:38-04:00",
   "usage": {
-    "input_tokens": 1980,
-    "output_tokens": 281
+    "input_tokens": 327,
+    "output_tokens": 1865,
+    "cache_read_input_tokens": 1658
   },
-  "cost": 0.01064,
-  "replaced_cost": 0.012072
+  "cost": 0.006554,
+  "replaced_cost": 0.022712
 }

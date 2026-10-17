@@ -1,25 +1,27 @@
 {
-  "headline": "Se votó enviar a audiencia pública, el 6 de octubre, los cambios enmendados de planBTV New North End y la enmienda ZA-27-03 del CDO.",
-  "summary": "La Comisión revisó los cambios al plan planBTV New North End, incluida una nueva calificación de una parcela de un cementerio en el análisis de terrenos con potencial de desarrollo, y votó por unanimidad convocar esos cambios a audiencia pública el 6 de octubre. También habló sobre una actualización de Tier 1A/Act 250 y votó enviar a audiencia pública, el 6 de octubre, la propuesta de enmienda ZA-27-03 del CDO, que trata sobre humedales, comunidades naturales y árboles ejemplares. Además, la Comisión aprobó sus actas.",
+  "headline": "La Comisión de Planificación votó enviar a audiencia pública, el 6 de octubre, los cambios a planBTV New North End y la enmienda CDO ZA-27-03.",
+  "summary": "La Comisión de Planificación revisó los cambios al plan planBTV New North End, incluido el cambio de puntuación de un terreno de cementerio en el análisis de sitios con potencial de desarrollo. Por unanimidad, votó anunciar esos cambios para audiencia pública el 6 de octubre. También analizó la actualización de Tier 1A/Act 250 y votó enviar la enmienda propuesta CDO ZA-27-03, que cubre humedales, comunidades naturales y árboles especímenes, a audiencia pública el 6 de octubre. La Comisión también aprobó sus actas.",
   "decisions": [
-    "Se aprobaron, por unanimidad, los cambios enmendados a planBTV New North End para convocarlos a audiencia pública el 6 de octubre a las 7:00 p. m.",
-    "Se envió a audiencia pública, el 6 de octubre, la propuesta de enmienda ZA-27-03 del CDO, Natural Resource Overlay Updates, con una abstención de M.Gaughan.",
-    "Se aprobaron las actas de la reunión."
+    "Aprobó por unanimidad los cambios enmendados a planBTV New North End para anunciarlos para audiencia pública el 6 de octubre a las 7:00 p. m.",
+    "Envió la enmienda propuesta CDO ZA-27-03 Natural Resource Overlay Updates a audiencia pública el 6 de octubre, con una abstención de M.Gaughan.",
+    "Aprobó las actas de la reunión."
   ],
   "language": "es",
   "kind": "minutes",
   "source_sha256": "77aeee1feb472d33013fa38dcc6db5e7c48ae988f880d45e8bab80fa19c30129",
   "source_hash": "7bcf1c1e27699881ea80240b14457d3880dc1f045c7edf2e276548edbff86e7b",
   "check": "ok",
-  "review": "decisions 2: 'Natural Resource Overlay Updates' is left in English inside the Spanish sentence. It is the title of the amendment, not a name of a person, place, business or program, so it should be translated (e.g., 'Actualizaciones de la Zona de Recursos Naturales').",
-  "attempts": 2,
-  "model": "claude-sonnet-5-5",
-  "prompt_version": 4,
-  "generated_at": "2026-10-09T08:53:13-04:00",
+  "review": "headline: The English doesn't name the body ('the Commission' isn't even in the headline), but the translation adds 'La Comisión de Planificación' as the subject. This addition is not in the source text.; summary: The English says 'The Commission' without naming it, but the translation adds 'de Planificación'. This is an addition not in the source text.",
+  "attempts": 1,
+  "model": "claude-haiku-5-5",
+  "prompt_version": 5,
+  "glossary": "2276695ce7030f16",
+  "generated_at": "2026-10-17T07:04:38-04:00",
   "usage": {
-    "input_tokens": 2173,
-    "output_tokens": 444
+    "input_tokens": 425,
+    "output_tokens": 2165,
+    "cache_read_input_tokens": 1662
   },
-  "cost": 0.015532,
-  "replaced_cost": 0.027154
+  "cost": 0.005378,
+  "replaced_cost": 0.042686
 }
