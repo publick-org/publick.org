@@ -456,6 +456,14 @@
    "attempts": 1,
    "generated_at": "2026-10-13T09:20:35-04:00"
   },
+  "Hoarding": {
+   "text": "Acumulación de objetos",
+   "check": "ok",
+   "model": "claude-haiku-5-5",
+   "prompt_version": 2,
+   "attempts": 1,
+   "generated_at": "2026-10-17T09:15:46-04:00"
+  },
   "Homeless Camp": {
    "text": "Campamento de personas sin hogar",
    "check": "ok",
@@ -511,6 +519,14 @@
    "prompt_version": 2,
    "attempts": 1,
    "generated_at": "2026-10-13T09:20:35-04:00"
+  },
+  "Junk Vehicles Located on Private Property": {
+   "text": "Vehículos en desuso ubicados en propiedad privada",
+   "check": "review: \"Junk Vehicles\" means vehicles in a state of ruin or scrap (vehículos chatarra). \"Vehículos en desuso\" means vehicles not in use, which could include working vehicles that are only parked, so it changes the meaning. Better: \"Vehículos chatarra\".",
+   "model": "claude-haiku-5-5",
+   "prompt_version": 2,
+   "attempts": 1,
+   "generated_at": "2026-10-17T09:15:46-04:00"
   },
   "Land Bank Commission": {
    "text": "Comisión del Banco de Tierras",
@@ -1171,6 +1187,16 @@
     "cache_creation_input_tokens": 1710
    },
    "cost": 0.005435
+  },
+  {
+   "generated_at": "2026-10-17T09:15:46-04:00",
+   "texts": 2,
+   "usage": {
+    "input_tokens": 64,
+    "output_tokens": 299,
+    "cache_creation_input_tokens": 1710
+   },
+   "cost": 0.006653
   }
  ]
 }
