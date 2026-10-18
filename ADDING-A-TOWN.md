@@ -164,9 +164,12 @@ shows no ward map; a town with neither (Bangor) has no 311 section yet.
       fix itself (it already turns "Health, Board of" round, and matches a
       calendar's "Open Space and Recreation Committee" or "Malden Cultural
       Council" to the Agenda Center's "Open Space & Recreation Committee" or
-      "Cultural Council"). `python -m pipeline.listings` lists the meetings
-      shown as one and why; a calendar meeting next to an Agenda Center one
-      of the same day, not put together, needs an alias.
+      "Cultural Council", and leaves a date or a "co-posted with ..." out of
+      a calendar's "Planning Board Meeting, December 17, 2026"). The site
+      checks fail a board named for a date that's left. `python -m
+      pipeline.listings` lists the meetings shown as one and why; a calendar
+      meeting next to an Agenda Center one of the same day, not put
+      together, needs an alias.
 - [ ] **School board**: where the district lists its meetings, so they're
       shown before their agendas: its calendar feed (`[ical_meetings]`), a
       page of the year's dates (`[schedule_meetings]`, or `schedule_url` in
