@@ -1,12 +1,12 @@
 {
-  "headline": "Se confirmaron dos nuevos nombramientos del alcalde y uno de una junta, y se resolvieron dos quejas de la Ley de Reuniones Abiertas sin encontrar ninguna violación",
+  "headline": "Se confirmó volver a nombrar a dos funcionarios de la Alcaldía y a uno para una junta, y se resolvieron dos quejas de la Ley de Reuniones Abiertas (Open Meeting Law) sin encontrar ninguna violación",
   "summary": "El Concejo escuchó una actualización sobre los fondos para las escuelas del año fiscal 2027 y revisó informes del Police Community Advisory Council y del asesor legal. Confirmó que se vuelva a nombrar a Yem Lip como ingeniero de la ciudad, a Anthony Rodrigues como director de Tecnología de la Información y a Robert Donnelly en la Junta de Tasadores. También recibió informes que no encontraron ninguna violación de la Ley de Reuniones Abiertas en dos quejas.",
   "decisions": [
-    "Aprobó la agenda de asuntos de rutina por votación unánime, incluidas las actas de las reuniones del concejo del 24 de febrero de 2026 y del 3 de marzo de 2026.",
-    "Archivó el nuevo nombramiento de James Tuxbury a la Junta de Fideicomisarios del Cementerio.",
+    "Aprobó la agenda de consentimiento (consent agenda) por votación unánime, incluidas las actas de las reuniones del concejo del 24 de febrero de 2026 y del 3 de marzo de 2026.",
+    "Archivó la decisión de volver a nombrar a James Tuxbury en la Junta de Fideicomisarios del Cementerio.",
     "Recibió y archivó el Informe Anual 2025 del Northeast Metropolitan Regional Vocational High School District.",
-    "Recibió y archivó la comunicación del alcalde sobre Kevin Molis como presidente de la Junta de Licencias.",
-    "Confirmó que se vuelva a nombrar a Robert Donnelly a la Junta de Tasadores, 11-0.",
+    "Recibió y archivó la comunicación de la Alcaldía sobre Kevin Molis como presidente de la Junta de Licencias.",
+    "Confirmó que se vuelva a nombrar a Robert Donnelly en la Junta de Tasadores, 11-0.",
     "Archivó por votación unánime la comunicación del Police Community Advisory Council.",
     "Recibió la comunicación sobre la queja de O'Malley bajo la Ley de Reuniones Abiertas y autorizó al Departamento Legal a presentar la respuesta, 10-0 por votación oral, con el concejal O'Malley declarándose presente.",
     "Recibió la comunicación sobre la queja de Friedman bajo la Ley de Reuniones Abiertas y autorizó al Departamento Legal a presentar la respuesta, 10-0 por votación oral, con el concejal O'Malley declarándose presente.",
@@ -19,17 +19,18 @@
   "kind": "minutes",
   "source_sha256": "9cc6d6cba5cae6e39bd4344da5085d11520dc653574403193bcecaa3e4f77470",
   "source_hash": "9f9f40103b3423701610cf7ecde3fd97af2ccf94da01f101b7fc13ecc3157a1a",
-  "check": "decisions 7: Councillor not in the translation",
-  "review": "not reviewed: the check failed",
-  "attempts": 2,
-  "model": "claude-sonnet-5-5",
-  "prompt_version": 4,
-  "generated_at": "2026-10-14T05:18:57-04:00",
+  "check": "ok",
+  "review": "headline: The English says 'two mayoral reappointments', meaning reappointments made by the Mayor. The translation says 'dos funcionarios de la Alcaldía', which implies they are Mayor's office staff. It also drops the idea that the Mayor made the reappointments. The Open Meeting Law term is given in English even though the glossary has a Spanish form, but this is acceptable as a first mention.; decisions 2: 'Placed on file' the reappointment is rendered 'Archivó la decisión de volver a nombrar', which says a decision was made. The English only says the reappointment communication was placed on file, and no decision is stated. This mislabels what the body did.",
+  "attempts": 1,
+  "model": "claude-haiku-5-5",
+  "prompt_version": 5,
+  "glossary": "7f8b3bb0bfba9e5c",
+  "generated_at": "2026-10-18T05:43:02-04:00",
   "usage": {
-    "input_tokens": 1856,
-    "output_tokens": 964,
-    "cache_read_input_tokens": 1129
+    "input_tokens": 1876,
+    "output_tokens": 4284,
+    "cache_read_input_tokens": 2070
   },
-  "cost": 0.013578,
-  "replaced_cost": 0.013472
+  "cost": 0.009544,
+  "replaced_cost": 0.02705
 }

@@ -1,16 +1,16 @@
 {
   "town": "lawrence",
   "folder": "lawrence-ma",
-  "started_at": "2026-10-17T09:10:59+00:00",
-  "finished_at": "2026-10-17T09:24:34+00:00",
-  "engine": "v1.60.0",
+  "started_at": "2026-10-18T09:10:56+00:00",
+  "finished_at": "2026-10-18T09:12:32+00:00",
+  "engine": "v1.61.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 761.3
+      "seconds": 45.6
     },
     {
       "name": "Build site",
@@ -22,25 +22,25 @@
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 39.2
+      "seconds": 41.4
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.7
+      "seconds": 1.5
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 1.0
+      "seconds": 0.6
     }
   ],
   "update": {
     "town": "lawrence",
     "sources": "all",
-    "started_at": "2026-10-17T09:10:59+00:00",
+    "started_at": "2026-10-18T09:10:56+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 31.1,
+        "seconds": 16.4,
         "cadence": "continuous"
       },
       {
@@ -109,7 +109,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 703.0,
+        "seconds": 27.7,
         "cadence": "continuous"
       },
       {
@@ -119,7 +119,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 15 days ago; checked every 30 days"
+        "skipped": "checked 16 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -128,7 +128,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -137,7 +137,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 15 days ago; checked every 30 days"
+        "skipped": "checked 16 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -146,15 +146,16 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 15 days ago; checked every 30 days"
+        "skipped": "checked 16 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 25.7,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -214,7 +215,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-17T05:11:00-04:00",
+      "updated_at": "2026-10-18T05:10:56-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -302,9 +303,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-17T09:52:05+00:00",
-  "data_bytes": 875400,
-  "data_bytes_added": 12132,
+  "last_good_at": "2026-10-18T09:12:32+00:00",
+  "data_bytes": 911503,
+  "data_bytes_added": 33,
   "activity": {
     "boards": 31,
     "meetings_by_date": {
@@ -315,16 +316,14 @@
     }
   },
   "fact_checks": {
-    "summaries": 29,
-    "ok": 27,
-    "failed": 0,
+    "summaries": 31,
+    "ok": 28,
+    "failed": 1,
     "weak": 1,
     "unchecked": 0,
     "not_yet": 1,
-    "held_back": 0,
-    "entries_not_shown": 0,
+    "held_back": 1,
+    "entries_not_shown": 1,
     "vote_counts_left_out": 3
-  },
-  "published_at": "2026-10-17T09:52:05+00:00",
-  "published_engine": "v1.60.0"
+  }
 }

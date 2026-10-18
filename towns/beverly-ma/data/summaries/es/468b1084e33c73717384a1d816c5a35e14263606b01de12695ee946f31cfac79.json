@@ -1,13 +1,13 @@
 {
-  "headline": "Se aprobaron solicitudes de retiro, traspasos, nuevos miembros, órdenes de pago y un ajuste por costo de vida de 3% para el año fiscal 2027, todo por votaciones de 5-0.",
-  "summary": "La Junta de Retiro Contributivo aprobó dos solicitudes de retiro, cuatro traspasos de miembros, cuatro nuevos miembros, las actas de la reunión de enero de 2026, las órdenes de pago financieras mensuales y un ajuste por costo de vida de 3% para el año fiscal 2027. El personal informó sobre el avance de la valuación de OPEB, un error en un desembolso de efectivo que se está corrigiendo y unos memorandos de PERAC que se entregaron a la junta.",
+  "headline": "Se aprobaron solicitudes de retiro, traspasos, nuevos miembros, órdenes de pago y un ajuste por costo de vida (COLA) de 3% para el año fiscal 2027, todo por votaciones de 5-0.",
+  "summary": "La junta aprobó dos solicitudes de retiro, cuatro traspasos de miembros, cuatro nuevos miembros, las actas de la reunión de enero de 2026, las órdenes de pago financieras mensuales y un ajuste por costo de vida de 3% para el año fiscal 2027. El personal informó sobre el avance de la valuación de OPEB, un error en un desembolso de efectivo que se está corrigiendo y los memorandos de la Comisión de Administración de Jubilaciones de Empleados Públicos (PERAC) que se distribuyeron a la junta.",
   "decisions": [
     "Se aprobaron las solicitudes de retiro de Mary Osborne y Shawn Desmond, 5-0.",
     "Se aprobaron las actas de la reunión del 29 de enero de 2026, 5-0.",
     "Se aprobaron los traspasos de Kathleen Dupont, Carolyn Hall, Ana Velasquez y Nora Roche, 5-0.",
     "Se aprobaron los nuevos miembros Joshua Richardson, Craig Sweetser, Lia Lopez y Jason Harvey, 5-0.",
-    "Se aprobó la información financiera, incluido el estado de cuenta de PRIT de enero de 2026, 5-0.",
-    "Se aprobaron las órdenes de pago mensuales, incluidas una orden de pago de nómina de jubilados de $1,400,448.16 y una orden de pago de desembolsos de efectivo de $295,888.62, 5-0.",
+    "Se aprobó la información financiera, incluido el estado de cuenta del Fideicomiso de Inversión de las Reservas de Pensiones (PRIT) de enero de 2026, 5-0.",
+    "Se aprobaron las órdenes de pago mensuales, incluidas una orden de pago de nómina de jubilados (Retiree Payroll Warrant) de $1,400,448.16 y una orden de pago de desembolsos de efectivo de $295,888.62, 5-0.",
     "Se aprobó un monto de ajuste por costo de vida de 3% para el año fiscal 2027, 5-0."
   ],
   "language": "es",
@@ -15,16 +15,17 @@
   "source_sha256": "468b1084e33c73717384a1d816c5a35e14263606b01de12695ee946f31cfac79",
   "source_hash": "f0e82fc6f47543f34a324d68442dbf2ff4aff246d35dffd33195b876900d7fc2",
   "check": "ok",
-  "review": "summary: The English says only \"The board\", but the translation names it \"La Junta de Retiro Contributivo\", a board name the source does not give. This adds information that is not in the English.",
+  "review": "decisions 6: Se dejó el inglés \"Retiree Payroll Warrant\" entre paréntesis. No es un término de la lista de términos cívicos ni un nombre propio, así que debía quedar solo en español.",
   "attempts": 2,
-  "model": "claude-sonnet-5-5",
-  "prompt_version": 4,
-  "generated_at": "2026-10-13T05:12:10-04:00",
+  "model": "claude-haiku-5-5",
+  "prompt_version": 5,
+  "glossary": "7f8b3bb0bfba9e5c",
+  "generated_at": "2026-10-18T05:11:22-04:00",
   "usage": {
-    "input_tokens": 570,
-    "output_tokens": 624,
-    "cache_read_input_tokens": 1129
+    "input_tokens": 1536,
+    "output_tokens": 2846,
+    "cache_read_input_tokens": 2070
   },
-  "cost": 0.011353,
-  "replaced_cost": 0.01305
+  "cost": 0.005839,
+  "replaced_cost": 0.031697
 }
