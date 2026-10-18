@@ -1,0 +1,390 @@
+# Site configuration for Salem, Massachusetts. Everything town-specific lives
+# here; the code is the Publick engine
+# (github.com/publick-org/publick-engine).
+#
+# Salem's website runs on CivicPlus. Its boards post agendas and minutes in the
+# Agenda Center: the City Council and its standing committees (under "City
+# Council", usually co-posted with the Committee of the Whole), the School
+# Committee and its subcommittees, and the city's boards and commissions.
+# Minutes are PDFs with text, not scans. Each board's "... Meetings" calendar
+# lists its meetings before their agendas are posted, and the City Council's
+# CivicClerk portal gives its start times. The Archive Center holds minutes and
+# agendas from the city's earlier website, through early 2025, so it isn't
+# read. 311 requests are on SeeClickFix, where the city acknowledges or closes
+# most of them. The state sources (DLS, DESE, BLS, Census, the Subsidized
+# Housing Inventory) are the same as Malden's.
+#
+# Started on 2026-10-17 by the engine's helper (python -m pipeline.new_town),
+# from Lowell's config.
+#
+# The site is in English and Spanish ([site] languages), as every town's is.
+# The first runs draft the Spanish for the town's own text; [strings.es], at
+# the end, can correct it.
+
+[site]
+name = "Salem Publick"
+# The masthead shows name_prefix in dark ink and name_suffix in the accent
+# color: the town, then the network.
+name_prefix = "Salem "
+domain = "salem-ma.publick.org"
+tagline = "Public data on how Salem, Massachusetts responds, decides, and spends. Updated daily."
+# One line under the name at the top of every page.
+masthead = "An independent guide to city government in Salem, Massachusetts"
+# Public contact address. Shown on the About and Accessibility pages when set.
+contact_email = "salem-ma@publick.org"
+user_agent = "salem-ma.publick.org (+https://salem-ma.publick.org/about/)"
+
+# From the city website (www.salemma.gov): primary is its blue for links,
+# headlines, the menus, and the footer (80 uses in its stylesheets); accent its
+# third-level headings' brown. primary_dark is primary darkened by a fifth,
+# primary_soft a light tint of it. Each passes WCAG AA on white (12.2, 14.4, 7.1
+# to 1). The stylesheets' other blue, #2e3192, is only in widget styles the
+# city's pages don't use.
+[site.colors]
+primary = "#00356b"
+primary_dark = "#002a55"
+primary_soft = "#e6ebf0"
+accent = "#66572c"
+
+[town]
+name = "Salem"
+state_abbr = "MA"
+official_site = "https://www.salemma.gov"
+
+# Sections appear in the main navigation in this order. Each one is a folder
+# under site/pages/<slug>/ and is served at https://<domain>/<slug>/.
+[[sections]]
+slug = "meetings"
+title = "Meetings"
+summary = "Every board and committee meeting on the city calendar and in its Agenda Center, with agendas, and minutes from January 2026 on."
+status = "live"
+
+[[sections]]
+slug = "311"
+title = "311 Requests"
+nav = "311"
+summary = "How fast the city responds to service requests on SeeClickFix, by category and ward."
+status = "live"
+
+[[sections]]
+slug = "schools"
+title = "Schools"
+summary = "Graduation, attendance, and MCAS results compared with the state."
+status = "live"
+
+[[sections]]
+slug = "budget"
+title = "City budget"
+nav = "Budget"
+summary = "Where general fund money comes from and how it is spent, reserves, and the property tax limit."
+status = "live"
+
+[[sections]]
+slug = "housing"
+title = "Housing"
+summary = "New homes permitted, home values and rents, affordable housing, and the housing stock."
+status = "live"
+
+[[sections]]
+slug = "officials"
+title = "Who represents you"
+nav = "Officials"
+summary = "The mayor, City Council, and School Committee, by office and by ward, and how to reach them."
+status = "live"
+
+[[sections]]
+slug = "about"
+title = "About"
+summary = "Data sources, update schedule, metric definitions, and corrections."
+status = "live"
+
+# Page view counting with GoatCounter, on the network's site; prefix is this
+# town's folder.
+[analytics]
+prefix = "salem-ma"
+
+# Public meetings, from the city calendar and its Agenda Center and its
+# CivicClerk portal.
+[meetings]
+base_url = "https://www.salemma.gov"
+archive_url = "https://www.salemma.gov/AgendaCenter"
+archive_name = "city's Agenda Center"
+# CivicPlus sites reset some connections (Beverly's, Lawrence's, Lowell's,
+# Methuen's, Waltham's); a slower pace and the client's retries help.
+request_delay = 5.0
+max_event_pages = 40
+
+# The city calendar, read month by month: the meetings the city lists before
+# their agendas are posted, with their times and places. Read: the calendars
+# whose events, over the last three months and the next three, were mostly
+# meetings, and the three boards' calendars with a few meetings in 2026 (Board
+# of Assessors, Neighborhood Improvement Advisory Council, Salem Youth
+# Commission). Not read: the boards' calendars with no events since 2025
+# (Cable Television & Technology Commission, Contributory Retirement Board,
+# Designer Selection Committee, Harbor Plan Committee, Salem / Beverly Water
+# Supply Board, Salem State University Neighborhood Committee, School Building
+# Committee Meetings), whose boards post nothing new in the Agenda Center
+# either; and the departments' and events' calendars, where a meeting is rare
+# (a Licensing Board meeting, a joint meeting of the Registrars of Voters, a
+# public hearing) and its board's own calendar or the Agenda Center lists it:
+# Assessors' Office, Children's Alliance, City Clerk & Elections Office, City
+# Electrician, City Engineer, City Seal Task Force, Collector's Office, Council
+# on Aging Department, Diversity, Equity, & Inclusion (DEI), Donations,
+# Emergency Management, Finance Department, Fire Department, GIS & Maps,
+# Harbormaster, Health Events, Holidays, Housing Stability, Human Resources,
+# Information Technology, Inspectional Services (Building & Public Property),
+# Legal Department, Licensing, Mayor's Office, Planning and Community
+# Development, Police, Public Services, Purchasing, Recovery, Recreation,
+# Recycling & Trash, Registrars of Voters, Retirement, School Building
+# Committee, Schools, Seaside Soiree on Pride of Baltimore II, Snow Central,
+# Special Events-Scheduling Calendar - Not Official, Sustainability and
+# Resiliency, Transportation, Treasurer, Veterans' Services, Water & Sewer,
+# Weights & Measurements.
+[meetings.civicplus]
+calendars = ["Affordable Housing Trust Fund Meetings", "Beautification Committee Meetings", "Bicycling and Shared Path Advisory Comm Meetings", "Board of Assessors Meetings", "Board of Health Meetings", "Board of Public Library Trustees Meetings", "Board of Trust Fund Commissioners Meetings", "Cemetery Commission Meetings", "City Council Meetings", "Commission on Disabilities Meetings", "Community Preservation Committee Meetings", "Conservation Commission Meetings", "Council on Aging Board Meetings", "Design Review Board Meetings", "Health Meetings", "Historical Commission Meetings", "Housing Authority Board Meetings", "Licensing Board Meetings", "Neighborhood Improvement Advisory Council Meetings", "Park & Recreation Commission Meetings", "Planning Board Meetings", "Public Art Commission Meetings", "Race Equity Commission Meetings", "Salem Cultural Council Meetings", "Salem Food Policy Council Meetings", "Salem Harbor Port Authority Meetings", "Salem High School Building Committee Meetings", "Salem Human Rights Coalition Meetings", "Salem Redevelopment Authority Meetings", "Salem Youth Commission Meetings", "Scholarship & Education Committee Meetings", "School Committee Meetings", "Sustainability, Energy and Resiliency Com Meetings", "Transportation Commission Meetings", "Tree Commission Meetings", "Zero Waste Salem Meetings", "Zoning Board of Appeals Meetings"]
+# A meeting on the calendar and in the Agenda Center is shown once.
+
+# The calendars' and the CivicClerk portal's names for boards the Agenda Center
+# names otherwise. The Agenda Center's "Health" category is the regional North
+# Shore Public Health Collaborative, not the Board of Health.
+[meetings.aliases]
+"Affordable Housing Trust" = "Affordable Housing Trust Fund"
+"Board of Library Trustees" = "Board of Public Library Trustees"
+"Community Preservation Committee CPA" = "Community Preservation Committee"
+"Conservation Commission Meetings" = "Conservation Commission"
+"Design Review Board Meetings" = "Design Review Board"
+"Health" = "North Shore Public Health Collaborative"
+"Joint Public Hearing with the City Council and The Planning Board" = "Joint City Council and Planning Board"
+"Joint Public Hearing with the Planning Board" = "Joint City Council and Planning Board"
+"Salem City Council" = "City Council"
+"Salem City Council Special" = "City Council"
+"Salem City Council Committee on Administration and Finance" = "City Council Committee on Administration and Finance"
+"Salem City Council Committee on Community and Economic Development" = "City Council Committee on Community and Economic Development"
+"Salem City Council Committee on Government Services" = "City Council Committee on Government Services"
+"Salem City Council Committee on Ordinances Licenses and Legal Affairs" = "City Council Committee on Ordinances, Licenses and Legal Affairs"
+"Salem City Council Committee on Ordinances, Licenses and Legal Affairs" = "City Council Committee on Ordinances, Licenses and Legal Affairs"
+"Salem City Council Committee on Public Health, Safety and Environment" = "City Council Committee on Public Health, Safety and Environment"
+"Salem Housing Authority Regular Board of Directors" = "Housing Authority Board"
+"Salem School Committee" = "School Committee"
+"Sustainability, Energy, Resiliency Committee" = "Sustainability, Energy, & Resiliency Committee"
+"Zero Waste Salem Committee" = "Zero Waste Salem"
+
+[meetings.agenda_center]
+base_url = "https://www.salemma.gov"
+# The first run lists meetings from here, and minutes are collected from here
+# on.
+since = "2026-01-01"
+
+# Committees and other bodies posted under another's category, each by a
+# phrase in its titles. The council's standing committees post under "City
+# Council", usually co-posted with the Committee of the Whole; their names match
+# the calendar's "Salem City Council Committee on ...".
+[meetings.agenda_center.committees."City Council"]
+"Committee on Administration and Finance" = "City Council Committee on Administration and Finance"
+"Committee on Administrative and Finance" = "City Council Committee on Administration and Finance"
+"Committee on Community and Economic Development" = "City Council Committee on Community and Economic Development"
+"Committee on Government Services" = "City Council Committee on Government Services"
+"Committee on Ordinances, Licenses and Legal Affairs" = "City Council Committee on Ordinances, Licenses and Legal Affairs"
+"Committee on Public Health, Safety and Environment" = "City Council Committee on Public Health, Safety and Environment"
+"Planning Board" = "Joint City Council and Planning Board"
+
+[meetings.agenda_center.committees."Planning Board"]
+"City Council" = "Joint City Council and Planning Board"
+
+[meetings.agenda_center.committees."School Committee"]
+"Building and Grounds Subcommittee" = "School Committee Buildings and Grounds Subcommittee"
+"Buildings and Grounds Subcommittee" = "School Committee Buildings and Grounds Subcommittee"
+"Curriculum Subcommittee" = "School Committee Curriculum Subcommittee"
+"Personnel Subcommittee" = "School Committee Personnel Subcommittee"
+"Policy Subcommittee" = "School Committee Policy Subcommittee"
+
+# The Housing Authority's category also carries the board of Housing
+# Opportunities of Salem, Inc.
+[meetings.agenda_center.committees."Housing Authority Board"]
+"Housing Opportunities of Salem" = "Housing Opportunities of Salem Board of Directors"
+
+[meetings.civicclerk]
+api_url = "https://salemma.api.civicclerk.com/v1"
+portal_url = "https://salemma.portal.civicclerk.com"
+# Meetings, agendas, and minutes are collected from here on.
+since = "2026-01-01"
+
+# The School Committee posts with the other boards ("School Committee").
+
+# Agenda and minutes PDFs live in the network's documents bucket, not in git
+# (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID,
+# STORAGE_SECRET_ACCESS_KEY.
+[storage]
+prefix = "salem-ma"
+
+# Plain-English agenda text and previews, and decisions from minutes, written
+# by a language model and labeled as AI-generated on the site. Only meetings
+# from `since` on are summarized, about three months before launch, so the
+# town's history doesn't take the month's budget.
+[summaries]
+since = "2026-07-01"
+
+# How residents can take part, from each board's own agendas. The council's
+# Rules for Testimony (Sec. 26C in the city's Manual of the City Government)
+# say the same. Council meetings are on S.A.T.V. Channel 22 and Zoom; no
+# official page links S.A.T.V.'s recordings of them, so no video_url. The
+# School Committee's schedule page links each meeting's recording.
+[participation."City Council"]
+comment = "Residents can speak during Public Testimony at regular meetings, in person in Council Chambers (93 Washington St., 2nd floor) or by Zoom, for up to 3 minutes each and 15 minutes in all. Sign up on the city's online form, open from 6:30 PM the Tuesday before the meeting, or in the City Clerk's Office, until 6:30 PM on the day of the meeting. The City Clerk's Office: 978-745-9595 ext. 41200, mfisher@salem.com."
+source_title = "City Council agenda of October 8, 2026"
+source_url = "https://www.salemma.gov/AgendaCenter/ViewFile/Agenda/_10082026-8449"
+
+[participation."School Committee"]
+comment = "Residents can speak during public comment near the start of each meeting, in person (sign the sheet before the meeting begins, with name, address, and topic) or by Zoom with \"raise hand\", for up to 5 minutes each, on district matters. Spanish interpretation is available at regular meetings. Contact: 978-740-1212, sdorai@salemk12.org."
+source_title = "School Committee agenda of October 19, 2026"
+source_url = "https://www.salemma.gov/AgendaCenter/ViewFile/Agenda/_10192026-8467"
+video_title = "Salem Public Schools"
+video_url = "https://salemk12.org/about/school-committee/salem-school-committee-agendas-minutes/2026-27-school-committee-meeting-schedule/"
+
+# Terms of the city's own that come up in its agendas, each from its page on the
+# city's website. The state's and the network's terms are in the glossary
+# already.
+[[glossary]]
+term = "SRA"
+definition = "Salem Redevelopment Authority, created by the city in 1962 to advance the revitalization of key parts of its historic downtown, under the Downtown Renewal Plan."
+
+[[glossary]]
+term = "DPCD"
+definition = "Department of Planning and Community Development, the city department for economic development, land use planning, housing policy, transportation projects, historic preservation, open space, and neighborhood improvement. It supports the Planning Board, Conservation Commission, and Historical Commission."
+
+[[glossary]]
+term = "DPS"
+definition = "Department of Public Services, which maintains the city's streets, parks, playgrounds, common areas, cemetery, water and sewer mains, and vehicles, and clears snow and ice."
+
+[[glossary]]
+term = "Salem Skipper"
+definition = "The city's on-demand rideshare service, booked in an app, running Monday to Saturday, 7 AM to 9 PM."
+
+# School district figures from the state's education data portal (DESE).
+[schools]
+district_code = "02580000"
+district_name = "Salem Public Schools"
+
+# Tax bill and budget figures (Mass. Division of Local Services). Some DLS
+# reports take the name, others the DOR code.
+[finance]
+dls_municipality = "Salem"
+dls_code = "258"
+
+# Housing: Census building permits (state and place FIPS codes), American
+# Community Survey through Census Reporter (geo ids), and the state's
+# Subsidized Housing Inventory PDF (the town's name as the PDF lists it).
+[housing]
+bps_place = "59105"
+census_geo = "16000US2559105"
+shi_name = "Salem"
+
+# Unemployment rate (BLS Local Area Unemployment Statistics, area
+# CT2559105000000, Salem city, MA). City rates are not seasonally adjusted;
+# the state series is shown for context.
+[labor]
+local_series = "LAUCT255910500000003"
+
+# How often each data source should update. Figures published monthly or
+# yearly are judged by the engine, by the period they cover
+# (pipeline/rhythms.py).
+[freshness]
+sources = [
+  { label = "Meetings (Agenda Center)", file = "meetings/status.json", max_days = 2 },
+  { label = "311 requests", file = "311/status.json", max_days = 2 },
+  { label = "311 scorecard", file = "311/scorecard.json", field = "generated_at", max_days = 2 },
+]
+
+# 311 requests from SeeClickFix: the city's organization (407, "City of
+# Salem"), from the web portal the city's site links, and its Open311 request
+# types (seeclickfix.com/open311/v2/407/services.json). All 35 are the city's,
+# so no departments are needed. The city acknowledges or closes most requests
+# (121 of 184 made from September 26 to October 2, 2026).
+[seeclickfix]
+organization_id = 407
+report_url = "https://seeclickfix.com/web_portal/9uMKWtTC6yi8SAffD2v7iGGd/report/category"
+# The month the full history starts (python -m pipeline.fetch_311 --backfill).
+# Older requests are included only while they are still open.
+history_since = "2026-01"
+# Request types about a household or a person's vehicle, whose names don't say
+# so: their requests are shown to the block, as the engine's own sensitive
+# categories are.
+sensitive_categories = [
+  "Rodent Infestation",
+  "Vehicle Illegally Parked or Abandoned",
+]
+# Salem's seven wards, each two precincts, from MassGIS's 2022 file.
+precincts_file = "salem-precincts-2022.geojson"
+wards_publisher = "MassGIS"
+wards_year = "2022"
+wards_url = "https://gis.data.mass.gov/maps/aec5130790814ace94438d3bcf23cf9a"
+
+# Who represents you (the Officials page). Kept by hand from official city and
+# school websites; checked is the date the list was last checked against them.
+# Only city- and school-issued email addresses, and the mayor's office phone.
+# The ward file is data/static/salem-precincts-2022.geojson (MassGIS): seven
+# wards of two precincts each, as in the official results. No official page
+# gives a term's end date, so term_ends is left out.
+[officials]
+checked = "2026-10-18"
+# The city's biennial election is in November of odd years (the City Charter
+# page; "City Biennial Election - November 4, 2025"), on the Tuesday after the
+# first Monday, as in 2025.
+next_election = "2027-11-02"
+wards_file = "salem-precincts-2022.geojson"
+wards_publisher = "MassGIS"
+wards_year = "2022"
+wards_url = "https://gis.data.mass.gov/maps/aec5130790814ace94438d3bcf23cf9a"
+
+# Re-elected on November 4, 2025 (official results). The phone and address are
+# the Mayor's Office page's.
+[[officials.bodies]]
+name = "Mayor"
+url = "https://www.salemma.gov/583/Mayors-Office"
+note = "Elected for four years. Chairs the School Committee."
+members = [
+  { name = "Dominick Pangallo", seat = "Citywide", phone = "(978) 619-5600", email = "mayor@salem.com" },
+]
+
+# Elected on November 4, 2025 (official results); the President chosen on
+# January 5, 2026 (the inauguration minutes); all present or recorded in the
+# minutes of September 10, 2026. The council's pages link only a contact form:
+# the addresses are the city's 2026 government card's
+# (salemma.gov/DocumentCenter/View/9216). Ward 3's is printed there without its
+# "@", so it's left out.
+[[officials.bodies]]
+name = "City Council"
+url = "https://www.salemma.gov/780/City-Council"
+note = "Seven councillors elected by ward and four at-large, for two years. The council chooses its President each year."
+members = [
+  { name = "Erin Turowski", seat = "Ward 1", ward = 1, email = "eturowski@salem.com" },
+  { name = "Andrew Smith", seat = "Ward 2", ward = 2, email = "asmith@salem.com" },
+  { name = "Jason Sydoriak", seat = "Ward 3", ward = 3 },
+  { name = "Timothy G. Flynn", seat = "Ward 4", ward = 4, email = "tflynn@salem.com" },
+  { name = "Lydia C. King", seat = "Ward 5", ward = 5, email = "lking@salem.com" },
+  { name = "Katelyn Holappa", seat = "Ward 6", ward = 6, email = "kholappa@salem.com" },
+  { name = "Andrew W. Varela", seat = "Ward 7", ward = 7, email = "avarela@salem.com" },
+  { name = "Alice Rose Merkl", seat = "At-large", role = "President", email = "amerkl@salem.com" },
+  { name = "Ty Hapworth", seat = "At-large", email = "thapworth@salem.com" },
+  { name = "Kyle Alexander Davis", seat = "At-large", email = "kdavis@salem.com" },
+  { name = "Conrad J. Prosniewski", seat = "At-large", email = "cprosniewski@salem.com" },
+]
+
+# Cornell, Stott, and Byas elected on November 4, 2025 (official results); the
+# Vice Chair chosen on January 5, 2026 (the committee's minutes); all present
+# on October 5, 2026 (its minutes). Names and addresses as the district's
+# School Committee page gives them; where its links or the city's card differ
+# (Hoffman's link, Cornell's address on the card), the page's printed address.
+[[officials.bodies]]
+name = "School Committee"
+url = "https://salemk12.org/about/school-committee/"
+note = "Six members elected at-large, and the mayor as chair."
+members = [
+  { name = "Dominick Pangallo", seat = "Mayor", role = "Chair", email = "mayor@salem.com" },
+  { name = "Beth Anne Cornell", seat = "At-large", role = "Vice Chair", email = "bcornell@salemk12.org" },
+  { name = "Mary Manning", seat = "At-large", email = "mmanning@salemk12.org" },
+  { name = "Veronica Miranda", seat = "At-large", email = "vmiranda@salemk12.org" },
+  { name = "AJ Hoffman", seat = "At-large", email = "ahoffman@salemk12.org" },
+  { name = "Yamily Byas", seat = "At-large", email = "ybyas@salemk12.org" },
+  { name = "Megan Stott", seat = "At-large", email = "mstott@salemk12.org" },
+]
