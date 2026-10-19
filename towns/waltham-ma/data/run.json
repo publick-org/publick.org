@@ -1,46 +1,46 @@
 {
   "town": "waltham",
   "folder": "waltham-ma",
-  "started_at": "2026-10-18T09:11:09+00:00",
-  "finished_at": "2026-10-18T09:12:36+00:00",
-  "engine": "v1.61.0",
+  "started_at": "2026-10-19T09:37:04+00:00",
+  "finished_at": "2026-10-19T09:37:55+00:00",
+  "engine": "v1.62.1",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 36.9
+      "seconds": 20.4
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 7.3
+      "seconds": 4.4
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 30.8
+      "seconds": 23.7
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 10.8
+      "seconds": 1.4
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.7
+      "seconds": 0.8
     }
   ],
   "update": {
     "town": "waltham",
     "sources": "all",
-    "started_at": "2026-10-18T09:11:09+00:00",
+    "started_at": "2026-10-19T09:37:04+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 16.5,
+        "seconds": 15.7,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.2,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.7,
+        "seconds": 0.8,
         "cadence": "continuous"
       },
       {
@@ -108,7 +108,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 17.6,
+        "seconds": 3.1,
         "cadence": "continuous"
       },
       {
@@ -118,7 +118,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 4 days ago; checked every 30 days"
+        "skipped": "checked 5 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -127,7 +127,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 4 days ago; checked every 7 days"
+        "skipped": "checked 5 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -136,7 +136,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 4 days ago; checked every 30 days"
+        "skipped": "checked 5 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -145,7 +145,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 4 days ago; checked every 30 days"
+        "skipped": "checked 5 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -154,7 +154,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 4 days ago; checked every 7 days"
+        "skipped": "checked 5 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -214,14 +214,14 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-18T05:11:10-04:00",
+      "updated_at": "2026-10-19T05:37:04-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-10-18T05:11:27-04:00",
+      "updated_at": "2026-10-19T05:37:20-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -309,9 +309,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-19T08:58:42+00:00",
-  "data_bytes": 1019895,
-  "data_bytes_added": 33,
+  "last_good_at": "2026-10-19T09:37:55+00:00",
+  "data_bytes": 1019891,
+  "data_bytes_added": 2,
   "activity": {
     "boards": 22,
     "meetings_by_date": {
@@ -332,7 +332,5 @@
     "held_back": 4,
     "entries_not_shown": 17,
     "vote_counts_left_out": 2
-  },
-  "published_at": "2026-10-19T08:58:42+00:00",
-  "published_engine": "v1.62.1"
+  }
 }
