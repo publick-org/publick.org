@@ -1,25 +1,26 @@
 {
-  "headline": "El comité del Poeta Laureado recomendó a un candidato; las actas preliminares del 18 de junio de 2026 fueron aprobadas por unanimidad.",
+  "headline": "El comité de selección del cargo de Poeta Laureado recomendó una candidatura; las actas preliminares del 18 de junio de 2026 fueron aprobadas por unanimidad.",
   "summary": "Las actas tratan sobre el préstamo de materiales de la biblioteca, una prohibición temporal de estacionamiento cerca de la biblioteca, una apertura retrasada el 18 de septiembre y la venta de bolsas para la fuente. También tratan sobre los retrasos en el proyecto Brownstone Stairs y una fuga en el sistema HVAC. Los fideicomisarios considerarán una propuesta de donación para las cercas de la biblioteca.",
   "decisions": [
     "Aprobó por unanimidad el borrador de las actas del 18 de junio de 2026.",
-    "El Comité de Selección del Poeta Laureado recomendó un candidato para el nuevo Poeta Laureado."
+    "El Comité de Selección del cargo de Poeta Laureado recomendó una candidatura para llenar el nuevo cargo de Poeta Laureado."
   ],
   "language": "es",
   "kind": "minutes",
   "source_sha256": "d5a61a6c10457b9585852dd21c11be77d49b185bb37cfcde3f927245e7b47d76",
   "source_hash": "0faac9d0cf4caa28b6db0b1a9d4ca30e860e1d028da2f1dad09c353ac2219aa4",
   "check": "ok",
-  "review": "headline: 'un candidato' was rendered as 'a un candidato' with a gender assumption? Not an issue; however 'Poeta Laureado' states masculine gender for the Poet Laureate, which the English does not give.; decisions 2: 'el nuevo Poeta Laureado' and 'un candidato' state the gender of the poet and candidate, which the English does not give.",
-  "attempts": 1,
+  "review": "summary: \"fountain bag sales\" was translated as \"venta de bolsas para la fuente\" (bags for the fountain), which changes the meaning. Fountain bags are probably bags sold at a fountain or fountain-related bags. The translation is ambiguous. Also, \"HVAC\" is left in English in a Spanish sentence, though it is an acronym with a common equivalent (sistema de calefacción, ventilación y aire acondicionado).",
+  "attempts": 2,
   "model": "claude-haiku-5-5",
   "prompt_version": 5,
   "glossary": "7f8b3bb0bfba9e5c",
-  "generated_at": "2026-10-19T05:23:36-04:00",
+  "generated_at": "2026-10-20T05:27:55-04:00",
   "usage": {
-    "input_tokens": 276,
-    "output_tokens": 1610,
+    "input_tokens": 769,
+    "output_tokens": 2248,
     "cache_read_input_tokens": 2070
   },
-  "cost": 0.004167
+  "cost": 0.005893,
+  "replaced_cost": 0.004167
 }
