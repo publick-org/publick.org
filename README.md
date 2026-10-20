@@ -37,6 +37,8 @@ scripts/build_status.py       Writes the network status page, publick.org/status
 scripts/make_share_image.py   Draws home/share/publick.png, the homepage's card on Substack and social media
 .github/workflows/network.yml The daily runs, and builds on push and pull request
 .github/workflows/engine.yml  Moves engine-version to each new engine release once the towns pass on it
+.github/workflows/add-town.yml Adds a town, by hand: the engine's helper and a draft pull request with its report, then,
+                              once that's merged, the town's first fetching runs (ADDING-A-TOWN.md)
 .github/workflows/evaluate.yml Runs the engine's minutes or translation prompt against the real model before a prompt change
                               ships, or the minutes as a batch at each effort, to measure the Batches API (by hand)
 .github/workflows/worker.yml  Deploys the Workers: the scheduler by itself when engine-version moves to an engine whose
