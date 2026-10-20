@@ -92,6 +92,12 @@ status = "live"
 [analytics]
 prefix = "nashua-nh"
 
+# The weekly digest's email signup, on /digest/ (the engine's pipeline/digest.py). The form posts
+# to this site's /digest/subscribe, which the sites Worker answers (worker/digest.js) and passes on
+# to Buttondown with the tag nashua-nh-en. The About page names who keeps the addresses.
+[digest]
+# The network's settings (defaults/network.toml): having the table turns the signup on.
+
 # Public meetings, from the city's CivicClerk portal (the "Agendas & Minutes
 # Portal" button on the city's home page, and the "View Most Recent Agendas and
 # Minutes" link on its Board of Aldermen page): the Board of Aldermen, its

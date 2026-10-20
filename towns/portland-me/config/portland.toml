@@ -109,6 +109,12 @@ status = "live"
 [analytics]
 prefix = "portland-me"
 
+# The weekly digest's email signup, on /digest/ (the engine's pipeline/digest.py). The form posts
+# to this site's /digest/subscribe, which the sites Worker answers (worker/digest.js) and passes on
+# to Buttondown with the tag portland-me-en. The About page names who keeps the addresses.
+[digest]
+# The network's settings (defaults/network.toml): having the table turns the signup on.
+
 # Public meetings, from the city's CivicClerk portal. The portal files each
 # meeting under a category, but the engine reads a meeting's board from its
 # title ("Hybrid Planning Board Meeting 9-22-2026", "Remote Finance Committee
