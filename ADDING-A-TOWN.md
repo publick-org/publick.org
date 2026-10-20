@@ -8,7 +8,14 @@ not weeks.
 
 ## Start with the helper
 
-From this repository, with the engine checked out next to it:
+**Actions → Add a town → Run workflow**, step `start`, with the town's
+name, its state, and its city's website, runs the helper below on the
+engine every town runs and opens a draft pull request from
+`add-town/<town>-<state>` with the town's folder. The pull request's
+description is the helper's report. Finish what's left on that branch.
+A helper that stops opens nothing; its report is in the run's summary.
+
+Or from this repository, with the engine checked out next to it:
 
 ```
 PYTHONPATH=../publick-engine python -m pipeline.new_town <Town> <state> <city website URL>
@@ -214,12 +221,15 @@ shows no ward map; a town with neither (Bangor) has no 311 section yet.
 - [ ] Pull request adding `towns/<town>-<state>/` (config, empty `data/`
       with the ward file in `data/static/`, share image). Its run builds and
       checks the town.
-- [ ] Merge, then **Actions → Network → Run workflow** for the town, fetching.
+- [ ] Merge, then **Actions → Add a town → Run workflow**, step `first
+      fetches`, with the town's name and state: it runs **Network** for the
+      town, fetching, one run after another until a run collects fewer than
+      60 minutes (a run's most), or `runs` runs have. **Actions → Network →
+      Run workflow** for the town, fetching, does one such run by hand.
       No DNS change; the homepage lists the town under its state by itself.
-      A run collects up to 60 minutes; run it again until none are waiting.
       Its older documents get a small share of the summary budget each run;
       to summarize its first months in a day, set **catch_up** (a percent of
-      the month's budget, e.g. 3) on a manual run. Only meetings from `[summaries] since` on are
+      the month's budget, e.g. 3) on the first fetches or a manual run. Only meetings from `[summaries] since` on are
       summarized: set it to the first of the month about three months before
       launch, so the town's history doesn't take the month's budget (older
       meetings keep their records and documents). The month's budget and the town's own limit per
