@@ -4,25 +4,25 @@
   "decisions": [
     "Se aprobó fijar la tarifa base de estacionamiento en $4 por hora, con un descuento de 20% para residentes durante octubre. La moción fue aprobada.",
     "Se aprobó fijar la multa en $100 al día durante octubre. La moción fue aprobada.",
-    "Se aprobó autorizar a Capitán McHugh, director del puerto, para firmar un acuerdo de subvención de $200,000 con el CEC para planificación del puerto. La moción fue aprobada.",
+    "Se aprobó autorizar a Capt. McHugh, director del puerto, para firmar un acuerdo de subvención de $200,000 con el CEC para planificación del puerto. La moción fue aprobada.",
     "Se aprobaron las actas de la reunión del 6 de agosto. La moción fue aprobada."
   ],
   "language": "es",
   "kind": "minutes",
   "source_sha256": "3d653034cafca1d91834b6bf877bbaac790019610e4c34e65b91c66edf49cf8f",
   "source_hash": "3e34ca0e11471afba1ca1782a8d08d03d9d24918fdb274b2c097b2af9f73277a",
-  "check": "decisions 3: Capt not in the translation",
-  "review": "not reviewed: the check failed",
-  "attempts": 2,
+  "check": "ok",
+  "review": "decisions 3: \"Capt. McHugh\" se deja con la abreviatura en inglés \"Capt.\" en una oración en español; debería traducirse el título (capitán McHugh). Además, el \"CEC\" no se explica: se usa la sigla sin el nombre completo, aunque el texto en inglés tampoco lo hace.",
+  "attempts": 1,
   "model": "claude-haiku-5-5",
-  "prompt_version": 5,
+  "prompt_version": 6,
   "glossary": "7f8b3bb0bfba9e5c",
-  "generated_at": "2026-10-20T05:27:55-04:00",
+  "generated_at": "2026-10-21T05:46:56-04:00",
   "usage": {
-    "input_tokens": 982,
-    "output_tokens": 1249,
-    "cache_read_input_tokens": 2070
+    "input_tokens": 953,
+    "output_tokens": 1514,
+    "cache_read_input_tokens": 2101
   },
-  "cost": 0.000743,
-  "replaced_cost": 0.004755
+  "cost": 0.004567,
+  "replaced_cost": 0.005498
 }
