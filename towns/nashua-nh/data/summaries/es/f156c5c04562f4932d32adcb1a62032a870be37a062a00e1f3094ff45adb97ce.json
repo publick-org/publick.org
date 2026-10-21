@@ -1,25 +1,25 @@
 {
-  "headline": "Board of Aldermen aprobó que la directora Bobbie Bagley complete la solicitud de subvención de H.U.D. por $1,200,000 para financiar un centro de recursos, con votación de 15-0",
-  "summary": "Board of Aldermen celebró una reunión especial para hablar sobre un centro de recursos. La directora Bobbie Bagley presentó datos sobre la falta de vivienda en Nashua. Con votación de 15-0, la junta le permitió seguir adelante con la solicitud de una subvención de $1,200,000 de H.U.D. para financiar el centro de recursos.",
+  "headline": "La Junta de Concejales aprobó que Bagley, director, complete la solicitud de H.U.D. para una subvención de $1,200,000 para financiar un centro de recursos, con votación de 15-0",
+  "summary": "La Junta de Concejales celebró una reunión especial para hablar sobre un centro de recursos. Bobbie Bagley, director, presentó datos sobre la falta de vivienda en Nashua. Con votación de 15-0, la junta le permitió seguir adelante con la solicitud de una subvención de $1,200,000 de H.U.D. para financiar el centro de recursos.",
   "decisions": [
-    "Board of Aldermen aprobó que la directora Bagley dé el siguiente paso y complete la solicitud de H.U.D. para una subvención de $1,200,000 para financiar un centro de recursos, con los 15 miembros votando a favor."
+    "Se aprobó que Bagley, director, dé el siguiente paso y complete la solicitud de H.U.D. para una subvención de $1,200,000 para financiar un centro de recursos, con los 15 miembros votando a favor."
   ],
   "language": "es",
   "kind": "minutes",
   "source_sha256": "f156c5c04562f4932d32adcb1a62032a870be37a062a00e1f3094ff45adb97ce",
   "source_hash": "b90f740027047433676a317cd2976219890508a03dd36c82784439f52d1f48c6",
   "check": "ok",
-  "review": "headline: Gender added: \"la directora\" states Bagley is female, but the English headline says only \"Director Bagley\". Also \"Board of Aldermen\" is left in English; it is a board name, not a person, place, business or program, so it should be translated (e.g., Junta de Concejales).; summary: \"Board of Aldermen\" is left in English instead of being translated (e.g., Junta de Concejales). It is not a person, place, business or program name.; decisions 1: \"Board of Aldermen\" is left in English and was also added where the English has no subject. The gender \"la directora\" is not stated in this English text, which says only \"Director Bagley\".",
-  "attempts": 2,
+  "review": "headline: 'Bagley, director' (and 'Director Bagley') is rendered in the masculine ('director'), which gives the person's gender when the English doesn't. Also 'Board of Aldermen' is translated as 'Junta de Concejales' in the headline, which is acceptable, but the masculine 'director' is the issue.; summary: 'Bobbie Bagley, director' uses the masculine 'director', while the English says 'her'; the translation 'le permitió' is neutral, but the masculine title contradicts the English, which refers to her as a woman. It should be 'directora'.; decisions 1: 'Bagley, director' states a masculine gender the English doesn't give for 'Director Bagley'. Use a neutral phrasing such as 'la persona a cargo' or 'Director Bagley' as a title.",
+  "attempts": 1,
   "model": "claude-haiku-5-5",
-  "prompt_version": 5,
+  "prompt_version": 6,
   "glossary": "6b5af23a628fa469",
-  "generated_at": "2026-10-17T06:21:58-04:00",
+  "generated_at": "2026-10-21T05:37:59-04:00",
   "usage": {
-    "input_tokens": 906,
-    "output_tokens": 1776,
-    "cache_read_input_tokens": 1702
+    "input_tokens": 870,
+    "output_tokens": 2205,
+    "cache_read_input_tokens": 1733
   },
-  "cost": 0.005248,
-  "replaced_cost": 0.02326
+  "cost": 0.005943,
+  "replaced_cost": 0.028508
 }
