@@ -1,33 +1,33 @@
 {
   "headline": "Aprobó exenciones de licitación competitiva y adjudicó varias licitaciones para proyectos de bomberos, biblioteca y obras públicas",
-  "summary": "El Comité de Finanzas aprobó las actas del 10 de agosto de 2026 y votó sobre varias compras y adjudicaciones de contratos. Entre ellas estaban equipo de alerta para la estación de bomberos, marcado de líneas de tráfico, reducción de impuestos (abatement) de plomo, un recogedor de basura todo terreno, un remolque volquete, una camioneta pickup, un proyecto de pavimentación y trabajos de HVAC para la biblioteca. Todas las mociones se aprobaron, con votación de 3-0.",
+  "summary": "El Comité de Finanzas aprobó las actas del 10 de agosto de 2026 y votó sobre varias compras y adjudicaciones de contratos. Entre ellas estaban equipo de alerta para la estación de bomberos, marcado de líneas de tráfico, reducción de impuestos (abatement), un recogedor de basura todo terreno, un remolque volquete, una camioneta pickup, un proyecto de pavimentación y trabajos de HVAC para la biblioteca. Todas las mociones se aprobaron, con votación de 3-0.",
   "decisions": [
     "Aprobó las actas de la reunión anterior del 10 de agosto de 2026, votación 3-0",
     "Autorizó una exención de licitación competitiva para equipo de alerta para la estación de bomberos de Westnet, LLC, por $36,822.71, votación 3-0",
     "Aprobó la segunda y última extensión de un año para la licitación 2023-066 de marcado de líneas de tráfico con K5 Corp., hasta el 30 de junio de 2027, por $175,309.20, votación 3-0",
-    "Adjudicó la licitación 2026-047 para la eliminación de plomo en 79 Howard St. a RC Group, Biddeford, ME, por $44,660, votación 3-0",
+    "Adjudicó la licitación 2026-047 para la reducción de impuestos en 79 Howard St. a RC Group, Biddeford, ME, por $44,660, votación 3-0",
     "Autorizó una exención de licitación competitiva con C.N. Wood Co. para un recogedor de basura todo terreno por $99,083, votación 3-0",
     "Adjudicó la licitación 2026-043 para un remolque volquete con cargador de ramas y troncos a Pete's Equipment, Morrisville, VT, por $87,920, votación 3-0",
     "Adjudicó la licitación 2026-044 para una camioneta pickup de cabina de tripulación de ½ tonelada a O'Connor Auto Park, Augusta, ME, por $49,712, votación 3-0",
-    "Adjudicó la licitación 2026-028 para el proyecto de pavimentación 2026 de fresado y relleno (Mill and Fill) a Gendron & Gendron, Lewiston, ME, por un estimado de $687,120, votación 3-0",
+    "Adjudicó la licitación 2026-028 para el proyecto de pavimentación 2026 de fresado y relleno a Gendron & Gendron, Lewiston, ME, por un estimado de $687,120, votación 3-0",
     "Autorizó una exención de licitación competitiva con Salas O'Brien para el plan de acción correctiva de HVAC de la biblioteca por $113,800, votación 3-0"
   ],
   "language": "es",
   "kind": "minutes",
   "source_sha256": "afa8aa247239a930f4fff3b3afd8f9e29ff26674b4ad20052c0b0b025c0a7d1e",
   "source_hash": "879410934eeef7adcbf08542e13f7882ee99f23637758c94121cd7b027e0edd9",
-  "check": "decisions 4: \"abatement\" isn't written \"reducción de impuestos (abatement)\"",
-  "review": "not reviewed: the check failed",
+  "check": "ok",
+  "review": "summary: \"Lead abatement\" (eliminación de plomo) is mistranslated as \"reducción de impuestos (abatement)\". The glossary term refers to tax abatement, but here it means lead paint or lead hazard removal, so it misleads the reader.; decisions 4: \"Lead abatement\" of a building at 79 Howard St. is rendered as \"reducción de impuestos\" (tax reduction). It should be eliminación o mitigación de plomo. This changes the meaning.",
   "attempts": 2,
   "model": "claude-haiku-5-5",
-  "prompt_version": 5,
+  "prompt_version": 6,
   "glossary": "ef7932921dbd7e00",
-  "generated_at": "2026-10-18T05:20:05-04:00",
+  "generated_at": "2026-10-21T05:12:05-04:00",
   "usage": {
-    "input_tokens": 1700,
-    "output_tokens": 2501,
-    "cache_read_input_tokens": 1743
+    "input_tokens": 1691,
+    "output_tokens": 3155,
+    "cache_read_input_tokens": 1774
   },
-  "cost": 0.001438,
-  "replaced_cost": 0.021677
+  "cost": 0.007807,
+  "replaced_cost": 0.024659
 }

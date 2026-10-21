@@ -1,46 +1,46 @@
 {
   "town": "lewiston",
   "folder": "lewiston-me",
-  "started_at": "2026-10-20T09:10:38+00:00",
-  "finished_at": "2026-10-20T09:13:36+00:00",
-  "engine": "v1.65.0",
+  "started_at": "2026-10-21T09:10:04+00:00",
+  "finished_at": "2026-10-21T09:20:35+00:00",
+  "engine": "v1.66.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 132.1
+      "seconds": 586.2
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 5.9
+      "seconds": 5.6
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 32.8
+      "seconds": 36.9
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 7.4
+      "seconds": 2.0
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.7
+      "seconds": 0.6
     }
   ],
   "update": {
     "town": "lewiston",
     "sources": "all",
-    "started_at": "2026-10-20T09:10:38+00:00",
+    "started_at": "2026-10-21T09:10:04+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 86.0,
+        "seconds": 80.7,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.4,
+        "seconds": 6.1,
         "cadence": "continuous"
       },
       {
@@ -64,7 +64,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 35.6,
+        "seconds": 33.2,
         "cadence": "continuous"
       },
       {
@@ -108,7 +108,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 4.8,
+        "seconds": 440.5,
         "cadence": "continuous"
       },
       {
@@ -116,16 +116,18 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.4,
-        "cadence": "yearly"
+        "seconds": 0,
+        "cadence": "yearly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch unemployment",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.6,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -134,22 +136,23 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 14 days ago; checked every 30 days"
+        "skipped": "checked 15 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
-        "cadence": "yearly"
+        "seconds": 0,
+        "cadence": "yearly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 24.7,
         "cadence": "monthly"
       },
       {
@@ -210,7 +213,7 @@
     {
       "label": "Meetings (city calendar)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-20T05:10:39-04:00",
+      "updated_at": "2026-10-21T05:10:05-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -265,7 +268,7 @@
     {
       "label": "Housing figures",
       "file": "housing/housing.json",
-      "updated_at": "2026-10-13T05:15:28-04:00",
+      "updated_at": "2026-10-21T05:19:25-04:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
@@ -298,19 +301,19 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-21T08:58:46+00:00",
-  "data_bytes": 958762,
-  "data_bytes_added": 1764,
+  "last_good_at": "2026-10-21T09:20:35+00:00",
+  "data_bytes": 964442,
+  "data_bytes_added": -2380,
   "activity": {
     "boards": 9,
     "meetings_by_date": {
-      "2026-10-20": 1,
-      "2026-10-26": 1
+      "2026-10-26": 1,
+      "2026-11-03": 1
     }
   },
   "fact_checks": {
-    "summaries": 39,
-    "ok": 35,
+    "summaries": 40,
+    "ok": 36,
     "failed": 3,
     "weak": 1,
     "unchecked": 0,
@@ -318,7 +321,5 @@
     "held_back": 3,
     "entries_not_shown": 6,
     "vote_counts_left_out": 0
-  },
-  "published_at": "2026-10-21T08:58:46+00:00",
-  "published_engine": "v1.66.0"
+  }
 }
