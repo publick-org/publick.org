@@ -11,7 +11,7 @@
     "Aprobó financiar por completo los $8000 restantes en costos de transporte del programa AFJROTC para el año académico 2026-2027, 6 a favor, 1 ausente.",
     "Aceptó los Informes de Superintendente 7.1 y 7.5 como informes de progreso, 6 a favor, 1 ausente.",
     "Aprobó la educación en el hogar para ocho estudiantes, según la recomendación de la persona en el cargo de superintendente, 6 a favor, 1 ausente.",
-    "Aprobó aceptar y gastar los fondos asignados del año fiscal FY27 para mitigar los opioides (Opioid Abatement Funding) para el Programa iDECIDE, 6 a favor, 1 ausente.",
+    "Aprobó aceptar y gastar los fondos de reducción de impuestos (abatement) por opioides del año fiscal FY27 (Opioid Abatement Funding) para el Programa iDECIDE, 6 a favor, 1 ausente.",
     "Aprobó una modificación del presupuesto por $3,600, 6 a favor, 1 ausente.",
     "Aprobó el borrador del calendario de elaboración del presupuesto del año fiscal FY28, 6 a favor, 1 ausente.",
     "Aprobó la Política de Restricción (JKAA), 6 a favor, 1 ausente.",
@@ -23,17 +23,18 @@
   "kind": "minutes",
   "source_sha256": "9e60b4903071fff8d2cfda14ea5aa012cf0e6a13a069751e666476efeade82fd",
   "source_hash": "c6dc01935ce4592cd54be9ec23e664b2b9465398bbf8ad967445e1084dfa05ac",
-  "check": "decisions 10: \"abatement\" isn't written \"reducción de impuestos (abatement)\"",
-  "review": "not reviewed: the check failed",
-  "attempts": 1,
+  "check": "ok",
+  "review": "decisions 10: \"Opioid Abatement Funding\" is a fund for opioid settlement money, but the translation calls it \"reducción de impuestos (abatement)\". That is a tax abatement, so it misleads the reader. Also \"FY27\" is left as an English abbreviation instead of \"año fiscal 2027\", and the parenthetical English repeats the term.; decisions 12: \"FY28\" is left as an English abbreviation after \"año fiscal\". It should be \"año fiscal 2028\".",
+  "attempts": 2,
   "model": "claude-haiku-5-5",
   "prompt_version": 6,
   "glossary": "7f8b3bb0bfba9e5c",
-  "generated_at": "2026-10-21T05:36:03-04:00",
+  "generated_at": "2026-10-22T05:15:04-04:00",
   "usage": {
-    "input_tokens": 938,
-    "output_tokens": 7438,
+    "input_tokens": 2089,
+    "output_tokens": 2425,
     "cache_read_input_tokens": 2101
   },
-  "cost": 0.003834
+  "cost": 0.009868,
+  "replaced_cost": 0.003834
 }
