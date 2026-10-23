@@ -2,7 +2,7 @@
   "headline": "Presentación sobre el cumplimiento de la Ley de Estadounidenses con Discapacidades (ADA) en la ciudad y revisión de un borrador de descripción para la búsqueda de un miembro estudiantil.",
   "summary": "La reunión incluirá el cumplimiento de la Ley de Estadounidenses con Discapacidades en la ciudad y un borrador de descripción para una búsqueda de reclutamiento de un miembro estudiantil. También incluirá novedades de la comunidad y la próxima reunión.",
   "items": [
-    "Joe Lucido, director adjunto de Operaciones, sobre el cumplimiento de la Ley de Estadounidenses con Discapacidades",
+    "Joe Lucido, asistente de la Dirección de Operaciones, sobre el cumplimiento de la Ley de Estadounidenses con Discapacidades",
     "Revisión del borrador de descripción para la búsqueda de reclutamiento de Miembro Estudiantil de la Comisión de Derechos Humanos",
     "Novedades de la comunidad",
     "Próxima reunión"
@@ -12,16 +12,17 @@
   "source_sha256": "b94359212f7cd368587080f876037159ba4eb2456e27d0604959b3618d2adb01",
   "source_hash": "88f83abf58327278a3ba95165b94add6d2bd537861ea38441b0f07c3c375b53c",
   "check": "ok",
-  "review": "items 1: The first time the term ADA appears in the text, the rules require the English in parentheses after the Spanish name. Since 'headline' already included '(ADA)', this is acceptable; no error. However, 'Assistant Director of Operations' as 'director adjunto' is gendered: Joe is typically male, but the English gives no gender, and 'director adjunto' states one.",
-  "attempts": 1,
+  "review": "items 1: \"Assistant Director of Operations\" is translated as \"asistente de la Dirección de Operaciones\" (assistant of the Directorate), which changes the role. It should be \"subdirector de Operaciones\" or similar. Also, \"Joe\" is male by name, but the gender is not given in English, so \"subdirector\" assumes it; a neutral form like \"Subdirección de Operaciones\" is safer.; items 2: \"HRC\" is expanded as \"Comisión de Derechos Humanos\", but the English only says HRC, so the expansion is an unstated assumption, and this may be wrong (HRC could also be Human Rights Commission or Human Relations Commission).",
+  "attempts": 2,
   "model": "claude-haiku-5-5",
   "prompt_version": 6,
   "glossary": "7f8b3bb0bfba9e5c",
-  "generated_at": "2026-10-22T05:24:49-04:00",
+  "generated_at": "2026-10-23T05:12:47-04:00",
   "usage": {
-    "input_tokens": 296,
-    "output_tokens": 1948,
-    "cache_read_input_tokens": 2097
+    "input_tokens": 799,
+    "output_tokens": 1919,
+    "cache_creation_input_tokens": 2097
   },
-  "cost": 0.004208
+  "cost": 0.005753,
+  "replaced_cost": 0.004208
 }
