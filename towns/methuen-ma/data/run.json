@@ -1,8 +1,8 @@
 {
   "town": "methuen",
   "folder": "methuen-ma",
-  "started_at": "2026-10-22T09:12:03+00:00",
-  "finished_at": "2026-10-22T09:16:03+00:00",
+  "started_at": "2026-10-23T09:10:17+00:00",
+  "finished_at": "2026-10-23T09:14:26+00:00",
   "engine": "v1.66.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 146.2
+      "seconds": 169.2
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 9.1
+      "seconds": 8.7
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 60.7
+      "seconds": 58.3
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.8
+      "seconds": 11.6
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.8
+      "seconds": 0.7
     }
   ],
   "update": {
     "town": "methuen",
     "sources": "all",
-    "started_at": "2026-10-22T09:12:03+00:00",
+    "started_at": "2026-10-23T09:10:17+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 16.2,
+        "seconds": 16.0,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.8,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 5.5,
+        "seconds": 5.4,
         "cadence": "continuous"
       },
       {
@@ -108,7 +108,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 110.3,
+        "seconds": 12.0,
         "cadence": "continuous"
       },
       {
@@ -118,7 +118,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 8 days ago; checked every 30 days"
+        "skipped": "checked 9 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -127,7 +127,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -136,7 +136,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 8 days ago; checked every 30 days"
+        "skipped": "checked 9 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -145,7 +145,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 8 days ago; checked every 30 days"
+        "skipped": "checked 9 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -154,7 +154,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -194,7 +194,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 9.2,
+        "seconds": 132.6,
         "cadence": "continuous"
       },
       {
@@ -202,7 +202,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 1.9,
+        "seconds": 1.6,
         "cadence": "continuous"
       }
     ]
@@ -212,28 +212,28 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-22T05:12:03-04:00",
+      "updated_at": "2026-10-23T05:10:18-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-10-22T05:12:21-04:00",
+      "updated_at": "2026-10-23T05:10:34-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-10-22T05:14:18-04:00",
+      "updated_at": "2026-10-23T05:10:52-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-10-22T05:14:27-04:00",
+      "updated_at": "2026-10-23T05:13:05-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -321,21 +321,22 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-22T09:20:48+00:00",
-  "data_bytes": 4511125,
-  "data_bytes_added": 3206730,
+  "last_good_at": "2026-10-23T09:14:26+00:00",
+  "data_bytes": 4524796,
+  "data_bytes_added": 3214845,
   "activity": {
     "boards": 26,
     "meetings_by_date": {
-      "2026-10-22": 2,
       "2026-10-23": 1,
+      "2026-10-26": 1,
       "2026-10-28": 1,
-      "2026-11-02": 1
+      "2026-11-02": 1,
+      "2026-11-05": 3
     }
   },
   "fact_checks": {
-    "summaries": 54,
-    "ok": 47,
+    "summaries": 55,
+    "ok": 48,
     "failed": 7,
     "weak": 0,
     "unchecked": 0,
@@ -343,7 +344,5 @@
     "held_back": 7,
     "entries_not_shown": 19,
     "vote_counts_left_out": 5
-  },
-  "published_at": "2026-10-22T09:20:48+00:00",
-  "published_engine": "v1.66.0"
+  }
 }
