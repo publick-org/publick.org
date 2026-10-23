@@ -1,8 +1,8 @@
 {
   "town": "lawrence",
   "folder": "lawrence-ma",
-  "started_at": "2026-10-22T09:10:02+00:00",
-  "finished_at": "2026-10-22T09:13:30+00:00",
+  "started_at": "2026-10-23T09:21:55+00:00",
+  "finished_at": "2026-10-23T09:24:05+00:00",
   "engine": "v1.66.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 150.2
+      "seconds": 75.0
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 7.6
+      "seconds": 6.4
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 38.5
+      "seconds": 29.7
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.0
+      "seconds": 17.5
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 1.1
+      "seconds": 0.8
     }
   ],
   "update": {
     "town": "lawrence",
     "sources": "all",
-    "started_at": "2026-10-22T09:10:02+00:00",
+    "started_at": "2026-10-23T09:21:55+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 31.2,
+        "seconds": 25.9,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -109,7 +109,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 117.3,
+        "seconds": 47.4,
         "cadence": "continuous"
       },
       {
@@ -119,16 +119,15 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 20 days ago; checked every 30 days"
+        "skipped": "checked 21 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "seconds": 0.6,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch school figures",
@@ -137,7 +136,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 20 days ago; checked every 30 days"
+        "skipped": "checked 21 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -146,7 +145,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 20 days ago; checked every 30 days"
+        "skipped": "checked 21 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -155,7 +154,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 4 days ago; checked every 7 days"
+        "skipped": "checked 5 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -215,7 +214,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-22T05:10:03-04:00",
+      "updated_at": "2026-10-23T05:21:55-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -258,7 +257,7 @@
     {
       "label": "Unemployment rate (BLS)",
       "file": "labor/unemployment.json",
-      "updated_at": "2026-10-16T05:11:21-04:00",
+      "updated_at": "2026-10-23T05:23:09-04:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
@@ -303,22 +302,21 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-22T09:20:40+00:00",
-  "data_bytes": 926928,
-  "data_bytes_added": 10234,
+  "last_good_at": "2026-10-23T09:24:05+00:00",
+  "data_bytes": 989757,
+  "data_bytes_added": 7044,
   "activity": {
     "boards": 31,
     "meetings_by_date": {
-      "2026-10-22": 2,
       "2026-10-27": 4,
       "2026-10-28": 1,
-      "2026-10-29": 2,
+      "2026-10-29": 6,
       "2026-11-04": 2
     }
   },
   "fact_checks": {
-    "summaries": 32,
-    "ok": 29,
+    "summaries": 35,
+    "ok": 32,
     "failed": 1,
     "weak": 1,
     "unchecked": 0,
@@ -326,7 +324,5 @@
     "held_back": 1,
     "entries_not_shown": 1,
     "vote_counts_left_out": 3
-  },
-  "published_at": "2026-10-22T09:20:40+00:00",
-  "published_engine": "v1.66.0"
+  }
 }
