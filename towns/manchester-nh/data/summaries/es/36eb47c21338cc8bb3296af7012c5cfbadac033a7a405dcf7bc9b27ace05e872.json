@@ -32,16 +32,18 @@
   "source_sha256": "36eb47c21338cc8bb3296af7012c5cfbadac033a7a405dcf7bc9b27ace05e872",
   "source_hash": "12bdfbf734e63ed0bb151cc027abaf35fc7b14623def831af016aebc103ea193",
   "check": "decisions 16: Chiller not in the translation",
-  "review": "not reviewed: the check failed",
+  "review": "decisions 24: The translation adds \"como calle pública\", which is not in the English, and renders \"discontinue\" as \"dar de baja\". This changes the meaning slightly by adding detail not in the source.",
   "attempts": 1,
   "model": "claude-haiku-5-5",
   "prompt_version": 6,
   "glossary": "dfe3e38189624f78",
-  "generated_at": "2026-10-22T05:38:51-04:00",
+  "generated_at": "2026-10-23T05:22:54-04:00",
   "usage": {
     "input_tokens": 1642,
     "output_tokens": 11273,
     "cache_creation_input_tokens": 1696
   },
-  "cost": 0.006013
+  "cost": 0.015731,
+  "review_retries": 1,
+  "replaced_cost": 0.006013
 }
