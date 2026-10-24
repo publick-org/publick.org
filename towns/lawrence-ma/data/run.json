@@ -1,8 +1,8 @@
 {
   "town": "lawrence",
   "folder": "lawrence-ma",
-  "started_at": "2026-10-23T09:21:55+00:00",
-  "finished_at": "2026-10-23T09:24:05+00:00",
+  "started_at": "2026-10-24T09:20:53+00:00",
+  "finished_at": "2026-10-24T09:22:44+00:00",
   "engine": "v1.66.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 75.0
+      "seconds": 46.7
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 6.7
+      "seconds": 7.1
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 31.2
+      "seconds": 38.8
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.3
+      "seconds": 17.5
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 1.0
+      "seconds": 0.9
     }
   ],
   "update": {
     "town": "lawrence",
     "sources": "all",
-    "started_at": "2026-10-23T09:21:55+00:00",
+    "started_at": "2026-10-24T09:20:53+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 25.9,
+        "seconds": 21.1,
         "cadence": "continuous"
       },
       {
@@ -109,7 +109,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 47.4,
+        "seconds": 23.9,
         "cadence": "continuous"
       },
       {
@@ -119,15 +119,16 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 21 days ago; checked every 30 days"
+        "skipped": "checked 22 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.6,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -136,7 +137,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 21 days ago; checked every 30 days"
+        "skipped": "checked 22 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -145,16 +146,15 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 21 days ago; checked every 30 days"
+        "skipped": "checked 22 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "seconds": 0.4,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch place",
@@ -214,7 +214,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-23T05:21:55-04:00",
+      "updated_at": "2026-10-24T05:20:53-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -302,12 +302,13 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-23T09:30:02+00:00",
-  "data_bytes": 989757,
-  "data_bytes_added": 7044,
+  "last_good_at": "2026-10-24T09:22:44+00:00",
+  "data_bytes": 1010664,
+  "data_bytes_added": 2592,
   "activity": {
     "boards": 31,
     "meetings_by_date": {
+      "2026-10-26": 1,
       "2026-10-27": 4,
       "2026-10-28": 1,
       "2026-10-29": 6,
@@ -315,8 +316,8 @@
     }
   },
   "fact_checks": {
-    "summaries": 35,
-    "ok": 32,
+    "summaries": 37,
+    "ok": 34,
     "failed": 1,
     "weak": 1,
     "unchecked": 0,
@@ -324,7 +325,5 @@
     "held_back": 1,
     "entries_not_shown": 1,
     "vote_counts_left_out": 3
-  },
-  "published_at": "2026-10-23T09:30:02+00:00",
-  "published_engine": "v1.66.0"
+  }
 }
