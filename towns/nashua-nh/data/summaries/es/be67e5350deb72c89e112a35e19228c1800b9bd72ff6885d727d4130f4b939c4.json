@@ -22,7 +22,7 @@
     "O-26-002: permitir comentarios públicos electrónicos para personas con discapacidad para caminar (el alcalde lo vetó el 20 de octubre de 2026)",
     "R-26-015: apoyo al municipio de Merrimack en su oposición a un centro de detención de ICE (pospuesto (tabled) el 24 de febrero de 2026)",
     "R-26-020: bonos por hasta $900,000 para un centro de recursos en 14 Mulberry Street (pospuesto el 22 de abril de 2026)",
-    "R-26-077: asignación suplementaria de $146,617.94 de ingresos no previstos del año fiscal 2027 al Fondo #7024 Opioid Abatement Expendable Trust Fund",
+    "R-26-077: asignación suplementaria de $146,617.94 de ingresos no previstos del año fiscal 2027 al Fondo #7024, Fondo Fiduciario Gastable de Reducción de Impuestos por Opioides (abatement)",
     "R-26-078: primera enmienda al contrato de arrendamiento del High Street Garage con Nashua Apartment Ventures, LLC",
     "R-26-079: contrato de arrendamiento del estacionamiento School Street Parking Garage con Nashua Apartment Ventures, LLC",
     "O-26-027: enmienda a los permisos de estacionamiento del High Street Garage",
@@ -36,17 +36,18 @@
   "kind": "agenda",
   "source_sha256": "be67e5350deb72c89e112a35e19228c1800b9bd72ff6885d727d4130f4b939c4",
   "source_hash": "58f5cca54696523c40e8c3e47c135f84fd85d25e79a1671cf91ab7a4f1e2e6dc",
-  "check": "items 21: \"abatement\" isn't written \"reducción de impuestos (abatement)\"",
-  "review": "not reviewed: the check failed",
-  "attempts": 1,
+  "check": "ok",
+  "review": "items 21: 'Opioid Abatement' is rendered 'Reducción de Impuestos por Opioides', but the abatement here refers to opioid abatement (mitigation of the opioid crisis), not a tax reduction. The required glossary term would give a misleading meaning; the fund name now suggests a tax cut. Also 'Expendable' as 'Gastable' is awkward but understandable.",
+  "attempts": 2,
   "model": "claude-haiku-5-5",
   "prompt_version": 6,
   "glossary": "6b5af23a628fa469",
-  "generated_at": "2026-10-24T05:16:33-04:00",
+  "generated_at": "2026-10-25T05:11:15-04:00",
   "usage": {
-    "input_tokens": 1281,
-    "output_tokens": 7065,
-    "cache_read_input_tokens": 1729
+    "input_tokens": 2836,
+    "output_tokens": 4050,
+    "cache_creation_input_tokens": 1729
   },
-  "cost": 0.003678
+  "cost": 0.017015,
+  "replaced_cost": 0.003678
 }
