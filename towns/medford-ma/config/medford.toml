@@ -1,0 +1,342 @@
+# Site configuration for Medford, Massachusetts. Everything town-specific
+# lives here; the code is the Publick engine
+# (github.com/publick-org/publick-engine).
+#
+# Medford's website runs on Finalsite. The City Council and its committees
+# post agendas and minutes on the city's CivicClerk portal; minutes are PDFs
+# with text. The School Committee posts its meetings on the Medford Public
+# Schools website (also Finalsite): a table for the school year, a row a
+# meeting, linking its agenda and minutes as PDFs with text and its
+# presentations as Google Drive files. 311 requests are on SeeClickFix, where
+# the city acknowledges, closes or archives most of them.
+#
+# Started on 2026-10-27 by the engine's helper (python -m pipeline.new_town),
+# from Salem's config.
+#
+# The site is in English and Spanish ([site] languages), as every town's is.
+# The first runs draft the Spanish for the town's own text; [strings.es], at
+# the end, can correct it.
+
+[site]
+name = "Medford Publick"
+# The masthead shows name_prefix in dark ink and name_suffix in the accent
+# color: the town, then the network.
+name_prefix = "Medford "
+domain = "medford-ma.publick.org"
+tagline = "Public data on how Medford, Massachusetts responds, decides, and spends. Updated daily."
+# One line under the name at the top of every page.
+masthead = "An independent guide to city government in Medford, Massachusetts"
+# Public contact address. Shown on the About and Accessibility pages when set.
+contact_email = "medford-ma@publick.org"
+user_agent = "medford-ma.publick.org (+https://medford-ma.publick.org/about/)"
+
+# From the city website's stylesheets (www.medfordma.org): its two most used
+# blues (96 and 13 uses); the most used of another hue (19 uses); primary
+# darkened from #197cb7 (4.0 to 1 on its own tint) and accent from #96c13d
+# (2.1 to 1) to pass; primary_soft a light tint of primary. Each passes WCAG AA
+# on white (5.2, 11.3, 4.6 to 1), and primary also on the site's light gray and
+# its tint (4.5 to 1).
+[site.colors]
+primary = "#1773aa"
+primary_dark = "#25347a"
+primary_soft = "#e8f1f6"
+accent = "#637f28"
+
+[town]
+name = "Medford"
+state_abbr = "MA"
+official_site = "https://www.medfordma.org"
+
+# Sections appear in the main navigation in this order. Each one is a folder
+# under site/pages/<slug>/ and is served at https://<domain>/<slug>/.
+[[sections]]
+slug = "meetings"
+title = "Meetings"
+summary = "When the City Council, its committees, and the School Committee meet, with agendas, and minutes from January 2026 on."
+status = "live"
+
+[[sections]]
+slug = "311"
+title = "311 Requests"
+nav = "311"
+summary = "How fast the city responds to service requests on SeeClickFix, by category and ward."
+status = "live"
+
+[[sections]]
+slug = "schools"
+title = "Schools"
+summary = "Graduation, attendance, and MCAS results compared with the state."
+status = "live"
+
+[[sections]]
+slug = "budget"
+title = "City budget"
+nav = "Budget"
+summary = "Where general fund money comes from and how it is spent, reserves, and the property tax limit."
+status = "live"
+
+[[sections]]
+slug = "housing"
+title = "Housing"
+summary = "New homes permitted, home values and rents, affordable housing, and the housing stock."
+status = "live"
+
+[[sections]]
+slug = "officials"
+title = "Who represents you"
+nav = "Officials"
+summary = "The mayor, City Council, and School Committee, by office, and how to reach them."
+status = "live"
+
+[[sections]]
+slug = "about"
+title = "About"
+summary = "Data sources, update schedule, metric definitions, and corrections."
+status = "live"
+
+# Page view counting with GoatCounter, on the network's site; prefix is this
+# town's folder.
+[analytics]
+prefix = "medford-ma"
+
+# Public meetings, from its CivicClerk portal: the City Council and its
+# committees. The council's ward neighborhood meetings are left out.
+[meetings]
+calendar_url = "https://medfordma.portal.civicclerk.com"
+archive_url = "https://medfordma.portal.civicclerk.com"
+archive_name = "city's CivicClerk portal"
+request_delay = 3.0
+max_event_pages = 40
+boards = [
+  "City Council",
+  "City Council Committee of the Whole",
+  "City Council Planning and Permitting Committee",
+  "City Council Public Health and Community Safety Committee",
+  "City Council Public Works and Facilities Committee",
+  "City Council Resident Services and Public Engagement Committee",
+]
+
+# The portal's shortened names for the council's committees.
+[meetings.aliases]
+"City Council Planning & Permitting Cmte" = "City Council Planning and Permitting Committee"
+"City Council Public Health & Safety Cmte" = "City Council Public Health and Community Safety Committee"
+"City Council Public Works & Facilities Cmte" = "City Council Public Works and Facilities Committee"
+"Council Public Works & Facilities Cmte" = "City Council Public Works and Facilities Committee"
+"City Council Res Services & Pub Engagement Cmte" = "City Council Resident Services and Public Engagement Committee"
+"Council Resident Services & Public Engagement Committee" = "City Council Resident Services and Public Engagement Committee"
+
+[meetings.civicclerk]
+api_url = "https://medfordma.api.civicclerk.com/v1"
+portal_url = "https://medfordma.portal.civicclerk.com"
+# Meetings, agendas, and minutes are collected from here on.
+since = "2026-01-01"
+# Most of the portal's meetings are under a catch-all category, and some are
+# named for an item, not a board: those go under the board their category
+# names.
+board_from_category = true
+exclude_pattern = 'Neighborhood Meeting'
+
+# The School Committee's meetings, agendas and minutes, from the district's
+# Meetings page (Finalsite): a table for the school year, a row a meeting, with
+# its date, its purpose ("Regular Meeting", "Special Meeting"), its agenda (a
+# news post and a PDF, the link labelled "PDF"), its minutes ("Meeting
+# Minutes"), and presentations as Google Drive files; a second table lists
+# subcommittee meetings. The document cells have words of their own, so the
+# meeting is named by its Purpose or Subcommittee column. Earlier school years
+# are on pages of their own.
+[page_meetings]
+page_url = "https://www.mps02155.org/about/school-committee/meetings"
+source_name = "Medford Public Schools"
+since = "2026-07-01"
+body = "School Committee"
+agenda_pattern = '^PDF$'
+name_columns = ["Purpose", "Subcommittee"]
+
+# The subcommittees, as the district's School Committee page names them.
+[page_meetings.bodies]
+"Strategic Planning" = "School Committee Strategic Planning Subcommittee"
+"Facilities & Capital Planning" = "School Committee Facilities & Capital Planning Subcommittee"
+"Curriculum & Instruction" = "School Committee Curriculum & Instruction Subcommittee"
+"Communications & Community Engagement" = "School Committee Communications & Community Engagement Subcommittee"
+"DEIA" = "School Committee DEIA Subcommittee"
+"Rules & Policy" = "School Committee Rules & Policy Subcommittee"
+"Superintendent Evaluation" = "School Committee Superintendent Evaluation Subcommittee"
+"Behavioral Health & Special Education" = "School Committee Behavioral Health & Special Education Subcommittee"
+
+# The same page lists the school year's dates ahead of their agendas.
+[schedule_meetings]
+url = "https://www.mps02155.org/about/school-committee/meetings"
+source_name = "Medford Public Schools"
+since = "2026-07-01"
+
+[schedule_meetings.names]
+"Regular Meeting" = "School Committee"
+"Special Meeting" = "School Committee"
+"Public Budget Meeting" = "School Committee"
+"Strategic Planning" = "School Committee Strategic Planning Subcommittee"
+"Facilities & Capital Planning" = "School Committee Facilities & Capital Planning Subcommittee"
+"Curriculum & Instruction" = "School Committee Curriculum & Instruction Subcommittee"
+"Communications & Community Engagement" = "School Committee Communications & Community Engagement Subcommittee"
+"DEIA" = "School Committee DEIA Subcommittee"
+"Rules & Policy" = "School Committee Rules & Policy Subcommittee"
+"Superintendent Evaluation" = "School Committee Superintendent Evaluation Subcommittee"
+"Behavioral Health & Special Education" = "School Committee Behavioral Health & Special Education Subcommittee"
+
+# Agenda and minutes PDFs live in the network's documents bucket, not in git
+# (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID,
+# STORAGE_SECRET_ACCESS_KEY.
+[storage]
+prefix = "medford-ma"
+
+# Plain-English agenda text and previews, and decisions from minutes, written
+# by a language model and labeled as AI-generated on the site. Only meetings
+# from `since` on are summarized, about three months before launch, so the
+# town's history doesn't take the month's budget.
+[summaries]
+since = "2026-07-01"
+
+# The Council's Rules (last updated September 1, 2022), Rule 16; its agendas
+# give the Zoom link and the address for written comments (agenda of October
+# 13, 2026). Meetings are carried live by Medford Community Media.
+[participation."City Council"]
+comment = "Residents, petitioners and other interested parties can speak once on each item on the agenda, for up to 5 minutes, in the Council Chamber (City Hall, 2nd floor) or by Zoom; the agenda gives the link. Written comments can be emailed to ccmembers@medford-ma.gov."
+source_title = "Rules of the City Council"
+source_url = "https://www.medfordma.org/fs/resource-manager/view/2eca57b2-a02a-4fe9-a5a1-e06c1bf1c36f"
+video_title = "Medford Community Media"
+video_url = "https://medford.vod.castus.tv/vod/?nav=programs%2FMedford%20City%20Council"
+
+# Policy BEDH, as each regular meeting's agenda quotes it (agenda of October
+# 19, 2026), and the School Committee page's Community Participation section.
+[participation."School Committee"]
+comment = "Residents can speak once on any item on the agenda, for up to 3 minutes, starting with their full name and Medford street address. Regular meetings also have a Presentations of the Public item, not before 7:00 PM, where a resident can make one presentation. Email to medfordsc@medford.k12.ma.us goes to every member."
+source_title = "School Committee agenda of October 19, 2026"
+source_url = "https://www.mps02155.org/fs/resource-manager/view/82ba9f2b-17be-458c-9951-39cb8fe85468"
+video_title = "Medford Public Schools on YouTube"
+video_url = "https://www.youtube.com/@medfordpublicschools464/streams"
+
+# School district figures from the state's education data portal (DESE).
+[schools]
+district_code = "01760000"
+district_name = "Medford Public Schools"
+
+# Tax bill and budget figures (Mass. Division of Local Services). Some DLS
+# reports take the name, others the DOR code.
+[finance]
+dls_municipality = "Medford"
+dls_code = "176"
+
+# Housing: Census building permits (state and place FIPS codes), American
+# Community Survey through Census Reporter (geo ids), and the state's
+# Subsidized Housing Inventory PDF (the town's name as the PDF lists it).
+[housing]
+bps_place = "39835"
+census_geo = "16000US2539835"
+shi_name = "Medford"
+
+# Unemployment rate (BLS Local Area Unemployment Statistics, area
+# CT2539835000000, Medford city, MA). City rates are not seasonally adjusted;
+# the state series is shown for context.
+[labor]
+local_series = "LAUCT253983500000003"
+
+# How often each data source should update. Figures published monthly or
+# yearly are judged by the engine, by the period they cover
+# (pipeline/rhythms.py).
+[freshness]
+sources = [
+  { label = "Meetings (CivicClerk)", file = "meetings/status.json", max_days = 2 },
+  { label = "School Committee meetings (school district website)", file = "meetings/page_status.json", max_days = 2 },
+  { label = "311 requests", file = "311/status.json", max_days = 2 },
+  { label = "311 scorecard", file = "311/scorecard.json", field = "generated_at", max_days = 2 },
+]
+
+# 311 requests from SeeClickFix: the city's organization (549, "Medford,
+# MA"), from the web portal the city's SeeClickFix page links, and its Open311
+# request types (seeclickfix.com/open311/v2/549/services.json): 62, all "City
+# of Medford", so no departments are needed. The city acknowledges, closes or
+# archives most requests (73 of 108 made September 21 to 27, 2026).
+[seeclickfix]
+organization_id = 549
+report_url = "https://seeclickfix.com/web_portal/A2BdH3HocPePZJdmWVn8VjQ3/report/category"
+# The month the full history starts (python -m pipeline.fetch_311 --backfill).
+# Older requests are included only while they are still open.
+history_since = "2026-01"
+# Request types about a household, a person or a pet, whose names don't say
+# so: their requests are shown to the block, as the engine's own sensitive
+# categories are.
+sensitive_categories = [
+  "Residential Property Issue",
+  "Residential Property Issue (Tenant)",
+  "Rodents or Other Pests",
+  "Dog Bite (On Human)",
+  "Barking Complaint",
+]
+# Medford's eight wards, from MassGIS's 2022 file.
+precincts_file = "medford-precincts-2022.geojson"
+wards_publisher = "MassGIS"
+wards_year = "2022"
+wards_url = "https://gis.data.mass.gov/maps/aec5130790814ace94438d3bcf23cf9a"
+
+# Who represents you (the Officials page). Kept by hand from official city and
+# school websites; checked is the date the list was last checked against them.
+# Only city- and school-issued email addresses, and the mayor's office phone.
+[officials]
+checked = "2026-10-27"
+# The regular city election is on the first Tuesday after the first Monday in
+# November of odd years (the city charter, Acts of 2025, chapter 30, section
+# 7-3); the charter's transitional section 3 names November 2, 2027.
+next_election = "2027-11-02"
+# The ward file is data/static/medford-precincts-2022.geojson (MassGIS). All
+# seats are elected at-large until 2027, so no seat has a ward. No official page
+# gives a term's end date, so term_ends is left out.
+wards_file = "medford-precincts-2022.geojson"
+wards_publisher = "MassGIS"
+wards_year = "2022"
+wards_url = "https://gis.data.mass.gov/maps/aec5130790814ace94438d3bcf23cf9a"
+
+# Re-elected on November 4, 2025 (official results). The address and phone are
+# the Mayor's Office page's.
+[[officials.bodies]]
+name = "Mayor"
+url = "https://www.medfordma.org/departments/mayors-office"
+note = "Elected for two years; from the November 2, 2027 election, for four (the city charter). A member of the School Committee."
+members = [
+  { name = "Breanna Lungo-Koehn", seat = "Citywide", phone = "(781) 393-2408", email = "mayor@medford-ma.gov" },
+]
+
+# Elected on November 4, 2025 (official results); the President and Vice
+# President chosen on January 6, 2026 (the council's records of that meeting);
+# all present on September 29, 2026 (its records). Addresses as the City
+# Council page gives them; Councilor Scarpelli's there is a personal one, so
+# it's left out.
+[[officials.bodies]]
+name = "City Council"
+url = "https://www.medfordma.org/citycouncil"
+note = "Seven councillors elected at-large, for two years. The council chooses its President and Vice President each year. From the November 2, 2027 election, eleven: one from each of the eight wards and three at-large (the city charter)."
+members = [
+  { name = 'Isaac B. "Zac" Bears', seat = "At-large", role = "President", email = "ibears@medford-ma.gov" },
+  { name = "Emily Lazzaro", seat = "At-large", role = "Vice President", email = "elazzaro@medford-ma.gov" },
+  { name = "Anna Callahan", seat = "At-large", email = "acallahan@medford-ma.gov" },
+  { name = "Matt Leming", seat = "At-large", email = "mleming@medford-ma.gov" },
+  { name = "Liz Mullane", seat = "At-large", email = "lmullane@medford-ma.gov" },
+  { name = "George A. Scarpelli", seat = "At-large" },
+  { name = "Justin Tseng", seat = "At-large", email = "jtseng@medford-ma.gov" },
+]
+
+# Elected on November 4, 2025 (official results); the Chair, Vice Chair and
+# Secretary elected on January 26, 2026 (the committee's minutes); members as
+# the district's School Committee page names them, checked against its minutes
+# of October 5, 2026. The mayor's address is the Mayor's Office page's.
+[[officials.bodies]]
+name = "School Committee"
+url = "https://www.mps02155.org/about/school-committee"
+note = "Six members elected at-large for two years, and the mayor. The committee elects its own chair. From the November 2, 2027 election, four members from districts of two wards each and two at-large (the city charter)."
+members = [
+  { name = "Breanna Lungo-Koehn", seat = "Mayor", role = "Chair", email = "mayor@medford-ma.gov" },
+  { name = "Jenny Graham", seat = "At-large", role = "Vice Chair", email = "jennygraham@medford.k12.ma.us" },
+  { name = "Paul Ruseau", seat = "At-large", role = "Secretary", email = "pruseau@medford.k12.ma.us" },
+  { name = "Mike Mastrobuoni", seat = "At-large", email = "mmastrobuoni@medford.k12.ma.us" },
+  { name = "Aaron Olapade", seat = "At-large", email = "aolapade@medford.k12.ma.us" },
+  { name = "Jessica Parks", seat = "At-large", email = "jparks@medford.k12.ma.us" },
+  { name = "Erika Reinfeld", seat = "At-large", email = "ereinfeld@medford.k12.ma.us" },
+]
