@@ -1,0 +1,307 @@
+# Site configuration for Springfield, Massachusetts. Everything town-specific
+# lives here; the code is the Publick engine
+# (github.com/publick-org/publick-engine).
+#
+# Started on 2026-10-27 by the engine's helper (python -m pipeline.new_town),
+# from Salem's config.
+# Meetings, agendas, and minutes are on the city's CivicClerk portal
+# (springfieldma.portal.civicclerk.com), read as [meetings.civicclerk]: the
+# City Council, its committees, the School Committee, and the city's boards
+# and commissions. The portal files most of them under "General", so each is
+# matched to its board by name ([meetings] boards and aliases). The council's
+# minutes are text PDFs.
+# 311 waits on the city's SeeClickFix organization being confirmed (below).
+#
+# The site is in English and Spanish ([site] languages), as every town's is.
+# The first runs draft the Spanish for the town's own text; [strings.es], at
+# the end, can correct it.
+
+[site]
+name = "Springfield Publick"
+# The masthead shows name_prefix in dark ink and name_suffix in the accent
+# color: the town, then the network.
+name_prefix = "Springfield "
+domain = "springfield-ma.publick.org"
+tagline = "Public data on how Springfield, Massachusetts decides and spends. Updated daily."
+# One line under the name at the top of every page.
+masthead = "An independent guide to city government in Springfield, Massachusetts"
+# Public contact address. Shown on the About and Accessibility pages when set.
+contact_email = "springfield-ma@publick.org"
+user_agent = "springfield-ma.publick.org (+https://springfield-ma.publick.org/about/)"
+
+# From the city website's stylesheets (www.springfield-ma.gov): its two most
+# used reds (29 and 13 uses); primary_soft a light tint of primary. Each
+# passes WCAG AA on white (8.9, 13.4 to 1).
+# To fill in: check the colors against the city's website.
+[site.colors]
+primary = "#990000"
+primary_dark = "#660000"
+primary_soft = "#f5e6e6"
+
+[town]
+name = "Springfield"
+state_abbr = "MA"
+official_site = "https://www.springfield-ma.gov"
+
+# Sections appear in the main navigation in this order. Each one is a folder
+# under site/pages/<slug>/ and is served at https://<domain>/<slug>/.
+[[sections]]
+slug = "meetings"
+title = "Meetings"
+summary = "When the City Council, its committees, and the city's boards and commissions meet, with agendas, and minutes from January 2026 on."
+status = "live"
+
+[[sections]]
+slug = "schools"
+title = "Schools"
+summary = "Graduation, attendance, and MCAS results compared with the state."
+status = "live"
+
+[[sections]]
+slug = "budget"
+title = "City budget"
+nav = "Budget"
+summary = "Where general fund money comes from and how it is spent, reserves, and the property tax limit."
+status = "live"
+
+[[sections]]
+slug = "housing"
+title = "Housing"
+summary = "New homes permitted, home values and rents, affordable housing, and the housing stock."
+status = "live"
+
+# To fill in: the Officials page's section (below, commented out), once
+#   [officials] is filled in.
+# [[sections]]
+# slug = "officials"
+# title = "Who represents you"
+# nav = "Officials"
+# summary = "The mayor, City Council, and School Committee, by office and by ward, and how to reach them."
+# status = "live"
+
+[[sections]]
+slug = "about"
+title = "About"
+summary = "Data sources, update schedule, metric definitions, and corrections."
+status = "live"
+
+# Page view counting with GoatCounter, on the network's site; prefix is this
+# town's folder.
+[analytics]
+prefix = "springfield-ma"
+
+# Public meetings, from its CivicClerk portal.
+[meetings]
+calendar_url = "https://springfieldma.portal.civicclerk.com"
+archive_url = "https://springfieldma.portal.civicclerk.com"
+archive_name = "city's CivicClerk portal"
+request_delay = 3.0
+max_event_pages = 40
+# One name per public body. The portal files most meetings under "General",
+# and names many for the board ("Board of Assessors Meeting 4/7/2026"); a
+# meeting is filed under the longest of these its name contains. The City
+# Council's committees are named "Committee", "Subcommittee", or neither, so
+# each is matched by the words they share ([meetings.aliases]).
+boards = [
+  "City Council",
+  "City Council Hearings",
+  "Committee of the Whole",
+  "Audit Subcommittee",
+  "Civil Rights Subcommittee",
+  "Elder Affairs Committee",
+  "Finance Committee",
+  "General Government Committee",
+  "Health & Human Services Committee",
+  "Maintenance & Development Committee",
+  "Planning & Economic Development Committee",
+  "Public Safety Committee",
+  "Sustainability & Environment Committee",
+  "Inter-Governmental/State & Federal Relations Committee",
+  "Working Group on Digital Equity & Internet Access",
+  "School Committee",
+  "Animal Control Board",
+  "Board of Assessors",
+  "Board of Library Commissioners",
+  "Board of Police Commissioners",
+  "Board of Public Works",
+  "City Forestry",
+  "Community Preservation Committee",
+  "Conservation Commission",
+  "EMS Commission",
+  "Historical Commission",
+  "Innovation Planning Committee",
+  "License Commission",
+  "Local Emergency Planning Committee",
+  "Mobile Home Rent Control Board",
+  "Park Commission",
+  "Planning Board",
+  "Public Health Council",
+  "Residency Commission",
+  "Retirement Board",
+  "School Building Commission",
+  "Springfield Empowerment Zone Partnership",
+  "Traffic Commission",
+  "Zoning Board of Appeals",
+]
+
+[meetings.aliases]
+# The council's committees, however the portal writes them ("Finance
+# Sub-Committee", "General Government", "Health & Human Service").
+"Audit Sub-Committee" = "Audit Subcommittee"
+"Civil Rights Sub-Committee" = "Civil Rights Subcommittee"
+"Elder Affairs" = "Elder Affairs Committee"
+"Finance" = "Finance Committee"
+"General Government" = "General Government Committee"
+"Health & Human Service" = "Health & Human Services Committee"
+"Health & Human Services" = "Health & Human Services Committee"
+"Maintenance & Development" = "Maintenance & Development Committee"
+"Planning & Economic Development" = "Planning & Economic Development Committee"
+"Public Safety" = "Public Safety Committee"
+"Sustainability & Environment" = "Sustainability & Environment Committee"
+"Digital Equity" = "Working Group on Digital Equity & Internet Access"
+# Other names the portal uses for a board.
+"Springfield School Committee" = "School Committee"
+"Animal Control" = "Animal Control Board"
+"Board of Police Commission" = "Board of Police Commissioners"
+"Emergency Medical Services" = "EMS Commission"
+"LEPC" = "Local Emergency Planning Committee"
+"PHC" = "Public Health Council"
+"Springfield Retirement Board" = "Retirement Board"
+"SEZP Board" = "Springfield Empowerment Zone Partnership"
+"Springfield Empowerment Zone" = "Springfield Empowerment Zone Partnership"
+# The portal's utility petitions, heard by the Board of Public Works (those
+# it files under a category are under that board's), and the city forester's
+# public shade tree hearings.
+"EVERSOURCE" = "Board of Public Works"
+"Public Shade Tree" = "City Forestry"
+
+[meetings.civicclerk]
+api_url = "https://springfieldma.api.civicclerk.com/v1"
+portal_url = "https://springfieldma.portal.civicclerk.com"
+# Meetings, agendas, and minutes are collected from here on.
+since = "2026-01-01"
+# Most of the portal's meetings are under a catch-all category, and some are
+# named for an item, not a board: those go under the board their category
+# names.
+board_from_category = true
+# The portal's "One Time Event" entries under "General" name no board.
+exclude_pattern = '^General$'
+
+# The Springfield School Committee posts with the other boards ("Springfield
+# School Committee").
+
+# Agenda and minutes PDFs live in the network's documents bucket, not in git
+# (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID,
+# STORAGE_SECRET_ACCESS_KEY.
+[storage]
+prefix = "springfield-ma"
+
+# Plain-English agenda text and previews, and decisions from minutes, written
+# by a language model and labeled as AI-generated on the site. Only meetings
+# from `since` on are summarized, about three months before launch, so the
+# town's history doesn't take the month's budget.
+[summaries]
+since = "2026-07-01"
+
+# To fill in: how residents can take part, per board ([participation."City
+#   Council"], [participation."School Committee"]): comment, source_title,
+#   source_url, video_title, video_url, each from the board's own rules or
+#   agendas.
+# To fill in: [[glossary]], terms that come up in this city's agendas and mean
+#   something of its own here, each from an official page. The state's and the
+#   network's terms are in its glossary already: CPA, CPC, creditable service,
+#   executive session, free cash, levy, M.G.L., MACRIS, MBTA Communities,
+#   Notice of Intent, Open Meeting Law, Order of Conditions, PERAC, PRIM,
+#   PRIT, special permit, superannuation, ZBA, abatement, ADA, CBA, CDBG, CIP,
+#   COLA, Committee of the Whole, consent agenda, first reading, mill rate,
+#   quitclaim deed, receive and file, Select Board, tabled, TIF, town meeting,
+#   variance, warrant article.
+
+# School district figures from the state's education data portal (DESE).
+[schools]
+district_code = "02810000"
+district_name = "Springfield Public Schools"
+
+# Tax bill and budget figures (Mass. Division of Local Services). Some DLS
+# reports take the name, others the DOR code.
+[finance]
+dls_municipality = "Springfield"
+dls_code = "281"
+
+# Housing: Census building permits (state and place FIPS codes), American
+# Community Survey through Census Reporter (geo ids), and the state's
+# Subsidized Housing Inventory PDF (the town's name as the PDF lists it).
+[housing]
+bps_place = "67000"
+census_geo = "16000US2567000"
+shi_name = "Springfield"
+
+# Unemployment rate (BLS Local Area Unemployment Statistics, area
+# CT2567000000000, Springfield city, MA). City rates are not seasonally
+# adjusted; the state series is shown for context.
+[labor]
+local_series = "LAUCT256700000000003"
+
+# How often each data source should update. Figures published monthly or
+# yearly are judged by the engine, by the period they cover
+# (pipeline/rhythms.py).
+[freshness]
+sources = [
+  { label = "Meetings (CivicClerk)", file = "meetings/status.json", max_days = 2 },
+]
+
+# To fill in: [seeclickfix], with the city's organization ID, once a person
+#   has confirmed the city uses it (the issues listing needs a login now; the
+#   Open311 listing at seeclickfix.com/open311/v2/<id>/services.json names its
+#   request types), and the 311 section and its [freshness] sources (with 311
+#   the tagline can say "responds, decides, and spends", as Gloucester's,
+#   Malden's, and Methuen's do); or, if the city takes requests some other
+#   way, [absences] 311 saying so. SeeClickFix's places: Springfield, place
+#   9857 (https://seeclickfix.com/springfield_3).
+
+# Who represents you (the Officials page). Kept by hand from official city and
+# school websites; checked is the date the list was last checked against them.
+# Only city- and school-issued email addresses, and the mayor's office phone.
+[officials]
+# To fill in: checked, the date the list below was checked against official
+#   pages.
+# To fill in: next_election, the date of the town's next regular municipal
+#   election, from the city's election calendar or its charter.
+# The ward file is data/static/springfield-precincts-2022.geojson (MassGIS).
+wards_file = "springfield-precincts-2022.geojson"
+wards_publisher = "MassGIS"
+wards_year = "2022"
+wards_url = "https://gis.data.mass.gov/maps/aec5130790814ace94438d3bcf23cf9a"
+
+# To fill in: the Mayor, from the city's and the school district's own pages,
+#   confirmed against the last election's official results (ADDING-A-TOWN.md,
+#   step 4). Never from news sites or memory.
+# [[officials.bodies]]
+# name = "Mayor"
+# url = ""
+# note = ""
+# members = [
+#   { name = "", seat = "" },
+# ]
+
+# To fill in: the City Council, from the city's and the school district's own
+#   pages, confirmed against the last election's official results
+#   (ADDING-A-TOWN.md, step 4). Never from news sites or memory.
+# [[officials.bodies]]
+# name = "City Council"
+# url = ""
+# note = ""
+# members = [
+#   { name = "", seat = "" },
+# ]
+
+# To fill in: the School Committee, from the city's and the school district's
+#   own pages, confirmed against the last election's official results
+#   (ADDING-A-TOWN.md, step 4). Never from news sites or memory.
+# [[officials.bodies]]
+# name = "School Committee"
+# url = ""
+# note = ""
+# members = [
+#   { name = "", seat = "" },
+# ]
