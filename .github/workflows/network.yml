@@ -350,8 +350,9 @@ jobs:
             echo "backlog_share=$(tr '0-9' 'a-j' <<< "$backlog")"
           } >> "$GITHUB_OUTPUT"
 
-  # Statewide sources (Massachusetts's DLS reports), fetched once for every town before the towns run, into
-  # states/: only exports that aren't saved or are over a week old, so most runs ask for nothing. A failure is
+  # Statewide sources (Massachusetts's DLS reports, Subsidized Housing Inventory, and DESE school figures), fetched
+  # once for every town before the towns run, into states/: only those not saved or over a week old, so most runs
+  # ask for nothing. A failure is
   # recorded in states/<state>/status.json (the daily issue lists a state that keeps failing), and the towns run
   # with what was saved.
   states:
