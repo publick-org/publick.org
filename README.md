@@ -253,7 +253,7 @@ Each table's `next_election` is the town's next municipal election: November
 3, 2026 for Bangor, Lewiston, Portland, and South Kingstown; Town Meeting
 Day, March 2, 2027, for Burlington; November 2, 2027 for Beverly, Gloucester,
 Lawrence, Lowell, Malden, Manchester, Medford, Methuen, Nashua, Salem,
-Somerville, Waltham, Wallingford, and Worcester. Portland's winners take office at the council's inaugural
+Somerville, Springfield, Waltham, Wallingford, and Worcester. Portland's winners take office at the council's inaugural
 meeting, the first Monday of December. From the engine release that
 reads it (publick-engine#114), a list is due a check on election day, or once
 new terms begin if that's later (the first month a member's `term_ends` on or
