@@ -8,8 +8,8 @@
 # posts its agendas, minutes, presentations and recordings on the city's
 # events calendar ("Agendas, Minutes, & More"), read with the district's
 # calendar feed for the dates ahead. 311 requests go to the city's own 311 service, on
-# QAlert, and are published on the city's open data portal, which the engine
-# doesn't read; SeeClickFix isn't used.
+# QAlert, and are published on the city's open data portal (Socrata), read as
+# [socrata_311]; SeeClickFix isn't used.
 #
 # Started on 2026-10-27 by the engine's helper (python -m pipeline.new_town),
 # from Medford's config.
@@ -53,6 +53,13 @@ official_site = "https://www.somervillema.gov"
 slug = "meetings"
 title = "Meetings"
 summary = "When the City Council, its committees, and the School Committee meet, with agendas, and minutes from January 2026 on."
+status = "live"
+
+[[sections]]
+slug = "311"
+title = "311 Requests"
+nav = "311"
+summary = "How fast the city closes service requests, by category and ward, from its open data portal."
 status = "live"
 
 [[sections]]
@@ -233,16 +240,26 @@ local_series = "LAUCT256253500000003"
 sources = [
   { label = "Meetings (Legistar)", file = "meetings/status.json", max_days = 2 },
   { label = "School Committee documents (city events calendar)", file = "meetings/meetingdocs_status.json", max_days = 2 },
+  { label = "311 requests (open data portal)", file = "311/status.json", field = "portal_updated_at", max_days = 3 },
+  { label = "311 scorecard", file = "311/scorecard.json", field = "generated_at", max_days = 2 },
 ]
 
-# The About page's "What this site doesn't cover": why there's no 311 section.
-# The city's 311 Service Center page links its request form and app, on QAlert
-# (somervillema.qscend.com); its requests are published on the city's open data
-# portal (data.somervillema.gov, "311 Service, Information, and Feedback
-# Requests"). SeeClickFix's Somerville place had 8 requests from September 21
-# to October 17, 2026, all on Cambridge's request types.
-[absences]
-311 = "The city takes service requests through its own 311 service, on QAlert. It publishes them on its open data portal, which this site doesn't read."
+# 311 requests, from the city's open data portal: the dataset "311 Service,
+# Information, and Feedback Requests", one row a request, updated daily. The
+# city takes requests through its own 311 service, on QAlert; the 311 Service
+# Center page links its request form and app. Rows have no address, map point
+# or acknowledged time, so the 311 pages have none. Calls for information and
+# feedback are left out. The ward is the city's own, from each row.
+[socrata_311]
+domain = "data.somervillema.gov"
+dataset = "4pyi-uqq6"
+since = "2025-01"
+publisher = "City of Somerville"
+license = "ODbL"
+license_url = "https://opendatacommons.org/licenses/odbl/1-0/"
+classes = ["Service"]
+scope_note = "Service requests only: calls for information and feedback aren't counted."
+report_url = "https://www.somervillema.gov/departments/constituent-services/311-service-center"
 
 # Who represents you (the Officials page). Kept by hand from official city and
 # school websites; checked is the date the list was last checked against them.

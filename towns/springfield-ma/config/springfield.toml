@@ -9,8 +9,8 @@
 # so each is matched to its board by name ([meetings] boards and aliases). The
 # council's minutes are text PDFs posted there. The School Committee's minutes
 # aren't on the portal: Springfield Public Schools posts them in a document
-# library on its website, listed by a script the engine doesn't read, so the
-# committee's meetings are shown with their agendas only. Service requests go
+# library on its SharpSchool website, read as [sharpschool_meetings], and each
+# is shown with the portal's listing of its meeting. Service requests go
 # to the city's 311 Citizen Service Center, on IntelliGov, which doesn't
 # publish them, so the site has no 311 section.
 #
@@ -208,6 +208,16 @@ exclude_pattern = '^General$|^One Time Late Night|^Spirit Of Springfield|Screeni
 # School Committee - Legislative & Contracts Subcommittee Meeting"); each
 # subcommittee is a board of its own above.
 
+# The School Committee's minutes, from Springfield Public Schools' "Meeting-
+# Minutes Archive": a folder a year, each file named by its meeting's date and
+# kind ("09.10.26 Minutes Regular Meeting", "03.30.26 Minutes Special Meeting
+# 515" for the one at 5:15 PM).
+[sharpschool_meetings]
+page_url = "https://www.springfieldpublicschools.com/school_committee/school_committee_meeting-_minutes_archive"
+source_name = "Springfield Public Schools"
+since = "2026-01-01"
+body = "School Committee"
+
 # Agenda and minutes PDFs live in the network's documents bucket, not in git
 # (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID,
 # STORAGE_SECRET_ACCESS_KEY.
@@ -273,6 +283,7 @@ local_series = "LAUCT256700000000003"
 [freshness]
 sources = [
   { label = "Meetings (CivicClerk)", file = "meetings/status.json", max_days = 2 },
+  { label = "School Committee minutes (school district website)", file = "meetings/sharpschool_status.json", max_days = 2 },
 ]
 
 # The About page's "What this site doesn't cover": why there's no 311 section.
