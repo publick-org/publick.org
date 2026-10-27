@@ -184,8 +184,11 @@ since = "2026-01-01"
 # named for an item, not a board: those go under the board their category
 # names.
 board_from_category = true
-# The portal's "One Time Event" entries under "General" name no board.
-exclude_pattern = '^General$'
+# The portal's "One Time Event" entries under "General" name no board, and
+# three one-off events of 2026 under "General" name none of the city's boards
+# (a late-night entertainment hearing, a screening committee, a street
+# painting).
+exclude_pattern = '^General$|^One Time Late Night|^Spirit Of Springfield|Screening Committee for Innovation Schools'
 
 # The Springfield School Committee posts with the other boards ("Springfield
 # School Committee").
