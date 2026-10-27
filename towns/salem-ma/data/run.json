@@ -1,8 +1,8 @@
 {
   "town": "salem",
   "folder": "salem-ma",
-  "started_at": "2026-10-26T09:18:58+00:00",
-  "finished_at": "2026-10-26T09:32:27+00:00",
+  "started_at": "2026-10-27T09:18:52+00:00",
+  "finished_at": "2026-10-27T09:21:48+00:00",
   "engine": "v1.66.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 694.4
+      "seconds": 55.3
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 16.2
+      "seconds": 16.0
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 79.2
+      "seconds": 77.4
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 17.8
+      "seconds": 26.9
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.6
+      "seconds": 0.7
     }
   ],
   "update": {
     "town": "salem",
     "sources": "all",
-    "started_at": "2026-10-26T09:18:58+00:00",
+    "started_at": "2026-10-27T09:18:52+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 21.2,
+        "seconds": 26.0,
         "cadence": "continuous"
       },
       {
@@ -109,7 +109,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 8.6,
+        "seconds": 16.0,
         "cadence": "continuous"
       },
       {
@@ -119,15 +119,16 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 7 days ago; checked every 30 days"
+        "skipped": "checked 8 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.6,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -136,7 +137,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 7 days ago; checked every 30 days"
+        "skipped": "checked 8 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -145,15 +146,16 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 7 days ago; checked every 30 days"
+        "skipped": "checked 8 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 25.7,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -193,7 +195,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 634.2,
+        "seconds": 9.2,
         "cadence": "continuous"
       },
       {
@@ -201,7 +203,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 2.7,
+        "seconds": 2.8,
         "cadence": "continuous"
       }
     ]
@@ -211,21 +213,21 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-26T05:18:59-04:00",
+      "updated_at": "2026-10-27T05:18:52-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-10-26T05:19:56-04:00",
+      "updated_at": "2026-10-27T05:19:35-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-10-26T05:30:30-04:00",
+      "updated_at": "2026-10-27T05:19:44-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -313,17 +315,18 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-26T09:32:27+00:00",
-  "data_bytes": 11213147,
-  "data_bytes_added": 8461200,
+  "last_good_at": "2026-10-27T09:21:48+00:00",
+  "data_bytes": 11233480,
+  "data_bytes_added": 8481647,
   "activity": {
-    "boards": 54,
+    "boards": 55,
     "meetings_by_date": {
-      "2026-10-26": 1,
       "2026-10-28": 2,
+      "2026-10-29": 2,
       "2026-11-02": 1,
       "2026-11-04": 2,
-      "2026-11-05": 3
+      "2026-11-05": 3,
+      "2026-11-09": 2
     }
   },
   "fact_checks": {
