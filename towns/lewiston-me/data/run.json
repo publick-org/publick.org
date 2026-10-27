@@ -1,8 +1,8 @@
 {
   "town": "lewiston",
   "folder": "lewiston-me",
-  "started_at": "2026-10-26T09:12:15+00:00",
-  "finished_at": "2026-10-26T09:15:04+00:00",
+  "started_at": "2026-10-27T09:11:48+00:00",
+  "finished_at": "2026-10-27T09:14:36+00:00",
   "engine": "v1.66.0",
   "fetched": true,
   "steps": [
@@ -10,25 +10,25 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 119.8
+      "seconds": 117.7
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 5.8
+      "seconds": 5.6
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 35.1
+      "seconds": 34.7
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 7.4
+      "seconds": 8.3
     },
     {
       "name": "Check live site",
@@ -40,7 +40,7 @@
   "update": {
     "town": "lewiston",
     "sources": "all",
-    "started_at": "2026-10-26T09:12:15+00:00",
+    "started_at": "2026-10-27T09:11:48+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 80.7,
+        "seconds": 75.6,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.1,
+        "seconds": 1.0,
         "cadence": "continuous"
       },
       {
@@ -64,7 +64,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 32.6,
+        "seconds": 32.8,
         "cadence": "continuous"
       },
       {
@@ -108,7 +108,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 4.4,
+        "seconds": 4.8,
         "cadence": "continuous"
       },
       {
@@ -116,18 +116,16 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "yearly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "seconds": 1.5,
+        "cadence": "yearly"
       },
       {
         "name": "Fetch unemployment",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "seconds": 0.6,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch school figures",
@@ -136,16 +134,15 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 20 days ago; checked every 30 days"
+        "skipped": "checked 21 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "yearly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "seconds": 0.4,
+        "cadence": "yearly"
       },
       {
         "name": "Fetch housing figures",
@@ -154,7 +151,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 4 days ago; checked every 7 days"
+        "skipped": "checked 5 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -214,14 +211,14 @@
     {
       "label": "Meetings (city calendar)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-26T05:12:16-04:00",
+      "updated_at": "2026-10-27T05:11:49-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Tax bill (calculated)",
       "file": "finance/tax_bill.json",
-      "updated_at": "2026-10-20T05:12:47-04:00",
+      "updated_at": "2026-10-27T05:13:43-04:00",
       "max_days": null,
       "cadence": "yearly",
       "failing": 0,
@@ -233,7 +230,7 @@
     {
       "label": "Tax rate and property tax",
       "file": "finance/budget.json",
-      "updated_at": "2026-10-20T05:12:49-04:00",
+      "updated_at": "2026-10-27T05:13:45-04:00",
       "max_days": null,
       "cadence": "yearly",
       "failing": 0,
@@ -257,7 +254,7 @@
     {
       "label": "Unemployment rate (BLS)",
       "file": "labor/unemployment.json",
-      "updated_at": "2026-10-20T05:12:48-04:00",
+      "updated_at": "2026-10-27T05:13:45-04:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
@@ -302,13 +299,13 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-26T09:15:04+00:00",
+  "last_good_at": "2026-10-27T09:14:36+00:00",
   "data_bytes": 1055220,
   "data_bytes_added": 2,
   "activity": {
     "boards": 9,
     "meetings_by_date": {
-      "2026-10-26": 1
+      "2026-11-09": 2
     }
   },
   "fact_checks": {
