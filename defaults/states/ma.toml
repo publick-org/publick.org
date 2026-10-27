@@ -51,7 +51,7 @@ en = { definition = "Money left over from the last fiscal year, once the state c
 es = { term = "efectivo disponible (free cash)", definition = "Dinero que sobró del año fiscal anterior, una vez que el estado lo certifica, y que el concejo o la asamblea municipal puede votar para gastar o ahorrar." }
 
 [terms.levy]
-en = { definition = "The total property tax a city or town raises in a year. Proposition 2½ limits how much it can grow each year: the levy limit.", pattern = '(?<!\bto\s)\b(?:tax\s+)?lev(?:y|ies)\b(?!\s+(?:a|an|the|fines?|fees?|taxes)\b)' }
+en = { definition = "The total property tax a city or town raises in a year. Proposition 2½ limits how much it can grow each year: the levy limit.", pattern = '(?<!\bto\s)\b(?:(?:tax\s+)?(?-i:lev(?:y|ies))|(?-i:[Tt]ax\s+Lev(?:y|ies))|(?-i:Lev(?:y|ies))(?=\s+(?:limit|ceiling|capacity)))\b(?!\s+(?:a|an|the|fines?|fees?|taxes)\b)' }
 es = { term = "recaudación de impuestos (levy)", definition = "El total del impuesto a la propiedad que recauda una ciudad o un pueblo en un año. La Proposición 2½ limita cuánto puede crecer cada año: el límite de recaudación (levy limit).", also = ["recaudación"] }
 
 [terms."M.G.L."]
