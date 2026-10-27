@@ -8,8 +8,8 @@
 # council's minutes are PDFs with text, and its meetings link their recordings.
 # The School Committee and its standing committees post their agendas there
 # too, but not their minutes: Worcester Public Schools links each meeting's
-# agenda, minutes and video from a page of its Apptegy website that the engine
-# doesn't read, so the committee's meetings are shown with their agendas only.
+# agenda, minutes and video from a page of its Apptegy website, read as
+# [page_meetings].
 # 311 requests go to Worcester 311, on SeeClickFix, where the city acknowledges
 # or closes them. The city has a council-manager (Plan E) government: the
 # mayor, elected citywide from the councilors at-large, chairs the City Council
@@ -156,6 +156,18 @@ since = "2026-01-01"
 # The boards collected, by the start of their titles on the portal.
 include_pattern = '^(City Council|Standing Committee on|School Committee|Public Schools? (Standing )?Committee|Worcester Public Schools|Planning Board|Zoning Board of Appeals|License Commission|Board of Health|Conservation Commission|Community Preservation Committee|Affordable Housing Trust Fund)\b'
 
+# The School Committee's agendas, minutes and recordings, from Worcester Public
+# Schools' "Agenda and Minutes" page: a table of the year's meetings (Date,
+# Agenda, Minutes, Video), each linking Google Drive files and a YouTube
+# recording. The page's content is HTML inside a script's JSON; the engine reads
+# it back. The Date cell names the meeting.
+[page_meetings]
+page_url = "https://www.worcesterschools.org/o/wps/page/agenda-and-minutes"
+source_name = "Worcester Public Schools"
+since = "2026-01-01"
+body = "School Committee"
+name_columns = ["Date"]
+
 # Agenda and minutes PDFs live in the network's documents bucket, not in git
 # (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID,
 # STORAGE_SECRET_ACCESS_KEY.
@@ -221,6 +233,7 @@ local_series = "LAUCT258200000000003"
 [freshness]
 sources = [
   { label = "Meetings (PrimeGov)", file = "meetings/status.json", max_days = 2 },
+  { label = "School Committee meetings (school district website)", file = "meetings/page_status.json", max_days = 2 },
   { label = "311 requests", file = "311/status.json", max_days = 2 },
   { label = "311 scorecard", file = "311/scorecard.json", field = "generated_at", max_days = 2 },
 ]
