@@ -133,7 +133,10 @@ shows no ward map; a town with neither (Bangor) has no 311 section yet.
       from news sites or memory.
 - [ ] **Seats**: a ward seat gets `ward`; a citywide seat doesn't. A seat
       elected by a group of wards (Beverly's School Committee districts) gets
-      `wards = [1, 2, 3]`.
+      `wards = [1, 2, 3]`. A district that doesn't follow ward lines
+      (Worcester's School Committee districts, made of precincts from
+      several wards) gets `wards = []`: it's listed with its body, under no
+      ward and not as citywide, and the body's `note` says so.
 - [ ] **Terms**: from the charter, or the city's page restating it. Leave
       `term_ends` out when no official source gives it.
 - [ ] **Contact**: city- and school-issued email addresses only, and the
