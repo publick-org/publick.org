@@ -121,7 +121,7 @@ recent_open_days = 30
 # parentheses. Another language is another column.
 
 [terms.abatement]
-en = { definition = "A reduction or cancellation of a property tax bill, granted by the assessors, for example after an error in the assessment.", also = ["abate"] }
+en = { definition = "A reduction or cancellation of a property tax bill, granted by the assessors, for example after an error in the assessment.", also = ["abate"], pattern = '(?<![\w.])(?<!lead )(?<!paint )(?<!graffiti )(?<!opioid )(?<!asbestos )(?<!noise )(?<!nuisance )(?<!mold )(?<!radon )(?<!pest )(?<!hazard )abate(?:ment)?s?(?!\w)' }
 es = { term = "reducción de impuestos (abatement)", definition = "Una rebaja o cancelación de la factura del impuesto a la propiedad, que otorgan los tasadores, por ejemplo después de un error en la tasación.", pattern = '\b(?:reduc|rebaj|exonera|condon)\w*' }
 
 [terms.ADA]
