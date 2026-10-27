@@ -1,8 +1,8 @@
 {
   "town": "lowell",
   "folder": "lowell-ma",
-  "started_at": "2026-10-26T09:10:08+00:00",
-  "finished_at": "2026-10-26T09:11:43+00:00",
+  "started_at": "2026-10-27T09:12:00+00:00",
+  "finished_at": "2026-10-27T09:13:32+00:00",
   "engine": "v1.66.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 12.7
+      "seconds": 16.8
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 10.0
+      "seconds": 9.9
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 49.6
+      "seconds": 44.4
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 20.6
+      "seconds": 19.9
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.8
+      "seconds": 0.7
     }
   ],
   "update": {
     "town": "lowell",
     "sources": "all",
-    "started_at": "2026-10-26T09:10:09+00:00",
+    "started_at": "2026-10-27T09:12:00+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.6,
+        "seconds": 6.2,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.9,
+        "seconds": 1.2,
         "cadence": "continuous"
       },
       {
@@ -109,7 +109,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 8.7,
+        "seconds": 7.5,
         "cadence": "continuous"
       },
       {
@@ -119,16 +119,15 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 13 days ago; checked every 30 days"
+        "skipped": "checked 14 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "seconds": 0.6,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch school figures",
@@ -137,7 +136,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 13 days ago; checked every 30 days"
+        "skipped": "checked 14 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -146,16 +145,15 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 13 days ago; checked every 30 days"
+        "skipped": "checked 14 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "seconds": 0.4,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch place",
@@ -215,7 +213,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-26T05:10:09-04:00",
+      "updated_at": "2026-10-27T05:12:00-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -258,7 +256,7 @@
     {
       "label": "Unemployment rate (BLS)",
       "file": "labor/unemployment.json",
-      "updated_at": "2026-10-20T05:14:48-04:00",
+      "updated_at": "2026-10-27T05:12:15-04:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
@@ -303,15 +301,14 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-26T09:11:43+00:00",
-  "data_bytes": 2312063,
-  "data_bytes_added": 2,
+  "last_good_at": "2026-10-27T09:13:32+00:00",
+  "data_bytes": 2314455,
+  "data_bytes_added": 2397,
   "activity": {
     "boards": 40,
     "meetings_by_date": {
-      "2026-10-26": 1,
       "2026-10-27": 2,
-      "2026-10-28": 1
+      "2026-10-28": 2
     }
   },
   "fact_checks": {
