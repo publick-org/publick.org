@@ -1,8 +1,8 @@
 {
   "town": "portland",
   "folder": "portland-me",
-  "started_at": "2026-10-26T09:16:58+00:00",
-  "finished_at": "2026-10-26T09:21:07+00:00",
+  "started_at": "2026-10-27T09:18:38+00:00",
+  "finished_at": "2026-10-27T09:22:59+00:00",
   "engine": "v1.66.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 94.0
+      "seconds": 110.3
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 13.7
+      "seconds": 13.2
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 114.0
+      "seconds": 111.3
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.3
+      "seconds": 24.6
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.8
+      "seconds": 0.7
     }
   ],
   "update": {
     "town": "portland",
     "sources": "all",
-    "started_at": "2026-10-26T09:16:58+00:00",
+    "started_at": "2026-10-27T09:18:38+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 33.5,
+        "seconds": 39.7,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 1.2,
         "cadence": "continuous"
       },
       {
@@ -91,7 +91,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 34.6,
+        "seconds": 32.5,
         "cadence": "continuous"
       },
       {
@@ -108,7 +108,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 10.6,
+        "seconds": 20.2,
         "cadence": "continuous"
       },
       {
@@ -124,9 +124,8 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "seconds": 0.6,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch school figures",
@@ -135,16 +134,15 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 12 days ago; checked every 30 days"
+        "skipped": "checked 13 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "yearly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "seconds": 0.3,
+        "cadence": "yearly"
       },
       {
         "name": "Fetch housing figures",
@@ -153,7 +151,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 4 days ago; checked every 7 days"
+        "skipped": "checked 5 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -193,7 +191,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 9.3,
+        "seconds": 10.1,
         "cadence": "continuous"
       },
       {
@@ -211,35 +209,35 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-26T05:16:58-04:00",
+      "updated_at": "2026-10-27T05:18:39-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Board of Public Education meetings (Diligent Community)",
       "file": "meetings/diligent_status.json",
-      "updated_at": "2026-10-26T05:17:32-04:00",
+      "updated_at": "2026-10-27T05:19:20-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-10-26T05:18:18-04:00",
+      "updated_at": "2026-10-27T05:20:14-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-10-26T05:18:28-04:00",
+      "updated_at": "2026-10-27T05:20:24-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Tax rate and property tax",
       "file": "finance/budget.json",
-      "updated_at": "2026-10-20T06:20:42-04:00",
+      "updated_at": "2026-10-27T05:20:13-04:00",
       "max_days": null,
       "cadence": "yearly",
       "failing": 0,
@@ -263,7 +261,7 @@
     {
       "label": "Unemployment rate (BLS)",
       "file": "labor/unemployment.json",
-      "updated_at": "2026-10-20T06:20:41-04:00",
+      "updated_at": "2026-10-27T05:20:12-04:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
@@ -308,24 +306,25 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-26T09:23:47+00:00",
-  "data_bytes": 11976864,
-  "data_bytes_added": 10467510,
+  "last_good_at": "2026-10-27T09:22:59+00:00",
+  "data_bytes": 12011352,
+  "data_bytes_added": 10494608,
   "activity": {
     "boards": 41,
     "meetings_by_date": {
-      "2026-10-26": 2,
       "2026-10-27": 2,
       "2026-10-28": 2,
       "2026-10-29": 1,
       "2026-11-02": 3,
+      "2026-11-03": 1,
       "2026-11-04": 2,
-      "2026-11-05": 1
+      "2026-11-05": 1,
+      "2026-11-09": 2
     }
   },
   "fact_checks": {
-    "summaries": 75,
-    "ok": 70,
+    "summaries": 76,
+    "ok": 71,
     "failed": 5,
     "weak": 0,
     "unchecked": 0,
@@ -333,7 +332,5 @@
     "held_back": 5,
     "entries_not_shown": 12,
     "vote_counts_left_out": 2
-  },
-  "published_at": "2026-10-26T09:23:47+00:00",
-  "published_engine": "v1.66.0"
+  }
 }
