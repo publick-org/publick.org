@@ -5,11 +5,9 @@
 # Somerville's website runs on Drupal. The City Council and its committees
 # post agendas and minutes on the city's Legistar system, read through
 # Legistar's public web API; minutes are PDFs with text. The School Committee
-# posts its agendas, minutes and presentations on the city's events calendar
-# ("Agendas, Minutes, & More"), and its meeting materials in Google Drive
-# folders by month and meeting; the engine reads neither, so the committee's
-# meetings come from the Somerville Public Schools calendar feed, with their
-# times but no documents. 311 requests go to the city's own 311 service, on
+# posts its agendas, minutes, presentations and recordings on the city's
+# events calendar ("Agendas, Minutes, & More"), read with the district's
+# calendar feed for the dates ahead. 311 requests go to the city's own 311 service, on
 # QAlert, and are published on the city's open data portal, which the engine
 # doesn't read; SeeClickFix isn't used.
 #
@@ -54,7 +52,7 @@ official_site = "https://www.somervillema.gov"
 [[sections]]
 slug = "meetings"
 title = "Meetings"
-summary = "When the City Council, its committees, and the School Committee meet, with the council's agendas, and minutes from January 2026 on."
+summary = "When the City Council, its committees, and the School Committee meet, with agendas, and minutes from January 2026 on."
 status = "live"
 
 [[sections]]
@@ -128,12 +126,33 @@ client = "somervillema"
 # Meetings, agendas, and minutes are collected from here on.
 since = "2026-01-01"
 
-# The School Committee's meetings, from the Somerville Public Schools calendar
-# feed (The Events Calendar, on WordPress), narrowed to events naming the
-# School Committee: the feed holds 30 events, so unfiltered it reaches only
-# about three weeks ahead. Office hours and executive sessions are left out.
-# The committee's agendas and minutes are on the city's events calendar
-# (somervillema.gov/meetingdocs), which the engine doesn't read.
+# The School Committee's meetings, agendas, minutes and recordings, from the
+# city's "Agendas, Minutes, & More" page, filtered to the School Committee.
+# The committee types its "Call for the Week" notices, one for every meeting of
+# a week, as agendas too; they aren't taken for a meeting's agenda.
+[meetingdocs_meetings]
+page_url = "https://www.somervillema.gov/meetingdocs?title_1=School+Committee"
+source_name = "City of Somerville"
+since = "2026-07-01"
+not_agenda_pattern = '\bcall\b'
+
+# The committee's meetings and subcommittees, by words in the page's titles.
+# The Student Assignment Advisory Committee, posted here too, isn't one of
+# them.
+[meetingdocs_meetings.bodies]
+"Regular Meeting" = "School Committee"
+"Special Meeting" = "School Committee"
+"Executive Session" = "School Committee"
+"Retreat" = "School Committee"
+"Educational Programs" = "School Committee Educational Programs and Instruction Subcommittee"
+"Finance and Facilities" = "School Committee Finance and Facilities Subcommittee"
+"Rules Management" = "School Committee Rules Management Subcommittee"
+"School Building Facilities and Maintenance Subcommittee" = "School Committee School Building Facilities and Maintenance Subcommittee"
+"Long-Range Planning" = "School Committee Long-Range Planning Subcommittee"
+
+# The dates ahead, from the Somerville Public Schools calendar feed, narrowed to
+# events naming the School Committee: the feed holds 30 events, so unfiltered it
+# reaches only about three weeks ahead. Office hours are left out.
 [ical_meetings]
 ical_url = "https://www.somerville.k12.ma.us/school-calendars/list/?tribe-bar-search=School+Committee&ical=1"
 page_url = "https://www.somerville.k12.ma.us/about-sps/school-committee/meetings/"
@@ -213,6 +232,7 @@ local_series = "LAUCT256253500000003"
 [freshness]
 sources = [
   { label = "Meetings (Legistar)", file = "meetings/status.json", max_days = 2 },
+  { label = "School Committee documents (city events calendar)", file = "meetings/meetingdocs_status.json", max_days = 2 },
 ]
 
 # The About page's "What this site doesn't cover": why there's no 311 section.
