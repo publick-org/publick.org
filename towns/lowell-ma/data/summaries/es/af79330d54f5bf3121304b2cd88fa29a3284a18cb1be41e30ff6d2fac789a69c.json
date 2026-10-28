@@ -1,12 +1,12 @@
 {
   "headline": "Aprobó las actas de la reunión del 5 de agosto con una corrección de fecha; aceptó los informes mensuales y los archivó.",
-  "summary": "La Junta de Salud aprobó las actas de la reunión del 5 de agosto de 2026 con una corrección de fecha. Habló sobre las ventas de tabaco y los permisos de alimentos que faltan en Lowell Quick Mart, en 189 E. Merrimack St. También aceptó varios informes y los archivó.",
+  "summary": "La junta aprobó las actas de la reunión del 5 de agosto de 2026 con una corrección de fecha. Habló sobre las ventas de tabaco y los permisos de alimentos que faltan en Lowell Quick Mart, en 189 E. Merrimack St. También aceptó varios informes y los archivó.",
   "decisions": [
     "Aprobó las actas de la reunión del 5 de agosto de 2026 con una corrección de la fecha en el punto 3.1 de la agenda.",
     "Aceptó el Informe mensual de control del tabaco y lo archivó.",
     "Aceptó los informes mensuales de Servicios de Desarrollo y los archivó.",
     "Aceptó los informes y notificaciones de PrideStar EMS, Inc. y los archivó.",
-    "Aceptó la comunicación sobre el retiro del programa de aprendizaje Microblading Apprenticeship y la archivó.",
+    "Aceptó el retiro de la comunicación sobre el aprendizaje de microblading y la archivó.",
     "Aceptó la comunicación del calendario de fumigación contra mosquitos de septiembre de CMMCP y la archivó.",
     "Aceptó el comunicado de prensa del 13 de agosto de 2026 sobre el kratom y lo archivó.",
     "Tomó nota del Día de Devolución de Medicamentos No Deseados, del 19 de septiembre de 2026, y animó a los residentes a traer los medicamentos que ya no necesitan para desecharlos.",
@@ -16,19 +16,18 @@
   "kind": "minutes",
   "source_sha256": "af79330d54f5bf3121304b2cd88fa29a3284a18cb1be41e30ff6d2fac789a69c",
   "source_hash": "1678af5cd42c1d158fe343f717fdaee2a42138a0761d97e98ad847a5bb7bb5e7",
-  "check": "decisions 7: Kratom not in the translation",
-  "review": "summary: The English says only \"The Board\". The translation adds \"de Salud\" (Health Board), which the source does not state.; decisions 5: The English does not name any program, only the \"withdrawal from the Microblading Apprenticeship communication\". The translation shifts the meaning to withdrawal from a program and leaves \"Microblading Apprenticeship\" in English inside a Spanish sentence.",
-  "attempts": 2,
+  "check": "ok",
+  "review": "decisions 5: \"Accepted the withdrawal from the Microblading Apprenticeship communication\" refers to a withdrawal from the apprenticeship. The translation, \"el retiro de la comunicación sobre el aprendizaje\", makes it sound as if the communication was withdrawn, which changes the meaning.",
+  "attempts": 1,
   "model": "claude-haiku-5-5",
-  "prompt_version": 6,
+  "prompt_version": 7,
   "glossary": "7f8b3bb0bfba9e5c",
-  "generated_at": "2026-10-28T05:10:30-04:00",
+  "generated_at": "2026-10-28T05:19:44-04:00",
   "usage": {
-    "input_tokens": 1176,
-    "output_tokens": 1878,
-    "cache_read_input_tokens": 2101
+    "input_tokens": 1292,
+    "output_tokens": 2060,
+    "cache_read_input_tokens": 3133
   },
-  "cost": 0.004956,
-  "review_retries": 1,
-  "replaced_cost": 0.002412
+  "cost": 0.005709,
+  "replaced_cost": 0.007368
 }
