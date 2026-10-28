@@ -91,6 +91,13 @@ h2.first { margin-top: 0.5rem; padding-top: 0; border-top: 0; }
 .town-list li { break-inside: avoid; }
 .town-list a { display: inline-flex; align-items: center; min-height: 2.75rem; font-weight: 700; font-size: 1.05rem; }
 .state-more { margin: 0.25rem 0 0; }
+/* A large network's homepage: its states, each linking its page. */
+.state-index { columns: 14rem; column-gap: 1.25rem; margin: 1rem 0 0; padding: 0; list-style: none; }
+.state-index li { break-inside: avoid; }
+.state-index a { display: inline-flex; align-items: baseline; gap: 0.4rem; min-height: 2.75rem; padding-top: 0.6rem; }
+.state-index a { text-decoration: none; }
+.state-index .name { font-family: var(--serif); font-weight: 700; font-size: 1.15rem; text-decoration: underline; }
+.state-index a:hover .name { text-decoration-thickness: 2px; }
 .state-more a { display: inline-flex; align-items: center; min-height: 2.75rem; }
 .town-cards a {
   display: block; min-height: 2.75rem; padding: 0.7rem 0.9rem;
