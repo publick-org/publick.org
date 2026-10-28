@@ -8,8 +8,8 @@ no scripts (its Content-Security-Policy allows none). When a state has
 STATE_PAGE_AT towns or more, it also gets its own page (publick.org/<state>/,
 from home/state.html), with a card for each town and its meetings this week;
 the homepage then names only SHOWN_PER_STATE of its towns, the most populous
-(the 2020 Census counts in each town's ward or precinct file), and a "More
-towns" button leads to the page. Once the network has INDEX_AT
+(the 2020 Census counts in each town's ward or precinct file), and a last
+item, "+ 4 more", leads to the page. Once the network has INDEX_AT
 towns or more, the homepage lists only the states, each with how many towns
 and a link to its page, and every state has a page. Only live towns are
 named: a town appears once it has a folder.
@@ -141,10 +141,10 @@ def town_cards(towns: list[dict], indent: str, today: date) -> str:
     return f'\n{indent}<ul class="town-cards">{items}\n{indent}</ul>'
 
 
-def town_list(towns: list[dict], indent: str) -> str:
-    """A state's towns on the homepage: each one's name, linking its site."""
+def town_list(towns: list[dict], indent: str, more: str = "") -> str:
+    """A state's towns on the homepage: each one's name, linking its site; then `more`, a last item."""
     items = "".join(f'\n{indent}  <li><a href="{escape(t["url"])}">{escape(t["town"])}</a></li>' for t in towns)
-    return f'\n{indent}<ul class="town-list">{items}\n{indent}</ul>'
+    return f'\n{indent}<ul class="town-list">{items}{more}\n{indent}</ul>'
 
 
 def has_page(towns_in_state: int, network_towns: int) -> bool:
@@ -176,12 +176,12 @@ def states_html(towns: list[dict]) -> str:
         shown, more = ts, ""
         if has_page(len(ts), len(towns)):
             shown = shown_towns(ts)
-            # The state's name is read out with the button, not shown.
-            more = (f'\n          <p class="state-more"><a class="button" href="{abbr}/">More towns'
-                    f'<span class="visually-hidden"> in {escape(state)}</span></a></p>')
+            # The last item of the list, as one more name; the state's name is read out with it, not shown.
+            more = (f'\n            <li class="more"><a href="{abbr}/">+ {len(ts) - len(shown)} more'
+                    f'<span class="visually-hidden"> {escape(state)} towns</span></a></li>')
         parts.append(f'\n        <section class="state" aria-labelledby="state-{abbr}">\n'
                      f'          <h3 id="state-{abbr}">{escape(state)} <span class="count">{count}</span></h3>'
-                     f'{town_list(shown, "          ")}{more}\n'
+                     f'{town_list(shown, "          ", more)}\n'
                      f'        </section>')
     return "".join(parts)
 
