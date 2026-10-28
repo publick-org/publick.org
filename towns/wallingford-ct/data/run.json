@@ -1,46 +1,46 @@
 {
   "town": "wallingford",
   "folder": "wallingford-ct",
-  "started_at": "2026-10-27T09:15:39+00:00",
-  "finished_at": "2026-10-27T09:17:24+00:00",
-  "engine": "v1.66.0",
+  "started_at": "2026-10-28T09:16:15+00:00",
+  "finished_at": "2026-10-28T09:19:40+00:00",
+  "engine": "v1.68.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 54.3
+      "seconds": 159.5
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 8.2
+      "seconds": 6.3
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 37.9
+      "seconds": 27.1
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 3.5
+      "seconds": 11.2
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.6
+      "seconds": 0.7
     }
   ],
   "update": {
     "town": "wallingford",
     "sources": "all",
-    "started_at": "2026-10-27T09:15:39+00:00",
+    "started_at": "2026-10-28T09:16:16+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 8.0,
+        "seconds": 7.7,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.0,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -73,7 +73,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 36.9,
+        "seconds": 44.3,
         "cadence": "continuous"
       },
       {
@@ -104,11 +104,29 @@
         "skipped": "no [opengov_meetings] in the config"
       },
       {
+        "name": "Fetch the city's meeting documents",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [meetingdocs_meetings] in the config"
+      },
+      {
+        "name": "Fetch the school district's minutes library",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [sharpschool_meetings] in the config"
+      },
+      {
         "name": "Summarize agendas",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 7.5,
+        "seconds": 106.3,
         "cadence": "continuous"
       },
       {
@@ -118,7 +136,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 22 days ago; checked every 30 days"
+        "skipped": "checked 23 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -127,7 +145,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 3 days ago; checked every 7 days"
+        "skipped": "checked 4 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -136,7 +154,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 25 days ago; checked every 30 days"
+        "skipped": "checked 26 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -145,7 +163,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 2 days ago; checked every 7 days"
+        "skipped": "checked 3 days ago; checked every 7 days"
       },
       {
         "name": "Fetch housing figures",
@@ -154,7 +172,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 2 days ago; checked every 7 days"
+        "skipped": "checked 3 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -199,13 +217,22 @@
         "skipped": "no [seeclickfix] in the config"
       },
       {
+        "name": "Fetch 311 requests from an open data portal",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [socrata_311] in the config"
+      },
+      {
         "name": "Compute 311 scorecard",
         "ok": true,
         "required": true,
         "error": null,
         "seconds": 0,
         "cadence": "continuous",
-        "skipped": "no [seeclickfix] in the config"
+        "skipped": "no [seeclickfix] or [socrata_311] in the config"
       }
     ]
   },
@@ -214,14 +241,14 @@
     {
       "label": "Meetings (town website)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-27T05:15:39-04:00",
+      "updated_at": "2026-10-28T05:16:16-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Board of Education meetings (school district website)",
       "file": "meetings/finalsite_status.json",
-      "updated_at": "2026-10-27T05:15:48-04:00",
+      "updated_at": "2026-10-28T05:16:24-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -309,31 +336,30 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-28T00:58:11+00:00",
-  "data_bytes": 1477418,
-  "data_bytes_added": 1545,
+  "last_good_at": "2026-10-28T09:19:40+00:00",
+  "data_bytes": 1510954,
+  "data_bytes_added": 1682,
   "activity": {
     "boards": 26,
     "meetings_by_date": {
-      "2026-10-27": 1,
+      "2026-10-28": 1,
       "2026-11-02": 2,
       "2026-11-03": 1,
-      "2026-11-04": 3,
+      "2026-11-04": 2,
       "2026-11-05": 1,
-      "2026-11-09": 3
+      "2026-11-09": 3,
+      "2026-11-10": 1
     }
   },
   "fact_checks": {
-    "summaries": 95,
-    "ok": 85,
+    "summaries": 96,
+    "ok": 86,
     "failed": 9,
     "weak": 1,
     "unchecked": 0,
     "not_yet": 0,
     "held_back": 9,
     "entries_not_shown": 23,
-    "vote_counts_left_out": 56
-  },
-  "published_at": "2026-10-28T00:58:11+00:00",
-  "published_engine": "v1.68.0"
+    "vote_counts_left_out": 60
+  }
 }
