@@ -1,0 +1,361 @@
+{
+  "town": "springfield",
+  "folder": "springfield-ma",
+  "started_at": "2026-10-28T01:05:05+00:00",
+  "finished_at": "2026-10-28T01:14:22+00:00",
+  "engine": "v1.68.0",
+  "fetched": true,
+  "steps": [
+    {
+      "name": "Fetch new data",
+      "ok": true,
+      "error": null,
+      "seconds": 478.9
+    },
+    {
+      "name": "Build site",
+      "ok": true,
+      "error": null,
+      "seconds": 7.9
+    },
+    {
+      "name": "Check site",
+      "ok": true,
+      "error": null,
+      "seconds": 42.8
+    },
+    {
+      "name": "Publish site",
+      "ok": true,
+      "error": null,
+      "seconds": 26.0
+    },
+    {
+      "name": "Check live site",
+      "ok": true,
+      "error": null,
+      "seconds": 0.9
+    }
+  ],
+  "update": {
+    "town": "springfield",
+    "sources": "all",
+    "started_at": "2026-10-28T01:05:06+00:00",
+    "ok": true,
+    "steps": [
+      {
+        "name": "Fetch meetings",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 160.2,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch minutes",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 178.2,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch School Committee documents",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [drive_meetings] in the config"
+      },
+      {
+        "name": "Fetch school board meetings",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [finalsite_meetings] in the config"
+      },
+      {
+        "name": "Fetch school board documents",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [page_meetings] in the config"
+      },
+      {
+        "name": "Fetch Diligent Community meetings",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [diligent_meetings] in the config"
+      },
+      {
+        "name": "Fetch Open Meetings portal meetings",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [opengov_meetings] in the config"
+      },
+      {
+        "name": "Fetch the city's meeting documents",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [meetingdocs_meetings] in the config"
+      },
+      {
+        "name": "Fetch the school district's minutes library",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 58.7,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Summarize agendas",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 51.7,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch tax bill",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.4,
+        "cadence": "yearly"
+      },
+      {
+        "name": "Fetch unemployment",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.8,
+        "cadence": "monthly"
+      },
+      {
+        "name": "Fetch school figures",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.4,
+        "cadence": "yearly"
+      },
+      {
+        "name": "Fetch budget figures",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.4,
+        "cadence": "yearly"
+      },
+      {
+        "name": "Fetch housing figures",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 22.7,
+        "cadence": "monthly"
+      },
+      {
+        "name": "Fetch place",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.5,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch address ranges",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 4.1,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch building permits",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [permits] in the config"
+      },
+      {
+        "name": "Move saved documents to storage",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.2,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch 311 requests",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [seeclickfix] in the config"
+      },
+      {
+        "name": "Fetch 311 requests from an open data portal",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [socrata_311] in the config"
+      },
+      {
+        "name": "Compute 311 scorecard",
+        "ok": true,
+        "required": true,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [seeclickfix] or [socrata_311] in the config"
+      }
+    ]
+  },
+  "stale": false,
+  "sources": [
+    {
+      "label": "Meetings (CivicClerk)",
+      "file": "meetings/status.json",
+      "updated_at": "2026-10-27T21:05:06-04:00",
+      "max_days": 2,
+      "stale": false
+    },
+    {
+      "label": "School Committee minutes (school district website)",
+      "file": "meetings/sharpschool_status.json",
+      "updated_at": "2026-10-27T21:10:44-04:00",
+      "max_days": 2,
+      "stale": false
+    },
+    {
+      "label": "Average tax bill (Mass. DLS)",
+      "file": "finance/tax_bill.json",
+      "updated_at": "2026-10-27T21:12:35-04:00",
+      "max_days": null,
+      "cadence": "yearly",
+      "failing": 0,
+      "stale": false,
+      "latest": "Fiscal year 2026",
+      "next": "Fiscal year 2027 usually by February 1, 2027",
+      "behind": null
+    },
+    {
+      "label": "City budget (Mass. DLS)",
+      "file": "finance/budget.json",
+      "updated_at": "2026-10-27T21:12:36-04:00",
+      "max_days": null,
+      "cadence": "yearly",
+      "failing": 0,
+      "stale": false,
+      "latest": "Fiscal year 2025 spending",
+      "next": "Fiscal year 2026 spending usually by June 1, 2027",
+      "behind": null
+    },
+    {
+      "label": "School figures (DESE)",
+      "file": "schools/schools.json",
+      "updated_at": "2026-10-27T21:12:36-04:00",
+      "max_days": null,
+      "cadence": "yearly",
+      "failing": 0,
+      "stale": false,
+      "latest": "Class of 2025 graduation rate; Spring 2026 MCAS results; 2025\u201326 attendance",
+      "next": "Class of 2026 graduation rate usually by May 1, 2027; Spring 2027 MCAS results usually by October 1, 2027; 2026\u201327 attendance usually by October 1, 2027",
+      "behind": null
+    },
+    {
+      "label": "Unemployment rate (BLS)",
+      "file": "labor/unemployment.json",
+      "updated_at": "2026-10-27T21:12:35-04:00",
+      "max_days": null,
+      "cadence": "monthly",
+      "failing": 0,
+      "stale": false,
+      "latest": "August 2026 rate",
+      "next": "September 2026 rate usually by November 10, 2026",
+      "behind": null
+    },
+    {
+      "label": "Housing figures",
+      "file": "housing/housing.json",
+      "updated_at": "2026-10-27T21:12:37-04:00",
+      "max_days": null,
+      "cadence": "monthly",
+      "failing": 0,
+      "stale": false,
+      "latest": "2025 building permits; September 2026 building permits; ACS 2024 5-year estimates; Fiscal year 2026 parcel counts",
+      "next": "2026 building permits usually by June 1, 2027; October 2026 building permits usually by December 1, 2026; ACS 2025 5-year estimates usually by December 15, 2026; Fiscal year 2027 parcel counts usually by March 1, 2027",
+      "behind": null
+    },
+    {
+      "label": "Elected officials",
+      "file": "config",
+      "updated_at": "2026-10-27",
+      "max_days": null,
+      "stale": false,
+      "latest": null,
+      "next": "a check after the election of November 2, 2027",
+      "behind": null,
+      "passed": false
+    },
+    {
+      "label": "Meeting summaries",
+      "file": "summaries",
+      "updated_at": null,
+      "max_days": 2,
+      "stale": false,
+      "waiting": [],
+      "waiting_count": 0
+    }
+  ],
+  "failing": [],
+  "deployed": true,
+  "ok": true,
+  "last_good_at": "2026-10-28T01:14:22+00:00",
+  "data_bytes": 967080,
+  "data_bytes_added": 759647,
+  "activity": {
+    "boards": 46,
+    "meetings_by_date": {
+      "2026-10-28": 6,
+      "2026-10-29": 2,
+      "2026-11-02": 1,
+      "2026-11-03": 1,
+      "2026-11-04": 6,
+      "2026-11-05": 2,
+      "2026-11-06": 1,
+      "2026-11-10": 1
+    }
+  },
+  "fact_checks": {
+    "summaries": 0,
+    "ok": 0,
+    "failed": 0,
+    "weak": 0,
+    "unchecked": 0,
+    "not_yet": 0,
+    "held_back": 0,
+    "entries_not_shown": 0,
+    "vote_counts_left_out": 0
+  }
+}
