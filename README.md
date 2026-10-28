@@ -28,9 +28,10 @@ states/ma/                    Statewide sources, fetched once for every town: Ma
 wrangler.toml                 The Worker that serves every site from the sites bucket
 wrangler.scheduler.toml       The Worker that starts the daily runs on time, and checks every site loads, hourly
 scripts/import-town.sh        Copies a town's own repository into towns/ (how the first three towns moved in)
-scripts/build_home.py         Writes the homepage's town lists, by state, with the network's counts and each town's
-                              meetings this week (from each town's data/run.json) and whether it sends the weekly
-                              email, and a page for each state with 10 or more towns; and the
+scripts/build_home.py         Writes the homepage's town lists, by state (each state's towns' names, linking their
+                              sites), with the network's counts (from each town's data/run.json), and a page for each
+                              state with 10 or more towns, with each town's meetings this week (from 150 towns, the
+                              homepage lists only the states, and every state has a page); and the
                               network's sitemap.xml (an index of the homepage's and
                               every town's sitemaps) and robots.txt
 scripts/build_status.py       Writes the network status page, publick.org/status/
@@ -186,8 +187,8 @@ catch-all rule in Cloudflare Email Routing (Setup, step 7) forwards it.
 Merge, then run the workflow for the town by hand to fetch its data (set
 `catch_up` to a few percent of the month's budget to summarize its first
 months' documents in that run, within the town's share). No DNS
-change is needed: the homepage lists the town under its state on its own, and gives the state its own page once it has 10
-towns.
+change is needed: the homepage lists the town under its state on its own, and links the state's own page, with
+a card for each town, once the state has 10 towns.
 
 What every town shares is in `defaults/network.toml`, and what every town in
 a state shares in `defaults/states/<st>.toml`: the footer's network name and

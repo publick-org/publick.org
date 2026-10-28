@@ -1,17 +1,23 @@
 """Build the publick.org homepage, and a page for each state with many towns.
 
-"Find your town" lists every town under towns/, grouped by state. When a state
-has STATE_PAGE_AT towns or more, it gets its own page (publick.org/<state>/,
-from home/state.html) and the homepage links to it instead, so the homepage
-stays short however many towns the network has. Only live towns are named:
-a town appears once it has a folder.
+"Find your town" lists every town under towns/, grouped by state, each state
+the same way: its name, how many towns, and its towns' names in columns, each
+linking the town's site. A list of names stays short enough to read and to
+search with the browser's find however many towns a state has; the page has
+no scripts (its Content-Security-Policy allows none). When a state has
+STATE_PAGE_AT towns or more, it also gets its own page (publick.org/<state>/,
+from home/state.html), with a card for each town and its meetings this week,
+linked under the state's list. Once the network has INDEX_AT towns or more,
+the homepage lists only the states, each with how many towns and a link to its
+page, and every state has a page. Only live towns are named: a town appears
+once it has a folder.
 
 The counts at the top (towns, boards followed, meetings in the next 7 days)
 come from each town's data/run.json, written by its daily run, never from its
 meeting files, so the build stays quick at any size. Until every town's run
-record has them, only the number of towns is shown. Each town's card says the
-same of the town: its meetings this week, from its run record, when it has
-any.
+record has them, only the number of towns is shown. Each town's card on a
+state's page says the same of the town: its meetings this week, from its run
+record, when it has any.
 
 The open data page, publick.org/data/ (from home/data.html), lists each live
 town's export, /data/meetings.json, and its Data page, both built by the engine
@@ -49,6 +55,8 @@ from pipeline.config import read_config
 ROOT = Path(__file__).resolve().parent.parent
 # A state with this many live towns gets its own page.
 STATE_PAGE_AT = 10
+# A network with this many live towns lists only its states on the homepage, and every state gets its page.
+INDEX_AT = 150
 # Days of coming meetings counted at the top of the homepage.
 COMING_DAYS = 7
 SITE = "https://publick.org"
@@ -119,17 +127,37 @@ def town_cards(towns: list[dict], indent: str, today: date) -> str:
     return f'\n{indent}<ul class="town-cards">{items}\n{indent}</ul>'
 
 
-def states_html(towns: list[dict], today: date) -> str:
+def town_list(towns: list[dict], indent: str) -> str:
+    """A state's towns on the homepage: each one's name, linking its site."""
+    items = "".join(f'\n{indent}  <li><a href="{escape(t["url"])}">{escape(t["town"])}</a></li>' for t in towns)
+    return f'\n{indent}<ul class="town-list">{items}\n{indent}</ul>'
+
+
+def has_page(towns_in_state: int, network_towns: int) -> bool:
+    return towns_in_state >= STATE_PAGE_AT or network_towns >= INDEX_AT
+
+
+def state_index(towns: list[dict]) -> str:
+    """A large network's homepage: each state, how many towns, and a link to its page."""
+    items = "".join(f'\n          <li><a href="{abbr}/"><span class="name">{escape(state)}</span> '
+                    f'<span class="count">{plural(len(ts), "town", "towns")}</span></a></li>'
+                    for state, abbr, ts in by_state(towns))
+    return f'\n        <ul class="state-index">{items}\n        </ul>'
+
+
+def states_html(towns: list[dict]) -> str:
+    """Every state the same way: its name and how many towns, its towns' names, and, for a state with
+    its own page, a link to it."""
+    if len(towns) >= INDEX_AT:
+        return state_index(towns)
     parts = []
     for state, abbr, ts in by_state(towns):
         count = plural(len(ts), "town", "towns")
-        if len(ts) >= STATE_PAGE_AT:
-            parts.append(f'\n        <p class="state-link"><a href="{abbr}/"><span class="name">{escape(state)}</span>'
-                         f'<span class="count">{count}</span></a></p>')
-            continue
+        more = (f'\n          <p class="state-more"><a href="{abbr}/">Every {escape(state)} town, '
+                f'with its meetings this week</a></p>' if has_page(len(ts), len(towns)) else "")
         parts.append(f'\n        <section class="state" aria-labelledby="state-{abbr}">\n'
                      f'          <h3 id="state-{abbr}">{escape(state)} <span class="count">{count}</span></h3>'
-                     f'{town_cards(ts, "          ", today)}\n'
+                     f'{town_list(ts, "          ")}{more}\n'
                      f'        </section>')
     return "".join(parts)
 
@@ -156,16 +184,18 @@ def fill(page: str, name: str, block: str, source: str) -> str:
 def render(page: str, root: Path, today: date | None = None) -> str:
     today = today or datetime.now(timezone.utc).date()
     live = live_towns(root)
-    block = glance_html(live, today) + states_html(live, today)
+    block = glance_html(live, today) + states_html(live)
     return fill(page, "live", block, "home/index.html")
 
 
 def state_pages(template: str, root: Path, today: date | None = None) -> dict[str, str]:
-    """The page for each state with STATE_PAGE_AT towns or more, by its folder (its abbreviation)."""
+    """The page for each state with STATE_PAGE_AT towns or more, or for every state once the network has
+    INDEX_AT towns, by its folder (its abbreviation)."""
     today = today or datetime.now(timezone.utc).date()
     pages = {}
-    for state, abbr, ts in by_state(live_towns(root)):
-        if len(ts) < STATE_PAGE_AT:
+    live = live_towns(root)
+    for state, abbr, ts in by_state(live):
+        if not has_page(len(ts), len(live)):
             continue
         page = template.replace("{state}", escape(state)).replace("{abbr}", abbr)
         page = page.replace("{count}", plural(len(ts), "town", "towns"))
