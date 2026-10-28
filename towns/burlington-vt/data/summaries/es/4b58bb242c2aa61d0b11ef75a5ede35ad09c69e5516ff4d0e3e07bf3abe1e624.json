@@ -1,6 +1,6 @@
 {
-  "headline": "El Comité de Finanzas e Instalaciones de la Junta Escolar revisó los supuestos del presupuesto del año fiscal FY28, el plan maestro de instalaciones, el estipendio para comisionados y la actualización de CESA.",
-  "summary": "El comité habló sobre los supuestos preliminares del presupuesto del año fiscal FY28, incluidos salarios, beneficios, pagos de la deuda y fondos federales. Los miembros también revisaron una actualización del plan maestro de instalaciones, un nuevo estipendio para comisionados, una nueva capacitación presupuestaria para miembros de la junta y una actualización de CESA. No se registraron votaciones formales sobre temas de presupuesto o políticas, y la próxima reunión se fijó de manera tentativa para el martes, 3 de noviembre.",
+  "headline": "El Comité de Finanzas e Instalaciones revisó los supuestos del presupuesto del año fiscal 2028, el plan maestro de instalaciones, el estipendio para comisionados y la actualización de CESA.",
+  "summary": "El comité habló sobre los supuestos preliminares del presupuesto del año fiscal 2028, incluidos salarios, beneficios, pagos de la deuda y fondos federales. Los miembros también revisaron una actualización del plan maestro de instalaciones, un nuevo estipendio para comisionados, una nueva capacitación presupuestaria para miembros de la junta y una actualización de CESA. No se registraron votaciones formales sobre temas de presupuesto o políticas, y la próxima reunión se fijó de manera tentativa para el martes, 3 de noviembre.",
   "decisions": [
     "Se aprobó la agenda de la reunión con la adición de tres puntos: el estipendio para comisionados, la nueva capacitación presupuestaria para miembros de la junta y la actualización de CESA."
   ],
@@ -8,19 +8,18 @@
   "kind": "minutes",
   "source_sha256": "4b58bb242c2aa61d0b11ef75a5ede35ad09c69e5516ff4d0e3e07bf3abe1e624",
   "source_hash": "a45bba3159ef7369fbc5ba2e32439dd5fc2f4cfa9bd3b2c29e1f63bff45ad1a9",
-  "check": "decisions 1: Stipend not in the translation",
-  "review": "headline: Se dejó \"FY28\" en inglés junto a \"año fiscal\"; las reglas piden escribir solo \"año fiscal 2028\". Además, se agregó \"de la Junta Escolar\" al nombre del comité, algo que el original no dice.; summary: Se dejó \"FY28\" en inglés en la oración en español; debe decir \"año fiscal 2028\".",
-  "attempts": 2,
+  "check": "ok",
+  "review": "summary: The English says \"new board member budget training\" (training on the budget for new board members). The Spanish \"una nueva capacitación presupuestaria para miembros de la junta\" drops \"new board members\" and makes the training itself new, which changes the meaning.; decisions 1: The Spanish repeats the same mistranslation: \"la nueva capacitación presupuestaria para miembros de la junta\" should be training for new board members. It also adds \"tres puntos,\" a number the English doesn't give.",
+  "attempts": 1,
   "model": "claude-haiku-5-5",
-  "prompt_version": 6,
+  "prompt_version": 7,
   "glossary": "2276695ce7030f16",
-  "generated_at": "2026-10-28T05:31:58-04:00",
+  "generated_at": "2026-10-28T05:41:21-04:00",
   "usage": {
-    "input_tokens": 830,
-    "output_tokens": 1265,
-    "cache_read_input_tokens": 1693
+    "input_tokens": 937,
+    "output_tokens": 1848,
+    "cache_read_input_tokens": 2725
   },
-  "cost": 0.003671,
-  "review_retries": 1,
-  "replaced_cost": 0.008114
+  "cost": 0.004998,
+  "replaced_cost": 0.011785
 }
