@@ -1,46 +1,46 @@
 {
   "town": "lawrence",
   "folder": "lawrence-ma",
-  "started_at": "2026-10-27T09:10:05+00:00",
-  "finished_at": "2026-10-27T09:11:46+00:00",
-  "engine": "v1.66.0",
+  "started_at": "2026-10-28T09:10:04+00:00",
+  "finished_at": "2026-10-28T09:15:38+00:00",
+  "engine": "v1.68.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 30.7
+      "seconds": 281.8
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 6.6
+      "seconds": 5.8
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 31.2
+      "seconds": 28.5
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 3.0
+      "seconds": 16.9
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.8
+      "seconds": 0.6
     }
   ],
   "update": {
     "town": "lawrence",
     "sources": "all",
-    "started_at": "2026-10-27T09:10:05+00:00",
+    "started_at": "2026-10-28T09:10:04+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 21.1,
+        "seconds": 16.3,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -105,11 +105,29 @@
         "skipped": "no [opengov_meetings] in the config"
       },
       {
+        "name": "Fetch the city's meeting documents",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [meetingdocs_meetings] in the config"
+      },
+      {
+        "name": "Fetch the school district's minutes library",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [sharpschool_meetings] in the config"
+      },
+      {
         "name": "Summarize agendas",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 7.9,
+        "seconds": 264.3,
         "cadence": "continuous"
       },
       {
@@ -119,7 +137,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 25 days ago; checked every 30 days"
+        "skipped": "checked 26 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -128,7 +146,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 3 days ago; checked every 7 days"
+        "skipped": "checked 4 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -137,7 +155,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 25 days ago; checked every 30 days"
+        "skipped": "checked 26 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -146,7 +164,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 25 days ago; checked every 30 days"
+        "skipped": "checked 26 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -155,7 +173,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -200,13 +218,22 @@
         "skipped": "no [seeclickfix] in the config"
       },
       {
+        "name": "Fetch 311 requests from an open data portal",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [socrata_311] in the config"
+      },
+      {
         "name": "Compute 311 scorecard",
         "ok": true,
         "required": true,
         "error": null,
         "seconds": 0,
         "cadence": "continuous",
-        "skipped": "no [seeclickfix] in the config"
+        "skipped": "no [seeclickfix] or [socrata_311] in the config"
       }
     ]
   },
@@ -215,7 +242,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-27T05:10:06-04:00",
+      "updated_at": "2026-10-28T05:10:04-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -303,21 +330,20 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-28T00:56:04+00:00",
-  "data_bytes": 1026767,
-  "data_bytes_added": 3321,
+  "last_good_at": "2026-10-28T09:15:38+00:00",
+  "data_bytes": 1031174,
+  "data_bytes_added": 31,
   "activity": {
     "boards": 33,
     "meetings_by_date": {
-      "2026-10-27": 4,
       "2026-10-28": 4,
       "2026-10-29": 6,
       "2026-11-04": 4
     }
   },
   "fact_checks": {
-    "summaries": 39,
-    "ok": 36,
+    "summaries": 40,
+    "ok": 37,
     "failed": 1,
     "weak": 1,
     "unchecked": 0,
@@ -325,7 +351,5 @@
     "held_back": 1,
     "entries_not_shown": 1,
     "vote_counts_left_out": 3
-  },
-  "published_at": "2026-10-28T00:56:04+00:00",
-  "published_engine": "v1.68.0"
+  }
 }
