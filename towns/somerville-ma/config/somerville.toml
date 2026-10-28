@@ -260,6 +260,9 @@ license_url = "https://opendatacommons.org/licenses/odbl/1-0/"
 classes = ["Service"]
 scope_note = "Service requests only: calls for information and feedback aren't counted."
 report_url = "https://www.somervillema.gov/departments/constituent-services/311-service-center"
+# Every page of the requests since `since` (about 100, two minutes) in one run, so the first run has
+# the newest ones too; later runs read the few pages the city changed.
+max_pages_per_run = 150
 
 # Who represents you (the Officials page). Kept by hand from official city and
 # school websites; checked is the date the list was last checked against them.
