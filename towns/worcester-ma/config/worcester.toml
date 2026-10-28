@@ -1,0 +1,344 @@
+# Site configuration for Worcester, Massachusetts. Everything town-specific
+# lives here; the code is the Publick engine
+# (github.com/publick-org/publick-engine).
+#
+# Worcester's website runs on Drupal. The City Council, its standing
+# committees, and the city's boards and commissions post agendas and minutes on
+# the city's PrimeGov portal (OneMeeting), read through its public API; the
+# council's minutes are PDFs with text, and its meetings link their recordings.
+# The School Committee and its standing committees post their agendas there
+# too, but not their minutes: Worcester Public Schools links each meeting's
+# agenda, minutes and video from a page of its Apptegy website, read as
+# [page_meetings].
+# 311 requests go to Worcester 311, on SeeClickFix, where the city acknowledges
+# or closes them. The city has a council-manager (Plan E) government: the
+# mayor, elected citywide from the councilors at-large, chairs the City Council
+# and the School Committee, and the City Manager, appointed by the council,
+# runs its departments.
+#
+# Started on 2026-10-27 by the engine's helper (python -m pipeline.new_town),
+# from Medford's config.
+#
+# The site is in English and Spanish ([site] languages), as every town's is.
+# The first runs draft the Spanish for the town's own text; [strings.es], at
+# the end, can correct it.
+
+[site]
+name = "Worcester Publick"
+# The masthead shows name_prefix in dark ink and name_suffix in the accent
+# color: the town, then the network.
+name_prefix = "Worcester "
+domain = "worcester-ma.publick.org"
+tagline = "Public data on how Worcester, Massachusetts responds, decides, and spends. Updated daily."
+# One line under the name at the top of every page.
+masthead = "An independent guide to city government in Worcester, Massachusetts"
+# Public contact address. Shown on the About and Accessibility pages when set.
+contact_email = "worcester-ma@publick.org"
+user_agent = "worcester-ma.publick.org (+https://worcester-ma.publick.org/about/)"
+
+# From the city website's stylesheets (www.worcesterma.gov): its two most used
+# blues (90 and 55 uses); the most used of another hue (34 uses); primary_soft
+# a light tint of primary. Each passes WCAG AA on white (7.8, 10.1, 4.5 to 1).
+[site.colors]
+primary = "#005689"
+primary_dark = "#00456e"
+primary_soft = "#e6eef3"
+accent = "#dc3545"
+
+[town]
+name = "Worcester"
+state_abbr = "MA"
+official_site = "https://www.worcesterma.gov"
+
+# Sections appear in the main navigation in this order. Each one is a folder
+# under site/pages/<slug>/ and is served at https://<domain>/<slug>/.
+[[sections]]
+slug = "meetings"
+title = "Meetings"
+summary = "When the City Council, its committees, the School Committee, and the city's main boards meet, with agendas, and minutes from January 2026 on."
+status = "live"
+
+[[sections]]
+slug = "311"
+title = "311 Requests"
+nav = "311"
+summary = "How fast the city responds to Worcester 311 requests on SeeClickFix, by category and ward."
+status = "live"
+
+[[sections]]
+slug = "schools"
+title = "Schools"
+summary = "Graduation, attendance, and MCAS results compared with the state."
+status = "live"
+
+[[sections]]
+slug = "budget"
+title = "City budget"
+nav = "Budget"
+summary = "Where general fund money comes from and how it is spent, reserves, and the property tax limit."
+status = "live"
+
+[[sections]]
+slug = "housing"
+title = "Housing"
+summary = "New homes permitted, home values and rents, affordable housing, and the housing stock."
+status = "live"
+
+[[sections]]
+slug = "officials"
+title = "Who represents you"
+nav = "Officials"
+summary = "The mayor, City Council, and School Committee, by office and by council district, and how to reach them."
+status = "live"
+
+[[sections]]
+slug = "about"
+title = "About"
+summary = "Data sources, update schedule, metric definitions, and corrections."
+status = "live"
+
+# Page view counting with GoatCounter, on the network's site; prefix is this
+# town's folder.
+[analytics]
+prefix = "worcester-ma"
+
+# Public meetings, from its PrimeGov portal: the City Council and its standing
+# committees, the School Committee and its standing committees, and the boards
+# whose decisions residents most follow (include_pattern, in
+# [meetings.primegov]). The portal lists about 750 meetings a year of more than
+# 150 bodies, including charter schools' and regional boards' that aren't the
+# city's.
+[meetings]
+calendar_url = "https://worcesterma.primegov.com/public/portal"
+archive_url = "https://worcesterma.primegov.com/public/portal"
+archive_name = "city's PrimeGov portal"
+request_delay = 3.0
+max_event_pages = 40
+boards = [
+  "City Council",
+  "Standing Committee on Economic Development",
+  "Standing Committee on Education",
+  "Standing Committee on Finance",
+  "Standing Committee on Municipal and Legislative Operations",
+  "Standing Committee on Public Health and Human Services",
+  "Standing Committee on Public Safety",
+  "Standing Committee on Public Service and Transportation",
+  "Standing Committee on Public Works",
+  "Standing Committee on Traffic and Parking",
+  "Standing Committee on Urban Technologies, Innovation and Environment",
+  "Standing Committee on Veterans Memorials, Parks and Recreation",
+  "School Committee",
+  "School Committee Standing Committee on Finance",
+  "School Committee Standing Committee on Operations and Governance",
+  "School Committee Standing Committee on Teaching, Learning and Student Success",
+  "Planning Board",
+  "Zoning Board of Appeals",
+  "License Commission",
+  "Board of Health",
+  "Conservation Commission",
+  "Community Preservation Committee",
+  "Affordable Housing Trust Fund Board of Trustees",
+]
+
+# The School Committee's standing committees, which the portal names many ways
+# ("Public School Standing Committee on OPERATIONS & GOVERNANCE", "WORCESTER
+# PUBLIC SCHOOLS - TEACHING, LEARNING AND STUDENT SUCCESS"); case and "&" don't
+# matter.
+[meetings.aliases]
+"Public Schools Standing Committee on Finance" = "School Committee Standing Committee on Finance"
+"Operations and Governance" = "School Committee Standing Committee on Operations and Governance"
+"Teaching, Learning and Student Success" = "School Committee Standing Committee on Teaching, Learning and Student Success"
+
+[meetings.primegov]
+client = "worcesterma"
+# Meetings, agendas, and minutes are collected from here on.
+since = "2026-01-01"
+# The boards collected, by the start of their titles on the portal.
+include_pattern = '^(City Council|Standing Committee on|School Committee|Public Schools? (Standing )?Committee|Worcester Public Schools|Planning Board|Zoning Board of Appeals|License Commission|Board of Health|Conservation Commission|Community Preservation Committee|Affordable Housing Trust Fund)\b'
+
+# The School Committee's agendas, minutes and recordings, from Worcester Public
+# Schools' "Agenda and Minutes" page: a table of the year's meetings (Date,
+# Agenda, Minutes, Video), each linking Google Drive files and a YouTube
+# recording. The page's content is HTML inside a script's JSON; the engine reads
+# it back. The Date cell names the meeting.
+[page_meetings]
+page_url = "https://www.worcesterschools.org/o/wps/page/agenda-and-minutes"
+source_name = "Worcester Public Schools"
+since = "2026-01-01"
+body = "School Committee"
+name_columns = ["Date"]
+
+# Agenda and minutes PDFs live in the network's documents bucket, not in git
+# (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID,
+# STORAGE_SECRET_ACCESS_KEY.
+[storage]
+prefix = "worcester-ma"
+
+# Plain-English agenda text and previews, and decisions from minutes, written
+# by a language model and labeled as AI-generated on the site. Only meetings
+# from `since` on are summarized, about three months before launch, so the
+# town's history doesn't take the month's budget.
+[summaries]
+since = "2026-07-01"
+
+# The council's agenda of October 20, 2026 (item 6, Public Participation, and
+# its header) and Rule 39 of the council's rules (the City Clerk's Public
+# Meetings page). Meetings are carried live on the city's government channel;
+# recordings are on the city's OneMeeting (PrimeGov) portal.
+[participation."City Council"]
+comment = "Residents can speak during Public Participation at each meeting on any item on that meeting's agenda, for up to 2 minutes each and 30 minutes in all, combining all items into one appearance: in person in the Esther Howland Chamber at City Hall (455 Main St.), or by Zoom or phone, with the link and number on the agenda (press *9 to raise a hand by phone). Written comments, and requests for interpretation (48 hours ahead), go to the City Clerk at clerk@worcesterma.gov. Petitions to the council are due at 4:15 PM on the Thursday before a Tuesday meeting."
+source_title = "City Council agenda of October 20, 2026, and the Rules of Public Participation"
+source_url = "https://www.worcesterma.gov/city-clerk/public-meetings"
+video_title = "City of Worcester Government TV, live and on demand"
+video_url = "https://www.worcesterma.gov/cable-services/video-on-demand"
+
+# The committee's agenda of October 22, 2026 (item I, Public Comment) and its
+# School Committee page. Meetings are carried live by WEA-TV and archived on
+# its YouTube channel.
+[participation."School Committee"]
+comment = "Residents can speak during Public Comment at full committee meetings on any item before the committee, for up to 2 minutes, giving their name, residence, and the item, in person in the Esther Howland Chamber at City Hall or by Zoom (the link is on the agenda); members may not respond at the meeting. Speakers in a language other than English are asked to tell the Clerk of the Committee in advance, so an interpreter can be provided; Spanish interpretation is available through Zoom, and in-person interpreters need 48 hours' notice. Residents can also file a public petition through the committee's online form."
+source_title = "School Committee agenda of October 22, 2026, and the School Committee page"
+source_url = "https://www.worcesterschools.org/o/wps/page/school-committee"
+video_title = "WEA-TV, live and archived broadcasts"
+video_url = "https://www.worcesterschools.org/o/wps/page/live-and-archived-videos"
+
+# School district figures from the state's education data portal (DESE).
+[schools]
+district_code = "03480000"
+district_name = "Worcester Public Schools"
+
+# Tax bill and budget figures (Mass. Division of Local Services). Some DLS
+# reports take the name, others the DOR code.
+[finance]
+dls_municipality = "Worcester"
+dls_code = "348"
+
+# Housing: Census building permits (state and place FIPS codes), American
+# Community Survey through Census Reporter (geo ids), and the state's
+# Subsidized Housing Inventory PDF (the town's name as the PDF lists it).
+[housing]
+bps_place = "82000"
+census_geo = "16000US2582000"
+shi_name = "Worcester"
+
+# Unemployment rate (BLS Local Area Unemployment Statistics, area
+# CT2582000000000, Worcester city, MA). City rates are not seasonally
+# adjusted; the state series is shown for context.
+[labor]
+local_series = "LAUCT258200000000003"
+
+# How often each data source should update. Figures published monthly or
+# yearly are judged by the engine, by the period they cover
+# (pipeline/rhythms.py).
+[freshness]
+sources = [
+  { label = "Meetings (PrimeGov)", file = "meetings/status.json", max_days = 2 },
+  { label = "School Committee meetings (school district website)", file = "meetings/page_status.json", max_days = 2 },
+  { label = "311 requests", file = "311/status.json", max_days = 2 },
+  { label = "311 scorecard", file = "311/scorecard.json", field = "generated_at", max_days = 2 },
+]
+
+# 311 requests from SeeClickFix (Worcester 311): the city's organization (399,
+# "Worcester, MA"), from the web portal the city's 311 page links, and its
+# Open311 request types (seeclickfix.com/open311/v2/399/services.json): 39, all
+# the city's departments', so no departments are needed. The city acknowledges
+# or closes its requests (all 366 made from October 13 to 19, 2026).
+[seeclickfix]
+organization_id = 399
+report_url = "https://seeclickfix.com/web_portal/cFzjTyGUk9GfxtQhuGY47ZvY/report/category"
+# The month the full history starts (python -m pipeline.fetch_311 --backfill).
+# Older requests are included only while they are still open.
+history_since = "2026-01"
+# Request types about a household, a home's service, or a person's vehicle,
+# whose names don't say so: their requests are shown to the block, as the
+# engine's own sensitive categories are.
+sensitive_categories = [
+  "Housing - Emergency Conditions",
+  "Housing - General Conditions",
+  "Housing - Rodents",
+  "Buildings - General",
+  "Water (No Water)",
+  "Drinking Water Service Line Inventory",
+  "Winter Sidewalk Not Shoveled",
+  "Abandoned Vehicle",
+  "Parking Enforcement",
+]
+# Worcester's ten wards, from MassGIS's 2022 file.
+precincts_file = "worcester-precincts-2022.geojson"
+wards_publisher = "MassGIS"
+wards_year = "2022"
+wards_url = "https://gis.data.mass.gov/maps/aec5130790814ace94438d3bcf23cf9a"
+
+# Who represents you (the Officials page). Kept by hand from official city and
+# school websites; checked is the date the list was last checked against them.
+# Only city- and school-issued email addresses, and the mayor's office phone.
+[officials]
+checked = "2026-10-27"
+# The regular municipal election is on the first Tuesday following the first
+# Monday in November in each odd-numbered year (the city charter, section 7-2).
+# The city hasn't published its 2027 election calendar.
+next_election = "2027-11-02"
+# The ward file is data/static/worcester-precincts-2022.geojson (MassGIS): ten
+# wards of six precincts each. Each council district is two wards (the city's
+# Roster of Elected Officials). The School Committee's six districts are made of
+# precincts from several wards each (the 2025 official results), so its
+# district seats are linked to no ward (wards = []). Terms are two years from
+# the first secular day of January after the election (the city charter); no
+# official page prints an end date, so term_ends is left out.
+wards_file = "worcester-precincts-2022.geojson"
+wards_publisher = "MassGIS"
+wards_year = "2022"
+wards_url = "https://gis.data.mass.gov/maps/aec5130790814ace94438d3bcf23cf9a"
+
+# Elected on November 4, 2025 (official results). The phone and address are
+# the Mayor's page's.
+[[officials.bodies]]
+name = "Mayor"
+url = "https://www.worcesterma.gov/mayor"
+note = "Elected for two years: the councilor at-large elected with the most votes for mayor (the city charter). Chairs the City Council and the School Committee. The city has a council-manager (Plan E) government: the City Manager, appointed by the council, runs its departments."
+members = [
+  { name = "Joseph M. Petty", seat = "Citywide", phone = "(508) 799-1153", email = "mayor@worcesterma.gov" },
+]
+
+# Elected on November 4, 2025 (official results; the at-large race was
+# recounted on November 22-23, 2025, with the same six elected). All present on
+# October 20, 2026 (the council's minutes). Names as the Meet the City
+# Councilors page and the minutes give them, addresses as that page does.
+[[officials.bodies]]
+name = "City Council"
+url = "https://www.worcesterma.gov/city-council/councilors"
+note = "Five councilors elected by district (each two wards) and six at-large, one of them the mayor, for two years. The mayor chairs the council; the at-large councilor with the second-most votes for mayor is its vice-chair (the city charter)."
+members = [
+  { name = "Tony Economou", seat = "District 1", wards = [1, 2], email = "EconomouT@worcesterma.gov" },
+  { name = "Robert A. Bilotta", seat = "District 2", wards = [3, 4], email = "BilottaR@worcesterma.gov" },
+  { name = "John P. Fresolo", seat = "District 3", wards = [5, 6], email = "FresoloJ@worcesterma.gov" },
+  { name = "Luis A. Ojeda", seat = "District 4", wards = [8, 10], email = "OjedaL@worcesterma.gov" },
+  { name = "Jose A. Rivera", seat = "District 5", wards = [7, 9], email = "RiveraJA@worcesterma.gov" },
+  { name = "Joseph M. Petty", seat = "At-large", role = "Mayor", email = "mayor@worcesterma.gov" },
+  { name = "Khrystian E. King", seat = "At-large", role = "Vice Chairperson", email = "KingK@worcesterma.gov" },
+  { name = "Morris A. Bergman", seat = "At-large", email = "BergmanM@worcesterma.gov" },
+  { name = "Satya B. Mitra", seat = "At-large", email = "MitraS@worcesterma.gov" },
+  { name = "Gary Rosen", seat = "At-large", email = "RosenG@worcesterma.gov" },
+  { name = "Kathleen M. Toomey", seat = "At-large", email = "ToomeyK@worcesterma.gov" },
+]
+
+# Elected on November 4, 2025 (official results); the Vice Chair chosen on
+# January 2, 2026, and all nine present on October 8, 2026 (the committee's
+# minutes, the newest posted). Names, offices and addresses as the district's
+# School Committee Members page gives them. The district seats are linked to no
+# ward: each district is precincts from several wards.
+[[officials.bodies]]
+name = "School Committee"
+url = "https://www.worcesterschools.org/o/wps/page/school-committee-members"
+note = "Six members elected by district and two at-large, for two years, and the mayor as chair (the city charter; district seats since the 2023 election). The six districts are drawn from precincts, not wards, so they aren't on the ward map; the city's Roster of Elected Officials lists each district's precincts."
+members = [
+  { name = "Joseph M. Petty", seat = "Mayor", role = "Chair", email = "mayor@worcesterma.gov" },
+  { name = "Molly O. McCullough", seat = "District A", wards = [], role = "Vice Chair", email = "mcculloughm@worcesterschools.net" },
+  { name = "Vanessa Alvarez", seat = "District B", wards = [], email = "alvarezv@worcesterschools.net" },
+  { name = "Dianna Biancheria", seat = "District C", wards = [], email = "biancheriad@worcesterschools.net" },
+  { name = "Alex Guardiola", seat = "District D", wards = [], email = "guardiolaa@worcesterschools.net" },
+  { name = "Kathleen Roy", seat = "District E", wards = [], email = "kroy@worcesterschools.net" },
+  { name = "Jermaine Johnson", seat = "District F", wards = [], email = "Johnsonjl@worcesterschools.net" },
+  { name = "Maureen Binienda", seat = "At-large", email = "biniendamf@worcesterschools.net" },
+  { name = "Susan Coghlin Mailman", seat = "At-large", email = "MailmanS@worcesterschools.net" },
+]
