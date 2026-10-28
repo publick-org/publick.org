@@ -1,6 +1,6 @@
 {
   "headline": "Se aprobaron resoluciones que modifican los fondos del Programa de Mejoras Comunitarias del año fiscal 2013 al año fiscal 2026 y las autorizaciones de presupuesto relacionadas para programas de la ciudad.",
-  "summary": "El comité revisó una serie de resoluciones que modifican los fondos del Programa de Mejoras Comunitarias del año fiscal 2013 al año fiscal 2026. Estas abarcan programas como ARPA Healthy Food Access, MHRA Landlord Incentive, Odd Fellows Hall, Subvención en Bloque para el Desarrollo Comunitario (CDBG)-CV Shelter Support, fondos para combatir la crisis de opioides, Safe Haven Baby Box, Women's Locker Room Expansion, MPD Mobile Surveillance y Homeless Healthcare. En votación, se acordó que las resoluciones deben aprobarse (ought to pass) y pasar a su versión final para firma. Las autorizaciones de presupuesto relacionadas se aprobaron, sujetas a la adopción final de esas resoluciones.",
+  "summary": "El comité revisó una serie de resoluciones que modifican los fondos del Programa de Mejoras Comunitarias del año fiscal 2013 al año fiscal 2026. Estas abarcan programas como ARPA Healthy Food Access, MHRA Landlord Incentive, Odd Fellows Hall, CDBG-CV Shelter Support, fondos para combatir la crisis de opioides, Safe Haven Baby Box, Women's Locker Room Expansion, MPD Mobile Surveillance y Homeless Healthcare. En votación, se acordó que las resoluciones deben aprobarse y pasar a su versión final para firma. Las autorizaciones de presupuesto relacionadas se aprobaron, sujetas a la adopción final de esas resoluciones.",
   "decisions": [
     "Se votó que las resoluciones deben aprobarse (ought to pass) y pasar a su versión final para firma.",
     "Se aprobaron las autorizaciones de presupuesto, sujetas a la adopción final de las resoluciones relacionadas."
@@ -10,17 +10,17 @@
   "source_sha256": "653597005581654a372fd5aee8a760d6720fdecc7a28a945add09a06e5fb5c4e",
   "source_hash": "6d0c5ab30adcfbe73ac7f721cbbe11ed996b1d279780b38bdfc352cddf1f7692",
   "check": "ok",
-  "review": "summary: \"Opioid Abatement\" is the name of a program in a list of program names, and it was translated as \"fondos para combatir la crisis de opioides\" while the other program names stay in English. This is acceptable under the glossary, so not an error. However, the \"CDBG-CV Shelter Support\" program name was partly translated, mixing the Spanish expansion with English words \"CV Shelter Support\", which produces a garbled hybrid name that could mislead.",
-  "attempts": 1,
+  "review": "summary: Se omitió el término cívico obligatorio «debe aprobarse (ought to pass)»; el texto dice «deben aprobarse» sin el inglés entre paréntesis la primera vez que aparece en el texto. Además, los nombres de programas en inglés se dejan, lo cual es aceptable, pero «Opioid Abatement» se tradujo como fondos para combatir la crisis de opioides, lo cual es correcto. El problema es solo el término «ought to pass» sin paréntesis en el resumen, que es la primera aparición.",
+  "attempts": 2,
   "model": "claude-haiku-5-5",
   "prompt_version": 7,
   "glossary": "dfe3e38189624f78",
-  "generated_at": "2026-10-28T05:24:18-04:00",
+  "generated_at": "2026-10-28T05:46:51-04:00",
   "usage": {
-    "input_tokens": 1102,
-    "output_tokens": 3065,
+    "input_tokens": 1093,
+    "output_tokens": 2965,
     "cache_read_input_tokens": 2728
   },
-  "cost": 0.005817,
-  "replaced_cost": 0.048146
+  "cost": 0.006034,
+  "replaced_cost": 0.053963
 }
