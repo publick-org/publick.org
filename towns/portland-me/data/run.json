@@ -1,46 +1,46 @@
 {
   "town": "portland",
   "folder": "portland-me",
-  "started_at": "2026-10-27T09:18:38+00:00",
-  "finished_at": "2026-10-27T09:22:59+00:00",
-  "engine": "v1.66.0",
+  "started_at": "2026-10-28T09:14:31+00:00",
+  "finished_at": "2026-10-28T09:19:48+00:00",
+  "engine": "v1.68.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 110.3
+      "seconds": 205.3
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 15.1
+      "seconds": 9.8
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 116.0
+      "seconds": 70.9
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.3
+      "seconds": 29.9
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.7
+      "seconds": 0.6
     }
   ],
   "update": {
     "town": "portland",
     "sources": "all",
-    "started_at": "2026-10-27T09:18:38+00:00",
+    "started_at": "2026-10-28T09:14:31+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 39.7,
+        "seconds": 43.0,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.2,
+        "seconds": 1.4,
         "cadence": "continuous"
       },
       {
@@ -91,7 +91,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 32.5,
+        "seconds": 34.4,
         "cadence": "continuous"
       },
       {
@@ -104,11 +104,29 @@
         "skipped": "no [opengov_meetings] in the config"
       },
       {
+        "name": "Fetch the city's meeting documents",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [meetingdocs_meetings] in the config"
+      },
+      {
+        "name": "Fetch the school district's minutes library",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [sharpschool_meetings] in the config"
+      },
+      {
         "name": "Summarize agendas",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 20.2,
+        "seconds": 111.7,
         "cadence": "continuous"
       },
       {
@@ -124,8 +142,9 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.6,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -134,24 +153,24 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 13 days ago; checked every 30 days"
+        "skipped": "checked 14 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
-        "cadence": "yearly"
+        "seconds": 0,
+        "cadence": "yearly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "seconds": 0.2,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch place",
@@ -191,15 +210,24 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 10.1,
+        "seconds": 10.3,
         "cadence": "continuous"
+      },
+      {
+        "name": "Fetch 311 requests from an open data portal",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [socrata_311] in the config"
       },
       {
         "name": "Compute 311 scorecard",
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 4.4,
+        "seconds": 3.4,
         "cadence": "continuous"
       }
     ]
@@ -209,28 +237,28 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-27T05:18:39-04:00",
+      "updated_at": "2026-10-28T05:14:31-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Board of Public Education meetings (Diligent Community)",
       "file": "meetings/diligent_status.json",
-      "updated_at": "2026-10-27T05:19:20-04:00",
+      "updated_at": "2026-10-28T05:15:16-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-10-27T05:20:14-04:00",
+      "updated_at": "2026-10-28T05:17:43-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-10-27T05:20:24-04:00",
+      "updated_at": "2026-10-28T05:17:53-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -306,25 +334,25 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-28T00:59:14+00:00",
-  "data_bytes": 12011352,
-  "data_bytes_added": 10494608,
+  "last_good_at": "2026-10-28T09:19:48+00:00",
+  "data_bytes": 12060508,
+  "data_bytes_added": 10525267,
   "activity": {
     "boards": 41,
     "meetings_by_date": {
-      "2026-10-27": 2,
       "2026-10-28": 2,
       "2026-10-29": 1,
       "2026-11-02": 3,
       "2026-11-03": 1,
       "2026-11-04": 2,
       "2026-11-05": 1,
-      "2026-11-09": 2
+      "2026-11-09": 2,
+      "2026-11-10": 3
     }
   },
   "fact_checks": {
-    "summaries": 76,
-    "ok": 71,
+    "summaries": 79,
+    "ok": 74,
     "failed": 5,
     "weak": 0,
     "unchecked": 0,
@@ -332,7 +360,5 @@
     "held_back": 5,
     "entries_not_shown": 12,
     "vote_counts_left_out": 2
-  },
-  "published_at": "2026-10-28T00:59:14+00:00",
-  "published_engine": "v1.68.0"
+  }
 }
