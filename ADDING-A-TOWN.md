@@ -29,9 +29,17 @@ rest for a person (the engine's `pipeline/new_town.py`):
   three minutes files, and whether they're scans; SeeClickFix's places named
   for the town. It stops at a browser check, and at a meeting platform the
   engine doesn't read, and says so.
-- **Steps 2 and 3:** the BLS series and the Census place in any state; in
-  Massachusetts also the DLS name and DOR code, the DESE district, and the
-  MassGIS ward file. Other states' own codes and wards are marked.
+- **Steps 2 and 3:** the BLS series and the Census place in any state, and
+  the state's own codes for `[finance]` and `[schools]` (the engine's
+  `pipeline/states/<state>/lookups.py`): the DLS name and DOR code and DESE
+  district in Massachusetts, OPM's code and the EdSight district in
+  Connecticut, the DRA's and Department of Education's names in New
+  Hampshire, MRS's name and the parcel table's GEOCODE in Maine, the
+  Division of Municipal Finance's name and RIDE district in Rhode Island,
+  and PVR's name and the Agency of Education's codes in Vermont. A regional
+  district, or anything a state's source doesn't answer, is marked with
+  what was found. The ward file from MassGIS, NH GRANIT (wards) or RIGIS
+  (precincts); elsewhere, marked.
 - **Step 4:** a skeleton only. A person fills in the officials from official
   pages.
 - **Step 5:** the config, from the closest live town (the same meeting
@@ -87,8 +95,9 @@ left. Then publish (step 7).
 
 ## 2. The state's and the country's codes
 
-For Massachusetts, below. For another state, start from a town's config in
-that state (README, "Adding a town") and the state package's docstring in the
+The helper looks these up in every New England state. By hand: for
+Massachusetts, below; for another state, start from a town's config in that
+state (README, "Adding a town") and the state package's docstring in the
 engine (`pipeline/states/<state>/__init__.py`), which lists its keys; the
 Census and BLS steps are the same everywhere, with the state's own FIPS code.
 
@@ -133,7 +142,10 @@ shows no ward map; a town with neither (Bangor) has no 311 section yet.
       from news sites or memory.
 - [ ] **Seats**: a ward seat gets `ward`; a citywide seat doesn't. A seat
       elected by a group of wards (Beverly's School Committee districts) gets
-      `wards = [1, 2, 3]`.
+      `wards = [1, 2, 3]`. A district that doesn't follow ward lines
+      (Worcester's School Committee districts, made of precincts from
+      several wards) gets `wards = []`: it's listed with its body, under no
+      ward and not as citywide, and the body's `note` says so.
 - [ ] **Terms**: from the charter, or the city's page restating it. Leave
       `term_ends` out when no official source gives it.
 - [ ] **Contact**: city- and school-issued email addresses only, and the

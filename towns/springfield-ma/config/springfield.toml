@@ -1,0 +1,373 @@
+# Site configuration for Springfield, Massachusetts. Everything town-specific
+# lives here; the code is the Publick engine
+# (github.com/publick-org/publick-engine).
+#
+# The City Council, its committees, the School Committee and its
+# subcommittees, and the city's boards and commissions post their meetings and
+# agendas on the city's CivicClerk portal (springfieldma.portal.civicclerk.com),
+# read as [meetings.civicclerk]. The portal files most of them under "General",
+# so each is matched to its board by name ([meetings] boards and aliases). The
+# council's minutes are text PDFs posted there. The School Committee's minutes
+# aren't on the portal: Springfield Public Schools posts them in a document
+# library on its SharpSchool website, read as [sharpschool_meetings], and each
+# is shown with the portal's listing of its meeting. Service requests go
+# to the city's 311 Citizen Service Center, on IntelliGov, which doesn't
+# publish them, so the site has no 311 section.
+#
+# Started on 2026-10-27 by the engine's helper (python -m pipeline.new_town),
+# from Salem's config.
+#
+# The site is in English and Spanish ([site] languages), as every town's is.
+# The first runs draft the Spanish for the town's own text; [strings.es], at
+# the end, can correct it.
+
+[site]
+name = "Springfield Publick"
+# The masthead shows name_prefix in dark ink and name_suffix in the accent
+# color: the town, then the network.
+name_prefix = "Springfield "
+domain = "springfield-ma.publick.org"
+tagline = "Public data on how Springfield, Massachusetts decides and spends. Updated daily."
+# One line under the name at the top of every page.
+masthead = "An independent guide to city government in Springfield, Massachusetts"
+# Public contact address. Shown on the About and Accessibility pages when set.
+contact_email = "springfield-ma@publick.org"
+user_agent = "springfield-ma.publick.org (+https://springfield-ma.publick.org/about/)"
+
+# From the city website's stylesheets (www.springfield-ma.gov): its two most
+# used reds (29 and 13 uses); primary_soft a light tint of primary. Each
+# passes WCAG AA on white (8.9, 13.4 to 1).
+[site.colors]
+primary = "#990000"
+primary_dark = "#660000"
+primary_soft = "#f5e6e6"
+
+[town]
+name = "Springfield"
+state_abbr = "MA"
+official_site = "https://www.springfield-ma.gov"
+
+# Sections appear in the main navigation in this order. Each one is a folder
+# under site/pages/<slug>/ and is served at https://<domain>/<slug>/.
+[[sections]]
+slug = "meetings"
+title = "Meetings"
+summary = "When the City Council, its committees, the School Committee, and the city's boards and commissions meet, with agendas, and minutes from January 2026 on."
+status = "live"
+
+[[sections]]
+slug = "schools"
+title = "Schools"
+summary = "Graduation, attendance, and MCAS results compared with the state."
+status = "live"
+
+[[sections]]
+slug = "budget"
+title = "City budget"
+nav = "Budget"
+summary = "Where general fund money comes from and how it is spent, reserves, and the property tax limit."
+status = "live"
+
+[[sections]]
+slug = "housing"
+title = "Housing"
+summary = "New homes permitted, home values and rents, affordable housing, and the housing stock."
+status = "live"
+
+[[sections]]
+slug = "officials"
+title = "Who represents you"
+nav = "Officials"
+summary = "The mayor, City Council, and School Committee, by office and by ward, and how to reach them."
+status = "live"
+
+[[sections]]
+slug = "about"
+title = "About"
+summary = "Data sources, update schedule, metric definitions, and corrections."
+status = "live"
+
+# Page view counting with GoatCounter, on the network's site; prefix is this
+# town's folder.
+[analytics]
+prefix = "springfield-ma"
+
+# Public meetings, from its CivicClerk portal.
+[meetings]
+calendar_url = "https://springfieldma.portal.civicclerk.com"
+archive_url = "https://springfieldma.portal.civicclerk.com"
+archive_name = "city's CivicClerk portal"
+request_delay = 3.0
+max_event_pages = 40
+# One name per public body. The portal files most meetings under "General",
+# and names many for the board ("Board of Assessors Meeting 4/7/2026"); a
+# meeting is filed under the longest of these its name contains. The City
+# Council's committees are named "Committee", "Subcommittee", or neither, so
+# each is matched by the words they share ([meetings.aliases]).
+boards = [
+  "City Council",
+  "City Council Hearings",
+  "Committee of the Whole",
+  "Audit Subcommittee",
+  "Civil Rights Subcommittee",
+  "Elder Affairs Committee",
+  "Finance Committee",
+  "General Government Committee",
+  "Health & Human Services Committee",
+  "Maintenance & Development Committee",
+  "Planning & Economic Development Committee",
+  "Public Safety Committee",
+  "Sustainability & Environment Committee",
+  "Inter-Governmental/State & Federal Relations Committee",
+  "Working Group on Digital Equity & Internet Access",
+  "School Committee",
+  "School Committee Budget & Finance Subcommittee",
+  "School Committee Buildings & Maintenance Subcommittee",
+  "School Committee Career Technical Education Subcommittee",
+  "School Committee Curriculum & Programs Subcommittee",
+  "School Committee Diversity, Equity, and Inclusion Subcommittee",
+  "School Committee Innovation School Subcommittee",
+  "School Committee Legislative & Contracts Subcommittee",
+  "School Committee School Safety Subcommittee",
+  "School Committee Student Parent Concerns Subcommittee",
+  "Animal Control Board",
+  "Board of Assessors",
+  "Board of Library Commissioners",
+  "Board of Police Commissioners",
+  "Board of Public Works",
+  "City Forestry",
+  "Community Preservation Committee",
+  "Conservation Commission",
+  "EMS Commission",
+  "Historical Commission",
+  "Innovation Planning Committee",
+  "License Commission",
+  "Local Emergency Planning Committee",
+  "Mobile Home Rent Control Board",
+  "Park Commission",
+  "Planning Board",
+  "Public Health Council",
+  "Residency Commission",
+  "Retirement Board",
+  "School Building Commission",
+  "Springfield Empowerment Zone Partnership",
+  "Traffic Commission",
+  "Zoning Board of Appeals",
+]
+
+[meetings.aliases]
+# The council's committees, however the portal writes them ("Finance
+# Sub-Committee", "General Government", "Health & Human Service").
+"Audit Sub-Committee" = "Audit Subcommittee"
+"Civil Rights Sub-Committee" = "Civil Rights Subcommittee"
+"Elder Affairs" = "Elder Affairs Committee"
+"Finance" = "Finance Committee"
+"General Government" = "General Government Committee"
+"Health & Human Service" = "Health & Human Services Committee"
+"Health & Human Services" = "Health & Human Services Committee"
+"Maintenance & Development" = "Maintenance & Development Committee"
+"Planning & Economic Development" = "Planning & Economic Development Committee"
+"Public Safety" = "Public Safety Committee"
+"Sustainability & Environment" = "Sustainability & Environment Committee"
+"Digital Equity" = "Working Group on Digital Equity & Internet Access"
+# Other names the portal uses for a board.
+"Springfield School Committee" = "School Committee"
+# A School Committee subcommittee's meeting the district posted under its own
+# name, which the council's "Finance" alias would otherwise take.
+"Public Schools - Budget & Finance Subcommittee" = "School Committee Budget & Finance Subcommittee"
+"Animal Control" = "Animal Control Board"
+"Board of Police Commission" = "Board of Police Commissioners"
+"Emergency Medical Services" = "EMS Commission"
+"LEPC" = "Local Emergency Planning Committee"
+"PHC" = "Public Health Council"
+"Springfield Retirement Board" = "Retirement Board"
+"SEZP Board" = "Springfield Empowerment Zone Partnership"
+"Springfield Empowerment Zone" = "Springfield Empowerment Zone Partnership"
+# The portal's utility petitions, heard by the Board of Public Works (those
+# it files under a category are under that board's), and the city forester's
+# public shade tree hearings.
+"EVERSOURCE" = "Board of Public Works"
+"Public Shade Tree" = "City Forestry"
+
+[meetings.civicclerk]
+api_url = "https://springfieldma.api.civicclerk.com/v1"
+portal_url = "https://springfieldma.portal.civicclerk.com"
+# Meetings, agendas, and minutes are collected from here on.
+since = "2026-01-01"
+# Most of the portal's meetings are under a catch-all category, and some are
+# named for an item, not a board: those go under the board their category
+# names.
+board_from_category = true
+# The portal's "One Time Event" entries under "General" name no board, and
+# three one-off events of 2026 under "General" name none of the city's boards
+# (a late-night entertainment hearing, a screening committee, a street
+# painting).
+exclude_pattern = '^General$|^One Time Late Night|^Spirit Of Springfield|Screening Committee for Innovation Schools'
+
+# The Springfield School Committee posts with the other boards ("Springfield
+# School Committee - Legislative & Contracts Subcommittee Meeting"); each
+# subcommittee is a board of its own above.
+
+# The School Committee's minutes, from Springfield Public Schools' "Meeting-
+# Minutes Archive": a folder a year, each file named by its meeting's date and
+# kind ("09.10.26 Minutes Regular Meeting", "03.30.26 Minutes Special Meeting
+# 515" for the one at 5:15 PM).
+[sharpschool_meetings]
+page_url = "https://www.springfieldpublicschools.com/school_committee/school_committee_meeting-_minutes_archive"
+source_name = "Springfield Public Schools"
+since = "2026-01-01"
+body = "School Committee"
+
+# Agenda and minutes PDFs live in the network's documents bucket, not in git
+# (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID,
+# STORAGE_SECRET_ACCESS_KEY.
+[storage]
+prefix = "springfield-ma"
+
+# Plain-English agenda text and previews, and decisions from minutes, written
+# by a language model and labeled as AI-generated on the site. Only meetings
+# from `since` on are summarized, about three months before launch, so the
+# town's history doesn't take the month's budget.
+[summaries]
+since = "2026-07-01"
+
+# The City Council's Public Speak-Out page. Council meetings are televised live
+# on Government Channel 17, and each one on the city's CivicClerk portal links
+# its YouTube stream (Springfield Municipal Meetings).
+[participation."City Council"]
+comment = "Residents can speak at the Public Speak-Out, held 30 minutes before every regular meeting of the City Council, on matters relating to the city, for up to three minutes. Sign up by noon on the day of the meeting with your name, address, and topic, on the council's online form, by email to citycouncilstaff@springfieldcityhall.com, or by calling (413) 787-6170. Meetings are at City Hall, 36 Court Street, Room 200."
+source_title = "City Council Public Speak-Out page"
+source_url = "https://www.springfield-ma.gov/cos/council/public-speak-out"
+video_title = "Springfield Municipal Meetings on YouTube"
+video_url = "https://www.youtube.com/@SpringfieldMunicipalMeetings"
+
+# Policy BEDH (revised May 21, 2026) and the committee's agenda of September
+# 24, 2026 ("Public Speak Out @ 6:00 PM"). Meetings and subcommittee meetings
+# stream on the committee's YouTube channel and are broadcast on Focus
+# Springfield, Channel 17.
+[participation."School Committee"]
+comment = "Residents can speak at the Public Speak Out held at 6:00 PM before some regular meetings (the agenda lists it), at City Hall, 36 Court Street, Room 220, for up to three minutes, which the Chair may extend. Sign up ahead with the Office of the School Committee (413-787-7100), giving your name, address, and topic; speakers state their full name and residential address and address their remarks through the Chair. The committee doesn't hear personal complaints about school personnel in public session. Written comments may be given to the committee before or after the meeting."
+source_title = "Policy BEDH, Public Participation at School Committee Meetings, and the School Committee agenda of September 24, 2026"
+source_url = "https://www.springfieldpublicschools.com/parents/forms_and_policies/public_participation_at_school_committee_meetings_policy"
+video_title = "SPS School Committee and Subcommittee Meetings on YouTube"
+video_url = "https://www.youtube.com/@schoolcommitteeSPS/streams"
+
+# School district figures from the state's education data portal (DESE).
+[schools]
+district_code = "02810000"
+district_name = "Springfield Public Schools"
+
+# Tax bill and budget figures (Mass. Division of Local Services). Some DLS
+# reports take the name, others the DOR code.
+[finance]
+dls_municipality = "Springfield"
+dls_code = "281"
+
+# Housing: Census building permits (state and place FIPS codes), American
+# Community Survey through Census Reporter (geo ids), and the state's
+# Subsidized Housing Inventory PDF (the town's name as the PDF lists it).
+[housing]
+bps_place = "67000"
+census_geo = "16000US2567000"
+shi_name = "Springfield"
+
+# Unemployment rate (BLS Local Area Unemployment Statistics, area
+# CT2567000000000, Springfield city, MA). City rates are not seasonally
+# adjusted; the state series is shown for context.
+[labor]
+local_series = "LAUCT256700000000003"
+
+# How often each data source should update. Figures published monthly or
+# yearly are judged by the engine, by the period they cover
+# (pipeline/rhythms.py).
+[freshness]
+sources = [
+  { label = "Meetings (CivicClerk)", file = "meetings/status.json", max_days = 2 },
+  { label = "School Committee minutes (school district website)", file = "meetings/sharpschool_status.json", max_days = 2 },
+]
+
+# The About page's "What this site doesn't cover": why there's no 311 section.
+# The city's 311 page links its own Service Request Center on IntelliGov, its
+# apps, and its phone line, not SeeClickFix (whose Springfield place has a
+# few residents' reports a year, none acknowledged); the requests aren't
+# published.
+[absences]
+311 = "The city takes service requests through its own 311 Citizen Service Center, by phone, its app, and its online Service Request Center on IntelliGov. It doesn't publish them."
+
+# Who represents you (the Officials page). Kept by hand from official city and
+# school websites; checked is the date the list was last checked against them.
+# Only city- and school-issued email addresses, and the mayor's office phone.
+[officials]
+checked = "2026-10-27"
+# Municipal elections are in November of odd years, on the Tuesday after the
+# first Monday (November 7, 2023; November 4, 2025: the Elections Office's
+# results pages). The city hasn't published its 2027 election calendar. The
+# mayor, elected in 2023, serves four years, and councilors two; the School
+# Committee is elected every four years (the Elections Office's Ward
+# Representation page), last in 2025.
+next_election = "2027-11-02"
+# The ward file is data/static/springfield-precincts-2022.geojson (MassGIS):
+# eight wards of eight precincts each. Each School Committee district is two
+# whole wards (the Ward Representation page), so its district seats get
+# wards = [..]. No official page prints an end date for a term, so term_ends is
+# left out.
+wards_file = "springfield-precincts-2022.geojson"
+wards_publisher = "MassGIS"
+wards_year = "2022"
+wards_url = "https://gis.data.mass.gov/maps/aec5130790814ace94438d3bcf23cf9a"
+
+# Re-elected on November 7, 2023 (official results); no mayoral race in 2025.
+# The phone is the Office of the Mayor page's; the city publishes no email
+# address for the mayor.
+[[officials.bodies]]
+name = "Mayor"
+url = "https://www.springfield-ma.gov/cos/mayor"
+note = "Elected citywide for four years. Heads the city's administration and chairs the School Committee."
+members = [
+  { name = "Domenic J. Sarno", seat = "Citywide", phone = "(413) 736-3111" },
+]
+
+# Elected on November 4, 2025 (the certified precinct results; the city posts
+# no citywide totals). The President and Vice President were elected on
+# January 5, 2026, and all thirteen were present or remote on October 5, 2026
+# (the council's minutes). Names as the City Council Members page gives them;
+# only its city addresses (the Ward 1, 3, 4 and 8 councilors list personal
+# ones).
+[[officials.bodies]]
+name = "City Council"
+url = "https://www.springfield-ma.gov/cos/city-council-members"
+note = "Eight councilors elected by ward and five at-large, for two years. The council elects its President and Vice President each year."
+members = [
+  { name = "Maria Perez", seat = "Ward 1", ward = 1 },
+  { name = "Michael A. Fenton", seat = "Ward 2", ward = 2, email = "mfenton@springfieldcityhall.com" },
+  { name = "Melvin A. Edwards", seat = "Ward 3", ward = 3 },
+  { name = "Malo L. Brown", seat = "Ward 4", ward = 4 },
+  { name = "Lavar Click-Bruce", seat = "Ward 5", ward = 5, email = "lclick-bruce@springfieldcityhall.com" },
+  { name = "Victor G. Davila", seat = "Ward 6", ward = 6, email = "vdavila@springfieldcityhall.com" },
+  { name = "Gerry Martin", seat = "Ward 7", ward = 7, email = "gmartin@springfieldcityhall.com" },
+  { name = "Zaida Govan", seat = "Ward 8", ward = 8 },
+  { name = "Tracye Whitfield", seat = "At-large", role = "President", email = "twhitfield@springfieldcityhall.com" },
+  { name = "Jose Delgado", seat = "At-large", role = "Vice President", email = "jdelgado@springfieldcityhall.com" },
+  { name = "Justin Hurst", seat = "At-large", email = "jhurst@springfieldcityhall.com" },
+  { name = "Kateri Walsh", seat = "At-large", email = "kwalsh@springfieldcityhall.com" },
+  { name = "Brian Santaniello", seat = "At-large", email = "bsantaniello@springfieldcityhall.com" },
+]
+
+# Elected on November 4, 2025 (the certified precinct results); the Vice Chair
+# was elected on January 5, 2026, and all were present on September 10, 2026
+# except Ms. Gresham (the committee's minutes, the newest posted). Names as the
+# district's School Committee page gives them; addresses from each member's
+# page on the district's site.
+[[officials.bodies]]
+name = "School Committee"
+url = "https://www.springfieldpublicschools.com/school_committee"
+note = "Two members elected at-large and four by district, for four years, and the mayor as chair. Each district is two wards: District 1, Wards 1 and 3; District 2, Wards 4 and 5; District 3, Wards 6 and 7; District 4, Wards 2 and 8."
+members = [
+  { name = "Domenic J. Sarno", seat = "Mayor", role = "Chair", email = "sarnod@springfieldpublicschools.com" },
+  { name = "LaTonia Monroe Naylor", seat = "At-large", role = "Vice Chair", email = "naylorl@springfieldpublicschools.com" },
+  { name = "Denise Hurst", seat = "At-large", email = "hurstd@springfieldpublicschools.com" },
+  { name = "Gumersindo Gomez", seat = "District 1", wards = [1, 3], email = "gomezgu@springfieldpublicschools.com" },
+  { name = "Barbara Gresham", seat = "District 2", wards = [4, 5], email = "greshamb@springfieldpublicschools.com" },
+  { name = "Rosa Valentín", seat = "District 3", wards = [6, 7], email = "valentinr@springfieldpublicschools.com" },
+  { name = "Ayanna Crawford", seat = "District 4", wards = [2, 8], email = "crawforda@springfieldpublicschools.com" },
+]

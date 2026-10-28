@@ -1,0 +1,336 @@
+# Site configuration for Somerville, Massachusetts. Everything town-specific
+# lives here; the code is the Publick engine
+# (github.com/publick-org/publick-engine).
+#
+# Somerville's website runs on Drupal. The City Council and its committees
+# post agendas and minutes on the city's Legistar system, read through
+# Legistar's public web API; minutes are PDFs with text. The School Committee
+# posts its agendas, minutes, presentations and recordings on the city's
+# events calendar ("Agendas, Minutes, & More"), read with the district's
+# calendar feed for the dates ahead. 311 requests go to the city's own 311 service, on
+# QAlert, and are published on the city's open data portal (Socrata), read as
+# [socrata_311]; SeeClickFix isn't used.
+#
+# Started on 2026-10-27 by the engine's helper (python -m pipeline.new_town),
+# from Medford's config.
+#
+# The site is in English and Spanish ([site] languages), as every town's is.
+# The first runs draft the Spanish for the town's own text; [strings.es], at
+# the end, can correct it.
+
+[site]
+name = "Somerville Publick"
+# The masthead shows name_prefix in dark ink and name_suffix in the accent
+# color: the town, then the network.
+name_prefix = "Somerville "
+domain = "somerville-ma.publick.org"
+tagline = "Public data on how Somerville, Massachusetts decides and spends. Updated daily."
+# One line under the name at the top of every page.
+masthead = "An independent guide to city government in Somerville, Massachusetts"
+# Public contact address. Shown on the About and Accessibility pages when set.
+contact_email = "somerville-ma@publick.org"
+user_agent = "somerville-ma.publick.org (+https://somerville-ma.publick.org/about/)"
+
+# From the city website's stylesheets (www.somervillema.gov): its two most
+# used blues (48 and 45 uses); the most used of another hue (40 uses); primary
+# darkened from #086afd (4.1 to 1 on the site's lightest background) to pass;
+# primary_soft a light tint of primary. Each passes WCAG AA on white (5.3,
+# 6.2, 4.5 to 1).
+[site.colors]
+primary = "#0763eb"
+primary_dark = "#086699"
+primary_soft = "#e6effd"
+accent = "#198754"
+
+[town]
+name = "Somerville"
+state_abbr = "MA"
+official_site = "https://www.somervillema.gov"
+
+# Sections appear in the main navigation in this order. Each one is a folder
+# under site/pages/<slug>/ and is served at https://<domain>/<slug>/.
+[[sections]]
+slug = "meetings"
+title = "Meetings"
+summary = "When the City Council, its committees, and the School Committee meet, with agendas, and minutes from January 2026 on."
+status = "live"
+
+[[sections]]
+slug = "311"
+title = "311 Requests"
+nav = "311"
+summary = "How fast the city closes service requests, by category and ward, from its open data portal."
+status = "live"
+
+[[sections]]
+slug = "schools"
+title = "Schools"
+summary = "Graduation, attendance, and MCAS results compared with the state."
+status = "live"
+
+[[sections]]
+slug = "budget"
+title = "City budget"
+nav = "Budget"
+summary = "Where general fund money comes from and how it is spent, reserves, and the property tax limit."
+status = "live"
+
+[[sections]]
+slug = "housing"
+title = "Housing"
+summary = "New homes permitted, home values and rents, affordable housing, and the housing stock."
+status = "live"
+
+[[sections]]
+slug = "officials"
+title = "Who represents you"
+nav = "Officials"
+summary = "The mayor, City Council, and School Committee, by office and by ward, and how to reach them."
+status = "live"
+
+[[sections]]
+slug = "about"
+title = "About"
+summary = "Data sources, update schedule, metric definitions, and corrections."
+status = "live"
+
+# Page view counting with GoatCounter, on the network's site; prefix is this
+# town's folder.
+[analytics]
+prefix = "somerville-ma"
+
+# Public meetings, from its Legistar system.
+[meetings]
+calendar_url = "https://somervillema.legistar.com/Calendar.aspx"
+archive_url = "https://somervillema.legistar.com/Calendar.aspx"
+archive_name = "city's Legistar calendar"
+request_delay = 3.0
+max_event_pages = 40
+# The council and its standing committees as the city's Legistar system lists
+# them in 2026 (its bodies of earlier years, under former names, have no
+# meetings since `since`).
+boards = [
+  "City Council",
+  "Confirmation of Appointments and Personnel Matters Committee",
+  "Finance Committee",
+  "Housing, Community Development and Equity Committee",
+  "Land Use Committee",
+  "Legislative Matters Committee",
+  "Licenses and Permits Committee",
+  "Public Health and Public Safety Committee",
+  "School Building Facilities and Maintenance Committee",
+  "Sustainability and Infrastructure Committee",
+  "Traffic and Parking Committee",
+]
+
+# The council's organizational meeting, in January, is its own body in
+# Legistar.
+[meetings.aliases]
+"City Council Organizational Meeting" = "City Council"
+
+[meetings.legistar]
+client = "somervillema"
+# Meetings, agendas, and minutes are collected from here on.
+since = "2026-01-01"
+
+# The School Committee's meetings, agendas, minutes and recordings, from the
+# city's "Agendas, Minutes, & More" page, filtered to the School Committee.
+# The committee types its "Call for the Week" notices, one for every meeting of
+# a week, as agendas too; they aren't taken for a meeting's agenda.
+[meetingdocs_meetings]
+page_url = "https://www.somervillema.gov/meetingdocs?title_1=School+Committee"
+source_name = "City of Somerville"
+since = "2026-07-01"
+not_agenda_pattern = '\bcall\b'
+
+# The committee's meetings and subcommittees, by words in the page's titles.
+# The Student Assignment Advisory Committee, posted here too, isn't one of
+# them.
+[meetingdocs_meetings.bodies]
+"Regular Meeting" = "School Committee"
+"Special Meeting" = "School Committee"
+"Executive Session" = "School Committee"
+"Retreat" = "School Committee"
+"Educational Programs" = "School Committee Educational Programs and Instruction Subcommittee"
+"Finance and Facilities" = "School Committee Finance and Facilities Subcommittee"
+"Rules Management" = "School Committee Rules Management Subcommittee"
+"School Building Facilities and Maintenance Subcommittee" = "School Committee School Building Facilities and Maintenance Subcommittee"
+"Long-Range Planning" = "School Committee Long-Range Planning Subcommittee"
+
+# The dates ahead, from the Somerville Public Schools calendar feed, narrowed to
+# events naming the School Committee: the feed holds 30 events, so unfiltered it
+# reaches only about three weeks ahead. Office hours are left out.
+[ical_meetings]
+ical_url = "https://www.somerville.k12.ma.us/school-calendars/list/?tribe-bar-search=School+Committee&ical=1"
+page_url = "https://www.somerville.k12.ma.us/about-sps/school-committee/meetings/"
+source_name = "Somerville Public Schools"
+since = "2026-07-01"
+
+# The subcommittees, as the district's Subcommittees page names them.
+[ical_meetings.bodies]
+"Regular School Committee" = "School Committee"
+"Educational Programs" = "School Committee Educational Programs and Instruction Subcommittee"
+"Finance and Facilities" = "School Committee Finance and Facilities Subcommittee"
+"Rules Management" = "School Committee Rules Management Subcommittee"
+"School Building Facilities and Maintenance" = "School Committee School Building Facilities and Maintenance Subcommittee"
+"Long-Range Planning" = "School Committee Long-Range Planning Subcommittee"
+
+# Agenda and minutes PDFs live in the network's documents bucket, not in git
+# (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID,
+# STORAGE_SECRET_ACCESS_KEY.
+[storage]
+prefix = "somerville-ma"
+
+# Plain-English agenda text and previews, and decisions from minutes, written
+# by a language model and labeled as AI-generated on the site. Only meetings
+# from `since` on are summarized, about three months before launch, so the
+# town's history doesn't take the month's budget.
+[summaries]
+since = "2026-07-01"
+
+# The City Council page's Public Comments section; its agendas give the Zoom
+# registration for testifying at public hearings (agenda of October 22, 2026).
+# Meetings are carried live on GovTV; recordings are on the city's Legistar site.
+[participation."City Council"]
+comment = "Residents can send written comments to the City Clerk at publiccomments@somervillema.gov, by mail, or in person at City Hall (93 Highland Ave.), with their full name, their ward or address (the address is redacted on the agenda), and the item they're about. Comments received by close of business on the Friday before a regular meeting go on its agenda. To testify at a public hearing remotely, register by the Zoom link on the agenda. Email to citycouncil@somervillema.gov reaches every councilor."
+source_title = "City Council page, Public Comments"
+source_url = "https://www.somervillema.gov/departments/city-council#comments"
+video_title = "GovTV (Somerville City TV)"
+video_url = "https://www.somervillema.gov/departments/communications-and-community-engagement/somerville-city-tv#city-council-meetings"
+
+# Policies BEDH and BEDH-E (Guidelines for Public Comment), and the School
+# Committee Meetings page, which links both and gives the remote sign-up.
+# Meetings are carried live on GovTV and posted on YouTube within a day.
+[participation."School Committee"]
+comment = "Residents can speak during Public Comment at the start of each regular meeting, for up to 3 minutes (the Chair may limit it to 2), on School Committee business: sign the sheet at the podium by 7:00 PM with name and topic, or join by Zoom, registering by the link on the Meetings page between 6:45 and 7:00 PM and sending name and address in the chat. There's no spoken public comment at subcommittee meetings; written comments are taken into the record. Simultaneous interpretation in Spanish, Portuguese, and Haitian Creole needs registration 48 hours ahead."
+source_title = "School Committee Meetings page and policy BEDH-E"
+source_url = "https://www.somerville.k12.ma.us/about-sps/school-committee/meetings/"
+video_title = "Somerville School Committee on YouTube"
+video_url = "https://www.youtube.com/@SomervilleSchoolCommittee"
+
+# School district figures from the state's education data portal (DESE).
+[schools]
+district_code = "02740000"
+district_name = "Somerville Public Schools"
+
+# Tax bill and budget figures (Mass. Division of Local Services). Some DLS
+# reports take the name, others the DOR code.
+[finance]
+dls_municipality = "Somerville"
+dls_code = "274"
+
+# Housing: Census building permits (state and place FIPS codes), American
+# Community Survey through Census Reporter (geo ids), and the state's
+# Subsidized Housing Inventory PDF (the town's name as the PDF lists it).
+[housing]
+bps_place = "62535"
+census_geo = "16000US2562535"
+shi_name = "Somerville"
+
+# Unemployment rate (BLS Local Area Unemployment Statistics, area
+# CT2562535000000, Somerville city, MA). City rates are not seasonally
+# adjusted; the state series is shown for context.
+[labor]
+local_series = "LAUCT256253500000003"
+
+# How often each data source should update. Figures published monthly or
+# yearly are judged by the engine, by the period they cover
+# (pipeline/rhythms.py).
+[freshness]
+sources = [
+  { label = "Meetings (Legistar)", file = "meetings/status.json", max_days = 2 },
+  { label = "School Committee documents (city events calendar)", file = "meetings/meetingdocs_status.json", max_days = 2 },
+  { label = "311 requests (open data portal)", file = "311/status.json", field = "portal_updated_at", max_days = 3 },
+  { label = "311 scorecard", file = "311/scorecard.json", field = "generated_at", max_days = 2 },
+]
+
+# 311 requests, from the city's open data portal: the dataset "311 Service,
+# Information, and Feedback Requests", one row a request, updated daily. The
+# city takes requests through its own 311 service, on QAlert; the 311 Service
+# Center page links its request form and app. Rows have no address, map point
+# or acknowledged time, so the 311 pages have none. Calls for information and
+# feedback are left out. The ward is the city's own, from each row.
+[socrata_311]
+domain = "data.somervillema.gov"
+dataset = "4pyi-uqq6"
+since = "2025-01"
+publisher = "City of Somerville"
+license = "ODbL"
+license_url = "https://opendatacommons.org/licenses/odbl/1-0/"
+classes = ["Service"]
+scope_note = "Service requests only: calls for information and feedback aren't counted."
+report_url = "https://www.somervillema.gov/departments/constituent-services/311-service-center"
+# Every page of the requests since `since` (about 100, two minutes) in one run, so the first run has
+# the newest ones too; later runs read the few pages the city changed.
+max_pages_per_run = 150
+
+# Who represents you (the Officials page). Kept by hand from official city and
+# school websites; checked is the date the list was last checked against them.
+# Only city- and school-issued email addresses, and the mayor's office phone.
+[officials]
+checked = "2026-10-27"
+# The regular municipal election is on the Tuesday following the first Monday
+# in November in each odd-numbered year (the city charter, Acts of 2025,
+# chapter 31, section 7-3, adopted by the voters on November 4, 2025). The
+# city hasn't published its 2027 election calendar.
+next_election = "2027-11-02"
+# The ward file is data/static/somerville-precincts-2022.geojson (MassGIS):
+# seven wards of four precincts each, the council's and the School Committee's
+# ward seats. No official page gives a term's end date, so term_ends is left out.
+wards_file = "somerville-precincts-2022.geojson"
+wards_publisher = "MassGIS"
+wards_year = "2022"
+wards_url = "https://gis.data.mass.gov/maps/aec5130790814ace94438d3bcf23cf9a"
+
+# Elected on November 4, 2025 (official results). The phone and address are
+# the Mayor's Office page's.
+[[officials.bodies]]
+name = "Mayor"
+url = "https://www.somervillema.gov/mayor"
+note = "Elected for two years; from the November 2, 2027 election, for four (the city charter and a 2025 ballot question). A member of the School Committee."
+members = [
+  { name = "Jake Wilson", seat = "Citywide", phone = "(617) 625-6600 x 2100", email = "mayor@somervillema.gov" },
+]
+
+# Elected on November 4, 2025 (official results); the President and Vice
+# President elected on January 2, 2026 (the organizational meeting's minutes);
+# all present on October 8, 2026 (the council's minutes). Names as the City
+# Council page and the minutes give them, addresses as each councilor's page
+# does; Councilors McLaughlin's, Ewen-Campen's and Strezo's pages give only
+# personal addresses, so theirs are left out.
+[[officials.bodies]]
+name = "City Council"
+url = "https://www.somervillema.gov/departments/city-council"
+note = "Seven councilors elected by ward and four at-large, for two years. The council elects its President and Vice President for one-year terms (the city charter)."
+members = [
+  { name = "Matthew McLaughlin", seat = "Ward 1", ward = 1 },
+  { name = "Jefferson Thomas (J.T.) Scott", seat = "Ward 2", ward = 2, email = "jtscott@somervillema.gov" },
+  { name = "Ben Ewen-Campen", seat = "Ward 3", ward = 3 },
+  { name = "Jesse Clingan", seat = "Ward 4", ward = 4, email = "jclingan@somervillema.gov" },
+  { name = "Naima Sait", seat = "Ward 5", ward = 5, email = "nsait@somervillema.gov" },
+  { name = "Lance L. Davis", seat = "Ward 6", ward = 6, role = "President", email = "ldavis@somervillema.gov" },
+  { name = "Emily Hardt", seat = "Ward 7", ward = 7, email = "ehardt@somervillema.gov" },
+  { name = "Wilfred N. Mbah", seat = "At-large", role = "Vice President", email = "wmbah@somervillema.gov" },
+  { name = "Jon Link", seat = "At-large", email = "jlink@somervillema.gov" },
+  { name = "Kristen Strezo", seat = "At-large" },
+  { name = "Ben Wheeler", seat = "At-large", email = "bwheeler@somervillema.gov" },
+]
+
+# Elected on November 4, 2025 (official results); all nine present on August
+# 31, 2026 (the committee's minutes, the newest posted). Names, offices and
+# addresses as the district's Members page gives them.
+[[officials.bodies]]
+name = "School Committee"
+url = "https://www.somerville.k12.ma.us/about-sps/school-committee/members/"
+note = "Seven members elected by ward, for two years, and the mayor and the City Council President, with the same powers; neither may be its chair (the city charter)."
+members = [
+  { name = "Emily Ackman", seat = "Ward 1", ward = 1, role = "Chair", email = "eackman@k12.somerville.ma.us" },
+  { name = "Elizabeth (Liz) Eldridge", seat = "Ward 2", ward = 2, email = "eeldridge@k12.somerville.ma.us" },
+  { name = "Michele Lippens", seat = "Ward 3", ward = 3, email = "mlippens@k12.somerville.ma.us" },
+  { name = "Andre L. Green", seat = "Ward 4", ward = 4, email = "agreen@k12.somerville.ma.us" },
+  { name = "Laura Pitone", seat = "Ward 5", ward = 5, email = "lpitone@k12.somerville.ma.us" },
+  { name = "Emma Stellman", seat = "Ward 6", ward = 6, email = "estellman@k12.somerville.ma.us" },
+  { name = "Leiran Biton", seat = "Ward 7", ward = 7, role = "Vice Chair", email = "lbiton@k12.somerville.ma.us" },
+  { name = "Jake Wilson", seat = "Mayor", email = "mayor@somervillema.gov" },
+  { name = "Lance L. Davis", seat = "City Council President", email = "ldavis@somervillema.gov" },
+]
