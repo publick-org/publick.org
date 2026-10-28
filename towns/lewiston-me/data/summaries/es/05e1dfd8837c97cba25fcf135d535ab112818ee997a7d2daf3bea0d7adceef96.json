@@ -14,17 +14,18 @@
   "source_sha256": "05e1dfd8837c97cba25fcf135d535ab112818ee997a7d2daf3bea0d7adceef96",
   "source_hash": "1382b33275ae8d13efcf64276890738550f7552e9f3c943e8f4767f817fc7396",
   "check": "summary: \"abatement\" isn't written \"reducción de impuestos (abatement)\"",
-  "review": "not reviewed: the check failed",
+  "review": "headline: 'Lead abatement' is rendered as 'reducción de impuestos (abatement)', which wrongly makes it a tax reduction. Lead abatement is 'eliminación de plomo', as the summary and item 3 correctly have it.; The English says the committee will 'award bids for ... a water meter purchase waiver'. The translation says 'compra de medidores de agua', but the summary and item 4 say the waiver is for an EJ Prescott water main replacement purchase. The headline therefore changes what the waiver covers.",
   "attempts": 2,
   "model": "claude-haiku-5-5",
   "prompt_version": 6,
   "glossary": "ef7932921dbd7e00",
-  "generated_at": "2026-10-21T05:32:40-04:00",
+  "generated_at": "2026-10-28T05:17:30-04:00",
   "usage": {
     "input_tokens": 1104,
     "output_tokens": 2141,
     "cache_creation_input_tokens": 1770
   },
-  "cost": 0.001402,
-  "replaced_cost": 0.025056
+  "cost": 0.011506,
+  "review_retries": 1,
+  "replaced_cost": 0.026458
 }

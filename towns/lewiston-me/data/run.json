@@ -1,46 +1,46 @@
 {
   "town": "lewiston",
   "folder": "lewiston-me",
-  "started_at": "2026-10-27T09:11:48+00:00",
-  "finished_at": "2026-10-27T09:14:36+00:00",
-  "engine": "v1.66.0",
+  "started_at": "2026-10-28T09:15:40+00:00",
+  "finished_at": "2026-10-28T09:23:06+00:00",
+  "engine": "v1.68.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 117.7
+      "seconds": 414.7
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 4.3
+      "seconds": 3.6
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 23.9
+      "seconds": 22.1
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.7
+      "seconds": 5.1
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 1.0
+      "seconds": 0.7
     }
   ],
   "update": {
     "town": "lewiston",
     "sources": "all",
-    "started_at": "2026-10-27T09:11:48+00:00",
+    "started_at": "2026-10-28T09:15:40+00:00",
     "ok": true,
     "steps": [
       {
@@ -64,7 +64,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 32.8,
+        "seconds": 32.6,
         "cadence": "continuous"
       },
       {
@@ -104,11 +104,29 @@
         "skipped": "no [opengov_meetings] in the config"
       },
       {
+        "name": "Fetch the city's meeting documents",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [meetingdocs_meetings] in the config"
+      },
+      {
+        "name": "Fetch the school district's minutes library",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [sharpschool_meetings] in the config"
+      },
+      {
         "name": "Summarize agendas",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 4.8,
+        "seconds": 282.2,
         "cadence": "continuous"
       },
       {
@@ -116,16 +134,18 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.5,
-        "cadence": "yearly"
+        "seconds": 0,
+        "cadence": "yearly",
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch unemployment",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.6,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -134,24 +154,24 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 21 days ago; checked every 30 days"
+        "skipped": "checked 22 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
-        "cadence": "yearly"
+        "seconds": 0,
+        "cadence": "yearly",
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "seconds": 22.6,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch place",
@@ -196,13 +216,22 @@
         "skipped": "no [seeclickfix] in the config"
       },
       {
+        "name": "Fetch 311 requests from an open data portal",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [socrata_311] in the config"
+      },
+      {
         "name": "Compute 311 scorecard",
         "ok": true,
         "required": true,
         "error": null,
         "seconds": 0,
         "cadence": "continuous",
-        "skipped": "no [seeclickfix] in the config"
+        "skipped": "no [seeclickfix] or [socrata_311] in the config"
       }
     ]
   },
@@ -211,7 +240,7 @@
     {
       "label": "Meetings (city calendar)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-27T05:11:49-04:00",
+      "updated_at": "2026-10-28T05:15:40-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -266,13 +295,13 @@
     {
       "label": "Housing figures",
       "file": "housing/housing.json",
-      "updated_at": "2026-10-21T05:19:25-04:00",
+      "updated_at": "2026-10-28T05:22:12-04:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
       "stale": false,
-      "latest": "2025 building permits; August 2026 building permits; ACS 2024 5-year estimates",
-      "next": "2026 building permits usually by June 1, 2027; September 2026 building permits usually by November 1, 2026; ACS 2025 5-year estimates usually by December 15, 2026",
+      "latest": "2025 building permits; September 2026 building permits; ACS 2024 5-year estimates",
+      "next": "2026 building permits usually by June 1, 2027; October 2026 building permits usually by December 1, 2026; ACS 2025 5-year estimates usually by December 15, 2026",
       "behind": null
     },
     {
@@ -299,13 +328,14 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-28T00:55:51+00:00",
-  "data_bytes": 1055220,
-  "data_bytes_added": 2,
+  "last_good_at": "2026-10-28T09:23:06+00:00",
+  "data_bytes": 1054325,
+  "data_bytes_added": -790,
   "activity": {
     "boards": 9,
     "meetings_by_date": {
-      "2026-11-09": 2
+      "2026-11-09": 2,
+      "2026-11-10": 1
     }
   },
   "fact_checks": {
@@ -318,7 +348,5 @@
     "held_back": 3,
     "entries_not_shown": 6,
     "vote_counts_left_out": 0
-  },
-  "published_at": "2026-10-28T00:55:51+00:00",
-  "published_engine": "v1.68.0"
+  }
 }
