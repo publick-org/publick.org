@@ -1,46 +1,46 @@
 {
   "town": "manchester",
   "folder": "manchester-nh",
-  "started_at": "2026-10-27T09:26:08+00:00",
-  "finished_at": "2026-10-27T09:29:19+00:00",
-  "engine": "v1.66.0",
+  "started_at": "2026-10-28T09:23:08+00:00",
+  "finished_at": "2026-10-28T09:36:31+00:00",
+  "engine": "v1.68.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 94.3
+      "seconds": 730.2
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 11.9
+      "seconds": 8.7
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 54.6
+      "seconds": 52.6
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.4
+      "seconds": 10.5
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.8
+      "seconds": 0.6
     }
   ],
   "update": {
     "town": "manchester",
     "sources": "all",
-    "started_at": "2026-10-27T09:26:08+00:00",
+    "started_at": "2026-10-28T09:23:09+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 69.7,
+        "seconds": 68.8,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.2,
         "cadence": "continuous"
       },
       {
@@ -105,11 +105,29 @@
         "skipped": "no [opengov_meetings] in the config"
       },
       {
+        "name": "Fetch the city's meeting documents",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [meetingdocs_meetings] in the config"
+      },
+      {
+        "name": "Fetch the school district's minutes library",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [sharpschool_meetings] in the config"
+      },
+      {
         "name": "Summarize agendas",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 9.5,
+        "seconds": 645.8,
         "cadence": "continuous"
       },
       {
@@ -119,16 +137,15 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 27 days ago; checked every 30 days"
+        "skipped": "checked 28 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "seconds": 0.6,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch school figures",
@@ -137,7 +154,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 27 days ago; checked every 30 days"
+        "skipped": "checked 28 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -146,16 +163,15 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 27 days ago; checked every 30 days"
+        "skipped": "checked 28 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "seconds": 0.2,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch place",
@@ -195,15 +211,24 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 10.3,
+        "seconds": 10.6,
         "cadence": "continuous"
+      },
+      {
+        "name": "Fetch 311 requests from an open data portal",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [socrata_311] in the config"
       },
       {
         "name": "Compute 311 scorecard",
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 3.5,
+        "seconds": 3.2,
         "cadence": "continuous"
       }
     ]
@@ -213,21 +238,21 @@
     {
       "label": "Meetings (city calendar and CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-27T05:26:09-04:00",
+      "updated_at": "2026-10-28T05:23:09-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-10-27T05:27:29-04:00",
+      "updated_at": "2026-10-28T05:35:05-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-10-27T05:27:39-04:00",
+      "updated_at": "2026-10-28T05:35:16-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -270,7 +295,7 @@
     {
       "label": "Unemployment rate (BLS)",
       "file": "labor/unemployment.json",
-      "updated_at": "2026-10-21T06:22:20-04:00",
+      "updated_at": "2026-10-28T05:35:04-04:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
@@ -315,13 +340,12 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-28T00:56:26+00:00",
-  "data_bytes": 19088791,
-  "data_bytes_added": 15658880,
+  "last_good_at": "2026-10-28T09:36:31+00:00",
+  "data_bytes": 19105101,
+  "data_bytes_added": 15675083,
   "activity": {
     "boards": 28,
     "meetings_by_date": {
-      "2026-10-27": 2,
       "2026-10-28": 1,
       "2026-10-29": 1,
       "2026-11-05": 1,
@@ -338,7 +362,5 @@
     "held_back": 6,
     "entries_not_shown": 11,
     "vote_counts_left_out": 22
-  },
-  "published_at": "2026-10-28T00:56:26+00:00",
-  "published_engine": "v1.68.0"
+  }
 }
