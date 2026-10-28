@@ -30,7 +30,8 @@ wrangler.scheduler.toml       The Worker that starts the daily runs on time, and
 scripts/import-town.sh        Copies a town's own repository into towns/ (how the first three towns moved in)
 scripts/build_home.py         Writes the homepage's town lists, by state (each state's towns' names, linking their
                               sites), with the network's counts (from each town's data/run.json), and a page for each
-                              state with 10 or more towns, with each town's meetings this week (from 150 towns, the
+                              state with 10 or more towns, with each town's meetings this week (the homepage names 8
+                              of its towns and a "More towns" button leads to the page; from 150 towns, the
                               homepage lists only the states, and every state has a page); and the
                               network's sitemap.xml (an index of the homepage's and
                               every town's sitemaps) and robots.txt
