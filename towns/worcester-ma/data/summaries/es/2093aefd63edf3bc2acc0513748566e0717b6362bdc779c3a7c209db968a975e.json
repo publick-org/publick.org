@@ -14,7 +14,7 @@
     "Subvención Creative Experiences del Consejo Cultural de Massachusetts, $50,000 (artes, humanidades y ciencias)",
     "Subvención Early College Support del DESE, $525,000 (estudiantes de WPS que toman cursos de Early College)",
     "Subvención Early Literacy Consortium del DESE, $20,000 (enseñanza y aprendizaje de la alfabetización temprana)",
-    "Pago de año anterior de $7,900 por un aumento salarial que no se otorgó",
+    "Pago de año anterior de $7,900 por un aumento salarial omitido",
     "13 pagos de años anteriores por un total de $81,975.93",
     "Respuesta a gb 6-23 sobre la estructura actual en Claremont/Woodland St y los cambios propuestos (aprobar y archivar)",
     "Respuesta a gb 6-46 sobre la matrícula y participación de estudiantes hispanos/latinx en cursos avanzados (aprobar y archivar)",
@@ -29,17 +29,18 @@
   "kind": "agenda",
   "source_sha256": "2093aefd63edf3bc2acc0513748566e0717b6362bdc779c3a7c209db968a975e",
   "source_hash": "11a45b2ca8ea611dd6a2408a6903b2d1bbcd563587dde05990ceee619d9c2da3",
-  "check": "items 13: the translation says no where the English doesn't",
-  "review": "not reviewed: the check failed",
-  "attempts": 1,
+  "check": "ok",
+  "review": "items 1: The translation adds \"(CBA)\" after \"convenio colectivo\". The English never uses the term CBA, so the parenthetical is an addition. It should read \"convenio colectivo\" only, or just \"contrato\".",
+  "attempts": 2,
   "model": "claude-haiku-5-5",
   "prompt_version": 7,
   "glossary": "7f8b3bb0bfba9e5c",
-  "generated_at": "2026-10-27T21:24:28-04:00",
+  "generated_at": "2026-10-27T21:59:15-04:00",
   "usage": {
-    "input_tokens": 1018,
-    "output_tokens": 8095,
-    "cache_creation_input_tokens": 3129
+    "input_tokens": 2339,
+    "output_tokens": 3544,
+    "cache_read_input_tokens": 3129
   },
-  "cost": 0.00454
+  "cost": 0.010176,
+  "replaced_cost": 0.00454
 }
