@@ -7,10 +7,10 @@ search with the browser's find however many towns a state has; the page has
 no scripts (its Content-Security-Policy allows none). When a state has
 STATE_PAGE_AT towns or more, it also gets its own page (publick.org/<state>/,
 from home/state.html), with a card for each town and its meetings this week,
-linked under the state's list. Once the network has INDEX_AT towns or more,
-the homepage lists only the states, each with how many towns and a link to its
-page, and every state has a page. Only live towns are named: a town appears
-once it has a folder.
+linked beside the state's name ("This week"). Once the network has INDEX_AT
+towns or more, the homepage lists only the states, each with how many towns
+and a link to its page, and every state has a page. Only live towns are
+named: a town appears once it has a folder.
 
 The counts at the top (towns, boards followed, meetings in the next 7 days)
 come from each town's data/run.json, written by its daily run, never from its
@@ -153,11 +153,13 @@ def states_html(towns: list[dict]) -> str:
     parts = []
     for state, abbr, ts in by_state(towns):
         count = plural(len(ts), "town", "towns")
-        more = (f'\n          <p class="state-more"><a href="{abbr}/">Every {escape(state)} town, '
-                f'with its meetings this week</a></p>' if has_page(len(ts), len(towns)) else "")
+        heading = f'<h3 id="state-{abbr}">{escape(state)} <span class="count">{count}</span></h3>'
+        if has_page(len(ts), len(towns)):
+            # Beside the heading; the state's name is read out with the link, not shown.
+            heading = (f'<div class="state-head">{heading}<a href="{abbr}/">This week'
+                       f'<span class="visually-hidden"> in {escape(state)}</span></a></div>')
         parts.append(f'\n        <section class="state" aria-labelledby="state-{abbr}">\n'
-                     f'          <h3 id="state-{abbr}">{escape(state)} <span class="count">{count}</span></h3>'
-                     f'{town_list(ts, "          ")}{more}\n'
+                     f'          {heading}{town_list(ts, "          ")}\n'
                      f'        </section>')
     return "".join(parts)
 
