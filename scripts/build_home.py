@@ -6,8 +6,10 @@ linking the town's site. A list of names stays short enough to read and to
 search with the browser's find however many towns a state has; the page has
 no scripts (its Content-Security-Policy allows none). When a state has
 STATE_PAGE_AT towns or more, it also gets its own page (publick.org/<state>/,
-from home/state.html), with a card for each town and its meetings this week,
-linked beside the state's name ("This week"). Once the network has INDEX_AT
+from home/state.html), with a card for each town and its meetings this week;
+the homepage then names only SHOWN_PER_STATE of its towns, the most populous
+(the 2020 Census counts in each town's ward or precinct file), and a "More
+towns" button leads to the page. Once the network has INDEX_AT
 towns or more, the homepage lists only the states, each with how many towns
 and a link to its page, and every state has a page. Only live towns are
 named: a town appears once it has a folder.
@@ -57,6 +59,8 @@ ROOT = Path(__file__).resolve().parent.parent
 STATE_PAGE_AT = 10
 # A network with this many live towns lists only its states on the homepage, and every state gets its page.
 INDEX_AT = 150
+# The towns the homepage names for a state with its own page; the button leads to the rest.
+SHOWN_PER_STATE = 8
 # Days of coming meetings counted at the top of the homepage.
 COMING_DAYS = 7
 SITE = "https://publick.org"
@@ -74,8 +78,18 @@ def live_towns(root: Path) -> list[dict]:
         activity = json.loads(record.read_text(encoding="utf-8")).get("activity") if record.exists() else None
         towns.append({"name": site["name"], "domain": site["domain"], "url": f"https://{site['domain']}",
                       "town": town["name"], "state": town["state"], "state_abbr": town["state_abbr"].lower(),
-                      "activity": activity})
+                      "activity": activity, "population": population(config, folder)})
     return sorted(towns, key=lambda t: (t["state"], t["town"]))
+
+
+def population(config: dict, folder: Path) -> int:
+    """The town's 2020 population, the sum of its ward or precinct file's population_2020; 0 without one."""
+    name = (config.get("officials") or {}).get("wards_file") or (config.get("seeclickfix") or {}).get("precincts_file")
+    path = folder / "data" / "static" / name if name else None
+    if not path or not path.exists():
+        return 0
+    features = json.loads(path.read_text(encoding="utf-8"))["features"]
+    return sum(n for f in features if isinstance(n := f["properties"].get("population_2020"), (int, float)))
 
 
 def by_state(towns: list[dict]) -> list[tuple[str, str, list[dict]]]:
@@ -137,6 +151,12 @@ def has_page(towns_in_state: int, network_towns: int) -> bool:
     return towns_in_state >= STATE_PAGE_AT or network_towns >= INDEX_AT
 
 
+def shown_towns(towns: list[dict]) -> list[dict]:
+    """The SHOWN_PER_STATE most populous towns, in alphabetical order."""
+    largest = sorted(towns, key=lambda t: (-t["population"], t["town"]))[:SHOWN_PER_STATE]
+    return sorted(largest, key=lambda t: t["town"])
+
+
 def state_index(towns: list[dict]) -> str:
     """A large network's homepage: each state, how many towns, and a link to its page."""
     items = "".join(f'\n          <li><a href="{abbr}/"><span class="name">{escape(state)}</span> '
@@ -153,13 +173,15 @@ def states_html(towns: list[dict]) -> str:
     parts = []
     for state, abbr, ts in by_state(towns):
         count = plural(len(ts), "town", "towns")
-        heading = f'<h3 id="state-{abbr}">{escape(state)} <span class="count">{count}</span></h3>'
+        shown, more = ts, ""
         if has_page(len(ts), len(towns)):
-            # Beside the heading; the state's name is read out with the link, not shown.
-            heading = (f'<div class="state-head">{heading}<a href="{abbr}/">This week'
-                       f'<span class="visually-hidden"> in {escape(state)}</span></a></div>')
+            shown = shown_towns(ts)
+            # The state's name is read out with the button, not shown.
+            more = (f'\n          <p class="state-more"><a class="button" href="{abbr}/">More towns'
+                    f'<span class="visually-hidden"> in {escape(state)}</span></a></p>')
         parts.append(f'\n        <section class="state" aria-labelledby="state-{abbr}">\n'
-                     f'          {heading}{town_list(ts, "          ")}\n'
+                     f'          <h3 id="state-{abbr}">{escape(state)} <span class="count">{count}</span></h3>'
+                     f'{town_list(shown, "          ")}{more}\n'
                      f'        </section>')
     return "".join(parts)
 
