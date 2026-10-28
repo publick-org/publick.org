@@ -1,46 +1,46 @@
 {
   "town": "south-kingstown",
   "folder": "south-kingstown-ri",
-  "started_at": "2026-10-27T09:16:02+00:00",
-  "finished_at": "2026-10-27T09:18:36+00:00",
-  "engine": "v1.66.0",
+  "started_at": "2026-10-28T09:21:30+00:00",
+  "finished_at": "2026-10-28T09:27:06+00:00",
+  "engine": "v1.68.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 76.2
+      "seconds": 272.4
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 8.4
+      "seconds": 7.1
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 32.2
+      "seconds": 37.5
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.7
+      "seconds": 18.5
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.5
+      "seconds": 0.8
     }
   ],
   "update": {
     "town": "south-kingstown",
     "sources": "all",
-    "started_at": "2026-10-27T09:16:02+00:00",
+    "started_at": "2026-10-28T09:21:30+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 39.8,
+        "seconds": 39.5,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 4.1,
         "cadence": "continuous"
       },
       {
@@ -100,15 +100,33 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 18.9,
+        "seconds": 23.4,
         "cadence": "continuous"
+      },
+      {
+        "name": "Fetch the city's meeting documents",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [meetingdocs_meetings] in the config"
+      },
+      {
+        "name": "Fetch the school district's minutes library",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [sharpschool_meetings] in the config"
       },
       {
         "name": "Summarize agendas",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 6.2,
+        "seconds": 171.3,
         "cadence": "continuous"
       },
       {
@@ -124,8 +142,9 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.6,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -134,22 +153,23 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 14 days ago; checked every 30 days"
+        "skipped": "checked 15 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
-        "cadence": "yearly"
+        "seconds": 0,
+        "cadence": "yearly",
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 23.1,
         "cadence": "monthly"
       },
       {
@@ -190,15 +210,24 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 7.7,
+        "seconds": 8.7,
         "cadence": "continuous"
+      },
+      {
+        "name": "Fetch 311 requests from an open data portal",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [socrata_311] in the config"
       },
       {
         "name": "Compute 311 scorecard",
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 0.8,
+        "seconds": 1.4,
         "cadence": "continuous"
       }
     ]
@@ -208,28 +237,28 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-27T05:16:03-04:00",
+      "updated_at": "2026-10-28T05:21:30-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee meetings (Open Meetings portal)",
       "file": "meetings/opengov_status.json",
-      "updated_at": "2026-10-27T05:16:43-04:00",
+      "updated_at": "2026-10-28T05:22:14-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-10-27T05:17:10-04:00",
+      "updated_at": "2026-10-28T05:25:52-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-10-27T05:17:18-04:00",
+      "updated_at": "2026-10-28T05:26:01-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -272,13 +301,13 @@
     {
       "label": "Housing figures",
       "file": "housing/housing.json",
-      "updated_at": "2026-10-20T06:13:40-04:00",
+      "updated_at": "2026-10-28T05:25:29-04:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
       "stale": false,
-      "latest": "2025 building permits; August 2026 building permits; ACS 2024 5-year estimates",
-      "next": "2026 building permits usually by June 1, 2027; September 2026 building permits usually by November 1, 2026; ACS 2025 5-year estimates usually by December 15, 2026",
+      "latest": "2025 building permits; September 2026 building permits; ACS 2024 5-year estimates",
+      "next": "2026 building permits usually by June 1, 2027; October 2026 building permits usually by December 1, 2026; ACS 2025 5-year estimates usually by December 15, 2026",
       "behind": null
     },
     {
@@ -305,17 +334,17 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-28T00:57:52+00:00",
-  "data_bytes": 1728721,
-  "data_bytes_added": 346461,
+  "last_good_at": "2026-10-28T09:27:06+00:00",
+  "data_bytes": 1737148,
+  "data_bytes_added": 352492,
   "activity": {
     "boards": 21,
     "meetings_by_date": {
-      "2026-10-27": 2,
       "2026-11-03": 1,
       "2026-11-04": 2,
       "2026-11-05": 1,
-      "2026-11-09": 1
+      "2026-11-09": 1,
+      "2026-11-10": 2
     }
   },
   "fact_checks": {
@@ -328,7 +357,5 @@
     "held_back": 1,
     "entries_not_shown": 2,
     "vote_counts_left_out": 2
-  },
-  "published_at": "2026-10-28T00:57:52+00:00",
-  "published_engine": "v1.68.0"
+  }
 }
