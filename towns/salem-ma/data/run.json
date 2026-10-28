@@ -1,34 +1,34 @@
 {
   "town": "salem",
   "folder": "salem-ma",
-  "started_at": "2026-10-27T09:18:52+00:00",
-  "finished_at": "2026-10-27T09:21:48+00:00",
-  "engine": "v1.66.0",
+  "started_at": "2026-10-28T09:14:39+00:00",
+  "finished_at": "2026-10-28T09:18:45+00:00",
+  "engine": "v1.68.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 55.3
+      "seconds": 149.3
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 16.9
+      "seconds": 11.1
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 61.8
+      "seconds": 57.6
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.5
+      "seconds": 27.3
     },
     {
       "name": "Check live site",
@@ -40,7 +40,7 @@
   "update": {
     "town": "salem",
     "sources": "all",
-    "started_at": "2026-10-27T09:18:52+00:00",
+    "started_at": "2026-10-28T09:14:39+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 26.0,
+        "seconds": 31.1,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 21.1,
         "cadence": "continuous"
       },
       {
@@ -105,11 +105,29 @@
         "skipped": "no [opengov_meetings] in the config"
       },
       {
+        "name": "Fetch the city's meeting documents",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [meetingdocs_meetings] in the config"
+      },
+      {
+        "name": "Fetch the school district's minutes library",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [sharpschool_meetings] in the config"
+      },
+      {
         "name": "Summarize agendas",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 16.0,
+        "seconds": 83.2,
         "cadence": "continuous"
       },
       {
@@ -128,7 +146,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -155,7 +173,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -195,15 +213,24 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 9.2,
+        "seconds": 10.7,
         "cadence": "continuous"
+      },
+      {
+        "name": "Fetch 311 requests from an open data portal",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [socrata_311] in the config"
       },
       {
         "name": "Compute 311 scorecard",
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 2.8,
+        "seconds": 2.4,
         "cadence": "continuous"
       }
     ]
@@ -213,21 +240,21 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-27T05:18:52-04:00",
+      "updated_at": "2026-10-28T05:14:39-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-10-27T05:19:35-04:00",
+      "updated_at": "2026-10-28T05:16:55-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-10-27T05:19:44-04:00",
+      "updated_at": "2026-10-28T05:17:06-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -315,23 +342,24 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-28T00:58:51+00:00",
-  "data_bytes": 11233480,
-  "data_bytes_added": 8481647,
+  "last_good_at": "2026-10-28T09:18:45+00:00",
+  "data_bytes": 11287299,
+  "data_bytes_added": 8523243,
   "activity": {
     "boards": 55,
     "meetings_by_date": {
       "2026-10-28": 2,
       "2026-10-29": 2,
       "2026-11-02": 1,
-      "2026-11-04": 2,
-      "2026-11-05": 3,
-      "2026-11-09": 2
+      "2026-11-04": 3,
+      "2026-11-05": 4,
+      "2026-11-09": 2,
+      "2026-11-10": 3
     }
   },
   "fact_checks": {
-    "summaries": 85,
-    "ok": 77,
+    "summaries": 86,
+    "ok": 78,
     "failed": 7,
     "weak": 1,
     "unchecked": 0,
@@ -339,7 +367,5 @@
     "held_back": 7,
     "entries_not_shown": 9,
     "vote_counts_left_out": 38
-  },
-  "published_at": "2026-10-28T00:58:51+00:00",
-  "published_engine": "v1.68.0"
+  }
 }
