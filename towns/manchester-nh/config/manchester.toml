@@ -188,6 +188,19 @@ checked = "2026-10-02"
 note = "The city calendar also lists the Arts Commission on Tuesday, October 27 and Tuesday, November 24: the fourth Tuesday of the month, when the commission now meets. This Monday entry is older than those two and is most likely left over from its earlier schedule. Check with the city before going."
 evidence = "https://www.manchesternh.gov/Government/City-Calendars/ModuleID/3737/ItemID/106927/mctl/EventDetails"
 
+# The board's meetings, transcribed from their recordings for a summary the
+# day after, until the minutes come (the engine's pipeline/recordings.py).
+[recordings]
+since = "2026-10-26"
+
+# Manchester Public TV's Castus channel: the board's playlist, titled "10/20/26 Board of Mayor and Aldermen"
+# (its committees, in the same playlist, are left out).
+[[recordings.sources]]
+platform = "castus"
+channel = "manchestertv"
+playlists = ["Board of Mayor & Aldermen meetings"]
+boards = { "Board of Mayor and Aldermen" = '^\d{1,2}/\d{1,2}/\d{2,4} Board of Mayor and Aldermen$' }
+
 # How residents can take part, per board, shown on its meeting pages. Only
 # what the city or the school district has published; each entry names its
 # source. The Board of Mayor and Aldermen's is from Rule 3 of its 2026-2027

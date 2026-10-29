@@ -238,6 +238,20 @@ prefix = "portland-me"
 [summaries]
 since = "2026-07-01"
 
+# The council's meetings, transcribed from their recordings for a summary the
+# day after, until the minutes come (the engine's pipeline/recordings.py).
+[recordings]
+since = "2026-10-26"
+
+# The city's CivicClerk portal keeps each meeting's video with it: the City Council's meetings, named
+# "City Council Meeting" (its workshops in executive session are left out).
+[[recordings.sources]]
+platform = "civicclerk"
+api_url = "https://portlandme.api.civicclerk.com/v1"
+portal_url = "https://portlandme.portal.civicclerk.com"
+media_url = "https://cpmedia.azureedge.net/portlandme"
+boards = { "City Council" = '^((Virtual|Hybrid|Special|Inaugural) )*City Council Meeting\b' }
+
 # How residents can take part, per board, shown on its meeting pages. Only
 # what the city has published; each entry names its source. From the
 # Council's Rules of Procedure for 2025-2026 (Rule 32), adopted at its

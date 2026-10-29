@@ -150,6 +150,18 @@ prefix = "lowell-ma"
 [summaries]
 since = "2026-07-01"
 
+# The council's meetings, transcribed from their recordings for a summary the
+# day after, until the minutes come (the engine's pipeline/recordings.py).
+[recordings]
+since = "2026-10-26"
+
+# LTC's TelVue player: the City Council's playlist, titled "City Council - October 27, 2026".
+[[recordings.sources]]
+platform = "telvue"
+player = "4jeRlBTetCoFJdyT5ssIvBrB9VUvRN0M"
+playlists = [1757]
+boards = { "City Council" = '^City Council - ' }
+
 # How residents can take part, per board, shown on its meeting pages. From
 # the notice on each agenda; the Council's Rules (Rule 26) add a three-minute
 # limit, and that a speaker keeps to the agenda item. Both boards' meetings are
