@@ -1,8 +1,8 @@
 {
   "town": "waltham",
   "folder": "waltham-ma",
-  "started_at": "2026-10-28T09:10:11+00:00",
-  "finished_at": "2026-10-28T09:14:37+00:00",
+  "started_at": "2026-10-29T09:10:31+00:00",
+  "finished_at": "2026-10-29T09:15:18+00:00",
   "engine": "v1.68.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 215.3
+      "seconds": 210.5
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 5.5
+      "seconds": 8.3
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 27.7
+      "seconds": 43.6
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 1.9
+      "seconds": 23.8
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.5
+      "seconds": 0.8
     }
   ],
   "update": {
     "town": "waltham",
     "sources": "all",
-    "started_at": "2026-10-28T09:10:11+00:00",
+    "started_at": "2026-10-29T09:10:31+00:00",
     "ok": true,
     "steps": [
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.6,
+        "seconds": 123.0,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.0,
+        "seconds": 1.1,
         "cadence": "continuous"
       },
       {
@@ -126,7 +126,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 195.4,
+        "seconds": 46.6,
         "cadence": "continuous"
       },
       {
@@ -136,7 +136,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 14 days ago; checked every 30 days"
+        "skipped": "checked 15 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -145,7 +145,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -154,7 +154,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 14 days ago; checked every 30 days"
+        "skipped": "checked 15 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -163,14 +163,14 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 14 days ago; checked every 30 days"
+        "skipped": "checked 15 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 22.8,
         "cadence": "monthly"
       },
       {
@@ -186,7 +186,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.2,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -240,14 +240,14 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-28T05:10:12-04:00",
+      "updated_at": "2026-10-29T05:10:32-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-10-28T05:10:29-04:00",
+      "updated_at": "2026-10-29T05:12:50-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -302,13 +302,13 @@
     {
       "label": "Housing figures",
       "file": "housing/housing.json",
-      "updated_at": "2026-10-21T05:34:49-04:00",
+      "updated_at": "2026-10-29T05:13:38-04:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
       "stale": false,
-      "latest": "2025 building permits; August 2026 building permits; ACS 2024 5-year estimates; Fiscal year 2026 parcel counts",
-      "next": "2026 building permits usually by June 1, 2027; September 2026 building permits usually by November 1, 2026; ACS 2025 5-year estimates usually by December 15, 2026; Fiscal year 2027 parcel counts usually by March 1, 2027",
+      "latest": "2025 building permits; September 2026 building permits; ACS 2024 5-year estimates; Fiscal year 2026 parcel counts",
+      "next": "2026 building permits usually by June 1, 2027; October 2026 building permits usually by December 1, 2026; ACS 2025 5-year estimates usually by December 15, 2026; Fiscal year 2027 parcel counts usually by March 1, 2027",
       "behind": null
     },
     {
@@ -335,13 +335,12 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-28T09:20:46+00:00",
-  "data_bytes": 1286579,
-  "data_bytes_added": -433,
+  "last_good_at": "2026-10-29T09:15:18+00:00",
+  "data_bytes": 1349215,
+  "data_bytes_added": 35216,
   "activity": {
     "boards": 23,
     "meetings_by_date": {
-      "2026-10-28": 3,
       "2026-11-02": 1,
       "2026-11-04": 1,
       "2026-11-05": 1,
@@ -349,16 +348,14 @@
     }
   },
   "fact_checks": {
-    "summaries": 48,
+    "summaries": 49,
     "ok": 38,
-    "failed": 9,
+    "failed": 10,
     "weak": 1,
     "unchecked": 0,
     "not_yet": 0,
-    "held_back": 9,
-    "entries_not_shown": 31,
-    "vote_counts_left_out": 15
-  },
-  "published_at": "2026-10-28T09:20:46+00:00",
-  "published_engine": "v1.68.0"
+    "held_back": 10,
+    "entries_not_shown": 32,
+    "vote_counts_left_out": 18
+  }
 }
