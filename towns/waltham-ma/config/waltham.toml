@@ -237,6 +237,19 @@ prefix = "waltham-ma"
 [summaries]
 since = "2026-07-01"
 
+# The council's meetings, transcribed from their recordings for a summary the
+# day after, until the minutes come (the engine's pipeline/recordings.py).
+[recordings]
+since = "2026-10-26"
+
+# WCAC's TelVue player: the City Council's playlist, titled "City Council 10-26-26", with " Part 2" where
+# a meeting is posted in parts.
+[[recordings.sources]]
+platform = "telvue"
+player = "DczpPLv0_DQxyzqdZyE1r1a19QZz7VoL"
+playlists = [5499]
+boards = { "City Council" = '^(Special )?City Council \d' }
+
 # How residents can take part, per board, shown on its meeting pages. The
 # council's dockets name no public comment period; its minutes show residents
 # heard at its public hearings (the City Clerk reads the notice, then those in

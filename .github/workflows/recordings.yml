@@ -1,0 +1,143 @@
+# Meetings' recordings: each town with a [recordings] table has its new
+# recordings found on its video platform, matched to their meetings, and
+# transcribed by Whisper (the engine's pipeline/fetch_recordings.py), so the
+# daily run (network.yml) can summarize a meeting from what was said, the day
+# after, until its minutes come.
+#
+# Transcribing takes about an hour for a three-hour meeting, too long for the
+# daily run's jobs, so it runs here, a job a town. A job writes only the
+# town's data/meetings/recordings.json and recordings_status.json, which no
+# other run writes, so its commit never conflicts with the daily run's; the
+# audio and transcripts go in the documents bucket.
+#
+# Most recordings are up the night of the meeting or the next morning. The
+# runs from early morning (US Eastern) find them, and the later ones find
+# those posted during the day.
+name: Recordings
+
+on:
+  schedule:
+    - cron: "23 5,7,9,13,17 * * *"
+  workflow_dispatch:
+    inputs:
+      towns:
+        description: Town folders, comma-separated (empty for every town with [recordings])
+        type: string
+        default: ""
+      hours:
+        description: Hours a town's job may spend transcribing; a recording that wouldn't fit waits for the next run
+        type: string
+        default: "4"
+      find_only:
+        description: Find and match recordings, but transcribe none
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      towns: ${{ steps.towns.outputs.towns }}
+      engine: ${{ steps.towns.outputs.engine }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          filter: blob:none
+          # Patterns, not folders: every town's config folder.
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            towns/*/config/
+            /engine-version
+
+      - id: towns
+        env:
+          ASKED: ${{ inputs.towns }}
+        run: |
+          python3 - <<'EOF'
+          import glob, json, os, tomllib
+          asked = {t.strip() for t in os.environ.get("ASKED", "").split(",") if t.strip()}
+          towns = sorted(path.split("/")[1] for path in glob.glob("towns/*/config/*.toml")
+                         if "recordings" in tomllib.load(open(path, "rb")))
+          if asked:
+              unknown = asked - set(towns)
+              if unknown:
+                  raise SystemExit(f"No [recordings] for: {', '.join(sorted(unknown))}")
+              towns = sorted(asked)
+          with open(os.environ["GITHUB_OUTPUT"], "a") as out:
+              out.write(f"towns={json.dumps(towns)}\n")
+              out.write(f"engine={open('engine-version').read().strip()}\n")
+          print("Towns:", ", ".join(towns) or "none")
+          EOF
+
+  town:
+    needs: plan
+    if: needs.plan.outputs.towns != '[]'
+    name: ${{ matrix.town }}
+    runs-on: ubuntu-latest
+    # The job's own hours, and the time to read the recordings and save what was made.
+    timeout-minutes: 330
+    permissions:
+      contents: write
+    strategy:
+      fail-fast: false
+      matrix:
+        town: ${{ fromJSON(needs.plan.outputs.towns) }}
+    # One run a town at a time: a later run waits, and doesn't transcribe what this one is transcribing.
+    concurrency:
+      group: recordings-${{ matrix.town }}
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          filter: blob:none
+          sparse-checkout: |
+            .github
+            defaults
+            towns/${{ matrix.town }}
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          repository: publick-org/publick-engine
+          ref: ${{ needs.plan.outputs.engine }}
+          path: .publick-engine
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: .publick-engine/requirements*.txt
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q ffmpeg
+          pip install -r .publick-engine/requirements.txt -r .publick-engine/requirements-recordings.txt
+
+      - name: Find and transcribe recordings
+        env:
+          FOLDER: ${{ matrix.town }}
+          HOURS: ${{ inputs.hours || '4' }}
+          FIND_ONLY: ${{ inputs.find_only && '--find-only' || '' }}
+          STORAGE_ACCESS_KEY_ID: ${{ secrets.STORAGE_ACCESS_KEY_ID }}
+          STORAGE_SECRET_ACCESS_KEY: ${{ secrets.STORAGE_SECRET_ACCESS_KEY }}
+        # The town's folder, and the network's shared settings, as the daily run gives them (the engine's network.py).
+        run: |
+          export PUBLICK_TOWN_DIR="$GITHUB_WORKSPACE/towns/$FOLDER" PUBLICK_NETWORK_DIR="$GITHUB_WORKSPACE"
+          slug=$(basename "$PUBLICK_TOWN_DIR"/config/*.toml .toml)
+          cd .publick-engine
+          python -m pipeline.fetch_recordings --town "$slug" --hours "$HOURS" $FIND_ONLY
+
+      # What was finished is kept even when the step failed partway.
+      - name: Commit what was found and transcribed
+        if: ${{ !cancelled() }}
+        env:
+          FOLDER: ${{ matrix.town }}
+          COMMIT_ATTEMPTS: 10
+        run: |
+          .publick-engine/.github/scripts/commit-data.sh "Update recordings for $FOLDER" \
+            "towns/$FOLDER/data/meetings/recordings.json" "towns/$FOLDER/data/meetings/recordings_status.json"

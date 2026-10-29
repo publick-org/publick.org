@@ -224,6 +224,18 @@ prefix = "salem-ma"
 [summaries]
 since = "2026-07-01"
 
+# The council's meetings, transcribed from their recordings for a summary the
+# day after, until the minutes come (the engine's pipeline/recordings.py).
+[recordings]
+since = "2026-10-26"
+
+# SATV's Cablecast (plain HTTP only): its Government shows, titled "City Council Regular Meeting 10-22-26".
+[[recordings.sources]]
+platform = "cablecast"
+host = "http://cc.satvonline.org"
+categories = [44]
+boards = { "City Council" = '^(Salem )?City Council (Regular |Special )?Meeting \d' }
+
 # How residents can take part, from each board's own agendas. The council's
 # Rules for Testimony (Sec. 26C in the city's Manual of the City Government)
 # say the same. Council meetings are on S.A.T.V. Channel 22 and Zoom; no
