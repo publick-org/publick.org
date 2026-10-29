@@ -41,17 +41,18 @@
   "source_sha256": "8f5ed93f8058a8e8ceef489d68e0fd2c7a6b183e7b9461b59518b1b1b0e57f02",
   "source_hash": "0d7cd5803684cb4cd6fb0c47ced342e3b8e1f72e17606840fb3c1ff72a7c10de",
   "check": "decisions 5: Airport not in the translation",
-  "review": "not reviewed: the check failed",
+  "review": "summary: The translation says \"La Junta de Concejales\", but the English only says \"The board\". It also leaves \"tabled\" in English in parentheses; the glossary gives \"pospuesto (tabled)\", so that part is fine. The added board name is the error: the English never calls it a board of aldermen or councilors.",
   "attempts": 2,
   "model": "claude-haiku-5-5",
   "prompt_version": 7,
   "glossary": "6b5af23a628fa469",
-  "generated_at": "2026-10-28T05:22:08-04:00",
+  "generated_at": "2026-10-29T05:20:03-04:00",
   "usage": {
     "input_tokens": 4504,
     "output_tokens": 4475,
     "cache_read_input_tokens": 2765
   },
-  "cost": 0.002716,
-  "replaced_cost": 0.102962
+  "cost": 0.013155,
+  "review_retries": 1,
+  "replaced_cost": 0.105678
 }
