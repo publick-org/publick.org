@@ -41,7 +41,7 @@
     "Archivó la comunicación sobre el informe del Departamento de Justicia de EE. UU. sobre el Departamento de Policía de Worcester, 8 a favor y 2 en contra.",
     "Rechazó la moción de Bergman, concejal, para reconsiderar el tema, 10 a favor y 0 en contra.",
     "Aprobó la orden que pide a la oficina de Transporte y Movilidad coordinar avisos a los estudiantes sobre medidas de seguridad peatonal cerca de las escuelas, 11 a favor y 0 en contra.",
-    "Aprobó la orden que pide una copia del plan estratégico del Grupo de Trabajo de Rutas Seguras a la Escuela, 11 a favor y 0 en contra.",
+    "Aprobó la orden que pide una copia del plan estratégico del Safe Routes to School Taskforce, 11 a favor y 0 en contra.",
     "Aprobó la orden que pide a la oficina de Transporte y Movilidad considerar un sistema de luces híbridas cerca de Chandler Elementary Community School, 11 a favor y 0 en contra.",
     "Aprobó la orden para un informe de estacionamiento en Roosevelt Elementary School y Rice Square Elementary School (Petty), 11 a favor y 0 en contra.",
     "Remitió al Comité de Operaciones Municipales y Legislativas la orden para revisar la Regla Cinco de las reglas del Concejo Municipal sobre convocar reuniones especiales, 8 a favor y 3 en contra.",
@@ -55,17 +55,18 @@
   "kind": "minutes",
   "source_sha256": "2970acf0ad14f74e5f34740118e53ad443465ba5c0847e875d7dcf33d22396c7",
   "source_hash": "3685096a519ba704bbaceb2d79a56dd5a2836add33584390c7600d1375e61fa0",
-  "check": "decisions 40: Taskforce not in the translation",
-  "review": "not reviewed: the check failed",
-  "attempts": 1,
+  "check": "ok",
+  "review": "decisions 48: 'Held ... under privilege' se tradujo como 'Retuvo, bajo privilegio', que es una traducción literal poco clara y puede confundir a los lectores; el sentido procedimental (la moción se mantuvo bajo el privilegio de un concejal para volver a tratarla) no se transmite.",
+  "attempts": 2,
   "model": "claude-haiku-5-5",
   "prompt_version": 7,
   "glossary": "7f8b3bb0bfba9e5c",
-  "generated_at": "2026-10-27T22:07:59-04:00",
+  "generated_at": "2026-10-29T05:11:27-04:00",
   "usage": {
-    "input_tokens": 2843,
-    "output_tokens": 14401,
+    "input_tokens": 6478,
+    "output_tokens": 5680,
     "cache_read_input_tokens": 3133
   },
-  "cost": 0.007516
+  "cost": 0.02281,
+  "replaced_cost": 0.007516
 }
