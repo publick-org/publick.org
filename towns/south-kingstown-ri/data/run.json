@@ -1,8 +1,8 @@
 {
   "town": "south-kingstown",
   "folder": "south-kingstown-ri",
-  "started_at": "2026-10-28T09:21:30+00:00",
-  "finished_at": "2026-10-28T09:27:06+00:00",
+  "started_at": "2026-10-29T09:25:21+00:00",
+  "finished_at": "2026-10-29T09:28:26+00:00",
   "engine": "v1.68.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 272.4
+      "seconds": 111.9
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 7.4
+      "seconds": 8.8
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 37.9
+      "seconds": 48.7
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 6.7
+      "seconds": 13.8
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 1.4
+      "seconds": 0.9
     }
   ],
   "update": {
     "town": "south-kingstown",
     "sources": "all",
-    "started_at": "2026-10-28T09:21:30+00:00",
+    "started_at": "2026-10-29T09:25:21+00:00",
     "ok": true,
     "steps": [
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 4.1,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -100,7 +100,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 23.4,
+        "seconds": 16.2,
         "cadence": "continuous"
       },
       {
@@ -126,7 +126,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 171.3,
+        "seconds": 36.1,
         "cadence": "continuous"
       },
       {
@@ -144,7 +144,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -153,7 +153,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 15 days ago; checked every 30 days"
+        "skipped": "checked 16 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -162,15 +162,16 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 23.1,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -210,7 +211,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 8.7,
+        "seconds": 17.6,
         "cadence": "continuous"
       },
       {
@@ -227,7 +228,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 1.4,
+        "seconds": 0.9,
         "cadence": "continuous"
       }
     ]
@@ -237,28 +238,28 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-28T05:21:30-04:00",
+      "updated_at": "2026-10-29T05:25:22-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee meetings (Open Meetings portal)",
       "file": "meetings/opengov_status.json",
-      "updated_at": "2026-10-28T05:22:14-04:00",
+      "updated_at": "2026-10-29T05:26:02-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-10-28T05:25:52-04:00",
+      "updated_at": "2026-10-29T05:26:55-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-10-28T05:26:01-04:00",
+      "updated_at": "2026-10-29T05:27:12-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -334,9 +335,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-28T09:37:02+00:00",
-  "data_bytes": 1737148,
-  "data_bytes_added": 352492,
+  "last_good_at": "2026-10-29T09:28:26+00:00",
+  "data_bytes": 1822538,
+  "data_bytes_added": 347684,
   "activity": {
     "boards": 21,
     "meetings_by_date": {
@@ -348,8 +349,8 @@
     }
   },
   "fact_checks": {
-    "summaries": 52,
-    "ok": 50,
+    "summaries": 56,
+    "ok": 54,
     "failed": 1,
     "weak": 1,
     "unchecked": 0,
@@ -357,7 +358,5 @@
     "held_back": 1,
     "entries_not_shown": 2,
     "vote_counts_left_out": 2
-  },
-  "published_at": "2026-10-28T09:37:02+00:00",
-  "published_engine": "v1.68.0"
+  }
 }
