@@ -1,46 +1,46 @@
 {
   "town": "lewiston",
   "folder": "lewiston-me",
-  "started_at": "2026-10-29T09:21:36+00:00",
-  "finished_at": "2026-10-29T09:25:19+00:00",
-  "engine": "v1.68.0",
+  "started_at": "2026-10-30T09:22:38+00:00",
+  "finished_at": "2026-10-30T09:25:38+00:00",
+  "engine": "v1.69.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 176.7
+      "seconds": 137.0
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 8.4
+      "seconds": 5.9
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 36.2
+      "seconds": 34.5
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 11.9
+      "seconds": 2.3
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.9
+      "seconds": 0.6
     }
   ],
   "update": {
     "town": "lewiston",
     "sources": "all",
-    "started_at": "2026-10-29T09:21:36+00:00",
+    "started_at": "2026-10-30T09:22:38+00:00",
     "ok": true,
     "steps": [
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.2,
+        "seconds": 1.0,
         "cadence": "continuous"
       },
       {
@@ -64,7 +64,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 32.8,
+        "seconds": 38.5,
         "cadence": "continuous"
       },
       {
@@ -126,7 +126,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 66.1,
+        "seconds": 20.9,
         "cadence": "continuous"
       },
       {
@@ -136,7 +136,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 2 days ago; checked every 7 days"
+        "skipped": "checked 3 days ago; checked every 7 days"
       },
       {
         "name": "Fetch unemployment",
@@ -145,7 +145,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 2 days ago; checked every 7 days"
+        "skipped": "checked 3 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -154,7 +154,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 23 days ago; checked every 30 days"
+        "skipped": "checked 24 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -163,7 +163,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 2 days ago; checked every 7 days"
+        "skipped": "checked 3 days ago; checked every 7 days"
       },
       {
         "name": "Fetch housing figures",
@@ -172,7 +172,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -241,7 +241,7 @@
     {
       "label": "Meetings (city calendar)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-29T05:21:37-04:00",
+      "updated_at": "2026-10-30T05:22:38-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -329,12 +329,13 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-30T08:59:07+00:00",
-  "data_bytes": 1054012,
-  "data_bytes_added": -1180,
+  "last_good_at": "2026-10-30T09:25:38+00:00",
+  "data_bytes": 1057355,
+  "data_bytes_added": 3204,
   "activity": {
     "boards": 9,
     "meetings_by_date": {
+      "2026-11-02": 1,
       "2026-11-09": 2,
       "2026-11-10": 1
     }
@@ -349,7 +350,5 @@
     "held_back": 3,
     "entries_not_shown": 6,
     "vote_counts_left_out": 0
-  },
-  "published_at": "2026-10-30T08:59:07+00:00",
-  "published_engine": "v1.69.0"
+  }
 }
