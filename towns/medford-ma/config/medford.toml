@@ -195,6 +195,19 @@ prefix = "medford-ma"
 [summaries]
 since = "2026-07-01"
 
+# The council's meetings, transcribed from their recordings for a summary the
+# day after, until the minutes come (the engine's pipeline/recordings.py).
+[recordings]
+since = "2026-10-26"
+
+# Medford Community Media's Castus channel: the City Council's playlist, titled "City Council 10/27/26"
+# (its committees and ward meetings, in the same playlist, are left out).
+[[recordings.sources]]
+platform = "castus"
+channel = "medford"
+playlists = ["Medford City Council"]
+boards = { "City Council" = '^City Council( Special Meeting)? \d' }
+
 # The Council's Rules (last updated September 1, 2022), Rule 16; its agendas
 # give the Zoom link and the address for written comments (agenda of October
 # 13, 2026). Meetings are carried live by Medford Community Media.
@@ -203,7 +216,7 @@ comment = "Residents, petitioners and other interested parties can speak once on
 source_title = "Rules of the City Council"
 source_url = "https://www.medfordma.org/fs/resource-manager/view/2eca57b2-a02a-4fe9-a5a1-e06c1bf1c36f"
 video_title = "Medford Community Media"
-video_url = "https://medford.vod.castus.tv/vod/?nav=programs%2FMedford%20City%20Council"
+video_url = "https://cloud.castus.tv/vod/#/medford"
 
 # Policy BEDH, as each regular meeting's agenda quotes it (agenda of October
 # 19, 2026), and the School Committee page's Community Participation section.

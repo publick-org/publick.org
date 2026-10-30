@@ -237,6 +237,19 @@ prefix = "methuen-ma"
 [summaries]
 since = "2026-07-01"
 
+# The council's meetings, transcribed from their recordings for a summary the
+# day after, until the minutes come (the engine's pipeline/recordings.py).
+[recordings]
+since = "2026-10-26"
+
+# Methuen Community Studios' Cablecast: the City Council's project, titled "City Council Meeting - October
+# 19, 2026" (a joint hearing or budget workshop is left out).
+[[recordings.sources]]
+platform = "cablecast"
+host = "https://methuentv.cablecast.tv"
+projects = [157]
+boards = { "City Council" = '^City Council (Regular |Special )?Meeting\b' }
+
 # How residents can take part, per board, shown on its meeting pages. From
 # Rule XI of the council's Rules and Procedures (as amended February 5, 2024,
 # the version the council's page links). The council's meetings are broadcast
