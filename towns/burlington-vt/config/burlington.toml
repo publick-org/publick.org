@@ -257,6 +257,18 @@ prefix = "burlington-vt"
 [summaries]
 since = "2026-07-01"
 
+# The council's meetings, transcribed from their recordings for a summary the
+# day after, until the minutes come (the engine's pipeline/recordings.py).
+[recordings]
+since = "2026-10-26"
+
+# Town Meeting TV's copies on the Internet Archive, titled "Burlington City Council - 10/26/2026", a few
+# days after the meeting.
+[[recordings.sources]]
+platform = "internet_archive"
+collection = "cctvvt"
+boards = { "City Council" = '^Burlington City Council\s*-' }
+
 # How residents can take part, per board, shown on its meeting pages. Only
 # what the city has published; each entry names its source.
 [participation."City Council"]

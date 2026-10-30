@@ -161,6 +161,18 @@ prefix = "beverly-ma"
 [summaries]
 # The network's settings (defaults/network.toml), with no `since`: every meeting is summarized.
 
+# The council's meetings, transcribed from their recordings for a summary the
+# day after, until the minutes come (the engine's pipeline/recordings.py).
+[recordings]
+since = "2026-10-26"
+
+# BevCam's Cablecast: the City Council's project, titled "City Council: 10-19-2026".
+[[recordings.sources]]
+platform = "cablecast"
+host = "https://bevcam.cablecast.tv"
+projects = [119]
+boards = { "City Council" = '^(Beverly )?City Council( Special Meeting| \([^)]*\))?:? ?\d' }
+
 # How residents can take part, per board, shown on its meeting pages. Only
 # what the city and the school district have published; each entry names its
 # source. The Council's comment rules are Appendix A of its Rules and Orders.
