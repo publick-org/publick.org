@@ -380,6 +380,12 @@ members = [
 [recordings]
 since = "2026-10-26"
 
+# The videos the meetings link on CivicClerk (each event's externalMediaUrl): matched to the meeting that links
+# them, with no title pattern. The channel below finds what a meeting doesn't link.
+[[recordings.sources]]
+platform = "youtube"
+boards = ["City Council", "City Council Hearings"]
+
 # The city's channel: the City Council's meetings, titled "Springfield City Council 10/19/2026 Public Speak Out & Regular Meeting"
 # (committee meetings, titled "Springfield City Council | ...", are left out).
 [[recordings.sources]]
