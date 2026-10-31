@@ -1,46 +1,46 @@
 {
   "town": "south-kingstown",
   "folder": "south-kingstown-ri",
-  "started_at": "2026-10-31T09:27:03+00:00",
-  "finished_at": "2026-10-31T09:30:26+00:00",
-  "engine": "v1.70.0",
+  "started_at": "2026-10-31T18:22:11+00:00",
+  "finished_at": "2026-10-31T18:24:27+00:00",
+  "engine": "v1.73.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 128.2
+      "seconds": 68.9
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 11.4
+      "seconds": 9.9
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 53.5
+      "seconds": 54.7
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.0
+      "seconds": 1.6
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.5
+      "seconds": 0.6
     }
   ],
   "update": {
     "town": "south-kingstown",
-    "sources": "all",
-    "started_at": "2026-10-31T09:27:03+00:00",
+    "sources": "meetings",
+    "started_at": "2026-10-31T18:22:11+00:00",
     "ok": true,
     "steps": [
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -100,7 +100,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 26.6,
+        "seconds": 19.3,
         "cadence": "continuous"
       },
       {
@@ -126,7 +126,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 52.1,
+        "seconds": 8.2,
         "cadence": "continuous"
       },
       {
@@ -205,31 +205,6 @@
         "error": null,
         "seconds": 0.2,
         "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 7.8,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests from an open data portal",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [socrata_311] in the config"
-      },
-      {
-        "name": "Compute 311 scorecard",
-        "ok": true,
-        "required": true,
-        "error": null,
-        "seconds": 0.9,
-        "cadence": "continuous"
       }
     ]
   },
@@ -238,14 +213,14 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-31T05:27:03-04:00",
+      "updated_at": "2026-10-31T14:22:12-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee meetings (Open Meetings portal)",
       "file": "meetings/opengov_status.json",
-      "updated_at": "2026-10-31T05:27:43-04:00",
+      "updated_at": "2026-10-31T14:22:52-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -335,9 +310,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-31T17:11:37+00:00",
-  "data_bytes": 1882512,
-  "data_bytes_added": 351798,
+  "last_good_at": "2026-10-31T18:24:27+00:00",
+  "data_bytes": 1888984,
+  "data_bytes_added": 351799,
   "activity": {
     "boards": 21,
     "meetings_by_date": {
@@ -351,8 +326,8 @@
     }
   },
   "fact_checks": {
-    "summaries": 61,
-    "ok": 59,
+    "summaries": 62,
+    "ok": 60,
     "failed": 1,
     "weak": 1,
     "unchecked": 0,
@@ -360,7 +335,5 @@
     "held_back": 1,
     "entries_not_shown": 2,
     "vote_counts_left_out": 5
-  },
-  "published_at": "2026-10-31T17:11:37+00:00",
-  "published_engine": "v1.73.0"
+  }
 }
