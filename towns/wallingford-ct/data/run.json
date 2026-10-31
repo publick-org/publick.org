@@ -1,46 +1,46 @@
 {
   "town": "wallingford",
   "folder": "wallingford-ct",
-  "started_at": "2026-10-31T19:44:25+00:00",
-  "finished_at": "2026-10-31T19:50:23+00:00",
-  "engine": "v1.75.0",
+  "started_at": "2026-10-31T22:26:01+00:00",
+  "finished_at": "2026-10-31T22:29:03+00:00",
+  "engine": "v1.77.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 304.8
+      "seconds": 129.0
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 10.4
+      "seconds": 8.2
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 37.8
+      "seconds": 40.7
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 5.7
+      "seconds": 2.6
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.6
+      "seconds": 0.9
     }
   ],
   "update": {
     "town": "wallingford",
     "sources": "meetings",
-    "started_at": "2026-10-31T19:44:25+00:00",
+    "started_at": "2026-10-31T22:26:02+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 9.7,
+        "seconds": 8.2,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -73,7 +73,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 40.0,
+        "seconds": 41.2,
         "cadence": "continuous"
       },
       {
@@ -126,7 +126,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 253.5,
+        "seconds": 78.0,
         "cadence": "continuous"
       },
       {
@@ -214,14 +214,14 @@
     {
       "label": "Meetings (town website)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-31T15:44:26-04:00",
+      "updated_at": "2026-10-31T18:26:02-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Board of Education meetings (school district website)",
       "file": "meetings/finalsite_status.json",
-      "updated_at": "2026-10-31T15:44:36-04:00",
+      "updated_at": "2026-10-31T18:26:11-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -309,9 +309,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-31T22:13:43+00:00",
-  "data_bytes": 1560233,
-  "data_bytes_added": 2644,
+  "last_good_at": "2026-10-31T22:29:03+00:00",
+  "data_bytes": 1559087,
+  "data_bytes_added": -1207,
   "activity": {
     "boards": 26,
     "meetings_by_date": {
@@ -335,7 +335,5 @@
     "held_back": 8,
     "entries_not_shown": 23,
     "vote_counts_left_out": 66
-  },
-  "published_at": "2026-10-31T22:13:43+00:00",
-  "published_engine": "v1.77.0"
+  }
 }
