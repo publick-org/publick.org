@@ -1,46 +1,46 @@
 {
   "town": "beverly",
   "folder": "beverly-ma",
-  "started_at": "2026-10-31T18:14:21+00:00",
-  "finished_at": "2026-10-31T18:16:58+00:00",
-  "engine": "v1.73.0",
+  "started_at": "2026-10-31T19:34:37+00:00",
+  "finished_at": "2026-10-31T19:37:23+00:00",
+  "engine": "v1.75.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 82.5
+      "seconds": 91.7
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 19.0
+      "seconds": 19.9
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 48.8
+      "seconds": 51.8
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 20.1
+      "seconds": 1.8
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 1.1
+      "seconds": 0.7
     }
   ],
   "update": {
     "town": "beverly",
     "sources": "meetings",
-    "started_at": "2026-10-31T18:14:21+00:00",
+    "started_at": "2026-10-31T19:34:37+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 16.6,
+        "seconds": 16.7,
         "cadence": "continuous"
       },
       {
@@ -127,7 +127,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 62.6,
+        "seconds": 73.2,
         "cadence": "continuous"
       },
       {
@@ -135,8 +135,9 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
-        "cadence": "yearly"
+        "seconds": 0,
+        "cadence": "yearly",
+        "skipped": "checked 0 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -152,16 +153,18 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
-        "cadence": "yearly"
+        "seconds": 0,
+        "cadence": "yearly",
+        "skipped": "checked 0 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
-        "cadence": "yearly"
+        "seconds": 0,
+        "cadence": "yearly",
+        "skipped": "checked 0 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -212,7 +215,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-31T14:14:22-04:00",
+      "updated_at": "2026-10-31T15:34:38-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -300,9 +303,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-31T19:25:15+00:00",
-  "data_bytes": 3477513,
-  "data_bytes_added": 1277,
+  "last_good_at": "2026-10-31T19:37:23+00:00",
+  "data_bytes": 3477969,
+  "data_bytes_added": 1557,
   "activity": {
     "boards": 60,
     "meetings_by_date": {
@@ -321,7 +324,5 @@
     "held_back": 0,
     "entries_not_shown": 0,
     "vote_counts_left_out": 0
-  },
-  "published_at": "2026-10-31T19:25:15+00:00",
-  "published_engine": "v1.75.0"
+  }
 }
