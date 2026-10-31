@@ -1,46 +1,46 @@
 {
   "town": "bangor",
   "folder": "bangor-me",
-  "started_at": "2026-10-31T18:14:22+00:00",
-  "finished_at": "2026-10-31T18:16:30+00:00",
-  "engine": "v1.73.0",
+  "started_at": "2026-10-31T19:34:37+00:00",
+  "finished_at": "2026-10-31T19:40:32+00:00",
+  "engine": "v1.75.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 54.7
+      "seconds": 285.2
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 13.5
+      "seconds": 10.9
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 69.1
+      "seconds": 54.1
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 17.7
+      "seconds": 2.5
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 1.2
+      "seconds": 1.0
     }
   ],
   "update": {
     "town": "bangor",
     "sources": "meetings",
-    "started_at": "2026-10-31T18:14:23+00:00",
+    "started_at": "2026-10-31T19:34:38+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 34.3,
+        "seconds": 16.0,
         "cadence": "continuous"
       },
       {
@@ -127,7 +127,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 18.3,
+        "seconds": 267.4,
         "cadence": "continuous"
       },
       {
@@ -154,7 +154,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 25 days ago; checked every 30 days"
+        "skipped": "checked 26 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -187,7 +187,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.2,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -204,7 +204,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.2,
+        "seconds": 0.3,
         "cadence": "continuous"
       }
     ]
@@ -214,7 +214,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-31T14:14:23-04:00",
+      "updated_at": "2026-10-31T15:34:38-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -304,9 +304,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-31T19:25:28+00:00",
-  "data_bytes": 3674131,
-  "data_bytes_added": 1794837,
+  "last_good_at": "2026-10-31T19:40:32+00:00",
+  "data_bytes": 3693194,
+  "data_bytes_added": 1789443,
   "activity": {
     "boards": 32,
     "meetings_by_date": {
@@ -319,16 +319,14 @@
     }
   },
   "fact_checks": {
-    "summaries": 49,
-    "ok": 39,
+    "summaries": 52,
+    "ok": 42,
     "failed": 9,
     "weak": 1,
     "unchecked": 0,
     "not_yet": 0,
     "held_back": 9,
-    "entries_not_shown": 27,
-    "vote_counts_left_out": 14
-  },
-  "published_at": "2026-10-31T19:25:28+00:00",
-  "published_engine": "v1.75.0"
+    "entries_not_shown": 26,
+    "vote_counts_left_out": 19
+  }
 }
