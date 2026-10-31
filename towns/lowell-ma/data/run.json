@@ -1,54 +1,54 @@
 {
   "town": "lowell",
   "folder": "lowell-ma",
-  "started_at": "2026-10-30T09:16:19+00:00",
-  "finished_at": "2026-10-30T09:17:45+00:00",
-  "engine": "v1.69.0",
+  "started_at": "2026-10-31T09:10:07+00:00",
+  "finished_at": "2026-10-31T09:19:58+00:00",
+  "engine": "v1.70.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 31.7
+      "seconds": 532.0
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 11.6
+      "seconds": 11.1
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 50.5
+      "seconds": 45.1
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 19.2
+      "seconds": 1.9
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.8
+      "seconds": 0.7
     }
   ],
   "update": {
     "town": "lowell",
     "sources": "all",
-    "started_at": "2026-10-30T09:16:20+00:00",
+    "started_at": "2026-10-31T09:10:07+00:00",
     "ok": true,
     "steps": [
       {
         "name": "Fetch meetings",
-        "ok": true,
+        "ok": false,
         "required": false,
-        "error": null,
-        "seconds": 16.0,
+        "error": "exited with status 1",
+        "seconds": 250.9,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 5.5,
+        "seconds": 250.7,
         "cadence": "continuous"
       },
       {
@@ -127,7 +127,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 9.2,
+        "seconds": 29.1,
         "cadence": "continuous"
       },
       {
@@ -137,7 +137,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 17 days ago; checked every 30 days"
+        "skipped": "checked 18 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -155,7 +155,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 17 days ago; checked every 30 days"
+        "skipped": "checked 18 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -164,7 +164,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 17 days ago; checked every 30 days"
+        "skipped": "checked 18 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -330,9 +330,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-31T08:56:02+00:00",
-  "data_bytes": 2350055,
-  "data_bytes_added": 7919,
+  "last_good_at": "2026-10-31T09:19:58+00:00",
+  "data_bytes": 2377009,
+  "data_bytes_added": 1382,
   "activity": {
     "boards": 40,
     "meetings_by_date": {
@@ -342,8 +342,8 @@
     }
   },
   "fact_checks": {
-    "summaries": 91,
-    "ok": 73,
+    "summaries": 95,
+    "ok": 77,
     "failed": 15,
     "weak": 3,
     "unchecked": 0,
@@ -351,7 +351,5 @@
     "held_back": 15,
     "entries_not_shown": 61,
     "vote_counts_left_out": 116
-  },
-  "published_at": "2026-10-31T08:56:02+00:00",
-  "published_engine": "v1.70.0"
+  }
 }
