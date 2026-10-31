@@ -1,34 +1,34 @@
 {
   "town": "lawrence",
   "folder": "lawrence-ma",
-  "started_at": "2026-10-31T19:34:38+00:00",
-  "finished_at": "2026-10-31T19:37:17+00:00",
-  "engine": "v1.75.0",
+  "started_at": "2026-10-31T22:21:21+00:00",
+  "finished_at": "2026-10-31T22:23:50+00:00",
+  "engine": "v1.77.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 103.3
+      "seconds": 94.8
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 10.3
+      "seconds": 8.7
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 42.6
+      "seconds": 43.1
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 14.9
+      "seconds": 1.6
     },
     {
       "name": "Check live site",
@@ -40,7 +40,7 @@
   "update": {
     "town": "lawrence",
     "sources": "meetings",
-    "started_at": "2026-10-31T19:34:39+00:00",
+    "started_at": "2026-10-31T22:21:21+00:00",
     "ok": true,
     "steps": [
       {
@@ -127,7 +127,7 @@
         "ok": false,
         "required": false,
         "error": "exited with status 1",
-        "seconds": 85.2,
+        "seconds": 75.5,
         "cadence": "continuous"
       },
       {
@@ -135,9 +135,8 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "yearly",
-        "skipped": "checked 29 days ago; checked every 30 days"
+        "seconds": 0.4,
+        "cadence": "yearly"
       },
       {
         "name": "Fetch unemployment",
@@ -153,18 +152,16 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "yearly",
-        "skipped": "checked 29 days ago; checked every 30 days"
+        "seconds": 0.4,
+        "cadence": "yearly"
       },
       {
         "name": "Fetch budget figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "yearly",
-        "skipped": "checked 29 days ago; checked every 30 days"
+        "seconds": 0.5,
+        "cadence": "yearly"
       },
       {
         "name": "Fetch housing figures",
@@ -215,14 +212,14 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-31T15:34:39-04:00",
+      "updated_at": "2026-10-31T18:21:22-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Average tax bill (Mass. DLS)",
       "file": "finance/tax_bill.json",
-      "updated_at": "2026-10-01T22:44:53-04:00",
+      "updated_at": "2026-10-31T18:22:54-04:00",
       "max_days": null,
       "cadence": "yearly",
       "failing": 0,
@@ -234,7 +231,7 @@
     {
       "label": "City budget (Mass. DLS)",
       "file": "finance/budget.json",
-      "updated_at": "2026-10-01T22:44:57-04:00",
+      "updated_at": "2026-10-31T18:22:55-04:00",
       "max_days": null,
       "cadence": "yearly",
       "failing": 0,
@@ -246,7 +243,7 @@
     {
       "label": "School figures (DESE)",
       "file": "schools/schools.json",
-      "updated_at": "2026-10-01T22:44:54-04:00",
+      "updated_at": "2026-10-31T18:22:54-04:00",
       "max_days": null,
       "cadence": "yearly",
       "failing": 0,
@@ -303,9 +300,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-31T22:11:26+00:00",
-  "data_bytes": 1051821,
-  "data_bytes_added": 87,
+  "last_good_at": "2026-10-31T22:23:50+00:00",
+  "data_bytes": 1051841,
+  "data_bytes_added": 2,
   "activity": {
     "boards": 33,
     "meetings_by_date": {
@@ -322,7 +319,5 @@
     "held_back": 2,
     "entries_not_shown": 2,
     "vote_counts_left_out": 3
-  },
-  "published_at": "2026-10-31T22:11:26+00:00",
-  "published_engine": "v1.77.0"
+  }
 }
