@@ -1,46 +1,46 @@
 {
   "town": "portland",
   "folder": "portland-me",
-  "started_at": "2026-10-31T09:22:08+00:00",
-  "finished_at": "2026-10-31T09:29:25+00:00",
-  "engine": "v1.70.0",
+  "started_at": "2026-10-31T18:21:17+00:00",
+  "finished_at": "2026-10-31T18:25:24+00:00",
+  "engine": "v1.73.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 297.9
+      "seconds": 112.0
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 11.7
+      "seconds": 12.9
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 77.1
+      "seconds": 118.6
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 1.9
+      "seconds": 2.3
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.7
+      "seconds": 1.1
     }
   ],
   "update": {
     "town": "portland",
-    "sources": "all",
-    "started_at": "2026-10-31T09:22:08+00:00",
+    "sources": "meetings",
+    "started_at": "2026-10-31T18:21:17+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 45.8,
+        "seconds": 36.5,
         "cadence": "continuous"
       },
       {
@@ -91,7 +91,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 40.5,
+        "seconds": 36.5,
         "cadence": "continuous"
       },
       {
@@ -126,7 +126,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 17.8,
+        "seconds": 37.1,
         "cadence": "continuous"
       },
       {
@@ -153,7 +153,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 17 days ago; checked every 30 days"
+        "skipped": "checked 18 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -205,31 +205,6 @@
         "error": null,
         "seconds": 0.2,
         "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 187.9,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests from an open data portal",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [socrata_311] in the config"
-      },
-      {
-        "name": "Compute 311 scorecard",
-        "ok": true,
-        "required": true,
-        "error": null,
-        "seconds": 4.4,
-        "cadence": "continuous"
       }
     ]
   },
@@ -238,14 +213,14 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-31T05:22:09-04:00",
+      "updated_at": "2026-10-31T14:21:18-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Board of Public Education meetings (Diligent Community)",
       "file": "meetings/diligent_status.json",
-      "updated_at": "2026-10-31T05:22:55-04:00",
+      "updated_at": "2026-10-31T14:21:55-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -335,9 +310,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-31T17:11:29+00:00",
-  "data_bytes": 12203966,
-  "data_bytes_added": 10593091,
+  "last_good_at": "2026-10-31T18:25:24+00:00",
+  "data_bytes": 12240826,
+  "data_bytes_added": 10589164,
   "activity": {
     "boards": 41,
     "meetings_by_date": {
@@ -352,8 +327,8 @@
     }
   },
   "fact_checks": {
-    "summaries": 87,
-    "ok": 81,
+    "summaries": 92,
+    "ok": 86,
     "failed": 6,
     "weak": 0,
     "unchecked": 0,
@@ -361,7 +336,5 @@
     "held_back": 6,
     "entries_not_shown": 20,
     "vote_counts_left_out": 2
-  },
-  "published_at": "2026-10-31T17:11:29+00:00",
-  "published_engine": "v1.73.0"
+  }
 }
