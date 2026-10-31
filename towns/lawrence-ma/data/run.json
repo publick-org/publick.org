@@ -1,46 +1,46 @@
 {
   "town": "lawrence",
   "folder": "lawrence-ma",
-  "started_at": "2026-10-31T18:14:19+00:00",
-  "finished_at": "2026-10-31T18:15:46+00:00",
-  "engine": "v1.73.0",
+  "started_at": "2026-10-31T19:34:38+00:00",
+  "finished_at": "2026-10-31T19:37:17+00:00",
+  "engine": "v1.75.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 32.8
+      "seconds": 103.3
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 9.6
+      "seconds": 8.6
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 42.8
+      "seconds": 43.5
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 19.4
+      "seconds": 2.0
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 1.0
+      "seconds": 0.7
     }
   ],
   "update": {
     "town": "lawrence",
     "sources": "meetings",
-    "started_at": "2026-10-31T18:14:19+00:00",
+    "started_at": "2026-10-31T19:34:39+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 21.6,
+        "seconds": 16.3,
         "cadence": "continuous"
       },
       {
@@ -124,10 +124,10 @@
       },
       {
         "name": "Summarize agendas",
-        "ok": true,
+        "ok": false,
         "required": false,
-        "error": null,
-        "seconds": 9.6,
+        "error": "exited with status 1",
+        "seconds": 85.2,
         "cadence": "continuous"
       },
       {
@@ -215,7 +215,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-31T14:14:20-04:00",
+      "updated_at": "2026-10-31T15:34:39-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -303,9 +303,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-31T19:25:01+00:00",
-  "data_bytes": 1033734,
-  "data_bytes_added": 1282,
+  "last_good_at": "2026-10-31T19:37:17+00:00",
+  "data_bytes": 1051821,
+  "data_bytes_added": 87,
   "activity": {
     "boards": 33,
     "meetings_by_date": {
@@ -313,16 +313,14 @@
     }
   },
   "fact_checks": {
-    "summaries": 40,
+    "summaries": 41,
     "ok": 37,
-    "failed": 1,
+    "failed": 2,
     "weak": 1,
     "unchecked": 0,
     "not_yet": 1,
-    "held_back": 1,
-    "entries_not_shown": 1,
+    "held_back": 2,
+    "entries_not_shown": 2,
     "vote_counts_left_out": 3
-  },
-  "published_at": "2026-10-31T19:25:01+00:00",
-  "published_engine": "v1.75.0"
+  }
 }
