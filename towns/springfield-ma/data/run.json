@@ -1,46 +1,46 @@
 {
   "town": "springfield",
   "folder": "springfield-ma",
-  "started_at": "2026-10-31T18:23:30+00:00",
-  "finished_at": "2026-10-31T18:25:14+00:00",
-  "engine": "v1.73.0",
+  "started_at": "2026-10-31T19:43:59+00:00",
+  "finished_at": "2026-10-31T19:47:55+00:00",
+  "engine": "v1.75.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 57.2
+      "seconds": 173.9
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 10.1
+      "seconds": 10.4
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 31.6
+      "seconds": 47.1
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 25.2
+      "seconds": 3.1
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.7
+      "seconds": 1.0
     }
   ],
   "update": {
     "town": "springfield",
     "sources": "meetings",
-    "started_at": "2026-10-31T18:23:30+00:00",
+    "started_at": "2026-10-31T19:43:59+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 34.3,
+        "seconds": 30.5,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -118,7 +118,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 4.5,
+        "seconds": 4.6,
         "cadence": "continuous"
       },
       {
@@ -126,7 +126,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 16.7,
+        "seconds": 137.0,
         "cadence": "continuous"
       },
       {
@@ -214,14 +214,14 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-31T14:23:31-04:00",
+      "updated_at": "2026-10-31T15:44:00-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee minutes (school district website)",
       "file": "meetings/sharpschool_status.json",
-      "updated_at": "2026-10-31T14:24:05-04:00",
+      "updated_at": "2026-10-31T15:44:31-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -309,9 +309,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-31T19:27:17+00:00",
-  "data_bytes": 1487335,
-  "data_bytes_added": 10053,
+  "last_good_at": "2026-10-31T19:47:55+00:00",
+  "data_bytes": 1490389,
+  "data_bytes_added": 3007,
   "activity": {
     "boards": 46,
     "meetings_by_date": {
@@ -326,16 +326,14 @@
     }
   },
   "fact_checks": {
-    "summaries": 72,
-    "ok": 66,
+    "summaries": 74,
+    "ok": 68,
     "failed": 5,
     "weak": 1,
     "unchecked": 0,
     "not_yet": 0,
     "held_back": 5,
-    "entries_not_shown": 8,
-    "vote_counts_left_out": 47
-  },
-  "published_at": "2026-10-31T19:27:17+00:00",
-  "published_engine": "v1.75.0"
+    "entries_not_shown": 12,
+    "vote_counts_left_out": 53
+  }
 }
