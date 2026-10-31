@@ -1,46 +1,46 @@
 {
   "town": "somerville",
   "folder": "somerville-ma",
-  "started_at": "2026-10-31T09:09:53+00:00",
-  "finished_at": "2026-10-31T09:16:05+00:00",
-  "engine": "v1.70.0",
+  "started_at": "2026-10-31T18:21:58+00:00",
+  "finished_at": "2026-10-31T18:28:06+00:00",
+  "engine": "v1.73.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 324.9
+      "seconds": 320.2
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 12.4
+      "seconds": 7.0
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 46.2
+      "seconds": 37.9
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 1.4
+      "seconds": 1.9
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.6
+      "seconds": 0.7
     }
   ],
   "update": {
     "town": "somerville",
-    "sources": "all",
-    "started_at": "2026-10-31T09:09:53+00:00",
+    "sources": "meetings",
+    "started_at": "2026-10-31T18:21:58+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 4.6,
+        "seconds": 4.4,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -109,7 +109,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 3.3,
+        "seconds": 3.6,
         "cadence": "continuous"
       },
       {
@@ -126,7 +126,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 305.7,
+        "seconds": 310.7,
         "cadence": "continuous"
       },
       {
@@ -206,31 +206,6 @@
         "error": null,
         "seconds": 0.2,
         "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [seeclickfix] in the config"
-      },
-      {
-        "name": "Fetch 311 requests from an open data portal",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 6.8,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Compute 311 scorecard",
-        "ok": true,
-        "required": true,
-        "error": null,
-        "seconds": 3.0,
-        "cadence": "continuous"
       }
     ]
   },
@@ -239,14 +214,14 @@
     {
       "label": "Meetings (Legistar)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-31T05:09:53-04:00",
+      "updated_at": "2026-10-31T14:21:59-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee documents (city events calendar)",
       "file": "meetings/meetingdocs_status.json",
-      "updated_at": "2026-10-31T05:09:58-04:00",
+      "updated_at": "2026-10-31T14:22:03-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -348,9 +323,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-31T17:11:20+00:00",
-  "data_bytes": 40709059,
-  "data_bytes_added": 39180134,
+  "last_good_at": "2026-10-31T18:28:06+00:00",
+  "data_bytes": 40716640,
+  "data_bytes_added": 39187215,
   "activity": {
     "boards": 16,
     "meetings_by_date": {
@@ -370,7 +345,5 @@
     "held_back": 31,
     "entries_not_shown": 384,
     "vote_counts_left_out": 69
-  },
-  "published_at": "2026-10-31T17:11:20+00:00",
-  "published_engine": "v1.73.0"
+  }
 }
