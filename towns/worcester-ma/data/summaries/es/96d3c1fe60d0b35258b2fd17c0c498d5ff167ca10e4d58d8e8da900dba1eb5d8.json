@@ -1,6 +1,6 @@
 {
   "headline": "Peticiones para nuevas aceras en Clover St. y Heard St., nombres honorarios de calles, una barrera de seguridad, faroles, reparaciones de aceras y repavimentación de calles.",
-  "summary": "La reunión trata peticiones de residentes sobre aceras, nombres honorarios de calles, una barrera de seguridad, faroles, reparaciones de aceras y repavimentación de calles. Varias peticiones se mantuvieron en reuniones anteriores.",
+  "summary": "La reunión trata peticiones de residentes sobre aceras, nombres honorarios de calles, una barrera de seguridad, faroles, reparaciones de aceras y repavimentación de calles. Varias peticiones fueron pospuestas en reuniones anteriores.",
   "items": [
     "Acera en Clover St., entre Heard St. y Pine View Ave., a petición de Jose A. Rivera, concejal",
     "Acera en Clover St., de Mohawk Ave. a Heard St., a petición de Julie Goering",
@@ -10,10 +10,10 @@
     "Ponerle a la calle Hancock St., de Main St. a Hollis St., el nombre de Juana and Daniel Candelario Way, a petición de Khrystian E. King, concejal, y Luis A. Ojeda, concejal, en nombre de Mayra Callahan",
     "Ponerle a la calle Piedmont St., de Jaques Ave. a Davis St., el nombre de Meanes \"Moe\" Mooradian Way, a petición de Joseph M. Petty, titular de la alcaldía, y Luis A. Ojeda, concejal",
     "Barrera de seguridad en 101 Plantation St., en la intersección de Bleeker St. y Plantation St., a petición de Rich Perry",
-    "Reemplazar el muro al final de Ingalls St. con una barrera de seguridad, a petición de Tonya Gaston; mantenida el 24 de septiembre de 2025",
+    "Reemplazar el muro al final de Ingalls St. con una barrera de seguridad, a petición de Tonya Gaston; pospuesta el 24 de septiembre de 2025",
     "Rebajar al nivel del pavimento los marcadores topográficos de granito que sobresalen de las aceras en Winter Heights Neighborhood, a petición de Tony Economou, concejal",
     "Extender la cerca del lado sur de Harrington Field Playground, 720 Franklin St., a petición de Robert A. Bilotta, concejal",
-    "Revisar la acera del lado oeste de Burncoat St., entre Arbutus Rd. y Rollinson Rd., a petición de Julie Ann Lamacchia; mantenida tres veces en 2026",
+    "Revisar la acera del lado oeste de Burncoat St., entre Arbutus Rd. y Rollinson Rd., a petición de Julie Ann Lamacchia; pospuesta tres veces en 2026",
     "Farol en la esquina de Circuit Ave. East y Ferdinand St., a petición de Jose A. Rivera, concejal, en nombre de Rosemary McCarthy",
     "Quitar el farol cerca de 10 Ware St., a petición de Jose A. Rivera, concejal, en nombre de Sheila Loughnane",
     "Reparación de la acera del lado sur de Temple St., a petición de Robert A. Bilotta, concejal",
@@ -32,7 +32,7 @@
     "Repavimentar Marconi Rd., a petición de Satya B. Mitra, concejal",
     "Repavimentar Laconia Rd., a petición de Tony Economou, concejal, en nombre de Daniel Bradley",
     "Repavimentar Barry Rd., de Lynnwood Ln. a Barry Rd. Ext., a petición de Aleise M. Matheson",
-    "Repavimentación de calles en Epworth St., a petición de John P. Fresolo, concejal",
+    "Repavimentación de la calle Epworth St., a petición de John P. Fresolo, concejal",
     "Repavimentar Whitmarsh Ave., a petición de Carlos Burgos"
   ],
   "language": "es",
@@ -40,16 +40,17 @@
   "source_sha256": "96d3c1fe60d0b35258b2fd17c0c498d5ff167ca10e4d58d8e8da900dba1eb5d8",
   "source_hash": "364716b3cf2f9f51803a15f74afbb7212cd37e7cdfea14d731cfc034cbac33f5",
   "check": "ok",
-  "review": "items 9: 'held' is translated as 'mantenida', which suggests the petition was kept or maintained rather than held over from a prior meeting. It should say it was held over (e.g., 'pospuesta' or 'dejada pendiente').; items 12: 'held three times in 2026' is translated 'mantenida tres veces', which does not convey that the petition was held over at meetings. It is misleading.; summary: 'Several petitions were held at earlier meetings' is translated 'se mantuvieron en reuniones anteriores', which does not convey that they were held over/postponed; it reads as 'were kept'. This misleads.; items 31: 'Street resurfacing on Epworth St.' is translated as 'Repavimentación de calles en Epworth St.' (plural 'streets'); it is a single street, so it should be 'de la calle'.",
-  "attempts": 1,
+  "review": "items 6: English word 'and' left in the Spanish name; it should be 'Juana y Daniel Candelario Way' (or the name kept as one unit), not a mix of English and Spanish.",
+  "attempts": 2,
   "model": "claude-haiku-5-5",
   "prompt_version": 7,
   "glossary": "7f8b3bb0bfba9e5c",
-  "generated_at": "2026-10-31T05:53:29-04:00",
+  "generated_at": "2026-10-31T14:24:40-04:00",
   "usage": {
-    "input_tokens": 1808,
-    "output_tokens": 7308,
-    "cache_creation_input_tokens": 3129
+    "input_tokens": 4020,
+    "output_tokens": 4327,
+    "cache_read_input_tokens": 3129
   },
-  "cost": 0.025431
+  "cost": 0.014119,
+  "replaced_cost": 0.025431
 }
