@@ -342,3 +342,18 @@ members = [
   { name = "Maureen Binienda", seat = "At-large", email = "biniendamf@worcesterschools.net" },
   { name = "Susan Coghlin Mailman", seat = "At-large", email = "MailmanS@worcesterschools.net" },
 ]
+
+# The City Council's meetings, transcribed from their YouTube videos by Gemini for a
+# summary the day after, until the minutes come (the engine's
+# pipeline/recordings.py and pipeline/youtube.py).
+# Its recordings are on YouTube, which servers can't download from: Gemini reads each
+# video from its link.
+[recordings]
+since = "2026-10-26"
+
+# The city's channel: the City Council's meetings, titled "City Council Meeting 10/20/2026" or "Worcester City Council 10/13/2026"
+# (subcommittees are left out).
+[[recordings.sources]]
+platform = "youtube"
+channel = "UCYIE-MF52AumRfD4Y60TxiA"
+boards = { "City Council" = '^\s*(?:worcester\s+)?city\s+council\b(?!.*\b(?:sub)?committee\b)' }

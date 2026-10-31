@@ -2,7 +2,9 @@
 # recordings found on its video platform, matched to their meetings, and
 # transcribed by Whisper (the engine's pipeline/fetch_recordings.py), so the
 # daily run (network.yml) can summarize a meeting from what was said, the day
-# after, until its minutes come.
+# after, until its minutes come. A meeting found only on YouTube is listed
+# with the YouTube Data API (YOUTUBE_API_KEY) and transcribed by Gemini from
+# the video's link (GEMINI_API_KEY); without them, those meetings wait.
 #
 # Transcribing takes about an hour for a three-hour meeting, too long for the
 # daily run's jobs, so it runs here, a job a town. A job writes only the
@@ -125,6 +127,8 @@ jobs:
           FIND_ONLY: ${{ inputs.find_only && '--find-only' || '' }}
           STORAGE_ACCESS_KEY_ID: ${{ secrets.STORAGE_ACCESS_KEY_ID }}
           STORAGE_SECRET_ACCESS_KEY: ${{ secrets.STORAGE_SECRET_ACCESS_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
         # The town's folder, and the network's shared settings, as the daily run gives them (the engine's network.py).
         run: |
           export PUBLICK_TOWN_DIR="$GITHUB_WORKSPACE/towns/$FOLDER" PUBLICK_NETWORK_DIR="$GITHUB_WORKSPACE"

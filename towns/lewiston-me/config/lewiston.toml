@@ -383,3 +383,18 @@ members = [
 "9-1-1 Committee" = "Comité del 9-1-1"
 "Community Development Block Grant Committee" = "Comité de la Subvención en Bloque para el Desarrollo Comunitario"
 "Historic Preservation Review Board" = "Junta de Revisión de Preservación Histórica"
+
+# The City Council's meetings, transcribed from their YouTube videos by Gemini for a
+# summary the day after, until the minutes come (the engine's
+# pipeline/recordings.py and pipeline/youtube.py).
+# Its recordings are on YouTube, which servers can't download from: Gemini reads each
+# video from its link.
+[recordings]
+since = "2026-10-26"
+
+# The city's channel: the City Council's meetings, titled "Lewiston City Council Meeting 10/20/26"
+# (subcommittees are left out).
+[[recordings.sources]]
+platform = "youtube"
+channel = "UCprFi23oI7DclYQ8kxx_mmQ"
+boards = { "City Council" = '^\s*(?:lewiston\s+)?city\s+council\b(?!.*\b(?:sub)?committee\b)' }
