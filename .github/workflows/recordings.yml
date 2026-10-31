@@ -1,10 +1,13 @@
 # Meetings' recordings: each town with a [recordings] table has its new
 # recordings found on its video platform, matched to their meetings, and
-# transcribed by Whisper (the engine's pipeline/fetch_recordings.py), so the
-# daily run (network.yml) can summarize a meeting from what was said, the day
-# after, until its minutes come. A meeting found only on YouTube is listed
-# with the YouTube Data API (YOUTUBE_API_KEY) and transcribed by Gemini from
-# the video's link (GEMINI_API_KEY); without them, those meetings wait.
+# transcribed by Whisper (the engine's pipeline/fetch_recordings.py), so a
+# meeting can be summarized from what was said, the day after, until its
+# minutes come. A meeting found only on YouTube is listed with the YouTube
+# Data API (YOUTUBE_API_KEY) and transcribed by Gemini from the video's link
+# (GEMINI_API_KEY); without them, those meetings wait. When the town and
+# YouTube jobs are done, the towns with a new transcript are updated
+# (network.yml, meetings only): their transcripts are summarized and their
+# sites published then, rather than on the next morning's daily run.
 #
 # Transcribing takes about an hour for a three-hour meeting, too long for the
 # daily run's jobs, so it runs here: a job a town whose recordings Whisper
@@ -53,6 +56,7 @@ jobs:
       towns: ${{ steps.towns.outputs.towns }}
       youtube: ${{ steps.towns.outputs.youtube }}
       engine: ${{ steps.towns.outputs.engine }}
+      started: ${{ steps.towns.outputs.started }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -70,6 +74,7 @@ jobs:
         run: |
           python3 - <<'EOF'
           import glob, json, os, tomllib
+          from datetime import datetime, timezone
           asked = {t.strip() for t in os.environ.get("ASKED", "").split(",") if t.strip()}
           platforms = {}
           for path in glob.glob("towns/*/config/*.toml"):
@@ -90,6 +95,7 @@ jobs:
               out.write(f"towns={json.dumps(whisper)}\n")
               out.write(f"youtube={json.dumps(batches)}\n")
               out.write(f"engine={open('engine-version').read().strip()}\n")
+              out.write(f"started={datetime.now(timezone.utc).isoformat(timespec='seconds')}\n")
           print("Whisper:", ", ".join(whisper) or "none")
           print("YouTube:", " | ".join(batches) or "none")
           EOF
@@ -164,6 +170,60 @@ jobs:
         run: |
           .publick-engine/.github/scripts/commit-data.sh "Update recordings for $FOLDER" \
             "towns/$FOLDER/data/meetings/recordings.json" "towns/$FOLDER/data/meetings/recordings_status.json"
+
+  # The towns whose job (a town's own, or a YouTube batch's) transcribed something in this run, as their recordings_status.json says (one
+  # written before the run started is a job's that failed before writing it), get a Network run that
+  # fetches their meetings' data, summarizes the new transcripts, and publishes. One run for all of
+  # them: in network.yml's queue, a waiting run is replaced by a newer one. If a daily start replaces
+  # it there, the towns' transcripts wait for their next daily run, as they would without this.
+  update:
+    needs: [plan, town, youtube]
+    if: ${{ !cancelled() && needs.plan.result == 'success' && !inputs.find_only }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: write
+    steps:
+      # The branch as the town jobs left it, not the commit the run started from.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.ref_name }}
+          persist-credentials: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            towns/*/data/meetings/recordings_status.json
+
+      - name: Update the towns with new transcripts
+        env:
+          TOWNS: ${{ needs.plan.outputs.towns }}
+          YOUTUBE: ${{ needs.plan.outputs.youtube }}
+          STARTED: ${{ needs.plan.outputs.started }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          towns=$(python3 - <<'EOF'
+          import json, os
+          from datetime import datetime
+          started = datetime.fromisoformat(os.environ["STARTED"])
+          new = []
+          towns = json.loads(os.environ["TOWNS"]) + [t for batch in json.loads(os.environ["YOUTUBE"]) for t in batch.split(",")]
+          for town in towns:
+              try:
+                  status = json.load(open(f"towns/{town}/data/meetings/recordings_status.json"))
+              except (OSError, ValueError):
+                  continue
+              if status.get("transcribed") and datetime.fromisoformat(status["updated_at"]) >= started:
+                  new.append(town)
+          print(",".join(new))
+          EOF
+          )
+          if [ -z "$towns" ]; then
+            echo "No new transcripts."
+            exit 0
+          fi
+          echo "New transcripts: $towns"
+          gh workflow run network.yml --repo "$GITHUB_REPOSITORY" --ref "$GITHUB_REF_NAME" \
+            -f towns="$towns" -f fetch=true -f sources=meetings
 
   # The towns whose only source is YouTube, YOUTUBE_BATCH a job: Gemini transcribes their meetings from each
   # video's link, so no ffmpeg or Whisper is installed, and the job's hours are shared by its towns in turn.
