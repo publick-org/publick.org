@@ -368,3 +368,18 @@ members = [
 "Parks, Recreation & Harbor Advisory Committee" = "Comité Asesor de Parques, Recreación y Puerto"
 "Penjajawoc Marsh - Bangor Mall Management Commission" = "Comisión de Manejo del Pantano Penjajawoc y el Bangor Mall"
 "Tree Board" = "Junta de Árboles"
+
+# The City Council's meetings, transcribed from their YouTube videos by Gemini for a
+# summary the day after, until the minutes come (the engine's
+# pipeline/recordings.py and pipeline/youtube.py).
+# Its recordings are on YouTube, which servers can't download from: Gemini reads each
+# video from its link.
+[recordings]
+since = "2026-10-26"
+
+# The city's channel: the City Council's meetings, titled "City Council 10.26.26"
+# (the Council's workshops, a separate body, are left out).
+[[recordings.sources]]
+platform = "youtube"
+channel = "UCsyYWz8xrsNb-QeENebc9XA"
+boards = { "City Council" = '^\s*(?:special\s+)?city\s+council\s+\d{1,2}\.\d{1,2}\.\d{2}(?:\d{2})?\b' }
