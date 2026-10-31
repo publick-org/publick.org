@@ -371,3 +371,22 @@ members = [
   { name = "Rosa Valentín", seat = "District 3", wards = [6, 7], email = "valentinr@springfieldpublicschools.com" },
   { name = "Ayanna Crawford", seat = "District 4", wards = [2, 8], email = "crawforda@springfieldpublicschools.com" },
 ]
+
+# The City Council's meetings, transcribed from their YouTube videos by Gemini for a
+# summary the day after, until the minutes come (the engine's
+# pipeline/recordings.py and pipeline/youtube.py).
+# Its recordings are on YouTube, which servers can't download from: Gemini reads each
+# video from its link.
+[recordings]
+since = "2026-10-26"
+
+# The city's channel: the City Council's meetings, titled "Springfield City Council 10/19/2026 Public Speak Out & Regular Meeting"
+# (committee meetings, titled "Springfield City Council | ...", are left out).
+[[recordings.sources]]
+platform = "youtube"
+channel = "UC5YAoe8XThXFHIk1Bb-A03Q"
+# Its proclamations and hearings meetings, titled "Springfield City Council 10/26/26
+# Proclamations & Hearings Meeting", are listed as a body of their own.
+[recordings.sources.boards]
+"City Council" = '^\s*springfield\s+city\s+council\s+\d{1,2}/\d{1,2}/\d{2}(?:\d{2})?\b'
+"City Council Hearings" = '^\s*springfield\s+city\s+council\s+\d{1,2}/\d{1,2}/\d{2}(?:\d{2})?\s+proclamations\s*&\s*hearings\b'

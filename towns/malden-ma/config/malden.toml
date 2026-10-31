@@ -425,3 +425,18 @@ members = [
 "Water - Leak" = "Agua: fuga"
 "Water - Sewer/Catch Basin/Flooding" = "Agua: alcantarillado, sumidero o inundación"
 "Wire(s) Down" = "Cables caídos"
+
+# The City Council's meetings, transcribed from their YouTube videos by Gemini for a
+# summary the day after, until the minutes come (the engine's
+# pipeline/recordings.py and pipeline/youtube.py).
+# Its recordings are on YouTube, which servers can't download from: Gemini reads each
+# video from its link.
+[recordings]
+since = "2026-10-26"
+
+# MATV's channel: the City Council's meetings, titled "Malden City Council 10/27/2026"
+# (committees, and the streams it schedules ahead, are left out).
+[[recordings.sources]]
+platform = "youtube"
+channel = "UCsBndjZYjyyWcmO5-yr3n0w"
+boards = { "City Council" = '^\s*malden\s+city\s+council\b(?!.*\b(?:sub)?committee\b)' }
