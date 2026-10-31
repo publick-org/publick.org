@@ -342,3 +342,18 @@ members = [
 "Quinnipiac River Linear Trail Advisory Committee" = "Comité Asesor del Sendero Lineal del Río Quinnipiac"
 "Veterans Memorial Committee" = "Comité del Monumento a los Veteranos"
 "Wallingford Celebrates America 250" = "Wallingford celebra los 250 años de Estados Unidos"
+
+# The Town Council's meetings, transcribed from their YouTube videos by Gemini for a
+# summary the day after, until the minutes come (the engine's
+# pipeline/recordings.py and pipeline/youtube.py).
+# Its recordings are on YouTube, which servers can't download from: Gemini reads each
+# video from its link.
+[recordings]
+since = "2026-10-26"
+
+# The town's channel: the Town Council's meetings, titled "Town Council - Regular Meeting - Tuesday, October 27, 2026"
+# (subcommittees are left out).
+[[recordings.sources]]
+platform = "youtube"
+channel = "UCdWP8OnNWc1nyrtewoqYRpQ"
+boards = { "Town Council" = '^\s*town\s+council\b(?!.*\b(?:sub)?committee\b)' }
