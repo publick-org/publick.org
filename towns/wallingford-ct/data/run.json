@@ -1,34 +1,34 @@
 {
   "town": "wallingford",
   "folder": "wallingford-ct",
-  "started_at": "2026-10-31T09:16:08+00:00",
-  "finished_at": "2026-10-31T09:17:55+00:00",
-  "engine": "v1.70.0",
+  "started_at": "2026-10-31T18:24:04+00:00",
+  "finished_at": "2026-10-31T18:26:41+00:00",
+  "engine": "v1.73.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 68.2
+      "seconds": 109.5
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 8.0
+      "seconds": 7.9
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 35.6
+      "seconds": 36.6
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 1.4
+      "seconds": 2.2
     },
     {
       "name": "Check live site",
@@ -39,8 +39,8 @@
   ],
   "update": {
     "town": "wallingford",
-    "sources": "all",
-    "started_at": "2026-10-31T09:16:08+00:00",
+    "sources": "meetings",
+    "started_at": "2026-10-31T18:24:04+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 12.8,
+        "seconds": 8.1,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.3,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -73,7 +73,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 43.5,
+        "seconds": 40.1,
         "cadence": "continuous"
       },
       {
@@ -126,7 +126,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 9.7,
+        "seconds": 23.7,
         "cadence": "continuous"
       },
       {
@@ -136,7 +136,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 26 days ago; checked every 30 days"
+        "skipped": "checked 27 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -145,16 +145,15 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "yearly",
-        "skipped": "checked 29 days ago; checked every 30 days"
+        "seconds": 36.2,
+        "cadence": "yearly"
       },
       {
         "name": "Fetch budget figures",
@@ -206,33 +205,6 @@
         "error": null,
         "seconds": 0.2,
         "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [seeclickfix] in the config"
-      },
-      {
-        "name": "Fetch 311 requests from an open data portal",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [socrata_311] in the config"
-      },
-      {
-        "name": "Compute 311 scorecard",
-        "ok": true,
-        "required": true,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [seeclickfix] or [socrata_311] in the config"
       }
     ]
   },
@@ -241,14 +213,14 @@
     {
       "label": "Meetings (town website)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-31T05:16:09-04:00",
+      "updated_at": "2026-10-31T14:24:04-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Board of Education meetings (school district website)",
       "file": "meetings/finalsite_status.json",
-      "updated_at": "2026-10-31T05:16:23-04:00",
+      "updated_at": "2026-10-31T14:24:13-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -279,7 +251,7 @@
     {
       "label": "School figures (EdSight)",
       "file": "schools/schools.json",
-      "updated_at": "2026-10-01T17:57:42-04:00",
+      "updated_at": "2026-10-31T14:25:17-04:00",
       "max_days": null,
       "cadence": "yearly",
       "failing": 0,
@@ -336,9 +308,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-31T17:11:40+00:00",
-  "data_bytes": 1520663,
-  "data_bytes_added": 5427,
+  "last_good_at": "2026-10-31T18:26:41+00:00",
+  "data_bytes": 1559897,
+  "data_bytes_added": 8267,
   "activity": {
     "boards": 26,
     "meetings_by_date": {
@@ -353,16 +325,14 @@
     }
   },
   "fact_checks": {
-    "summaries": 97,
-    "ok": 87,
+    "summaries": 101,
+    "ok": 91,
     "failed": 9,
     "weak": 1,
     "unchecked": 0,
     "not_yet": 0,
     "held_back": 9,
     "entries_not_shown": 23,
-    "vote_counts_left_out": 60
-  },
-  "published_at": "2026-10-31T17:11:40+00:00",
-  "published_engine": "v1.73.0"
+    "vote_counts_left_out": 62
+  }
 }
