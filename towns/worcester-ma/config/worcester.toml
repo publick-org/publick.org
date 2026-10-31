@@ -351,9 +351,8 @@ members = [
 [recordings]
 since = "2026-10-26"
 
-# The city's channel: the City Council's meetings, titled "City Council Meeting 10/20/2026" or "Worcester City Council 10/13/2026"
-# (subcommittees are left out).
+# The videos the City Council's meetings link on PrimeGov (each meeting's videoUrl): matched to the meeting that
+# links them, with no channel or title pattern.
 [[recordings.sources]]
 platform = "youtube"
-channel = "UCYIE-MF52AumRfD4Y60TxiA"
-boards = { "City Council" = '^\s*(?:worcester\s+)?city\s+council\b(?!.*\b(?:sub)?committee\b)' }
+boards = ["City Council"]
