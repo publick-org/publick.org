@@ -298,3 +298,18 @@ members = [
 "Library Trustees" = "Junta de Síndicos de la Biblioteca"
 "Prospect Hill Historical District Commission" = "Comisión del Distrito Histórico de Prospect Hill"
 "Lawrence Redevelopment Authority" = "Autoridad de Reurbanización de Lawrence"
+
+# The City Council's meetings, transcribed from their YouTube videos by Gemini for a
+# summary the day after, until the minutes come (the engine's
+# pipeline/recordings.py and pipeline/youtube.py).
+# Its recordings are on YouTube, which servers can't download from: Gemini reads each
+# video from its link.
+[recordings]
+since = "2026-10-26"
+
+# The city's channel: the City Council's meetings, titled "Lawrence City Council October 20, 2026"
+# (subcommittees are left out).
+[[recordings.sources]]
+platform = "youtube"
+channel = "UC-2T3lkuyO1ywReSTsm3fsA"
+boards = { "City Council" = '^\s*(?:lawrence\s+)?city\s+council\b(?!.*\b(?:sub)?committee\b)' }

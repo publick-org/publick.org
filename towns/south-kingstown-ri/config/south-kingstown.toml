@@ -357,3 +357,18 @@ members = [
 "Traffic Safety Concern" = "Inquietud sobre seguridad vial"
 "Tree & Brush Concern" = "Inquietud sobre árboles o maleza"
 "Zoning Enforcement/Property Maintenance" = "Cumplimiento de zonificación o mantenimiento de propiedades"
+
+# The Town Council's meetings, transcribed from their YouTube videos by Gemini for a
+# summary the day after, until the minutes come (the engine's
+# pipeline/recordings.py and pipeline/youtube.py).
+# Its recordings are on YouTube, which servers can't download from: Gemini reads each
+# video from its link.
+[recordings]
+since = "2026-10-26"
+
+# The town's channel: the Town Council's meetings, titled "October 26, 2026 Town Council"
+# (joint sessions and subcommittees are left out).
+[[recordings.sources]]
+platform = "youtube"
+channel = "UCOz_gL-w5KrVcyoMxojLVmw"
+boards = { "Town Council" = '^\s*(?:[a-z]+\s+\d{1,2},\s*\d{4}\s+)?(?:sk\s+)?(?:special\s+)?town\s+council\b(?!.*\b(?:sub)?committee\b)' }

@@ -334,3 +334,18 @@ members = [
   { name = "Jake Wilson", seat = "Mayor", email = "mayor@somervillema.gov" },
   { name = "Lance L. Davis", seat = "City Council President", email = "ldavis@somervillema.gov" },
 ]
+
+# The City Council's meetings, transcribed from their YouTube videos by Gemini for a
+# summary the day after, until the minutes come (the engine's
+# pipeline/recordings.py and pipeline/youtube.py).
+# YouTube is the only place a server can find its recordings: the city's Granicus
+# archive refuses anything but a browser.
+[recordings]
+since = "2026-10-26"
+
+# GovTV's channel: the City Council's meetings, titled "Regular City Council Meeting - October 22, 2026"
+# (committees are left out).
+[[recordings.sources]]
+platform = "youtube"
+channel = "UCA4fw6KOQ44_I5p9sFOmqfA"
+boards = { "City Council" = '^\s*(?:(?:regular|special)\s+)?city\s+council\s+meeting\b' }
