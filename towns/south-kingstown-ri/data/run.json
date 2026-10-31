@@ -1,46 +1,46 @@
 {
   "town": "south-kingstown",
   "folder": "south-kingstown-ri",
-  "started_at": "2026-10-31T19:43:03+00:00",
-  "finished_at": "2026-10-31T19:46:42+00:00",
-  "engine": "v1.75.0",
+  "started_at": "2026-10-31T22:25:43+00:00",
+  "finished_at": "2026-10-31T22:28:47+00:00",
+  "engine": "v1.77.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 173.6
+      "seconds": 132.6
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 13.8
+      "seconds": 8.2
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 70.6
+      "seconds": 39.9
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 8.3
+      "seconds": 2.1
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.9
+      "seconds": 0.6
     }
   ],
   "update": {
     "town": "south-kingstown",
     "sources": "meetings",
-    "started_at": "2026-10-31T19:43:04+00:00",
+    "started_at": "2026-10-31T22:25:43+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 39.4,
+        "seconds": 39.8,
         "cadence": "continuous"
       },
       {
@@ -100,7 +100,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 18.8,
+        "seconds": 19.1,
         "cadence": "continuous"
       },
       {
@@ -126,7 +126,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 113.4,
+        "seconds": 72.2,
         "cadence": "continuous"
       },
       {
@@ -213,14 +213,14 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-31T15:43:05-04:00",
+      "updated_at": "2026-10-31T18:25:44-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee meetings (Open Meetings portal)",
       "file": "meetings/opengov_status.json",
-      "updated_at": "2026-10-31T15:43:44-04:00",
+      "updated_at": "2026-10-31T18:26:24-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -310,9 +310,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-31T22:14:30+00:00",
-  "data_bytes": 1894344,
-  "data_bytes_added": 352156,
+  "last_good_at": "2026-10-31T22:28:47+00:00",
+  "data_bytes": 1894228,
+  "data_bytes_added": 349118,
   "activity": {
     "boards": 21,
     "meetings_by_date": {
@@ -335,7 +335,5 @@
     "held_back": 2,
     "entries_not_shown": 4,
     "vote_counts_left_out": 6
-  },
-  "published_at": "2026-10-31T22:14:30+00:00",
-  "published_engine": "v1.77.0"
+  }
 }
