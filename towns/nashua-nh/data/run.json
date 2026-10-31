@@ -1,46 +1,46 @@
 {
   "town": "nashua",
   "folder": "nashua-nh",
-  "started_at": "2026-10-31T18:20:24+00:00",
-  "finished_at": "2026-10-31T18:24:37+00:00",
-  "engine": "v1.73.0",
+  "started_at": "2026-10-31T19:38:02+00:00",
+  "finished_at": "2026-10-31T19:49:00+00:00",
+  "engine": "v1.75.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 160.3
+      "seconds": 596.5
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 20.3
+      "seconds": 14.4
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 58.6
+      "seconds": 41.8
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 30.0
+      "seconds": 3.8
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 1.1
+      "seconds": 0.8
     }
   ],
   "update": {
     "town": "nashua",
     "sources": "meetings",
-    "started_at": "2026-10-31T18:20:25+00:00",
+    "started_at": "2026-10-31T19:38:02+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 51.6,
+        "seconds": 51.5,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.2,
         "cadence": "continuous"
       },
       {
@@ -126,7 +126,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 89.6,
+        "seconds": 527.1,
         "cadence": "continuous"
       },
       {
@@ -214,14 +214,14 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-31T14:20:26-04:00",
+      "updated_at": "2026-10-31T15:38:03-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Board of Education meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-10-31T14:21:18-04:00",
+      "updated_at": "2026-10-31T15:38:54-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -309,9 +309,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-31T19:27:33+00:00",
-  "data_bytes": 6464550,
-  "data_bytes_added": 22152,
+  "last_good_at": "2026-10-31T19:49:00+00:00",
+  "data_bytes": 6475243,
+  "data_bytes_added": 11999,
   "activity": {
     "boards": 66,
     "meetings_by_date": {
@@ -325,15 +325,13 @@
   },
   "fact_checks": {
     "summaries": 217,
-    "ok": 197,
+    "ok": 196,
     "failed": 14,
-    "weak": 6,
+    "weak": 7,
     "unchecked": 0,
     "not_yet": 0,
     "held_back": 14,
-    "entries_not_shown": 29,
-    "vote_counts_left_out": 78
-  },
-  "published_at": "2026-10-31T19:27:33+00:00",
-  "published_engine": "v1.75.0"
+    "entries_not_shown": 34,
+    "vote_counts_left_out": 85
+  }
 }
