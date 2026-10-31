@@ -503,3 +503,24 @@ members = [
   { name = "Kirsten Prinn", seat = "At-large", term_ends = "2028-01", email = "prinnk@nashua.edu" },
   { name = "Santosh Salvi", seat = "At-large", term_ends = "2030-01", email = "salvisa@nashua.edu" },
 ]
+
+# The Board of Aldermen's meetings, transcribed from their YouTube videos by Gemini for a
+# summary the day after, until the minutes come (the engine's
+# pipeline/recordings.py and pipeline/youtube.py).
+# Its recordings are on YouTube, which servers can't download from: Gemini reads each
+# video from its link.
+[recordings]
+since = "2026-10-26"
+
+# The videos the meetings link on CivicClerk (each event's externalMediaUrl): matched to the meeting that links
+# them, with no title pattern. The channel below finds what a meeting doesn't link.
+[[recordings.sources]]
+platform = "youtube"
+boards = ["Board of Aldermen"]
+
+# The city's channel: the Board of Aldermen's meetings, titled "GOV Board of Aldermen October 27 2026"
+# (its committees are left out).
+[[recordings.sources]]
+platform = "youtube"
+channel = "UCSDUnus2ubPU8CXWXyAzbdg"
+boards = { "Board of Aldermen" = '\b(?:board\s+of\s+aldermen|boa)\b' }

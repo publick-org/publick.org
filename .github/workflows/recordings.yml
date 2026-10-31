@@ -2,13 +2,19 @@
 # recordings found on its video platform, matched to their meetings, and
 # transcribed by Whisper (the engine's pipeline/fetch_recordings.py), so the
 # daily run (network.yml) can summarize a meeting from what was said, the day
-# after, until its minutes come.
+# after, until its minutes come. A meeting found only on YouTube is listed
+# with the YouTube Data API (YOUTUBE_API_KEY) and transcribed by Gemini from
+# the video's link (GEMINI_API_KEY); without them, those meetings wait.
 #
 # Transcribing takes about an hour for a three-hour meeting, too long for the
-# daily run's jobs, so it runs here, a job a town. A job writes only the
-# town's data/meetings/recordings.json and recordings_status.json, which no
-# other run writes, so its commit never conflicts with the daily run's; the
-# audio and transcripts go in the documents bucket.
+# daily run's jobs, so it runs here: a job a town whose recordings Whisper
+# transcribes (it needs the machine), and the towns whose only source is
+# YouTube in batches of YOUTUBE_BATCH a job, without ffmpeg or Whisper, since
+# Gemini transcribes them (minutes a meeting) and a matrix holds at most 256
+# jobs. A job writes only its towns' data/meetings/recordings.json and
+# recordings_status.json, which no other run writes, so its commit never
+# conflicts with the daily run's; the audio and transcripts go in the
+# documents bucket.
 #
 # Most recordings are up the night of the meeting or the next morning. The
 # runs from early morning (US Eastern) find them, and the later ones find
@@ -36,11 +42,16 @@ on:
 permissions:
   contents: read
 
+env:
+  # YouTube-only towns a job: about ten minutes of Gemini a town on a busy morning.
+  YOUTUBE_BATCH: 10
+
 jobs:
   plan:
     runs-on: ubuntu-latest
     outputs:
       towns: ${{ steps.towns.outputs.towns }}
+      youtube: ${{ steps.towns.outputs.youtube }}
       engine: ${{ steps.towns.outputs.engine }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -60,17 +71,27 @@ jobs:
           python3 - <<'EOF'
           import glob, json, os, tomllib
           asked = {t.strip() for t in os.environ.get("ASKED", "").split(",") if t.strip()}
-          towns = sorted(path.split("/")[1] for path in glob.glob("towns/*/config/*.toml")
-                         if "recordings" in tomllib.load(open(path, "rb")))
+          platforms = {}
+          for path in glob.glob("towns/*/config/*.toml"):
+              settings = tomllib.load(open(path, "rb")).get("recordings")
+              if settings:
+                  platforms[path.split("/")[1]] = {s.get("platform") for s in settings.get("sources", [])}
           if asked:
-              unknown = asked - set(towns)
+              unknown = asked - set(platforms)
               if unknown:
                   raise SystemExit(f"No [recordings] for: {', '.join(sorted(unknown))}")
-              towns = sorted(asked)
+              platforms = {t: platforms[t] for t in asked}
+          # A town whose only source is YouTube needs no Whisper: those share jobs.
+          whisper = sorted(t for t, p in platforms.items() if p != {"youtube"})
+          youtube = sorted(t for t, p in platforms.items() if p == {"youtube"})
+          size = int(os.environ["YOUTUBE_BATCH"])
+          batches = [",".join(youtube[i:i + size]) for i in range(0, len(youtube), size)]
           with open(os.environ["GITHUB_OUTPUT"], "a") as out:
-              out.write(f"towns={json.dumps(towns)}\n")
+              out.write(f"towns={json.dumps(whisper)}\n")
+              out.write(f"youtube={json.dumps(batches)}\n")
               out.write(f"engine={open('engine-version').read().strip()}\n")
-          print("Towns:", ", ".join(towns) or "none")
+          print("Whisper:", ", ".join(whisper) or "none")
+          print("YouTube:", " | ".join(batches) or "none")
           EOF
 
   town:
@@ -125,6 +146,8 @@ jobs:
           FIND_ONLY: ${{ inputs.find_only && '--find-only' || '' }}
           STORAGE_ACCESS_KEY_ID: ${{ secrets.STORAGE_ACCESS_KEY_ID }}
           STORAGE_SECRET_ACCESS_KEY: ${{ secrets.STORAGE_SECRET_ACCESS_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
         # The town's folder, and the network's shared settings, as the daily run gives them (the engine's network.py).
         run: |
           export PUBLICK_TOWN_DIR="$GITHUB_WORKSPACE/towns/$FOLDER" PUBLICK_NETWORK_DIR="$GITHUB_WORKSPACE"
@@ -141,3 +164,98 @@ jobs:
         run: |
           .publick-engine/.github/scripts/commit-data.sh "Update recordings for $FOLDER" \
             "towns/$FOLDER/data/meetings/recordings.json" "towns/$FOLDER/data/meetings/recordings_status.json"
+
+  # The towns whose only source is YouTube, YOUTUBE_BATCH a job: Gemini transcribes their meetings from each
+  # video's link, so no ffmpeg or Whisper is installed, and the job's hours are shared by its towns in turn.
+  youtube:
+    needs: plan
+    if: needs.plan.outputs.youtube != '[]'
+    name: youtube (${{ matrix.towns }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    permissions:
+      contents: write
+    strategy:
+      fail-fast: false
+      matrix:
+        towns: ${{ fromJSON(needs.plan.outputs.youtube) }}
+    concurrency:
+      group: recordings-youtube-${{ matrix.towns }}
+      cancel-in-progress: false
+    steps:
+      - name: The batch's town folders
+        id: folders
+        env:
+          TOWNS: ${{ matrix.towns }}
+        run: |
+          {
+            echo "paths<<EOF"
+            tr ',' '\n' <<< "$TOWNS" | sed 's|^|towns/|'
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          filter: blob:none
+          sparse-checkout: |
+            .github
+            defaults
+            ${{ steps.folders.outputs.paths }}
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          repository: publick-org/publick-engine
+          ref: ${{ needs.plan.outputs.engine }}
+          path: .publick-engine
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: .publick-engine/requirements.txt
+
+      - name: Install dependencies
+        run: pip install -r .publick-engine/requirements.txt
+
+      # Each town in turn, with what's left of the job's hours; one town's failure doesn't stop the others.
+      - name: Find and transcribe recordings
+        env:
+          TOWNS: ${{ matrix.towns }}
+          HOURS: ${{ inputs.hours || '4' }}
+          FIND_ONLY: ${{ inputs.find_only && '--find-only' || '' }}
+          STORAGE_ACCESS_KEY_ID: ${{ secrets.STORAGE_ACCESS_KEY_ID }}
+          STORAGE_SECRET_ACCESS_KEY: ${{ secrets.STORAGE_SECRET_ACCESS_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: |
+          failed=""
+          for folder in ${TOWNS//,/ }; do
+            left=$(python3 -c "print(max($HOURS - $SECONDS / 3600, 0.05))")
+            echo "::group::$folder ($left hours left)"
+            export PUBLICK_TOWN_DIR="$GITHUB_WORKSPACE/towns/$folder" PUBLICK_NETWORK_DIR="$GITHUB_WORKSPACE"
+            slug=$(basename "$PUBLICK_TOWN_DIR"/config/*.toml .toml)
+            (cd .publick-engine && python -m pipeline.fetch_recordings --town "$slug" --hours "$left" $FIND_ONLY) \
+              || failed="$failed $folder"
+            echo "::endgroup::"
+          done
+          if [ -n "$failed" ]; then
+            echo "::error::Failed:$failed"
+            exit 1
+          fi
+
+      # What was finished is kept even when the step failed partway.
+      - name: Commit what was found and transcribed
+        if: ${{ !cancelled() }}
+        env:
+          TOWNS: ${{ matrix.towns }}
+          COMMIT_ATTEMPTS: 10
+        run: |
+          files=()
+          for folder in ${TOWNS//,/ }; do
+            for f in "towns/$folder/data/meetings/recordings.json" "towns/$folder/data/meetings/recordings_status.json"; do
+              if [ -e "$f" ]; then files+=("$f"); fi
+            done
+          done
+          [ ${#files[@]} -gt 0 ] || exit 0
+          .publick-engine/.github/scripts/commit-data.sh "Update recordings for ${TOWNS//,/, }" "${files[@]}"
