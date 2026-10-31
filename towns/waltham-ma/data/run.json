@@ -1,46 +1,46 @@
 {
   "town": "waltham",
   "folder": "waltham-ma",
-  "started_at": "2026-10-31T18:23:49+00:00",
-  "finished_at": "2026-10-31T18:25:38+00:00",
-  "engine": "v1.73.0",
+  "started_at": "2026-10-31T19:45:12+00:00",
+  "finished_at": "2026-10-31T19:50:25+00:00",
+  "engine": "v1.75.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 51.7
+      "seconds": 267.7
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 10.4
+      "seconds": 7.3
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 52.0
+      "seconds": 34.1
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 18.5
+      "seconds": 2.9
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 1.2
+      "seconds": 0.8
     }
   ],
   "update": {
     "town": "waltham",
     "sources": "meetings",
-    "started_at": "2026-10-31T18:23:49+00:00",
+    "started_at": "2026-10-31T19:45:12+00:00",
     "ok": true,
     "steps": [
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.7,
+        "seconds": 0.9,
         "cadence": "continuous"
       },
       {
@@ -126,7 +126,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 29.0,
+        "seconds": 244.8,
         "cadence": "continuous"
       },
       {
@@ -214,14 +214,14 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-31T14:23:50-04:00",
+      "updated_at": "2026-10-31T15:45:13-04:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-10-31T14:24:11-04:00",
+      "updated_at": "2026-10-31T15:45:34-04:00",
       "max_days": 2,
       "stale": false
     },
@@ -309,9 +309,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-10-31T19:28:24+00:00",
-  "data_bytes": 1613488,
-  "data_bytes_added": 4980,
+  "last_good_at": "2026-10-31T19:50:25+00:00",
+  "data_bytes": 1617637,
+  "data_bytes_added": 7674,
   "activity": {
     "boards": 23,
     "meetings_by_date": {
@@ -323,15 +323,13 @@
   },
   "fact_checks": {
     "summaries": 58,
-    "ok": 44,
-    "failed": 12,
+    "ok": 46,
+    "failed": 10,
     "weak": 2,
     "unchecked": 0,
     "not_yet": 0,
-    "held_back": 12,
-    "entries_not_shown": 45,
-    "vote_counts_left_out": 34
-  },
-  "published_at": "2026-10-31T19:28:24+00:00",
-  "published_engine": "v1.75.0"
+    "held_back": 10,
+    "entries_not_shown": 38,
+    "vote_counts_left_out": 35
+  }
 }
