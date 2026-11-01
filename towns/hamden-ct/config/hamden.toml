@@ -1,0 +1,248 @@
+# Site configuration for Hamden, Connecticut. Everything town-specific lives
+# here; the code is the Publick engine
+# (github.com/publick-org/publick-engine).
+#
+# Started on 2026-11-01 by the engine's helper (python -m pipeline.new_town),
+# from Laconia's config.
+# To fill in: what the town uses for meetings, minutes, 311, and its school
+#   board, in a few sentences, as other towns' configs begin.
+#
+# The site is in English and Spanish ([site] languages), as every town's is.
+# The first runs draft the Spanish for the town's own text; [strings.es], at
+# the end, can correct it.
+
+[site]
+name = "Hamden Publick"
+# The masthead shows name_prefix in dark ink and name_suffix in the accent
+# color: the town, then the network.
+name_prefix = "Hamden "
+domain = "hamden-ct.publick.org"
+tagline = "Public data on how Hamden, Connecticut decides and spends. Updated daily."
+# One line under the name at the top of every page.
+masthead = "An independent guide to town government in Hamden, Connecticut"
+# Public contact address. Shown on the About and Accessibility pages when set.
+contact_email = "hamden-ct@publick.org"
+user_agent = "hamden-ct.publick.org (+https://hamden-ct.publick.org/about/)"
+
+# From the town website's stylesheets (www.hamden.com): its most used color
+# (133 uses), and a darker shade of it; the most used of another hue (55
+# uses); primary_soft a light tint of primary. Each passes WCAG AA on white
+# (8.4, 15.0, 6.6 to 1).
+# To fill in: check the colors against the town's website.
+[site.colors]
+primary = "#3f4c74"
+primary_dark = "#1f263a"
+primary_soft = "#ecedf1"
+accent = "#50642f"
+
+[town]
+name = "Hamden"
+state_abbr = "CT"
+official_site = "https://www.hamden.com"
+
+# Sections appear in the main navigation in this order. Each one is a folder
+# under site/pages/<slug>/ and is served at https://<domain>/<slug>/.
+[[sections]]
+slug = "meetings"
+title = "Meetings"
+summary = "Every board and committee meeting on the town calendar, with agendas, and minutes from January 2026 on."
+status = "live"
+
+[[sections]]
+slug = "schools"
+title = "Schools"
+summary = "Laconia School District's graduation rate, state test results, and cost per pupil, with the state's."
+status = "live"
+
+[[sections]]
+slug = "budget"
+title = "City budget"
+nav = "Budget"
+summary = "The city's property tax rate and where the tax goes, what it raises per resident, and the average single-family tax bill."
+status = "live"
+
+[[sections]]
+slug = "housing"
+title = "Housing"
+summary = "New homes permitted, home values and rents, and the housing stock."
+status = "live"
+
+# To fill in: the Officials page's section (below, commented out), once
+#   [officials] is filled in.
+# [[sections]]
+# slug = "officials"
+# title = "Who represents you"
+# nav = "Officials"
+# summary = "The mayor, Town Council, and School Committee, by office and by ward, and how to reach them."
+# status = "live"
+
+[[sections]]
+slug = "about"
+title = "About"
+summary = "Data sources, update schedule, metric definitions, and corrections."
+status = "live"
+
+# Page view counting with GoatCounter, on the network's site; prefix is this
+# town's folder.
+[analytics]
+prefix = "hamden-ct"
+
+# Public meetings, from the town calendar and its CivicClerk portal.
+[meetings]
+base_url = "https://www.hamden.com"
+archive_url = "https://hamdenct.portal.civicclerk.com"
+archive_name = "town's CivicClerk portal"
+governing_body = "Town Council"
+# The town's site resets some connections (4 of the helper's); a slower pace
+# and the client's retries help.
+request_delay = 5.0
+max_event_pages = 40
+
+# The town calendar, read month by month: the meetings the town lists before
+# their agendas are posted, with their times and places. Read: the calendars
+# whose events, over the last three months and the next three, were mostly
+# meetings. Not read: ARTS: Arts & Culture General Events Calendar, Brooksvale
+# Park Events, CERT/Fire, Community Event Submissions Calendar, Elections,
+# Farmington Canal Commission, Hamden Public Library, Hamden Through Time,
+# Hamden's Youth & Recreation Events, Keefe Community Center General Calendar,
+# Legislative Council, School Building Committee Meeting, Senior Services,
+# Town of Hamden Events, Town of Hamden Holidays.
+[meetings.civicplus]
+calendars = ["Boards & Commissions"]
+# Some of their events aren't meetings: only titles naming a board are kept.
+include_pattern = '\b(boards?|commissions?|committees?|subcommittees?|councils?|authority|trustees|ZBA|task force)\b'
+# To fill in: include_pattern leaves out these meetings, which a board's name
+#   in it can bring back: "Greater New Haven Transit District Executive
+#   Meetings"; "LC Engineering, Dev, & Municipal Planning Regular Meeting -
+#   Aug 10, 2026".
+# To fill in: check the calendars read, and any left out that list meetings.
+
+[meetings.aliases]
+# To fill in: board names the engine doesn't fix itself: a calendar meeting
+#   next to an Agenda Center one of the same day, not shown as one, needs an
+#   alias (python -m pipeline.listings, in the report).
+
+[meetings.civicclerk]
+api_url = "https://hamdenct.api.civicclerk.com/v1"
+portal_url = "https://hamdenct.portal.civicclerk.com"
+# Meetings, agendas, and minutes are collected from here on.
+since = "2026-01-01"
+# Most of the portal's meetings are under a catch-all category, and some are
+# named for an item, not a board: those go under the board their category
+# names.
+board_from_category = true
+
+# The Board of Education posts with the other boards ("Board of Education").
+
+# Agenda and minutes PDFs live in the network's documents bucket, not in git
+# (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID,
+# STORAGE_SECRET_ACCESS_KEY.
+[storage]
+prefix = "hamden-ct"
+
+# Plain-English agenda text and previews, and decisions from minutes, written
+# by a language model and labeled as AI-generated on the site. Only meetings
+# from `since` on are summarized, about three months before launch, so the
+# town's history doesn't take the month's budget.
+[summaries]
+since = "2026-08-01"
+
+# To fill in: how residents can take part, per board ([participation."Town
+#   Council"], [participation."School Committee"]): comment, source_title,
+#   source_url, video_title, video_url, each from the board's own rules or
+#   agendas.
+# To fill in: [[glossary]], terms that come up in this city's agendas and mean
+#   something of its own here, each from an official page. The state's and the
+#   network's terms are in its glossary already: C.G.S., executive session,
+#   special permit, abatement, ADA, CBA, CDBG, CIP, COLA, Committee of the
+#   Whole, consent agenda, first reading, mill rate, quitclaim deed, receive
+#   and file, Select Board, tabled, TIF, town meeting, variance, warrant
+#   article.
+
+# To fill in: [schools] edsight_district, the town's district as EdSight names
+#   it (EdSight has no graduation rates for "Hamden School District": a
+#   regional district, or one without a high school), and district_name.
+
+# Budget, mill rate, and property tax (pipeline/states/ct/), from the Office
+# of Policy and Management's statewide datasets on data.ct.gov; the average
+# single-family bill is calculated from the state's yearly Parcel and CAMA
+# file.
+[finance]
+opm_town = "Hamden"
+opm_code = 62
+# To fill in: budget_documents_url, the page where the town posts its own
+#   budget books, which the budget page links (leave it out if there's none).
+
+# Housing: Census building permits (state and place FIPS codes), American
+# Community Survey through Census Reporter (geo ids).
+[housing]
+bps_mcd = "35650"
+census_geo = "06000US0917035650"
+
+# Unemployment rate (BLS Local Area Unemployment Statistics, area
+# CS0935650000000, Hamden town, CT). City rates are not seasonally adjusted;
+# the state series is shown for context.
+[labor]
+local_series = "LAUCS093565000000003"
+
+# How often each data source should update. Figures published monthly or
+# yearly are judged by the engine, by the period they cover
+# (pipeline/rhythms.py).
+[freshness]
+sources = [
+  { label = "Meetings (CivicClerk)", file = "meetings/status.json", max_days = 2 },
+]
+
+# To fill in: [seeclickfix], with the city's organization ID, once a person
+#   has confirmed the city uses it (the issues listing needs a login now; the
+#   Open311 listing at seeclickfix.com/open311/v2/<id>/services.json names its
+#   request types), and the 311 section and its [freshness] sources (with 311
+#   the tagline can say "responds, decides, and spends", as Gloucester's,
+#   Malden's, and Methuen's do); or, if the city takes requests some other
+#   way, [absences] 311 saying so. SeeClickFix's places: Hamden, place 32399
+#   (https://seeclickfix.com/us-ct-hamden). The city's site links
+#   https://seeclickfix.com/us-ct-hamden/report.
+
+# Who represents you (the Officials page). Kept by hand from official city and
+# school websites; checked is the date the list was last checked against them.
+# Only city- and school-issued email addresses, and the mayor's office phone.
+[officials]
+# To fill in: checked, the date the list below was checked against official
+#   pages.
+# To fill in: next_election, the date of the town's next regular municipal
+#   election, from the city's election calendar or its charter.
+# To fill in: wards_file, the town's wards (ADDING-A-TOWN.md, step 3), or none
+#   if every seat is elected townwide.
+
+# To fill in: the Mayor, from the town's and the school district's own pages,
+#   confirmed against the last election's official results (ADDING-A-TOWN.md,
+#   step 4). Never from news sites or memory.
+# [[officials.bodies]]
+# name = "Mayor"
+# url = ""
+# note = ""
+# members = [
+#   { name = "", seat = "" },
+# ]
+
+# To fill in: the Town Council, from the town's and the school district's own
+#   pages, confirmed against the last election's official results
+#   (ADDING-A-TOWN.md, step 4). Never from news sites or memory.
+# [[officials.bodies]]
+# name = "Town Council"
+# url = ""
+# note = ""
+# members = [
+#   { name = "", seat = "" },
+# ]
+
+# To fill in: the School Committee, from the town's and the school district's
+#   own pages, confirmed against the last election's official results
+#   (ADDING-A-TOWN.md, step 4). Never from news sites or memory.
+# [[officials.bodies]]
+# name = "School Committee"
+# url = ""
+# note = ""
+# members = [
+#   { name = "", seat = "" },
+# ]
