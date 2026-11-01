@@ -1,0 +1,83 @@
+# Takes a town's site down, for a town removed from the network: deletes
+# sites/<domain>/ in the sites bucket (its live manifest, current.json, and
+# its builds' manifests). The sites Worker then answers the address with "No
+# site here." (a 404) once its cached manifest expires, within a minute. The
+# files the site used stay in blobs/ until the daily prune (network.yml)
+# deletes those no other site uses.
+#
+# Run by hand only (Run workflow), with the site's address. It refuses an
+# address that a town folder under towns/ still configures as its [site]
+# domain, so remove the town's folder first: a live town's next daily run
+# would publish it again anyway. The run lists what it deleted.
+name: Remove a site
+
+on:
+  workflow_dispatch:
+    inputs:
+      domain:
+        description: The site's address, like "laconia-nh.publick.org"
+        type: string
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: remove-site-${{ inputs.domain }}
+
+jobs:
+  remove:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          sparse-checkout: towns
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+
+      - run: pip install boto3==1.43.106
+
+      - name: Remove the site
+        env:
+          DOMAIN: ${{ inputs.domain }}
+          SITES_ENDPOINT: ${{ secrets.SITES_ENDPOINT }}
+          SITES_BUCKET: ${{ secrets.SITES_BUCKET }}
+          SITES_ACCESS_KEY_ID: ${{ secrets.SITES_ACCESS_KEY_ID }}
+          SITES_SECRET_ACCESS_KEY: ${{ secrets.SITES_SECRET_ACCESS_KEY }}
+        run: |
+          python3 - <<'EOF'
+          import glob, os, re, sys, tomllib
+          import boto3
+
+          domain = os.environ["DOMAIN"].strip().lower()
+          if not re.fullmatch(r"[a-z0-9-]+\.publick\.org", domain):
+              sys.exit(f"::error::{domain!r} isn't a town site's address (<town>-<state>.publick.org).")
+          for path in glob.glob("towns/*/config/*.toml"):
+              with open(path, "rb") as f:
+                  if tomllib.load(f).get("site", {}).get("domain", "").lower() == domain:
+                      sys.exit(f"::error::{path} still configures {domain}: remove the town's folder first.")
+
+          client = boto3.client("s3", endpoint_url=os.environ["SITES_ENDPOINT"], region_name="auto",
+                                aws_access_key_id=os.environ["SITES_ACCESS_KEY_ID"],
+                                aws_secret_access_key=os.environ["SITES_SECRET_ACCESS_KEY"])
+          bucket, prefix = os.environ["SITES_BUCKET"], f"sites/{domain}/"
+          keys = [o["Key"] for page in client.get_paginator("list_objects_v2").paginate(Bucket=bucket, Prefix=prefix)
+                  for o in page.get("Contents", [])]
+          if not keys:
+              print(f"Nothing under {prefix}: the site is already gone.")
+              sys.exit(0)
+          # The live manifest first, so the site stops being served even if a later deletion fails.
+          keys.sort(key=lambda k: k != prefix + "current.json")
+          client.delete_object(Bucket=bucket, Key=keys[0])
+          for i in range(1, len(keys), 1000):
+              response = client.delete_objects(Bucket=bucket, Delete={
+                  "Objects": [{"Key": k} for k in keys[i:i + 1000]], "Quiet": True})
+              if response.get("Errors"):
+                  sys.exit(f"::error::{len(response['Errors'])} deletions failed, "
+                           f"e.g. {response['Errors'][0].get('Key')}")
+          print(f"Deleted {len(keys)} objects under {prefix}:")
+          print("\n".join(keys))
+          EOF
