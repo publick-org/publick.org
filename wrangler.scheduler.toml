@@ -1,5 +1,5 @@
-# The Worker that starts the engine's release, the engine pull request, and the
-# network's daily runs on time (GitHub starts its own scheduled runs late, or
+# The Worker that starts the engine's release, the engine pull request, the
+# network's daily runs and its recordings runs on time (GitHub starts its own scheduled runs late, or
 # not at all), opens an issue if the daily runs stop or a site stops loading, and
 # submits each new town's sitemap to Google Search Console.
 # Its code is the engine's worker/scheduler-index.js, at the version in
@@ -22,7 +22,11 @@ workers_dev = false
 # Every hour at :50: the uptime check, which loads every site's homepage and opens a "site down"
 # issue for one that doesn't load; it must match UPTIME_CRON in the engine's worker/scheduler.js,
 # as written (a scheduler without it would take it for a daily run's start).
-crons = ["20 8 * * *", "40 8 * * *", "5 9-14 * * *", "35 * * * SUN,MON", "50 * * * *"]
+# 05:23, 07:23, 09:23, 13:23 and 17:23 UTC: the recordings run (RECORDINGS_WORKFLOW), which
+# transcribes the meetings' recordings for the next morning's summaries; it must match
+# RECORDINGS_CRON in the engine's worker/scheduler.js, as written (from engine v1.78.0: an older
+# scheduler would take it for a daily run's start).
+crons = ["20 8 * * *", "40 8 * * *", "5 9-14 * * *", "35 * * * SUN,MON", "50 * * * *", "23 5,7,9,13,17 * * *"]
 
 [vars]
 REPOSITORY = "publick-org/publick.org"
@@ -35,6 +39,8 @@ STATUS_URL = "https://publick.org/status/"
 ENGINE_REPOSITORY = "publick-org/publick-engine"
 RELEASE_WORKFLOW = "release.yml"
 ENGINE_WORKFLOW = "engine.yml"
+# The recordings run the scheduler starts at RECORDINGS_CRON.
+RECORDINGS_WORKFLOW = "recordings.yml"
 # Who the "network stopped", "digest not sent" and "site down" issues are assigned to, ALERT_ASSIGNEE, is a
 # secret on the Worker, set by .github/workflows/worker.yml from the repository secret of the same name.
 # The towns whose weekly digest is emailed, by hostname, separated by commas; empty, and none is.
