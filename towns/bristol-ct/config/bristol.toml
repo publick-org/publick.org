@@ -10,10 +10,10 @@
 # on the city's CivicClerk portal (bristolct.portal.civicclerk.com), read as
 # [meetings.civicclerk], as Medford's and Portland's are; the council's
 # minutes are text PDFs. The Board of Education posts its agendas on
-# BoardBook and its minutes on the district's website (ParentSquare
-# SmartSites), neither of which the engine reads: its meetings are listed
+# BoardBook ([boardbook_meetings]) and its minutes on the district's website
+# (ParentSquare SmartSites, [page_meetings]); its meetings ahead are listed
 # from the year's schedule on the district's BOE Calendar page
-# ([schedule_meetings]), without documents. The city takes service requests
+# ([schedule_meetings]). The city takes service requests
 # through forms on its own website, not SeeClickFix, so the site has no 311
 # section ([absences]). The engine's Connecticut package gives the budget, mill
 # rate, and tax bill, from the state's Office of Policy and Management
@@ -62,7 +62,7 @@ official_site = "https://www.bristolct.gov"
 [[sections]]
 slug = "meetings"
 title = "Meetings"
-summary = "When the City Council, its committees, and the city's boards and commissions meet, with agendas and minutes from January 2026 on, and the Board of Education's meeting dates."
+summary = "When the City Council, its committees, the city's boards and commissions, and the Board of Education and its committees meet, with agendas and minutes from January 2026 on."
 status = "live"
 
 [[sections]]
@@ -236,13 +236,52 @@ board_from_category = true
 # meetings, which their titles don't say).
 exclude_pattern = '^Tree Hearing\b|\bCitation (Appeals )?Hearings?\b|\bFlood Action Plan\b|^General$'
 
-# The Board of Education's regular meetings, from the year's schedule on the
-# district's BOE Calendar page ("November 4, 2026", "December 2, 2026* 7:00pm").
-# The board posts its agendas on BoardBook (meetings.boardbook.org) and its
-# minutes on the district's BOE Meeting Minutes page, titled by dates in
-# figures ("10.07.26 - Regular BOE Meeting Minutes"); the engine reads
-# neither, so the board's meetings are listed without their documents, and its
-# special meetings and committees aren't listed.
+# The Board of Education's meetings and its committees', with their agendas,
+# from the district's page on BoardBook Premier (meetings.boardbook.org,
+# linked from the district's Board of Education page as "Board Book -
+# Agenda's"): each meeting's date and time, its type ("Regular", "Special",
+# "Working"), its place and Zoom link, and its agenda. The agenda saved is
+# the agenda package's own pages, without the attachments that follow them
+# (the engine's pipeline/boardbook.py). The board posts its minutes on the
+# district's website, not on BoardBook (minutes = false); they're read from
+# there ([page_meetings], below). Names map to boards by words in them, the
+# longest found winning; anything else ("Board of Education Meeting",
+# "Special Board of Education Meeting", "Board of Education Budget Workshop
+# Meeting #3", "Tri-Board Workshop Meeting", the board's with the City Council
+# and the Board of Finance) is the Board of Education's.
+[boardbook_meetings]
+page_url = "https://meetings.boardbook.org/Public/Organization/2447"
+source_name = "Bristol Public Schools"
+since = "2026-01-01"
+body = "Board of Education"
+minutes = false
+
+# The committees, as the meetings' names call them ("Finance & Operations
+# Committee Meeting", "Special Ad-Hoc Labor Relations Committee Meeting"),
+# named as the district's Board of Education pages name them.
+[boardbook_meetings.bodies]
+"Student Achievement" = "Board of Education Student Achievement Committee"
+"Policy Committee" = "Board of Education Policy Committee"
+"Finance & Operations Committee" = "Board of Education Finance and Operations Committee"
+"School, Family & Community Partnership" = "Board of Education School, Family and Community Partnership Committee"
+"School Safety Committee" = "Board of Education School Safety Committee"
+"Labor Relations Committee" = "Board of Education Ad-Hoc Labor Relations Committee"
+
+# The Board of Education's minutes, from the district's BOE Meeting Minutes
+# page (ParentSquare SmartSites): a link a meeting's minutes, titled by its
+# date in figures and its kind ("01.14.26 – Special BoE Meeting Minutes –
+# APPROVED", "05.06.2026-Regular Board of Education Minutes – APPROVED"), each
+# a PDF. Each joins the board's meeting of that day on BoardBook. The page has
+# the full board's minutes only, not its committees'.
+[page_meetings]
+page_url = "https://www.bristol.k12.ct.us/boe-meeting-minutes"
+source_name = "Bristol Public Schools"
+since = "2026-01-01"
+body = "Board of Education"
+
+# The Board of Education's regular meetings ahead, from the year's schedule on
+# the district's BOE Calendar page ("November 4, 2026", "December 2, 2026*
+# 7:00pm"), listed before their agendas are posted on BoardBook.
 [schedule_meetings]
 url = "https://www.bristol.k12.ct.us/boe-calendar"
 source_name = "Bristol Public Schools"
@@ -292,13 +331,14 @@ platform = "youtube"
 channel = "UC9jy8WJuhXggiF0JHf2diEQ"
 boards = { "City Council" = '^\s*bristol\s+(?:special\s+)?city\s+council\b' }
 
-# Bristol Public Schools' channel: the Board of Education's regular meetings, titled "10/07/2026 -
-# Regular Board of Education Meeting" or "5/6/2026- Regular BOE Meeting" (its special meetings, not
-# listed here, and its committees are left out).
+# Bristol Public Schools' channel: the Board of Education's regular and special meetings, titled
+# "10/07/2026 - Regular Board of Education Meeting", "5/6/2026- Regular BOE Meeting" or "10/27/2026 -
+# Special Board of Education Meeting", each listed on BoardBook (its committees' meetings, also on the
+# channel, are left out).
 [[recordings.sources]]
 platform = "youtube"
 channel = "UCo3gTprD7JadmALEilkZgPg"
-boards = { "Board of Education" = '\bregular\s+(?:board\s+of\s+education|boe)\s+meeting\b' }
+boards = { "Board of Education" = '\b(?:regular|special)\s+(?:board\s+of\s+education|boe)\s+meeting\b' }
 
 # How residents can take part, per board, shown on its meeting pages. Only
 # what the city or the school district has published; each entry names its
@@ -379,6 +419,8 @@ local_series = "LAUCT090842000000003"
 [freshness]
 sources = [
   { label = "Meetings (CivicClerk)", file = "meetings/status.json", max_days = 2 },
+  { label = "Board of Education meetings (BoardBook)", file = "meetings/boardbook_status.json", max_days = 2 },
+  { label = "Board of Education minutes (school district website)", file = "meetings/page_status.json", max_days = 2 },
 ]
 
 # The About page's "What this site doesn't cover": why there's no 311 section.
@@ -393,14 +435,24 @@ sources = [
 # school websites; checked is the date the list was last checked against them.
 # Only city- and school-issued email addresses, and the mayor's office phone
 # (the council's page also lists councilors' own phone numbers, which are left
-# out). There is no ward map: the city publishes its council districts only
-# as a PDF map (bristolct.gov/838/Voting-District-Map), and its GIS's Polling
-# District layer is by state house district ("77-1"), not council district.
-# The city's charter is on Municode, which blocks automated requests, so
-# terms are from the official election results and the City Council's
+# out). The city's charter is on Municode, which blocks automated requests,
+# so terms are from the official election results and the City Council's
 # minutes.
 [officials]
 checked = "2026-11-01"
+# The ward file is data/static/bristol-council-districts-2022.geojson: the
+# city's nine polling districts, from the Polling District layer of its GIS
+# (bristol.mapxpress.net), named by state house district ("77-1"), each with
+# the council district and local precinct the GIS's Polling Location layer
+# gives it ("77-1 Polling Place (1-1)"), as the Registrars of Voters' Polling
+# Locations page lists them (State District 77-1, Local Precinct 1-1): three
+# precincts to each of the three council districts, as on the city's Voting
+# District Map of March 25, 2022. Each has its 2020 population from the census
+# blocks inside it (60,833 in all, the city's 2020 count).
+wards_file = "bristol-council-districts-2022.geojson"
+wards_publisher = "the City of Bristol"
+wards_year = 2022
+wards_url = "https://server1.mapxpress.net/arcgis/rest/services/Bristol/Active/MapServer/39"
 # The next regular municipal election: November 2, 2027. The city elects its
 # mayor, council, and Board of Education in odd years (the Registrars of
 # Voters' Election Results page). Nothing municipal is on the state election
