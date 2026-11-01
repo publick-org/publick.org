@@ -107,6 +107,12 @@ status = "live"
 [analytics]
 prefix = "winooski-vt"
 
+# The weekly digest's email signup, on /digest/ (the engine's pipeline/digest.py). The form posts
+# to this site's /digest/subscribe, which the sites Worker answers (worker/digest.js) and passes on
+# to Buttondown with the tag winooski-vt-en. The About page names who keeps the addresses.
+[digest]
+# The network's settings (defaults/network.toml): having the table turns the signup on.
+
 # Public meetings, from the city's Agenda Center: a category for each body.
 [meetings]
 base_url = "https://www.winooskivt.gov"
@@ -173,6 +179,29 @@ prefix = "winooski-vt"
 # town's history doesn't take the month's budget.
 [summaries]
 since = "2026-08-01"
+
+# The boards' meetings below, transcribed from their recordings for a summary
+# the day after, until the minutes come (the engine's pipeline/recordings.py).
+[recordings]
+since = "2026-10-26"
+
+# Town Meeting TV's copies on the Internet Archive, a few days after the
+# meeting: the City Council's, titled "Winooski City Council - 10/19/2026";
+# the Development Review Board's ("Winooski Development Review Board -
+# 10/15/2026"); and the Planning Commission's ("Winooski Planning Commission
+# 8/13/2026"), with its joint meetings ("Winooski Planning Commission and
+# Development Review Board - 7/9/2026", "Winooski Planning/Housing Commission
+# - 4/23/2026"). Other towns' meetings in the same collection are left out.
+[[recordings.sources]]
+platform = "internet_archive"
+collection = "cctvvt"
+
+[recordings.sources.boards]
+"City Council" = '^Winooski City Council\b'
+"Development Review Board" = '^Winooski Development Review Board\b'
+"Planning Commission" = '^Winooski Planning Commission\b'
+"Joint Planning Commission and Development Review Board" = '^Winooski Planning Commission\s+and\s+Development Review Board\b'
+"Joint Planning Commission and Housing Commission" = '^Winooski Planning(?:\s+Commission)?\s*(?:/|\band\b)\s*Housing Commission\b'
 
 # How residents can take part, per board, shown on its meeting pages. Only
 # what the city has published; each entry names its source. From the city's

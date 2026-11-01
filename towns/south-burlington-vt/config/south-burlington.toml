@@ -100,6 +100,12 @@ status = "live"
 [analytics]
 prefix = "south-burlington-vt"
 
+# The weekly digest's email signup, on /digest/ (the engine's pipeline/digest.py). The form posts
+# to this site's /digest/subscribe, which the sites Worker answers (worker/digest.js) and passes on
+# to Buttondown with the tag south-burlington-vt-en. The About page names who keeps the addresses.
+[digest]
+# The network's settings (defaults/network.toml): having the table turns the signup on.
+
 # Public meetings, from the city calendar and its Agenda Center.
 [meetings]
 base_url = "https://www.southburlingtonvt.gov"
@@ -186,6 +192,38 @@ prefix = "south-burlington-vt"
 # town's history doesn't take the month's budget.
 [summaries]
 since = "2026-08-01"
+
+# The boards' meetings below, transcribed from their recordings for a summary
+# the day after, until the minutes come (the engine's pipeline/recordings.py).
+[recordings]
+since = "2026-10-26"
+
+# Town Meeting TV's copies on the Internet Archive, a few days after the
+# meeting: the City Council's, titled "South Burlington City Council -
+# 9/22/2026", and its joint meetings, listed as the council's ("South
+# Burlington City Council and Planning Commission - 10/15/2026"); the
+# Planning Commission's ("South Burlington Planning Commission -
+# 10/27/2026"); and the Development Review Board's ("South Burlington
+# Development Review Board - 10/20/2026"). The Library Board of Trustees'
+# and the Board of Civil Authority's, and other towns' meetings in the same
+# collection, are left out.
+[[recordings.sources]]
+platform = "internet_archive"
+collection = "cctvvt"
+
+[recordings.sources.boards]
+"City Council" = '^South Burlington City Council\b'
+"Planning Commission" = '^South Burlington Planning Commission\b'
+"Development Review Board" = '^South Burlington Development Review Board\b'
+
+# The school district's YouTube channel, whose videos its School Board page
+# links: the School Board's meetings, titled "October 21, 2026 School Board
+# Meeting", a few days after the meeting. YouTube's videos can't be
+# downloaded by a server: Gemini reads each video from its link.
+[[recordings.sources]]
+platform = "youtube"
+channel = "UCkLP5ttKa5V2bpNIsRsobNw"
+boards = { "School Board" = '^\s*[a-z]+\.?\s+\d{1,2},\s*\d{4}\s+school\s+board\s+meeting\b' }
 
 # How residents can take part, per board, shown on its meeting pages. Only
 # what the city or the school district has published; each entry names its

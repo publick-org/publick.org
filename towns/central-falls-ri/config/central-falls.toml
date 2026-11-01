@@ -88,6 +88,12 @@ status = "live"
 [analytics]
 prefix = "central-falls-ri"
 
+# The weekly digest's email signup, on /digest/ (the engine's pipeline/digest.py). The form posts
+# to this site's /digest/subscribe, which the sites Worker answers (worker/digest.js) and passes on
+# to Buttondown with the tag central-falls-ri-en. The About page names who keeps the addresses.
+[digest]
+# The network's settings (defaults/network.toml): having the table turns the signup on.
+
 # Public meetings, every one from the Open Meetings portal
 # ([opengov_meetings], below). The School Board's meetings are shown in full
 # on the home page, as a school committee's are.
@@ -106,6 +112,50 @@ prefix = "central-falls-ri"
 # city's history doesn't take the month's budget.
 [summaries]
 since = "2026-08-01"
+
+# The City Council's and the School Board's meetings, transcribed from their
+# YouTube videos by Gemini for a summary the day after, until the minutes come
+# (the engine's pipeline/recordings.py and pipeline/youtube.py).
+# Their recordings are on YouTube, which servers can't download from: Gemini
+# reads each video from its link.
+[recordings]
+since = "2026-10-26"
+
+# The city's channel (@centralfallscitycouncil), whose videos the City Clerk's
+# agendas on ClerkBase link: the City Council's meetings, titled with the date
+# alone ("October 15, 2026", "April 13, 2026 Part 1") or with the council named
+# ("September 14, 2026 City Council Meeting", "Special City Council May 28,
+# 2026"), and some of the School Board's ("June 9, 2026 Central Falls School
+# Board Meeting"). Its ethics trainings, the Charter Review Commission's
+# meetings and the mayor's budget addresses are left out.
+[[recordings.sources]]
+platform = "youtube"
+channel = "UCi76DPS_-IhkSW-6N8wlrGQ"
+
+[recordings.sources.boards]
+"City Council" = '^(?!.*\b(?:ethics|training|charter|school|budget\s+address)\b)(?:\s*[a-z]+\s+\d{1,2},?\s*\d{4}(?:\s+part\s*\w+)?\s*$|.*\bcity\s+council\b)'
+"School Board" = '\bschool\s+board\b'
+
+# The school district's channel, whose videos the School Board's minutes link
+# ("Recording:"): the board's meetings, titled "City of Central Falls School
+# Board 10/13/26".
+[[recordings.sources]]
+platform = "youtube"
+channel = "UCZy7W7_kCdBm79rVWWV1hfQ"
+boards = { "School Board" = '\bschool\s+board\b' }
+
+# How residents can take part, per board, shown on its meeting pages. Only
+# what the city or the school district has published; each entry names its
+# source. The City Council's agendas list a Public Comment period but give no
+# rules for it, so the Council has no entry. From the School Board's agendas,
+# which also give the Zoom link its meetings are streamed on; its minutes link
+# each meeting's recording on the school district's YouTube channel.
+[participation."School Board"]
+comment = "Anyone may comment on items on the agenda during Right to Be Heard, early in each meeting, and again during Community Comment, near its end."
+source_title = "School Board agenda of October 13, 2026"
+source_url = "https://opengov.sos.ri.gov/Common/DownloadMeetingFiles?FilePath=%5CNotices%5C8762%5C2026%5C568369.pdf"
+video_title = "the school district's YouTube channel"
+video_url = "https://www.youtube.com/channel/UCZy7W7_kCdBm79rVWWV1hfQ"
 
 # The city's meetings, agendas and minutes, from the Secretary of State's Open
 # Meetings portal, each public body named exactly as the portal names it: the

@@ -252,10 +252,12 @@ fill a vacancy, new council or committee officers). Update the members and
 `checked` in one pull request.
 
 Each table's `next_election` is the town's next municipal election: November
-3, 2026 for Bangor, Laconia, Lewiston, Portland, and South Kingstown; Town
-Meeting Day, March 2, 2027, for Burlington; November 2, 2027 for Beverly,
-Gloucester, Lawrence, Lowell, Malden, Manchester, Medford, Methuen, Nashua,
-Salem, Somerville, Springfield, Waltham, Wallingford, and Worcester. A list
+3, 2026 for Bangor, Central Falls, Lewiston, Pawtucket, Portland, and South
+Kingstown; Town Meeting Day, March 2, 2027, for Burlington, South Burlington,
+and Winooski; March 9, 2027 for Derry; November 2, 2027 for Beverly,
+Biddeford, Bristol, Gloucester, Hamden, Lawrence, Lowell, Malden, Manchester,
+Medford, Methuen, Nashua, Salem, Somerville, Springfield, Waltham,
+Wallingford, Westbrook, and Worcester. A list
 is due a check on election day, or once new terms begin if that's later (the
 first month a member's `term_ends` on or after the election's month, such as
 January 2027 for Lewiston and April 2027 for Burlington; a town with no
@@ -268,10 +270,10 @@ alert too, so its results are recorded before the winners take office.
 ### After an election
 
 Winners usually take office days or weeks after the election: Bangor's
-council the Monday after, Laconia's School Board and South Kingstown's
-council and School Committee at a meeting later in November, Portland's at
+council the Monday after, South Kingstown's council and School Committee
+at a meeting later in November, Portland's at
 the council's inaugural meeting on the first Monday of December, and
-Lewiston's in January. Record the results as soon as they're official,
+Lewiston's and Pawtucket's council in January. Record the results as soon as they're official,
 without changing who is listed now:
 
 1. For each body with seats on the ballot, add an

@@ -99,6 +99,12 @@ status = "live"
 [analytics]
 prefix = "biddeford-me"
 
+# The weekly digest's email signup, on /digest/ (the engine's pipeline/digest.py). The form posts
+# to this site's /digest/subscribe, which the sites Worker answers (worker/digest.js) and passes on
+# to Buttondown with the tag biddeford-me-en. The About page names who keeps the addresses.
+[digest]
+# The network's settings (defaults/network.toml): having the table turns the signup on.
+
 # Public meetings, from the city calendar and its CivicClerk portal.
 [meetings]
 base_url = "https://www.biddefordmaine.org"
@@ -160,6 +166,28 @@ prefix = "biddeford-me"
 # town's history doesn't take the month's budget.
 [summaries]
 since = "2026-08-01"
+
+# The boards' meetings below, transcribed from their recordings for a summary
+# the day after, until the minutes come (the engine's pipeline/recordings.py).
+[recordings]
+since = "2026-10-26"
+
+# The city's CivicClerk portal keeps each meeting's video with it, recorded
+# from its live stream: the City Council's meetings, named "City Council
+# Meeting (Live)" or "Special City Council Meeting" (its workshops and site
+# walks are left out), and the Planning Board's and Zoning Board of Appeals'
+# meetings, named "Planning Board Meeting (Live)" and "Zoning Board of Appeals
+# Meeting (Live)".
+[[recordings.sources]]
+platform = "civicclerk"
+api_url = "https://biddefordme.api.civicclerk.com/v1"
+portal_url = "https://biddefordme.portal.civicclerk.com"
+media_url = "https://cpmedia.azureedge.net/biddefordme"
+
+[recordings.sources.boards]
+"City Council" = '^(Special )?City Council Meeting\b'
+"Planning Board" = '^Planning Board Meeting\b'
+"Zoning Board of Appeals" = '^Zoning Board of Appeals Meeting\b'
 
 # How residents can take part, per board, shown on its meeting pages. Only
 # what the city or the school department has published; each entry names its
