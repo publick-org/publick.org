@@ -11,12 +11,11 @@
 # Commissions" calendar, which the portal feeds, so the calendar isn't read.
 # The Board of Education's regular meetings are on the portal too, with no
 # documents; the board posts its agendas, minutes, and committee meetings on
-# the school district's website, which the engine doesn't read yet (see
-# [meetings.civicclerk]). The town answers requests on SeeClickFix
-# ([seeclickfix]). The engine's Connecticut package gives the budget, mill
-# rate, and tax bill, from the state's Office of Policy and Management
-# ([finance]), and school figures, from EdSight ([schools]); housing and
-# unemployment come from the Census and BLS, as for every town.
+# the school district's website, read as [page_meetings]. The town answers
+# requests on SeeClickFix ([seeclickfix]). The engine's Connecticut package
+# gives the budget, mill rate, and tax bill, from the state's Office of Policy
+# and Management ([finance]), and school figures, from EdSight ([schools]);
+# housing and unemployment come from the Census and BLS, as for every town.
 #
 # The site is in English and Spanish ([site] languages), as every town's is.
 # The first runs draft the Spanish for the town's own text; [strings.es], at
@@ -58,7 +57,7 @@ official_site = "https://www.hamden.com"
 [[sections]]
 slug = "meetings"
 title = "Meetings"
-summary = "When the Legislative Council, its committees, and the town's boards and commissions meet, with agendas, and minutes from January 2026 on."
+summary = "When the Legislative Council, its committees, the town's boards and commissions, and the Board of Education meet, with agendas, and minutes from January 2026 on."
 status = "live"
 
 [[sections]]
@@ -262,15 +261,37 @@ board_from_category = true
 # didn't take place, which the engine doesn't read as cancelled.
 exclude_pattern = '\b(?:Regional Water|SCRCOG|Greater New Haven|Leadership (?:Meeting|Agenda)|Mayor.s On Hold|Staff Training|Budget Documentation|Tentative Items|Cancell?ation)\b|\bnot held'
 
-# The Board of Education's regular meetings are on the portal ("Board of
+# The Board of Education's regular meetings are on the portal too ("Board of
 # Education", 7:00 PM on the second Tuesday), with no agenda or minutes. The
 # board posts its agendas, minutes, and recordings, and its committees'
 # meetings, on Hamden Public Schools' BOE Meeting Agendas/Minutes page
-# (https://www.hamden.org/boe-meeting-agendas-minutes, ParentSquare
-# SmartSites), a table with a row a meeting. The engine's reader for such a
-# page ([page_meetings]) finds a meeting's date written out or as 2026-10-13;
-# this page writes it as 10/13/26, so it isn't read yet. The board's calendar
-# page (/board-of-education-calendar) lists no events.
+# (ParentSquare SmartSites), read here: a table under each month, a row a
+# meeting, with its date ("10/13/26"), its name ("Board of Education
+# Meeting", "Finance Committee Meeting", "Special Board of Education
+# Meeting"), and links labelled "Agenda", "Minutes" and "Recording" (a Zoom
+# cloud recording, kept as a link), and the meeting's materials. A row
+# marked "CANCELLED" is a cancelled meeting. The page holds the meetings from
+# January 2026 on; earlier years are on pages of their own
+# (/boe-meeting-agendas-minutes-2025), not read. The rows give no times. The
+# board's calendar page (/board-of-education-calendar) lists no events.
+[page_meetings]
+page_url = "https://www.hamden.org/boe-meeting-agendas-minutes"
+source_name = "Hamden Public Schools"
+# The first run lists meetings from here, and documents are collected from here on.
+since = "2026-01-01"
+body = "Board of Education"
+
+# The board's standing committees, as the rows name them ("Goals and
+# Evaluations Committe Meeting", October 19, 2026). The district's
+# committees aren't the Legislative Council's, whose "Finance Committee" is
+# in [meetings.aliases]: these names only apply to this page.
+[page_meetings.bodies]
+"Curriculum Committee" = "Board of Education Curriculum Committee"
+"Finance Committee" = "Board of Education Finance Committee"
+"Goals and Evaluations" = "Board of Education Goals and Evaluations Committee"
+"Operations Committee" = "Board of Education Operations Committee"
+"Personnel Committee" = "Board of Education Personnel Committee"
+"Policy Committee" = "Board of Education Policy Committee"
 
 # Agenda and minutes PDFs live in the network's documents bucket, not in git
 # (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID,
@@ -484,7 +505,7 @@ members = [
 [[officials.bodies]]
 name = "Board of Education"
 url = "https://www.hamden.org/meet-our-board-members"
-note = "Nine members elected townwide for four years, six and three in alternate municipal elections, no more than six of them from one party. The board's regular meetings are listed here; its agendas, minutes, and committee meetings are on the district's website, which this site doesn't read yet."
+note = "Nine members elected townwide for four years, six and three in alternate municipal elections, no more than six of them from one party."
 members = [
   { name = "Peter Downhour", seat = "At-large", role = "Board Chair", term_ends = "2027-11", email = "pdownhour@hamden.org" },
   { name = "Melissa Kaplan", seat = "At-large", role = "Secretary", term_ends = "2029-11" },
