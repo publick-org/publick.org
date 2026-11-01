@@ -82,11 +82,11 @@
   },
   "Elected citywide.": {
    "text": "Elegido por toda la ciudad.",
-   "check": "review: \"Elegido\" da género masculino a un texto que no lo indica; debe ser neutro, por ejemplo \"Se elige por toda la ciudad\".",
+   "check": "review: \"Elegido\" es masculino y el inglés no da el género de la persona o las personas. Además, no dice quién es elegido. Habría que usar una forma neutra, como \"Cargo electo por toda la ciudad\" o \"Se elige por voto de toda la ciudad\".",
    "model": "claude-haiku-5-5",
    "prompt_version": 2,
-   "attempts": 1,
-   "generated_at": "2026-11-01T04:34:58-05:00"
+   "attempts": 2,
+   "generated_at": "2026-11-01T04:37:30-05:00"
   },
   "Graduation, attendance, state test results, and spending per pupil compared with the state.": {
    "text": "Graduación, asistencia, resultados de exámenes estatales y gasto por estudiante, comparado con el estado.",
@@ -273,12 +273,12 @@
    "generated_at": "2026-11-01T04:34:58-05:00"
   },
   "The mayor, the City Council, and the School Committee, by office and by council district, and how to reach them.": {
-   "text": "La alcaldía, el Concejo Municipal y el Comité Escolar, por cargo y por distrito del concejo, y cómo comunicarse con ellos.",
-   "check": "review: \"cómo comunicarse con ellos\" da género masculino; además \"la alcaldía\" no concuerda con \"ellos\". Debería ser neutro, por ejemplo \"cómo comunicarse con cada uno de estos cargos\".",
+   "text": "La alcaldía, el Concejo Municipal y el Comité Escolar, por cargo y por distrito, y cómo ponerse en contacto con ellos.",
+   "check": "ok",
    "model": "claude-haiku-5-5",
    "prompt_version": 2,
-   "attempts": 1,
-   "generated_at": "2026-11-01T04:34:58-05:00"
+   "attempts": 2,
+   "generated_at": "2026-11-01T04:37:30-05:00"
   },
   "Water Supply Board": {
    "text": "Junta de Suministro de Agua",
@@ -315,6 +315,16 @@
     "cache_read_input_tokens": 2619
    },
    "cost": 0.011694
+  },
+  {
+   "generated_at": "2026-11-01T04:37:30-05:00",
+   "texts": 2,
+   "usage": {
+    "input_tokens": 87,
+    "output_tokens": 499,
+    "cache_read_input_tokens": 2619
+   },
+   "cost": 0.002459
   }
  ]
 }
