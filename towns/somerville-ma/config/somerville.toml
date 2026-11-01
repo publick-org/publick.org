@@ -335,9 +335,9 @@ members = [
   { name = "Lance L. Davis", seat = "City Council President", email = "ldavis@somervillema.gov" },
 ]
 
-# The City Council's meetings, transcribed from their YouTube videos by Gemini for a
-# summary the day after, until the minutes come (the engine's
-# pipeline/recordings.py and pipeline/youtube.py).
+# The City Council's and School Committee's meetings, transcribed from their
+# YouTube videos by Gemini for a summary the day after, until the minutes come
+# (the engine's pipeline/recordings.py and pipeline/youtube.py).
 # YouTube is the only place a server can find its recordings: the city's Granicus
 # archive refuses anything but a browser.
 [recordings]
@@ -349,3 +349,9 @@ since = "2026-10-26"
 platform = "youtube"
 channel = "UCA4fw6KOQ44_I5p9sFOmqfA"
 boards = { "City Council" = '^\s*(?:(?:regular|special)\s+)?city\s+council\s+meeting\b' }
+
+# The videos the School Committee's meetings link in their listings: matched to the meeting that links them,
+# with no channel or title pattern.
+[[recordings.sources]]
+platform = "youtube"
+boards = ["School Committee"]
