@@ -1,0 +1,342 @@
+{
+  "town": "biddeford",
+  "folder": "biddeford-me",
+  "started_at": "2026-11-01T02:50:36+00:00",
+  "finished_at": "2026-11-01T03:03:08+00:00",
+  "engine": "v1.78.0",
+  "fetched": true,
+  "steps": [
+    {
+      "name": "Fetch new data",
+      "ok": true,
+      "error": null,
+      "seconds": 689.0
+    },
+    {
+      "name": "Build site",
+      "ok": true,
+      "error": null,
+      "seconds": 8.6
+    },
+    {
+      "name": "Check site",
+      "ok": true,
+      "error": null,
+      "seconds": 40.5
+    },
+    {
+      "name": "Publish site",
+      "ok": true,
+      "error": null,
+      "seconds": 23.9
+    },
+    {
+      "name": "Check live site",
+      "ok": true,
+      "error": null,
+      "seconds": 1.1
+    }
+  ],
+  "update": {
+    "town": "biddeford",
+    "sources": "all",
+    "started_at": "2026-11-01T02:50:36+00:00",
+    "ok": true,
+    "steps": [
+      {
+        "name": "Fetch meetings",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 325.8,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch minutes",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 296.6,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch School Committee documents",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [drive_meetings] in the config"
+      },
+      {
+        "name": "Fetch school board meetings",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [finalsite_meetings] in the config"
+      },
+      {
+        "name": "Fetch school board documents",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [page_meetings] in the config"
+      },
+      {
+        "name": "Fetch Diligent Community meetings",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [diligent_meetings] in the config"
+      },
+      {
+        "name": "Fetch Open Meetings portal meetings",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [opengov_meetings] in the config"
+      },
+      {
+        "name": "Fetch the city's meeting documents",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [meetingdocs_meetings] in the config"
+      },
+      {
+        "name": "Fetch the school district's minutes library",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [sharpschool_meetings] in the config"
+      },
+      {
+        "name": "Summarize agendas",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 37.2,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch tax bill",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.2,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch unemployment",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.6,
+        "cadence": "monthly"
+      },
+      {
+        "name": "Fetch school figures",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.3,
+        "cadence": "yearly"
+      },
+      {
+        "name": "Fetch budget figures",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.3,
+        "cadence": "yearly"
+      },
+      {
+        "name": "Fetch housing figures",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 22.6,
+        "cadence": "monthly"
+      },
+      {
+        "name": "Fetch place",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.6,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch address ranges",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 4.1,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch building permits",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [permits] in the config"
+      },
+      {
+        "name": "Move saved documents to storage",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.2,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch 311 requests",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [seeclickfix] in the config"
+      },
+      {
+        "name": "Fetch 311 requests from an open data portal",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [socrata_311] in the config"
+      },
+      {
+        "name": "Compute 311 scorecard",
+        "ok": true,
+        "required": true,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [seeclickfix] or [socrata_311] in the config"
+      }
+    ]
+  },
+  "stale": false,
+  "sources": [
+    {
+      "label": "Meetings (CivicClerk)",
+      "file": "meetings/status.json",
+      "updated_at": "2026-10-31T22:50:37-04:00",
+      "max_days": 2,
+      "stale": false
+    },
+    {
+      "label": "Tax rate and property tax",
+      "file": "finance/budget.json",
+      "updated_at": "2026-10-31T23:01:37-04:00",
+      "max_days": null,
+      "cadence": "yearly",
+      "failing": 0,
+      "stale": false,
+      "latest": "Tax year 2024 tax rates",
+      "next": "Tax year 2025 tax rates usually by December 1, 2026",
+      "behind": null
+    },
+    {
+      "label": "School figures",
+      "file": "schools/schools.json",
+      "updated_at": "2026-10-31T23:01:37-04:00",
+      "max_days": null,
+      "cadence": "yearly",
+      "failing": 0,
+      "stale": false,
+      "latest": "Class of 2025 graduation rate; 2024\u201325 chronic absenteeism; Spring 2025 state test results; 2024\u201325 spending per pupil",
+      "next": "Class of 2026 graduation rate usually by March 1, 2027; 2025\u201326 chronic absenteeism usually by March 1, 2027; Spring 2026 state test results usually by March 1, 2027; 2025\u201326 spending per pupil usually by March 1, 2027",
+      "behind": null
+    },
+    {
+      "label": "Unemployment rate (BLS)",
+      "file": "labor/unemployment.json",
+      "updated_at": "2026-10-31T23:01:37-04:00",
+      "max_days": null,
+      "cadence": "monthly",
+      "failing": 0,
+      "stale": false,
+      "latest": "September 2026 rate",
+      "next": "October 2026 rate usually by December 10, 2026",
+      "behind": null
+    },
+    {
+      "label": "Housing figures",
+      "file": "housing/housing.json",
+      "updated_at": "2026-10-31T23:01:38-04:00",
+      "max_days": null,
+      "cadence": "monthly",
+      "failing": 0,
+      "stale": false,
+      "latest": "2025 building permits; September 2026 building permits; ACS 2024 5-year estimates",
+      "next": "2026 building permits usually by June 1, 2027; October 2026 building permits usually by December 1, 2026; ACS 2025 5-year estimates usually by December 15, 2026",
+      "behind": null
+    },
+    {
+      "label": "Elected officials",
+      "file": "config",
+      "updated_at": "2026-11-01",
+      "max_days": null,
+      "stale": false,
+      "latest": null,
+      "next": "a check once new terms begin in December 2027",
+      "behind": null,
+      "passed": false
+    },
+    {
+      "label": "Meeting summaries",
+      "file": "summaries",
+      "updated_at": null,
+      "max_days": 2,
+      "stale": false,
+      "waiting": [],
+      "waiting_count": 0
+    }
+  ],
+  "failing": [],
+  "deployed": true,
+  "ok": true,
+  "last_good_at": "2026-11-01T09:00:55+00:00",
+  "data_bytes": 572527,
+  "data_bytes_added": 503529,
+  "activity": {
+    "boards": 40,
+    "meetings_by_date": {
+      "2026-11-02": 3,
+      "2026-11-04": 3,
+      "2026-11-05": 1,
+      "2026-11-09": 1,
+      "2026-11-12": 2
+    }
+  },
+  "fact_checks": {
+    "summaries": 0,
+    "ok": 0,
+    "failed": 0,
+    "weak": 0,
+    "unchecked": 0,
+    "not_yet": 0,
+    "held_back": 0,
+    "entries_not_shown": 0,
+    "vote_counts_left_out": 0
+  },
+  "published_at": "2026-11-01T09:00:55+00:00",
+  "published_engine": "v1.79.0"
+}
