@@ -1,0 +1,243 @@
+# Site configuration for Biddeford, Maine. Everything town-specific lives
+# here; the code is the Publick engine
+# (github.com/publick-org/publick-engine).
+#
+# Started on 2026-11-01 by the engine's helper (python -m pipeline.new_town),
+# from Portland's config.
+# To fill in: what the city uses for meetings, minutes, 311, and its school
+#   board, in a few sentences, as other towns' configs begin.
+#
+# The site is in English and Spanish ([site] languages), as every town's is.
+# The first runs draft the Spanish for the town's own text; [strings.es], at
+# the end, can correct it.
+
+[site]
+name = "Biddeford Publick"
+# The masthead shows name_prefix in dark ink and name_suffix in the accent
+# color: the town, then the network.
+name_prefix = "Biddeford "
+domain = "biddeford-me.publick.org"
+tagline = "Public data on how Biddeford, Maine decides and spends. Updated daily."
+# One line under the name at the top of every page.
+masthead = "An independent guide to city government in Biddeford, Maine"
+# Public contact address. Shown on the About and Accessibility pages when set.
+contact_email = "biddeford-me@publick.org"
+user_agent = "biddeford-me.publick.org (+https://biddeford-me.publick.org/about/)"
+
+# From the city website's stylesheets (www.biddefordmaine.org): its most used
+# color (51 uses), and a darker shade of it; the most used of another hue (44
+# uses); primary_soft a light tint of primary. Each passes WCAG AA on white
+# (8.1, 15.1, 8.8 to 1).
+# To fill in: check the colors against the city's website.
+[site.colors]
+primary = "#89342d"
+primary_dark = "#431916"
+primary_soft = "#f3ebea"
+accent = "#224c78"
+
+[town]
+name = "Biddeford"
+state_abbr = "ME"
+official_site = "https://www.biddefordmaine.org"
+
+# Sections appear in the main navigation in this order. Each one is a folder
+# under site/pages/<slug>/ and is served at https://<domain>/<slug>/.
+[[sections]]
+slug = "meetings"
+title = "Meetings"
+summary = "Every board and committee meeting on the city calendar, with agendas, and minutes from January 2026 on."
+status = "live"
+
+[[sections]]
+slug = "schools"
+title = "Schools"
+summary = "Portland Public Schools' graduation rate, absenteeism, state test results, and spending per pupil, with the state's."
+status = "live"
+
+[[sections]]
+slug = "budget"
+title = "City budget"
+nav = "Budget"
+summary = "The city's tax rate and what the property tax raises, compared with Maine's other towns."
+status = "live"
+
+[[sections]]
+slug = "housing"
+title = "Housing"
+summary = "New homes permitted, home values and rents, and the housing stock."
+status = "live"
+
+# To fill in: the Officials page's section (below, commented out), once
+#   [officials] is filled in.
+# [[sections]]
+# slug = "officials"
+# title = "Who represents you"
+# nav = "Officials"
+# summary = "The mayor, City Council, and School Committee, by office and by ward, and how to reach them."
+# status = "live"
+
+[[sections]]
+slug = "about"
+title = "About"
+summary = "Data sources, update schedule, metric definitions, and corrections."
+status = "live"
+
+# Page view counting with GoatCounter, on the network's site; prefix is this
+# town's folder.
+[analytics]
+prefix = "biddeford-me"
+
+# Public meetings, from the city calendar and its CivicClerk portal.
+[meetings]
+base_url = "https://www.biddefordmaine.org"
+archive_url = "https://biddefordme.portal.civicclerk.com"
+archive_name = "city's CivicClerk portal"
+# The city's site resets some connections (4 of the helper's); a slower pace
+# and the client's retries help.
+request_delay = 5.0
+max_event_pages = 40
+
+# The city calendar, read month by month: the meetings the city lists before
+# their agendas are posted, with their times and places. Read: the calendars
+# whose events, over the last three months and the next three, were mostly
+# meetings. Not read: Parking Communications.
+[meetings.civicplus]
+calendars = ["Main Calendar"]
+# Some of their events aren't meetings: only titles naming a board are kept.
+include_pattern = '\b(boards?|commissions?|committees?|subcommittees?|councils?|authority|trustees|ZBA|task force)\b'
+# To fill in: include_pattern leaves out these meetings, which a board's name
+#   in it can bring back: "Capital Projects / Operations Committeee Meeting
+#   (Live)".
+# To fill in: check the calendars read, and any left out that list meetings.
+
+[meetings.aliases]
+# To fill in: board names the engine doesn't fix itself: a calendar meeting
+#   next to an Agenda Center one of the same day, not shown as one, needs an
+#   alias (python -m pipeline.listings, in the report).
+
+[meetings.civicclerk]
+api_url = "https://biddefordme.api.civicclerk.com/v1"
+portal_url = "https://biddefordme.portal.civicclerk.com"
+# Meetings, agendas, and minutes are collected from here on.
+since = "2026-01-01"
+# Most of the portal's meetings are under a catch-all category, and some are
+# named for an item, not a board: those go under the board their category
+# names.
+board_from_category = true
+
+# The School Committee posts with the other boards ("School Committee").
+
+# Agenda and minutes PDFs live in the network's documents bucket, not in git
+# (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID,
+# STORAGE_SECRET_ACCESS_KEY.
+[storage]
+prefix = "biddeford-me"
+
+# Plain-English agenda text and previews, and decisions from minutes, written
+# by a language model and labeled as AI-generated on the site. Only meetings
+# from `since` on are summarized, about three months before launch, so the
+# town's history doesn't take the month's budget.
+[summaries]
+since = "2026-08-01"
+
+# To fill in: how residents can take part, per board ([participation."City
+#   Council"], [participation."School Committee"]): comment, source_title,
+#   source_url, video_title, video_url, each from the board's own rules or
+#   agendas.
+# To fill in: [[glossary]], terms that come up in this city's agendas and mean
+#   something of its own here, each from an official page. The state's and the
+#   network's terms are in its glossary already: credit enhancement agreement,
+#   executive session, M.R.S., M.R.S.A., ought to pass, abatement, ADA, CBA,
+#   CDBG, CIP, COLA, Committee of the Whole, consent agenda, first reading,
+#   mill rate, quitclaim deed, receive and file, Select Board, tabled, TIF,
+#   town meeting, variance, warrant article.
+
+# Schools: the Department of Education's ESSA Dashboard.
+[schools]
+doe_district = "Biddeford Public Schools"
+district_name = "Biddeford Public Schools"
+
+# Tax rate, property tax, and the city's budget (pipeline/states/me/), from
+# Maine Revenue Services' figures; the average single-family bill is
+# calculated from them and the Maine GeoLibrary's parcel table.
+[finance]
+mrs_municipality = "Biddeford"
+# To fill in: budget_documents_url, the page where the city posts its own
+#   budget books, which the budget page links (leave it out if there's none).
+# No average single-family tax bill: the town's rows in the Maine GeoLibrary
+# parcel table (GEOCODE 31050) all have land use "0", so its homes can't be
+# picked out, and the tax bill's keys (megis_geocode, single_family_use) are
+# left out.
+
+# Housing: Census building permits (state and place FIPS codes), American
+# Community Survey through Census Reporter (geo ids).
+[housing]
+bps_place = "04860"
+census_geo = "16000US2304860"
+
+# Unemployment rate (BLS Local Area Unemployment Statistics, area
+# CT2304860000000, Biddeford city, ME). City rates are not seasonally
+# adjusted; the state series is shown for context.
+[labor]
+local_series = "LAUCT230486000000003"
+
+# How often each data source should update. Figures published monthly or
+# yearly are judged by the engine, by the period they cover
+# (pipeline/rhythms.py).
+[freshness]
+sources = [
+  { label = "Meetings (CivicClerk)", file = "meetings/status.json", max_days = 2 },
+]
+
+# To fill in: [seeclickfix], with the city's organization ID, once a person
+#   has confirmed the city uses it (the issues listing needs a login now; the
+#   Open311 listing at seeclickfix.com/open311/v2/<id>/services.json names its
+#   request types), and the 311 section and its [freshness] sources (with 311
+#   the tagline can say "responds, decides, and spends", as Gloucester's,
+#   Malden's, and Methuen's do); or, if the city takes requests some other
+#   way, [absences] 311 saying so. SeeClickFix's places: Biddeford, place 9357
+#   (https://seeclickfix.com/biddeford).
+
+# Who represents you (the Officials page). Kept by hand from official city and
+# school websites; checked is the date the list was last checked against them.
+# Only city- and school-issued email addresses, and the mayor's office phone.
+[officials]
+# To fill in: checked, the date the list below was checked against official
+#   pages.
+# To fill in: next_election, the date of the town's next regular municipal
+#   election, from the city's election calendar or its charter.
+# To fill in: wards_file, the town's wards (ADDING-A-TOWN.md, step 3), or none
+#   if every seat is elected townwide.
+
+# To fill in: the Mayor, from the city's and the school district's own pages,
+#   confirmed against the last election's official results (ADDING-A-TOWN.md,
+#   step 4). Never from news sites or memory.
+# [[officials.bodies]]
+# name = "Mayor"
+# url = ""
+# note = ""
+# members = [
+#   { name = "", seat = "" },
+# ]
+
+# To fill in: the City Council, from the city's and the school district's own
+#   pages, confirmed against the last election's official results
+#   (ADDING-A-TOWN.md, step 4). Never from news sites or memory.
+# [[officials.bodies]]
+# name = "City Council"
+# url = ""
+# note = ""
+# members = [
+#   { name = "", seat = "" },
+# ]
+
+# To fill in: the School Committee, from the city's and the school district's
+#   own pages, confirmed against the last election's official results
+#   (ADDING-A-TOWN.md, step 4). Never from news sites or memory.
+# [[officials.bodies]]
+# name = "School Committee"
+# url = ""
+# note = ""
+# members = [
+#   { name = "", seat = "" },
+# ]
