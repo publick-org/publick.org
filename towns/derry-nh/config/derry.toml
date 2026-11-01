@@ -11,9 +11,8 @@
 # boards and commissions. The town calendar lists meetings before their
 # agendas are posted, with times and places ([meetings.civicplus]), the School
 # Board's among them. The minutes are text PDFs. The School Board is the Derry
-# Cooperative School District's (SAU 10), whose website (sau10.nh.gov) couldn't
-# be read when the town was added: its certificate didn't verify. So the
-# Board's meetings are listed from the town calendar only, without agendas.
+# Cooperative School District's (SAU 10), which posts its agendas and minutes
+# on its website (sau10.nh.gov), read as [page_meetings].
 # There is no 311 section: the town takes service requests through forms on
 # its own website ([absences]). Its tax rate and tax bill are New Hampshire's
 # (the engine's pipeline/states/nh/), and so are its school figures: the
@@ -59,7 +58,7 @@ areas = "districts"
 [[sections]]
 slug = "meetings"
 title = "Meetings"
-summary = "When the Town Council, the town's boards and commissions, and the School Board meet, from the town calendar and its Agenda Center, with the town's agendas, and minutes from January 2026 on."
+summary = "When the Town Council, the town's boards and commissions, and the School Board meet, from the town calendar, its Agenda Center and the school district's website, with agendas and minutes from January 2026 on."
 status = "live"
 
 [[sections]]
@@ -168,13 +167,26 @@ since = "2026-01-01"
 [meetings.agenda_center.committees."Town Clerk"]
 "Records Retention Committee" = "Records Retention Committee"
 
-# The School Board's agendas and minutes aren't read. The town's Schools page
-# links the Derry Cooperative School District's website (www.sau10.nh.gov),
-# but on 2026-11-01 its certificate didn't verify ("unable to get local issuer
-# certificate", from Let's Encrypt's YR1 intermediate and the ISRG Root YR),
-# so its pages couldn't be read, and no reader for them is set. The Board's
-# meetings are on the town's Main Calendar ("Derry School Board"), read
-# above, with their times and places.
+# The School Board's agendas and minutes, from the Agendas & Minutes page of
+# the Derry Cooperative School District's website (linked from the town's
+# Schools page): a table with a row a meeting, its date ("OCTOBER 13, 2026",
+# "OCTOBER 22, 2026 NON-PUBLIC MEETING") and links labelled "agenda",
+# "minutes", "video" (Derry CAM's TelVue player) and "attachments", each a
+# Google Drive file or folder; folders and videos are kept as links. Its
+# certificate chain ends at Let's Encrypt's ISRG Root YR, which the engine
+# completes for this host (pipeline/http.py). The Board's meetings are on the
+# town's Main Calendar too ("Derry School Board"), read above, with their
+# times and places; each is shown once. The joint session with the Town
+# Council of September 22, 2026 ("Town Council/ School Board Joint Session"),
+# whose minutes the district posted, is shown as the two boards' joint
+# meeting; the Agenda Center's listing of it under the Council ("Town Council
+# Special Meeting with School Board", above) doesn't say "joint", so it's
+# shown on its own, with the Council's agenda.
+[page_meetings]
+page_url = "https://www.sau10.nh.gov/school-board/meetings-agendas"
+source_name = "Derry Cooperative School District"
+since = "2026-01-01"
+body = "Derry School Board"
 
 # Agenda and minutes PDFs live in the network's documents bucket, not in git
 # (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID,
@@ -220,8 +232,8 @@ channel = "UC-zsA_ULQ3Tc3aJUVVKOEKw"
 # phone, with the meeting ID). The Council's Rules (amended January 19, 2021)
 # say nothing of public comment. Meetings are shown live and on demand by
 # Derry Community Access Media, the town's cable division (its page on the
-# town's website). The School Board has no entry: its own pages couldn't be
-# read.
+# town's website). The School Board has no entry: its School Board and
+# Agendas & Minutes pages don't say how residents take part.
 [participation."Town Council"]
 comment = "Each regular meeting has a public forum of up to 30 minutes near its start, and the Council holds a public hearing on each ordinance and resolution before it votes. The Council also offers remote participation by Zoom or phone; each agenda gives the meeting ID."
 source_title = "the Town Council's agendas"
@@ -286,6 +298,7 @@ local_series = "LAUCS331794000000003"
 [freshness]
 sources = [
   { label = "Meetings (Agenda Center)", file = "meetings/status.json", max_days = 2 },
+  { label = "School Board meetings (school district website)", file = "meetings/page_status.json", max_days = 2 },
 ]
 
 # The About page's "What this site doesn't cover": why there's no 311 section.
@@ -319,9 +332,18 @@ checked = "2026-11-01"
 next_election = "2027-03-09"
 # No ward file: the town has no wards (NH GRANIT's voting wards have one area
 # for all of Derry, so the helper wrote none). The Council's four districts
-# are the town's own; its Political Districts map is an ArcGIS layer on the
-# town's own map server, which couldn't be reached when the town was added. District seats have ward = the district's number, and
-# the Officials page says the district map isn't available yet.
+# are its four voting districts (its Voting Districts map and its "Derry
+# Voting Districts by Street" list, on the Find My District page). The Census
+# Bureau's 2020 voting districts have four for Derry ("DERRY WARD 1" to "4",
+# 34,317 people in all), but they don't match the town's list: of 445 of its
+# streets placed by the Census Bureau's geocoder, 15 fell in another district
+# than the list gives (A St and Ash St in 4, not 3), so they aren't used. The
+# town's Political Districts web map (on derrynh.maps.arcgis.com) draws the
+# districts from a layer on its own map server (extranet2.derrynh.org, port
+# 16443), which on 2026-11-01 reset every connection; its "What Voting
+# District am I in?" app uses a map that isn't public. District seats have
+# ward = the district's number, and the Officials page says the district map
+# isn't available yet.
 
 # Names and seats from the Town Council's page, with email addresses from its
 # links (Councilor Flood's is a derrynh.org address, not derrynh.gov as the
@@ -355,20 +377,20 @@ members = [
 # official results of the annual school elections: March 11, 2025 (Karen
 # Rand, Jen Theroux and Brenda Willis for three years; Jamie Carreau and Jenna
 # Paradise for two) and March 10, 2026 (David Clapp and Michael Thiele for
-# three years). Every seat is at-large. The district's own pages, which would
-# give the Board's officers and email addresses, couldn't be read (see the
-# School Board's meetings, above), so only the Chair is named, and there are
-# no addresses.
+# three years). Every seat is at-large. Officers, the terms, and the members'
+# district (sau10.org) addresses from the district's School Board page
+# ("School Board Members 2026-2027"), which writes "Jennifer Theroux".
 [[officials.bodies]]
 name = "School Board"
 board = "Derry School Board"
-note = "The Derry Cooperative School District's board: seven members elected at-large at the March town and school election, for three years. Its meetings are listed here from the town calendar, without agendas."
+url = "https://www.sau10.nh.gov/school-board/index"
+note = "The Derry Cooperative School District's board: seven members elected at-large at the March town and school election, for three years."
 members = [
-  { name = "Michael Thiele", seat = "At-large", role = "Chair", term_ends = "2029-03" },
-  { name = "David Clapp", seat = "At-large", term_ends = "2029-03" },
-  { name = "Karen Rand", seat = "At-large", term_ends = "2028-03" },
-  { name = "Jen Theroux", seat = "At-large", term_ends = "2028-03" },
-  { name = "Brenda Willis", seat = "At-large", term_ends = "2028-03" },
-  { name = "Jamie Carreau", seat = "At-large", term_ends = "2027-03" },
-  { name = "Jenna Paradise", seat = "At-large", term_ends = "2027-03" },
+  { name = "Michael Thiele", seat = "At-large", role = "Chair", term_ends = "2029-03", email = "mthiele@sau10.org" },
+  { name = "Jennifer Theroux", seat = "At-large", role = "Vice Chair", term_ends = "2028-03", email = "jtheroux@sau10.org" },
+  { name = "Jenna Paradise", seat = "At-large", role = "Secretary", term_ends = "2027-03", email = "jparadise@sau10.org" },
+  { name = "David Clapp", seat = "At-large", term_ends = "2029-03", email = "dclapp@sau10.org" },
+  { name = "Karen Rand", seat = "At-large", term_ends = "2028-03", email = "krand@sau10.org" },
+  { name = "Brenda Willis", seat = "At-large", term_ends = "2028-03", email = "bwillis@sau10.org" },
+  { name = "Jamie Carreau", seat = "At-large", term_ends = "2027-03", email = "jcarreau@sau10.org" },
 ]
