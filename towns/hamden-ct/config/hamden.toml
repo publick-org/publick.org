@@ -309,8 +309,13 @@ since = "2026-08-01"
 # The boards' meetings below, transcribed from their recordings for a summary
 # the day after, until the minutes come (the engine's pipeline/recordings.py).
 # The Legislative Council's, its committees' and most commissions' meetings,
-# and the Board of Education's, are recorded on Zoom, whose shared recordings
-# the engine doesn't read.
+# and the Board of Education's, are recorded on Zoom: the portal's events and
+# the district's page link each meeting's cloud recording share
+# (hamden.zoom.us/rec/share/...), which the engine doesn't read. Zoom's
+# robots.txt disallows /rec/ to every crawler, and its recordings API answers
+# only the recording's own account. The Council's meetings are also streamed
+# on the town's Facebook page; neither body publishes them on a platform the
+# engine reads (YouTube, an access station's Cablecast or TelVue).
 [recordings]
 since = "2026-10-26"
 
@@ -449,9 +454,13 @@ sources = [
 # checked against them. Only town- and school-issued email addresses, and the
 # mayor's office phone. A district seat's ward is its council district. The
 # town publishes its council districts as a PDF map (the Registrar of Voters'
-# "Map of 2023 Hamden Legislative Council Districts"), not as map data, so
-# there's no ward file: the page lists each member under its office, and says
-# the district map isn't available. Terms begin at noon on the last Sunday of
+# "Map of 2023 Hamden Legislative Council Districts") and a street list, not
+# as map data, so there's no ward file: the page lists each member under its
+# office, and says the district map isn't available. The Census Bureau's 2020
+# voting districts for Hamden (TIGER VTDs "Hamden 001-00" to "Hamden
+# 010-01") are the town's voting districts of 2020, numbered 1 to 10, from
+# before the 2023 redistricting, not today's nine; the state's GIS has no
+# layer of them. Terms begin at noon on the last Sunday of
 # November after the election (Charter, §3-3), so they end in November.
 [officials]
 checked = "2026-11-01"
