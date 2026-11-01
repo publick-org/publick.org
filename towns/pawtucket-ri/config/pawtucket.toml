@@ -13,12 +13,12 @@
 # the Secretary of State's Open Meetings portal, so the city's meetings come
 # from there ([opengov_meetings]): the City Council, its committees, the Board
 # of License Commissioners, the city's boards and commissions, and the School
-# Committee and its subcommittees. There is no 311 section: the city's Report A
-# Problem page routes reports through the Police Department's online reporting
-# system, which publishes no data ([absences]). Tax rates and levy are from the
-# Division of Municipal Finance ([finance]; Rhode Island has no tax bill
-# source), school figures from the Department of Education ([schools]), and
-# housing and unemployment from the Census and BLS, as for every town.
+# Committee and its subcommittees. Service requests are from the city's
+# organization on SeeClickFix ([seeclickfix]), placed in the six council
+# districts by the ward file. Tax rates and levy are from the Division of
+# Municipal Finance ([finance]; Rhode Island has no tax bill source), school
+# figures from the Department of Education ([schools]), and housing and
+# unemployment from the Census and BLS, as for every town.
 #
 # The site is in English and Spanish ([site] languages), as every town's is.
 # The first runs draft the Spanish for the town's own text; [strings.es], at
@@ -30,7 +30,7 @@ name = "Pawtucket Publick"
 # color: the town, then the network.
 name_prefix = "Pawtucket "
 domain = "pawtucket-ri.publick.org"
-tagline = "Public data on how Pawtucket, Rhode Island decides and spends. Updated daily."
+tagline = "Public data on how Pawtucket, Rhode Island responds, decides, and spends. Updated daily."
 # One line under the name at the top of every page.
 masthead = "An independent guide to city government in Pawtucket, Rhode Island"
 # Public contact address. Shown on the About and Accessibility pages when set.
@@ -49,6 +49,9 @@ accent = "#d64125"
 
 [town]
 name = "Pawtucket"
+# The City Council's districts are "District 1" to "District 6", as the city
+# calls them, on the 311 and Officials pages.
+areas = "districts"
 state_abbr = "RI"
 official_site = "https://pawtucketri.gov"
 
@@ -58,6 +61,13 @@ official_site = "https://pawtucketri.gov"
 slug = "meetings"
 title = "Meetings"
 summary = "When the City Council, its committees, the city's boards and commissions, and the School Committee meet, from the state's Open Meetings portal, with agendas, and minutes from January 2026 on."
+status = "live"
+
+[[sections]]
+slug = "311"
+title = "311 Requests"
+nav = "311"
+summary = "How fast the city responds to service requests on SeeClickFix, by category and council district."
 status = "live"
 
 [[sections]]
@@ -217,20 +227,57 @@ local_series = "LAUCT445464000000003"
 [freshness]
 sources = [
   { label = "Meetings (Open Meetings portal)", file = "meetings/opengov_status.json", max_days = 2 },
+  { label = "311 requests", file = "311/status.json", max_days = 2 },
+  { label = "311 scorecard", file = "311/scorecard.json", field = "generated_at", max_days = 2 },
 ]
 
-# The About page's "What this site doesn't cover": why there's no 311 section.
-# The city's Report A Problem page (pawtucketri.gov/report-a-problem/) routes
-# reports of potholes, sanitation, street signs and zoning violations through
-# the Police Department's online reporting system, and bulky waste and snow
-# problems by email; none of it is public. SeeClickFix lists a "City of
-# Pawtucket" provider (place 20090, seeclickfix.com/pawtucket): organization
-# 1638, whose Open311 listing (seeclickfix.com/open311/v2/1638/services.json)
-# has 32 request types. It had 71 public requests from February 2025 to
-# October 2026, 58 of them closed, answered by the city's staff with work
-# orders; the city's site doesn't link it.
-[absences]
-311 = "The city takes problem reports through its Report A Problem page, which sends them to the Police Department's online reporting system; it doesn't publish them, so there's no data to show."
+# 311 requests, from SeeClickFix (public requests only). The city's
+# organization there is 1638 ("City of Pawtucket", on the place
+# seeclickfix.com/pawtucket, 20090), whose Open311 listing
+# (seeclickfix.com/open311/v2/1638/services.json) has 32 request types:
+# trash and bulky waste, signs, signals and street lights, streets and
+# sidewalks, and park bathrooms and the bike path. Its requests also use three
+# types the listing leaves out, public records requests ("APRA Request (New)",
+# "APRA Request (Savage Law Partners, LLP)") and "Request Legal Assistance",
+# collected with the rest, as for every town. It had 71 public requests from
+# February 2025 to October 2026, 58 of them closed, answered by the city's
+# staff. report_url is the place's reporting page on SeeClickFix
+# (seeclickfix.com/api/v2/places/20090, its html_report_url); the city's own
+# site doesn't link SeeClickFix.
+[seeclickfix]
+organization_id = 1638
+report_url = "https://seeclickfix.com/pawtucket/report"
+# The month the full history starts (python -m pipeline.fetch_311 --backfill).
+# Its first public request is from November 11, 2023; they come every month
+# or two from February 2025.
+history_since = "2023-11"
+# Request types about a person, a household, or a person's vehicle, whose
+# names don't say so: their requests are shown to the block, as the engine's
+# own sensitive categories are. "ADA Accommodations" asks for a person's
+# disability to be accommodated, and "Request Legal Assistance" for a
+# person's legal help; the trash types are complaints about a neighbor's
+# property or bins ("Garbage" among them: its request is about a property's
+# dumpster); "Sidewalk Clearing" (its requests are about cars parked on the
+# sidewalk, a vacant house, and what was left out on the sidewalk) and
+# "Blocked sidewalk" point at a vehicle or a household.
+sensitive_categories = [
+  "ADA Accommodations",
+  "Request Legal Assistance",
+  "Garbage",
+  "Trash on neighboring property",
+  "Trash Receptacle in Public View",
+  "Trash Carts Left in Street",
+  "Sidewalk Clearing",
+  "Blocked sidewalk",
+]
+# The ward file ([officials] wards_file): the city's 28 voting precincts
+# (2601 to 2628), from RIGIS, each with its council district (RIGIS's Ward)
+# and 2020 census population. Requests are placed in the council district
+# their precinct is in; the pages call them districts ([town] areas).
+precincts_file = "pawtucket-precincts-2022.geojson"
+wards_publisher = "RIGIS"
+wards_year = 2022
+wards_url = "https://www.arcgis.com/home/item.html?id=9104ca2e5e9b4cdb9985e8935ef2514d"
 
 # Who represents you (the Officials page). Kept by hand from official city and
 # school websites; checked is the date the list was last checked against them.
