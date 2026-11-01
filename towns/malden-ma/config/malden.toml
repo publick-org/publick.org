@@ -313,6 +313,12 @@ members = [
   { name = "Sharyn Rose-Zeiberg", seat = "Ward 8", ward = 8, term_ends = "2028-01", email = "srose-zeiberg@maldenps.org" },
 ]
 
+# Roll call votes on the meeting pages: each roll call the City Council's
+# minutes list by name, read from their text and checked against the members
+# above (the engine's pipeline/votes.py). Only checked roll calls are shown.
+[votes]
+show = true
+
 # The town's own text in Spanish, keyed by its English as written above or as
 # the data writes it (board names, 311 categories). Plain Spanish addressed as
 # usted, following the engine's site/strings/es-guide.md; where the English is
