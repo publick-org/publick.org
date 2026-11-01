@@ -1,0 +1,303 @@
+# Site configuration for Pawtucket, Rhode Island. Everything town-specific
+# lives here; the code is the Publick engine
+# (github.com/publick-org/publick-engine).
+#
+# Written by hand, from South Kingstown's config: the engine's helper
+# (python -m pipeline.new_town) stops at Pawtucket's website, which runs on
+# WordPress and links the City Council's agendas and minutes on ClerkBase
+# (clerkshq.com/Pawtucket-ri), a platform the engine doesn't read. The helper's
+# later steps were run on their own for the BLS series, the Census place, the
+# state's codes, and the ward file.
+#
+# Every Rhode Island public body files its notices, agendas and minutes with
+# the Secretary of State's Open Meetings portal, so the city's meetings come
+# from there ([opengov_meetings]): the City Council, its committees, the Board
+# of License Commissioners, the city's boards and commissions, and the School
+# Committee and its subcommittees. There is no 311 section: the city's Report A
+# Problem page routes reports through the Police Department's online reporting
+# system, which publishes no data ([absences]). Tax rates and levy are from the
+# Division of Municipal Finance ([finance]; Rhode Island has no tax bill
+# source), school figures from the Department of Education ([schools]), and
+# housing and unemployment from the Census and BLS, as for every town.
+#
+# The site is in English and Spanish ([site] languages), as every town's is.
+# The first runs draft the Spanish for the town's own text; [strings.es], at
+# the end, can correct it.
+
+[site]
+name = "Pawtucket Publick"
+# The masthead shows name_prefix in dark ink and name_suffix in the accent
+# color: the town, then the network.
+name_prefix = "Pawtucket "
+domain = "pawtucket-ri.publick.org"
+tagline = "Public data on how Pawtucket, Rhode Island decides and spends. Updated daily."
+# One line under the name at the top of every page.
+masthead = "An independent guide to city government in Pawtucket, Rhode Island"
+# Public contact address. Shown on the About and Accessibility pages when set.
+contact_email = "pawtucket-ri@publick.org"
+user_agent = "pawtucket-ri.publick.org (+https://pawtucket-ri.publick.org/about/)"
+
+# From the city website's stylesheets (pawtucketri.gov, its Elementor theme's
+# global colors): its blue (#004b99, 8.5 to 1 on white), its navy (#012955,
+# 14.5 to 1), a light tint of the blue, and its orange-red (#f64b2b) darkened
+# to pass (4.5 to 1).
+[site.colors]
+primary = "#004b99"
+primary_dark = "#012955"
+primary_soft = "#e6edf5"
+accent = "#d64125"
+
+[town]
+name = "Pawtucket"
+state_abbr = "RI"
+official_site = "https://pawtucketri.gov"
+
+# Sections appear in the main navigation in this order. Each one is a folder
+# under site/pages/<slug>/ and is served at https://<domain>/<slug>/.
+[[sections]]
+slug = "meetings"
+title = "Meetings"
+summary = "When the City Council, its committees, the city's boards and commissions, and the School Committee meet, from the state's Open Meetings portal, with agendas, and minutes from January 2026 on."
+status = "live"
+
+[[sections]]
+slug = "schools"
+title = "Schools"
+summary = "Graduation, attendance, state test results, and spending per pupil compared with the state."
+status = "live"
+
+[[sections]]
+slug = "budget"
+title = "City budget"
+nav = "Budget"
+summary = "The city's property tax rates, what the property tax raises, and property tax per resident, compared with the state."
+status = "live"
+
+[[sections]]
+slug = "housing"
+title = "Housing"
+summary = "New homes permitted, home values and rents, and the housing stock."
+status = "live"
+
+[[sections]]
+slug = "officials"
+title = "Who represents you"
+nav = "Officials"
+summary = "The mayor, the City Council, and the School Committee, by office and by council district, and how to reach them."
+status = "live"
+
+[[sections]]
+slug = "about"
+title = "About"
+summary = "Data sources, update schedule, metric definitions, and corrections."
+status = "live"
+
+# Page view counting with GoatCounter, on the network's site; prefix is this
+# town's folder.
+[analytics]
+prefix = "pawtucket-ri"
+
+# Public meetings. The city's own pages link the City Council's agendas and
+# minutes on ClerkBase, which the engine doesn't read; every meeting here is
+# from the Open Meetings portal ([opengov_meetings], below).
+[meetings]
+governing_body = "City Council"
+calendar_url = "https://pawtucketri.gov/city-calendar/"
+archive_url = "https://clerkshq.com/Pawtucket-ri"
+archive_name = "city's ClerkBase archive"
+
+# Agenda and minutes PDFs, in the network's documents bucket.
+[storage]
+prefix = "pawtucket-ri"
+
+# Plain-English agenda text and previews, and decisions from minutes, written
+# by a language model and labeled as AI-generated on the site. Only meetings
+# from `since` on are summarized, about three months before launch, so the
+# city's history doesn't take the month's budget.
+[summaries]
+since = "2026-08-01"
+
+# The city's meetings, agendas and minutes, from the Secretary of State's Open
+# Meetings portal, each public body named exactly as the portal names it. The
+# bodies are those that filed at least three meetings in 2026 (two for the
+# City Council's standing committees): the City Council and the committees on
+# the city's list of its 2025-2026 council committees
+# (pawtucketri.gov/wp-content/uploads/2025/02/COUNCIL-COMMITTEES-2025-2026.pdf);
+# the Board of License Commissioners, which is the City Council acting as the
+# licensing board (pawtucketri.gov/city-council/); the boards and commissions
+# on the city's OnBoard site (onboard.pawtucketri.com), named as it names
+# them; and the School Committee and its subcommittees. Left out: the Dog
+# Park Committee, the Prevention Coalition, and the Tax Board of Appeals,
+# which file under Pawtucket but aren't on the city's lists of its boards, and
+# the council's committees with a single meeting in 2026.
+#
+# The portal's feed for a body also lists every body whose name starts with
+# its name ("Pawtucket School Committee" lists its subcommittees), and a
+# meeting goes to the last body below whose feed lists it: so each
+# subcommittee comes after the School Committee, and every subcommittee that
+# met in 2026 is named, the Special Education Subcommittee (two meetings)
+# among them.
+[opengov_meetings]
+page_url = "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201"
+source_name = "Rhode Island Open Meetings portal"
+since = "2026-01-01"
+
+[opengov_meetings.bodies]
+"Pawtucket City Council" = "City Council"
+"Pawtucket Committee of the Whole" = "City Council Committee of the Whole"
+"Pawtucket Finance Committee" = "City Council Finance Committee"
+"Pawtucket City Property Committee" = "City Council City Property Committee"
+"Pawtucket Committee on Claims and Pending Suits" = "City Council Committee on Claims and Pending Suits"
+"Pawtucket Ordinance Committee" = "City Council Ordinance Committee"
+"Pawtucket Public Works/Cemetery Committee" = "City Council Public Works and Cemetery Committee"
+"Pawtucket Board of License Commissioners" = "Board of License Commissioners"
+"Pawtucket Advisory Commission on Arts and Culture" = "Advisory Commission on Arts and Culture"
+"Pawtucket Board of Appeals" = "Zoning Board of Appeals"
+"Pawtucket Board of Canvassers" = "Board of Canvassers"
+"Pawtucket Business Development Corporation" = "Pawtucket Business Development Corporation"
+"Pawtucket City Planning Commission" = "Planning Commission"
+"Pawtucket Historic District Commission" = "Historic District Commission"
+"Pawtucket Housing Authority" = "Housing Authority"
+"Pawtucket Mayor's Community Board" = "Mayor's Community Board"
+"Pawtucket Parks Commission" = "Parks Commission"
+"Pawtucket Pension Board" = "Pension Board"
+# The portal writes this board's name with two spaces.
+"Pawtucket Personnel  Board" = "Personnel Board"
+"Pawtucket Public Library Trustees" = "Public Library Board of Trustees"
+"Pawtucket Purchasing Board" = "Purchasing Board"
+"Pawtucket Redevelopment Agency" = "Pawtucket Redevelopment Agency"
+"Pawtucket Riverfront Commission" = "Riverfront Commission"
+"Pawtucket Water Supply Board" = "Water Supply Board"
+"Pawtucket School Committee" = "School Committee"
+"Pawtucket School Committee - Ad Hoc Subcommittee" = "School Committee Ad Hoc Subcommittee"
+"Pawtucket School Committee - Building Subcommittee" = "School Committee Building Subcommittee"
+"Pawtucket School Committee Facilities Subcommittee-Other Projects" = "School Committee Facilities Subcommittee"
+"Pawtucket School Committee - Finance Sub-Committee" = "School Committee Finance Subcommittee"
+"Pawtucket School Committee - Policy Subcommittee" = "School Committee Policy Subcommittee"
+"Pawtucket School Committee - Special Education Subcommittee" = "School Committee Special Education Subcommittee"
+"Pawtucket School Committee Wellness Committee" = "School Committee Wellness Committee"
+
+# Terms that come up on agendas and minutes, explained on each meeting page
+# where they appear. From the City Council's page (pawtucketri.gov/city-council/).
+[[glossary]]
+term = "Board of License Commissioners"
+definition = "The City Council acting as the city's licensing board. It meets just before the Council's regular meetings, and grants, renews and hears complaints about the licenses the city issues, such as those to sell alcohol or serve food."
+
+# Tax rates, levy, and assessed values (pipeline/states/ri/), from the Division
+# of Municipal Finance's statewide tables, where the city is "Pawtucket".
+# Rhode Island publishes no average single-family tax bill. The city's own
+# budget books and audits are on its Budgets and Audits page.
+[finance]
+dmf_municipality = "Pawtucket"
+budget_documents_url = "https://pawtucketri.gov/finance-department/quarterly-reports/"
+
+# School district figures from the Rhode Island Department of Education (RIDE),
+# where Pawtucket's district code is 26 (the LEA sheet of RIDE's 2025-26
+# graduation rate file). The district calls itself the Pawtucket School
+# Department (psdri.net).
+[schools]
+ride_district = 26
+district_name = "Pawtucket School Department"
+
+# Housing: Census building permits (state and place FIPS codes), American
+# Community Survey through Census Reporter (geo ids).
+[housing]
+bps_place = "54640"
+census_geo = "16000US4454640"
+
+# Unemployment rate (BLS Local Area Unemployment Statistics, area
+# CT4454640000000, Pawtucket city, RI). City rates are not seasonally adjusted;
+# the state series is shown for context.
+[labor]
+local_series = "LAUCT445464000000003"
+
+# How often each data source should update. Figures published monthly or
+# yearly are judged by the engine, by the period they cover
+# (pipeline/rhythms.py).
+[freshness]
+sources = [
+  { label = "Meetings (Open Meetings portal)", file = "meetings/opengov_status.json", max_days = 2 },
+]
+
+# The About page's "What this site doesn't cover": why there's no 311 section.
+# The city's Report A Problem page (pawtucketri.gov/report-a-problem/) routes
+# reports of potholes, sanitation, street signs and zoning violations through
+# the Police Department's online reporting system, and bulky waste and snow
+# problems by email; none of it is public. SeeClickFix lists a "City of
+# Pawtucket" provider (place 20090, seeclickfix.com/pawtucket) whose staff
+# answer some requests, 62 resolved in all; the city's site doesn't link it,
+# and its organization's Open311 listing, which the engine reads, wasn't found.
+[absences]
+311 = "The city takes problem reports through its Report A Problem page, which sends them to the Police Department's online reporting system; it doesn't publish them, so there's no data to show."
+
+# Who represents you (the Officials page). Kept by hand from official city and
+# school websites; checked is the date the list was last checked against them.
+# Only city- and school-issued email addresses, and the mayor's office phone.
+# Names and seats are confirmed against the official results of the November
+# 5, 2024 general election (ri.gov/election/results/2024/general_election/pawtucket/),
+# where every one of them was elected, and the city's list of its local elected
+# officials for 2025-2026 (revised June 2026, linked from the Board of
+# Canvassers' page).
+[officials]
+checked = "2026-11-01"
+# The next municipal election, from the Board of Canvassers' page
+# (pawtucketri.gov/board-of-canvassers/): the general election of November 3,
+# 2026. The mayor, the City Council and the School Committee were elected at
+# the general elections of 2022 and of 2024 (the official results).
+next_election = "2026-11-03"
+# The ward file is data/static/pawtucket-precincts-2022.geojson (RIGIS): the
+# city's 28 voting precincts, each with its council district (RIGIS's Ward).
+wards_file = "pawtucket-precincts-2022.geojson"
+wards_publisher = "RIGIS"
+wards_year = 2022
+wards_url = "https://www.arcgis.com/home/item.html?id=9104ca2e5e9b4cdb9985e8935ef2514d"
+
+# The Mayor's Office page. Its phone is City Hall's main number and the
+# office's extension; the page gives no email address for the mayor.
+[[officials.bodies]]
+name = "Mayor"
+url = "https://pawtucketri.gov/mayors-office-2/"
+note = "Elected citywide."
+members = [
+  { name = "Donald R. Grebien", seat = "Citywide", phone = "(401) 728-0500, ext. 281" },
+]
+
+# Names, seats, the president and email addresses from the City Council's
+# page, which gives the term: two years from the first Monday of January after
+# the election. All nine are on the council's roll of September 23, 2026;
+# seven on that of October 7, 2026 (the newest minutes on the Open Meetings
+# portal), with Councilors Moran and Moreno absent.
+[[officials.bodies]]
+name = "City Council"
+url = "https://pawtucketri.gov/city-council/"
+note = "Nine members: one elected from each of the six council districts and three citywide, for two years."
+members = [
+  { name = "Terrence E. Mercer", seat = "District 3", ward = 3, role = "Council President", term_ends = "2027-01", email = "tmercer@pawtucketri.gov" },
+  { name = "Michael A. Araujo", seat = "At-large", term_ends = "2027-01", email = "maraujo@pawtucketri.gov" },
+  { name = "Roberto H. Moreno", seat = "At-large", term_ends = "2027-01", email = "rmoreno@pawtucketri.gov" },
+  { name = "Yesenia Rubio", seat = "At-large", term_ends = "2027-01", email = "yrubio@pawtucketri.gov" },
+  { name = "David P. Moran", seat = "District 1", ward = 1, term_ends = "2027-01", email = "dmoran@pawtucketri.gov" },
+  { name = "Mark J. Wildenhain", seat = "District 2", ward = 2, term_ends = "2027-01", email = "mjwildenhain@pawtucketri.gov" },
+  { name = "Neicy Coderre", seat = "District 4", ward = 4, term_ends = "2027-01", email = "ncoderre@pawtucketri.gov" },
+  { name = "Clovis C. Gregor", seat = "District 5", ward = 5, term_ends = "2027-01", email = "cgregor@pawtucketri.gov" },
+  { name = "Marlena Martins Stachowiak", seat = "District 6", ward = 6, term_ends = "2027-01", email = "mstachowiak@pawtucketri.gov" },
+]
+
+# Names and officers from the school district's School Committee page, which
+# says its members are elected for two years. The page gives personal email
+# addresses only, left out. Six are on the roll of October 13, 2026 (the
+# committee's newest minutes on the Open Meetings portal); Omar Reyes was
+# absent.
+[[officials.bodies]]
+name = "School Committee"
+url = "https://www.psdri.net/school-committee/"
+note = "Seven members elected citywide for two years."
+members = [
+  { name = "Joanne Bonollo", seat = "At-large", role = "Chair" },
+  { name = "Kimberly Grant", seat = "At-large", role = "Deputy Chair" },
+  { name = "Juan Pablo Barrera", seat = "At-large" },
+  { name = "James T. Chellel Jr.", seat = "At-large" },
+  { name = "Omar Reyes", seat = "At-large" },
+  { name = "Angeliz Rosa", seat = "At-large" },
+  { name = "Matthew Wildenhain", seat = "At-large" },
+]
