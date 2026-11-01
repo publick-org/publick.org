@@ -2,10 +2,21 @@
 # here; the code is the Publick engine
 # (github.com/publick-org/publick-engine).
 #
-# Started on 2026-11-01 by the engine's helper (python -m pipeline.new_town),
-# from Laconia's config.
-# To fill in: what the town uses for meetings, minutes, 311, and its school
-#   board, in a few sentences, as other towns' configs begin.
+# Hamden has a mayor and a fifteen-member Legislative Council. Its boards post
+# their meetings, agendas, and minutes on the town's CivicClerk portal
+# (hamdenct.portal.civicclerk.com), read as [meetings.civicclerk], as
+# Portland's and Burlington's are: the Legislative Council and its committees,
+# and the town's boards and commissions. The minutes read so far are text
+# PDFs. The town website (CivicPlus) shows the same meetings on its "Boards &
+# Commissions" calendar, which the portal feeds, so the calendar isn't read.
+# The Board of Education's regular meetings are on the portal too, with no
+# documents; the board posts its agendas, minutes, and committee meetings on
+# the school district's website, which the engine doesn't read yet (see
+# [meetings.civicclerk]). The town answers requests on SeeClickFix
+# ([seeclickfix]). The engine's Connecticut package gives the budget, mill
+# rate, and tax bill, from the state's Office of Policy and Management
+# ([finance]), and school figures, from EdSight ([schools]); housing and
+# unemployment come from the Census and BLS, as for every town.
 #
 # The site is in English and Spanish ([site] languages), as every town's is.
 # The first runs draft the Spanish for the town's own text; [strings.es], at
@@ -17,18 +28,17 @@ name = "Hamden Publick"
 # color: the town, then the network.
 name_prefix = "Hamden "
 domain = "hamden-ct.publick.org"
-tagline = "Public data on how Hamden, Connecticut decides and spends. Updated daily."
+tagline = "Public data on how Hamden, Connecticut responds, decides, and spends. Updated daily."
 # One line under the name at the top of every page.
 masthead = "An independent guide to town government in Hamden, Connecticut"
 # Public contact address. Shown on the About and Accessibility pages when set.
 contact_email = "hamden-ct@publick.org"
 user_agent = "hamden-ct.publick.org (+https://hamden-ct.publick.org/about/)"
 
-# From the town website's stylesheets (www.hamden.com): its most used color
-# (133 uses), and a darker shade of it; the most used of another hue (55
-# uses); primary_soft a light tint of primary. Each passes WCAG AA on white
-# (8.4, 15.0, 6.6 to 1).
-# To fill in: check the colors against the town's website.
+# From the town website's stylesheet (www.hamden.com): its navy, the most used
+# color (134 uses), and a darker shade of it; its green, the most used of
+# another hue (55 uses); primary_soft a light tint of the navy. Each passes
+# WCAG AA on white (8.4, 15.0, 6.6 to 1).
 [site.colors]
 primary = "#3f4c74"
 primary_dark = "#1f263a"
@@ -37,6 +47,9 @@ accent = "#50642f"
 
 [town]
 name = "Hamden"
+# The Officials page calls the Legislative Council's districts "District 1"
+# to "District 9", as the town does.
+areas = "districts"
 state_abbr = "CT"
 official_site = "https://www.hamden.com"
 
@@ -45,20 +58,27 @@ official_site = "https://www.hamden.com"
 [[sections]]
 slug = "meetings"
 title = "Meetings"
-summary = "Every board and committee meeting on the town calendar, with agendas, and minutes from January 2026 on."
+summary = "When the Legislative Council, its committees, and the town's boards and commissions meet, with agendas, and minutes from January 2026 on."
+status = "live"
+
+[[sections]]
+slug = "311"
+title = "311 Requests"
+nav = "311"
+summary = "How fast the town responds to service requests on SeeClickFix, by category."
+status = "live"
+
+[[sections]]
+slug = "budget"
+title = "Town budget"
+nav = "Budget"
+summary = "The town's adopted budget, its mill rate and what the property tax raises, and the average single-family tax bill."
 status = "live"
 
 [[sections]]
 slug = "schools"
 title = "Schools"
-summary = "Laconia School District's graduation rate, state test results, and cost per pupil, with the state's."
-status = "live"
-
-[[sections]]
-slug = "budget"
-title = "City budget"
-nav = "Budget"
-summary = "The city's property tax rate and where the tax goes, what it raises per resident, and the average single-family tax bill."
+summary = "Hamden Public Schools' graduation rate, attendance, state test results, and spending per pupil, with the state's."
 status = "live"
 
 [[sections]]
@@ -67,14 +87,12 @@ title = "Housing"
 summary = "New homes permitted, home values and rents, and the housing stock."
 status = "live"
 
-# To fill in: the Officials page's section (below, commented out), once
-#   [officials] is filled in.
-# [[sections]]
-# slug = "officials"
-# title = "Who represents you"
-# nav = "Officials"
-# summary = "The mayor, Town Council, and School Committee, by office and by ward, and how to reach them."
-# status = "live"
+[[sections]]
+slug = "officials"
+title = "Who represents you"
+nav = "Officials"
+summary = "The mayor, the Legislative Council, and the Board of Education, by district, and how to reach them."
+status = "live"
 
 [[sections]]
 slug = "about"
@@ -87,52 +105,166 @@ status = "live"
 [analytics]
 prefix = "hamden-ct"
 
-# Public meetings, from the town calendar and its CivicClerk portal.
+# Public meetings, from the town's CivicClerk portal. The portal files each
+# meeting under a category, but the engine reads a meeting's board from its
+# title ("LC Finance Committee Regular Meeting - Aug 10, 2026", "Fire
+# Commission Special Meeting - 5/6/2026"), matched to the longest of these it
+# contains, ignoring case, punctuation, and "&" versus "and". The Legislative
+# Council's standing committees, as on its Committee Referral List and its
+# minutes, are named as the Council's, so they're listed with it.
 [meetings]
-base_url = "https://www.hamden.com"
+calendar_url = "https://hamdenct.portal.civicclerk.com"
 archive_url = "https://hamdenct.portal.civicclerk.com"
 archive_name = "town's CivicClerk portal"
-governing_body = "Town Council"
-# The town's site resets some connections (4 of the helper's); a slower pace
-# and the client's retries help.
-request_delay = 5.0
-max_event_pages = 40
+governing_body = "Legislative Council"
+# The town's site resets some connections; a slower pace and the client's
+# retries help.
+request_delay = 3.0
+boards = [
+  "Legislative Council",
+  "Legislative Council Administration and Settlement Committee",
+  "Legislative Council Audit Committee",
+  "Legislative Council Committee of the Whole",
+  "Legislative Council Engineering, Development and Municipal Planning Committee",
+  "Legislative Council Finance Committee",
+  "Legislative Council Human Services Committee",
+  "Legislative Council IT and Civic Engagement Committee",
+  "Legislative Council Public Safety Committee",
+  "Legislative Council Public Works, Facilities and Sustainability Committee",
+  "Board of Education",
+  "Arts Commission",
+  "Board of Assessment Appeals",
+  "Board of Ethics",
+  "Building Board of Appeals",
+  "Cable Television Advisory Council",
+  "Charter Revision Commission",
+  "Citation Appeal Hearings",
+  "Civil Service Commission",
+  "Clean & Green Commission",
+  "Community Development Advisory Commission",
+  "Crime Prevention and Community Resolutions Panel",
+  "Disability Rights and Opportunities Commission",
+  "Economic Development Commission",
+  "Energy Use & Climate Change Commission",
+  "Fair Rent Commission",
+  "Farmington Canal Commission",
+  "Finance Commission",
+  "Fire Commission",
+  "Fiscal Stability Committee",
+  "Hamden Housing Authority",
+  "Hamden Plains Cemetery Committee",
+  "Historic Properties Commission",
+  "Human Rights & Relations Commission",
+  "Human Services Commission",
+  "Ice Rink Working Group",
+  "Inland Wetlands Commission",
+  "Library Board",
+  "Natural Resources & Open Space Commission",
+  "Parks & Recreation Commission",
+  "Planning & Zoning Commission",
+  "Police Commission",
+  "Reapportionment Commission",
+  "Retirement Board",
+  "Retirement Board COLA Review Task Force",
+  "School Building Committee",
+  "School Building Change Order Subcommittee",
+  "Solid Waste & Recycling Commission",
+  "Technology Commission",
+  "Town Center Park Commission",
+  "Traffic Authority",
+  "Tree Commission",
+  "Tree Appeal Hearings",
+  "Veterans Commission",
+  "Zoning Board of Appeals",
+]
 
-# The town calendar, read month by month: the meetings the town lists before
-# their agendas are posted, with their times and places. Read: the calendars
-# whose events, over the last three months and the next three, were mostly
-# meetings. Not read: ARTS: Arts & Culture General Events Calendar, Brooksvale
-# Park Events, CERT/Fire, Community Event Submissions Calendar, Elections,
-# Farmington Canal Commission, Hamden Public Library, Hamden Through Time,
-# Hamden's Youth & Recreation Events, Keefe Community Center General Calendar,
-# Legislative Council, School Building Committee Meeting, Senior Services,
-# Town of Hamden Events, Town of Hamden Holidays.
-[meetings.civicplus]
-calendars = ["Boards & Commissions"]
-# Some of their events aren't meetings: only titles naming a board are kept.
-include_pattern = '\b(boards?|commissions?|committees?|subcommittees?|councils?|authority|trustees|ZBA|task force)\b'
-# To fill in: include_pattern leaves out these meetings, which a board's name
-#   in it can bring back: "Greater New Haven Transit District Executive
-#   Meetings"; "LC Engineering, Dev, & Municipal Planning Regular Meeting -
-#   Aug 10, 2026".
-# To fill in: check the calendars read, and any left out that list meetings.
-
+# Other names the portal's titles use for a board.
 [meetings.aliases]
-# To fill in: board names the engine doesn't fix itself: a calendar meeting
-#   next to an Agenda Center one of the same day, not shown as one, needs an
-#   alias (python -m pipeline.listings, in the report).
+# The Legislative Council's committees, as their meetings are titled
+# ("Legislative Council Committee Meeting: Admin & Settlement", "LC
+# Engineering, Dev & Municipal Planning Committee - Sept 28", "Legislative
+# Council Special Meeting - Finance Committee"). The Audit Committee is the
+# Council's: its members are councilors (its minutes of October 8, 2026).
+# "LC" alone is the Council.
+"Administration and Settlement Committee" = "Legislative Council Administration and Settlement Committee"
+"Admin & Settlement" = "Legislative Council Administration and Settlement Committee"
+"Audit Committee" = "Legislative Council Audit Committee"
+"Committee of the Whole" = "Legislative Council Committee of the Whole"
+"Engineering, Development and Municipal Planning" = "Legislative Council Engineering, Development and Municipal Planning Committee"
+"Engineering, Dev & Municipal Planning" = "Legislative Council Engineering, Development and Municipal Planning Committee"
+"Engineering and Municipal Planning" = "Legislative Council Engineering, Development and Municipal Planning Committee"
+"Finance Committee" = "Legislative Council Finance Committee"
+"Legislative Council Committee Meeting: Finance" = "Legislative Council Finance Committee"
+"Legislative Council Special Meeting - Finance Committee" = "Legislative Council Finance Committee"
+"Human Services Committee" = "Legislative Council Human Services Committee"
+"Legislative Council Committee Meeting: Human Services" = "Legislative Council Human Services Committee"
+"IT & Civic Engagement" = "Legislative Council IT and Civic Engagement Committee"
+"Civic Engagement and Information Technology Committee" = "Legislative Council IT and Civic Engagement Committee"
+"Information Technology and Civic Engagement Committee" = "Legislative Council IT and Civic Engagement Committee"
+"Public Safety Committee" = "Legislative Council Public Safety Committee"
+"Legislative Council Committee Meeting: Public Safety" = "Legislative Council Public Safety Committee"
+"Public Works, Facilities & Sustainability" = "Legislative Council Public Works, Facilities and Sustainability Committee"
+"Public Works & Sustainability Committee" = "Legislative Council Public Works, Facilities and Sustainability Committee"
+"Public Works and Parks" = "Legislative Council Public Works, Facilities and Sustainability Committee"
+"Public Works, Parks and Recreation" = "Legislative Council Public Works, Facilities and Sustainability Committee"
+"Public Works Parks & Recreation Committee" = "Legislative Council Public Works, Facilities and Sustainability Committee"
+"Public Work Committee" = "Legislative Council Public Works, Facilities and Sustainability Committee"
+"LC" = "Legislative Council"
+"Regular Agenda Council" = "Legislative Council"
+# The Council's public hearing of May 11, 2026 (its agenda, "LC Public Hearing
+# Chapter 73 Code of Ordinances"), filed under the portal's General category.
+"Restatement of Chapter 73" = "Legislative Council"
+# Other boards, as some titles spell or shorten them: the Hamden Employees
+# Retirement Board's "HERB Regular Meeting", the Inland Wetlands Commission's
+# site walks ("Site Inspection: IWC 26-1271"), and the typos of a few titles.
+"Board of Ethics Commission" = "Board of Ethics"
+"Board of Assessment of Appeals" = "Board of Assessment Appeals"
+"Citation Appeal" = "Citation Appeal Hearings"
+"Tree Appeal Hearing" = "Tree Appeal Hearings"
+"Tree Removal Hearing" = "Tree Appeal Hearings"
+"Disabilitiy Rights and Opportunities Commission" = "Disability Rights and Opportunities Commission"
+"Energy Use & Climate Change" = "Energy Use & Climate Change Commission"
+"Human Rights & Relations" = "Human Rights & Relations Commission"
+"HRRC" = "Human Rights & Relations Commission"
+"Civil Service" = "Civil Service Commission"
+"Parks and Recreation Special Meeting" = "Parks & Recreation Commission"
+"Solid Waste & Recyling Commission" = "Solid Waste & Recycling Commission"
+"Traffic Authority Commission" = "Traffic Authority"
+"HERB" = "Retirement Board"
+"HERB COLA Review Task Force" = "Retirement Board COLA Review Task Force"
+"Site Inspection: IWC" = "Inland Wetlands Commission"
+"Hamden Reapportionmnet Commission" = "Reapportionment Commission"
 
 [meetings.civicclerk]
 api_url = "https://hamdenct.api.civicclerk.com/v1"
 portal_url = "https://hamdenct.portal.civicclerk.com"
-# Meetings, agendas, and minutes are collected from here on.
+# Meetings, agendas, and minutes are collected from here on. The Council
+# elected on November 4, 2025 took office on November 30, 2025.
 since = "2026-01-01"
-# Most of the portal's meetings are under a catch-all category, and some are
-# named for an item, not a board: those go under the board their category
-# names.
+# Some of the portal's meetings are under its catch-all General category, and
+# some are named for an item, not a board: those go under the board their
+# category names.
 board_from_category = true
+# Left out: the regional bodies the portal also lists (the Regional Water
+# Authority and its committees, the South Central Regional Council of
+# Governments, the Greater New Haven Transit District and Water Pollution
+# Control Authority), which aren't the town's; the Mayor's staff meetings
+# ("Leadership Meeting", "Mayor's On Hold/Pending") and a staff training;
+# entries that hold documents, not a meeting ("26/27 Budget Documentation",
+# "Tentative Items and Backup March Legislative Council"); and entries
+# marked "NOT HELD", "Cancelation Notice" or "CANCELLATION", meetings that
+# didn't take place, which the engine doesn't read as cancelled.
+exclude_pattern = '\b(?:Regional Water|SCRCOG|Greater New Haven|Leadership (?:Meeting|Agenda)|Mayor.s On Hold|Staff Training|Budget Documentation|Tentative Items|Cancell?ation)\b|\bnot held'
 
-# The Board of Education posts with the other boards ("Board of Education").
+# The Board of Education's regular meetings are on the portal ("Board of
+# Education", 7:00 PM on the second Tuesday), with no agenda or minutes. The
+# board posts its agendas, minutes, and recordings, and its committees'
+# meetings, on Hamden Public Schools' BOE Meeting Agendas/Minutes page
+# (https://www.hamden.org/boe-meeting-agendas-minutes, ParentSquare
+# SmartSites), a table with a row a meeting. The engine's reader for such a
+# page ([page_meetings]) finds a meeting's date written out or as 2026-10-13;
+# this page writes it as 10/13/26, so it isn't read yet. The board's calendar
+# page (/board-of-education-calendar) lists no events.
 
 # Agenda and minutes PDFs live in the network's documents bucket, not in git
 # (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID,
@@ -147,102 +279,196 @@ prefix = "hamden-ct"
 [summaries]
 since = "2026-08-01"
 
-# To fill in: how residents can take part, per board ([participation."Town
-#   Council"], [participation."School Committee"]): comment, source_title,
-#   source_url, video_title, video_url, each from the board's own rules or
-#   agendas.
-# To fill in: [[glossary]], terms that come up in this city's agendas and mean
-#   something of its own here, each from an official page. The state's and the
-#   network's terms are in its glossary already: C.G.S., executive session,
-#   special permit, abatement, ADA, CBA, CDBG, CIP, COLA, Committee of the
-#   Whole, consent agenda, first reading, mill rate, quitclaim deed, receive
-#   and file, Select Board, tabled, TIF, town meeting, variance, warrant
-#   article.
+# How residents can take part, per board, shown on its meeting pages. Only
+# what the town or the school district has published; each entry names its
+# source. The Legislative Council's from the notice at the top of each of its
+# agendas (agenda of September 14, 2026), which the Council's page
+# (https://www.hamden.com/353/Legislative-Council) repeats. Its meetings'
+# recordings are linked from each meeting on the portal.
+[participation."Legislative Council"]
+comment = "Anyone can speak in the public input session of the Council's meetings, in person at Memorial Town Hall or on Zoom, for up to three minutes, by raising a hand when the session opens. Written comments can be emailed to LCpublicinput@hamden.com by 3:00 p.m. on the day of the meeting."
+source_title = "Legislative Council agenda of September 14, 2026"
+source_url = "https://hamdenct.portal.civicclerk.com/event/8536/files"
+video_title = "the town's CivicClerk portal"
+video_url = "https://hamdenct.portal.civicclerk.com/?category_id=26"
 
-# To fill in: [schools] edsight_district, the town's district as EdSight names
-#   it (EdSight has no graduation rates for "Hamden School District": a
-#   regional district, or one without a high school), and district_name.
+# The Board of Education's from the public comment notice on each of its
+# agendas (agenda of October 13, 2026); recordings are linked from the
+# district's BOE Meeting Agendas/Minutes page.
+[participation."Board of Education"]
+comment = "Time is set aside at the start of each meeting for public comment, up to three minutes each. Written comments can be emailed to PublicInput@hamden.org by 1:00 p.m. on the day of the meeting, with the meeting's name and date in the subject, and the writer's name and Hamden address in the message."
+source_title = "Board of Education agenda of October 13, 2026"
+source_url = "https://files.smartsites.parentsquare.com/13638/boeagenda_oct132026_rev.pdf"
+video_title = "Hamden Public Schools' BOE Meeting Agendas/Minutes page"
+video_url = "https://www.hamden.org/boe-meeting-agendas-minutes"
+
+# Terms that come up on agendas and minutes, explained on each meeting page
+# where they appear. An entry with bodies is shown only on those boards'
+# meetings. The Submission Calendar from the Council's page ("documents for
+# upcoming discussions/public hearings") and its minutes (September 14, 2026:
+# "Acceptance of Items Sent to Council for Submission Calendar"); overflow
+# meetings from the Council's page ("a fourth Monday scheduled for any items
+# recessed or not heard during the first and third Monday").
+[[glossary]]
+term = "Submission Calendar"
+bodies = ["Legislative Council"]
+definition = "The items sent to the Legislative Council for it to take up, with their documents. The Council accepts them at a meeting before it discusses them or holds a public hearing on them."
+
+[[glossary]]
+term = "overflow meeting"
+bodies = [
+  "Legislative Council",
+  "Legislative Council Administration and Settlement Committee",
+  "Legislative Council Engineering, Development and Municipal Planning Committee",
+  "Legislative Council Finance Committee",
+  "Legislative Council Human Services Committee",
+  "Legislative Council IT and Civic Engagement Committee",
+  "Legislative Council Public Safety Committee",
+  "Legislative Council Public Works, Facilities and Sustainability Committee",
+]
+definition = "A Legislative Council or committee meeting on a fourth Monday, for items recessed or not heard at the meetings of the first and third Mondays."
 
 # Budget, mill rate, and property tax (pipeline/states/ct/), from the Office
-# of Policy and Management's statewide datasets on data.ct.gov; the average
+# of Policy and Management's statewide datasets on data.ct.gov. The average
 # single-family bill is calculated from the state's yearly Parcel and CAMA
-# file.
+# file, where Hamden codes its single-family homes 1010 ("Single Fam M01",
+# 13,428 parcels in the 2026 file). The town's own budget books are in the
+# Budget Documents section of its Archive Center.
 [finance]
 opm_town = "Hamden"
 opm_code = 62
-# To fill in: budget_documents_url, the page where the town posts its own
-#   budget books, which the budget page links (leave it out if there's none).
+single_family_use = ["1010"]
+budget_documents_url = "https://www.hamden.com/Archive.aspx?AMID=38"
 
-# Housing: Census building permits (state and place FIPS codes), American
-# Community Survey through Census Reporter (geo ids).
+# School district figures from EdSight, the State Department of Education's
+# data portal, where the district is "Hamden School District" (district code
+# 0620011, as in the Department's directory of schools on data.ct.gov). The
+# district calls itself Hamden Public Schools.
+[schools]
+edsight_district = "Hamden School District"
+district_name = "Hamden Public Schools"
+
+# Housing: Census building permits and the American Community Survey.
+# Hamden isn't a Census place, so permits find it by its town (MCD) code.
+# Connecticut's planning regions replaced its counties in 2022, so the town's
+# Census code is 0917035650.
 [housing]
 bps_mcd = "35650"
 census_geo = "06000US0917035650"
 
 # Unemployment rate (BLS Local Area Unemployment Statistics, area
-# CS0935650000000, Hamden town, CT). City rates are not seasonally adjusted;
+# CS0935650000000, Hamden town, CT). Town rates are not seasonally adjusted;
 # the state series is shown for context.
 [labor]
 local_series = "LAUCS093565000000003"
 
-# How often each data source should update. Figures published monthly or
-# yearly are judged by the engine, by the period they cover
+# 311 requests, from SeeClickFix (public requests only). The town's
+# organization is 77 ("Hamden, CT", the agency its requests are assigned to);
+# its Open311 services (seeclickfix.com/open311/v2/77/services.json) are 36
+# request types, all the town's (Public Works, Planning & Zoning,
+# Engineering, Traffic, Recycling & Solid Waste, the Mayor's Office), so no
+# departments are needed. The town's website links its report page. About
+# five requests a day in 2026. The town's council districts aren't published
+# as map data, so there's no precincts_file: the pages show requests by
+# category, with no areas.
+[seeclickfix]
+organization_id = 77
+report_url = "https://seeclickfix.com/us-ct-hamden/report"
+# The month the full history starts (python -m pipeline.fetch_311 --backfill).
+history_since = "2026-01"
+
+# How often each data source should update. The daily run fails when one goes
+# longer than max_days, and the About page lists them. Figures published
+# monthly or yearly are judged by the engine, by the period they cover
 # (pipeline/rhythms.py).
 [freshness]
 sources = [
   { label = "Meetings (CivicClerk)", file = "meetings/status.json", max_days = 2 },
+  { label = "311 requests", file = "311/status.json", max_days = 2 },
+  { label = "311 scorecard", file = "311/scorecard.json", field = "generated_at", max_days = 2 },
 ]
 
-# To fill in: [seeclickfix], with the city's organization ID, once a person
-#   has confirmed the city uses it (the issues listing needs a login now; the
-#   Open311 listing at seeclickfix.com/open311/v2/<id>/services.json names its
-#   request types), and the 311 section and its [freshness] sources (with 311
-#   the tagline can say "responds, decides, and spends", as Gloucester's,
-#   Malden's, and Methuen's do); or, if the city takes requests some other
-#   way, [absences] 311 saying so. SeeClickFix's places: Hamden, place 32399
-#   (https://seeclickfix.com/us-ct-hamden). The city's site links
-#   https://seeclickfix.com/us-ct-hamden/report.
-
-# Who represents you (the Officials page). Kept by hand from official city and
-# school websites; checked is the date the list was last checked against them.
-# Only city- and school-issued email addresses, and the mayor's office phone.
+# Who represents you (the Officials page). Kept by hand from official town
+# and school websites and records; checked is the date the list was last
+# checked against them. Only town- and school-issued email addresses, and the
+# mayor's office phone. A district seat's ward is its council district. The
+# town publishes its council districts as a PDF map (the Registrar of Voters'
+# "Map of 2023 Hamden Legislative Council Districts"), not as map data, so
+# there's no ward file: the page lists each member under its office, and says
+# the district map isn't available. Terms begin at noon on the last Sunday of
+# November after the election (Charter, §3-3), so they end in November.
 [officials]
-# To fill in: checked, the date the list below was checked against official
-#   pages.
-# To fill in: next_election, the date of the town's next regular municipal
-#   election, from the city's election calendar or its charter.
-# To fill in: wards_file, the town's wards (ADDING-A-TOWN.md, step 3), or none
-#   if every seat is elected townwide.
+checked = "2026-11-01"
+# The next regular municipal election: Tuesday, November 2, 2027 (Charter,
+# §3-3.B: odd-numbered years). On that ballot: the Legislative Council, and
+# the three Board of Education seats elected in 2023. Nothing municipal is
+# on the state election ballot of November 3, 2026 except the Registrars of
+# Voters (the Town Clerk's list of nominees), who aren't on this page.
+next_election = "2027-11-02"
 
-# To fill in: the Mayor, from the town's and the school district's own pages,
-#   confirmed against the last election's official results (ADDING-A-TOWN.md,
-#   step 4). Never from news sites or memory.
-# [[officials.bodies]]
-# name = "Mayor"
-# url = ""
-# note = ""
-# members = [
-#   { name = "", seat = "" },
-# ]
+# Elected townwide on November 4, 2025, the first four-year term (Charter,
+# §3-3.C; the Secretary of the State's results, electionhistory.ct.gov
+# contest 42816; the town's Elected Officials page,
+# https://www.hamden.com/352/Elected-Officials).
+[[officials.bodies]]
+name = "Mayor"
+url = "https://www.hamden.com/499/Office-of-the-Mayor"
+note = "Elected townwide for four years. The mayor isn't a member of the Legislative Council."
+members = [
+  { name = "Adam Sendroff", seat = "Townwide", term_ends = "2029-11", email = "mayor@hamden.com", phone = "(203) 287-7100" },
+]
 
-# To fill in: the Town Council, from the town's and the school district's own
-#   pages, confirmed against the last election's official results
-#   (ADDING-A-TOWN.md, step 4). Never from news sites or memory.
-# [[officials.bodies]]
-# name = "Town Council"
-# url = ""
-# note = ""
-# members = [
-#   { name = "", seat = "" },
-# ]
+# Names, seats, and email addresses as the Council's page lists them,
+# confirmed against the Secretary of the State's results of November 4, 2025
+# (electionhistory.ct.gov contests 42818 to 42827: the six at-large seats
+# went to the top six of seven candidates) and the roll call of the Council's
+# minutes of September 14, 2026, which give the officers' titles. The Council's
+# page also lists each member's own phone number, which isn't shown here.
+[[officials.bodies]]
+name = "Legislative Council"
+url = "https://www.hamden.com/353/Legislative-Council"
+note = "Fifteen members elected for two years: one from each of the town's nine council districts, and six at-large."
+members = [
+  { name = "Sean Cardwell", seat = "District 1", ward = 1, role = "President Pro Tempore", term_ends = "2027-11", email = "scardwell@hamden.com" },
+  { name = "Jeron Alston", seat = "District 2", ward = 2, term_ends = "2027-11", email = "jalston@hamden.com" },
+  { name = "Abdul Osmanu", seat = "District 3", ward = 3, term_ends = "2027-11", email = "aosmanu@hamden.com" },
+  { name = "Sarah Gallagher", seat = "District 4", ward = 4, role = "Majority Leader", term_ends = "2027-11", email = "sgallagher@hamden.com" },
+  { name = "Rhonda Caldwell", seat = "District 5", ward = 5, term_ends = "2027-11", email = "rcaldwell@hamden.com" },
+  { name = "Grace Teodosio", seat = "District 6", ward = 6, term_ends = "2027-11", email = "gteodosio@hamden.com" },
+  { name = "Adrian Webber", seat = "District 7", ward = 7, term_ends = "2027-11", email = "awebber@hamden.com" },
+  { name = "Ted Stevens", seat = "District 8", ward = 8, term_ends = "2027-11", email = "tstevens@hamden.com" },
+  { name = "Tameeka Parks", seat = "District 9", ward = 9, term_ends = "2027-11", email = "tparks@hamden.com" },
+  { name = "Katie Kiely", seat = "At-large", role = "President", term_ends = "2027-11", email = "kkiely@hamden.com" },
+  { name = "Douglas Foley", seat = "At-large", term_ends = "2027-11", email = "dfoley@hamden.com" },
+  { name = "Bob Anthony", seat = "At-large", role = "Minority Leader", term_ends = "2027-11", email = "banthony@hamden.com" },
+  { name = "Tom Figlar", seat = "At-large", role = "Minority Whip", term_ends = "2027-11", email = "tfiglar@hamden.com" },
+  { name = "Tasha Hunt", seat = "At-large", role = "Majority Whip", term_ends = "2027-11", email = "thunt@hamden.com" },
+  { name = "Maurine Crouch", seat = "At-large", term_ends = "2027-11", email = "mcrouch@hamden.com" },
+]
 
-# To fill in: the School Committee, from the town's and the school district's
-#   own pages, confirmed against the last election's official results
-#   (ADDING-A-TOWN.md, step 4). Never from news sites or memory.
-# [[officials.bodies]]
-# name = "School Committee"
-# url = ""
-# note = ""
-# members = [
-#   { name = "", seat = "" },
-# ]
+# From the district's Meet our Board Members page (members, officers, and
+# school-issued email addresses), with names as the board's minutes of
+# September 8, 2026 give them. Confirmed against the Secretary of the State's
+# results: six members elected on November 4, 2025, for terms ending in 2029
+# (electionhistory.ct.gov contest 42828: six candidates for the six seats),
+# and three on November 7, 2023, ending in 2027 (the town's 2023 results,
+# "Board of Education Full Term": Johnson, Downhour, Ciccarini). The ballot
+# names Nancy Hill "Nancy Edmonds-Hill"; the board's page and minutes say
+# Nancy Hill. Melissa Kaplan's address on the board's page isn't
+# school-issued, so it isn't shown. The two student representatives don't
+# vote and aren't listed.
+[[officials.bodies]]
+name = "Board of Education"
+url = "https://www.hamden.org/meet-our-board-members"
+note = "Nine members elected townwide for four years, six and three in alternate municipal elections, no more than six of them from one party. The board's regular meetings are listed here; its agendas, minutes, and committee meetings are on the district's website, which this site doesn't read yet."
+members = [
+  { name = "Peter Downhour", seat = "At-large", role = "Board Chair", term_ends = "2027-11", email = "pdownhour@hamden.org" },
+  { name = "Melissa Kaplan", seat = "At-large", role = "Secretary", term_ends = "2029-11" },
+  { name = "David Asbery", seat = "At-large", term_ends = "2029-11", email = "dasbery@hamden.org" },
+  { name = "Marcia Brown", seat = "At-large", term_ends = "2029-11", email = "marciabrown@hamden.org" },
+  { name = "Mario Ciccarini", seat = "At-large", term_ends = "2027-11", email = "mciccarini@hamden.org" },
+  { name = "Crystal Dailey", seat = "At-large", term_ends = "2029-11", email = "cdailey@hamden.org" },
+  { name = "Nancy Hill", seat = "At-large", term_ends = "2029-11", email = "nhill@hamden.org" },
+  { name = "Greta Johnson", seat = "At-large", term_ends = "2027-11", email = "gjohnson@hamden.org" },
+  { name = "Christopher Piscitelli", seat = "At-large", term_ends = "2029-11", email = "cpiscitelli@hamden.org" },
+]
