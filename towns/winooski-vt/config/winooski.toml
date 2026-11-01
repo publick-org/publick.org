@@ -12,9 +12,9 @@
 # list of upcoming meetings (winooskivt.gov/meetings) is a Timely calendar,
 # which the engine doesn't read, so a meeting is listed once its agenda is
 # posted. The Winooski School District's Board of School Trustees posts its
-# agendas and minutes on the district's website, which the engine can't read
-# yet (see the School Board below); the district's figures come from the state
-# ([schools]). The city has no public 311 system ([absences]). The engine's
+# agendas and minutes on two pages of the district's website ([page_meetings]),
+# and lists its regular meetings on the district's Google calendar
+# ([ical_meetings]); the district's figures come from the state ([schools]). The city has no public 311 system ([absences]). The engine's
 # Vermont package gives the tax rates, what the property tax raises, and the
 # average homestead tax bill, from the Department of Taxes ([finance]), and
 # school figures, from the Agency of Education; housing and unemployment come
@@ -67,7 +67,7 @@ official_site = "https://www.winooskivt.gov"
 [[sections]]
 slug = "meetings"
 title = "Meetings"
-summary = "Every board and committee meeting in the city's Agenda Center, with agendas, and minutes from January 2026 on."
+summary = "Every board and committee meeting in the city's Agenda Center, and the School Board's, with agendas, and minutes from January 2026 on."
 status = "live"
 
 [[sections]]
@@ -158,14 +158,49 @@ since = "2026-01-01"
 [meetings.agenda_center.committees."Safe, Healthy, Connected People Commission"]
 "Winooski Memorial Library Committee" = "Joint Safe, Healthy, Connected People Commission and Winooski Memorial Library Committee"
 
-# The School Board (the Board of School Trustees) isn't read. The district
-# lists its agendas and its minutes on two pages of its website
-# (wsdvt.org/school-board/board-agenda/ and /board-minutes/), as Google Docs,
-# Drive files, and PDFs labelled "Agenda 10-14-2026 WSD Regular Board
-# Meeting": [page_meetings] reads a date written out or as 2026-10-14, not
-# 10-14-2026. The district's Google calendar has the board's regular meetings
-# as one repeating event (RRULE), and [ical_meetings] reads one meeting an
-# event (UID).
+# The School Board (the Board of School Trustees) and its committees, from
+# the school district's website (WordPress): its Board Agenda and Board
+# Minutes pages, read as one list ([page_meetings] other_pages), link each
+# document as a Google Doc, a Drive file, or a PDF on the district's site,
+# labelled with its date and meeting ("Agenda 10-14-2026 WSD Regular Board
+# Meeting", "Minutes 10-14-2026 Regular Board Meeting"). The agendas write
+# "WSD" and the minutes don't, and a special meeting's agenda says "Special
+# Board Meeting" where its minutes may say "Special Meeting", so both words
+# are left out when an agenda and minutes are matched (name_ignore_pattern).
+# The Finance Committee's and the Student Board Committee's meetings are
+# listed with the board's; the pages also list the Chittenden Central CESA
+# board's and the Act 170 merger committee's, regional bodies the district
+# belongs to, whose documents are left out (exclude_pattern). The minutes
+# are Google Docs and text PDFs.
+[page_meetings]
+page_url = "https://www.wsdvt.org/school-board/board-agenda/"
+other_pages = ["https://www.wsdvt.org/school-board/board-minutes/"]
+source_name = "Winooski School District"
+# The first run lists meetings from here, and documents are collected from here on.
+since = "2026-01-01"
+body = "School Board"
+exclude_pattern = '\bCESA\b|\bAct 170\b'
+name_ignore_pattern = '\bWSD\b|\bboard\b'
+
+[page_meetings.bodies]
+"Finance Committee" = "School Board Finance Committee"
+"Student Board Committee" = "Student Board Committee"
+
+# The School Board's regular meetings, with their times, from the district's
+# "After School Events" Google calendar (on its Calendar page): one repeating
+# event, "Regularly Scheduled Board Meeting WSD", on the second Wednesday of
+# each month at 6 p.m., as the School Board page says, read as each of its
+# meetings, so a meeting is listed before its agenda is posted. The same
+# calendar's "Heart of Winooski Board Meeting" is another organization's.
+[ical_meetings]
+ical_url = "https://calendar.google.com/calendar/ical/winooski.k12.vt.us_tpdi0dpoq4gv5rcob834e16u74%40group.calendar.google.com/public/basic.ics"
+page_url = "https://www.wsdvt.org/school-board/"
+source_name = "Winooski School District"
+since = "2026-01-01"
+
+[ical_meetings.bodies]
+"Board Meeting WSD" = "School Board"
+"School Board Meeting" = "School Board"
 
 # Agenda and minutes PDFs live in the network's documents bucket, not in git
 # (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID,
@@ -207,8 +242,8 @@ collection = "cctvvt"
 # what the city has published; each entry names its source. From the city's
 # "How to Attend Public Meetings" (linked from its Public Meetings page,
 # winooskivt.gov/1666/Public-Meetings), which also names Town Meeting TV as
-# where the Council's meetings are broadcast and recorded. The School Board's
-# meetings aren't on the site, so it has none.
+# where the Council's meetings are broadcast and recorded. The School Board
+# has none.
 [participation."City Council"]
 comment = "Anyone can comment at a Council meeting, in person at City Hall or on Zoom: public comment on items not on the agenda comes near the start of the meeting, and on agenda items when they're taken up. Give your name and where you live. The city asks those who wish to comment to say so at least four hours before, on its Public Comment Request Form or by calling 802 655 6410, though it isn't required. For an interpreter or translated documents, call 802 540 1467 or email communications@winooskivt.gov."
 source_title = "the city's How to Attend Public Meetings"
@@ -245,6 +280,11 @@ district_name = "Winooski School District"
 # Tax rates, property tax, and the average homestead tax bill
 # (pipeline/states/vt/), from the Vermont Department of Taxes' Property
 # Valuation and Review (PVR) figures and VCGI's statewide parcel data. The
+# parcel data's maps of Winooski date from 2019 and lack about 200 of the
+# 1,809 parcels PVR counts for 2025, most of them condominiums (category O),
+# so its homesteads add up to 0.885 of PVR's homestead grand list; its R1
+# homes, which the bill averages, are all there but 8 of 1,342, and the
+# engine calculates the bill from them, saying so in the figure's note. The
 # city's own budgets, FY13 on, are on the Finance Department's Budgets page.
 [finance]
 pvr_town = "Winooski"
@@ -268,6 +308,7 @@ local_series = "LAUCT508515000000003"
 [freshness]
 sources = [
   { label = "Meetings (Agenda Center)", file = "meetings/status.json", max_days = 2 },
+  { label = "School Board meetings (school district website)", file = "meetings/page_status.json", max_days = 2 },
 ]
 
 # The About page's "What this site doesn't cover": why there's no 311 section.
@@ -336,7 +377,7 @@ members = [
 [[officials.bodies]]
 name = "School Board"
 url = "https://www.wsdvt.org/school-board/"
-note = "Five trustees elected at-large: three for three years and two for two. Its meetings aren't listed on this site: the district posts them on its website in a form the site can't read yet."
+note = "Five trustees elected at-large: three for three years and two for two."
 members = [
   { name = "Nicole Mace", seat = "At-large", role = "President", term_ends = "2029-03", email = "nimace@wsdvt.org" },
   { name = "Robert Millar", seat = "At-large", role = "Vice President", term_ends = "2028-03", email = "rmillar@wsdvt.org" },
