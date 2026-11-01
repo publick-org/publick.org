@@ -107,6 +107,12 @@ status = "live"
 [analytics]
 prefix = "pawtucket-ri"
 
+# The weekly digest's email signup, on /digest/ (the engine's pipeline/digest.py). The form posts
+# to this site's /digest/subscribe, which the sites Worker answers (worker/digest.js) and passes on
+# to Buttondown with the tag pawtucket-ri-en. The About page names who keeps the addresses.
+[digest]
+# The network's settings (defaults/network.toml): having the table turns the signup on.
+
 # Public meetings. The city's own pages link the City Council's agendas and
 # minutes on ClerkBase, which the engine doesn't read; every meeting here is
 # from the Open Meetings portal ([opengov_meetings], below).
@@ -126,6 +132,48 @@ prefix = "pawtucket-ri"
 # city's history doesn't take the month's budget.
 [summaries]
 since = "2026-08-01"
+
+# The School Committee's meetings, transcribed from their YouTube videos by
+# Gemini for a summary the day after, until the minutes come (the engine's
+# pipeline/recordings.py and pipeline/youtube.py).
+# Its recordings are on YouTube, which servers can't download from: Gemini reads
+# each video from its link. The City Council's meetings are on its own channel
+# (@pawtucketcitycouncil, linked from each docket on ClerkBase), but every
+# video there is titled "Pawtucket City Council Meeting", with no date to match
+# it to its meeting, so it isn't read.
+[recordings]
+since = "2026-10-26"
+
+# The school department's channel, linked from its School Committee page
+# ("School Committee Meeting Videos"): the committee's meetings, titled "SC
+# Meeting October 27 2026" or "School Committee Meeting June 23 2026". Its
+# subcommittees' meetings aren't recorded (the committee's policy BEF).
+[[recordings.sources]]
+platform = "youtube"
+channel = "UChjrFfyelU8F3oz-O5JWWLA"
+boards = { "School Committee" = '^\s*(?:sc|school\s+committee)\b(?!.*\bsub-?committee\b)' }
+
+# How residents can take part, per board, shown on its meeting pages. Only
+# what the city or the school department has published; each entry names its
+# source. From the notice at the top of each City Council docket; the
+# Council's meetings are streamed on its YouTube channel, which each docket on
+# ClerkBase links.
+[participation."City Council"]
+comment = "Anyone may speak during the Public Input Period, at 6:40 p.m. before the Council's regular meetings, and at public hearings, in person or by Zoom: sign in, or join the Zoom meeting given on the agenda, by 6:30 p.m. Written testimony can be emailed to cityclerk@pawtucketri.gov, with COUNCIL INPUT in the subject line, until 4 p.m. on the day of the meeting."
+source_title = "City Council agenda of October 21, 2026"
+source_url = "https://clerkshq.com/Content/Pawtucket-ri/council/2026/oct21_26dk.htm"
+video_title = "the City Council's YouTube channel"
+video_url = "https://www.youtube.com/@pawtucketcitycouncil"
+
+# From the committee's agendas, which open with a Public Participation period.
+# Its meetings are streamed on Zoom and posted on the school department's
+# YouTube channel.
+[participation."School Committee"]
+comment = "Anyone may speak during the Public Participation period near the start of each meeting, after signing in with the Committee Chair before the meeting begins. The Committee can't act on a matter raised then that isn't on the agenda. Comments are included in the minutes."
+source_title = "School Committee agenda of October 27, 2026"
+source_url = "https://opengov.sos.ri.gov/Common/DownloadMeetingFiles?FilePath=%5CNotices%5C4832%5C2026%5C569751.pdf"
+video_title = "the school department's YouTube channel"
+video_url = "https://www.youtube.com/channel/UChjrFfyelU8F3oz-O5JWWLA/videos"
 
 # The city's meetings, agendas and minutes, from the Secretary of State's Open
 # Meetings portal, each public body named exactly as the portal names it. The
