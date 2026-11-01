@@ -99,8 +99,14 @@ status = "live"
 prefix = "westbrook-me"
 
 # No [recordings]: the city posts its meetings' videos (City Council, School
-# Committee, Planning Board) to a Vimeo showcase, whose videos can't be read by
-# a server, and its YouTube channel has had no meeting since August 2025.
+# Committee, Planning Board) to a Vimeo showcase ("Westbrook Meeting Videos",
+# the only meeting video its website links), whose videos can't be read by a
+# server: Vimeo's API gives a video's files only to an authenticated token
+# with its private scope. The city's YouTube channel has had no meeting since
+# August 2025, the school department links no video of its own, and no cable
+# access channel's site is linked from the city's. An Internet Archive collection,
+# "City of Westbrook, Maine" (cowmev), has copies of the city's videos to July
+# 20, 2026, uploaded by a member of the public, not by the city.
 
 # The weekly digest's email signup, on /digest/ (the engine's pipeline/digest.py). The form posts
 # to this site's /digest/subscribe, which the sites Worker answers (worker/digest.js) and passes on
@@ -282,11 +288,17 @@ district_name = "Westbrook School Department"
 # average single-family tax bill: Westbrook's rows in the Maine GeoLibrary's
 # parcel table (GEOCODE 05240) code its single-family homes "1010" ("SINGLE
 # FAM", 3,993 parcels), but none of its 7,360 rows has a building value, only
-# land, so the homes' assessed values can't be added up. So the tax bill's keys
-# (megis_geocode, single_family_use) are left out, and the Budget page has the
-# tax rate and what the property tax raises without an average bill. The city
-# posts its approved budgets in its Archive Center (the Budget page's "View All
-# Approved Budgets").
+# land, so the homes' assessed values can't be added up. No other official
+# source gives them either: the city's real estate tax bills (its Tax Bills
+# page, FY 2026-2027, mill rate 16.10) give each property's land and building
+# values but not its use, so homes can't be told from other property; the
+# city's parcel layers on its ArcGIS server have no values; its online
+# assessment database (Vision) has a page a parcel, with the 2024/2025 values;
+# and Maine Revenue Services publishes each town's totals, not its homes'. So
+# the tax bill's keys (megis_geocode, single_family_use) are left out, and the
+# Budget page has the tax rate and what the property tax raises, and says why
+# there's no average bill. The city posts its approved budgets in its Archive
+# Center (the Budget page's "View All Approved Budgets").
 [finance]
 mrs_municipality = "Westbrook"
 budget_documents_url = "https://www.westbrookmaine.gov/Archive.aspx?AMID=37"
