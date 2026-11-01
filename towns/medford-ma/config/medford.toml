@@ -136,6 +136,17 @@ since = "2026-01-01"
 board_from_category = true
 exclude_pattern = 'Neighborhood Meeting'
 
+# Where the city's own listing is wrong, the meeting's page says so
+# (README, "Corrections"): the portal lists the special meeting of 2026-11-02
+# at 4:00 PM, and its agenda says 5:00 PM.
+[[meetings.corrections]]
+board = "City Council"
+date = "2026-11-02"
+start_time = "17:00"
+checked = "2026-11-01"
+note = "The city's meeting portal lists this special meeting at 4:00 PM, but its posted agenda says it will take place at 5:00 PM via Zoom. The agenda is the official notice, so the time shown here is the agenda's."
+evidence = "https://medfordma.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=1009,plainText=false)"
+
 # The School Committee's meetings, agendas and minutes, from the district's
 # Meetings page (Finalsite): a table for the school year, a row a meeting, with
 # its date, its purpose ("Regular Meeting", "Special Meeting"), its agenda (a
