@@ -178,12 +178,15 @@ since = "2026-01-01"
 # Meeting", "Finance Committee Meeting", "Ed Programs Committee Meeting",
 # "Facilities Committee Meeting", "Policy Committee Meeting". The committees
 # are named as on the School Committee's page. The feed lists upcoming events
-# only; agendas are on the School Committee's page ([page_meetings]).
+# only; agendas are on the School Committee's page ([page_meetings]). The feed
+# gives every event a new random UID each time it's read, so its meetings are
+# kept by date and board (uid_changes).
 [ical_meetings]
 ical_url = "https://thrillshare-cmsv2.services.thrillshare.com/api/v4/o/11325/cms/events/generate_ical"
 page_url = "https://www.westbrookschools.org/o/wsd/page/westbrook-school-committee"
 source_name = "Westbrook School Department"
 since = "2026-10-01"
+uid_changes = true
 
 [ical_meetings.bodies]
 "School Committee" = "School Committee"
