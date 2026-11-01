@@ -9,11 +9,17 @@
       "updated_at": "2026-10-31T18:23:27-04:00"
     }
   },
-  "errors": [],
-  "event_pages_checked": 2,
-  "failed_calendars": [],
-  "listed_in_feed": 202,
+  "errors": [
+    "city calendar: https://www.methuen.gov/Calendar.aspx?CID=0&view=list&month=11&year=2026: HTTPSConnectionPool(host='www.methuen.gov', port=443): Max retries exceeded with url: /Calendar.aspx?CID=0&view=list&month=11&year=2026 (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.methuen.gov', port=443) at 0x7f20afa7a030>, 'Connection to www.methuen.gov timed out. (connect timeout=30.0)'))",
+    "Agenda Center: https://www.methuen.gov/AgendaCenter/Search/?term=&CIDs=all&startDate=01/01/2026&endDate=12/31/2026&dateRange=&dateSelector=: HTTPSConnectionPool(host='www.methuen.gov', port=443): Max retries exceeded with url: /AgendaCenter/Search/?term=&CIDs=all&startDate=01/01/2026&endDate=12/31/2026&dateRange=&dateSelector= (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.methuen.gov', port=443) at 0x7f20afa7ad50>, 'Connection to www.methuen.gov timed out. (connect timeout=30.0)'))"
+  ],
+  "event_pages_checked": 0,
+  "failed_calendars": [
+    "city calendar",
+    "Agenda Center"
+  ],
+  "listed_in_feed": 0,
   "new_meetings": 0,
-  "requests": 4,
+  "requests": 8,
   "updated_at": "2026-10-31T18:23:27-04:00"
 }
