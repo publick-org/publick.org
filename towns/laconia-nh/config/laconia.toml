@@ -4,8 +4,18 @@
 #
 # Started on 2026-11-01 by the engine's helper (python -m pipeline.new_town),
 # from Methuen's config.
-# To fill in: what the city uses for meetings, minutes, 311, and its school
-#   board, in a few sentences, as other towns' configs begin.
+#
+# Laconia's website runs on CivicPlus. Its boards post agendas and minutes in
+# the Agenda Center: the City Council and its committees (under the Council's
+# category), and the city's boards and commissions. The city calendar lists
+# meetings before their agendas are posted, with times and places
+# ([meetings.civicplus]). The minutes are text PDFs. The School Board posts its
+# agendas and minutes as Google Docs and Drive files linked from two pages of
+# the school district's Weebly website (sau30.org), each laid out as one table
+# that [page_meetings] reads as a single meeting, so its meetings aren't listed
+# here. There is no 311 section: the city takes concerns through a form on its
+# own website ([absences]). Its tax rate, tax bill, and school figures are New
+# Hampshire's (the engine's pipeline/states/nh/).
 #
 # The site is in English and Spanish ([site] languages), as every town's is.
 # The first runs draft the Spanish for the town's own text; [strings.es], at
@@ -24,11 +34,10 @@ masthead = "An independent guide to city government in Laconia, New Hampshire"
 contact_email = "laconia-nh@publick.org"
 user_agent = "laconia-nh.publick.org (+https://laconia-nh.publick.org/about/)"
 
-# From the city website's stylesheets (www.laconianh.gov): its two most used
-# blues (108 and 36 uses); the most used of another hue (74 uses);
-# primary_soft a light tint of primary. Each passes WCAG AA on white (5.8,
-# 13.2, 6.4 to 1).
-# To fill in: check the colors against the city's website.
+# From the city website's stylesheets (www.laconianh.gov): its blue
+# (subheadings and their links, 5.8 to 1 on white), its navy (headlines and
+# the footer, 13.2 to 1), a light tint of the blue, and its red (the links and
+# subheadings of its widgets, 6.4 to 1).
 [site.colors]
 primary = "#2d63b9"
 primary_dark = "#163056"
@@ -45,36 +54,34 @@ official_site = "https://www.laconianh.gov"
 [[sections]]
 slug = "meetings"
 title = "Meetings"
-summary = "Every board and committee meeting on the city calendar and in its Agenda Center, with agendas, and minutes from January 2026 on."
+summary = "When the City Council, its committees, and the city's boards and commissions meet, from the city calendar and its Agenda Center, with agendas, and minutes from January 2026 on."
 status = "live"
 
 [[sections]]
 slug = "schools"
 title = "Schools"
-summary = "Graduation, attendance, and MCAS results compared with the state."
+summary = "Laconia School District's graduation rate, state test results, and cost per pupil, with the state's."
 status = "live"
 
 [[sections]]
 slug = "budget"
 title = "City budget"
 nav = "Budget"
-summary = "Where general fund money comes from and how it is spent, reserves, and the property tax limit."
+summary = "The city's property tax rate and where the tax goes, what it raises per resident, and the average single-family tax bill."
 status = "live"
 
 [[sections]]
 slug = "housing"
 title = "Housing"
-summary = "New homes permitted, home values and rents, affordable housing, and the housing stock."
+summary = "New homes permitted, home values and rents, and the housing stock."
 status = "live"
 
-# To fill in: the Officials page's section (below, commented out), once
-#   [officials] is filled in.
-# [[sections]]
-# slug = "officials"
-# title = "Who represents you"
-# nav = "Officials"
-# summary = "The mayor, City Council, and School Committee, by office and by ward, and how to reach them."
-# status = "live"
+[[sections]]
+slug = "officials"
+title = "Who represents you"
+nav = "Officials"
+summary = "The mayor, the City Council, and the School Board, by office and by ward, and how to reach them."
+status = "live"
 
 [[sections]]
 slug = "about"
@@ -121,18 +128,30 @@ max_event_pages = 40
 # Tardif Park - Parkhouse, Torrey Park, Water, Weirs Beach, Weirs Community
 # Center - Parkhouse, Weirs Community Park, Weirs Community Park -
 # Amphitheater, Weirs Community Park - Pavilion, WOW Trail, Wyatt Park,
-# Zoning.
+# Zoning. The boards' own calendars among these (City Council, Licensing
+# Board, Planning Board & Site Review, Zoning, and the rest) had no events in
+# those months; the parks', library's and community center's events are
+# bookings and programs.
 [meetings.civicplus]
 calendars = ["Heritage Commission", "Main Calendar", "Police Department"]
 # Some of their events aren't meetings: only titles naming a board are kept.
 include_pattern = '\b(boards?|commissions?|committees?|subcommittees?|councils?|authority|trustees|ZBA|task force)\b'
 # A meeting on the calendar and in the Agenda Center is shown once.
-# To fill in: check the calendars read, and any left out that list meetings.
 
+# Agenda Center categories and calendar names renamed to the board's usual
+# name: most of the trustees' own agendas, and the calendar, say "Trustees of
+# the Trust Funds"; the calendar names the City Council's committees
+# "Finance Subcommittee meeting", "Public Safety Subcommittee meeting", for
+# the same meetings the Agenda Center lists under the Council (below).
 [meetings.aliases]
-# To fill in: board names the engine doesn't fix itself: a calendar meeting
-#   next to an Agenda Center one of the same day, not shown as one, needs an
-#   alias (python -m pipeline.listings, in the report).
+"Trustees of the Trust Fund" = "Trustees of the Trust Funds"
+"Finance Subcommittee" = "City Council Finance Committee"
+"Appointments Subcommittee" = "City Council Appointments Committee"
+"Government Operations & Ordinances Subcommittee" = "City Council Government Operations and Ordinances Committee"
+"Lands & Buildings Subcommittee" = "City Council Land and Buildings Committee"
+"Land & Buildings Subcommittee" = "City Council Land and Buildings Committee"
+"Public Safety Subcommittee" = "City Council Public Safety Committee"
+"Public Works Subcommittee" = "City Council Public Works Committee"
 
 [meetings.agenda_center]
 base_url = "https://www.laconianh.gov"
@@ -140,31 +159,99 @@ base_url = "https://www.laconianh.gov"
 # on.
 since = "2026-01-01"
 
-# To fill in: [meetings.agenda_center.committees."<category>"]: committees and
-#   other bodies posted under another's category, each by a phrase in its
-#   titles: under "Water Commission", "Board of Water Commissioners Meeting on
-#   February 17, 2026", "Board of Water Commissioners Regular Meeting of May
-#   4, 2026", "Board of Water Commissioners Regular Meeting of July 6, 2026";
-#   under "City Council", "City Council Subcommittee- Finance Committee",
-#   "City Council Subcommittee - Appointments Committee", "City Council
-#   Subcommittee - Public Works Committee"; under "Conservation Commission",
-#   "Conservation Committee Regular Meeting Agenda", "Quorum of Council,
-#   Boards and Commissions - 91-A Training", "Conservation Commission - Quorum
-#   - Master Plan Steering Committee"; under "Planning Board", "Planning Board
-#   - Quorum - Master Plan Steering Committee", "Quorum of Council, Boards and
-#   Commissions - 91-A Training"; under "Zoning Board of Adjustment", "Quorum
-#   of Council, Boards and Commissions - 91-A Training", "Zoning Board of
-#   Adjustment - Quorum - Master Plan Steering Committee"; under "Capital
-#   Improvement Committee", "Quorum of Council, Boards and Commissions - 91-A
-#   Training"; under "Downtown TIF Advisory Board", "Quorum of Council, Boards
-#   and Commissions - 91-A Training"; under "Heritage Commission", "Heritage
-#   Commission - Quorum - Master Plan Steering Committee".
+# Not boards: the city's test categories.
+exclude_categories = ["CPTest", "CivicPlus Website Testing - Please Ignore"]
 
-# To fill in: the School Committee's meetings: where the district posts them
-#   ([ical_meetings], [page_meetings], [finalsite_meetings], [drive_meetings],
-#   [diligent_meetings], [opengov_meetings]), named in the Meetings section's
-#   summary and in [freshness] sources; a platform the engine doesn't read is
-#   left out and said so (ADDING-A-TOWN.md, step 1).
+# The City Council's committees post under the City Council, titled "City
+# Council Subcommittee - Public Safety", "City Council Subcommittee- Finance
+# Committee"; their names are the Council's committee page's (City Council
+# Committees) and the Mayor's assignments of January 5, 2026. "Quorum of the
+# Public Safety Committee - Govt. Ops & Ordinances meeting" is a Government
+# Operations meeting.
+#
+# Several categories also post notices that a quorum of the board may attend
+# another body's meeting, each the same notice under every board it names: the
+# Master Plan Steering Committee's meeting ("Planning Board - Quorum - Master
+# Plan Steering Committee"), which goes with the committee's own; the land use
+# boards' public information session of June 30, 2026 ("Public Information
+# Session", "Public Information Forum" under the Council); and the RSA 91-A
+# (Right-to-Know Law) training of August 10, 2026 for the Council and every
+# board ("Quorum of Council, Boards and Commissions - 91-A Training"). Each is
+# one meeting here, not one for every board.
+[meetings.agenda_center.committees."City Council"]
+"Finance Committee" = "City Council Finance Committee"
+"Appointments Committee" = "City Council Appointments Committee"
+"Government Operations & Ordinances" = "City Council Government Operations and Ordinances Committee"
+"Govt. Ops & Ordinances" = "City Council Government Operations and Ordinances Committee"
+"Lands & Buildings" = "City Council Land and Buildings Committee"
+"Land & Buildings" = "City Council Land and Buildings Committee"
+"Public Safety" = "City Council Public Safety Committee"
+"Public Works" = "City Council Public Works Committee"
+"Master Plan Steering Committee" = "Master Plan Steering Committee"
+"Public Information Forum" = "Land Use Boards Public Information Session"
+"91-A Training" = "RSA 91-A Training"
+
+[meetings.agenda_center.committees."Board of Assessors"]
+"Right To Know Training" = "RSA 91-A Training"
+
+[meetings.agenda_center.committees."Capital Improvement Committee"]
+"91-A Training" = "RSA 91-A Training"
+
+[meetings.agenda_center.committees."Conservation Commission"]
+"Master Plan Steering Committee" = "Master Plan Steering Committee"
+"Public Information Session" = "Land Use Boards Public Information Session"
+"91-A Training" = "RSA 91-A Training"
+
+[meetings.agenda_center.committees."Downtown TIF Advisory Board"]
+"91-A Training" = "RSA 91-A Training"
+
+[meetings.agenda_center.committees."Heritage Commission"]
+"Master Plan Steering Committee" = "Master Plan Steering Committee"
+"Public Information Session" = "Land Use Boards Public Information Session"
+
+[meetings.agenda_center.committees."Historic District Commission"]
+"Master Plan Steering Committee" = "Master Plan Steering Committee"
+"Public Information Session" = "Land Use Boards Public Information Session"
+"91-A Training" = "RSA 91-A Training"
+
+[meetings.agenda_center.committees."Human Relations Committee"]
+"91-A Training" = "RSA 91-A Training"
+
+[meetings.agenda_center.committees."Laconia Putnam Fund"]
+"91-A Training" = "RSA 91-A Training"
+
+[meetings.agenda_center.committees."Master Plan Steering Committee"]
+"Public Information Session" = "Land Use Boards Public Information Session"
+"91-A Training" = "RSA 91-A Training"
+
+[meetings.agenda_center.committees."Planning Board"]
+"Master Plan Steering Committee" = "Master Plan Steering Committee"
+"Public Information Session" = "Land Use Boards Public Information Session"
+"91-A Training" = "RSA 91-A Training"
+
+[meetings.agenda_center.committees."Special Events Review Committee"]
+"91-A Training" = "RSA 91-A Training"
+
+[meetings.agenda_center.committees."Technical Review Committee"]
+"91-A Training" = "RSA 91-A Training"
+
+[meetings.agenda_center.committees."Trustees of the Trust Fund"]
+"91-A Training" = "RSA 91-A Training"
+
+[meetings.agenda_center.committees."Weirs TIF Advisory Board"]
+"91-A Training" = "RSA 91-A Training"
+
+[meetings.agenda_center.committees."Zoning Board of Adjustment"]
+"Master Plan Steering Committee" = "Master Plan Steering Committee"
+"Public Information Session" = "Land Use Boards Public Information Session"
+"91-A Training" = "RSA 91-A Training"
+
+# The School Board's meetings aren't read. The district's website (sau30.org,
+# on Weebly) lists the year's dates and each meeting's agenda and posting on
+# its "Notice of Meeting & Agenda" page, and the minutes ("October 06, 2026
+# Public", "September 15, 2026 Nonpublic") on its "School Board Minutes" page,
+# as Google Docs and Drive files. Each page's content is one table whose cells
+# hold every meeting, which [page_meetings] reads as a single meeting.
 
 # Agenda and minutes PDFs live in the network's documents bucket, not in git
 # (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID,
@@ -179,17 +266,38 @@ prefix = "laconia-nh"
 [summaries]
 since = "2026-08-01"
 
-# To fill in: how residents can take part, per board ([participation."City
-#   Council"], [participation."School Committee"]): comment, source_title,
-#   source_url, video_title, video_url, each from the board's own rules or
-#   agendas.
-# To fill in: [[glossary]], terms that come up in this city's agendas and mean
-#   something of its own here, each from an official page. The state's and the
-#   network's terms are in its glossary already: non-public session, ought to
-#   pass, RSA, ZBA, abatement, ADA, CBA, CDBG, CIP, COLA, Committee of the
-#   Whole, consent agenda, first reading, mill rate, quitclaim deed, receive
-#   and file, Select Board, tabled, TIF, town meeting, variance, warrant
-#   article.
+# How residents can take part, per board, shown on its meeting pages. Only
+# what the city has published; each entry names its source. From the City
+# Council's Rules of Procedure (adopted with revisions April 28, 2025), Rule 9,
+# items 9 and 19, which its agendas follow ("Citizen Comments for Matters Not
+# on the Agenda", "Citizens Requests to Comment on Current Agenda Items"). The
+# Council's page says its meetings are televised on public access Channel 26;
+# the city's website links its YouTube channel for past and current meetings.
+# The School Board has no entry: its meetings aren't listed here.
+[participation."City Council"]
+comment = "Residents can speak at each regular meeting twice: early in the meeting, on subjects not on the agenda, and near its end, on items on the agenda. Speakers give their name and ward, and the presiding officer may limit each to five minutes."
+source_title = "the City Council's Rules of Procedure"
+source_url = "https://www.laconianh.gov/DocumentCenter/View/11399/City-Council-Rules-of-Procedure---Adopted-04282025"
+video_title = "the City of Laconia's YouTube channel"
+video_url = "https://www.youtube.com/laconianh"
+
+# Terms that come up on agendas and minutes, explained on each meeting page
+# where they appear. Acronyms match exactly; other terms ignore case. From the
+# city's Budget page (the tax cap), its Winnipesaukee River Basin Program
+# (WRBP) Transition page, and the City Council's Rules of Procedure (Rules 4
+# and 5).
+[[glossary]]
+term = "tax cap"
+definition = "The limit on increases in the city's, the schools' and the county's net spending, a charter amendment Laconia's voters approved in November 2005. Increases are limited to the change in the national Consumer Price Index, plus the year's new building permits less demolitions times the prior year's tax rate. The City Council can override it by a two-thirds vote."
+
+[[glossary]]
+term = "WRBP"
+definition = "Winnipesaukee River Basin Program, the state-owned sewer system, a bureau of the NH Department of Environmental Services, that serves Laconia and other Lakes Region communities, which pay for it and have an advisory board."
+
+[[glossary]]
+term = "Mayor Pro Tem"
+bodies = ["City Council"]
+definition = "The councilor the City Council chooses from among its members at the first meeting of each new Council, every two years, who presides when the mayor is absent."
 
 # Schools: the New Hampshire Department of Education's statewide figures.
 [schools]
@@ -201,8 +309,9 @@ district_name = "Laconia School District"
 # engine's yearly statewide figures and NH GRANIT's parcel map.
 [finance]
 dra_municipality = "Laconia"
-# To fill in: budget_documents_url, the page where the town posts its own
-#   budget books, which the budget page links (leave it out if there's none).
+# The city posts its adopted and proposed budgets as PDFs on its Budget page,
+# which the budget page links rather than reading one.
+budget_documents_url = "https://www.laconianh.gov/265/Budget"
 
 # Housing: Census building permits (state and place FIPS codes), American
 # Community Survey through Census Reporter (geo ids).
@@ -224,53 +333,87 @@ sources = [
   { label = "Meetings (Agenda Center)", file = "meetings/status.json", max_days = 2 },
 ]
 
+# The About page's "What this site doesn't cover": why there's no 311 section.
+# The city's home page links "Report A Concern" to its Citizen Request Tracker
+# (laconianh.gov/requesttracker.aspx), a CivicPlus form whose requests aren't
+# public. SeeClickFix has a place named Laconia, NH (place 13760, at
+# seeclickfix.com/laconia), but on 2026-11-01 it had no requests, and none had
+# been reported within the city's bounds.
 [absences]
-# To fill in: 311, why the town has no 311 section (the system the city uses
-#   instead), as the About page says: no SeeClickFix place is named for it.
+311 = "The city takes concerns through a form on its own website, Citizen Request Tracker, whose requests aren't made public, so there's no data to show."
 
 # Who represents you (the Officials page). Kept by hand from official city and
 # school websites; checked is the date the list was last checked against them.
 # Only city- and school-issued email addresses, and the mayor's office phone.
+# The city's charter is on General Code's eCode360, which blocks automated
+# reading; terms are from the city's own pages and minutes, below. The city's
+# website doesn't post the official results of the November 4, 2025 municipal
+# election.
 [officials]
-# To fill in: checked, the date the list below was checked against official
-#   pages.
-# To fill in: next_election, the date of the town's next regular municipal
-#   election, from the city's election calendar or its charter.
+checked = "2026-11-01"
+# The next municipal election, from the City Clerk's Elections page: November
+# 3, 2026, with the state general election, for the School Board's Ward 4 and
+# Ward 5 seats only. The mayor's and the City Council's terms end in January
+# 2028.
+next_election = "2026-11-03"
 # The ward file is data/static/laconia-wards-2022.geojson (NH GRANIT).
 wards_file = "laconia-wards-2022.geojson"
 wards_publisher = "NH GRANIT"
 wards_year = 2022
 wards_url = "https://www.arcgis.com/home/item.html?id=3d1a8bdf3eaa49e09cf5d9da5b56bf9c"
 
-# To fill in: the Mayor, from the city's and the school district's own pages,
-#   confirmed against the last election's official results (ADDING-A-TOWN.md,
-#   step 4). Never from news sites or memory.
-# [[officials.bodies]]
-# name = "Mayor"
-# url = ""
-# note = ""
-# members = [
-#   { name = "", seat = "" },
-# ]
+# Seated at the inaugural ceremonies of January 5, 2026 (their minutes, which
+# introduce the "2026-2027 Mayor and City Council Members"). The mayor's role
+# from the City Council's Rules of Procedure (Rules 5 and 10). Email and phone
+# from the city's Elected Officials directory.
+[[officials.bodies]]
+name = "Mayor"
+url = "https://www.laconianh.gov/522/City-Council"
+note = "Elected citywide for two years. The mayor presides over the City Council and has no regular administrative duties: the City Manager is the city's chief administrative officer."
+members = [
+  { name = "Mike Bordes", seat = "Citywide", term_ends = "2028-01", email = "Mayor@laconianh.gov", phone = "(603) 527-1270" },
+]
 
-# To fill in: the City Council, from the city's and the school district's own
-#   pages, confirmed against the last election's official results
-#   (ADDING-A-TOWN.md, step 4). Never from news sites or memory.
-# [[officials.bodies]]
-# name = "City Council"
-# url = ""
-# note = ""
-# members = [
-#   { name = "", seat = "" },
-# ]
+# Names and seats from the City Council's page; email addresses from the
+# city's Elected Officials directory, which links Ward 4's councilor to a
+# personal address, left out. Seated January 5, 2026 (the inaugural
+# ceremonies' minutes), when the Council chose Councilor Haynes as Mayor Pro
+# Tem. Ward 5's councilor elected in 2025, Steven Bogert, resigned; the Council
+# elected Julia Nye to the seat on August 17, 2026, for the rest of the term,
+# which expires on January 1, 2028 (that meeting's minutes). Five are on the
+# roll of October 13, 2026 (the newest minutes), with Councilor Hildreth
+# absent; all six are on that of September 28, 2026.
+[[officials.bodies]]
+name = "City Council"
+url = "https://www.laconianh.gov/522/City-Council"
+note = "One councilor elected from each of the city's six wards, for two years. The mayor presides; the Council chooses a Mayor Pro Tem from among its members."
+members = [
+  { name = "Jon Hildreth", seat = "Ward 1", ward = 1, term_ends = "2028-01", email = "Ward1@laconianh.gov" },
+  { name = "Robert Soucy", seat = "Ward 2", ward = 2, term_ends = "2028-01", email = "Ward2@laconianh.gov" },
+  { name = "Eric Hoffman", seat = "Ward 3", ward = 3, term_ends = "2028-01", email = "Ward3@laconianh.gov" },
+  { name = "Mark Haynes", seat = "Ward 4", ward = 4, role = "Mayor Pro Tem", term_ends = "2028-01" },
+  { name = "Julia Nye", seat = "Ward 5", ward = 5, role = "Elected by the Council in August 2026 to fill a vacancy", term_ends = "2028-01", email = "Ward5@laconianh.gov" },
+  { name = "Mike Conant", seat = "Ward 6", ward = 6, term_ends = "2028-01", email = "Ward6@laconianh.gov" },
+]
 
-# To fill in: the School Committee, from the city's and the school district's
-#   own pages, confirmed against the last election's official results
-#   (ADDING-A-TOWN.md, step 4). Never from news sites or memory.
-# [[officials.bodies]]
-# name = "School Committee"
-# url = ""
-# note = ""
-# members = [
-#   { name = "", seat = "" },
-# ]
+# Names, seats, officers, the years terms expire, and email addresses from the
+# district's School Board Members page. Members elected each November take the
+# oath at the Board's November meeting, as those elected November 4, 2025 did
+# on November 18, 2025, when the Board elected its Chair and Vice Chair (that
+# meeting's minutes); so terms are given as ending in November of the year the
+# page gives. All seven are on the roll of September 15, 2026; five on that of
+# October 6, 2026 (the newest minutes), with Karin Salome and Nancy Simoneau
+# absent. Ward 4's and Ward 5's seats are on the ballot on November 3, 2026.
+[[officials.bodies]]
+name = "School Board"
+url = "https://www.sau30.org/school-board-members.html"
+note = "Seven members, one elected from each ward and one at-large, for three years, two or three at each November election. Its meetings aren't listed on this site: the school district posts them on its own website in a layout the site doesn't read."
+members = [
+  { name = "Jennifer Anderson", seat = "At-large", role = "Chair", term_ends = "2027-11", email = "janderson@laconiaschools.org" },
+  { name = "Zachary Dea", seat = "Ward 1", ward = 1, role = "Vice Chair", term_ends = "2027-11", email = "zdea@laconiaschools.org" },
+  { name = "Laura Dunn", seat = "Ward 2", ward = 2, term_ends = "2028-11", email = "ldunn@laconiaschools.org" },
+  { name = "Karin Salome", seat = "Ward 3", ward = 3, term_ends = "2028-11", email = "karinsalome@laconiaschools.org" },
+  { name = "LaToya Beck-Brown", seat = "Ward 4", ward = 4, term_ends = "2026-11", email = "lbeck@laconiaschools.org" },
+  { name = "Sean Sullivan", seat = "Ward 5", ward = 5, role = "Elected in November 2025 for the rest of a vacated term", term_ends = "2026-11", email = "ssullivan@laconiaschools.org" },
+  { name = "Nancy Simoneau", seat = "Ward 6", ward = 6, term_ends = "2027-11", email = "nsimoneau@laconiaschools.org" },
+]
