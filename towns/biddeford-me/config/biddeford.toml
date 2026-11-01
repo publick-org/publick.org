@@ -10,9 +10,9 @@
 # lists the same meetings, often before their agendas are posted, and is read
 # with it ([meetings.civicplus]); a meeting in both is shown once. The School
 # Committee posted its agendas on the portal ("School Committee") until June
-# 2026; since then the school department posts them as Google Docs linked
-# from its own website (biddefordschools.me, on Apptegy), which the engine
-# doesn't read, so its later meetings aren't listed. The city doesn't use
+# 2026; since then they're read from the school department's own website
+# (biddefordschools.me), which links each as a Google Doc
+# ([page_meetings]). The city doesn't use
 # SeeClickFix (its place there has a handful of requests, the newest from
 # 2017, none answered): residents reach departments through forms on the
 # city's website, so the site has no 311 section ([absences]). The engine's
@@ -59,7 +59,7 @@ official_site = "https://www.biddefordmaine.org"
 [[sections]]
 slug = "meetings"
 title = "Meetings"
-summary = "When the City Council, its committees, and the city's boards and commissions meet, with agendas, and minutes from January 2026 on."
+summary = "When the City Council, its committees, the city's boards and commissions, and the School Committee meet, with agendas, and minutes from January 2026 on."
 status = "live"
 
 [[sections]]
@@ -155,6 +155,30 @@ since = "2026-01-01"
 # names.
 board_from_category = true
 
+# The School Committee's agendas, and its committees', from the school
+# department's "Agendas and Minutes" page (Apptegy), from June 2026 on (the
+# portal has the committee's earlier meetings). The page has a column for each board, headed by its name, with
+# a list a school year of links each labelled with a meeting's date and time
+# ("October 28, 2026(7:00pm)") to its packet, a Google Doc: the agenda, then
+# the previous meeting's minutes and the backup materials (the page's note).
+# So a link with a time is the agenda; a committee's minutes are linked as
+# such ("January 14, 2026 Minutes"). The committees are named as on the page,
+# and the Finance/Building & Grounds Committee as on the department's Standing
+# Committees page.
+[page_meetings]
+page_url = "https://www.biddefordschools.me/o/biddeford/page/agendas-and-minutes"
+source_name = "Biddeford Schools"
+since = "2026-06-01"
+body = "School Committee"
+one_meeting_a_day = true
+agenda_pattern = '\(\s*\d{1,2}(:\d{2})?\s*[ap]\.?m'
+
+[page_meetings.columns]
+"School Committee" = "School Committee"
+"Standing Committee on Finance/Building & Grounds" = "School Committee Finance/Building and Grounds Committee"
+"Advisory Committee on Curriculum" = "School Committee Advisory Committee on Curriculum"
+"Advisory Committee on Policy" = "School Committee Advisory Committee on Policy"
+
 # Agenda and minutes PDFs live in the network's documents bucket, not in git
 # (see pipeline/documents.py).
 [storage]
@@ -189,6 +213,18 @@ media_url = "https://cpmedia.azureedge.net/biddefordme"
 "Planning Board" = '^Planning Board Meeting\b'
 "Zoning Board of Appeals" = '^Zoning Board of Appeals Meeting\b'
 
+# The School Committee's meetings are streamed and kept on YouTube, in the
+# playlist "Biddeford School Committee Meetings", embedded on the committee's
+# page on the school department's website; its videos are titled "October 28,
+# 2026, 7pm: Biddeford School Committee Meeting". The committee's agendas list
+# "YouTube Live" under "Public Viewing".
+[[recordings.sources]]
+platform = "youtube"
+playlist = "PLDdnzxQFjf6d08EDlacfRBJ8VioiVCYcM"
+
+[recordings.sources.boards]
+"School Committee" = '\bBiddeford School Committee Meeting\b'
+
 # How residents can take part, per board, shown on its meeting pages. Only
 # what the city or the school department has published; each entry names its
 # source. The council's meetings are streamed and recorded on the city's
@@ -202,11 +238,14 @@ video_title = "the city's CivicClerk portal"
 video_url = "https://biddefordme.portal.civicclerk.com/?category_id=26"
 
 # From the committee's agendas, which end with a Public Participation period
-# ("3 minutes; any item").
+# ("3 minutes; any item"). Its meetings' videos are in the playlist its page
+# on the school department's website embeds.
 [participation."School Committee"]
 comment = "Anyone may speak for up to three minutes, on any item, during the Public Participation period near the end of each meeting."
 source_title = "School Committee agenda of October 28, 2026"
 source_url = "https://docs.google.com/document/d/1lA_EpH9qo9-XJoEysqT0PGIMdv4tPGzS3yRS4JudaAI/edit?usp=sharing"
+video_title = "the committee's meetings on YouTube"
+video_url = "https://www.youtube.com/playlist?list=PLDdnzxQFjf6d08EDlacfRBJ8VioiVCYcM"
 
 # Terms that come up on agendas and minutes, explained on each meeting page
 # where they appear. Acronyms match exactly; other terms ignore case. An entry
@@ -255,6 +294,7 @@ local_series = "LAUCT230486000000003"
 [freshness]
 sources = [
   { label = "Meetings (CivicClerk)", file = "meetings/status.json", max_days = 2 },
+  { label = "School Committee meetings (school district website)", file = "meetings/page_status.json", max_days = 2 },
 ]
 
 # The city takes requests and comments through forms on its website (its
