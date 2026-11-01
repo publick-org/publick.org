@@ -237,18 +237,24 @@ prefix = "methuen-ma"
 [summaries]
 since = "2026-07-01"
 
-# The council's meetings, transcribed from their recordings for a summary the
-# day after, until the minutes come (the engine's pipeline/recordings.py).
+# The boards' meetings below, transcribed from their recordings for a summary
+# the day after, until the minutes come (the engine's pipeline/recordings.py).
 [recordings]
-since = "2026-10-26"
+since = "2026-10-19"
 
-# Methuen Community Studios' Cablecast: the City Council's project, titled "City Council Meeting - October
-# 19, 2026" (a joint hearing or budget workshop is left out).
+# Methuen Community Studios' Cablecast: the City Council's project (157), titled "City Council Meeting -
+# October 19, 2026" (a joint hearing or budget workshop is left out), the Community Development Board's
+# (193), titled "Community Development Board - October 14, 2026", and the Zoning Board of Appeals' (192),
+# titled "Zoning Board of Appeals - September 23, 2026".
 [[recordings.sources]]
 platform = "cablecast"
 host = "https://methuentv.cablecast.tv"
-projects = [157]
-boards = { "City Council" = '^City Council (Regular |Special )?Meeting\b' }
+projects = [157, 193, 192]
+
+[recordings.sources.boards]
+"City Council" = '^City Council (Regular |Special )?Meeting\b'
+"Community Development Board" = '^Community Development Board\b'
+"Zoning Board of Appeals" = '^Zoning Board of Appeals\b'
 
 # How residents can take part, per board, shown on its meeting pages. From
 # Rule XI of the council's Rules and Procedures (as amended February 5, 2024,
