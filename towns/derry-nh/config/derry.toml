@@ -4,8 +4,20 @@
 #
 # Started on 2026-11-01 by the engine's helper (python -m pipeline.new_town),
 # from Laconia's config.
-# To fill in: what the town uses for meetings, minutes, 311, and its school
-#   board, in a few sentences, as other towns' configs begin.
+#
+# Derry's website runs on CivicPlus. Its boards post agendas and minutes in
+# the Agenda Center: the Town Council (with its special meetings, among them
+# one held with the School Board, under its own category), and the town's
+# boards and commissions. The town calendar lists meetings before their
+# agendas are posted, with times and places ([meetings.civicplus]), the School
+# Board's among them. The minutes are text PDFs. The School Board is the Derry
+# Cooperative School District's (SAU 10), whose website (sau10.nh.gov) couldn't
+# be read when the town was added: its certificate didn't verify. So the
+# Board's meetings are listed from the town calendar only, without agendas.
+# There is no 311 section: the town takes service requests through forms on
+# its own website ([absences]). Its tax rate and tax bill are New Hampshire's
+# (the engine's pipeline/states/nh/); there is no Schools section
+# ([absences]).
 #
 # The site is in English and Spanish ([site] languages), as every town's is.
 # The first runs draft the Spanish for the town's own text; [strings.es], at
@@ -24,39 +36,36 @@ masthead = "An independent guide to town government in Derry, New Hampshire"
 contact_email = "derry-nh@publick.org"
 user_agent = "derry-nh.publick.org (+https://derry-nh.publick.org/about/)"
 
-# From the town website's stylesheets (www.derrynh.gov): its most used color
-# (55 uses), and a darker shade of it; primary_soft a light tint of primary.
-# Each passes WCAG AA on white (10.0, 15.0 to 1).
-# To fill in: check the colors against the town's website.
+# From the town website's stylesheets (www.derrynh.gov): its most used color,
+# the green of its headings, their links, and the footer (55 uses, 10.0 to 1
+# on white); its darker green of smaller subheadings (12.4 to 1); and a light
+# tint of the first.
 [site.colors]
 primary = "#2b4a20"
-primary_dark = "#192b13"
+primary_dark = "#283922"
 primary_soft = "#eaede9"
 
 [town]
 name = "Derry"
 state_abbr = "NH"
 official_site = "https://www.derrynh.gov"
+# The Town Council has district seats, not ward seats: the Officials page
+# calls them "District 1" to "District 4", as the town's charter does.
+areas = "districts"
 
 # Sections appear in the main navigation in this order. Each one is a folder
 # under site/pages/<slug>/ and is served at https://<domain>/<slug>/.
 [[sections]]
 slug = "meetings"
 title = "Meetings"
-summary = "Every board and committee meeting on the town calendar and in its Agenda Center, with agendas, and minutes from January 2026 on."
-status = "live"
-
-[[sections]]
-slug = "schools"
-title = "Schools"
-summary = "Laconia School District's graduation rate, state test results, and cost per pupil, with the state's."
+summary = "When the Town Council, the town's boards and commissions, and the School Board meet, from the town calendar and its Agenda Center, with the town's agendas, and minutes from January 2026 on."
 status = "live"
 
 [[sections]]
 slug = "budget"
-title = "City budget"
+title = "Town budget"
 nav = "Budget"
-summary = "The city's property tax rate and where the tax goes, what it raises per resident, and the average single-family tax bill."
+summary = "The town's property tax rate and where the tax goes, what it raises per resident, and the average single-family tax bill."
 status = "live"
 
 [[sections]]
@@ -65,14 +74,12 @@ title = "Housing"
 summary = "New homes permitted, home values and rents, and the housing stock."
 status = "live"
 
-# To fill in: the Officials page's section (below, commented out), once
-#   [officials] is filled in.
-# [[sections]]
-# slug = "officials"
-# title = "Who represents you"
-# nav = "Officials"
-# summary = "The mayor, Town Council, and School Committee, by office and by ward, and how to reach them."
-# status = "live"
+[[sections]]
+slug = "officials"
+title = "Who represents you"
+nav = "Officials"
+summary = "The Town Council and the School Board, by office and by district, and how to reach them."
+status = "live"
 
 [[sections]]
 slug = "about"
@@ -104,20 +111,27 @@ max_event_pages = 40
 # Notice, Heritage Commission Calendar, Highway Safety Committee Calendar, Net
 # Zero Task Force Calendar, Planning Board Calendar, Police Department, Prep
 # for Reveal, Supervisors of the Checklist Session, Town Council Calendar,
-# Trustees of the Trust Funds, Zoning Board of Adjustment Calendar.
+# Trustees of the Trust Funds, Zoning Board of Adjustment Calendar. Checked
+# on 2026-11-01 against the calendar's list for October to December 2026: the
+# Main Calendar lists every board's meetings, the Town Council's and the
+# School Board's among them; the boards' own calendars list the same meetings
+# or none, and the Police Department's events are community events.
 [meetings.civicplus]
 calendars = ["Main Calendar"]
-# Some of their events aren't meetings: only titles naming a board are kept.
-include_pattern = '\b(boards?|commissions?|committees?|subcommittees?|councils?|authority|trustees|ZBA|task force)\b'
-# To fill in: include_pattern leaves out these meetings, which a board's name
-#   in it can bring back: "Records Retention Meeting".
+# Some of their events aren't meetings: only titles naming a board are kept,
+# and the Records Retention Committee's, which the calendar lists as "Records
+# Retention Meeting".
+include_pattern = '\b(boards?|commissions?|committees?|subcommittees?|councils?|authority|trustees|ZBA|task force|records retention)\b'
 # A meeting on the calendar and in the Agenda Center is shown once.
-# To fill in: check the calendars read, and any left out that list meetings.
 
+# Agenda Center categories and calendar names renamed to the board's usual
+# name: the Agenda Center's "Zoning Board" is the calendar's "Zoning Board of
+# Adjustment", as the board's 2026 schedule and deadlines page names it; the
+# calendar's "Records Retention Meeting" is the Records Retention Committee's
+# (the Agenda Center's listing of October 15, 2026). Found with python -m pipeline.listings on 2026-11-01.
 [meetings.aliases]
-# To fill in: board names the engine doesn't fix itself: a calendar meeting
-#   next to an Agenda Center one of the same day, not shown as one, needs an
-#   alias (python -m pipeline.listings, in the report).
+"Zoning Board" = "Zoning Board of Adjustment"
+"Records Retention" = "Records Retention Committee"
 
 [meetings.agenda_center]
 base_url = "https://www.derrynh.gov"
@@ -125,18 +139,29 @@ base_url = "https://www.derrynh.gov"
 # on.
 since = "2026-01-01"
 
-# To fill in: [meetings.agenda_center.committees."<category>"]: committees and
-#   other bodies posted under another's category, each by a phrase in its
-#   titles: under "Conservation Commission", "Conservation Committee Meeting",
-#   "Conservation Commission: Rapid Response Subcommittee Meeting"; under
-#   "Town Clerk", "Records Retention Committee Meeting"; under "Town Council",
-#   "Town Council Special Meeting with School Board".
+# Bodies posted under another's category: the Conservation Commission's Rapid
+# Response Subcommittee ("Conservation Commission: Rapid Response Subcommittee
+# Meeting"), and the Records Retention Committee, under the Town Clerk's. The
+# Commission's own meeting of November 2, 2026, which the calendar lists as
+# "Conservation Commission", is posted as "Conservation Committee Meeting",
+# and stays the Commission's, though it's shown apart from the calendar's
+# listing of it: its title reads as a committee's. The Town Council's special meeting of September
+# 22, 2026 with the School Board ("Town Council Special Meeting with School
+# Board"), a joint workshop, is in the Council's minutes, and stays the
+# Council's.
+[meetings.agenda_center.committees."Conservation Commission"]
+"Rapid Response Subcommittee" = "Conservation Commission Rapid Response Subcommittee"
 
-# To fill in: the School Committee's meetings: where the district posts them
-#   ([ical_meetings], [page_meetings], [finalsite_meetings], [drive_meetings],
-#   [diligent_meetings], [opengov_meetings]), named in the Meetings section's
-#   summary and in [freshness] sources; a platform the engine doesn't read is
-#   left out and said so (ADDING-A-TOWN.md, step 1).
+[meetings.agenda_center.committees."Town Clerk"]
+"Records Retention Committee" = "Records Retention Committee"
+
+# The School Board's agendas and minutes aren't read. The town's Schools page
+# links the Derry Cooperative School District's website (www.sau10.nh.gov),
+# but on 2026-11-01 its certificate didn't verify ("unable to get local issuer
+# certificate", from Let's Encrypt's YR1 intermediate and the ISRG Root YR),
+# so its pages couldn't be read, and no reader for them is set. The Board's
+# meetings are on the town's Main Calendar ("Derry School Board"), read
+# above, with their times and places.
 
 # Agenda and minutes PDFs live in the network's documents bucket, not in git
 # (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID,
@@ -151,29 +176,57 @@ prefix = "derry-nh"
 [summaries]
 since = "2026-08-01"
 
-# To fill in: how residents can take part, per board ([participation."Town
-#   Council"], [participation."School Committee"]): comment, source_title,
-#   source_url, video_title, video_url, each from the board's own rules or
-#   agendas.
-# To fill in: [[glossary]], terms that come up in this city's agendas and mean
-#   something of its own here, each from an official page. The state's and the
-#   network's terms are in its glossary already: non-public session, ought to
-#   pass, RSA, ZBA, abatement, ADA, CBA, CDBG, CIP, COLA, Committee of the
-#   Whole, consent agenda, first reading, mill rate, quitclaim deed, receive
-#   and file, Select Board, tabled, TIF, town meeting, variance, warrant
-#   article.
+# How residents can take part, per board, shown on its meeting pages. Only
+# what the town has published; each entry names its source. From the Town
+# Council's agendas (October 20, 2026: "Public Forum - 30 minutes" after the
+# roll call, "Public Hearings" on ordinances and resolutions, and "The Town
+# Council voluntarily continues to offer remote participation", by Zoom or
+# phone, with the meeting ID). The Council's Rules (amended January 19, 2021)
+# say nothing of public comment. Meetings are shown live and on demand by
+# Derry Community Access Media, the town's cable division (its page on the
+# town's website). The School Board has no entry: its own pages couldn't be
+# read.
+[participation."Town Council"]
+comment = "Each regular meeting has a public forum of up to 30 minutes near its start, and the Council holds a public hearing on each ordinance and resolution before it votes. The Council also offers remote participation by Zoom or phone; each agenda gives the meeting ID."
+source_title = "the Town Council's agendas"
+source_url = "https://www.derrynh.gov/AgendaCenter"
+video_title = "Derry Community Access Media"
+video_url = "https://www.derrynh.gov/195/Derry-Community-Access-Media"
 
-# To fill in: [schools] doe_district, the town's district as the Department of
-#   Education's files name it (pipeline/states/nh/figures/), and
-#   district_name: the files name "Derry  Cooperative".
+# Terms that come up on agendas and minutes, explained on each meeting page
+# where they appear. Acronyms match exactly; other terms ignore case. From the
+# Town Charter (Sections 5.4 and 9.4, on the town's Town Charter page) and the
+# town's Derry Community Access Media page.
+[[glossary]]
+term = "tax cap"
+definition = "The limit in Derry's Town Charter on the town's budget, apart from the school district's. The Town Council may plan on a property tax rate no higher than the previous year's equalized rate, raised by the average change in the Northeast's Consumer Price Index, and spending can't exceed what that rate and the town's other revenue bring in. By a two-thirds vote of the whole Council, it can exceed the cap for one year, or leave bond payments out of it."
+
+[[glossary]]
+term = "Chair Pro-Tem"
+bodies = ["Town Council"]
+definition = "The councilor the Town Council chooses for a year to preside when the Chair is absent. The Chair, chosen for a year at the Council's first regular meeting after the March town election, presides over the Council and is the town's ceremonial head."
+
+[[glossary]]
+term = "Derry CAM"
+definition = "Derry Community Access Media, the town's cable division, which shows government meetings and town events live and on demand, on the town's government and public access channels and online."
+
+# Schools: no [schools] table and no Schools section ([absences]). The
+# Department of Education's files in the engine (pipeline/states/nh/figures/)
+# name the district "Derry Cooperative" in the state test results and "Derry
+# Cooperative" with two spaces in cost per pupil, and give it no graduation
+# rate: Derry's high school, which the town's Schools page lists, is Pinkerton
+# Academy, which the files list on its own. The engine's New Hampshire schools
+# source reads one name in every file and needs a graduation rate.
 
 # Tax rate, property tax, and the average single-family tax bill
 # (pipeline/states/nh/), from the New Hampshire DRA's tax rates in the
 # engine's yearly statewide figures and NH GRANIT's parcel map.
 [finance]
 dra_municipality = "Derry"
-# To fill in: budget_documents_url, the page where the town posts its own
-#   budget books, which the budget page links (leave it out if there's none).
+# The town posts its proposed and adopted budgets and its Capital Improvement
+# Plans as PDFs on its Town Budgets page, which the budget page links rather
+# than reading one.
+budget_documents_url = "https://www.derrynh.gov/298/Town-Budgets"
 
 # Housing: Census building permits (state and place FIPS codes), American
 # Community Survey through Census Reporter (geo ids).
@@ -195,55 +248,88 @@ sources = [
   { label = "Meetings (Agenda Center)", file = "meetings/status.json", max_days = 2 },
 ]
 
-# To fill in: [seeclickfix], with the city's organization ID, once a person
-#   has confirmed the city uses it (the issues listing needs a login now; the
-#   Open311 listing at seeclickfix.com/open311/v2/<id>/services.json names its
-#   request types), and the 311 section and its [freshness] sources (with 311
-#   the tagline can say "responds, decides, and spends", as Gloucester's,
-#   Malden's, and Methuen's do); or, if the city takes requests some other
-#   way, [absences] 311 saying so. SeeClickFix's places: Derry, place 13778
-#   (https://seeclickfix.com/derry).
+# The About page's "What this site doesn't cover": why there's no 311 section,
+# and no Schools section. Public Works' Service Request Forms page links the
+# town's forms for highway, building, sewer and water requests, CivicPlus
+# forms whose requests aren't public. SeeClickFix has a place named Derry
+# (place 13778, at seeclickfix.com/derry), but on 2026-11-01 it had one
+# request, from 2017, in Salem, Massachusetts, and its Open311 listing has no
+# organization. For schools, see [schools] above.
+[absences]
+311 = "The town takes service requests through forms on its own website, whose requests aren't made public, so there's no data to show."
+schools = "The state's school figures that this site shows don't fit the Derry Cooperative School District: Derry's high school is Pinkerton Academy, which the state lists apart from the district, so the state gives the district no graduation rate."
 
-# Who represents you (the Officials page). Kept by hand from official city and
+# Who represents you (the Officials page). Kept by hand from official town and
 # school websites; checked is the date the list was last checked against them.
-# Only city- and school-issued email addresses, and the mayor's office phone.
+# Only town- and school-issued email addresses. The Town Charter (on the
+# town's Town Charter page): seven councilors, one from each of four districts
+# and three at-large (Section 5.1), for staggered three-year terms (5.2, 5.5),
+# elected at the regular town election on the second Tuesday in March (2.5),
+# taking office the first Monday after it (2.9). The Council chooses its Chair
+# and Chair Pro Tem for a year at its first regular meeting after the election
+# (5.4), and fills a vacancy by appointment until the next town election
+# (5.7). The Derry Cooperative School District's School Board is elected on
+# the same ballot.
 [officials]
-# To fill in: checked, the date the list below was checked against official
-#   pages.
-# To fill in: next_election, the date of the town's next regular municipal
-#   election, from the city's election calendar or its charter.
-# To fill in: wards_file, the town's wards (ADDING-A-TOWN.md, step 3), or none
-#   if every seat is elected townwide.
+checked = "2026-11-01"
+# The next regular town election: Tuesday, March 9, 2027, the second Tuesday
+# in March (Charter 2.5). The Town Clerk's "Candidates for the 2027 Town
+# Election" page (updated May 12, 2026) lists its openings: Councilor at Large
+# for three years and for one year, Councilor District 1, and two School Board
+# seats for three years.
+next_election = "2027-03-09"
+# No ward file: the town has no wards (NH GRANIT's voting wards have one area
+# for all of Derry, so the helper wrote none). The Council's four districts
+# are the town's own; its Political Districts map is an ArcGIS layer on the
+# town's own map server, which couldn't be reached when the town was added. District seats have ward = the district's number, and
+# the Officials page says the district map isn't available yet.
 
-# To fill in: the Mayor, from the town's and the school district's own pages,
-#   confirmed against the last election's official results (ADDING-A-TOWN.md,
-#   step 4). Never from news sites or memory.
-# [[officials.bodies]]
-# name = "Mayor"
-# url = ""
-# note = ""
-# members = [
-#   { name = "", seat = "" },
-# ]
+# Names and seats from the Town Council's page, with email addresses from its
+# links (Councilor Flood's is a derrynh.org address, not derrynh.gov as the
+# others are, so it's left out until it's checked). Confirmed against the Town Clerk's official results of the March
+# 12, 2024 (Spencer, Webb), March 11, 2025 (Foote, Chase), and March 10, 2026
+# (Healey, Milz) town elections, on the Election Information page. Michelle
+# Mogé, elected at-large in 2025, resigned effective February 18, 2026; on
+# March 12, 2026 the Council appointed Doug Flood to the seat until March 9,
+# 2027 (that meeting's minutes), when the rest of the term, to 2028, is on the
+# ballot. On March 26, 2026 the Council chose Councilor Spencer as Chair and
+# Councilor Webb as Chair Pro-Tem (that meeting's minutes). All seven are on
+# the roll of October 6, 2026 (the newest minutes).
+[[officials.bodies]]
+name = "Town Council"
+url = "https://www.derrynh.gov/714/Town-Council"
+note = "Seven councilors: one elected from each of the town's four districts and three at-large, for staggered three-year terms. The Council is the town's legislative and governing body; it appoints the Town Administrator, who runs the town day to day."
+members = [
+  { name = "Erin Spencer", seat = "District 1", ward = 1, role = "Chair", term_ends = "2027-03", email = "erinspencer@derrynh.gov" },
+  { name = "Charles Foote", seat = "District 2", ward = 2, term_ends = "2028-03", email = "charlesfoote@derrynh.gov" },
+  { name = "Dan Healey", seat = "District 3", ward = 3, term_ends = "2029-03", email = "danhealey@derrynh.gov" },
+  { name = "Randall Chase", seat = "District 4", ward = 4, term_ends = "2028-03", email = "randallchase@derrynh.gov" },
+  { name = "Jack Webb", seat = "At-large", role = "Chair Pro-Tem", term_ends = "2027-03", email = "jackwebb@derrynh.gov" },
+  { name = "Doug Flood", seat = "At-large", role = "Appointed by the Council in March 2026 to fill a vacancy, until the March 2027 election", term_ends = "2027-03" },
+  { name = "David Milz", seat = "At-large", term_ends = "2029-03", email = "davidmilz@derrynh.gov" },
+]
 
-# To fill in: the Town Council, from the town's and the school district's own
-#   pages, confirmed against the last election's official results
-#   (ADDING-A-TOWN.md, step 4). Never from news sites or memory.
-# [[officials.bodies]]
-# name = "Town Council"
-# url = ""
-# note = ""
-# members = [
-#   { name = "", seat = "" },
-# ]
-
-# To fill in: the School Committee, from the town's and the school district's
-#   own pages, confirmed against the last election's official results
-#   (ADDING-A-TOWN.md, step 4). Never from news sites or memory.
-# [[officials.bodies]]
-# name = "School Committee"
-# url = ""
-# note = ""
-# members = [
-#   { name = "", seat = "" },
-# ]
+# Members from the roll of the Town Council's joint workshop with the School
+# Board on September 22, 2026 (the Council's minutes of that meeting: "School
+# Board Members Theroux, Paradise, Willis, Carreau, Clapp, Rand, Chair
+# Thiele", none absent), with full names and terms from the Town Clerk's
+# official results of the annual school elections: March 11, 2025 (Karen
+# Rand, Jen Theroux and Brenda Willis for three years; Jamie Carreau and Jenna
+# Paradise for two) and March 10, 2026 (David Clapp and Michael Thiele for
+# three years). Every seat is at-large. The district's own pages, which would
+# give the Board's officers and email addresses, couldn't be read (see the
+# School Board's meetings, above), so only the Chair is named, and there are
+# no addresses.
+[[officials.bodies]]
+name = "School Board"
+board = "Derry School Board"
+note = "The Derry Cooperative School District's board: seven members elected at-large at the March town and school election, for three years. Its meetings are listed here from the town calendar, without agendas."
+members = [
+  { name = "Michael Thiele", seat = "At-large", role = "Chair", term_ends = "2029-03" },
+  { name = "David Clapp", seat = "At-large", term_ends = "2029-03" },
+  { name = "Karen Rand", seat = "At-large", term_ends = "2028-03" },
+  { name = "Jen Theroux", seat = "At-large", term_ends = "2028-03" },
+  { name = "Brenda Willis", seat = "At-large", term_ends = "2028-03" },
+  { name = "Jamie Carreau", seat = "At-large", term_ends = "2027-03" },
+  { name = "Jenna Paradise", seat = "At-large", term_ends = "2027-03" },
+]
