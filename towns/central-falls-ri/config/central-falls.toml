@@ -1,0 +1,235 @@
+# Site configuration for Central Falls, Rhode Island. Everything town-specific
+# lives here; the code is the Publick engine
+# (github.com/publick-org/publick-engine).
+#
+# Written by hand, from South Kingstown's config: the engine's helper
+# (python -m pipeline.new_town) stops at the city's website
+# (centralfallsri.gov), which answers automated requests with a browser check.
+# Nothing here is read from it. The helper's later steps were run on their own
+# for the BLS series, the Census place, the state's codes, and the ward file.
+#
+# Every Rhode Island public body files its notices, agendas and minutes with
+# the Secretary of State's Open Meetings portal, so the city's meetings come
+# from there ([opengov_meetings]): the City Council, the city's boards, the
+# School Board, and the school district's Board of Trustees and School
+# Building Committee. There is no 311 section: the few SeeClickFix requests in
+# Central Falls go unanswered ([absences]). Tax rates and levy are from the
+# Division of Municipal Finance ([finance]; Rhode Island has no tax bill
+# source), school figures from the Department of Education ([schools]), and
+# housing and unemployment from the Census and BLS, as for every town.
+#
+# The site's colors are the network's defaults: the city's stylesheets are
+# behind the same browser check.
+#
+# The site is in English and Spanish ([site] languages), as every town's is.
+# The first runs draft the Spanish for the town's own text; [strings.es], at
+# the end, can correct it.
+
+[site]
+name = "Central Falls Publick"
+# The masthead shows name_prefix in dark ink and name_suffix in the accent
+# color: the town, then the network.
+name_prefix = "Central Falls "
+domain = "central-falls-ri.publick.org"
+tagline = "Public data on how Central Falls, Rhode Island decides and spends. Updated daily."
+# One line under the name at the top of every page.
+masthead = "An independent guide to city government in Central Falls, Rhode Island"
+# Public contact address. Shown on the About and Accessibility pages when set.
+contact_email = "central-falls-ri@publick.org"
+user_agent = "central-falls-ri.publick.org (+https://central-falls-ri.publick.org/about/)"
+
+[town]
+name = "Central Falls"
+state_abbr = "RI"
+official_site = "https://centralfallsri.gov"
+
+# Sections appear in the main navigation in this order. Each one is a folder
+# under site/pages/<slug>/ and is served at https://<domain>/<slug>/.
+[[sections]]
+slug = "meetings"
+title = "Meetings"
+summary = "When the City Council, the city's boards, and the School Board meet, from the state's Open Meetings portal, with agendas, and minutes from January 2026 on."
+status = "live"
+
+[[sections]]
+slug = "schools"
+title = "Schools"
+summary = "Graduation, attendance, state test results, and spending per pupil compared with the state."
+status = "live"
+
+[[sections]]
+slug = "budget"
+title = "City budget"
+nav = "Budget"
+summary = "The city's property tax rates, what the property tax raises, and property tax per resident, compared with the state."
+status = "live"
+
+[[sections]]
+slug = "housing"
+title = "Housing"
+summary = "New homes permitted, home values and rents, and the housing stock."
+status = "live"
+
+[[sections]]
+slug = "officials"
+title = "Who represents you"
+nav = "Officials"
+summary = "The mayor and the City Council, by office and by ward."
+status = "live"
+
+[[sections]]
+slug = "about"
+title = "About"
+summary = "Data sources, update schedule, metric definitions, and corrections."
+status = "live"
+
+# Page view counting with GoatCounter, on the network's site; prefix is this
+# town's folder.
+[analytics]
+prefix = "central-falls-ri"
+
+# Public meetings, every one from the Open Meetings portal
+# ([opengov_meetings], below). The School Board's meetings are shown in full
+# on the home page, as a school committee's are.
+[meetings]
+governing_body = "City Council"
+calendar_url = "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201"
+main_boards = ["School Board"]
+
+# Agenda and minutes PDFs, in the network's documents bucket.
+[storage]
+prefix = "central-falls-ri"
+
+# Plain-English agenda text and previews, and decisions from minutes, written
+# by a language model and labeled as AI-generated on the site. Only meetings
+# from `since` on are summarized, about three months before launch, so the
+# city's history doesn't take the month's budget.
+[summaries]
+since = "2026-08-01"
+
+# The city's meetings, agendas and minutes, from the Secretary of State's Open
+# Meetings portal, each public body named exactly as the portal names it: the
+# bodies filed under Central Falls that held at least three meetings in 2026.
+# The School Board is the city's ("City of Central Falls School Board" on its
+# agendas, which meet at City Hall or in the district's schools); the Board of
+# Trustees and the School Building Committee are the school district's. Left
+# out: the Housing Authority Board and the Detention Facility Corporation,
+# whose 2026 filings are annual calendars and announcements with no agendas,
+# and the Board of Appeals, the Technical Review Committee, the Redevelopment
+# Agency, the Planning Board, the Zoning Board of Review, the Nuisance Property
+# Task Force, and the Arts and Tourism Board, with one or two meetings each.
+#
+# The portal's feed for a body also lists every body whose name starts with
+# its name, and a meeting goes to the last body below whose feed lists it; no
+# name below starts another.
+[opengov_meetings]
+page_url = "https://opengov.sos.ri.gov/OpenMeetingsPublic/OpenMeetingDashboard?subtopmenuId=201"
+source_name = "Rhode Island Open Meetings portal"
+since = "2026-01-01"
+
+[opengov_meetings.bodies]
+"Central Falls City Council" = "City Council"
+"Central Falls Board of Canvassers" = "Board of Canvassers"
+"Central Falls Combined Planning and Zoning Board" = "Combined Planning and Zoning Board"
+"Central Falls Personnel Board" = "Personnel Board"
+# The portal writes this board's name with two spaces.
+"Central Falls Purchasing  Board" = "Purchasing Board"
+"Central Falls School Board" = "School Board"
+"Central Falls School District- Board of Trustees" = "School District Board of Trustees"
+"Central Falls School District- School Building Committee" = "School Building Committee"
+
+# Tax rates, levy, and assessed values (pipeline/states/ri/), from the Division
+# of Municipal Finance's statewide tables, where the city is "Central Falls".
+# Rhode Island publishes no average single-family tax bill. The city's budget
+# page isn't linked: its website can't be read automatically.
+[finance]
+dmf_municipality = "Central Falls"
+
+# School district figures from the Rhode Island Department of Education (RIDE),
+# where Central Falls's district code is 04 (the LEA sheet of RIDE's 2025-26
+# graduation rate file). The district calls itself the Central Falls School
+# District (cfschools.net).
+[schools]
+ride_district = 4
+district_name = "Central Falls School District"
+
+# Housing: Census building permits (state and place FIPS codes), American
+# Community Survey through Census Reporter (geo ids).
+[housing]
+bps_place = "14140"
+census_geo = "16000US4414140"
+
+# Unemployment rate (BLS Local Area Unemployment Statistics, area
+# CT4414140000000, Central Falls city, RI). City rates are not seasonally
+# adjusted; the state series is shown for context.
+[labor]
+local_series = "LAUCT441414000000003"
+
+# How often each data source should update. Figures published monthly or
+# yearly are judged by the engine, by the period they cover
+# (pipeline/rhythms.py).
+[freshness]
+sources = [
+  { label = "Meetings (Open Meetings portal)", file = "meetings/opengov_status.json", max_days = 2 },
+]
+
+# The About page's "What this site doesn't cover": why there's no 311 section.
+# SeeClickFix has a place named Central Falls, RI (place 20093, at
+# seeclickfix.com/central-falls), with no city service provider: on 2026-11-01
+# its 10 requests since January 2025 were all open, none acknowledged.
+[absences]
+311 = "The few SeeClickFix requests in Central Falls go unanswered by the city, so there's no service request data to show."
+
+# Who represents you (the Officials page). Kept by hand from official sources;
+# checked is the date the list was last checked against them. The city's own
+# pages can't be read automatically, so names and seats are from the official
+# results of the November 5, 2024 general election
+# (ri.gov/election/results/2024/general_election/central_falls/), confirmed
+# against the City Council's minutes on the Open Meetings portal, the newest
+# of September 14, 2026; no email addresses or phones, which only the city's
+# pages give. The School Board isn't listed: its members aren't elected (no
+# seat on it was on the 2022 or 2024 ballot), and no readable official page
+# says how they're chosen.
+[officials]
+checked = "2026-11-01"
+# The next municipal election: the statewide general election of November 3,
+# 2026 (the date Pawtucket's Board of Canvassers gives at
+# pawtucketri.gov/board-of-canvassers/; the Central Falls Board of Canvassers
+# filed a meeting for that day on the Open Meetings portal). The council's
+# seats were on the ballot in 2022 and in 2024 (the official results).
+next_election = "2026-11-03"
+# The ward file is data/static/central-falls-precincts-2022.geojson (RIGIS):
+# the city's 7 voting precincts, each with its ward (RIGIS's Ward).
+wards_file = "central-falls-precincts-2022.geojson"
+wards_publisher = "RIGIS"
+wards_year = 2022
+wards_url = "https://www.arcgis.com/home/item.html?id=9104ca2e5e9b4cdb9985e8935ef2514d"
+
+# Elected on November 5, 2024 (official results, as "L. Maria Rivera"); the
+# council's minutes name her Mayor Maria Rivera.
+[[officials.bodies]]
+name = "Mayor"
+url = "https://centralfallsri.gov"
+note = "Elected citywide."
+members = [
+  { name = "Maria Rivera", seat = "Citywide" },
+]
+
+# Elected on November 5, 2024 (official results); names as the council's
+# minutes write them, and officers from the minutes of September 14, 2026,
+# whose roll call has five of the six present, with Council President Ferri
+# absent. Ward 4's councilor elected in 2024, Luz Eneida Velez Garcia, isn't
+# on any 2026 roll call; Councilperson Anthony Solano is, from January 12, 2026
+# on, but no readable official page gives his seat, so Ward 4 is left out.
+[[officials.bodies]]
+name = "City Council"
+url = "https://centralfallsri.gov"
+note = "Seven members: one elected from each of the city's five wards and two citywide, every two years. Ward 4's councilor isn't listed here: no official page this site can read names the seat's holder."
+members = [
+  { name = "Robert A. Ferri", seat = "Ward 2", ward = 2, role = "Council President" },
+  { name = "Alberto Rivas Lugo", seat = "Ward 1", ward = 1, role = "Council President Pro Tempore" },
+  { name = "Tatiana Baena", seat = "At-large" },
+  { name = "Laurilim Rosado-Martinez", seat = "At-large" },
+  { name = "Kevin K. Kazarian", seat = "Ward 3", ward = 3 },
+  { name = "Rafael Peguero", seat = "Ward 5", ward = 5 },
+]
