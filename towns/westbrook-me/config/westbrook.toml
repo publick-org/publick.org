@@ -99,6 +99,16 @@ status = "live"
 [analytics]
 prefix = "westbrook-me"
 
+# No [recordings]: the city posts its meetings' videos (City Council, School
+# Committee, Planning Board) to a Vimeo showcase, whose videos can't be read by
+# a server, and its YouTube channel has had no meeting since August 2025.
+
+# The weekly digest's email signup, on /digest/ (the engine's pipeline/digest.py). The form posts
+# to this site's /digest/subscribe, which the sites Worker answers (worker/digest.js) and passes on
+# to Buttondown with the tag westbrook-me-en. The About page names who keeps the addresses.
+[digest]
+# The network's settings (defaults/network.toml): having the table turns the signup on.
+
 # Public meetings, from the city calendar and its Agenda Center.
 [meetings]
 base_url = "https://www.westbrookmaine.gov"

@@ -1,0 +1,504 @@
+# Site configuration for Concord, New Hampshire. Everything town-specific
+# lives here; the code is the Publick engine
+# (github.com/publick-org/publick-engine).
+#
+# Started on 2026-11-01 by the engine's helper (python -m pipeline.new_town),
+# from Derry's config.
+#
+# Concord's website runs on CivicPlus. The City Council, its Finance
+# Committee, the Planning Board and the Fiscal Policy Advisory Committee post
+# their agendas on the city's Legistar system, read through Legistar's public
+# web API, with the Council's and the Fiscal Policy Advisory Committee's
+# minutes. The city's other boards and commissions post their minutes in the
+# city's Archive Center ([archive]), the Planning Board's among them, and
+# list their meetings on the city's calendars ([meetings.civicplus]). The
+# minutes are text PDFs. The Board of Education is the Concord School
+# District's (SAU 8), which posts its agendas and minutes on a page of its
+# website ([page_meetings]). 311 requests go to the city's SeeClickFix
+# portal ("Report a Concern"), whose public requests are read as
+# [seeclickfix]. ConcordTV records the City Council, the Board of Education,
+# the Planning Board and the Zoning Board of Adjustment ([recordings]). Its
+# tax rate, tax bill and school figures are New Hampshire's (the engine's
+# pipeline/states/nh/).
+#
+# The site is in English and Spanish ([site] languages), as every town's is.
+# The first runs draft the Spanish for the town's own text; [strings.es], at
+# the end, can correct it.
+
+[site]
+name = "Concord Publick"
+# The masthead shows name_prefix in dark ink and name_suffix in the accent
+# color: the town, then the network.
+name_prefix = "Concord "
+domain = "concord-nh.publick.org"
+tagline = "Public data on how Concord, New Hampshire responds, decides, and spends. Updated daily."
+# One line under the name at the top of every page.
+masthead = "An independent guide to city government in Concord, New Hampshire"
+# Public contact address. Shown on the About and Accessibility pages when set.
+contact_email = "concord-nh@publick.org"
+user_agent = "concord-nh.publick.org (+https://concord-nh.publick.org/about/)"
+
+# From the city website's stylesheets (www.concordnh.gov): its two most used
+# blues (164 and 103 uses); its gold, the most used of another hue (116
+# uses), darkened from #dbb272 (2.0 to 1) to pass; primary_soft a light tint
+# of primary. Each passes WCAG AA on white (8.8, 9.2, 4.5 to 1).
+[site.colors]
+primary = "#144a8e"
+primary_dark = "#22477f"
+primary_soft = "#e8edf4"
+accent = "#8c7249"
+
+[town]
+name = "Concord"
+state_abbr = "NH"
+official_site = "https://www.concordnh.gov"
+
+# Sections appear in the main navigation in this order. Each one is a folder
+# under site/pages/<slug>/ and is served at https://<domain>/<slug>/.
+[[sections]]
+slug = "meetings"
+title = "Meetings"
+summary = "When the City Council, its committees, the city's boards and commissions, and the Board of Education meet, with agendas, and minutes from January 2026 on."
+status = "live"
+
+[[sections]]
+slug = "311"
+title = "311 Requests"
+nav = "311"
+summary = "How fast the city responds to service requests, by category and ward."
+status = "live"
+
+[[sections]]
+slug = "budget"
+title = "City budget"
+nav = "Budget"
+summary = "The city's property tax rate and where the tax goes, what it raises per resident, and the average single-family tax bill."
+status = "live"
+
+[[sections]]
+slug = "schools"
+title = "Schools"
+summary = "Concord School District's graduation rate, state test results, and cost per pupil, with the state's."
+status = "live"
+
+[[sections]]
+slug = "housing"
+title = "Housing"
+summary = "New homes permitted, home values and rents, and the housing stock."
+status = "live"
+
+[[sections]]
+slug = "officials"
+title = "Who represents you"
+nav = "Officials"
+summary = "The mayor, the City Council, and the Board of Education, by office and by ward, and how to reach them."
+status = "live"
+
+[[sections]]
+slug = "about"
+title = "About"
+summary = "Data sources, update schedule, metric definitions, and corrections."
+status = "live"
+
+# Page view counting with GoatCounter, on the network's site; prefix is this
+# town's folder.
+[analytics]
+prefix = "concord-nh"
+
+# Public meetings, from the city calendar and its Legistar system. The city's
+# "Agendas & Minutes" link is its Archive Center, which has every board's
+# minutes; the City Council's page links Legistar for the Council's agendas
+# and minutes since April 2015.
+[meetings]
+base_url = "https://www.concordnh.gov"
+archive_url = "https://www.concordnh.gov/Archive.aspx"
+archive_name = "city's Agendas & Minutes archive"
+# The city's site resets some connections (7 of the helper's); a slower pace
+# and the client's retries help.
+request_delay = 5.0
+max_event_pages = 40
+
+# The city calendar, read month by month: the meetings the city lists before
+# their agendas are posted, with their times and places. Checked on
+# 2026-11-01 against the calendar's list for June to December 2026. Read: the
+# calendars of the city's boards and committees, and three that list several
+# boards' meetings: Main Calendar (the Trustees of Trust Funds, the Board of
+# Assessors, the Poles and Wires Committee, the Ad-Hoc Impact Fee Review
+# Committee), Assessing (the Board of Assessors, the Tax Exemption Policy
+# Committee) and City of Concord Meetings (the Ad-Hoc Semiquincentennial &
+# Tri-Centennial Committee and its subcommittee, among the Supervisors of the
+# Checklist's sessions). Not read, as their events aren't meetings of a
+# board: City of Concord Community Events, Douglas N. Everett Arena,
+# Engineering, General Services, Holidays, the Library's events calendars,
+# Parks & Recreation, Police Events, Street Closures and Wellness Classes; and
+# the calendars that had no events in those months (Airport Advisory
+# Committee and the other ad-hoc and inactive committees').
+[meetings.civicplus]
+calendars = [
+  "Architectural Design Review Committee",
+  "Assessing",
+  "City Council Meetings",
+  "City of Concord Meetings",
+  "Committee for Concord's Plan to End Homelessness",
+  "Community Development Advisory Committee",
+  "Conservation Commission",
+  "Conservation Commission Tree SubCommittee",
+  "Diversity, Equity, Inclusion, Justice & Belonging",
+  "Economic Development Advisory Committee",
+  "Energy and Environment Advisory Committee",
+  "Everett Arena Advisory Committee",
+  "Finance Committee",
+  "Fiscal Policy Advisory Committee (FPAC)",
+  "Golf Course Advisory Committee",
+  "Heritage Commission",
+  "Library - Board Meetings",
+  "Main Calendar",
+  "Parking Committee",
+  "Parks & Recreation Public Meetings",
+  "Planning Board",
+  "Poles and Wires Committee",
+  "Public Safety Board",
+  "Solid Waste Advisory Committee (SWAC)",
+  "TPAC - Bicycle and Pedestrian Subcommittee",
+  "TPAC - Public Transportation Subcommittee",
+  "Traffic Operations Committee",
+  "Trails Subcommittee",
+  "Transportation Policy Advisory Committee",
+  "Zoning Board of Adjustment",
+]
+# Some of their events aren't meetings: only titles naming a board are kept,
+# with the Main Calendar's "Poles and Wires" and the semiquincentennial
+# committee's "Parade Subcomittee" (so spelled). Left out: events of a board
+# that aren't its meetings (the Tree Subcommittee's trivia night, the Energy &
+# Environment Advisory Committee's Weatherize Concord launch, the Planning
+# Board's Master Plan open house).
+include_pattern = '\b(boards?|commissions?|committees?|subcomm?ittees?|councils?|authority|trustees|ZBA|task force|poles and wires)\b'
+exclude_pattern = '\b(trivia|launch|open house)\b'
+
+# Calendar names and Archive Center collections renamed to the board's usual
+# name, as its calendar or Legistar names it. Found with python -m
+# pipeline.listings on 2026-11-01.
+[meetings.aliases]
+"Tree Subcommittee" = "Conservation Commission Tree Subcommittee"
+"DEIJB Committee" = "Diversity, Equity, Inclusion, Justice & Belonging Committee"
+"EDAC" = "Economic Development Advisory Committee"
+"Poles and Wires" = "Poles and Wires Committee"
+"Recreation and Parks Advisory Committee meeting (RPAC)" = "Recreation and Parks Advisory Committee"
+"Joint City/School Memorial Field Planning Committee" = "Joint Memorial Field Planning Committee"
+"AD-HOC IMPACT FEE REVIEW COMMITTEE" = "Ad-Hoc Impact Fee Review Committee"
+"Ad-Hoc Impact Fee Committee" = "Ad-Hoc Impact Fee Review Committee"
+"Ad-Hoc Semiquincentennial & Tri-Centennial Committee" = "Ad-Hoc Semiquincentennial and Tri-Centennial Committee"
+
+[meetings.legistar]
+client = "concordnh"
+# Meetings, agendas, and minutes are collected from here on.
+since = "2026-01-01"
+
+# Minutes from the city's Archive Center, for the boards that don't post them
+# on Legistar: a collection a board ("Planning Board Minutes", "Zoning Board
+# Minutes"), each item titled with the meeting's date ("October 21, 2026
+# (Draft)"). The City Council's collection ends in 2015: its minutes are on
+# Legistar.
+[archive]
+index = "Archive.aspx"
+minutes_since = "2026-01-01"
+
+# Archive collection names (without "Minutes") mapped to the boards' usual
+# names.
+[archive.aliases]
+"Zoning Board" = "Zoning Board of Adjustment"
+"Board of Assessor's" = "Board of Assessors"
+"Conservation Commission - Trails Subcommittee" = "Conservation Commission Trails Subcommittee"
+"Conservation Commission - Tree Subcommittee" = "Conservation Commission Tree Subcommittee"
+"Diversity Equity Inclusion, Justice & Belonging Committee" = "Diversity, Equity, Inclusion, Justice & Belonging Committee"
+"Energy & Environment Committee" = "Energy & Environment Advisory Committee"
+"Solid Waste Advisory Committee Meeting" = "Solid Waste Advisory Committee"
+"TPAC - Bike and Pedestrian Subcommittee" = "TPAC - Bicycle and Pedestrian Subcommittee"
+"Library Board" = "Library Board of Trustees"
+"Ad-Hoc Committee on Impact Fees" = "Ad-Hoc Impact Fee Review Committee"
+"Ad-Hoc Concord Semiquincentennial and Tri-Centennial Committee" = "Ad-Hoc Semiquincentennial and Tri-Centennial Committee"
+
+# The Board of Education's meetings, agendas and minutes, from the district's
+# "Board of Education 2026 - Agendas, Minutes & Videos" page (ParentSquare
+# SmartSites): links each naming its meeting's date ("Meeting Agenda- October
+# 5, 2026", "Meeting Minutes Approved- September 1, 2026"), with the meeting's
+# packet ("Agenda & Materials- ..."), its YouTube video ("Meeting Video- ...")
+# and some presentations. The district keeps a page a year (its "Agendas,
+# Minutes, Video" page links those for 2018 to 2026). The page gives no times.
+# Its committees' minutes are in a Google Drive folder of nested folders,
+# which the engine doesn't read.
+[page_meetings]
+page_url = "https://www.sau8.org/board-of-education-2026-agendas-min"
+source_name = "Concord School District"
+# From July 2026 on, each meeting's agenda and minutes are labelled alike
+# ("Meeting Agenda", "Meeting Minutes Approved"); before then some are
+# "Agenda-" and others "Meeting Minutes", which read as two meetings of one
+# day. The first run lists meetings from here, and documents are collected
+# from here on.
+since = "2026-07-01"
+body = "Board of Education"
+# Only the agenda and minutes links are read: a packet, video or presentation
+# link names the same meeting in other words ("Agenda & Materials", "Meeting
+# Video"), which would read as a meeting of its own. The agenda of November 2,
+# 2026 is a Word file, which isn't saved; the meeting is listed once its
+# minutes are posted.
+exclude_pattern = '^(?!.*\b(?:agenda|minutes)\b)|\bmaterials?\b'
+
+# Agenda and minutes PDFs live in the network's documents bucket, not in git
+# (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID,
+# STORAGE_SECRET_ACCESS_KEY.
+[storage]
+prefix = "concord-nh"
+
+# Plain-English agenda text and previews, and decisions from minutes, written
+# by a language model and labeled as AI-generated on the site. Only meetings
+# from `since` on are summarized, about three months before launch, so the
+# town's history doesn't take the month's budget.
+[summaries]
+since = "2026-08-01"
+
+# The boards' meetings below, transcribed from their recordings for a summary
+# the day after, until the minutes come (the engine's pipeline/recordings.py).
+[recordings]
+since = "2026-10-26"
+
+# ConcordTV's TelVue player (its City Council, School Board, Planning and
+# Zoning pages at yourconcordtv.org): a playlist a board, each recording titled
+# "City Council Meeting - September 14 2026": the City Council (6647, and
+# "Inaugural City Council Meeting - January 5 2026"), the Board of Education
+# (6650: "Board of Education Monthly Meeting - September 1 2026", "Special
+# Concord Board of Education Meeting - October 26, 2026"), the Planning Board
+# (6649) and the Zoning Board of Adjustment (6648, "Zoning Board Meeting -
+# October 7 2026"). The Board of Education's playlist also holds its
+# committees' meetings and public hearings, which are left out.
+[[recordings.sources]]
+platform = "telvue"
+player = "Xr8MIp6iGKk9kd2-nGV5XvtU7qurHzBe"
+playlists = [6647, 6650, 6649, 6648]
+
+[recordings.sources.boards]
+"City Council" = '^(inaugural\s+)?city council meeting\s*-'
+"Board of Education" = '^(special\s+)?(concord\s+)?board of education\s+(monthly\s+|special\s+)?meeting\s*-'
+"Planning Board" = '^planning board meeting\s*-'
+"Zoning Board of Adjustment" = '^zoning board meeting\s*-'
+
+# The city's YouTube channel (@CityofConcordNH603, which the city's website
+# links), where its meetings are streamed live and kept: "City Council
+# Meeting- 10/13/26", "Planning Board Meeting - 10/21/26", "Zoning Board
+# Meeting - 10/7/26", "Finance Committee Meeting - 5/21/26" (other videos, and
+# the ad-hoc committees' meetings, are left out). Read for a meeting ConcordTV
+# hasn't posted.
+[[recordings.sources]]
+platform = "youtube"
+channel = "UCDD8p5ZXUSNhW3_l8S78W5w"
+
+[recordings.sources.boards]
+"City Council" = '^\s*(inaugural\s+)?city council meeting\s*-'
+"Planning Board" = '^\s*planning board meeting\s*-'
+"Zoning Board of Adjustment" = '^\s*zoning board meeting\s*-'
+"Finance Committee" = '^\s*finance committee meeting\b'
+
+# The Concord School District's YouTube channel, which the district's
+# meetings page links for each meeting's video: the Board's meetings, titled
+# "Concord Board of Education Monthly Meeting | 11-2-26" or "Special Board of
+# Education Meeting | 10-26-26" (its committees' meetings are left out). Read
+# for a meeting ConcordTV hasn't posted.
+[[recordings.sources]]
+platform = "youtube"
+channel = "UCwtAgZi2rv4LG1D-5VHpyAA"
+
+[recordings.sources.boards]
+"Board of Education" = '^\s*(concord\s+)?board of education\s+(monthly|special)\s+meeting\b|^\s*special board of education meeting\b|^\s*concord board of education\s*-\s*special board meeting\b'
+
+# How residents can take part, per board, shown on its meeting pages. Only
+# what the city or the school district has published; each entry names its
+# source. The City Council's agendas have a "Public Hearings" section, at
+# which the Mayor opens each hearing and residents testify (its minutes of
+# September 14, 2026); the written testimony deadline is from the Council's
+# page on the city's website. Both boards' meetings are on ConcordTV, which
+# the school district's website links, with recordings on demand.
+[participation."City Council"]
+comment = "Residents can speak at the public hearings on each regular meeting's agenda, on the ordinances and resolutions set for a hearing that night. Written testimony for a hearing is asked for by noon on the day of the hearing, so that it's in the official record and shared with the Council before the meeting."
+source_title = "the City Council's page"
+source_url = "https://www.concordnh.gov/282/City-Council"
+video_title = "ConcordTV"
+video_url = "https://www.yourconcordtv.org/channels-and-content/city-council/"
+
+# From the Board's Policy #136 (Public Comment & Participation at Board
+# Meetings), printed on its agendas (October 5, 2026).
+[participation."Board of Education"]
+comment = "Each Board meeting has 30 minutes of public comment, usually in its first half, on agenda items or other district matters. Sign up before the meeting; speakers are called in that order, and give their name for the record. Written comments can be sent to the Superintendent at least two days before the meeting. Comments about individual students or staff go to the Superintendent instead."
+source_title = "the Board of Education's Policy #136"
+source_url = "https://files.smartsites.parentsquare.com/8931/boe_meeting_agenda-_2026-10-05.pdf"
+video_title = "ConcordTV"
+video_url = "https://www.yourconcordtv.org/channels-and-content/school-board/"
+
+# Terms that come up on agendas and minutes, explained on each meeting page
+# where they appear. Acronyms match exactly; other terms ignore case. From the
+# City Charter (Section 13) and the city's calendars and Archive Center, which
+# name its committees.
+[[glossary]]
+term = "Mayor Pro Tem"
+definition = "The city councilor the City Council chooses to act for the Mayor when the Mayor is absent or the office is vacant."
+
+[[glossary]]
+term = "TPAC"
+definition = "Transportation Policy Advisory Committee, which advises the City Council on transportation, with subcommittees on bicycling and walking and on public transportation."
+
+[[glossary]]
+term = "FPAC"
+definition = "Fiscal Policy Advisory Committee, which advises the City Council on the city's finances."
+
+# Schools: the New Hampshire Department of Education's statewide figures,
+# where the district is "Concord".
+[schools]
+doe_district = "Concord"
+district_name = "Concord School District"
+
+# Tax rate, property tax, and the average single-family tax bill
+# (pipeline/states/nh/), from the New Hampshire DRA's tax rates in the
+# engine's yearly statewide figures and NH GRANIT's parcel map. The city
+# publishes its adopted Operating Budget and Capital Improvement Program as
+# PDFs, one a section, which its Budget page opens (the FY 2027 budget,
+# adopted June 4, 2026), so the budget page links it rather than reading one.
+[finance]
+dra_municipality = "Concord"
+budget_documents_url = "https://www.concordnh.gov/901/Budget"
+
+# Housing: Census building permits (state and place FIPS codes), American
+# Community Survey through Census Reporter (geo ids).
+[housing]
+bps_place = "14200"
+census_geo = "16000US3314200"
+
+# Unemployment rate (BLS Local Area Unemployment Statistics, area
+# CT3314200000000, Concord city, NH). City rates are not seasonally adjusted;
+# the state series is shown for context.
+[labor]
+local_series = "LAUCT331420000000003"
+
+# How often each data source should update. Figures published monthly or
+# yearly are judged by the engine, by the period they cover
+# (pipeline/rhythms.py).
+[freshness]
+sources = [
+  { label = "Meetings (city calendar and Legistar)", file = "meetings/status.json", max_days = 2 },
+  { label = "Board of Education meetings (school district website)", file = "meetings/page_status.json", max_days = 2 },
+  { label = "311 requests", file = "311/status.json", max_days = 2 },
+  { label = "311 scorecard", file = "311/scorecard.json", field = "generated_at", max_days = 2 },
+]
+
+# 311 requests, from SeeClickFix (public requests only). The city's "Report a
+# Concern" page links its SeeClickFix web portal and the MyConcordNH app.
+# Its organization is 1477 (SeeClickFix's Concord place lists it); its
+# Open311 services (seeclickfix.com/open311/v2/1477/services.json) are the
+# portal's 44 request types, all of that one organization, so no departments
+# are needed. On 2026-11-01 its Open311 listing had 86 public requests from
+# October 2026, 63 of them closed, and requests back to January 2025. Some
+# request types are private and aren't listed.
+[seeclickfix]
+organization_id = 1477
+report_url = "https://seeclickfix.com/web_portal/Bn36zdXhso4sP7PK2qFghcgm/report/location"
+# The month the full history starts (python -m pipeline.fetch_311 --backfill).
+# Older requests are included only while they are still open.
+history_since = "2025-01"
+# The city's ten wards (City Charter, Section 2), from NH GRANIT's 2022
+# voting wards, as for Manchester and Nashua, with 2020 census population
+# (the sum of the census blocks inside each ward, 43,976 in all). The file
+# was made from GRANIT's dataset as its ArcGIS Hub item downloads it: on
+# 2026-11-01 the layer at nhgeodata.unh.edu named in the file's source sent
+# a certificate chain that didn't verify.
+precincts_file = "concord-wards-2022.geojson"
+wards_publisher = "NH GRANIT"
+wards_year = 2022
+wards_url = "https://www.arcgis.com/home/item.html?id=3d1a8bdf3eaa49e09cf5d9da5b56bf9c"
+
+# Who represents you (the Officials page). Kept by hand from official city and
+# school websites; checked is the date the list was last checked against them.
+# Only city- and school-issued email addresses (the city's directory lists two
+# councilors' personal addresses, and councilors' and Board members' own
+# phone numbers, which are left out). The City Charter (on the city's City
+# Charter page): a City Council of the Mayor, four councilors-at-large
+# elected for four years and ten ward councilors for two (Section 11); the
+# Mayor, elected for two years, presides, and the Council chooses a Mayor Pro
+# Tem from its members (Section 13); the municipal election is on the
+# Tuesday after the first Monday in November of odd years (Section 3), and
+# those elected take office on January 1 of the even year (Section 11). The
+# Concord School District's charter (on the district's District Charter
+# page): nine Board members elected for three years, three at-large and two
+# from each of three School Voting Zones of wards, one seat in each zone or
+# the three at-large seats each November (Section 2), taking office at the
+# Board's first regular meeting in January (Section 4).
+[officials]
+checked = "2026-11-01"
+# The next election of any member listed: the Board of Education's, on
+# Tuesday, November 3, 2026 (the district charter, Section 2), for one seat
+# in each zone (Campbell's, Boucher's and Hastings's, whose terms the
+# district's Board Members page gives as expiring in 2026). The city's next
+# municipal election, for the Mayor and the Council, is November 2, 2027.
+next_election = "2026-11-03"
+
+# Elected November 4, 2025 (the City Clerk's official results, in the
+# Archive Center's Election Results). Email from the City Council's directory
+# page. The Mayor has no office at City Hall: the city's FAQ says to reach the
+# Mayor and councilors through the City Clerk's Office, whose number this is.
+[[officials.bodies]]
+name = "Mayor"
+url = "https://www.concordnh.gov/282/City-Council"
+note = "Elected citywide for two years. The Mayor presides over the City Council and votes in it; the City Manager, whom the Council appoints, is the city's chief administrative officer."
+members = [
+  { name = "Byron Champlin", seat = "Citywide", term_ends = "2028-01", email = "bchamplin@concordnh.gov", phone = "(603) 225-8500" },
+]
+
+# Names and seats from the City Council's page, with email addresses from its
+# directory page (Councilor Todd's and Councilor Schlosser's there are
+# personal addresses, so they have none here). Elected November 4, 2025 (the
+# ward councilors, Councilors Grady Sexton and Keach) and November 7, 2023
+# (Councilors Fennessy and Kurtz), by the City Clerk's official results.
+# Councilor Sekou re-elected Mayor Pro Tem at the inaugural meeting of
+# January 5, 2026 (its minutes). All 15 are on the roll of September 14, 2026
+# (the newest minutes; Councilor Grady Sexton excused).
+[[officials.bodies]]
+name = "City Council"
+url = "https://www.concordnh.gov/282/City-Council"
+note = "The Mayor, ten councilors elected by ward for two years, and four at-large for four years, two at each city election. The Mayor presides."
+members = [
+  { name = "Brent Todd", seat = "Ward 1", ward = 1, term_ends = "2028-01" },
+  { name = "Michele Horne", seat = "Ward 2", ward = 2, term_ends = "2028-01", email = "mhorne@concordnh.gov" },
+  { name = "Jennifer Kretovic", seat = "Ward 3", ward = 3, term_ends = "2028-01", email = "jkretovic@concordnh.gov" },
+  { name = "Mark Davie", seat = "Ward 4", ward = 4, term_ends = "2028-01", email = "mdavie@concordnh.gov" },
+  { name = "Stacey Brown", seat = "Ward 5", ward = 5, term_ends = "2028-01", email = "sfbrown@concordnh.gov" },
+  { name = "Aislinn Kalob", seat = "Ward 6", ward = 6, term_ends = "2028-01", email = "akalob@concordnh.gov" },
+  { name = "Jim Schlosser", seat = "Ward 7", ward = 7, term_ends = "2028-01" },
+  { name = "Ali Sekou", seat = "Ward 8", ward = 8, role = "Mayor Pro Tem", term_ends = "2028-01", email = "asekou@concordnh.gov" },
+  { name = "Kris Schultz", seat = "Ward 9", ward = 9, term_ends = "2028-01", email = "kschultz@concordnh.gov" },
+  { name = "Jeff Foote", seat = "Ward 10", ward = 10, term_ends = "2028-01", email = "jfoote@concordnh.gov" },
+  { name = "Nathan Fennessy", seat = "At-large", term_ends = "2028-01", email = "nfennessy@concordnh.gov" },
+  { name = "Judith Kurtz", seat = "At-large", term_ends = "2028-01", email = "jkurtz@concordnh.gov" },
+  { name = "Amanda Grady Sexton", seat = "At-large", term_ends = "2030-01", email = "agradysexton@concordnh.gov" },
+  { name = "Fred Keach", seat = "At-large", term_ends = "2030-01", email = "fkeach@concordnh.gov" },
+]
+
+# Names, seats, and email addresses from the district's Board Members page.
+# Elected November 7, 2023 (Campbell, Boucher, Hastings), November 5, 2024
+# (Higgins, Walsh, Sadowski, at-large) and November 4, 2025 (Mineau, Meeker,
+# Dubois), by the City Clerk's official results. The President, Vice
+# President and Secretary elected at the Board's organizational meeting of
+# January 5, 2026 (its minutes); all nine are on the roll of September 1,
+# 2026 (the newest minutes posted). The district's clerk, deputy clerk and
+# treasurer, also on the Board Members page, aren't Board members.
+[[officials.bodies]]
+name = "Board of Education"
+url = "https://www.sau8.org/board-members"
+note = "The Concord School District's board: nine members elected for three years, three at-large and two from each School Voting Zone (Zone A, Wards 1 to 4; Zone B, Wards 5 to 7; Zone C, Wards 8 to 10), one seat in each zone or the three at-large seats each November."
+members = [
+  { name = "Pamela Walsh", seat = "At-large", role = "President", term_ends = "2028-01", email = "pwalsh@sau8.org" },
+  { name = "Cara Meeker", seat = "Zone B", wards = [5, 6, 7], role = "Vice President", term_ends = "2029-01", email = "cmeeker@sau8.org" },
+  { name = "Liz Boucher", seat = "Zone B", wards = [5, 6, 7], role = "Secretary", term_ends = "2027-01", email = "eboucher@sau8.org" },
+  { name = "Jess Campbell", seat = "Zone A", wards = [1, 2, 3, 4], term_ends = "2027-01", email = "jessica.campbell@sau8.org" },
+  { name = "Madeleine Mineau", seat = "Zone A", wards = [1, 2, 3, 4], term_ends = "2029-01", email = "mmineau@sau8.org" },
+  { name = "Brenda Hastings", seat = "Zone C", wards = [8, 9, 10], term_ends = "2027-01", email = "bhastings@sau8.org" },
+  { name = "Alex Dubois", seat = "Zone C", wards = [8, 9, 10], term_ends = "2029-01", email = "adubois@sau8.org" },
+  { name = "Barb Higgins", seat = "At-large", term_ends = "2028-01", email = "bhiggins@sau8.org" },
+  { name = "Sarah Sadowski", seat = "At-large", term_ends = "2028-01", email = "ssadowski@sau8.org" },
+]

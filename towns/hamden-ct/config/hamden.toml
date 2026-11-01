@@ -105,6 +105,12 @@ status = "live"
 [analytics]
 prefix = "hamden-ct"
 
+# The weekly digest's email signup, on /digest/ (the engine's pipeline/digest.py). The form posts
+# to this site's /digest/subscribe, which the sites Worker answers (worker/digest.js) and passes on
+# to Buttondown with the tag hamden-ct-en. The About page names who keeps the addresses.
+[digest]
+# The network's settings (defaults/network.toml): having the table turns the signup on.
+
 # Public meetings, from the town's CivicClerk portal. The portal files each
 # meeting under a category, but the engine reads a meeting's board from its
 # title ("LC Finance Committee Regular Meeting - Aug 10, 2026", "Fire
@@ -278,6 +284,24 @@ prefix = "hamden-ct"
 # town's history doesn't take the month's budget.
 [summaries]
 since = "2026-08-01"
+
+# The boards' meetings below, transcribed from their recordings for a summary
+# the day after, until the minutes come (the engine's pipeline/recordings.py).
+# The Legislative Council's, its committees' and most commissions' meetings,
+# and the Board of Education's, are recorded on Zoom, whose shared recordings
+# the engine doesn't read.
+[recordings]
+since = "2026-10-26"
+
+# The town's CivicClerk portal keeps the land use boards' videos with their meetings: "Planning & Zoning
+# Commission Regular Meeting" and "Zoning Board of Appeals Regular Meeting" (or "Special Meeting"). Each
+# is matched to the meeting it's posted with. The Inland Wetlands Commission's, also there, is left out.
+[[recordings.sources]]
+platform = "civicclerk"
+api_url = "https://hamdenct.api.civicclerk.com/v1"
+portal_url = "https://hamdenct.portal.civicclerk.com"
+media_url = "https://cpmedia.azureedge.net/hamdenct"
+boards = { "Planning & Zoning Commission" = '^Planning & Zoning Commission\b', "Zoning Board of Appeals" = '^Zoning Board of Appeals\b' }
 
 # How residents can take part, per board, shown on its meeting pages. Only
 # what the town or the school district has published; each entry names its
