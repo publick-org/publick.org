@@ -50,19 +50,19 @@
   },
   "City Council President": {
    "text": "Presidente del Concejo Municipal",
-   "check": "review: \"Presidente\" da género masculino a un cargo cuyo titular no se especifica. Debe usarse la forma sin género, como \"Presidencia del Concejo Municipal\".",
+   "check": "review: \"Presidente\" da género masculino a un cargo cuyo titular no se identifica. Aunque las reglas permiten la forma genérica de un cargo en una lista de puestos de un órgano, aquí es un título que se presenta solo y debería escribirse sin género, por ejemplo \"Presidencia del Concejo Municipal\".",
    "model": "claude-haiku-5-5",
    "prompt_version": 2,
-   "attempts": 1,
-   "generated_at": "2026-10-31T22:13:46-04:00"
+   "attempts": 2,
+   "generated_at": "2026-11-01T17:48:09-05:00"
   },
   "City Council Vice President": {
    "text": "Vicepresidente del Concejo Municipal",
-   "check": "review: \"Vicepresidente\" da género masculino al cargo. Debe usarse \"Vicepresidencia del Concejo Municipal\".",
+   "check": "review: \"Vicepresidente\" da género masculino a un cargo cuyo titular no se identifica. Debería escribirse sin género, por ejemplo \"Vicepresidencia del Concejo Municipal\".",
    "model": "claude-haiku-5-5",
    "prompt_version": 2,
-   "attempts": 1,
-   "generated_at": "2026-10-31T22:13:46-04:00"
+   "attempts": 2,
+   "generated_at": "2026-11-01T17:48:09-05:00"
   },
   "City Council agenda of November 2, 2026": {
    "text": "Agenda del Concejo Municipal del 2 de noviembre de 2026",
@@ -152,6 +152,14 @@
    "attempts": 1,
    "generated_at": "2026-10-31T22:13:46-04:00"
   },
+  "School Committee meetings (school district website)": {
+   "text": "Reuniones del Comité Escolar (sitio web del distrito escolar)",
+   "check": "ok",
+   "model": "claude-haiku-5-5",
+   "prompt_version": 2,
+   "attempts": 1,
+   "generated_at": "2026-11-01T17:48:09-05:00"
+  },
   "Seven councilors: five elected by ward and two at-large, for three-year staggered terms. The council elects its President, who presides.": {
    "text": "Siete concejales: cinco por distrito y dos de toda la ciudad, por períodos escalonados de tres años. El Concejo elige la presidencia, que preside las reuniones.",
    "check": "ok",
@@ -216,6 +224,14 @@
    "attempts": 1,
    "generated_at": "2026-10-31T22:13:46-04:00"
   },
+  "When the City Council and its committees, the Planning Board, the city's other boards, and the School Committee meet, with their agendas, and minutes from January 2026 on.": {
+   "text": "Cuándo se reúnen el Concejo Municipal y sus comités, la Junta de Planificación, las demás juntas de la ciudad y el Comité Escolar, con sus agendas y actas desde enero de 2026 en adelante.",
+   "check": "ok",
+   "model": "claude-haiku-5-5",
+   "prompt_version": 2,
+   "attempts": 1,
+   "generated_at": "2026-11-01T17:48:09-05:00"
+  },
   "the city's meeting videos on Vimeo": {
    "text": "los videos de las reuniones de la ciudad en Vimeo",
    "check": "ok",
@@ -235,6 +251,16 @@
     "cache_creation_input_tokens": 2695
    },
    "cost": 0.019058
+  },
+  {
+   "generated_at": "2026-11-01T17:48:09-05:00",
+   "texts": 4,
+   "usage": {
+    "input_tokens": 127,
+    "output_tokens": 716,
+    "cache_creation_input_tokens": 2695
+   },
+   "cost": 0.010927
   }
  ]
 }
