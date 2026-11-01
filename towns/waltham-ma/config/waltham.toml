@@ -237,18 +237,27 @@ prefix = "waltham-ma"
 [summaries]
 since = "2026-07-01"
 
-# The council's meetings, transcribed from their recordings for a summary the
-# day after, until the minutes come (the engine's pipeline/recordings.py).
+# The boards' meetings below, transcribed from their recordings for a summary
+# the day after, until the minutes come (the engine's pipeline/recordings.py).
 [recordings]
 since = "2026-10-26"
 
-# WCAC's TelVue player: the City Council's playlist, titled "City Council 10-26-26", with " Part 2" where
-# a meeting is posted in parts.
+# WCAC's TelVue player: a playlist a board, each recording titled "City Council 10-26-26", with " Part 2"
+# where a meeting is posted in parts: the City Council (5499), School Committee (5517), Board of Survey
+# and Planning (5496, "Board of Survey & Planning 10-7-26" too), Zoning Board of Appeals (5528) and
+# License Commission (5510). The School Committee's playlist also holds its building committee and
+# superintendent interviews, which are left out.
 [[recordings.sources]]
 platform = "telvue"
 player = "DczpPLv0_DQxyzqdZyE1r1a19QZz7VoL"
-playlists = [5499]
-boards = { "City Council" = '^(Special )?City Council \d' }
+playlists = [5499, 5517, 5496, 5528, 5510]
+
+[recordings.sources.boards]
+"City Council" = '^(Special )?City Council \d'
+"School Committee" = '^School Committee \d'
+"Board of Survey and Planning" = '^Board of Survey (&|and) Planning \d'
+"Zoning Board of Appeals" = '^Zoning Board of Appeals \d'
+"License Commission" = '^License Commission \d'
 
 # How residents can take part, per board, shown on its meeting pages. The
 # council's dockets name no public comment period; its minutes show residents
