@@ -4,8 +4,23 @@
 #
 # Started on 2026-11-01 by the engine's helper (python -m pipeline.new_town),
 # from Methuen's config.
-# To fill in: what the city uses for meetings, minutes, 311, and its school
-#   board, in a few sentences, as other towns' configs begin.
+# South Burlington's website runs on CivicPlus: its boards and committees post
+# agendas and minutes in the Agenda Center, and the city calendar lists their
+# meetings, with times and places, before the agendas are posted
+# ([meetings.civicplus]). The City Council's minutes are text PDFs. The School
+# Board posts each meeting's agenda, minutes and recording on a page of the
+# school district's Apptegy website, read as [page_meetings]; the district's
+# figures come from the state ([schools]). The city takes maintenance requests
+# through a form on its own website, which has no public data, so there is no
+# 311 section ([absences]). The engine's Vermont package gives the tax rates,
+# what the property tax raises, and the average homestead tax bill, from the
+# Department of Taxes ([finance]); housing and unemployment come from the
+# Census and BLS, as for every town.
+#
+# South Burlington has a council-manager government: the five councilors, all
+# elected at-large, choose their own Chair and appoint the City Manager, who
+# runs the city's departments; there is no mayor. The seven School Board
+# members are elected at-large too, so the city has no ward map.
 #
 # The site is in English and Spanish ([site] languages), as every town's is.
 # The first runs draft the Spanish for the town's own text; [strings.es], at
@@ -25,10 +40,10 @@ contact_email = "south-burlington-vt@publick.org"
 user_agent = "south-burlington-vt.publick.org (+https://south-burlington-vt.publick.org/about/)"
 
 # From the city website's stylesheets (www.southburlingtonvt.gov): its two
-# most used blues (129 and 108 uses); the most used of another hue (35 uses);
-# primary_soft a light tint of primary. Each passes WCAG AA on white (5.5,
-# 9.6, 5.3 to 1).
-# To fill in: check the colors against the city's website.
+# most used blues (108 and 129 uses: buttons and links, and the darker
+# headings and menus), its green (35 uses), and primary_soft, a light tint of
+# primary. Each passes WCAG AA on white (5.5, 9.6, 5.3 to 1). Its sky blue
+# (#0098f7, 3.1 to 1) and orange (#c7481a) aren't used.
 [site.colors]
 primary = "#3a6f8e"
 primary_dark = "#26495e"
@@ -45,36 +60,34 @@ official_site = "https://www.southburlingtonvt.gov"
 [[sections]]
 slug = "meetings"
 title = "Meetings"
-summary = "Every board and committee meeting on the city calendar and in its Agenda Center, with agendas, and minutes from January 2026 on."
+summary = "Every city board and committee meeting on the city calendar and in its Agenda Center, and the School Board's, with agendas, and minutes from January 2026 on."
 status = "live"
 
 [[sections]]
 slug = "schools"
 title = "Schools"
-summary = "Graduation, attendance, and MCAS results compared with the state."
+summary = "South Burlington School District's graduation rate, attendance, state test results, and spending per pupil, with the state's."
 status = "live"
 
 [[sections]]
 slug = "budget"
 title = "City budget"
 nav = "Budget"
-summary = "Where general fund money comes from and how it is spent, reserves, and the property tax limit."
+summary = "The city's tax rates, what the property tax raises for the city and for schools, and the average homestead tax bill."
 status = "live"
 
 [[sections]]
 slug = "housing"
 title = "Housing"
-summary = "New homes permitted, home values and rents, affordable housing, and the housing stock."
+summary = "New homes permitted, home values and rents, and the housing stock."
 status = "live"
 
-# To fill in: the Officials page's section (below, commented out), once
-#   [officials] is filled in.
-# [[sections]]
-# slug = "officials"
-# title = "Who represents you"
-# nav = "Officials"
-# summary = "The mayor, City Council, and School Committee, by office and by ward, and how to reach them."
-# status = "live"
+[[sections]]
+slug = "officials"
+title = "Who represents you"
+nav = "Officials"
+summary = "The City Council and School Board, and how to reach them."
+status = "live"
 
 [[sections]]
 slug = "about"
@@ -98,21 +111,24 @@ request_delay = 5.0
 max_event_pages = 40
 
 # The city calendar, read month by month: the meetings the city lists before
-# their agendas are posted, with their times and places. Read: the calendars
-# whose events, over the last three months and the next three, were mostly
-# meetings. Not read: Board of Abatement, Charter Committee, Conversation with
-# a Councilor, Events, Main Calendar, Pension Advisory Committee, Police Chief
-# Recruitment, Public Works, Recreation Adult Drop-in Sports, Recreation
-# Calendar, Safe Routes to School Task Force, Steering Committee.
+# their agendas are posted, with their times and places. Read: a calendar for
+# each body with a category in the Agenda Center, those with no events lately
+# (Board of Abatement, Charter Committee, Steering Committee) among them. Not
+# read: Conversation with a Councilor (councilors' drop-in hours, not
+# meetings), Events, Main Calendar (holidays, and departments' public
+# information meetings on projects, which aren't meetings of a city body),
+# Police Chief Recruitment, Public Works, and the recreation department's
+# calendars.
 [meetings.civicplus]
-calendars = ["Bicycle & Pedestrian Committee", "Board of Civil Authority", "City Council Meetings", "Development Review Board", "Economic Development Committee", "Energy Committee", "Housing Committee", "Library Board of Trustees", "Library Communications", "Library Governance and Nominating Committee", "Natural Resources and Conservation Committee", "Planning Commission", "Public Art Committee", "Recreation and Parks Committee", "Sextons Committee"]
+calendars = ["Bicycle & Pedestrian Committee", "Board of Abatement", "Board of Civil Authority", "Charter Committee", "City Council Meetings", "Development Review Board", "Economic Development Committee", "Energy Committee", "Housing Committee", "Library Board of Trustees", "Library Communications", "Library Governance and Nominating Committee", "Natural Resources and Conservation Committee", "Pension Advisory Committee", "Planning Commission", "Public Art Committee", "Recreation and Parks Committee", "Safe Routes to School Task Force", "Sextons Committee", "Steering Committee"]
 # A meeting on the calendar and in the Agenda Center is shown once.
-# To fill in: check the calendars read, and any left out that list meetings.
 
+# The calendar's names for boards the Agenda Center names otherwise.
 [meetings.aliases]
-# To fill in: board names the engine doesn't fix itself: a calendar meeting
-#   next to an Agenda Center one of the same day, not shown as one, needs an
-#   alias (python -m pipeline.listings, in the report).
+"Library Communications" = "Library Communications Committee"
+"Recreation and Parks" = "Recreation & Parks Committee"
+"Safe Routes to School" = "Safe Routes to School Task Force"
+"Charter Committee" = "City Charter Committee"
 
 [meetings.agenda_center]
 base_url = "https://www.southburlingtonvt.gov"
@@ -120,24 +136,43 @@ base_url = "https://www.southburlingtonvt.gov"
 # on.
 since = "2026-01-01"
 
-# To fill in: [meetings.agenda_center.committees."<category>"]: committees and
-#   other bodies posted under another's category, each by a phrase in its
-#   titles: under "Library Board of Trustees", "Library Board of Trustees
-#   Advisory Committee", "Library Board of Trustees Finance Committee
-#   Meeting", "Library Board of Trustees Advisory Committee Meeting"; under
-#   "Bicycle & Pedestrian Committee", "Joint South Burlington Bicycle &
-#   Pedestrian Committee and Burlington Walk Bike Council Meeting"; under
-#   "City Council", "City Council Meeting - Joint with Planning Commission";
-#   under "Library Communications Committee", "South Burlington Library Board
-#   Agenda"; under "Natural Resources & Conservation Committee", "Natural
-#   Resources and Conservation Commission"; under "Planning Commission",
-#   "Planning Commission Meeting - Joint with City Council".
+# Committees posted under another body's category, by a phrase in their
+# titles: the Library Board of Trustees posts its Advisory and Finance
+# Committees' agendas under its own category. Joint meetings need no name
+# here: the engine shows the City Council's and the Planning Commission's
+# joint meetings, posted under each ("City Council Meeting - Joint with
+# Planning Commission"), as one, with the calendar's listing; and the Bicycle &
+# Pedestrian Committee's joint meetings with Burlington's Walk Bike Council
+# are the committee's own. The Library Communications Committee's "South
+# Burlington Library Board Agenda" of September 17, 2026 is that committee's
+# own meeting, and the Natural Resources & Conservation Committee's titles
+# that say "Commission" are the committee's.
+[meetings.agenda_center.committees."Library Board of Trustees"]
+"Advisory Committee" = "Library Board of Trustees Advisory Committee"
+"Finance Committee" = "Library Board of Trustees Finance Committee"
 
-# To fill in: the School Committee's meetings: where the district posts them
-#   ([ical_meetings], [page_meetings], [finalsite_meetings], [drive_meetings],
-#   [diligent_meetings], [opengov_meetings]), named in the Meetings section's
-#   summary and in [freshness] sources; a platform the engine doesn't read is
-#   left out and said so (ADDING-A-TOWN.md, step 1).
+# The School Board's meetings, from the school district's School Board page
+# (www.sbschools.net/page/school-board), on its Apptegy website: a small table
+# for each meeting under a heading with its date, with rows for its agenda,
+# Zoom link, minutes and recording (YouTube or Vimeo), each link labelled with
+# the meeting's date ("October 21, 2026 Regular Meeting Agenda"). The page's
+# content is HTML inside a script's JSON; the engine reads it back. Every row
+# is named by what it holds ("Meeting Agenda:", "Meeting Minutes:"), not by the
+# meeting, so name_columns names a heading no row has: a meeting's rows have no
+# name of their own and are put together by their date. Approved minutes are
+# signed scans, which the model transcribes (four to twelve pages a meeting);
+# the draft minutes posted first are text. Some agendas and minutes are linked
+# through Apptegy's short links (aptg.co), which redirect to the file; those
+# aren't taken for documents, so a meeting whose every link is one isn't
+# listed. The district's 2026-2027 meeting dates page is in the same script
+# JSON, which [schedule_meetings] doesn't read.
+[page_meetings]
+page_url = "https://www.sbschools.net/page/school-board"
+source_name = "South Burlington School District"
+# The first run lists meetings from here, and documents are collected from here on.
+since = "2026-01-01"
+body = "School Board"
+name_columns = ["Meeting"]
 
 # Agenda and minutes PDFs live in the network's documents bucket, not in git
 # (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID,
@@ -152,19 +187,58 @@ prefix = "south-burlington-vt"
 [summaries]
 since = "2026-08-01"
 
-# To fill in: how residents can take part, per board ([participation."City
-#   Council"], [participation."School Committee"]): comment, source_title,
-#   source_url, video_title, video_url, each from the board's own rules or
-#   agendas.
-# To fill in: [[glossary]], terms that come up in this city's agendas and mean
-#   something of its own here, each from an official page. The state's and the
-#   network's terms are in its glossary already: executive session, grand
-#   list, Town Meeting Day, VSA, abatement, ADA, CBA, CDBG, CIP, COLA,
-#   Committee of the Whole, consent agenda, first reading, mill rate,
-#   quitclaim deed, receive and file, Select Board, tabled, TIF, town meeting,
-#   variance, warrant article.
+# How residents can take part, per board, shown on its meeting pages. Only
+# what the city or the school district has published; each entry names its
+# source. The City Council's: Article 6 of its Rules of Procedure, and its
+# agendas' participation options (in person at 180 Market Street or on Zoom).
+# Town Meeting TV records the council's meetings for its City of South
+# Burlington playlist, which the council's page links as its live stream.
+[participation."City Council"]
+comment = "Each meeting begins with time for comments from the public on anything not on the agenda, and the public can comment on each agenda item after the Council's discussion and before it acts. Speakers begin with their name and their connection to South Burlington, and the Chair may limit how long each person speaks. Meetings can be joined in person or on Zoom."
+source_title = "the City Council's Rules of Procedure (Article 6), adopted March 5, 2026"
+source_url = "https://www.southburlingtonvt.gov/DocumentCenter/View/1096/City-Council-Rules-of-Procedure-Adopted-March-5-2026-PDF"
+video_title = "Town Meeting TV's City of South Burlington playlist on YouTube"
+video_url = "https://www.youtube.com/playlist?list=PLljLFn4BZd2NhM59Ok6XPPTGC8lTj9w32"
 
-# School figures from the Vermont Agency of Education.
+# The School Board's: its agendas' "Comments from the public" item, and their
+# notice that the Media Factory broadcasts each meeting.
+[participation."School Board"]
+comment = "Anyone can comment for up to three minutes near the start of each meeting, on any topic, and before the Board takes an action item, on that item only. The Board doesn't answer comments, except at a Community Forum on a topic on its agenda. Meetings can be joined in person or on Zoom."
+source_title = "School Board agenda of October 21, 2026"
+source_url = "https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/4049/Sbsd/de6a00ab-9e7d-4ad1-a2f6-5f413b8fda10/October-21-Regular-Meeting-Agenda---South-Burlington-School-Board%281%29.pdf?disposition=inline"
+video_title = "the Media Factory's School Board recordings"
+video_url = "https://www.mediafactory.org/sbsd"
+
+# Terms that come up on agendas and minutes, explained on each meeting page
+# where they appear. Acronyms match exactly; other terms ignore case. An entry
+# with bodies is shown only on those boards' meetings.
+# The city's Land Development Regulations (its Land Development Regulations &
+# Official Map page: amendments numbered "LDR-26-09", heard by the Planning
+# Commission and adopted by the City Council).
+[[glossary]]
+term = "LDR"
+definition = "Land Development Regulations: South Burlington's zoning and subdivision rules. The Planning Commission drafts changes to them, numbered like LDR-26-09, and the City Council adopts them."
+
+# The city charter, 24 App. V.S.A. ch. 13, §§ 13-1101 and 13-1102.
+[[glossary]]
+term = "Steering Committee"
+definition = "The City Council and the School Board meeting together with the City Manager and the Superintendent, as the city charter provides, to review the city's and the school district's budgets and plans. Its meetings are always public: it can't meet in executive session."
+
+# The School Board's Policy Governance page and its School Board page (the
+# monitoring report scorecards).
+[[glossary]]
+term = "monitoring report"
+bodies = ["School Board"]
+definition = "A report from the Superintendent showing how the district is meeting one of the School Board's policies. The Board rates the report and the district's progress, and votes on whether to accept it."
+
+[[glossary]]
+term = "ends policy"
+bodies = ["School Board"]
+definition = "One of the School Board's policies stating what students are expected to achieve. Under the Board's Policy Governance model, the Superintendent decides how the district meets them, and reports on them in monitoring reports."
+
+# School figures from the Vermont Agency of Education: the district is SU016
+# (South Burlington SD) on the Education Dashboard, and T191 in the per pupil
+# spending report. It calls itself the South Burlington School District.
 [schools]
 aoe_org = "SU016"
 aoe_lea = "T191"
@@ -172,11 +246,11 @@ district_name = "South Burlington School District"
 
 # Tax rates, property tax, and the average homestead tax bill
 # (pipeline/states/vt/), from the Vermont Department of Taxes' Property
-# Valuation and Review (PVR) figures and VCGI's statewide parcel data.
+# Valuation and Review (PVR) figures and VCGI's statewide parcel data. The
+# city's budget books, year by year, are on its Annual Budget page.
 [finance]
 pvr_town = "South Burlington"
-# To fill in: budget_documents_url, the page where the city posts its own
-#   budget books, which the budget page links (leave it out if there's none).
+budget_documents_url = "https://www.southburlingtonvt.gov/277/Annual-Budget"
 
 # Housing: Census building permits (state and place FIPS codes), American
 # Community Survey through Census Reporter (geo ids).
@@ -196,57 +270,70 @@ local_series = "LAUCT506617500000003"
 [freshness]
 sources = [
   { label = "Meetings (Agenda Center)", file = "meetings/status.json", max_days = 2 },
+  { label = "School Board meetings (school district website)", file = "meetings/page_status.json", max_days = 2 },
 ]
 
-# To fill in: [seeclickfix], with the city's organization ID, once a person
-#   has confirmed the city uses it (the issues listing needs a login now; the
-#   Open311 listing at seeclickfix.com/open311/v2/<id>/services.json names its
-#   request types), and the 311 section and its [freshness] sources (with 311
-#   the tagline can say "responds, decides, and spends", as Gloucester's,
-#   Malden's, and Methuen's do); or, if the city takes requests some other
-#   way, [absences] 311 saying so. SeeClickFix's places: South Burlington,
-#   place 71429 (https://seeclickfix.com/south-burlington).
+# No 311 section: the city takes maintenance requests through the Maintenance
+# Request Form on its website (its Report a Maintenance Issue page), which
+# publishes nothing. SeeClickFix's South Burlington place (71429) has no city
+# organization: its requests are Burlington's, filed near the city line, and
+# a few nobody answered.
+[absences]
+311 = "The city takes maintenance requests through a form on its own website, which has no public data."
 
 # Who represents you (the Officials page). Kept by hand from official city and
 # school websites; checked is the date the list was last checked against them.
-# Only city- and school-issued email addresses, and the mayor's office phone.
+# Only city- and school-issued email addresses (the council's page also lists
+# councilors' own phone numbers, which are left out). Every seat is elected
+# at-large (the city charter, 24 App. V.S.A. ch. 13, §§ 13-302 and 13-311), so
+# there is no ward file and no ward map. South Burlington has no mayor: the
+# council elects its Chair, who presides and is the head of the city for
+# ceremonial purposes (§ 13-303), and appoints the City Manager (§ 13-901).
 [officials]
-# To fill in: checked, the date the list below was checked against official
-#   pages.
-# To fill in: next_election, the date of the town's next regular municipal
-#   election, from the city's election calendar or its charter.
-# To fill in: wards_file, the town's wards (ADDING-A-TOWN.md, step 3), or none
-#   if every seat is elected townwide.
+checked = "2026-11-01"
+# The next municipal election: the annual city and school election, on Town
+# Meeting Day, the first Tuesday in March, as in 2024, 2025 and 2026 (the
+# City Clerk's election results); the council warns its date (charter §
+# 13-502). The list is due a check after it, or once new terms begin.
+next_election = "2027-03-02"
 
-# To fill in: the Mayor, from the city's and the school district's own pages,
-#   confirmed against the last election's official results (ADDING-A-TOWN.md,
-#   step 4). Never from news sites or memory.
-# [[officials.bodies]]
-# name = "Mayor"
-# url = ""
-# note = ""
-# members = [
-#   { name = "", seat = "" },
-# ]
+# From the council's page (members, officers, and the year each term ends),
+# confirmed against the official results of the annual elections of March 5,
+# 2024 (Smith), March 4, 2025 (Barritt, Fitzgerald) and March 3, 2026
+# (Chalnick, Zigmund), and the members present in the council's minutes of
+# October 19, 2026. Terms run from one March election to another.
+[[officials.bodies]]
+name = "City Council"
+url = "https://www.southburlingtonvt.gov/197/City-Council"
+note = "Five councilors elected at-large: three for three years and two for two years. After each March election the council elects its Chair, Vice Chair and Clerk, and it appoints the City Manager, who runs the city's departments. South Burlington has no mayor."
+members = [
+  { name = "Tim Barritt", seat = "At-large", role = "Chair", term_ends = "2028-03", email = "tbarritt@southburlingtonvt.gov" },
+  { name = "Andrew Chalnick", seat = "At-large", role = "Vice Chair", term_ends = "2029-03", email = "achalnick@southburlingtonvt.gov" },
+  { name = "Elizabeth Fitzgerald", seat = "At-large", role = "Clerk", term_ends = "2027-03", email = "efitzgerald@southburlingtonvt.gov" },
+  { name = "Laurie Smith", seat = "At-large", term_ends = "2027-03", email = "lsmith@southburlingtonvt.gov" },
+  { name = "Beth Zigmund", seat = "At-large", term_ends = "2028-03", email = "bzigmund@southburlingtonvt.gov" },
+]
 
-# To fill in: the City Council, from the city's and the school district's own
-#   pages, confirmed against the last election's official results
-#   (ADDING-A-TOWN.md, step 4). Never from news sites or memory.
-# [[officials.bodies]]
-# name = "City Council"
-# url = ""
-# note = ""
-# members = [
-#   { name = "", seat = "" },
-# ]
-
-# To fill in: the School Committee, from the city's and the school district's
-#   own pages, confirmed against the last election's official results
-#   (ADDING-A-TOWN.md, step 4). Never from news sites or memory.
-# [[officials.bodies]]
-# name = "School Committee"
-# url = ""
-# note = ""
-# members = [
-#   { name = "", seat = "" },
-# ]
+# The Board of School Directors, from the school district's School Board
+# Members page (members, officers, terms, and school-issued email addresses),
+# confirmed against the official results of March 4, 2025 (Abshere, Lawrence)
+# and March 3, 2026 (Hoffman, Michelle Boyer, Dan Boyer, Galvez; the results
+# write "Daniel Boyer" and "Elyssa Galves", the board "Dan Boyer" and "Elissa
+# Galvez", as its minutes of March 4, 2026 do, welcoming her as a new member),
+# and the members present in the board's minutes of October 7, 2026. Thomas
+# Chittenden was appointed in July 2026 to a vacant seat until the March 2027
+# election (the members page; the charter, § 13-301), so his term isn't given.
+# The board's three student members don't vote and aren't listed.
+[[officials.bodies]]
+name = "School Board"
+url = "https://www.sbschools.net/page/school-board-members"
+note = "Seven school directors elected at-large, for two or three years. Thomas Chittenden was appointed in July 2026 to a vacant seat until the March 2027 election."
+members = [
+  { name = "Seamus Abshere", seat = "At-large", role = "Chair", term_ends = "2027-03", email = "sabshere@sbschools.net" },
+  { name = "Jennifer Lawrence", seat = "At-large", role = "Vice Chair and Clerk", term_ends = "2027-03", email = "jlawrence@sbschools.net" },
+  { name = "Dan Boyer", seat = "At-large", term_ends = "2028-03", email = "dboyer@sbschools.net" },
+  { name = "Michelle Boyer", seat = "At-large", term_ends = "2028-03", email = "mboyer@sbschools.net" },
+  { name = "Thomas Chittenden", seat = "At-large", email = "tchittenden@sbschools.net" },
+  { name = "Elissa Galvez", seat = "At-large", term_ends = "2028-03", email = "elgalvez@sbschools.net" },
+  { name = "Emilee Hoffman", seat = "At-large", term_ends = "2029-03", email = "ehoffman@sbschools.net" },
+]
