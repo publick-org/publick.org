@@ -2,10 +2,24 @@
 # here; the code is the Publick engine
 # (github.com/publick-org/publick-engine).
 #
-# Started on 2026-11-01 by the engine's helper (python -m pipeline.new_town),
-# from Portland's config.
-# To fill in: what the city uses for meetings, minutes, 311, and its school
-#   board, in a few sentences, as other towns' configs begin.
+# Biddeford's website runs on CivicPlus. Its boards post their meetings,
+# agendas, and minutes on the city's CivicClerk portal
+# (biddefordme.portal.civicclerk.com), read as [meetings.civicclerk], as
+# Portland's are: the City Council, its committees, and the city's boards and
+# commissions. The council's minutes are text PDFs. The city's Main Calendar
+# lists the same meetings, often before their agendas are posted, and is read
+# with it ([meetings.civicplus]); a meeting in both is shown once. The School
+# Committee posted its agendas on the portal ("School Committee") until June
+# 2026; since then the school department posts them as Google Docs linked
+# from its own website (biddefordschools.me, on Apptegy), which the engine
+# doesn't read, so its later meetings aren't listed. The city doesn't use
+# SeeClickFix (its place there has a handful of requests, the newest from
+# 2017, none answered): residents reach departments through forms on the
+# city's website, so the site has no 311 section ([absences]). The engine's
+# Maine package gives the tax rate and what the property tax raises, from
+# Maine Revenue Services ([finance]), and school figures, from the Department
+# of Education's ESSA Dashboard ([schools]); housing and unemployment come
+# from the Census and BLS, as for every town.
 #
 # The site is in English and Spanish ([site] languages), as every town's is.
 # The first runs draft the Spanish for the town's own text; [strings.es], at
@@ -24,11 +38,11 @@ masthead = "An independent guide to city government in Biddeford, Maine"
 contact_email = "biddeford-me@publick.org"
 user_agent = "biddeford-me.publick.org (+https://biddeford-me.publick.org/about/)"
 
-# From the city website's stylesheets (www.biddefordmaine.org): its most used
-# color (51 uses), and a darker shade of it; the most used of another hue (44
-# uses); primary_soft a light tint of primary. Each passes WCAG AA on white
-# (8.1, 15.1, 8.8 to 1).
-# To fill in: check the colors against the city's website.
+# From the city website's stylesheets (www.biddefordmaine.org): its brick red
+# (51 uses: headings, buttons, and backgrounds), a darker shade of it, a light
+# tint of it, and its navy (44 uses: links and banners). Each passes WCAG AA on
+# white: 8.1, 15.1 and 8.8 to 1. Its most used color, the bright blue
+# (#0098f7, 54 uses, 3.1 to 1), doesn't, so it isn't used.
 [site.colors]
 primary = "#89342d"
 primary_dark = "#431916"
@@ -45,13 +59,7 @@ official_site = "https://www.biddefordmaine.org"
 [[sections]]
 slug = "meetings"
 title = "Meetings"
-summary = "Every board and committee meeting on the city calendar, with agendas, and minutes from January 2026 on."
-status = "live"
-
-[[sections]]
-slug = "schools"
-title = "Schools"
-summary = "Portland Public Schools' graduation rate, absenteeism, state test results, and spending per pupil, with the state's."
+summary = "When the City Council, its committees, and the city's boards and commissions meet, with agendas, and minutes from January 2026 on."
 status = "live"
 
 [[sections]]
@@ -62,19 +70,23 @@ summary = "The city's tax rate and what the property tax raises, compared with M
 status = "live"
 
 [[sections]]
+slug = "schools"
+title = "Schools"
+summary = "Biddeford Schools' graduation rate, absenteeism, state test results, and spending per pupil, with the state's."
+status = "live"
+
+[[sections]]
 slug = "housing"
 title = "Housing"
 summary = "New homes permitted, home values and rents, and the housing stock."
 status = "live"
 
-# To fill in: the Officials page's section (below, commented out), once
-#   [officials] is filled in.
-# [[sections]]
-# slug = "officials"
-# title = "Who represents you"
-# nav = "Officials"
-# summary = "The mayor, City Council, and School Committee, by office and by ward, and how to reach them."
-# status = "live"
+[[sections]]
+slug = "officials"
+title = "Who represents you"
+nav = "Officials"
+summary = "The mayor, City Council, and School Committee, by office and by ward, and how to reach them."
+status = "live"
 
 [[sections]]
 slug = "about"
@@ -92,44 +104,53 @@ prefix = "biddeford-me"
 base_url = "https://www.biddefordmaine.org"
 archive_url = "https://biddefordme.portal.civicclerk.com"
 archive_name = "city's CivicClerk portal"
-# The city's site resets some connections (4 of the helper's); a slower pace
-# and the client's retries help.
+governing_body = "City Council"
+# The city's site resets some connections; a slower pace and the client's
+# retries help.
 request_delay = 5.0
 max_event_pages = 40
 
 # The city calendar, read month by month: the meetings the city lists before
-# their agendas are posted, with their times and places. Read: the calendars
-# whose events, over the last three months and the next three, were mostly
-# meetings. Not read: Parking Communications.
+# their agendas are posted, with their times and places. The site has two
+# calendars: the Main Calendar, with the boards' meetings among other events,
+# and Parking Communications (parking bans), which isn't read.
 [meetings.civicplus]
 calendars = ["Main Calendar"]
-# Some of their events aren't meetings: only titles naming a board are kept.
-include_pattern = '\b(boards?|commissions?|committees?|subcommittees?|councils?|authority|trustees|ZBA|task force)\b'
-# To fill in: include_pattern leaves out these meetings, which a board's name
-#   in it can bring back: "Capital Projects / Operations Committeee Meeting
-#   (Live)".
-# To fill in: check the calendars read, and any left out that list meetings.
+# Some of its events aren't meetings: only titles naming a board are kept.
+# "Committeee" is how the calendar spells the Capital Projects / Operations
+# Committee's meetings.
+include_pattern = '\b(boards?|commissions?|committees?|committeee|subcommittees?|councils?|authority|trustees|ZBA|task force)\b'
 
 [meetings.aliases]
-# To fill in: board names the engine doesn't fix itself: a calendar meeting
-#   next to an Agenda Center one of the same day, not shown as one, needs an
-#   alias (python -m pipeline.listings, in the report).
+# Other names the calendar's and the portal's titles use for a board, as the
+# board's own page on the city's website names it.
+"Cable TV Committee" = "Cable Television Committee"
+"Capital Projects / Operations Committeee" = "Capital Projects / Operations Committee"
+"Shellfish Conservation Commission" = "Shellfish Conservation Committee"
+"Recycling and Solid Waste Management Commission" = "Recycling and Waste Management Commission"
+"Joint Biddeford- Saco Committee" = "Joint Biddeford-Saco Committee"
+"Historic Preservation" = "Historic Preservation Commission"
+# Cancelled meetings, titled "... Meeting-THIS MEETING HAS BEEN CANCELLED".
+"Historic Preservation Commission Meeting-THIS MEETING HAS BEEN" = "Historic Preservation Commission"
+"Downtown Development Commission Meeting-THIS MEETING HAS BEEN" = "Downtown Development Commission"
+# The council's site walk and its public input session on the city manager
+# search, filed on the portal under the City Council.
+"City Council -Site Walk" = "City Council"
+"City Manager Search" = "City Council"
 
 [meetings.civicclerk]
 api_url = "https://biddefordme.api.civicclerk.com/v1"
 portal_url = "https://biddefordme.portal.civicclerk.com"
-# Meetings, agendas, and minutes are collected from here on.
+# Meetings, agendas, and minutes are collected from here on. The council
+# elected on November 4, 2025 was sworn in on December 2, 2025.
 since = "2026-01-01"
 # Most of the portal's meetings are under a catch-all category, and some are
 # named for an item, not a board: those go under the board their category
 # names.
 board_from_category = true
 
-# The School Committee posts with the other boards ("School Committee").
-
 # Agenda and minutes PDFs live in the network's documents bucket, not in git
-# (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID,
-# STORAGE_SECRET_ACCESS_KEY.
+# (see pipeline/documents.py).
 [storage]
 prefix = "biddeford-me"
 
@@ -140,37 +161,56 @@ prefix = "biddeford-me"
 [summaries]
 since = "2026-08-01"
 
-# To fill in: how residents can take part, per board ([participation."City
-#   Council"], [participation."School Committee"]): comment, source_title,
-#   source_url, video_title, video_url, each from the board's own rules or
-#   agendas.
-# To fill in: [[glossary]], terms that come up in this city's agendas and mean
-#   something of its own here, each from an official page. The state's and the
-#   network's terms are in its glossary already: credit enhancement agreement,
-#   executive session, M.R.S., M.R.S.A., ought to pass, abatement, ADA, CBA,
-#   CDBG, CIP, COLA, Committee of the Whole, consent agenda, first reading,
-#   mill rate, quitclaim deed, receive and file, Select Board, tabled, TIF,
-#   town meeting, variance, warrant article.
+# How residents can take part, per board, shown on its meeting pages. Only
+# what the city or the school department has published; each entry names its
+# source. The council's meetings are streamed and recorded on the city's
+# CivicClerk portal ("Meeting Videos, Agendas and Minutes", on the council's
+# page).
+[participation."City Council"]
+comment = "Anyone may speak on an agenda item at its public hearing, or at its first or second reading, after the item is introduced and before the Council deliberates. On city business not on the agenda, anyone may speak in the Public Addressing the Council periods: at the start of the meeting for up to three minutes, and at the end for up to five. Speakers give their name and address, in person or by raising a hand on Teams."
+source_title = "Participating in City Council Meetings"
+source_url = "https://www.biddefordmaine.org/3290/Participating-in-City-Council-Meetings"
+video_title = "the city's CivicClerk portal"
+video_url = "https://biddefordme.portal.civicclerk.com/?category_id=26"
 
-# Schools: the Department of Education's ESSA Dashboard.
+# From the committee's agendas, which end with a Public Participation period
+# ("3 minutes; any item").
+[participation."School Committee"]
+comment = "Anyone may speak for up to three minutes, on any item, during the Public Participation period near the end of each meeting."
+source_title = "School Committee agenda of October 28, 2026"
+source_url = "https://docs.google.com/document/d/1lA_EpH9qo9-XJoEysqT0PGIMdv4tPGzS3yRS4JudaAI/edit?usp=sharing"
+
+# Terms that come up on agendas and minutes, explained on each meeting page
+# where they appear. Acronyms match exactly; other terms ignore case. An entry
+# with bodies is shown only on those boards' meetings. From the city's
+# Participating in City Council Meetings page.
+[[glossary]]
+term = "Public Addressing the Council"
+bodies = ["City Council"]
+definition = "The two periods, at the start and the end of each City Council meeting, when anyone may speak to the Council on city business that isn't on the agenda: 15 minutes at the start, three minutes a speaker, and at the end five minutes a speaker."
+
+# Schools: the Department of Education's ESSA Dashboard, where the district is
+# "Biddeford Public Schools"; the district calls itself Biddeford Schools on
+# its website (biddefordschools.me).
 [schools]
 doe_district = "Biddeford Public Schools"
-district_name = "Biddeford Public Schools"
+district_name = "Biddeford Schools"
 
 # Tax rate, property tax, and the city's budget (pipeline/states/me/), from
-# Maine Revenue Services' figures; the average single-family bill is
-# calculated from them and the Maine GeoLibrary's parcel table.
+# Maine Revenue Services' figures, where the city is "BIDDEFORD". The city's
+# own budget books are on its Budget Information page, a page for each fiscal
+# year's documents.
 [finance]
 mrs_municipality = "Biddeford"
-# To fill in: budget_documents_url, the page where the city posts its own
-#   budget books, which the budget page links (leave it out if there's none).
+budget_documents_url = "https://www.biddefordmaine.org/2361/Budget-Information"
 # No average single-family tax bill: the town's rows in the Maine GeoLibrary
 # parcel table (GEOCODE 31050) all have land use "0", so its homes can't be
 # picked out, and the tax bill's keys (megis_geocode, single_family_use) are
 # left out.
 
 # Housing: Census building permits (state and place FIPS codes), American
-# Community Survey through Census Reporter (geo ids).
+# Community Survey through Census Reporter (geo ids). Biddeford is a Census
+# place, Biddeford city (23-04860).
 [housing]
 bps_place = "04860"
 census_geo = "16000US2304860"
@@ -189,55 +229,94 @@ sources = [
   { label = "Meetings (CivicClerk)", file = "meetings/status.json", max_days = 2 },
 ]
 
-# To fill in: [seeclickfix], with the city's organization ID, once a person
-#   has confirmed the city uses it (the issues listing needs a login now; the
-#   Open311 listing at seeclickfix.com/open311/v2/<id>/services.json names its
-#   request types), and the 311 section and its [freshness] sources (with 311
-#   the tagline can say "responds, decides, and spends", as Gloucester's,
-#   Malden's, and Methuen's do); or, if the city takes requests some other
-#   way, [absences] 311 saying so. SeeClickFix's places: Biddeford, place 9357
-#   (https://seeclickfix.com/biddeford).
+# The city takes requests and comments through forms on its website (its
+# Service Request / Comment page), which publish nothing.
+[absences]
+311 = "The city takes requests and comments through forms on its own website, which have no public data."
 
 # Who represents you (the Officials page). Kept by hand from official city and
-# school websites; checked is the date the list was last checked against them.
-# Only city- and school-issued email addresses, and the mayor's office phone.
+# school websites and records; checked is the date the list was last checked
+# against them. Only city- and school-issued email addresses, and the mayor's
+# office phone. Seven of the council's seats are elected by ward; the mayor,
+# the two at-large councilors and the School Committee are elected citywide.
+# The ward file is data/static/biddeford-wards-2021.geojson: the seven wards
+# of the city's 2021 reapportionment, from its GIS ("Biddeford City Council
+# Wards", on its GIS Data Catalog page), with 2020 population from the census
+# blocks inside each ward (22,552 in all, the city's 2020 count). The mayor,
+# the council and the School Committee are elected together every two years,
+# in odd years (the City Clerk's election results), and sworn in on the first
+# Tuesday after the first Monday in December (the council's Wards &
+# Composition page and the mayor's page); a Ward 4 councilor appointed in
+# 2026 serves "for a term to expire December 7, 2027" (Order 2026.125).
 [officials]
-# To fill in: checked, the date the list below was checked against official
-#   pages.
-# To fill in: next_election, the date of the town's next regular municipal
-#   election, from the city's election calendar or its charter.
-# To fill in: wards_file, the town's wards (ADDING-A-TOWN.md, step 3), or none
-#   if every seat is elected townwide.
+checked = "2026-11-01"
+# The next regular municipal election: Tuesday, November 2, 2027, the first
+# Tuesday after the first Monday in November of the next odd year, as were
+# those of November 4, 2025 and November 7, 2023 (the City Clerk's results).
+# The election of November 3, 2026 is for state and county offices and a
+# county question only (the City Clerk's Election Information page). Up in
+# 2027: the mayor, every council seat and every School Committee seat.
+next_election = "2027-11-02"
+wards_file = "biddeford-wards-2021.geojson"
+wards_publisher = "the City of Biddeford"
+wards_year = 2021
+wards_url = "https://services5.arcgis.com/QWn8PC1cSwbsBBh6/arcgis/rest/services/Wards/FeatureServer/0"
 
-# To fill in: the Mayor, from the city's and the school district's own pages,
-#   confirmed against the last election's official results (ADDING-A-TOWN.md,
-#   step 4). Never from news sites or memory.
-# [[officials.bodies]]
-# name = "Mayor"
-# url = ""
-# note = ""
-# members = [
-#   { name = "", seat = "" },
-# ]
+# Elected on November 4, 2025 (the City Clerk's certified results), sworn in
+# on December 2, 2025 (the mayor's page). The mayor also chairs the School
+# Committee.
+[[officials.bodies]]
+name = "Mayor"
+url = "https://www.biddefordmaine.org/2276/Office-of-the-Mayor"
+note = "Elected citywide for two years."
+members = [
+  { name = "Liam LaFountain", seat = "Citywide", term_ends = "2027-12", email = "liam.lafountain@biddefordmaine.org", phone = "(207) 286-9385" },
+]
 
-# To fill in: the City Council, from the city's and the school district's own
-#   pages, confirmed against the last election's official results
-#   (ADDING-A-TOWN.md, step 4). Never from news sites or memory.
-# [[officials.bodies]]
-# name = "City Council"
-# url = ""
-# note = ""
-# members = [
-#   { name = "", seat = "" },
-# ]
+# Names and seats from the council's page and each councilor's page,
+# confirmed against the City Clerk's certified results of November 4, 2025
+# (Abigail Woods is "Cioffi-Woods, Abigail" and Jake Pierson "Pierson, Jacob"
+# on them) and the roll call of the council's minutes of March 17, 2026. The
+# council elected Councilor Beaupre its president on December 16, 2025 (its
+# minutes). The councilor elected for Ward 4 in 2025 left the seat; the mayor
+# appointed Jessica Muise on September 1, 2026 to complete the term (Order
+# 2026.125), and the council's page lists her.
+[[officials.bodies]]
+name = "City Council"
+url = "https://www.biddefordmaine.org/2437/City-Council"
+note = "Nine councilors: seven elected by ward and two at-large, for two years. The council elects one of its members as its president."
+members = [
+  { name = "Patricia Boston", seat = "Ward 1", ward = 1, term_ends = "2027-12", email = "patricia.boston@biddefordmaine.org", url = "https://www.biddefordmaine.org/2937/Patricia-Boston-Ward-1" },
+  { name = "Abigail Woods", seat = "Ward 2", ward = 2, term_ends = "2027-12", email = "abigail.woods@biddefordmaine.org", url = "https://www.biddefordmaine.org/3251/Abigail-Woods-Ward-2" },
+  { name = "Roger P. Beaupre", seat = "Ward 3", ward = 3, role = "Council President", term_ends = "2027-12", email = "rogerp.beaupre@biddefordmaine.org", url = "https://www.biddefordmaine.org/3252/Roger-P-Beaupre-Ward-3" },
+  { name = "Jessica Muise", seat = "Ward 4", ward = 4, role = "Appointed September 2026 to fill a vacancy", term_ends = "2027-12", email = "jessica.muise@biddefordmaine.org", url = "https://www.biddefordmaine.org/3253/Jessica-Muise-Ward-4" },
+  { name = "David Kurtz", seat = "Ward 5", ward = 5, term_ends = "2027-12", email = "david.kurtz@biddefordmaine.org", url = "https://www.biddefordmaine.org/2450/David-Kurtz-Ward-5" },
+  { name = "Jake Pierson", seat = "Ward 6", ward = 6, term_ends = "2027-12", email = "jacob.pierson@biddefordmaine.org", url = "https://www.biddefordmaine.org/2451/Jake-Pierson-Ward-6" },
+  { name = "Brad Cote", seat = "Ward 7", ward = 7, term_ends = "2027-12", email = "brad.cote@biddefordmaine.org", url = "https://www.biddefordmaine.org/3254/Brad-Cote-Ward-7" },
+  { name = "Marc Lessard", seat = "At-large", term_ends = "2027-12", email = "marc.lessard@biddefordmaine.org", url = "https://www.biddefordmaine.org/2464/Marc-Lessard-Councilor-At-Large" },
+  { name = "Lisa Vadnais", seat = "At-large", term_ends = "2027-12", email = "lisa.vadnais@biddefordmaine.org", url = "https://www.biddefordmaine.org/2936/Lisa-Vadnais-Councilor-At-Large" },
+]
 
-# To fill in: the School Committee, from the city's and the school district's
-#   own pages, confirmed against the last election's official results
-#   (ADDING-A-TOWN.md, step 4). Never from news sites or memory.
-# [[officials.bodies]]
-# name = "School Committee"
-# url = ""
-# note = ""
-# members = [
-#   { name = "", seat = "" },
-# ]
+# From the school department's School Committee page (members, officers, and
+# school-issued email addresses) and the members listed on the committee's
+# agenda of October 28, 2026, confirmed against the City Clerk's certified
+# results of November 4, 2025, when all seven seats were on the ballot. Meagan
+# Desjardins, elected then, resigned in August 2026 (the committee's agenda of
+# August 12, 2026); the committee filled the seat on September 9, 2026 (its
+# agenda), and Patsy Gendron is listed from its agenda of September 23, 2026.
+# No page the city or the school department publishes gives the members'
+# terms, so term_ends is left out.
+[[officials.bodies]]
+name = "School Committee"
+url = "https://www.biddefordschools.me/o/biddeford/page/members"
+note = "Seven members elected at-large, and the mayor as chair."
+members = [
+  { name = "Liam LaFountain", seat = "Mayor", role = "Chair", term_ends = "2027-12", email = "liam.lafountain@biddefordmaine.org" },
+  { name = "Marie Potvin", seat = "At-large", role = "Vice Chair", email = "mpotvin@biddefordschools.me" },
+  { name = "Amy Clearwater", seat = "At-large", email = "aclearwater@biddefordschools.me" },
+  { name = "Patsy Gendron", seat = "At-large", role = "Appointed September 2026 to fill a vacancy", email = "pgendron@biddefordschools.me" },
+  { name = "Emily Henley", seat = "At-large", email = "ehenley@biddefordschools.me" },
+  { name = "Michele Landry", seat = "At-large", email = "michele.landry@biddefordschools.me" },
+  { name = "Karen Ruel", seat = "At-large", email = "kruel@biddefordschools.me" },
+  { name = "Timothy Stebbins", seat = "At-large", email = "tstebbins@biddefordschools.me" },
+]
