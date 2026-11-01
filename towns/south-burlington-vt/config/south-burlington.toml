@@ -1,0 +1,252 @@
+# Site configuration for South Burlington, Vermont. Everything town-specific
+# lives here; the code is the Publick engine
+# (github.com/publick-org/publick-engine).
+#
+# Started on 2026-11-01 by the engine's helper (python -m pipeline.new_town),
+# from Methuen's config.
+# To fill in: what the city uses for meetings, minutes, 311, and its school
+#   board, in a few sentences, as other towns' configs begin.
+#
+# The site is in English and Spanish ([site] languages), as every town's is.
+# The first runs draft the Spanish for the town's own text; [strings.es], at
+# the end, can correct it.
+
+[site]
+name = "South Burlington Publick"
+# The masthead shows name_prefix in dark ink and name_suffix in the accent
+# color: the town, then the network.
+name_prefix = "South Burlington "
+domain = "south-burlington-vt.publick.org"
+tagline = "Public data on how South Burlington, Vermont decides and spends. Updated daily."
+# One line under the name at the top of every page.
+masthead = "An independent guide to city government in South Burlington, Vermont"
+# Public contact address. Shown on the About and Accessibility pages when set.
+contact_email = "south-burlington-vt@publick.org"
+user_agent = "south-burlington-vt.publick.org (+https://south-burlington-vt.publick.org/about/)"
+
+# From the city website's stylesheets (www.southburlingtonvt.gov): its two
+# most used blues (129 and 108 uses); the most used of another hue (35 uses);
+# primary_soft a light tint of primary. Each passes WCAG AA on white (5.5,
+# 9.6, 5.3 to 1).
+# To fill in: check the colors against the city's website.
+[site.colors]
+primary = "#3a6f8e"
+primary_dark = "#26495e"
+primary_soft = "#ebf1f4"
+accent = "#387930"
+
+[town]
+name = "South Burlington"
+state_abbr = "VT"
+official_site = "https://www.southburlingtonvt.gov"
+
+# Sections appear in the main navigation in this order. Each one is a folder
+# under site/pages/<slug>/ and is served at https://<domain>/<slug>/.
+[[sections]]
+slug = "meetings"
+title = "Meetings"
+summary = "Every board and committee meeting on the city calendar and in its Agenda Center, with agendas, and minutes from January 2026 on."
+status = "live"
+
+[[sections]]
+slug = "schools"
+title = "Schools"
+summary = "Graduation, attendance, and MCAS results compared with the state."
+status = "live"
+
+[[sections]]
+slug = "budget"
+title = "City budget"
+nav = "Budget"
+summary = "Where general fund money comes from and how it is spent, reserves, and the property tax limit."
+status = "live"
+
+[[sections]]
+slug = "housing"
+title = "Housing"
+summary = "New homes permitted, home values and rents, affordable housing, and the housing stock."
+status = "live"
+
+# To fill in: the Officials page's section (below, commented out), once
+#   [officials] is filled in.
+# [[sections]]
+# slug = "officials"
+# title = "Who represents you"
+# nav = "Officials"
+# summary = "The mayor, City Council, and School Committee, by office and by ward, and how to reach them."
+# status = "live"
+
+[[sections]]
+slug = "about"
+title = "About"
+summary = "Data sources, update schedule, metric definitions, and corrections."
+status = "live"
+
+# Page view counting with GoatCounter, on the network's site; prefix is this
+# town's folder.
+[analytics]
+prefix = "south-burlington-vt"
+
+# Public meetings, from the city calendar and its Agenda Center.
+[meetings]
+base_url = "https://www.southburlingtonvt.gov"
+archive_url = "https://www.southburlingtonvt.gov/AgendaCenter"
+archive_name = "city's Agenda Center"
+# The city's site resets some connections (4 of the helper's); a slower pace
+# and the client's retries help.
+request_delay = 5.0
+max_event_pages = 40
+
+# The city calendar, read month by month: the meetings the city lists before
+# their agendas are posted, with their times and places. Read: the calendars
+# whose events, over the last three months and the next three, were mostly
+# meetings. Not read: Board of Abatement, Charter Committee, Conversation with
+# a Councilor, Events, Main Calendar, Pension Advisory Committee, Police Chief
+# Recruitment, Public Works, Recreation Adult Drop-in Sports, Recreation
+# Calendar, Safe Routes to School Task Force, Steering Committee.
+[meetings.civicplus]
+calendars = ["Bicycle & Pedestrian Committee", "Board of Civil Authority", "City Council Meetings", "Development Review Board", "Economic Development Committee", "Energy Committee", "Housing Committee", "Library Board of Trustees", "Library Communications", "Library Governance and Nominating Committee", "Natural Resources and Conservation Committee", "Planning Commission", "Public Art Committee", "Recreation and Parks Committee", "Sextons Committee"]
+# A meeting on the calendar and in the Agenda Center is shown once.
+# To fill in: check the calendars read, and any left out that list meetings.
+
+[meetings.aliases]
+# To fill in: board names the engine doesn't fix itself: a calendar meeting
+#   next to an Agenda Center one of the same day, not shown as one, needs an
+#   alias (python -m pipeline.listings, in the report).
+
+[meetings.agenda_center]
+base_url = "https://www.southburlingtonvt.gov"
+# The first run lists meetings from here, and minutes are collected from here
+# on.
+since = "2026-01-01"
+
+# To fill in: [meetings.agenda_center.committees."<category>"]: committees and
+#   other bodies posted under another's category, each by a phrase in its
+#   titles: under "Library Board of Trustees", "Library Board of Trustees
+#   Advisory Committee", "Library Board of Trustees Finance Committee
+#   Meeting", "Library Board of Trustees Advisory Committee Meeting"; under
+#   "Bicycle & Pedestrian Committee", "Joint South Burlington Bicycle &
+#   Pedestrian Committee and Burlington Walk Bike Council Meeting"; under
+#   "City Council", "City Council Meeting - Joint with Planning Commission";
+#   under "Library Communications Committee", "South Burlington Library Board
+#   Agenda"; under "Natural Resources & Conservation Committee", "Natural
+#   Resources and Conservation Commission"; under "Planning Commission",
+#   "Planning Commission Meeting - Joint with City Council".
+
+# To fill in: the School Committee's meetings: where the district posts them
+#   ([ical_meetings], [page_meetings], [finalsite_meetings], [drive_meetings],
+#   [diligent_meetings], [opengov_meetings]), named in the Meetings section's
+#   summary and in [freshness] sources; a platform the engine doesn't read is
+#   left out and said so (ADDING-A-TOWN.md, step 1).
+
+# Agenda and minutes PDFs live in the network's documents bucket, not in git
+# (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID,
+# STORAGE_SECRET_ACCESS_KEY.
+[storage]
+prefix = "south-burlington-vt"
+
+# Plain-English agenda text and previews, and decisions from minutes, written
+# by a language model and labeled as AI-generated on the site. Only meetings
+# from `since` on are summarized, about three months before launch, so the
+# town's history doesn't take the month's budget.
+[summaries]
+since = "2026-08-01"
+
+# To fill in: how residents can take part, per board ([participation."City
+#   Council"], [participation."School Committee"]): comment, source_title,
+#   source_url, video_title, video_url, each from the board's own rules or
+#   agendas.
+# To fill in: [[glossary]], terms that come up in this city's agendas and mean
+#   something of its own here, each from an official page. The state's and the
+#   network's terms are in its glossary already: executive session, grand
+#   list, Town Meeting Day, VSA, abatement, ADA, CBA, CDBG, CIP, COLA,
+#   Committee of the Whole, consent agenda, first reading, mill rate,
+#   quitclaim deed, receive and file, Select Board, tabled, TIF, town meeting,
+#   variance, warrant article.
+
+# School figures from the Vermont Agency of Education.
+[schools]
+aoe_org = "SU016"
+aoe_lea = "T191"
+district_name = "South Burlington School District"
+
+# Tax rates, property tax, and the average homestead tax bill
+# (pipeline/states/vt/), from the Vermont Department of Taxes' Property
+# Valuation and Review (PVR) figures and VCGI's statewide parcel data.
+[finance]
+pvr_town = "South Burlington"
+# To fill in: budget_documents_url, the page where the city posts its own
+#   budget books, which the budget page links (leave it out if there's none).
+
+# Housing: Census building permits (state and place FIPS codes), American
+# Community Survey through Census Reporter (geo ids).
+[housing]
+bps_place = "66175"
+census_geo = "16000US5066175"
+
+# Unemployment rate (BLS Local Area Unemployment Statistics, area
+# CT5066175000000, South Burlington city, VT). City rates are not seasonally
+# adjusted; the state series is shown for context.
+[labor]
+local_series = "LAUCT506617500000003"
+
+# How often each data source should update. Figures published monthly or
+# yearly are judged by the engine, by the period they cover
+# (pipeline/rhythms.py).
+[freshness]
+sources = [
+  { label = "Meetings (Agenda Center)", file = "meetings/status.json", max_days = 2 },
+]
+
+# To fill in: [seeclickfix], with the city's organization ID, once a person
+#   has confirmed the city uses it (the issues listing needs a login now; the
+#   Open311 listing at seeclickfix.com/open311/v2/<id>/services.json names its
+#   request types), and the 311 section and its [freshness] sources (with 311
+#   the tagline can say "responds, decides, and spends", as Gloucester's,
+#   Malden's, and Methuen's do); or, if the city takes requests some other
+#   way, [absences] 311 saying so. SeeClickFix's places: South Burlington,
+#   place 71429 (https://seeclickfix.com/south-burlington).
+
+# Who represents you (the Officials page). Kept by hand from official city and
+# school websites; checked is the date the list was last checked against them.
+# Only city- and school-issued email addresses, and the mayor's office phone.
+[officials]
+# To fill in: checked, the date the list below was checked against official
+#   pages.
+# To fill in: next_election, the date of the town's next regular municipal
+#   election, from the city's election calendar or its charter.
+# To fill in: wards_file, the town's wards (ADDING-A-TOWN.md, step 3), or none
+#   if every seat is elected townwide.
+
+# To fill in: the Mayor, from the city's and the school district's own pages,
+#   confirmed against the last election's official results (ADDING-A-TOWN.md,
+#   step 4). Never from news sites or memory.
+# [[officials.bodies]]
+# name = "Mayor"
+# url = ""
+# note = ""
+# members = [
+#   { name = "", seat = "" },
+# ]
+
+# To fill in: the City Council, from the city's and the school district's own
+#   pages, confirmed against the last election's official results
+#   (ADDING-A-TOWN.md, step 4). Never from news sites or memory.
+# [[officials.bodies]]
+# name = "City Council"
+# url = ""
+# note = ""
+# members = [
+#   { name = "", seat = "" },
+# ]
+
+# To fill in: the School Committee, from the city's and the school district's
+#   own pages, confirmed against the last election's official results
+#   (ADDING-A-TOWN.md, step 4). Never from news sites or memory.
+# [[officials.bodies]]
+# name = "School Committee"
+# url = ""
+# note = ""
+# members = [
+#   { name = "", seat = "" },
+# ]
