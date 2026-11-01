@@ -1,10 +1,10 @@
 {
   "headline": "Se instruyó al personal a iniciar un presupuesto de inversión estratégica para el año fiscal 2028, 4-0; la agenda de consentimiento (consent agenda) también se aprobó, 4-0.",
-  "summary": "El concejo escuchó una presentación de una persona integrante de la coalición Tax the Rich to Fund Vermont. Esa persona pidió el apoyo del concejo para una medida para la votación de la asamblea municipal (town meeting). El concejo también revisó actualizaciones de metas y habló sobre formas de involucrar a residentes en el presupuesto del año fiscal 2028. El concejo aprobó la agenda de consentimiento y dio instrucciones al personal para iniciar un presupuesto de inversión estratégica.",
+  "summary": "El Concejo Municipal escuchó una presentación de una persona integrante de la coalición Tax the Rich to Fund Vermont. Esa persona pidió el apoyo del concejo para una medida para la votación de la asamblea municipal (town meeting). También revisó actualizaciones de metas y habló sobre formas de involucrar a residentes en el presupuesto del año fiscal 2028. El concejo aprobó la agenda de consentimiento y dio instrucciones al personal para iniciar un presupuesto de inversión estratégica.",
   "decisions": [
-    "Se aprobó la agenda de consentimiento, que incluye las actas de reuniones anteriores, las órdenes de pago de nómina y de cuentas por pagar, los informes y las designaciones de VLCT, 4-0.",
+    "Se aprobó la agenda de consentimiento, que incluye las actas anteriores, las órdenes de pago de nómina y de cuentas por pagar, los informes y las designaciones de VLCT, 4-0.",
     "Se instruyó a Wang, gerente municipal, y al personal a iniciar el trabajo del presupuesto de inversión estratégica del año fiscal 2028, 4-0.",
-    "No se presentó ninguna moción sobre la participación del concejo en el presupuesto de la ciudad, porque el concejo decidió que no era necesaria."
+    "No se tomó ninguna medida sobre la participación del concejo en el presupuesto de la ciudad, porque el concejo decidió que no era necesaria."
   ],
   "decision_titles": [
     "Agenda de consentimiento: actas, órdenes de pago, informes y designaciones de VLCT",
@@ -16,16 +16,17 @@
   "source_sha256": "bcd85debbb2ebefd07d393c2999f395cbc2d724a58242e624bb1c930514684c9",
   "source_hash": "d2abb8a1f5682d862e046d740717588b2ceb9846c05babb316e443e2665de4ea",
   "check": "ok",
-  "review": "decisions 3: The English says no motion was \"taken\" (no action was taken). The Spanish says \"No se presentó ninguna moción\" (no motion was presented), which changes the meaning. It should say that no moción was voted on or acted on.",
-  "attempts": 1,
+  "review": "summary: \"El Concejo Municipal\" and \"town meeting\" are fine, but the English says the council \"heard a presentation... asking for council support\"; the Spanish adds \"Esa persona\" and splits the sentence, which is acceptable. However, \"También revisó\" now has an ambiguous subject, because the preceding sentence's subject is the presenter, so it reads as if the presenter reviewed goal updates and discussed budget involvement instead of the council.",
+  "attempts": 2,
   "model": "claude-haiku-5-5",
   "prompt_version": 7,
   "glossary": "f0d471d0fa31d5b9",
-  "generated_at": "2026-11-01T17:52:18-05:00",
+  "generated_at": "2026-11-01T17:56:37-05:00",
   "usage": {
-    "input_tokens": 448,
-    "output_tokens": 4577,
+    "input_tokens": 1156,
+    "output_tokens": 2950,
     "cache_read_input_tokens": 2831
   },
-  "cost": 0.006218
+  "cost": 0.006218,
+  "replaced_cost": 0.006218
 }
