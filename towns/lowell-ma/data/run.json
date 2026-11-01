@@ -1,46 +1,46 @@
 {
   "town": "lowell",
   "folder": "lowell-ma",
-  "started_at": "2026-10-31T22:21:35+00:00",
-  "finished_at": "2026-10-31T22:23:29+00:00",
-  "engine": "v1.77.0",
+  "started_at": "2026-11-01T12:26:41+00:00",
+  "finished_at": "2026-11-01T12:27:51+00:00",
+  "engine": "v1.80.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 49.7
+      "seconds": 27.8
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 11.9
+      "seconds": 7.2
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 49.3
+      "seconds": 31.8
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 18.6
+      "seconds": 2.1
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.7
+      "seconds": 0.8
     }
   ],
   "update": {
     "town": "lowell",
     "sources": "meetings",
-    "started_at": "2026-10-31T22:21:35+00:00",
+    "started_at": "2026-11-01T12:26:42+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.7,
+        "seconds": 1.4,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.9,
+        "seconds": 0.7,
         "cadence": "continuous"
       },
       {
@@ -127,7 +127,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 45.7,
+        "seconds": 24.6,
         "cadence": "continuous"
       },
       {
@@ -146,7 +146,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 4 days ago; checked every 7 days"
+        "skipped": "checked 5 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -173,14 +173,14 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 3 days ago; checked every 7 days"
+        "skipped": "checked 4 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.2,
         "cadence": "continuous"
       },
       {
@@ -188,7 +188,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.2,
         "cadence": "continuous"
       },
       {
@@ -215,7 +215,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-31T18:21:36-04:00",
+      "updated_at": "2026-11-01T07:26:42-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -303,9 +303,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-01T12:22:18+00:00",
-  "data_bytes": 2462445,
-  "data_bytes_added": 128,
+  "last_good_at": "2026-11-01T12:27:51+00:00",
+  "data_bytes": 2464340,
+  "data_bytes_added": 922,
   "activity": {
     "boards": 40,
     "meetings_by_date": {
@@ -325,7 +325,5 @@
     "held_back": 15,
     "entries_not_shown": 65,
     "vote_counts_left_out": 133
-  },
-  "published_at": "2026-11-01T12:22:18+00:00",
-  "published_engine": "v1.80.0"
+  }
 }
