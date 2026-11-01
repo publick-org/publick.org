@@ -1,0 +1,277 @@
+# Site configuration for Bristol, Connecticut. Everything town-specific lives
+# here; the code is the Publick engine
+# (github.com/publick-org/publick-engine).
+#
+# Started on 2026-11-01 by the engine's helper (python -m pipeline.new_town),
+# from Medford's config.
+# To fill in: what the city uses for meetings, minutes, 311, and its school
+#   board, in a few sentences, as other towns' configs begin.
+#
+# The site is in English and Spanish ([site] languages), as every town's is.
+# The first runs draft the Spanish for the town's own text; [strings.es], at
+# the end, can correct it.
+
+[site]
+name = "Bristol Publick"
+# The masthead shows name_prefix in dark ink and name_suffix in the accent
+# color: the town, then the network.
+name_prefix = "Bristol "
+domain = "bristol-ct.publick.org"
+tagline = "Public data on how Bristol, Connecticut decides and spends. Updated daily."
+# One line under the name at the top of every page.
+masthead = "An independent guide to city government in Bristol, Connecticut"
+# Public contact address. Shown on the About and Accessibility pages when set.
+contact_email = "bristol-ct@publick.org"
+user_agent = "bristol-ct.publick.org (+https://bristol-ct.publick.org/about/)"
+
+# From the city website's stylesheets (www.bristolct.gov): its two most used
+# blues (32 and 15 uses); the most used of another hue (24 uses); primary_soft
+# a light tint of primary. Each passes WCAG AA on white (9.7, 9.8, 6.2 to 1).
+# To fill in: check the colors against the city's website.
+[site.colors]
+primary = "#07467c"
+primary_dark = "#06457b"
+primary_soft = "#e6ecf2"
+accent = "#137038"
+
+[town]
+name = "Bristol"
+state_abbr = "CT"
+official_site = "https://www.bristolct.gov"
+
+# Sections appear in the main navigation in this order. Each one is a folder
+# under site/pages/<slug>/ and is served at https://<domain>/<slug>/.
+[[sections]]
+slug = "meetings"
+title = "Meetings"
+summary = "When the City Council, its committees, and the city's boards and commissions meet, with agendas, and minutes from January 2026 on."
+status = "live"
+
+[[sections]]
+slug = "schools"
+title = "Schools"
+summary = "Graduation, attendance, and MCAS results compared with the state."
+status = "live"
+
+[[sections]]
+slug = "budget"
+title = "City budget"
+nav = "Budget"
+summary = "Where general fund money comes from and how it is spent, reserves, and the property tax limit."
+status = "live"
+
+[[sections]]
+slug = "housing"
+title = "Housing"
+summary = "New homes permitted, home values and rents, affordable housing, and the housing stock."
+status = "live"
+
+# To fill in: the Officials page's section (below, commented out), once
+#   [officials] is filled in.
+# [[sections]]
+# slug = "officials"
+# title = "Who represents you"
+# nav = "Officials"
+# summary = "The mayor, City Council, and School Committee, by office and by ward, and how to reach them."
+# status = "live"
+
+[[sections]]
+slug = "about"
+title = "About"
+summary = "Data sources, update schedule, metric definitions, and corrections."
+status = "live"
+
+# Page view counting with GoatCounter, on the network's site; prefix is this
+# town's folder.
+[analytics]
+prefix = "bristol-ct"
+
+# Public meetings, from its CivicClerk portal.
+[meetings]
+calendar_url = "https://bristolct.portal.civicclerk.com"
+archive_url = "https://bristolct.portal.civicclerk.com"
+archive_name = "city's CivicClerk portal"
+# The city's site resets some connections (4 of the helper's); a slower pace
+# and the client's retries help.
+request_delay = 5.0
+max_event_pages = 40
+# To fill in: check each of the portal's categories below is a public body,
+#   named as the city names it, and leave out any that isn't (those named for
+#   the meetings under its catch-all category, each named at least twice,
+#   included).
+boards = [
+  "American Rescue Plan Task Force",
+  "Animal Control Building Committee",
+  "Aquifer Protection Agency",
+  "Board of Assessment Appeals",
+  "Board of Ethics",
+  "Board of Finance",
+  "Board of Fire Commissioners",
+  "Board of Health",
+  "Board of Park Commissioners",
+  "Board of Police Commissioners",
+  "Board of Public Works",
+  "Board of Water Commissioners",
+  "Capital Improvement and Strategic Planning Committee",
+  "Cemetery Commission",
+  "Citation Hearings",
+  "City Arts & Culture Commission",
+  "City Council",
+  "Code Enforcement Committee",
+  "Commission for Persons with Disabilities",
+  "Commission on Aging",
+  "Conservation Commission/ Inland Wetlands & Watercourses Agency",
+  "Diversity Council",
+  "Economic and Community Development",
+  "Energy Commission",
+  "Fair Rent Commission",
+  "Fire Station 3 Building Committee",
+  "Historic District Commission",
+  "Joint Meeting of the City Council and Board of Finance",
+  "Library Board of Directors",
+  "Mayor's Opioid Task Force",
+  "Opioid Task Force",
+  "Ordinance Committee",
+  "Parking Authority",
+  "Planning Commission",
+  "Police Awards Committee",
+  "Police Commission",
+  "Real Estate Committee",
+  "Retirement Board",
+  "Salary Committee",
+  "School Readiness Council",
+  "Sewer Commissioners",
+  "Storm Water Trust",
+  "Transportation Commission",
+  "Tree",
+  "Youth Commission",
+  "Zoning Board of Appeals",
+  "Zoning Commission",
+]
+
+[meetings.aliases]
+# To fill in: board names the engine doesn't fix itself: a calendar meeting
+#   next to an Agenda Center one of the same day, not shown as one, needs an
+#   alias (python -m pipeline.listings, in the report).
+
+[meetings.civicclerk]
+api_url = "https://bristolct.api.civicclerk.com/v1"
+portal_url = "https://bristolct.portal.civicclerk.com"
+# Meetings, agendas, and minutes are collected from here on.
+since = "2026-01-01"
+# Most of the portal's meetings are under a catch-all category, and some are
+# named for an item, not a board: those go under the board their category
+# names.
+board_from_category = true
+
+# To fill in: the School Committee's meetings: where the district posts them
+#   ([ical_meetings], [page_meetings], [finalsite_meetings], [drive_meetings],
+#   [diligent_meetings], [opengov_meetings]), named in the Meetings section's
+#   summary and in [freshness] sources; a platform the engine doesn't read is
+#   left out and said so (ADDING-A-TOWN.md, step 1).
+
+# Agenda and minutes PDFs live in the network's documents bucket, not in git
+# (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID,
+# STORAGE_SECRET_ACCESS_KEY.
+[storage]
+prefix = "bristol-ct"
+
+# Plain-English agenda text and previews, and decisions from minutes, written
+# by a language model and labeled as AI-generated on the site. Only meetings
+# from `since` on are summarized, about three months before launch, so the
+# town's history doesn't take the month's budget.
+[summaries]
+since = "2026-08-01"
+
+# To fill in: how residents can take part, per board ([participation."City
+#   Council"], [participation."School Committee"]): comment, source_title,
+#   source_url, video_title, video_url, each from the board's own rules or
+#   agendas.
+# To fill in: [[glossary]], terms that come up in this city's agendas and mean
+#   something of its own here, each from an official page. The state's and the
+#   network's terms are in its glossary already: C.G.S., executive session,
+#   special permit, abatement, ADA, CBA, CDBG, CIP, COLA, Committee of the
+#   Whole, consent agenda, first reading, mill rate, quitclaim deed, receive
+#   and file, Select Board, tabled, TIF, town meeting, variance, warrant
+#   article.
+
+# To fill in: [schools] edsight_district, the town's district as EdSight names
+#   it (EdSight has no graduation rates for "Bristol School District": a
+#   regional district, or one without a high school), and district_name.
+
+# Budget, mill rate, and property tax (pipeline/states/ct/), from the Office
+# of Policy and Management's statewide datasets on data.ct.gov; the average
+# single-family bill is calculated from the state's yearly Parcel and CAMA
+# file.
+[finance]
+opm_town = "Bristol"
+opm_code = 17
+# To fill in: budget_documents_url, the page where the town posts its own
+#   budget books, which the budget page links (leave it out if there's none).
+
+# To fill in: [housing], the Census place or town (ADDING-A-TOWN.md, step 2):
+#   BLS's area list has no "Bristol city, CT" or "Bristol town, CT".
+
+# To fill in: [labor] local_series, from BLS's area list
+#   (download.bls.gov/pub/time.series/la/la.area).
+
+# How often each data source should update. Figures published monthly or
+# yearly are judged by the engine, by the period they cover
+# (pipeline/rhythms.py).
+[freshness]
+sources = [
+  { label = "Meetings (CivicClerk)", file = "meetings/status.json", max_days = 2 },
+]
+
+# To fill in: [seeclickfix], with the city's organization ID, once a person
+#   has confirmed the city uses it (the issues listing needs a login now; the
+#   Open311 listing at seeclickfix.com/open311/v2/<id>/services.json names its
+#   request types), and the 311 section and its [freshness] sources (with 311
+#   the tagline can say "responds, decides, and spends", as Gloucester's,
+#   Malden's, and Methuen's do); or, if the city takes requests some other
+#   way, [absences] 311 saying so. SeeClickFix's places: Bristol, place 3051
+#   (https://seeclickfix.com/bristol_2).
+
+# Who represents you (the Officials page). Kept by hand from official city and
+# school websites; checked is the date the list was last checked against them.
+# Only city- and school-issued email addresses, and the mayor's office phone.
+[officials]
+# To fill in: checked, the date the list below was checked against official
+#   pages.
+# To fill in: next_election, the date of the town's next regular municipal
+#   election, from the city's election calendar or its charter.
+# To fill in: wards_file, the town's wards (ADDING-A-TOWN.md, step 3), or none
+#   if every seat is elected townwide.
+
+# To fill in: the Mayor, from the city's and the school district's own pages,
+#   confirmed against the last election's official results (ADDING-A-TOWN.md,
+#   step 4). Never from news sites or memory.
+# [[officials.bodies]]
+# name = "Mayor"
+# url = ""
+# note = ""
+# members = [
+#   { name = "", seat = "" },
+# ]
+
+# To fill in: the City Council, from the city's and the school district's own
+#   pages, confirmed against the last election's official results
+#   (ADDING-A-TOWN.md, step 4). Never from news sites or memory.
+# [[officials.bodies]]
+# name = "City Council"
+# url = ""
+# note = ""
+# members = [
+#   { name = "", seat = "" },
+# ]
+
+# To fill in: the School Committee, from the city's and the school district's
+#   own pages, confirmed against the last election's official results
+#   (ADDING-A-TOWN.md, step 4). Never from news sites or memory.
+# [[officials.bodies]]
+# name = "School Committee"
+# url = ""
+# note = ""
+# members = [
+#   { name = "", seat = "" },
+# ]
