@@ -16,8 +16,9 @@
 # Board's meetings are listed from the town calendar only, without agendas.
 # There is no 311 section: the town takes service requests through forms on
 # its own website ([absences]). Its tax rate and tax bill are New Hampshire's
-# (the engine's pipeline/states/nh/); there is no Schools section
-# ([absences]).
+# (the engine's pipeline/states/nh/), and so are its school figures: the
+# Derry Cooperative School District's, with Pinkerton Academy's graduation
+# rate ([schools]).
 #
 # The site is in English and Spanish ([site] languages), as every town's is.
 # The first runs draft the Spanish for the town's own text; [strings.es], at
@@ -66,6 +67,12 @@ slug = "budget"
 title = "Town budget"
 nav = "Budget"
 summary = "The town's property tax rate and where the tax goes, what it raises per resident, and the average single-family tax bill."
+status = "live"
+
+[[sections]]
+slug = "schools"
+title = "Schools"
+summary = "Derry Cooperative School District's state test results and cost per pupil, and Pinkerton Academy's graduation rate, with the state's."
 status = "live"
 
 [[sections]]
@@ -210,13 +217,17 @@ definition = "The councilor the Town Council chooses for a year to preside when 
 term = "Derry CAM"
 definition = "Derry Community Access Media, the town's cable division, which shows government meetings and town events live and on demand, on the town's government and public access channels and online."
 
-# Schools: no [schools] table and no Schools section ([absences]). The
-# Department of Education's files in the engine (pipeline/states/nh/figures/)
-# name the district "Derry Cooperative" in the state test results and "Derry
-# Cooperative" with two spaces in cost per pupil, and give it no graduation
-# rate: Derry's high school, which the town's Schools page lists, is Pinkerton
-# Academy, which the files list on its own. The engine's New Hampshire schools
-# source reads one name in every file and needs a graduation rate.
+# School figures (pipeline/states/nh/), from the Department of Education's
+# files in the engine (pipeline/states/nh/figures/), which name the district
+# "Derry Cooperative" and give it no graduation rate: the district has no high
+# school of its own. Derry's high school, which the town's Schools page lists,
+# is Pinkerton Academy, which the files list on its own, so the graduation
+# rate is the academy's (graduation_school), and the state test results
+# (grades 3 to 8) and cost per pupil are the district's.
+[schools]
+doe_district = "Derry Cooperative"
+district_name = "Derry Cooperative School District"
+graduation_school = "Pinkerton Academy"
 
 # Tax rate, property tax, and the average single-family tax bill
 # (pipeline/states/nh/), from the New Hampshire DRA's tax rates in the
@@ -248,16 +259,15 @@ sources = [
   { label = "Meetings (Agenda Center)", file = "meetings/status.json", max_days = 2 },
 ]
 
-# The About page's "What this site doesn't cover": why there's no 311 section,
-# and no Schools section. Public Works' Service Request Forms page links the
+# The About page's "What this site doesn't cover": why there's no 311 section.
+# Public Works' Service Request Forms page links the
 # town's forms for highway, building, sewer and water requests, CivicPlus
 # forms whose requests aren't public. SeeClickFix has a place named Derry
 # (place 13778, at seeclickfix.com/derry), but on 2026-11-01 it had one
 # request, from 2017, in Salem, Massachusetts, and its Open311 listing has no
-# organization. For schools, see [schools] above.
+# organization.
 [absences]
 311 = "The town takes service requests through forms on its own website, whose requests aren't made public, so there's no data to show."
-schools = "The state's school figures that this site shows don't fit the Derry Cooperative School District: Derry's high school is Pinkerton Academy, which the state lists apart from the district, so the state gives the district no graduation rate."
 
 # Who represents you (the Officials page). Kept by hand from official town and
 # school websites; checked is the date the list was last checked against them.
