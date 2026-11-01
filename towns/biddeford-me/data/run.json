@@ -1,8 +1,8 @@
 {
   "town": "biddeford",
   "folder": "biddeford-me",
-  "started_at": "2026-11-01T22:46:20+00:00",
-  "finished_at": "2026-11-01T22:53:28+00:00",
+  "started_at": "2026-11-01T23:52:58+00:00",
+  "finished_at": "2026-11-01T23:58:01+00:00",
   "engine": "v1.83.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 365.6
+      "seconds": 248.6
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 9.8
+      "seconds": 8.9
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 43.7
+      "seconds": 41.5
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 1.8
+      "seconds": 2.2
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.8
+      "seconds": 1.4
     }
   ],
   "update": {
     "town": "biddeford",
-    "sources": "all",
-    "started_at": "2026-11-01T22:46:21+00:00",
+    "sources": "meetings",
+    "started_at": "2026-11-01T23:52:58+00:00",
     "ok": true,
     "steps": [
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 25.8,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 34.6,
+        "seconds": 1.2,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 112.1,
+        "seconds": 54.1,
         "cadence": "continuous"
       },
       {
@@ -187,7 +187,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -195,7 +195,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -214,33 +214,6 @@
         "error": null,
         "seconds": 0.3,
         "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [seeclickfix] in the config"
-      },
-      {
-        "name": "Fetch 311 requests from an open data portal",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [socrata_311] in the config"
-      },
-      {
-        "name": "Compute 311 scorecard",
-        "ok": true,
-        "required": true,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [seeclickfix] or [socrata_311] in the config"
       }
     ]
   },
@@ -249,14 +222,14 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-01T17:46:21-05:00",
+      "updated_at": "2026-11-01T18:52:58-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-01T17:49:58-05:00",
+      "updated_at": "2026-11-01T18:56:10-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -332,9 +305,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-01T23:22:53+00:00",
-  "data_bytes": 683846,
-  "data_bytes_added": 57844,
+  "last_good_at": "2026-11-01T23:58:01+00:00",
+  "data_bytes": 927177,
+  "data_bytes_added": 1032,
   "activity": {
     "boards": 41,
     "meetings_by_date": {
@@ -346,16 +319,14 @@
     }
   },
   "fact_checks": {
-    "summaries": 14,
-    "ok": 11,
-    "failed": 1,
+    "summaries": 27,
+    "ok": 24,
+    "failed": 3,
     "weak": 0,
-    "unchecked": 2,
+    "unchecked": 0,
     "not_yet": 0,
-    "held_back": 1,
-    "entries_not_shown": 2,
+    "held_back": 3,
+    "entries_not_shown": 3,
     "vote_counts_left_out": 0
-  },
-  "published_at": "2026-11-01T23:22:53+00:00",
-  "published_engine": "v1.83.0"
+  }
 }
