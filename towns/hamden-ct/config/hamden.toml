@@ -383,6 +383,17 @@ definition = "A Legislative Council or committee meeting on a fourth Monday, for
 opm_town = "Hamden"
 opm_code = 62
 single_family_use = ["1010"]
+# The town revalued its real estate for the October 1, 2024 grand list and
+# phases the increases in over four years: a quarter of each parcel's increase
+# is added to its assessment before the revaluation each year, and a decrease
+# isn't phased in (the Tax Office page, https://www.hamden.com/240/Tax-Office,
+# and its "Four-Year Phase-In of Tax Assessments Explained",
+# https://www.hamden.com/DocumentCenter/View/11715; the town's assessment
+# database, gis.vgsi.com/hamdenct, says the October 1, 2025 grand list uses
+# the second year's). The state's parcel files from 2025 on carry the full
+# new assessments, 1.77 and 1.60 times the grand list; phased in, they're 1.27
+# and 1.30 times it, as the 2024 file, before the revaluation, is 1.24.
+phase_in = { revaluation = 2024, years = 4 }
 budget_documents_url = "https://www.hamden.com/Archive.aspx?AMID=38"
 
 # School district figures from EdSight, the State Department of Education's
