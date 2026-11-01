@@ -12,10 +12,9 @@
 # meetings under the council as "One Time Event", so it isn't read: the
 # Agenda Center has the same meetings with their documents. The School
 # Committee posts its agendas and minutes as Google Drive files linked from
-# its page on the school department's website, each labelled only with the
-# meeting's date, so agendas and minutes can't be told apart; its meetings and
-# its committees' are read from the department's calendar feed
-# ([ical_meetings]), without documents. The city doesn't answer requests on
+# its page on the school department's website, and its committees on theirs
+# ([page_meetings]); the department's calendar feed lists their upcoming
+# meetings with their times ([ical_meetings]). The city doesn't answer requests on
 # SeeClickFix ([absences]). The engine's Maine package gives the tax rate and
 # the property tax, from Maine Revenue Services ([finance]), and school
 # figures, from the Department of Education's ESSA Dashboard ([schools]);
@@ -59,7 +58,7 @@ official_site = "https://www.westbrookmaine.gov"
 [[sections]]
 slug = "meetings"
 title = "Meetings"
-summary = "When the City Council and its committees, the Planning Board, the city's other boards, and the School Committee meet, with the city's agendas, and minutes from January 2026 on."
+summary = "When the City Council and its committees, the Planning Board, the city's other boards, and the School Committee meet, with their agendas, and minutes from January 2026 on."
 status = "live"
 
 [[sections]]
@@ -173,7 +172,7 @@ since = "2026-01-01"
 # Meeting", "Finance Committee Meeting", "Ed Programs Committee Meeting",
 # "Facilities Committee Meeting", "Policy Committee Meeting". The committees
 # are named as on the School Committee's page. The feed lists upcoming events
-# only; agendas are on the School Committee's page.
+# only; agendas are on the School Committee's page ([page_meetings]).
 [ical_meetings]
 ical_url = "https://thrillshare-cmsv2.services.thrillshare.com/api/v4/o/11325/cms/events/generate_ical"
 page_url = "https://www.westbrookschools.org/o/wsd/page/westbrook-school-committee"
@@ -187,6 +186,33 @@ since = "2026-10-01"
 "Educational Programs Committee" = "School Committee Educational Programs Committee"
 "Facilities Committee" = "School Committee Facilities Committee"
 "Policy Committee" = "School Committee Policy Committee"
+
+# The School Committee's agendas and minutes, and its committees', from their
+# pages on the school department's website (Apptegy). Each page has a table
+# for a school year ("Meeting Information 2025-2026"), with a row a meeting
+# and its Google Drive files each labelled only with the meeting's date, under
+# the columns "AGENDA/BACK-UP INFORMATION" and "APPROVED MINUTES" (the
+# committees': "Agenda & Information", and their reports, "Finance Meeting
+# Report", which are kept as links); the files are named so on Drive ("2026 01
+# 14 SC Agenda - Backup.pdf", "2026 01 14 SC Minutes.pdf"). Above it, a
+# "Meeting Announcement" names the next meeting and links its agenda ("The
+# Westbrook School Committee will meet on Wednesday, October 14, 2026 at 7:00
+# PM ...", "AGENDA & Back Up Informaton"), the same meeting as its row once the
+# table has it (one_meeting_a_day). Left out: the remote participation policy
+# linked under the announcement, and the Finance Committee page's budgets.
+[page_meetings]
+page_url = "https://www.westbrookschools.org/o/wsd/page/westbrook-school-committee"
+source_name = "Westbrook School Department"
+since = "2026-01-01"
+body = "School Committee"
+one_meeting_a_day = true
+exclude_pattern = 'Remote Participation|Budget Cost Centers|Warrant Articles|School Department Budget'
+
+[page_meetings.pages]
+"https://www.westbrookschools.org/o/wsd/page/finance-committee" = "School Committee Finance Committee"
+"https://www.westbrookschools.org/o/wsd/page/educational-programs-committee" = "School Committee Educational Programs Committee"
+"https://www.westbrookschools.org/o/wsd/page/facilities-committee" = "School Committee Facilities Committee"
+"https://www.westbrookschools.org/o/wsd/page/policy-committee" = "School Committee Policy Committee"
 
 # Agenda and minutes PDFs live in the network's documents bucket, not in git
 # (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID,
@@ -284,6 +310,7 @@ local_series = "LAUCT238210500000003"
 [freshness]
 sources = [
   { label = "Meetings (Agenda Center)", file = "meetings/status.json", max_days = 2 },
+  { label = "School Committee meetings (school district website)", file = "meetings/page_status.json", max_days = 2 },
 ]
 
 # The city takes Public Services requests by phone (its Public Services page,
