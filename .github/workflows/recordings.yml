@@ -21,7 +21,9 @@
 #
 # Most recordings are up the night of the meeting or the next morning. The
 # runs from early morning (US Eastern) find them, and the later ones find
-# those posted during the day.
+# those posted during the day. The publick-scheduler Worker starts each run on
+# time (wrangler.scheduler.toml); this workflow's own schedule, which GitHub
+# starts late or not at all, is the backup.
 name: Recordings
 
 on:
