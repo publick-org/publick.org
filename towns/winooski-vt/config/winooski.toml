@@ -4,12 +4,34 @@
 #
 # Started on 2026-11-01 by the engine's helper (python -m pipeline.new_town),
 # from Lowell's config.
-# To fill in: what the city uses for meetings, minutes, 311, and its school
-#   board, in a few sentences, as other towns' configs begin.
+#
+# Winooski's website runs on CivicPlus, and every city body posts its agendas
+# and minutes in the Agenda Center: the City Council (which also meets as the
+# Liquor Control Board and the Cannabis Control Commission), and the city's
+# boards, commissions, and committees. The minutes are text PDFs. The city's
+# list of upcoming meetings (winooskivt.gov/meetings) is a Timely calendar,
+# which the engine doesn't read, so a meeting is listed once its agenda is
+# posted. The Winooski School District's Board of School Trustees posts its
+# agendas and minutes on the district's website, which the engine can't read
+# yet (see the School Board below); the district's figures come from the state
+# ([schools]). The city has no public 311 system ([absences]). The engine's
+# Vermont package gives the tax rates, what the property tax raises, and the
+# average homestead tax bill, from the Department of Taxes ([finance]), and
+# school figures, from the Agency of Education; housing and unemployment come
+# from the Census and BLS, as for every town.
+#
+# Winooski has no wards: the City Council and the School Board are elected
+# at-large, and every voter votes at one polling place (the Senior Center, on
+# the city's Voting and Elections page).
 #
 # The site is in English and Spanish ([site] languages), as every town's is.
-# The first runs draft the Spanish for the town's own text; [strings.es], at
-# the end, can correct it.
+# Winooski's residents who read another language first mostly read Nepali,
+# Somali, Swahili, Arabic, and others; the city offers interpreters and
+# translated documents for any public meeting on request (the participation
+# note below), and publishes its all-resident voter application and its water
+# main break notices in several languages. The engine translates only into
+# Spanish for now. The first runs draft the Spanish for the town's own text;
+# [strings.es], at the end, can correct it.
 
 [site]
 name = "Winooski Publick"
@@ -24,10 +46,11 @@ masthead = "An independent guide to city government in Winooski, Vermont"
 contact_email = "winooski-vt@publick.org"
 user_agent = "winooski-vt.publick.org (+https://winooski-vt.publick.org/about/)"
 
-# From the city website's stylesheets (www.winooskivt.gov): its two most used
-# blues (72 and 24 uses); the most used of another hue (17 uses); primary_soft
-# a light tint of primary. Each passes WCAG AA on white (5.8, 7.1, 4.6 to 1).
-# To fill in: check the colors against the city's website.
+# From the city website's stylesheets (www.winooskivt.gov): its link blue
+# (#3c6b80, 5.8:1 on white), the darker blue of its header and headlines
+# (#005e87, 7.1:1), a light tint of the link blue, and the green of its widget
+# titles (#5c7f45, 4.6:1). Its bright blue (#0098f7, 3.1:1) doesn't pass WCAG AA
+# on white, so it isn't used.
 [site.colors]
 primary = "#3c6b80"
 primary_dark = "#005e87"
@@ -48,32 +71,30 @@ summary = "Every board and committee meeting in the city's Agenda Center, with a
 status = "live"
 
 [[sections]]
-slug = "schools"
-title = "Schools"
-summary = "Graduation, attendance, and MCAS results compared with the state."
-status = "live"
-
-[[sections]]
 slug = "budget"
 title = "City budget"
 nav = "Budget"
-summary = "Where general fund money comes from and how it is spent, reserves, and the property tax limit."
+summary = "The city's tax rates, what the property tax raises for the city and for schools, and the average homestead tax bill."
+status = "live"
+
+[[sections]]
+slug = "schools"
+title = "Schools"
+summary = "Winooski School District's graduation rate, attendance, state test results, and spending per pupil, with the state's."
 status = "live"
 
 [[sections]]
 slug = "housing"
 title = "Housing"
-summary = "New homes permitted, home values and rents, affordable housing, and the housing stock."
+summary = "New homes permitted, home values and rents, and the housing stock."
 status = "live"
 
-# To fill in: the Officials page's section (below, commented out), once
-#   [officials] is filled in.
-# [[sections]]
-# slug = "officials"
-# title = "Who represents you"
-# nav = "Officials"
-# summary = "The mayor, City Council, and School Committee, by office and by ward, and how to reach them."
-# status = "live"
+[[sections]]
+slug = "officials"
+title = "Who represents you"
+nav = "Officials"
+summary = "The mayor, the City Council, and the School Board, and how to reach them."
+status = "live"
 
 [[sections]]
 slug = "about"
@@ -86,7 +107,7 @@ status = "live"
 [analytics]
 prefix = "winooski-vt"
 
-# Public meetings, from its Agenda Center.
+# Public meetings, from the city's Agenda Center: a category for each body.
 [meetings]
 base_url = "https://www.winooskivt.gov"
 archive_url = "https://www.winooskivt.gov/AgendaCenter"
@@ -96,10 +117,11 @@ archive_name = "city's Agenda Center"
 request_delay = 5.0
 max_event_pages = 40
 
+# Agenda Center categories renamed to the board's usual name. The Board of
+# Civil Authority and the Board of Abatement share a category; a meeting is
+# the Board of Abatement's when its title says so (below).
 [meetings.aliases]
-# To fill in: board names the engine doesn't fix itself: a calendar meeting
-#   next to an Agenda Center one of the same day, not shown as one, needs an
-#   alias (python -m pipeline.listings, in the report).
+"Board of Civil Authority / Board of Abatement" = "Board of Civil Authority"
 
 [meetings.agenda_center]
 base_url = "https://www.winooskivt.gov"
@@ -107,18 +129,37 @@ base_url = "https://www.winooskivt.gov"
 # on.
 since = "2026-01-01"
 
-# To fill in: [meetings.agenda_center.committees."<category>"]: committees and
-#   other bodies posted under another's category, each by a phrase in its
-#   titles: under "Planning Commission", "Joint Planning Commission,
-#   Development Review Board Meeting"; under "Safe, Healthy, Connected People
-#   Commission", "Joint Safe, Healthy, Connected People Commission/Winooski
-#   Memorial Library Committee Meeting".
+# Joint meetings of two bodies are posted under one of their categories,
+# titled "Joint Planning Commission, Development Review Board Meeting",
+# "Joint Planning, Housing Commission Meeting", "Joint Finance, Safe,
+# Healthy, Connected People Commission Meeting", "Joint Inclusion and
+# Belonging, Safe, Healthy, Connected People Commission Meeting", and "Joint
+# Safe, Healthy, Connected People Commission/Winooski Memorial Library
+# Committee Meeting": each is a meeting of its own, named for both.
+[meetings.agenda_center.committees."Board of Civil Authority / Board of Abatement"]
+"Board of Abatement" = "Board of Abatement"
 
-# To fill in: the School Committee's meetings: where the district posts them
-#   ([ical_meetings], [page_meetings], [finalsite_meetings], [drive_meetings],
-#   [diligent_meetings], [opengov_meetings]), named in the Meetings section's
-#   summary and in [freshness] sources; a platform the engine doesn't read is
-#   left out and said so (ADDING-A-TOWN.md, step 1).
+[meetings.agenda_center.committees."Planning Commission"]
+"Development Review Board" = "Joint Planning Commission and Development Review Board"
+"Housing Commission" = "Joint Planning Commission and Housing Commission"
+
+[meetings.agenda_center.committees."Finance Commission"]
+"Safe, Healthy, Connected People Commission" = "Joint Finance Commission and Safe, Healthy, Connected People Commission"
+
+[meetings.agenda_center.committees."Inclusion and Belonging Commission"]
+"Safe, Healthy, Connected People Commission" = "Joint Inclusion and Belonging Commission and Safe, Healthy, Connected People Commission"
+
+[meetings.agenda_center.committees."Safe, Healthy, Connected People Commission"]
+"Winooski Memorial Library Committee" = "Joint Safe, Healthy, Connected People Commission and Winooski Memorial Library Committee"
+
+# The School Board (the Board of School Trustees) isn't read. The district
+# lists its agendas and its minutes on two pages of its website
+# (wsdvt.org/school-board/board-agenda/ and /board-minutes/), as Google Docs,
+# Drive files, and PDFs labelled "Agenda 10-14-2026 WSD Regular Board
+# Meeting": [page_meetings] reads a date written out or as 2026-10-14, not
+# 10-14-2026. The district's Google calendar has the board's regular meetings
+# as one repeating event (RRULE), and [ical_meetings] reads one meeting an
+# event (UID).
 
 # Agenda and minutes PDFs live in the network's documents bucket, not in git
 # (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID,
@@ -133,19 +174,40 @@ prefix = "winooski-vt"
 [summaries]
 since = "2026-08-01"
 
-# To fill in: how residents can take part, per board ([participation."City
-#   Council"], [participation."School Committee"]): comment, source_title,
-#   source_url, video_title, video_url, each from the board's own rules or
-#   agendas.
-# To fill in: [[glossary]], terms that come up in this city's agendas and mean
-#   something of its own here, each from an official page. The state's and the
-#   network's terms are in its glossary already: executive session, grand
-#   list, Town Meeting Day, VSA, abatement, ADA, CBA, CDBG, CIP, COLA,
-#   Committee of the Whole, consent agenda, first reading, mill rate,
-#   quitclaim deed, receive and file, Select Board, tabled, TIF, town meeting,
-#   variance, warrant article.
+# How residents can take part, per board, shown on its meeting pages. Only
+# what the city has published; each entry names its source. From the city's
+# "How to Attend Public Meetings" (linked from its Public Meetings page,
+# winooskivt.gov/1666/Public-Meetings), which also names Town Meeting TV as
+# where the Council's meetings are broadcast and recorded. The School Board's
+# meetings aren't on the site, so it has none.
+[participation."City Council"]
+comment = "Anyone can comment at a Council meeting, in person at City Hall or on Zoom: public comment on items not on the agenda comes near the start of the meeting, and on agenda items when they're taken up. Give your name and where you live. The city asks those who wish to comment to say so at least four hours before, on its Public Comment Request Form or by calling 802 655 6410, though it isn't required. For an interpreter or translated documents, call 802 540 1467 or email communications@winooskivt.gov."
+source_title = "the city's How to Attend Public Meetings"
+source_url = "https://www.winooskivt.gov/DocumentCenter/View/8458/Public-Meeting-Information"
+video_title = "Town Meeting TV's Winooski meetings"
+video_url = "https://www.cctv.org/watch-tv/municipalities/winooski"
 
-# School figures from the Vermont Agency of Education.
+# Terms that come up on agendas and minutes, explained on each meeting page
+# where they appear. Acronyms match exactly; other terms ignore case. The
+# Council's page (winooskivt.gov/1473/City-Council) says it also acts as the
+# Liquor Control Board and the Cannabis Control Commission, whose agendas take
+# up liquor and cannabis licenses; the charter (24 App. V.S.A. ch. 19, § 303)
+# gives the Deputy Mayor's role.
+[[glossary]]
+term = "Liquor Control Board"
+definition = "The City Council, meeting as the city's local liquor control board to act on liquor licenses for Winooski businesses."
+
+[[glossary]]
+term = "Cannabis Control Commission"
+definition = "The City Council, meeting as the city's local cannabis control commission to act on licenses for cannabis businesses in Winooski."
+
+[[glossary]]
+term = "Deputy Mayor"
+definition = "The councilor the City Council chooses from its members to act as mayor when the mayor is absent, and to become mayor if the office falls vacant until the next annual election."
+
+# School figures from the Vermont Agency of Education: the district is SU017
+# (Winooski SD) on the Education Dashboard, and T249 in the per pupil spending
+# report. It calls itself the Winooski School District (wsdvt.org).
 [schools]
 aoe_org = "SU017"
 aoe_lea = "T249"
@@ -153,11 +215,11 @@ district_name = "Winooski School District"
 
 # Tax rates, property tax, and the average homestead tax bill
 # (pipeline/states/vt/), from the Vermont Department of Taxes' Property
-# Valuation and Review (PVR) figures and VCGI's statewide parcel data.
+# Valuation and Review (PVR) figures and VCGI's statewide parcel data. The
+# city's own budgets, FY13 on, are on the Finance Department's Budgets page.
 [finance]
 pvr_town = "Winooski"
-# To fill in: budget_documents_url, the page where the city posts its own
-#   budget books, which the budget page links (leave it out if there's none).
+budget_documents_url = "https://www.winooskivt.gov/1720/Budgets"
 
 # Housing: Census building permits (state and place FIPS codes), American
 # Community Survey through Census Reporter (geo ids).
@@ -179,55 +241,77 @@ sources = [
   { label = "Meetings (Agenda Center)", file = "meetings/status.json", max_days = 2 },
 ]
 
-# To fill in: [seeclickfix], with the city's organization ID, once a person
-#   has confirmed the city uses it (the issues listing needs a login now; the
-#   Open311 listing at seeclickfix.com/open311/v2/<id>/services.json names its
-#   request types), and the 311 section and its [freshness] sources (with 311
-#   the tagline can say "responds, decides, and spends", as Gloucester's,
-#   Malden's, and Methuen's do); or, if the city takes requests some other
-#   way, [absences] 311 saying so. SeeClickFix's places: Winooski, place 23033
-#   (https://seeclickfix.com/winooski).
+# The About page's "What this site doesn't cover": why there's no 311 section.
+# SeeClickFix's place for Winooski (23033) has about 40 requests since 2018,
+# none acknowledged by the city; the City Council's page asks residents with a
+# concern about day-to-day operations (parking, snow plowing, programs) to
+# contact the city's staff.
+[absences]
+311 = "The city takes requests about day-to-day operations, such as parking and snow plowing, by phone and email to its staff, and publishes no data on them."
 
 # Who represents you (the Officials page). Kept by hand from official city and
 # school websites; checked is the date the list was last checked against them.
-# Only city- and school-issued email addresses, and the mayor's office phone.
+# Only city- and school-issued email addresses (the city publishes no mayor's
+# office phone apart from City Hall's). Every seat is elected at-large, so
+# there is no ward file. The charter (24 App. V.S.A. ch. 19, §§ 301 and 303)
+# makes the City Council the mayor and four councilors: two councilors are
+# elected each March for two years, and the mayor for three years in 2015 and
+# every third year after. The Winooski School District's charter (16 App.
+# V.S.A. ch. 23) gives it a board of five trustees elected at-large, three for
+# three years and two for two. Both are elected at the annual city and school
+# election on the first Tuesday in March; the official return of votes of
+# March 3, 2026 is on the city's Voting and Elections page.
 [officials]
-# To fill in: checked, the date the list below was checked against official
-#   pages.
-# To fill in: next_election, the date of the town's next regular municipal
-#   election, from the city's election calendar or its charter.
-# To fill in: wards_file, the town's wards (ADDING-A-TOWN.md, step 3), or none
-#   if every seat is elected townwide.
+checked = "2026-11-01"
+# The next municipal election: the list is due a check after it, or once new terms begin.
+next_election = "2027-03-02"
 
-# To fill in: the Mayor, from the city's and the school district's own pages,
-#   confirmed against the last election's official results (ADDING-A-TOWN.md,
-#   step 4). Never from news sites or memory.
-# [[officials.bodies]]
-# name = "Mayor"
-# url = ""
-# note = ""
-# members = [
-#   { name = "", seat = "" },
-# ]
+# From the City Council's page (term and email), confirmed against the official
+# return of votes of March 3, 2026 (elected to the remaining year of the term)
+# and the members present in the Council's minutes of October 19, 2026.
+[[officials.bodies]]
+name = "Mayor"
+url = "https://www.winooskivt.gov/1473/City-Council"
+note = "Elected at-large for three years. The mayor is a member of the City Council and presides over it; the city is run day to day by a City Manager the Council appoints."
+members = [
+  { name = "Thomas Renner", seat = "Citywide", term_ends = "2027-03", email = "trenner@winooskivt.gov" },
+]
 
-# To fill in: the City Council, from the city's and the school district's own
-#   pages, confirmed against the last election's official results
-#   (ADDING-A-TOWN.md, step 4). Never from news sites or memory.
-# [[officials.bodies]]
-# name = "City Council"
-# url = ""
-# note = ""
-# members = [
-#   { name = "", seat = "" },
-# ]
+# From the City Council's page (the councilors, the Deputy Mayor, the date each
+# term ends, and their emails), confirmed against the official return of votes
+# of March 3, 2026 (Goodrich and Ogilvie for two years, Turkos for the
+# remaining year of a term) and the members present in the Council's minutes of
+# October 19, 2026. Oakleaf's term, ending in March 2027, was won at an earlier
+# election, whose results the city's page no longer lists. Names as the
+# Council's page and the ballot give them.
+[[officials.bodies]]
+name = "City Council"
+url = "https://www.winooskivt.gov/1473/City-Council"
+note = "The mayor and four councilors, all elected at-large. Councilors serve two years; two are elected each March. The Council chooses a Deputy Mayor from its members, and also meets as the city's Liquor Control Board and Cannabis Control Commission."
+members = [
+  { name = "Bryn Oakleaf", seat = "At-large", role = "Deputy Mayor", term_ends = "2027-03", email = "boakleaf@winooskivt.gov" },
+  { name = "Elsie Goodrich", seat = "At-large", term_ends = "2028-03", email = "egoodrich@winooskivt.gov" },
+  { name = "Eli Ogilvie", seat = "At-large", term_ends = "2028-03", email = "eogilvie@winooskivt.gov" },
+  { name = "Al Turkos", seat = "At-large", term_ends = "2027-03", email = "aturkos@winooskivt.gov" },
+]
 
-# To fill in: the School Committee, from the city's and the school district's
-#   own pages, confirmed against the last election's official results
-#   (ADDING-A-TOWN.md, step 4). Never from news sites or memory.
-# [[officials.bodies]]
-# name = "School Committee"
-# url = ""
-# note = ""
-# members = [
-#   { name = "", seat = "" },
-# ]
+# The Board of School Trustees, as the district's charter calls it, from the
+# School Board page of the district's website (members, officers, the month
+# each term ends, and school-issued email addresses), confirmed against the
+# official return of votes of March 3, 2026 (Mace for three years, Essiba for
+# two, Livermore for the remaining year of a three-year term) and the board
+# members at its minutes of October 14, 2026. Bowers's and Millar's terms
+# were won at an earlier election, whose results the city's page no longer
+# lists. The board's student members don't vote, and the School District
+# Treasurer is an officer, not a trustee: neither is listed.
+[[officials.bodies]]
+name = "School Board"
+url = "https://www.wsdvt.org/school-board/"
+note = "Five trustees elected at-large: three for three years and two for two. Its meetings aren't listed on this site: the district posts them on its website in a form the site can't read yet."
+members = [
+  { name = "Nicole Mace", seat = "At-large", role = "President", term_ends = "2029-03", email = "nimace@wsdvt.org" },
+  { name = "Robert Millar", seat = "At-large", role = "Vice President", term_ends = "2028-03", email = "rmillar@wsdvt.org" },
+  { name = "Katie Livermore", seat = "At-large", role = "Secretary", term_ends = "2027-03", email = "klivermore@wsdvt.org" },
+  { name = "Emily Bowers", seat = "At-large", term_ends = "2027-03", email = "ebowers@wsdvt.org" },
+  { name = "Elom Essiba", seat = "At-large", term_ends = "2028-03", email = "eessiba@wsdvt.org" },
+]
