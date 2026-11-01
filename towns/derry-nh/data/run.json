@@ -1,28 +1,28 @@
 {
   "town": "derry",
   "folder": "derry-nh",
-  "started_at": "2026-11-01T02:33:01+00:00",
-  "finished_at": "2026-11-01T02:40:43+00:00",
-  "engine": "v1.77.0",
+  "started_at": "2026-11-01T15:51:06+00:00",
+  "finished_at": "2026-11-01T15:51:49+00:00",
+  "engine": "v1.81.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 423.8
+      "seconds": 1.5
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 7.8
+      "seconds": 5.9
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 30.0
+      "seconds": 31.4
     },
     {
       "name": "Publish site",
@@ -39,144 +39,60 @@
   ],
   "update": {
     "town": "derry",
-    "sources": "all",
-    "started_at": "2026-11-01T02:33:02+00:00",
+    "sources": "figures",
+    "started_at": "2026-11-01T15:51:07+00:00",
     "ok": true,
     "steps": [
-      {
-        "name": "Fetch meetings",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 41.3,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Fetch minutes",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 312.1,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Fetch School Committee documents",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [drive_meetings] in the config"
-      },
-      {
-        "name": "Fetch school board meetings",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [finalsite_meetings] in the config"
-      },
-      {
-        "name": "Fetch school board documents",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [page_meetings] in the config"
-      },
-      {
-        "name": "Fetch Diligent Community meetings",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [diligent_meetings] in the config"
-      },
-      {
-        "name": "Fetch Open Meetings portal meetings",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [opengov_meetings] in the config"
-      },
-      {
-        "name": "Fetch the city's meeting documents",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [meetingdocs_meetings] in the config"
-      },
-      {
-        "name": "Fetch the school district's minutes library",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [sharpschool_meetings] in the config"
-      },
-      {
-        "name": "Summarize agendas",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 44.0,
-        "cadence": "continuous"
-      },
       {
         "name": "Fetch tax bill",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.5,
-        "cadence": "yearly"
+        "seconds": 0,
+        "cadence": "yearly",
+        "skipped": "checked 0 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [schools] in the config"
+        "seconds": 0.4,
+        "cadence": "yearly"
       },
       {
         "name": "Fetch budget figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
-        "cadence": "yearly"
+        "seconds": 0,
+        "cadence": "yearly",
+        "skipped": "checked 0 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 22.7,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.6,
+        "seconds": 0.2,
         "cadence": "continuous"
       },
       {
@@ -195,41 +111,6 @@
         "seconds": 0,
         "cadence": "continuous",
         "skipped": "no [permits] in the config"
-      },
-      {
-        "name": "Move saved documents to storage",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0.2,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [seeclickfix] in the config"
-      },
-      {
-        "name": "Fetch 311 requests from an open data portal",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [socrata_311] in the config"
-      },
-      {
-        "name": "Compute 311 scorecard",
-        "ok": true,
-        "required": true,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [seeclickfix] or [socrata_311] in the config"
       }
     ]
   },
@@ -264,6 +145,18 @@
       "stale": false,
       "latest": "Tax year 2025 tax rates",
       "next": "Tax year 2026 tax rates usually by February 1, 2027",
+      "behind": null
+    },
+    {
+      "label": "School figures",
+      "file": "schools/schools.json",
+      "updated_at": "2026-11-01T10:51:07-05:00",
+      "max_days": null,
+      "cadence": "yearly",
+      "failing": 0,
+      "stale": false,
+      "latest": "Class of 2025 graduation rate; Spring 2026 state test results; 2024\u201325 cost per pupil",
+      "next": "Class of 2026 graduation rate usually by June 1, 2027; Spring 2027 state test results usually by October 1, 2027; 2025\u201326 cost per pupil usually by February 1, 2027",
       "behind": null
     },
     {
@@ -314,13 +207,13 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-01T15:46:06+00:00",
-  "data_bytes": 226109,
-  "data_bytes_added": 226109,
+  "last_good_at": "2026-11-01T15:51:49+00:00",
+  "data_bytes": 407185,
+  "data_bytes_added": 3139,
   "activity": {
     "boards": 15,
     "meetings_by_date": {
-      "2026-11-02": 3,
+      "2026-11-02": 2,
       "2026-11-03": 1,
       "2026-11-04": 1,
       "2026-11-05": 1,
@@ -328,16 +221,14 @@
     }
   },
   "fact_checks": {
-    "summaries": 0,
-    "ok": 0,
-    "failed": 0,
+    "summaries": 12,
+    "ok": 9,
+    "failed": 1,
     "weak": 0,
-    "unchecked": 0,
+    "unchecked": 2,
     "not_yet": 0,
-    "held_back": 0,
-    "entries_not_shown": 0,
+    "held_back": 1,
+    "entries_not_shown": 2,
     "vote_counts_left_out": 0
-  },
-  "published_at": "2026-11-01T15:46:06+00:00",
-  "published_engine": "v1.81.0"
+  }
 }
