@@ -1,215 +1,55 @@
 {
   "town": "pawtucket",
   "folder": "pawtucket-ri",
-  "started_at": "2026-11-01T09:24:21+00:00",
-  "finished_at": "2026-11-01T09:37:27+00:00",
-  "engine": "v1.79.0",
+  "started_at": "2026-11-01T13:16:25+00:00",
+  "finished_at": "2026-11-01T13:19:20+00:00",
+  "engine": "v1.80.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 729.3
+      "seconds": 91.4
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 5.6
+      "seconds": 9.4
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 26.3
+      "seconds": 52.7
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 1.7
+      "seconds": 19.5
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.6
+      "seconds": 0.9
     }
   ],
   "update": {
     "town": "pawtucket",
-    "sources": "all",
-    "started_at": "2026-11-01T09:24:21+00:00",
+    "sources": "311",
+    "started_at": "2026-11-01T13:16:26+00:00",
     "ok": true,
     "steps": [
-      {
-        "name": "Fetch meetings",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0.3,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Fetch minutes",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0.3,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Fetch School Committee documents",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [drive_meetings] in the config"
-      },
-      {
-        "name": "Fetch school board meetings",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [finalsite_meetings] in the config"
-      },
-      {
-        "name": "Fetch school board documents",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [page_meetings] in the config"
-      },
-      {
-        "name": "Fetch Diligent Community meetings",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [diligent_meetings] in the config"
-      },
-      {
-        "name": "Fetch Open Meetings portal meetings",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 634.5,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Fetch the city's meeting documents",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [meetingdocs_meetings] in the config"
-      },
-      {
-        "name": "Fetch the school district's minutes library",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [sharpschool_meetings] in the config"
-      },
-      {
-        "name": "Summarize agendas",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 33.2,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Fetch tax bill",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0.2,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Fetch unemployment",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0.6,
-        "cadence": "monthly"
-      },
-      {
-        "name": "Fetch school figures",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 31.5,
-        "cadence": "yearly"
-      },
-      {
-        "name": "Fetch budget figures",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0.3,
-        "cadence": "yearly"
-      },
-      {
-        "name": "Fetch housing figures",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 24.5,
-        "cadence": "monthly"
-      },
-      {
-        "name": "Fetch place",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0.3,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Fetch address ranges",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 2.5,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Fetch building permits",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [permits] in the config"
-      },
-      {
-        "name": "Move saved documents to storage",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0.2,
-        "cadence": "continuous"
-      },
       {
         "name": "Fetch 311 requests",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [seeclickfix] in the config"
+        "seconds": 88.5,
+        "cadence": "continuous"
       },
       {
         "name": "Fetch 311 requests from an open data portal",
@@ -225,9 +65,8 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [seeclickfix] or [socrata_311] in the config"
+        "seconds": 1.4,
+        "cadence": "continuous"
       }
     ]
   },
@@ -237,6 +76,20 @@
       "label": "Meetings (Open Meetings portal)",
       "file": "meetings/opengov_status.json",
       "updated_at": "2026-11-01T04:24:22-05:00",
+      "max_days": 2,
+      "stale": false
+    },
+    {
+      "label": "311 requests",
+      "file": "311/status.json",
+      "updated_at": "2026-11-01T08:16:27-05:00",
+      "max_days": 2,
+      "stale": false
+    },
+    {
+      "label": "311 scorecard",
+      "file": "311/scorecard.json",
+      "updated_at": "2026-11-01T08:17:56-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -312,9 +165,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-01T09:53:01+00:00",
-  "data_bytes": 516293,
-  "data_bytes_added": 444292,
+  "last_good_at": "2026-11-01T13:19:20+00:00",
+  "data_bytes": 1025484,
+  "data_bytes_added": 71952,
   "activity": {
     "boards": 32,
     "meetings_by_date": {
@@ -324,16 +177,14 @@
     }
   },
   "fact_checks": {
-    "summaries": 0,
-    "ok": 0,
-    "failed": 0,
+    "summaries": 40,
+    "ok": 37,
+    "failed": 3,
     "weak": 0,
     "unchecked": 0,
     "not_yet": 0,
-    "held_back": 0,
-    "entries_not_shown": 0,
-    "vote_counts_left_out": 0
-  },
-  "published_at": "2026-11-01T09:53:01+00:00",
-  "published_engine": "v1.79.0"
+    "held_back": 3,
+    "entries_not_shown": 2,
+    "vote_counts_left_out": 23
+  }
 }

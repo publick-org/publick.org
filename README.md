@@ -252,19 +252,45 @@ fill a vacancy, new council or committee officers). Update the members and
 `checked` in one pull request.
 
 Each table's `next_election` is the town's next municipal election: November
-3, 2026 for Bangor, Lewiston, Portland, and South Kingstown; Town Meeting
-Day, March 2, 2027, for Burlington; November 2, 2027 for Beverly, Gloucester,
-Lawrence, Lowell, Malden, Manchester, Medford, Methuen, Nashua, Salem,
-Somerville, Springfield, Waltham, Wallingford, and Worcester. Portland's winners take office at the council's inaugural
-meeting, the first Monday of December. From the engine release that
-reads it (publick-engine#114), a list is due a check on election day, or once
-new terms begin if that's later (the first month a member's `term_ends` on or
-after the election's month, such as January 2027 for Lewiston and April 2027
-for Burlington; a town with no `term_ends`, such as Lowell, is due on election
-day). A week after, a list whose `checked` is
-earlier shows as behind on the town's About page and the status page, and
-the town goes into **Towns need attention**. After checking, set
-`next_election` to the election after; until then, the daily run warns.
+3, 2026 for Bangor, Laconia, Lewiston, Portland, and South Kingstown; Town
+Meeting Day, March 2, 2027, for Burlington; November 2, 2027 for Beverly,
+Gloucester, Lawrence, Lowell, Malden, Manchester, Medford, Methuen, Nashua,
+Salem, Somerville, Springfield, Waltham, Wallingford, and Worcester. A list
+is due a check on election day, or once new terms begin if that's later (the
+first month a member's `term_ends` on or after the election's month, such as
+January 2027 for Lewiston and April 2027 for Burlington; a town with no
+`term_ends`, such as Lowell, is due on election day). A week after, a list
+whose `checked` is earlier shows as behind on the town's About page and the
+status page, and the town goes into **Towns need attention**. Two days after
+the election, a list not checked since is flagged there and in the daily
+alert too, so its results are recorded before the winners take office.
+
+### After an election
+
+Winners usually take office days or weeks after the election: Bangor's
+council the Monday after, Laconia's School Board and South Kingstown's
+council and School Committee at a meeting later in November, Portland's at
+the council's inaugural meeting on the first Monday of December, and
+Lewiston's in January. Record the results as soon as they're official,
+without changing who is listed now:
+
+1. For each body with seats on the ballot, add an
+   `[officials.bodies.incoming]` table after its `members`: `takes_office`,
+   the day the winners are sworn in, and `members`, the whole body from that
+   day, in the same form as `members`. Keep every member whose term
+   continues (the build stops if one whose `term_ends` is later is missing),
+   give the winners their new `term_ends`, and leave out any officer `role`
+   (chair, president, mayor pro tem) the body chooses when it organizes.
+2. Set `checked` to the day you checked the results.
+
+Until `takes_office`, the Officials page lists the sitting members, with a
+line under the body naming the winners and the day they take office. On that
+day the daily run's build lists the incoming members instead, with no pull
+request needed. The list is then due a check that day, for the officers
+chosen at that meeting: a week after, it shows as behind if `checked` is
+earlier. To check it, move the incoming members into `members` (removing
+`incoming`), add the officers, set `checked`, and set `next_election` to the
+election after; until then, the daily run warns.
 
 ## Testing the weekly digest
 

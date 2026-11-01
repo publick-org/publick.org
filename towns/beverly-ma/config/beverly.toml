@@ -161,17 +161,27 @@ prefix = "beverly-ma"
 [summaries]
 # The network's settings (defaults/network.toml), with no `since`: every meeting is summarized.
 
-# The council's meetings, transcribed from their recordings for a summary the
-# day after, until the minutes come (the engine's pipeline/recordings.py).
+# The boards' meetings below, transcribed from their recordings for a summary
+# the day after, until the minutes come (the engine's pipeline/recordings.py).
 [recordings]
 since = "2026-10-26"
 
-# BevCam's Cablecast: the City Council's project, titled "City Council: 10-19-2026".
+# BevCam's Cablecast: the City Council's project (119), titled "City Council: 10-19-2026"; the Planning
+# Board's (158), titled "Beverly Planning Board Meeting: 10-27-2026"; and the School Committee's (191),
+# one recording an evening, titled for the meetings it holds: "School Committee 10-14-2026 - Regular
+# School Committee (Hybrid Participation)", "School Committee 10-28-2026 - Curriculum, Instruction &
+# Student Life and Committee of the Whole". An evening's recording is matched to its full committee's
+# meeting (regular, special, or of the whole), and holds the subcommittee's before it.
 [[recordings.sources]]
 platform = "cablecast"
 host = "https://bevcam.cablecast.tv"
-projects = [119]
-boards = { "City Council" = '^(Beverly )?City Council( Special Meeting| \([^)]*\))?:? ?\d' }
+projects = [119, 158, 191]
+
+[recordings.sources.boards]
+"City Council" = '^(Beverly )?City Council( Special Meeting| \([^)]*\))?:? ?\d'
+"Planning Board" = '^(Beverly )?Planning Board\b'
+"School Committee" = '^(Beverly )?School Committee\b.*\b(Regular School Committee|Special Meeting)\b'
+"School Committee of the Whole" = '^School Committee\b.*\bCommittee of the Whole\b'
 
 # How residents can take part, per board, shown on its meeting pages. Only
 # what the city and the school district have published; each entry names its
