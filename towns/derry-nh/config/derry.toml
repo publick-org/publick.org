@@ -99,6 +99,12 @@ status = "live"
 [analytics]
 prefix = "derry-nh"
 
+# The weekly digest's email signup, on /digest/ (the engine's pipeline/digest.py). The form posts
+# to this site's /digest/subscribe, which the sites Worker answers (worker/digest.js) and passes on
+# to Buttondown with the tag derry-nh-en. The About page names who keeps the addresses.
+[digest]
+# The network's settings (defaults/network.toml): having the table turns the signup on.
+
 # Public meetings, from the town calendar and its Agenda Center.
 [meetings]
 base_url = "https://www.derrynh.gov"
@@ -182,6 +188,29 @@ prefix = "derry-nh"
 # town's history doesn't take the month's budget.
 [summaries]
 since = "2026-08-01"
+
+# Its recordings are read from YouTube, which servers can't download from: Gemini
+# reads each video from its link. Derry Community Access Media's TelVue player
+# (which the town's page for it links) keeps the same meetings in series, not
+# playlists, and the engine's TelVue reader reads only playlists.
+[recordings]
+since = "2026-10-26"
+
+# Derry Community Access Media's channel (@DerryTV, which derrycam.org links), a day or two after the
+# meeting: the Town Council's meetings, titled "Town Council: 10/20/2026"; the School Board's, "School
+# Board Meeting: 10/13/2026" or "School board meeting and Public Hearing: 10/27/2026"; the Planning
+# Board's, "Planning Board: 10/7/2026"; and the Zoning Board of Adjustment's, "Zoning Board Meeting:
+# 10/15/2026" or "Zoning Board of Adjustments: 9/17/2026" (the Conservation Commission's, and other
+# programs, are left out).
+[[recordings.sources]]
+platform = "youtube"
+channel = "UC-zsA_ULQ3Tc3aJUVVKOEKw"
+
+[recordings.sources.boards]
+"Town Council" = '\btown\s+council\b'
+"Derry School Board" = '^\s*school\s+board\b'
+"Planning Board" = '^\s*planning\s+board\b'
+"Zoning Board of Adjustment" = '^\s*zoning\s+board\b'
 
 # How residents can take part, per board, shown on its meeting pages. Only
 # what the town has published; each entry names its source. From the Town

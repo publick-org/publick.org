@@ -102,6 +102,12 @@ status = "live"
 [analytics]
 prefix = "bristol-ct"
 
+# The weekly digest's email signup, on /digest/ (the engine's pipeline/digest.py). The form posts
+# to this site's /digest/subscribe, which the sites Worker answers (worker/digest.js) and passes on
+# to Buttondown with the tag bristol-ct-en. The About page names who keeps the addresses.
+[digest]
+# The network's settings (defaults/network.toml): having the table turns the signup on.
+
 # Public meetings, from the city's CivicClerk portal. The portal files each
 # meeting under a category, and the engine reads its board from its title,
 # matched to the longest of these it contains; a title that names no board
@@ -254,6 +260,45 @@ prefix = "bristol-ct"
 # town's history doesn't take the month's budget.
 [summaries]
 since = "2026-08-01"
+
+# The boards' meetings below, transcribed from their recordings for a summary
+# the day after, until the minutes come (the engine's pipeline/recordings.py).
+[recordings]
+since = "2026-10-26"
+
+# The city's CivicClerk portal keeps many meetings' videos with them: by the event's name, or else its
+# category ("City Council Meeting", "Special City Council 10-29-26", and "Red Light Camera Presentations",
+# in the City Council's category; "Joint Meeting of City Council and Board of Finance", whose video, at
+# 6:45 PM, often holds the Council's 7:00 PM meeting after it; "Planning Commission"; "Zoning
+# Commission"; "Zoning Board of Appeals"). Each is matched to the meeting it's posted with.
+[[recordings.sources]]
+platform = "civicclerk"
+api_url = "https://bristolct.api.civicclerk.com/v1"
+portal_url = "https://bristolct.portal.civicclerk.com"
+media_url = "https://cpmedia.azureedge.net/bristolct"
+
+[recordings.sources.boards]
+"City Council" = '^(Special )?City Council\b'
+"Joint Meeting of the City Council and Board of Finance" = '\bJoint Meeting\b'
+"Planning Commission" = '^Planning Commission\b'
+"Zoning Commission" = '^Zoning Commission\b'
+"Zoning Board of Appeals" = '^Zoning Board of Appeals\b'
+
+# Nutmeg TV's channel, the community access station that records the Council's regular meetings (the
+# portal's events have linked its videos): titled "Bristol City Council Meeting - 10/13/26", a day or
+# two after the meeting (other towns' meetings and programs on the channel are left out).
+[[recordings.sources]]
+platform = "youtube"
+channel = "UC9jy8WJuhXggiF0JHf2diEQ"
+boards = { "City Council" = '^\s*bristol\s+(?:special\s+)?city\s+council\b' }
+
+# Bristol Public Schools' channel: the Board of Education's regular meetings, titled "10/07/2026 -
+# Regular Board of Education Meeting" or "5/6/2026- Regular BOE Meeting" (its special meetings, not
+# listed here, and its committees are left out).
+[[recordings.sources]]
+platform = "youtube"
+channel = "UCo3gTprD7JadmALEilkZgPg"
+boards = { "Board of Education" = '\bregular\s+(?:board\s+of\s+education|boe)\s+meeting\b' }
 
 # How residents can take part, per board, shown on its meeting pages. Only
 # what the city or the school district has published; each entry names its
