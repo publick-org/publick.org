@@ -234,35 +234,36 @@ sources = [
 # 311 requests, from SeeClickFix (public requests only). The city's
 # organization there is 1638 ("City of Pawtucket", on the place
 # seeclickfix.com/pawtucket, 20090), whose Open311 listing
-# (seeclickfix.com/open311/v2/1638/services.json) has 32 request types:
-# trash and bulky waste, signs, signals and street lights, streets and
-# sidewalks, and park bathrooms and the bike path. Its requests also use three
-# types the listing leaves out, public records requests ("APRA Request (New)",
-# "APRA Request (Savage Law Partners, LLP)") and "Request Legal Assistance",
-# collected with the rest, as for every town. It had 71 public requests from
-# February 2025 to October 2026, 58 of them closed, answered by the city's
-# staff. report_url is the place's reporting page on SeeClickFix
-# (seeclickfix.com/api/v2/places/20090, its html_report_url); the city's own
-# site doesn't link SeeClickFix.
+# (seeclickfix.com/open311/v2/1638/services.json) has 32 request types, the
+# city's service requests: trash and bulky waste (Garbage), signs, signals and
+# street lights (Lights, Signage, & Traffic Signals), streets and sidewalks
+# (Streets & Sidewalks), and park bathrooms and the bike path (Parks, Public
+# Works). departments keeps those five departments' types, which leaves out
+# the types the organization also uses that the listing doesn't have: its
+# public records requests and a request for legal assistance, which aren't
+# service requests. The service requests numbered 61 from February 2025 to
+# October 2026, 56 of them closed, answered by the city's staff. report_url is
+# the place's reporting page on SeeClickFix (seeclickfix.com/api/v2/places/20090,
+# its html_report_url); the city's own site doesn't link SeeClickFix.
 [seeclickfix]
 organization_id = 1638
+departments = ["Garbage", "Lights, Signage, & Traffic Signals", "Parks", "Public Works", "Streets & Sidewalks"]
+scope_note = "The city's public records requests on SeeClickFix aren't included."
 report_url = "https://seeclickfix.com/pawtucket/report"
 # The month the full history starts (python -m pipeline.fetch_311 --backfill).
-# Its first public request is from November 11, 2023; they come every month
-# or two from February 2025.
-history_since = "2023-11"
+# Its first public service request is from April 18, 2024; they come every
+# month or two from February 2025.
+history_since = "2024-04"
 # Request types about a person, a household, or a person's vehicle, whose
 # names don't say so: their requests are shown to the block, as the engine's
 # own sensitive categories are. "ADA Accommodations" asks for a person's
-# disability to be accommodated, and "Request Legal Assistance" for a
-# person's legal help; the trash types are complaints about a neighbor's
+# disability to be accommodated; the trash types are complaints about a neighbor's
 # property or bins ("Garbage" among them: its request is about a property's
 # dumpster); "Sidewalk Clearing" (its requests are about cars parked on the
 # sidewalk, a vacant house, and what was left out on the sidewalk) and
 # "Blocked sidewalk" point at a vehicle or a household.
 sensitive_categories = [
   "ADA Accommodations",
-  "Request Legal Assistance",
   "Garbage",
   "Trash on neighboring property",
   "Trash Receptacle in Public View",
