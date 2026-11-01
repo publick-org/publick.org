@@ -4,28 +4,29 @@
   "decisions": [
     "Se aprobó la agenda de consentimiento tal como fue presentada, incluido un préstamo del Fondo Rotatorio Estatal de $43,184,040 para la Planta de Tratamiento de Aguas Residuales Bartlett Bay, 4-0.",
     "Se aprobó el acuerdo de inversión comunitaria para la solicitud City Center Step 3 y se autorizó su ejecución, 4-0.",
-    "Se acordó un horario de 9:30-10:30 para Conversation with a Counselor."
+    "Se acordó un horario de 9:30-10:30 para la conversación con un concejal."
   ],
   "decision_titles": [
     "Puntos de la agenda de consentimiento, incluido el préstamo de $43,184,040 para Bartlett Bay",
     "Acuerdo de inversión comunitaria para la solicitud City Center Step 3",
-    "Horario para Conversation with a Counselor"
+    "Horario para la conversación con un concejal"
   ],
   "language": "es",
   "kind": "minutes",
   "source_sha256": "512455e1565ed9398bc35d477cc6527b09c552377de5026d3ddd4197bb9c6131",
   "source_hash": "1b51b1e0150c56413ff707271445814c3b7432aa434170292ae65ccd309fcba7",
   "check": "ok",
-  "review": "decisions 3: \"Conversation with a Counselor\" is an event name and was left in English, but it's a descriptive event name rather than a proper name of a person, place, business, or program. A Spanish reader would not understand it. It should be translated, e.g. \"Conversación con un concejal\".; decision_titles 3: \"Conversation with a Counselor\" is left in English inside a Spanish phrase. It should be translated, e.g. \"Conversación con un concejal\".",
-  "attempts": 1,
+  "review": "decisions 3: The English says \"Counselor\", not \"Councilor\". \"Conversation with a Counselor\" is the name of an event, and \"concejal\" changes the meaning. The translation also gives it as a plain phrase with a lowercase \"conversación\" instead of treating it as a name. The term should be \"consejero\" or \"consejería\", or a gender-neutral wording.; decision_titles 3: \"Counselor\" is translated as \"concejal\" (councilor), which changes the meaning. The title should refer to a counselor, not a councilor.",
+  "attempts": 2,
   "model": "claude-haiku-5-5",
   "prompt_version": 7,
   "glossary": "f0d471d0fa31d5b9",
-  "generated_at": "2026-11-01T17:53:45-05:00",
+  "generated_at": "2026-11-01T17:58:27-05:00",
   "usage": {
-    "input_tokens": 494,
-    "output_tokens": 2985,
+    "input_tokens": 1268,
+    "output_tokens": 1969,
     "cache_read_input_tokens": 2831
   },
-  "cost": 0.006417
+  "cost": 0.007042,
+  "replaced_cost": 0.006417
 }
