@@ -167,11 +167,10 @@ since = "2026-01-01"
 # meeting, so name_columns names a heading no row has: a meeting's rows have no
 # name of their own and are put together by their date. Approved minutes are
 # signed scans, which the model transcribes (four to twelve pages a meeting);
-# the draft minutes posted first are text. Some agendas and minutes are linked
-# through Apptegy's short links (aptg.co), which redirect to the file; those
-# aren't taken for documents, so a meeting whose every link is one isn't
-# listed. The district's 2026-2027 meeting dates page is in the same script
-# JSON, which [schedule_meetings] doesn't read.
+# the draft minutes posted first are text. About half the agendas and minutes
+# are linked through Apptegy's short links (aptg.co), which the engine follows
+# to the file each redirects to, once. The district's 2026-2027 meeting dates
+# page is in the same script JSON, which [schedule_meetings] doesn't read.
 [page_meetings]
 page_url = "https://www.sbschools.net/page/school-board"
 source_name = "South Burlington School District"
