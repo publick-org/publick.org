@@ -1,46 +1,46 @@
 {
   "town": "malden",
   "folder": "malden-ma",
-  "started_at": "2026-10-31T22:21:21+00:00",
-  "finished_at": "2026-10-31T22:24:50+00:00",
-  "engine": "v1.77.0",
+  "started_at": "2026-11-01T18:01:14+00:00",
+  "finished_at": "2026-11-01T18:05:14+00:00",
+  "engine": "v1.81.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 41.2
+      "seconds": 77.0
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 14.9
+      "seconds": 20.2
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 84.9
+      "seconds": 136.3
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.0
+      "seconds": 5.2
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.6
+      "seconds": 0.8
     }
   ],
   "update": {
     "town": "malden",
-    "sources": "meetings",
-    "started_at": "2026-10-31T22:21:22+00:00",
+    "sources": "all",
+    "started_at": "2026-11-01T18:01:15+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 14.0,
+        "seconds": 19.0,
         "cadence": "continuous"
       },
       {
@@ -127,7 +127,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 25.5,
+        "seconds": 40.5,
         "cadence": "continuous"
       },
       {
@@ -137,7 +137,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 2 days ago; checked every 30 days"
+        "skipped": "checked 3 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -146,7 +146,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 3 days ago; checked every 7 days"
+        "skipped": "checked 4 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -155,7 +155,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 1 days ago; checked every 30 days"
+        "skipped": "checked 2 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -164,7 +164,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 2 days ago; checked every 30 days"
+        "skipped": "checked 3 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -173,7 +173,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 2 days ago; checked every 7 days"
+        "skipped": "checked 3 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -207,6 +207,31 @@
         "error": null,
         "seconds": 0.2,
         "cadence": "continuous"
+      },
+      {
+        "name": "Fetch 311 requests",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 9.9,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch 311 requests from an open data portal",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [socrata_311] in the config"
+      },
+      {
+        "name": "Compute 311 scorecard",
+        "ok": true,
+        "required": true,
+        "error": null,
+        "seconds": 5.7,
+        "cadence": "continuous"
       }
     ]
   },
@@ -215,21 +240,21 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-10-31T18:21:22-04:00",
+      "updated_at": "2026-11-01T13:01:15-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-10-31T05:18:26-04:00",
+      "updated_at": "2026-11-01T13:02:16-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-10-31T05:23:00-04:00",
+      "updated_at": "2026-11-01T13:02:26-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -317,9 +342,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-01T15:48:51+00:00",
-  "data_bytes": 19370347,
-  "data_bytes_added": 15825933,
+  "last_good_at": "2026-11-01T18:05:14+00:00",
+  "data_bytes": 19380841,
+  "data_bytes_added": 15836181,
   "activity": {
     "boards": 66,
     "meetings_by_date": {
@@ -338,7 +363,5 @@
     "held_back": 7,
     "entries_not_shown": 16,
     "vote_counts_left_out": 61
-  },
-  "published_at": "2026-11-01T15:48:51+00:00",
-  "published_engine": "v1.81.0"
+  }
 }
