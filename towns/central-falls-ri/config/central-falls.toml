@@ -74,7 +74,7 @@ status = "live"
 slug = "officials"
 title = "Who represents you"
 nav = "Officials"
-summary = "The mayor and the City Council, by office and by ward."
+summary = "The mayor, the City Council, and the School Board, by office and by ward."
 status = "live"
 
 [[sections]]
@@ -187,9 +187,7 @@ sources = [
 # (ri.gov/election/results/2024/general_election/central_falls/), confirmed
 # against the City Council's minutes on the Open Meetings portal, the newest
 # of September 14, 2026; no email addresses or phones, which only the city's
-# pages give. The School Board isn't listed: its members aren't elected (no
-# seat on it was on the 2022 or 2024 ballot), and no readable official page
-# says how they're chosen.
+# pages give.
 [officials]
 checked = "2026-11-01"
 # The next municipal election: the statewide general election of November 3,
@@ -217,19 +215,51 @@ members = [
 
 # Elected on November 5, 2024 (official results); names as the council's
 # minutes write them, and officers from the minutes of September 14, 2026,
-# whose roll call has five of the six present, with Council President Ferri
-# absent. Ward 4's councilor elected in 2024, Luz Eneida Velez Garcia, isn't
-# on any 2026 roll call; Councilperson Anthony Solano is, from January 12, 2026
-# on, but no readable official page gives his seat, so Ward 4 is left out.
+# whose roll call has five of the seven present, with Council President Ferri
+# and Councilperson Solano absent. Ward 4: Luz Eneida Velez Garcia, elected in
+# 2024, is last named (as absent) in the roll call of February 10, 2025; the
+# council's special meeting of August 6, 2025 (its minutes on the Open
+# Meetings portal, meeting 1077384) records the "Swearing-in Ceremony of
+# Councilor-Elect Anthony Solano Ward 4".
+# The state's results site lists no 2025 election, so the minutes are the
+# source for his seat.
 [[officials.bodies]]
 name = "City Council"
 url = "https://centralfallsri.gov"
-note = "Seven members: one elected from each of the city's five wards and two citywide, every two years. Ward 4's councilor isn't listed here: no official page this site can read names the seat's holder."
+note = "Seven members: one elected from each of the city's five wards and two citywide, every two years."
 members = [
   { name = "Robert A. Ferri", seat = "Ward 2", ward = 2, role = "Council President" },
   { name = "Alberto Rivas Lugo", seat = "Ward 1", ward = 1, role = "Council President Pro Tempore" },
   { name = "Tatiana Baena", seat = "At-large" },
   { name = "Laurilim Rosado-Martinez", seat = "At-large" },
   { name = "Kevin K. Kazarian", seat = "Ward 3", ward = 3 },
+  { name = "Anthony Solano", seat = "Ward 4", ward = 4, role = "Sworn in August 6, 2025" },
   { name = "Rafael Peguero", seat = "Ward 5", ward = 5 },
+]
+
+# Names and officers from the school district's School Board page (its
+# members' photos and captions) and the roll call of the Board's minutes of
+# September 8, 2026 (approved; on the Open Meetings portal), whose spelling is
+# used where the two differ. Members are appointed, not elected: the City
+# Council's minutes of November 10, 2025 record the mayor's recommended
+# appointments to the new School Board by group (a high school student, a
+# parent or caregiver, an alumna or alumnus, former educators), each approved
+# by the council, the student's term to expire December 31, 2028 and the
+# others' December 31, 2029. The other members' appointments aren't in the
+# minutes posted, so their terms are left out. No email addresses: the page
+# gives only the Board's own (schoolboard@city.centralfallsri.gov).
+[[officials.bodies]]
+name = "School Board"
+url = "https://www.cfschools.net/page/central-falls-school-board"
+note = "Appointed by the mayor with the City Council's approval, not elected. Its members include a high school student, a parent or caregiver, a graduate, and former educators."
+members = [
+  { name = "Dorian Rave", seat = "Appointed", role = "Chair", term_ends = "2029-12" },
+  { name = "Carla Hernandez", seat = "Appointed", role = "Vice Chair" },
+  { name = "Thomas Evans", seat = "Appointed", role = "Secretary", term_ends = "2029-12" },
+  { name = "Zuhanna Medina", seat = "Appointed" },
+  { name = "Lizsandra Paneto Gullon", seat = "Appointed" },
+  { name = "Krystafer Redden", seat = "Appointed" },
+  { name = "Jordana Ruggeri", seat = "Appointed", term_ends = "2029-12" },
+  { name = "Erika Vallejo", seat = "Appointed" },
+  { name = "Crystal Marie De Jesus Lara", seat = "Student representative", term_ends = "2028-12" },
 ]
