@@ -1,0 +1,276 @@
+# Site configuration for Laconia, New Hampshire. Everything town-specific
+# lives here; the code is the Publick engine
+# (github.com/publick-org/publick-engine).
+#
+# Started on 2026-11-01 by the engine's helper (python -m pipeline.new_town),
+# from Methuen's config.
+# To fill in: what the city uses for meetings, minutes, 311, and its school
+#   board, in a few sentences, as other towns' configs begin.
+#
+# The site is in English and Spanish ([site] languages), as every town's is.
+# The first runs draft the Spanish for the town's own text; [strings.es], at
+# the end, can correct it.
+
+[site]
+name = "Laconia Publick"
+# The masthead shows name_prefix in dark ink and name_suffix in the accent
+# color: the town, then the network.
+name_prefix = "Laconia "
+domain = "laconia-nh.publick.org"
+tagline = "Public data on how Laconia, New Hampshire decides and spends. Updated daily."
+# One line under the name at the top of every page.
+masthead = "An independent guide to city government in Laconia, New Hampshire"
+# Public contact address. Shown on the About and Accessibility pages when set.
+contact_email = "laconia-nh@publick.org"
+user_agent = "laconia-nh.publick.org (+https://laconia-nh.publick.org/about/)"
+
+# From the city website's stylesheets (www.laconianh.gov): its two most used
+# blues (108 and 36 uses); the most used of another hue (74 uses);
+# primary_soft a light tint of primary. Each passes WCAG AA on white (5.8,
+# 13.2, 6.4 to 1).
+# To fill in: check the colors against the city's website.
+[site.colors]
+primary = "#2d63b9"
+primary_dark = "#163056"
+primary_soft = "#eaeff8"
+accent = "#bd151e"
+
+[town]
+name = "Laconia"
+state_abbr = "NH"
+official_site = "https://www.laconianh.gov"
+
+# Sections appear in the main navigation in this order. Each one is a folder
+# under site/pages/<slug>/ and is served at https://<domain>/<slug>/.
+[[sections]]
+slug = "meetings"
+title = "Meetings"
+summary = "Every board and committee meeting on the city calendar and in its Agenda Center, with agendas, and minutes from January 2026 on."
+status = "live"
+
+[[sections]]
+slug = "schools"
+title = "Schools"
+summary = "Graduation, attendance, and MCAS results compared with the state."
+status = "live"
+
+[[sections]]
+slug = "budget"
+title = "City budget"
+nav = "Budget"
+summary = "Where general fund money comes from and how it is spent, reserves, and the property tax limit."
+status = "live"
+
+[[sections]]
+slug = "housing"
+title = "Housing"
+summary = "New homes permitted, home values and rents, affordable housing, and the housing stock."
+status = "live"
+
+# To fill in: the Officials page's section (below, commented out), once
+#   [officials] is filled in.
+# [[sections]]
+# slug = "officials"
+# title = "Who represents you"
+# nav = "Officials"
+# summary = "The mayor, City Council, and School Committee, by office and by ward, and how to reach them."
+# status = "live"
+
+[[sections]]
+slug = "about"
+title = "About"
+summary = "Data sources, update schedule, metric definitions, and corrections."
+status = "live"
+
+# Page view counting with GoatCounter, on the network's site; prefix is this
+# town's folder.
+[analytics]
+prefix = "laconia-nh"
+
+# Public meetings, from the city calendar and its Agenda Center.
+[meetings]
+base_url = "https://www.laconianh.gov"
+archive_url = "https://www.laconianh.gov/AgendaCenter"
+archive_name = "city's Agenda Center"
+# The city's site resets some connections (4 of the helper's); a slower pace
+# and the client's retries help.
+request_delay = 5.0
+max_event_pages = 40
+
+# The city calendar, read month by month: the meetings the city lists before
+# their agendas are posted, with their times and places. Read: the calendars
+# whose events, over the last three months and the next three, were mostly
+# meetings. Not read: Airport Authority, Assessing, Bartlett Beach, Board of
+# Water Commissioners Calendar, Bobotas Park, Bond Beach (residents only),
+# Capital Improvement Committee, City Clerk Calendar, City Council, Code
+# Enforcement / Building, Community Center - Conference Room, Community Center
+# - Gym, Community Center - Racquetball Court, Community Center - Workout
+# Room, Community Center / Parks & Rec, Conservation, Elections, Fire
+# Department, Historic District Commission, Human Relations Committee, Laconia
+# Putnam Fund, Leavitt Park, Leavitt Park - Athletic Field, Leavitt Park -
+# Basketball, Leavitt Park - Parkhouse, Leavitt Park - Tennis, Library,
+# Library Adult, Library Children, Library Teen, Licensing Board, Master Plan
+# Steering Committee, Memorial Park, Memorial Park - Baseball Field, Memorial
+# Park - Softball Field, Memorial Park - Tennis, Minor Site Plan, Opechee -
+# Colby Field, Opechee - Field A, Opechee - Field B, Opechee - Field C,
+# Opechee - Field D, Opechee - Main Field, Opechee - Smith Field, Opechee -
+# Smith Track, Opechee Cove Beach, Opechee Park, Opechee Point Beach, Parks &
+# Rec Programs, Planning Board & Site Review, Public Works Construction
+# Schedule, Robbie Mills, Robbie Mills - Baseball Field, Robbie Mills - Soccer
+# Field, Rotary Park, Special Events Review Committee (SERC), Tardif Park,
+# Tardif Park - Parkhouse, Torrey Park, Water, Weirs Beach, Weirs Community
+# Center - Parkhouse, Weirs Community Park, Weirs Community Park -
+# Amphitheater, Weirs Community Park - Pavilion, WOW Trail, Wyatt Park,
+# Zoning.
+[meetings.civicplus]
+calendars = ["Heritage Commission", "Main Calendar", "Police Department"]
+# Some of their events aren't meetings: only titles naming a board are kept.
+include_pattern = '\b(boards?|commissions?|committees?|subcommittees?|councils?|authority|trustees|ZBA|task force)\b'
+# A meeting on the calendar and in the Agenda Center is shown once.
+# To fill in: check the calendars read, and any left out that list meetings.
+
+[meetings.aliases]
+# To fill in: board names the engine doesn't fix itself: a calendar meeting
+#   next to an Agenda Center one of the same day, not shown as one, needs an
+#   alias (python -m pipeline.listings, in the report).
+
+[meetings.agenda_center]
+base_url = "https://www.laconianh.gov"
+# The first run lists meetings from here, and minutes are collected from here
+# on.
+since = "2026-01-01"
+
+# To fill in: [meetings.agenda_center.committees."<category>"]: committees and
+#   other bodies posted under another's category, each by a phrase in its
+#   titles: under "Water Commission", "Board of Water Commissioners Meeting on
+#   February 17, 2026", "Board of Water Commissioners Regular Meeting of May
+#   4, 2026", "Board of Water Commissioners Regular Meeting of July 6, 2026";
+#   under "City Council", "City Council Subcommittee- Finance Committee",
+#   "City Council Subcommittee - Appointments Committee", "City Council
+#   Subcommittee - Public Works Committee"; under "Conservation Commission",
+#   "Conservation Committee Regular Meeting Agenda", "Quorum of Council,
+#   Boards and Commissions - 91-A Training", "Conservation Commission - Quorum
+#   - Master Plan Steering Committee"; under "Planning Board", "Planning Board
+#   - Quorum - Master Plan Steering Committee", "Quorum of Council, Boards and
+#   Commissions - 91-A Training"; under "Zoning Board of Adjustment", "Quorum
+#   of Council, Boards and Commissions - 91-A Training", "Zoning Board of
+#   Adjustment - Quorum - Master Plan Steering Committee"; under "Capital
+#   Improvement Committee", "Quorum of Council, Boards and Commissions - 91-A
+#   Training"; under "Downtown TIF Advisory Board", "Quorum of Council, Boards
+#   and Commissions - 91-A Training"; under "Heritage Commission", "Heritage
+#   Commission - Quorum - Master Plan Steering Committee".
+
+# To fill in: the School Committee's meetings: where the district posts them
+#   ([ical_meetings], [page_meetings], [finalsite_meetings], [drive_meetings],
+#   [diligent_meetings], [opengov_meetings]), named in the Meetings section's
+#   summary and in [freshness] sources; a platform the engine doesn't read is
+#   left out and said so (ADDING-A-TOWN.md, step 1).
+
+# Agenda and minutes PDFs live in the network's documents bucket, not in git
+# (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID,
+# STORAGE_SECRET_ACCESS_KEY.
+[storage]
+prefix = "laconia-nh"
+
+# Plain-English agenda text and previews, and decisions from minutes, written
+# by a language model and labeled as AI-generated on the site. Only meetings
+# from `since` on are summarized, about three months before launch, so the
+# town's history doesn't take the month's budget.
+[summaries]
+since = "2026-08-01"
+
+# To fill in: how residents can take part, per board ([participation."City
+#   Council"], [participation."School Committee"]): comment, source_title,
+#   source_url, video_title, video_url, each from the board's own rules or
+#   agendas.
+# To fill in: [[glossary]], terms that come up in this city's agendas and mean
+#   something of its own here, each from an official page. The state's and the
+#   network's terms are in its glossary already: non-public session, ought to
+#   pass, RSA, ZBA, abatement, ADA, CBA, CDBG, CIP, COLA, Committee of the
+#   Whole, consent agenda, first reading, mill rate, quitclaim deed, receive
+#   and file, Select Board, tabled, TIF, town meeting, variance, warrant
+#   article.
+
+# Schools: the New Hampshire Department of Education's statewide figures.
+[schools]
+doe_district = "Laconia"
+district_name = "Laconia School District"
+
+# Tax rate, property tax, and the average single-family tax bill
+# (pipeline/states/nh/), from the New Hampshire DRA's tax rates in the
+# engine's yearly statewide figures and NH GRANIT's parcel map.
+[finance]
+dra_municipality = "Laconia"
+# To fill in: budget_documents_url, the page where the town posts its own
+#   budget books, which the budget page links (leave it out if there's none).
+
+# Housing: Census building permits (state and place FIPS codes), American
+# Community Survey through Census Reporter (geo ids).
+[housing]
+bps_place = "40180"
+census_geo = "16000US3340180"
+
+# Unemployment rate (BLS Local Area Unemployment Statistics, area
+# CT3340180000000, Laconia city, NH). City rates are not seasonally adjusted;
+# the state series is shown for context.
+[labor]
+local_series = "LAUCT334018000000003"
+
+# How often each data source should update. Figures published monthly or
+# yearly are judged by the engine, by the period they cover
+# (pipeline/rhythms.py).
+[freshness]
+sources = [
+  { label = "Meetings (Agenda Center)", file = "meetings/status.json", max_days = 2 },
+]
+
+[absences]
+# To fill in: 311, why the town has no 311 section (the system the city uses
+#   instead), as the About page says: no SeeClickFix place is named for it.
+
+# Who represents you (the Officials page). Kept by hand from official city and
+# school websites; checked is the date the list was last checked against them.
+# Only city- and school-issued email addresses, and the mayor's office phone.
+[officials]
+# To fill in: checked, the date the list below was checked against official
+#   pages.
+# To fill in: next_election, the date of the town's next regular municipal
+#   election, from the city's election calendar or its charter.
+# The ward file is data/static/laconia-wards-2022.geojson (NH GRANIT).
+wards_file = "laconia-wards-2022.geojson"
+wards_publisher = "NH GRANIT"
+wards_year = 2022
+wards_url = "https://www.arcgis.com/home/item.html?id=3d1a8bdf3eaa49e09cf5d9da5b56bf9c"
+
+# To fill in: the Mayor, from the city's and the school district's own pages,
+#   confirmed against the last election's official results (ADDING-A-TOWN.md,
+#   step 4). Never from news sites or memory.
+# [[officials.bodies]]
+# name = "Mayor"
+# url = ""
+# note = ""
+# members = [
+#   { name = "", seat = "" },
+# ]
+
+# To fill in: the City Council, from the city's and the school district's own
+#   pages, confirmed against the last election's official results
+#   (ADDING-A-TOWN.md, step 4). Never from news sites or memory.
+# [[officials.bodies]]
+# name = "City Council"
+# url = ""
+# note = ""
+# members = [
+#   { name = "", seat = "" },
+# ]
+
+# To fill in: the School Committee, from the city's and the school district's
+#   own pages, confirmed against the last election's official results
+#   (ADDING-A-TOWN.md, step 4). Never from news sites or memory.
+# [[officials.bodies]]
+# name = "School Committee"
+# url = ""
+# note = ""
+# members = [
+#   { name = "", seat = "" },
+# ]
