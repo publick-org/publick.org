@@ -44,7 +44,8 @@ rest for a person (the engine's `pipeline/new_town.py`):
   pages.
 - **Step 5:** the config, from the closest live town (the same meeting
   platform and state), with the colors from the city's stylesheet. No
-  `[digest]`: that's step 8.
+  `[digest]`: that's step 8. No `[recordings]` either: a person finds the
+  source and adds it (steps 1 and 5).
 - **Step 6:** in a copy, so `data/` stays empty: a build with no data, four
   weeks of meetings fetched (`--full` for everything from `since`), a second
   build, the site checks, and `pipeline.listings`. Then the share image.
@@ -85,6 +86,14 @@ left. Then publish (step 7).
 - [ ] **Minutes.** Download two or three. A scanned PDF (no text to select)
       is transcribed by the model, which costs money every month; note how
       many pages a year that would be. Minutes as Word files aren't read.
+- [ ] **Recordings.** Where the main board's meetings are recorded: the
+      city's or its public-access station's own video platform (TelVue for
+      Lowell, Cablecast, Castus cloud for Manchester, Town Meeting TV's
+      Internet Archive collection for Burlington), a CivicClerk portal's
+      own video, or the city's YouTube channel (Bangor, Wallingford, South
+      Kingstown). Take only a source the city's or the district's own site
+      links. Note how its titles name the board and the date, and which other
+      boards (school board, planning, zoning) are recorded there too.
 - [ ] **311.** Search SeeClickFix for the city
       (`seeclickfix.com/api/v2/places?search=<City>`; the place may need its
       state, like `<city>_ma`). Many issues the city
@@ -193,6 +202,20 @@ shows no ward map; a town with neither (Bangor) has no 311 section yet.
       shown before their agendas: its calendar feed (`[ical_meetings]`), a
       page of the year's dates (`[schedule_meetings]`, or `schedule_url` in
       `[finalsite_meetings]` or `[drive_meetings]`).
+- [ ] **Recordings** (`[recordings]`): every town has one, so a meeting is
+      summarized from its recording the day after, until its minutes come.
+      Set `since` to the launch date. Add one `[[recordings.sources]]` for
+      the source found in step 1, with `boards` naming each recorded board
+      as its meetings are named, and a pattern its titles match (anchored,
+      and leaving out its subcommittees, as in South Kingstown's). Prefer
+      the city's or station's own platform: YouTube, transcribed by Gemini,
+      is read only for a meeting no other source has. Where the town's
+      meeting listings already link each meeting's YouTube video (PrimeGov,
+      CivicClerk, a Finalsite or link page), a `youtube` source with
+      neither `channel` nor `playlist` takes those videos, its `boards` only
+      naming the boards. The engine's `pipeline/recordings.py` and each
+      platform's module say what a source needs. A town with no official
+      recordings of any board has no `[recordings]`: say so in a comment.
 - [ ] **City or town** needs nothing: the first run records the Census
       Bureau's word for the place (`data/place.json`), and the site says "the
       city" or "the town" to match. Set `[town] kind` only to override it.
@@ -223,6 +246,12 @@ shows no ward map; a town with neither (Bangor) has no 311 section yet.
       after `python -m pipeline.fetch_meetings`: every board listed under its
       usual name, committees under their own boards, no errors.
 - [ ] `python -m pytest ../publick-engine/site_checks` on the build.
+- [ ] **Recordings**: with the meetings fetched, `python -m
+      pipeline.fetch_recordings --find-only` (with `YOUTUBE_API_KEY` set for
+      a YouTube source) lists the recordings since `since` and matches each
+      to its meeting, transcribing none. Every recent recording of a board
+      in `boards` should be matched; an unmatched one usually means a
+      board's name or its pattern is wrong.
 - [ ] Read the first summaries of the main board's meetings before
       announcing the site. Each summary is also checked against its
       document's own text (the engine's `pipeline/factcheck.py`): `python -m
