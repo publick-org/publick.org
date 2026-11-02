@@ -123,7 +123,7 @@ jobs:
             ${ALERT_ASSIGNEE:+--assignee "$ALERT_ASSIGNEE"} \
             --body "engine-version moved from $OLD to $NEW, and the sites Worker changed between them ([the changes]($compare), under worker/). It serves every site, so it's deployed only by hand: **Actions → Worker → Run workflow**, then look at a town's site and https://publick.org/status/. Close this issue once it's deployed. See the RUNBOOK's \"Releasing by hand\"."
 
-      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         if: steps.decide.outputs.deploy == 'true'
         with:
           node-version: "22"
