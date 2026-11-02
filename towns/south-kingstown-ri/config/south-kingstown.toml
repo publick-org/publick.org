@@ -366,9 +366,9 @@ members = [
 [recordings]
 since = "2026-10-26"
 
-# The town's channel: the Town Council's meetings, titled "October 26, 2026 Town Council"
-# (joint sessions and subcommittees are left out).
+# The town's channel: the Town Council's meetings, titled "October 26, 2026 Town Council", and its
+# subcommittees', where the town lists them (a joint session with another body is left out).
 [[recordings.sources]]
 platform = "youtube"
 channel = "UCOz_gL-w5KrVcyoMxojLVmw"
-boards = { "Town Council" = '^\s*(?:[a-z]+\s+\d{1,2},\s*\d{4}\s+)?(?:sk\s+)?(?:special\s+)?town\s+council\b(?!.*\b(?:sub)?committee\b)' }
+boards = "listed"
