@@ -244,19 +244,16 @@ since = "2026-07-01"
 since = "2026-10-19"
 
 # The city's CivicClerk portal keeps each meeting's video with it: the City Council's meetings, named
-# "City Council Meeting", after any of Virtual, Hybrid, Emergency, Special and Inaugural (its workshops
-# in executive session are left out), and the Planning Board's and Zoning Board of Appeals' meetings,
-# by their category ("Hybrid Planning Board Meeting 10-27-2026" is in the Planning Board's).
+# "City Council Meeting", after any of Virtual, Hybrid, Emergency, Special and Inaugural, the Planning
+# Board's and Zoning Board of Appeals' meetings ("Hybrid Planning Board Meeting 10-27-2026"), and other
+# boards' and committees'. Each is matched to the meeting it's posted with.
 [[recordings.sources]]
 platform = "civicclerk"
 api_url = "https://portlandme.api.civicclerk.com/v1"
 portal_url = "https://portlandme.portal.civicclerk.com"
 media_url = "https://cpmedia.azureedge.net/portlandme"
 
-[recordings.sources.boards]
-"City Council" = '^((Virtual|Hybrid|Emergency|Special|Inaugural) )*City Council Meeting\b'
-"Planning Board" = '^Planning Board$'
-"Zoning Board of Appeals" = '^Zoning Board of Appeals$'
+boards = "listed"
 
 # How residents can take part, per board, shown on its meeting pages. Only
 # what the city has published; each entry names its source. From the

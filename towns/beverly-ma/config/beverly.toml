@@ -177,11 +177,7 @@ platform = "cablecast"
 host = "https://bevcam.cablecast.tv"
 projects = [119, 158, 191]
 
-[recordings.sources.boards]
-"City Council" = '^(Beverly )?City Council( Special Meeting| \([^)]*\))?:? ?\d'
-"Planning Board" = '^(Beverly )?Planning Board\b'
-"School Committee" = '^(Beverly )?School Committee\b.*\b(Regular School Committee|Special Meeting)\b'
-"School Committee of the Whole" = '^School Committee\b.*\bCommittee of the Whole\b'
+boards = "listed"
 
 # BevCam's government channel on YouTube (@bevcamgovernment1337, linked from bevcam.org), the backup:
 # BevCam's Cablecast files answer GitHub's runners 403, so a meeting whose files can't be read there is
@@ -193,11 +189,7 @@ projects = [119, 158, 191]
 platform = "youtube"
 channel = "UCsloEZrieQqRUqra1diSk1w"
 
-[recordings.sources.boards]
-"City Council" = '^City Council:? ?\d'
-"Planning Board" = '^(Beverly )?Planning Board\b'
-"School Committee" = '^School Committee:.*\bReg(ular|\.)\s'
-"School Committee of the Whole" = '^School Committee:.*\b(COTW|Committee of the Whole)\b'
+boards = "listed"
 
 # How residents can take part, per board, shown on its meeting pages. Only
 # what the city and the school district have published; each entry names its

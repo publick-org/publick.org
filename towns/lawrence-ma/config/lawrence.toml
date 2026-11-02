@@ -312,9 +312,9 @@ members = [
 [recordings]
 since = "2026-10-19"
 
-# The city's channel: the City Council's meetings, titled "Lawrence City Council October 20, 2026"
-# (subcommittees are left out).
+# The city's channel: the City Council's meetings, titled "Lawrence City Council October 20, 2026",
+# and its subcommittees', where the city lists them.
 [[recordings.sources]]
 platform = "youtube"
 channel = "UC-2T3lkuyO1ywReSTsm3fsA"
-boards = { "City Council" = '^\s*(?:lawrence\s+)?city\s+council\b(?!.*\b(?:sub)?committee\b)' }
+boards = "listed"

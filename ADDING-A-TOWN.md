@@ -205,15 +205,19 @@ shows no ward map; a town with neither (Bangor) has no 311 section yet.
 - [ ] **Recordings** (`[recordings]`): every town has one, so a meeting is
       summarized from its recording the day after, until its minutes come.
       Set `since` to the launch date. Add one `[[recordings.sources]]` for
-      the source found in step 1, with `boards` naming each recorded board
-      as its meetings are named, and a pattern its titles match (anchored,
-      and leaving out its subcommittees, as in South Kingstown's). Prefer
-      the city's or station's own platform: YouTube, transcribed by Gemini,
-      is read only for a meeting no other source has. Where the town's
-      meeting listings already link each meeting's YouTube video (PrimeGov,
-      CivicClerk, a Finalsite or link page), a `youtube` source with
-      neither `channel` nor `playlist` takes those videos, its `boards` only
-      naming the boards. The engine's `pipeline/recordings.py` and each
+      each source found in step 1, with `boards = "listed"`: every board the
+      town lists is read, each recording matched to the meeting listed that
+      day whose board its title names, with no pattern to write. Check the
+      first run's `recordings_status.json`: a title it couldn't match is
+      under `unmatched`. Only a title that names its board by a local
+      abbreviation ("SC Meeting October 27 2026" for Pawtucket's School
+      Committee) needs `boards` to map the board to a pattern its titles
+      match instead. Prefer the city's or station's own platform: YouTube,
+      transcribed by Gemini, is read only for a meeting no other source has.
+      Where the town's meeting listings already link each meeting's YouTube
+      video (PrimeGov, CivicClerk, a Finalsite or link page), a `youtube`
+      source with neither `channel` nor `playlist`, and `boards = "listed"`,
+      takes those videos. The engine's `pipeline/recordings.py` and each
       platform's module say what a source needs. A town with no official
       recordings of any board has no `[recordings]`: say so in a comment.
 - [ ] **City or town** needs nothing: the first run records the Census

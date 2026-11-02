@@ -349,15 +349,15 @@ members = [
 [recordings]
 since = "2026-10-26"
 
-# GovTV's channel: the City Council's meetings, titled "Regular City Council Meeting - October 22, 2026"
-# (committees are left out).
+# GovTV's channel: the City Council's meetings, titled "Regular City Council Meeting - October 22, 2026",
+# and its committees', where the city lists them.
 [[recordings.sources]]
 platform = "youtube"
 channel = "UCA4fw6KOQ44_I5p9sFOmqfA"
-boards = { "City Council" = '^\s*(?:(?:regular|special)\s+)?city\s+council\s+meeting\b' }
+boards = "listed"
 
-# The videos the School Committee's meetings link in their listings: matched to the meeting that links them,
-# with no channel or title pattern.
+# The videos every board's meetings link in their listings (the School Committee's): matched to the meeting
+# that links them, with no channel or title pattern.
 [[recordings.sources]]
 platform = "youtube"
-boards = ["School Committee"]
+boards = "listed"
