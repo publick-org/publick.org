@@ -227,6 +227,16 @@ channel = "medford"
 playlists = ["Medford City Council", "Medford School Committee"]
 boards = "listed"
 
+# Medford Public Schools' channel, which the district's website links: the School Committee's
+# regular meetings, titled "10.19.2026 MSC REG Meeting (In Person)" or "10.05.2026 MSC Regular Meeting",
+# the day after the meeting. "MSC" is the committee's own abbreviation, so its board is named by pattern.
+[[recordings.sources]]
+platform = "youtube"
+channel = "UCTJGkgFesimf6BOlToHzINg"
+
+[recordings.sources.boards]
+"School Committee" = '\bMSC (REG|Regular)\b'
+
 # The Council's Rules (last updated September 1, 2022), Rule 16; its agendas
 # give the Zoom link and the address for written comments (agenda of October
 # 13, 2026). Meetings are carried live by Medford Community Media.
