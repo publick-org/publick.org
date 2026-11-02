@@ -1,8 +1,8 @@
 {
   "town": "concord",
   "folder": "concord-nh",
-  "started_at": "2026-11-01T22:27:40+00:00",
-  "finished_at": "2026-11-01T22:38:05+00:00",
+  "started_at": "2026-11-01T23:52:58+00:00",
+  "finished_at": "2026-11-02T00:00:18+00:00",
   "engine": "v1.83.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 569.0
+      "seconds": 384.4
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 12.4
+      "seconds": 8.6
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 58.6
+      "seconds": 42.2
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.2
+      "seconds": 3.6
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.9
+      "seconds": 1.2
     }
   ],
   "update": {
     "town": "concord",
-    "sources": "all",
-    "started_at": "2026-11-01T22:27:41+00:00",
+    "sources": "meetings",
+    "started_at": "2026-11-01T23:52:58+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 212.7,
+        "seconds": 212.5,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.7,
+        "seconds": 1.2,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.9,
+        "seconds": 1.1,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 243.5,
+        "seconds": 167.8,
         "cadence": "continuous"
       },
       {
@@ -188,7 +188,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -196,7 +196,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -213,32 +213,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 107.8,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests from an open data portal",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [socrata_311] in the config"
-      },
-      {
-        "name": "Compute 311 scorecard",
-        "ok": true,
-        "required": true,
-        "error": null,
-        "seconds": 0.9,
+        "seconds": 0.4,
         "cadence": "continuous"
       }
     ]
@@ -248,14 +223,14 @@
     {
       "label": "Meetings (city calendar and Legistar)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-01T17:27:41-05:00",
+      "updated_at": "2026-11-01T18:52:59-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Board of Education meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-01T17:31:16-05:00",
+      "updated_at": "2026-11-01T18:56:32-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -357,9 +332,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-01T22:46:51+00:00",
-  "data_bytes": 2644134,
-  "data_bytes_added": 1312473,
+  "last_good_at": "2026-11-02T00:00:18+00:00",
+  "data_bytes": 3045822,
+  "data_bytes_added": 1312369,
   "activity": {
     "boards": 39,
     "meetings_by_date": {
@@ -373,16 +348,14 @@
     }
   },
   "fact_checks": {
-    "summaries": 39,
-    "ok": 34,
-    "failed": 3,
+    "summaries": 55,
+    "ok": 46,
+    "failed": 6,
     "weak": 1,
-    "unchecked": 1,
+    "unchecked": 2,
     "not_yet": 0,
-    "held_back": 3,
-    "entries_not_shown": 4,
-    "vote_counts_left_out": 15
-  },
-  "published_at": "2026-11-01T22:46:51+00:00",
-  "published_engine": "v1.83.0"
+    "held_back": 6,
+    "entries_not_shown": 15,
+    "vote_counts_left_out": 29
+  }
 }
