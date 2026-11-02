@@ -172,6 +172,9 @@ since = "2026-06-01"
 body = "School Committee"
 one_meeting_a_day = true
 agenda_pattern = '\(\s*\d{1,2}(:\d{2})?\s*[ap]\.?m'
+# The committee posts no minutes on this page: each packet's "Approval of Last Meeting's Minutes"
+# item links the last meeting's minutes (a Google Doc) by its date.
+minutes_in_agenda = true
 
 [page_meetings.columns]
 "School Committee" = "School Committee"
