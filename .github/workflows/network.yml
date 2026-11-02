@@ -87,6 +87,10 @@ on:
         type: choice
         options: [all, figures, meetings, "311"]
         default: all
+      force:
+        description: "Check every figure source now, due or not (one checked weekly or monthly whose calculation changed)"
+        type: boolean
+        default: false
       catch_up:
         description: "For a new town's first runs: the percent of the month's summary budget its older documents may use in this run (empty for the usual share). Capped by the town's share of what's left of the month's budget and its own limit per run"
         type: string
@@ -462,6 +466,8 @@ jobs:
           FULL_TOWNS: ${{ needs.plan.outputs.full_towns }}
           # Only when some data is left out, so a run fetching everything works with any engine.
           SOURCES: ${{ needs.plan.outputs.fetch == 'true' && needs.plan.outputs.sources != 'all' && format('--sources {0}', needs.plan.outputs.sources) || '' }}
+          # A run by hand asked to check every figure source now (Run workflow, force).
+          FORCE: ${{ needs.plan.outputs.fetch == 'true' && github.event_name == 'workflow_dispatch' && inputs.force && '--force' || '' }}
           # No keys on a pull request's run: it doesn't fetch or publish, and its build and checks use none.
           ANTHROPIC_API_KEY: ${{ github.event_name != 'pull_request' && secrets.ANTHROPIC_API_KEY || '' }}
           # Empty unless the run fetches; then the town summarizes within these, new documents first: each a
@@ -487,7 +493,7 @@ jobs:
           SITES_BUCKET: ${{ github.event_name != 'pull_request' && secrets.SITES_BUCKET || '' }}
           SITES_ACCESS_KEY_ID: ${{ github.event_name != 'pull_request' && secrets.SITES_ACCESS_KEY_ID || '' }}
           SITES_SECRET_ACCESS_KEY: ${{ github.event_name != 'pull_request' && secrets.SITES_SECRET_ACCESS_KEY || '' }}
-        # $FETCH, $DEPLOY, $sample and $SOURCES are unquoted on purpose: each is a flag (and its value) or nothing.
+        # $FETCH, $DEPLOY, $sample, $SOURCES and $force are unquoted on purpose: each is a flag (and its value) or nothing.
         # A town that fails, or whose commit fails, doesn't stop the next; the step fails at the end if either did.
         run: |
           if [ -n "$ALLOWANCE_SHARE" ]; then
@@ -508,11 +514,16 @@ jobs:
           if [ -n "$PUBLICK_SUMMARY_BATCH" ] && python -m pipeline.network run --help | grep -q -- --ready; then
             ready=1
           fi
+          # Only with an engine that takes it.
+          force=""
+          if [ -n "$FORCE" ] && python -m pipeline.network run --help | grep -q -- --force; then
+            force=--force
+          fi
           done_towns=()
           for town in "${towns[@]}"; do
             sample=$SAMPLE
             if [ -n "$FULL_TOWNS" ] && [[ " $FULL_TOWNS " != *" $town "* ]]; then sample=--sample-checks; fi
-            python -m pipeline.network run --towns "$town" $FETCH $SOURCES $DEPLOY $sample --reports reports || status=1
+            python -m pipeline.network run --towns "$town" $FETCH $SOURCES $force $DEPLOY $sample --reports reports || status=1
             if [ "$COMMIT" = true ]; then
               .publick-engine/.github/scripts/commit-data.sh "Update data for $town" "towns/$town/data" || status=1
             fi

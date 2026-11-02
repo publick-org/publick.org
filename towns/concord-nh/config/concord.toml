@@ -105,6 +105,12 @@ status = "live"
 [analytics]
 prefix = "concord-nh"
 
+# The weekly digest's email signup, on /digest/ (the engine's pipeline/digest.py). The form posts
+# to this site's /digest/subscribe, which the sites Worker answers (worker/digest.js) and passes on
+# to Buttondown with the tag concord-nh-en. The About page names who keeps the addresses.
+[digest]
+# The network's settings (defaults/network.toml): having the table turns the signup on.
+
 # Public meetings, from the city calendar and its Legistar system. The city's
 # "Agendas & Minutes" link is its Archive Center, which has every board's
 # minutes; the City Council's page links Legistar for the Council's agendas
