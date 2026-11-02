@@ -6,7 +6,7 @@
     "Se aprobó una recomendación de adjudicar el paquete de andamios de Pawtucket High School (#029) a Shawmut Design & Construction, con todos los integrantes votando a favor.",
     "Se aprobó una recomendación de adjudicar el paquete de techado de Pawtucket High School (#030) a Shawmut Design & Construction, por unanimidad.",
     "Se aprobó una recomendación de adjudicar el paquete de paneles de yeso de Pawtucket High School (#031) a Shawmut Design & Construction, por unanimidad.",
-    "Se aprobó una recomendación de adjudicar el paquete de protección contra incendios de Pawtucket High School (#032) a Shawmut Design & Construction, por unanimidad.",
+    "Se aprobó una recomendación de adjudicar el paquete de ignifugación de Pawtucket High School (#032) a Shawmut Design & Construction, por unanimidad.",
     "Se aprobó una recomendación de adjudicar el paquete de puertas, marcos y herrajes de Pawtucket High School (#033) a Shawmut Design & Construction, por unanimidad.",
     "Se aprobó una recomendación de adjudicar el paquete de equipo de cocina y electrodomésticos de Pawtucket High School (#034) a Shawmut Design & Construction, por unanimidad.",
     "Se aprobó una recomendación de adjudicar el paquete de mampostería por unidades de Pawtucket High School (#035) a Shawmut Design & Construction, por unanimidad.",
@@ -20,7 +20,7 @@
     "Paquete de andamios de Pawtucket High School (#029)",
     "Paquete de techado de Pawtucket High School (#030)",
     "Paquete de paneles de yeso de Pawtucket High School (#031)",
-    "Paquete de protección contra incendios de Pawtucket High School (#032)",
+    "Paquete de ignifugación de Pawtucket High School (#032)",
     "Paquete de puertas, marcos y herrajes de Pawtucket High School (#033)",
     "Paquete de equipo de cocina y electrodomésticos de Pawtucket High School (#034)",
     "Paquete de mampostería por unidades de Pawtucket High School (#035)",
@@ -33,19 +33,18 @@
   "kind": "minutes",
   "source_sha256": "3fee5e65c8c19d87eba33f53a207109df2b13b96563703359483bed8d887a8bc",
   "source_hash": "27ae8b71ed7547017dbc8c5da0f3706257557092f6a9b76b4eddc5fde745965f",
-  "check": "decision_titles 4: Drywall not in the translation",
-  "review": "decisions 5: \"Fireproofing\" (material that makes structures fire-resistant) is translated as \"protección contra incendios\", which usually means fire protection systems such as sprinklers and alarms. It should be \"ignifugación\" or \"revestimiento ignífugo\".; decision_titles 5: \"Fireproofing\" is translated as \"protección contra incendios\", which usually means fire protection systems. It should be \"ignifugación\" or \"revestimiento ignífugo\".",
-  "attempts": 1,
+  "check": "ok",
+  "review": "decisions 7: \"food equipment\" is translated as \"equipo de cocina\" (kitchen equipment), which changes the item's scope. It should be equipo para alimentos or equipo de servicio de comidas.; decision_titles 7: \"food equipment\" is translated as \"equipo de cocina\" (kitchen equipment), which changes the item's scope. It should be equipo para alimentos or equipo de servicio de comidas.",
+  "attempts": 2,
   "model": "claude-haiku-5-5",
   "prompt_version": 7,
   "glossary": "0b2a00eb9a8ad93a",
-  "generated_at": "2026-11-02T17:04:39-05:00",
+  "generated_at": "2026-11-02T17:14:09-05:00",
   "usage": {
-    "input_tokens": 1004,
-    "output_tokens": 3824,
-    "cache_read_input_tokens": 2801
+    "input_tokens": 2421,
+    "output_tokens": 2127,
+    "cache_creation_input_tokens": 2801
   },
-  "cost": 0.008987,
-  "review_retries": 1,
-  "replaced_cost": 0.00204
+  "cost": 0.009604,
+  "replaced_cost": 0.011027
 }
