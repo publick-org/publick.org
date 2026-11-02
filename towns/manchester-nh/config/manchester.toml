@@ -44,7 +44,7 @@ official_site = "https://www.manchesternh.gov"
 [[sections]]
 slug = "meetings"
 title = "Meetings"
-summary = "When the Board of Mayor and Aldermen, its committees, and the city's boards and commissions meet, with agendas, and the aldermen's minutes from January 2026 on."
+summary = "When the Board of Mayor and Aldermen, its committees, and the city's boards and commissions meet, with agendas, and minutes from January 2026 on for the aldermen, the Planning Board, the Zoning Board of Adjustment, and the Conservation Commission."
 status = "live"
 
 [[sections]]
@@ -106,8 +106,10 @@ prefix = "manchester-nh"
 # (the address the city calendar's agenda links go to). Other boards and
 # commissions (Planning, Zoning, Conservation, Highway, Water, and more) are on
 # the city calendar only. Agendas and minutes are saved for the CivicClerk
-# meetings (from [meetings.civicclerk] since on); the city calendar's meetings
-# link to their agendas where the city posts them.
+# meetings (from [meetings.civicclerk] since on), and for the Planning and
+# Community Development department's boards from its own pages
+# ([page_meetings]); the city calendar's other meetings link to their agendas
+# where the city posts them.
 [meetings]
 calendar_url = "https://www.manchesternh.gov/Government/City-Calendars"
 archive_url = "https://www.manchesternh.gov/Departments/City-Clerk/Meeting-Minutes-and-Agendas"
@@ -187,6 +189,44 @@ doubtful = true
 checked = "2026-10-02"
 note = "The city calendar also lists the Arts Commission on Tuesday, October 27 and Tuesday, November 24: the fourth Tuesday of the month, when the commission now meets. This Monday entry is older than those two and is most likely left over from its earlier schedule. Check with the city before going."
 evidence = "https://www.manchesternh.gov/Government/City-Calendars/ModuleID/3737/ItemID/106927/mctl/EventDetails"
+
+# The Planning and Community Development department's boards' agendas and
+# minutes, from the department's own pages of manchesternh.gov: a list of PDF
+# links each, labelled with the file's name, which starts with the meeting's
+# date and names the board ("2026-11-05_PB_AGENDA.PDF",
+# "2026-09-17_PB_MINUTES-APPROVED.PDF", "2026-09-10_ZBA_AGENDA_REVISED.PDF",
+# "2026-10-27_HCOMM_AGENDA.PDF"; the Conservation Commission's name none:
+# "2026-07-23_MINUTES.PDF"). A revised agenda is listed above the one it
+# replaces, so it's the meeting's agenda and the first is kept as a link. The
+# Heritage Commission's minutes aren't posted. These meetings are on the city
+# calendar too, and are listed once (pipeline/listings.py).
+[page_meetings]
+page_url = "https://www.manchesternh.gov/Departments/Planning-and-Comm-Dev/Planning-Board/Agendas"
+source_name = "Planning and Community Development department"
+other_pages = [
+  "https://www.manchesternh.gov/Departments/Planning-and-Comm-Dev/Planning-Board/Minutes",
+  "https://www.manchesternh.gov/Departments/Planning-and-Comm-Dev/Zoning-Board/Agendas",
+  "https://www.manchesternh.gov/Departments/Planning-and-Comm-Dev/Zoning-Board/Minutes",
+]
+# Documents are collected from here on, as the aldermen's are.
+since = "2026-01-01"
+body = "Planning Board"
+# A file's name joins its words with underscores and dashes, which \b doesn't
+# take as a word's edge.
+agenda_pattern = '(?<![a-z])agenda(?![a-z])'
+minutes_pattern = '(?<![a-z])minutes(?![a-z])'
+# The Heritage Commission's page also lists its year's meeting calendar.
+exclude_pattern = '(?<![a-z])calendar(?![a-z])'
+# Each board meets at most once a day: a date's agenda and minutes are one meeting.
+one_meeting_a_day = true
+
+[page_meetings.bodies]
+"PB" = "Planning Board"
+"ZBA" = "Zoning Board of Adjustment"
+
+[page_meetings.pages]
+"https://www.manchesternh.gov/Departments/Planning-and-Comm-Dev/Commissions/Conservation-Commission/Meeting-Minutes-and-Agendas" = "Conservation Commission"
+"https://www.manchesternh.gov/Departments/Planning-and-Comm-Dev/Commissions/Heritage-Commission/Agendas" = "Heritage Commission"
 
 # The boards' meetings below, transcribed from their recordings for a summary
 # the day after, until the minutes come (the engine's pipeline/recordings.py).
@@ -317,6 +357,7 @@ local_series = "LAUCT334514000000003"
 # unemployment, housing) are judged by the engine, by the period they cover (pipeline/rhythms.py).
 sources = [
   { label = "Meetings (city calendar and CivicClerk)", file = "meetings/status.json", max_days = 2 },
+  { label = "Planning and zoning boards' documents (city website)", file = "meetings/page_status.json", max_days = 2 },
   { label = "311 requests", file = "311/status.json", max_days = 2 },
   { label = "311 scorecard", file = "311/scorecard.json", field = "generated_at", max_days = 2 },
 ]
@@ -404,7 +445,7 @@ members = [
 "An independent guide to city government in Manchester, New Hampshire" = "Una guía independiente sobre el gobierno de la ciudad de Manchester, New Hampshire"
 
 # Section summaries (the engine translates the section names every town shares).
-"When the Board of Mayor and Aldermen, its committees, and the city's boards and commissions meet, with agendas, and the aldermen's minutes from January 2026 on." = "Cuándo se reúnen la Junta del Alcalde y Concejales, sus comités y las juntas y comisiones de la ciudad, con sus agendas, y las actas de los concejales desde enero de 2026."
+"When the Board of Mayor and Aldermen, its committees, and the city's boards and commissions meet, with agendas, and minutes from January 2026 on for the aldermen, the Planning Board, the Zoning Board of Adjustment, and the Conservation Commission." = "Cuándo se reúnen la Junta del Alcalde y Concejales, sus comités y las juntas y comisiones de la ciudad, con sus agendas, y las actas desde enero de 2026 de los concejales, la Junta de Planificación, la Junta de Ajustes de Zonificación y la Comisión de Conservación."
 "How fast the city responds to service requests to Public Works, Parking, and Police, by category and ward." = "Qué tan rápido responde la ciudad a las solicitudes de servicio a Obras Públicas, Estacionamiento y la Policía, por categoría y por distrito."
 "The city's adopted budget, its property tax rate and where the tax goes, and the average single-family tax bill." = "El presupuesto aprobado de la ciudad, la tasa del impuesto a la propiedad y a dónde va ese dinero, y la factura promedio del impuesto a la propiedad de una casa unifamiliar."
 "Manchester School District's graduation rate, state test results, and cost per pupil, with the state's." = "La tasa de graduación del Distrito Escolar de Manchester, los resultados de los exámenes estatales y el costo por estudiante, comparados con los del estado."
@@ -425,6 +466,7 @@ members = [
 # Where the city posts agendas and minutes, and the data the site keeps up to date.
 "city's Meeting Minutes and Agendas page" = "página de Actas y Agendas de Reuniones de la ciudad"
 "Meetings (city calendar and CivicClerk)" = "Reuniones (calendario de la ciudad y CivicClerk)"
+"Planning and zoning boards' documents (city website)" = "Documentos de las juntas de planificación y zonificación (sitio web de la ciudad)"
 "311 requests" = "Solicitudes al 311"
 
 # Officials: notes, seats, and roles.
