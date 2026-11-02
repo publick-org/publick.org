@@ -259,6 +259,20 @@ projects = [157, 193, 192]
 "Community Development Board" = '^Community Development Board\b'
 "Zoning Board of Appeals" = '^Zoning Board of Appeals\b'
 
+# The City of Methuen Public Meetings channel on YouTube (@methuenmeetings), the backup: the station's
+# Cablecast files answer GitHub's runners 403, so a meeting whose files can't be read there is
+# transcribed from its video here. It streams the City Council's meetings, titled "City Council Regular
+# Meeting - October 19, 2026", "City Council Special Meeting - September 24, 2026" and "City Council
+# Public Hearings & City Council Regular Meeting - July 6, 2026" (a budget workshop or joint workshop
+# is left out, as on Cablecast). The Community Development Board and the Zoning Board of Appeals aren't
+# on it.
+[[recordings.sources]]
+platform = "youtube"
+channel = "UCr7jrQAkh_Om3WUDZIZsxTQ"
+
+[recordings.sources.boards]
+"City Council" = '^City Council (Public Hearings? & City Council )?(Regular |Special )?Meeting\b'
+
 # How residents can take part, per board, shown on its meeting pages. From
 # Rule XI of the council's Rules and Procedures (as amended February 5, 2024,
 # the version the council's page links). The council's meetings are broadcast
