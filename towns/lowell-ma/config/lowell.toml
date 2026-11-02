@@ -150,17 +150,26 @@ prefix = "lowell-ma"
 [summaries]
 since = "2026-07-01"
 
-# The council's meetings, transcribed from their recordings for a summary the
-# day after, until the minutes come (the engine's pipeline/recordings.py).
+# The boards' meetings below, transcribed from their recordings for a summary
+# the day after, until the minutes come (the engine's pipeline/recordings.py).
 [recordings]
 since = "2026-10-26"
 
-# LTC's TelVue player: the City Council's playlist, titled "City Council - October 27, 2026".
+# LTC's TelVue player: a playlist a board, each recording titled "City Council - October 27, 2026",
+# "School Committee - October 21, 2026", and so on: the City Council (1757), School Committee (1759),
+# Zoning Board of Appeals (1760), Planning Board (1761) and License Commission (1762). A recording filed
+# in another board's playlist goes by its title. Their subcommittees' playlists are left out.
 [[recordings.sources]]
 platform = "telvue"
 player = "4jeRlBTetCoFJdyT5ssIvBrB9VUvRN0M"
-playlists = [1757]
-boards = { "City Council" = '^City Council - ' }
+playlists = [1757, 1759, 1760, 1761, 1762]
+
+[recordings.sources.boards]
+"City Council" = '^City Council - '
+"School Committee" = '^School Committee - '
+"Zoning Board of Appeals" = '^Zoning Board of Appeals - '
+"Planning Board" = '^Planning Board - '
+"License Commission" = '^License Commission - '
 
 # How residents can take part, per board, shown on its meeting pages. From
 # the notice on each agenda; the Council's Rules (Rule 26) add a three-minute

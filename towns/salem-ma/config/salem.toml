@@ -211,6 +211,12 @@ since = "2026-01-01"
 
 # The School Committee posts with the other boards ("School Committee").
 
+# The weekly digest's email signup, on /digest/ (the engine's pipeline/digest.py). The form posts
+# to this site's /digest/subscribe, which the sites Worker answers (worker/digest.js) and passes on
+# to Buttondown with the tag salem-ma-en. The About page names who keeps the addresses.
+[digest]
+# The network's settings (defaults/network.toml): having the table turns the signup on.
+
 # Agenda and minutes PDFs live in the network's documents bucket, not in git
 # (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID,
 # STORAGE_SECRET_ACCESS_KEY.
@@ -224,17 +230,26 @@ prefix = "salem-ma"
 [summaries]
 since = "2026-07-01"
 
-# The council's meetings, transcribed from their recordings for a summary the
-# day after, until the minutes come (the engine's pipeline/recordings.py).
+# The boards' meetings below, transcribed from their recordings for a summary
+# the day after, until the minutes come (the engine's pipeline/recordings.py).
 [recordings]
 since = "2026-10-26"
 
-# SATV's Cablecast (plain HTTP only): its Government shows, titled "City Council Regular Meeting 10-22-26".
+# SATV's Cablecast (plain HTTP only): its Government shows, titled "City Council Regular Meeting 10-22-26",
+# "Salem School Committee Meeting 10/19/2026", "Salem Zoning Board of Appeals Meeting 10/21/26", "Salem
+# Planning Board Meeting 10/15/26", "Salem Licensing Board Meeting 10/26/26" (a joint meeting, or a
+# council committee's, is left out).
 [[recordings.sources]]
 platform = "cablecast"
 host = "http://cc.satvonline.org"
 categories = [44]
-boards = { "City Council" = '^(Salem )?City Council (Regular |Special )?Meeting \d' }
+
+[recordings.sources.boards]
+"City Council" = '^(Salem )?City Council (Regular |Special )?Meeting \d'
+"School Committee" = '^(Salem )?School Committee (Regular |Special )?Meeting \d'
+"Planning Board" = '^(Salem )?Planning Board (Regular |Special )?Meeting \d'
+"Zoning Board of Appeals" = '^(Salem )?Zoning Board of Appeals (Regular |Special )?Meeting \d'
+"Licensing Board" = '^(Salem )?Licensing Board (Regular |Special )?Meeting \d'
 
 # How residents can take part, from each board's own agendas. The council's
 # Rules for Testimony (Sec. 26C in the city's Manual of the City Government)
