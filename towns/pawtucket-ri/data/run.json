@@ -1,71 +1,218 @@
 {
   "town": "pawtucket",
   "folder": "pawtucket-ri",
-  "started_at": "2026-11-01T13:16:25+00:00",
-  "finished_at": "2026-11-01T13:19:20+00:00",
-  "engine": "v1.80.0",
+  "started_at": "2026-11-01T23:52:57+00:00",
+  "finished_at": "2026-11-02T00:07:26+00:00",
+  "engine": "v1.83.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 91.4
+      "seconds": 808.1
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 8.8
+      "seconds": 6.1
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 51.6
+      "seconds": 40.5
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.4
+      "seconds": 13.2
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 1.0
+      "seconds": 0.8
     }
   ],
   "update": {
     "town": "pawtucket",
-    "sources": "311",
-    "started_at": "2026-11-01T13:16:26+00:00",
+    "sources": "meetings",
+    "started_at": "2026-11-01T23:52:57+00:00",
     "ok": true,
     "steps": [
       {
-        "name": "Fetch 311 requests",
+        "name": "Fetch meetings",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 88.5,
+        "seconds": 0.5,
         "cadence": "continuous"
       },
       {
-        "name": "Fetch 311 requests from an open data portal",
+        "name": "Fetch minutes",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.4,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch School Committee documents",
         "ok": true,
         "required": false,
         "error": null,
         "seconds": 0,
         "cadence": "continuous",
-        "skipped": "no [socrata_311] in the config"
+        "skipped": "no [drive_meetings] in the config"
       },
       {
-        "name": "Compute 311 scorecard",
+        "name": "Fetch school board meetings",
         "ok": true,
-        "required": true,
+        "required": false,
         "error": null,
-        "seconds": 1.4,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [finalsite_meetings] in the config"
+      },
+      {
+        "name": "Fetch school board documents",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [page_meetings] in the config"
+      },
+      {
+        "name": "Fetch Diligent Community meetings",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [diligent_meetings] in the config"
+      },
+      {
+        "name": "Fetch BoardBook meetings",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [boardbook_meetings] in the config"
+      },
+      {
+        "name": "Fetch Open Meetings portal meetings",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 632.8,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch the city's meeting documents",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [meetingdocs_meetings] in the config"
+      },
+      {
+        "name": "Fetch the school district's minutes library",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [sharpschool_meetings] in the config"
+      },
+      {
+        "name": "Summarize agendas",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 172.7,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch tax bill",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.3,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch unemployment",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
+      },
+      {
+        "name": "Fetch school figures",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "yearly",
+        "skipped": "checked 0 days ago; checked every 30 days"
+      },
+      {
+        "name": "Fetch budget figures",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "yearly",
+        "skipped": "checked 0 days ago; checked every 7 days"
+      },
+      {
+        "name": "Fetch housing figures",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
+      },
+      {
+        "name": "Fetch place",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.3,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch address ranges",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.3,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch building permits",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [permits] in the config"
+      },
+      {
+        "name": "Move saved documents to storage",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.3,
         "cadence": "continuous"
       }
     ]
@@ -75,7 +222,7 @@
     {
       "label": "Meetings (Open Meetings portal)",
       "file": "meetings/opengov_status.json",
-      "updated_at": "2026-11-01T04:24:22-05:00",
+      "updated_at": "2026-11-01T18:52:59-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -165,9 +312,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-01T22:49:03+00:00",
-  "data_bytes": 1025484,
-  "data_bytes_added": 71952,
+  "last_good_at": "2026-11-02T00:07:26+00:00",
+  "data_bytes": 1096010,
+  "data_bytes_added": 142090,
   "activity": {
     "boards": 32,
     "meetings_by_date": {
@@ -186,7 +333,5 @@
     "held_back": 3,
     "entries_not_shown": 2,
     "vote_counts_left_out": 23
-  },
-  "published_at": "2026-11-01T22:49:03+00:00",
-  "published_engine": "v1.83.0"
+  }
 }
