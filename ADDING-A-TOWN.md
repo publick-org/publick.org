@@ -280,6 +280,14 @@ shows no ward map; a town with neither (Bangor) has no 311 section yet.
       among them.
 - [ ] Add the town to the README's "Keeping officials current" election
       dates if they differ.
+- [ ] **Search Console**, the morning after the town's first build: check
+      `https://<town>-<state>.publick.org/sitemap.xml` is listed under
+      **Sitemaps** on the `publick.org` domain property. The scheduler
+      submits it by itself at the first daily run after the build (the
+      engine's `worker/search.js`), as the town is in the network's
+      `sitemap.xml` from its first build. If it isn't listed, add it there
+      by hand, then read the scheduler's logs from that morning's first run
+      (Cloudflare, **Workers & Pages → publick-scheduler → Logs**) for why.
 
 ## 8. A week after launch
 
