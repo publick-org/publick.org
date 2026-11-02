@@ -667,6 +667,29 @@ jobs:
             gh issue close "$number" --comment "Every town is caught up."
           fi
 
+      # The main boards' meetings of the last week, by how far each got toward a summary from its recording,
+      # from towns/*/data/run.json (the engine's network.py recordings): one issue, its text replaced after
+      # each run that fetches. An edit sends no email, so it doesn't add one a run. An engine without the
+      # command leaves the issue as it is.
+      - name: Update the issue on next-day summaries from recordings
+        if: needs.plan.outputs.fetch == 'true' && github.event_name != 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          LABEL: next-day recordings
+        run: |
+          if ! body=$(python -m pipeline.network recordings); then
+            echo "::notice::This engine has no network.py recordings; the issue is left as it is."
+            exit 0
+          fi
+          gh label create "$LABEL" --color 1D76DB --description "Meetings summarized from their recordings the next day" --force
+          number=$(gh issue list --label "$LABEL" --state open --json number --jq '.[0].number // empty')
+          if [ -n "$number" ]; then
+            gh issue edit "$number" --body "$body"
+          else
+            gh issue create --title "Next-day summaries from recordings" --label "$LABEL" --body "$body"
+          fi
+
       - name: Publish the homepage
         if: needs.plan.outputs.deploy == 'true'
         env:
