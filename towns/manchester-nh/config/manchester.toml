@@ -181,51 +181,36 @@ include_pattern = '\b(board|commission|committee|council|corporation|trust|funds
 exclude_pattern = '\b(Aldermen|Committee on|Board of Registrars|Board of Recount|Personnel Appeals Board)\b'
 
 # The Board of School Committee's meetings and its committees', from the school
-# district's public Google Calendar, the one its Board Calendar page shows
-# (engine v1.31 on). Titles name the board or committee: "Board of School
-# Committee", "BOSC - PUBLIC HEARING - BUDGET", "Finance and Facilities",
-# "Policy Committee", "Student Conduct", "Teaching and Learning Committee (Was
-# C&I)", "BoSC Special Committee on Athletics Meeting", "Strategic Plan AD HOC
-# Committee". Holidays and school events on the same calendar name none of these
-# and are left out. The special committees are listed by their own names, as the
-# aldermen's are, so they don't read as special meetings. The joint meetings are
-# on CivicClerk too. "Joint School Building Meeting" is the Committee on Joint
-# School Buildings', listed once with CivicClerk's (pipeline/listings.py).
-# "Joint BMA and BOSC Meeting" names neither board in full, so it couldn't be
-# told for CivicClerk's "Joint Meeting of the Board of Mayor and Aldermen &
-# Board of School Committee" and would be listed twice: it maps to no board
-# (""), and is left out. The district posts agendas and minutes on its website's
-# document pages, which the site doesn't read; the meeting pages link the Board
-# Calendar page.
+# district's public Google Calendar, the one its Board Calendar page shows.
+# Titles name the board ("Board of School Committee", "BOSC - PUBLIC HEARING -
+# BUDGET") or a committee by its own words ("Finance and Facilities", "Committee
+# on Student Conduct - Non-Public Meeting", "BoSC Special Committee on Athletics
+# Meeting"), read by the engine from the names below (pipeline/ical.py). The
+# special committees are listed by their own names, as the aldermen's are, so
+# they don't read as special meetings. Non-meetings and holidays are left out.
+# The joint meetings are on CivicClerk too, and each is listed once with
+# CivicClerk's (pipeline/identity.py): "Joint School Building Meeting" as the
+# Committee on Joint School Buildings', and "Joint BMA and BOSC Meeting" as the
+# joint meeting of both boards. The district posts agendas and minutes on its
+# website's document pages, which the site doesn't read; the meeting pages link
+# the Board Calendar page.
 [ical_meetings]
 ical_url = "https://calendar.google.com/calendar/ical/mansd.org_pl91crqis2oo123akmibbkkns8%40group.calendar.google.com/public/basic.ics"
 page_url = "https://www.mansd.org/page/calendar-bosc"
 source_name = "Manchester School District"
 # The current board took office at the January 6, 2026 inauguration.
 since = "2026-01-01"
-
-[ical_meetings.bodies]
-"Board of School Committee" = "Board of School Committee"
-"BOSC" = "Board of School Committee"
-"Finance and Facilities" = "School Committee Finance and Facilities Committee"
-"Policy Committee" = "School Committee Policy Committee"
-"Student Conduct" = "School Committee Student Conduct Committee"
-"Teaching and Learning" = "School Committee Teaching and Learning Committee"
-"Special Committee on Education Legislation" = "Special Committee on Education Legislation"
-"Special Committee on Athletics" = "Special Committee on Athletics"
-"Strategic Plan" = "School Committee Strategic Plan Ad Hoc Committee"
-"Joint BMA and BOSC" = ""
-"Joint School Building" = "Committee on Joint School Buildings"
-# Consultations with legal counsel and on negotiations are non-meetings under RSA 91-A:2, I, not
-# meetings: "Non-Meeting of the Board of School Committee - Meeting with Legal Counsel for legal
-# Advise", "BOSC Non-Meeting with Legal Counsel". These names are longer than the board's, so they win.
-"Non-Meeting of the Board of School Committee" = ""
-"Board of School Committee Non-Meeting" = ""
-"Non-Meeting of the BOSC" = ""
-"BOSC Non-Meeting" = ""
-"Non-Meeting of the Committee on Athletics" = ""
-"Non-Meeting with the Board of School Committee" = ""
-"Non-Meeting with Legal Counsel" = ""
+board = "Board of School Committee"
+committees = [
+  "School Committee Finance and Facilities Committee",
+  "School Committee Policy Committee",
+  "School Committee Student Conduct Committee",
+  "School Committee Teaching and Learning Committee",
+  "Special Committee on Education Legislation",
+  "Special Committee on Athletics",
+  "School Committee Strategic Plan Ad Hoc Committee",
+  "Committee on Joint School Buildings",
+]
 
 # Where the city's own listing is wrong, found by hand: shown on the meeting's
 # page with the reason and how it's known (engine v1.31 on). Once the city
@@ -526,7 +511,7 @@ members = [
 "Appointed February 2026 to fill a vacancy" = "Por nombramiento en febrero de 2026, para cubrir una vacante"
 
 # Boards, as CivicClerk, the city calendar and the school district's calendar name them (after
-# [meetings.aliases] and [ical_meetings.bodies]).
+# [meetings.aliases] and [ical_meetings]).
 "Board of Mayor and Aldermen" = "Junta del Alcalde y Concejales"
 "Committee on Accounts, Enrollment & Revenue Administration" = "Comité de Cuentas, Registro y Administración de Ingresos"
 "Committee on Administration/Information Systems" = "Comité de Administración y Sistemas de Información"
@@ -542,6 +527,7 @@ members = [
 "Special Committee on Baseball/Civic Center" = "Comité Especial de Béisbol y Centro Cívico"
 "Special Committee on Solid Waste Activities" = "Comité Especial de Desechos Sólidos"
 "Board of School Committee" = "Comité Escolar"
+"Joint Board of Mayor and Aldermen and Board of School Committee" = "Junta del Alcalde y Concejales y Comité Escolar en sesión conjunta"
 "School Committee Finance and Facilities Committee" = "Comité de Finanzas e Instalaciones del Comité Escolar"
 "School Committee Policy Committee" = "Comité de Políticas del Comité Escolar"
 "School Committee Student Conduct Committee" = "Comité de Conducta Estudiantil del Comité Escolar"
