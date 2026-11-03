@@ -198,9 +198,11 @@ page_url = "https://www.wsdvt.org/school-board/"
 source_name = "Winooski School District"
 since = "2026-01-01"
 
+board = "School Board"
+
+# The regular meetings' title, "Regularly Scheduled Board Meeting WSD", doesn't name the School Board in full.
 [ical_meetings.bodies]
 "Board Meeting WSD" = "School Board"
-"School Board Meeting" = "School Board"
 
 # Agenda and minutes PDFs live in the network's documents bucket, not in git
 # (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID,

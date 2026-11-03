@@ -188,13 +188,17 @@ source_name = "Westbrook School Department"
 since = "2026-10-01"
 uid_changes = true
 
+board = "School Committee"
+committees = [
+  "School Committee Finance Committee",
+  "School Committee Educational Programs Committee",
+  "School Committee Facilities Committee",
+  "School Committee Policy Committee",
+]
+
+# A name the engine doesn't read from those: "Ed Programs" for Educational Programs.
 [ical_meetings.bodies]
-"School Committee" = "School Committee"
-"Finance Committee" = "School Committee Finance Committee"
-"Ed Programs Committee" = "School Committee Educational Programs Committee"
-"Educational Programs Committee" = "School Committee Educational Programs Committee"
-"Facilities Committee" = "School Committee Facilities Committee"
-"Policy Committee" = "School Committee Policy Committee"
+"Ed Programs" = "School Committee Educational Programs Committee"
 
 # The School Committee's agendas and minutes, and its committees', from their
 # pages on the school department's website (Apptegy). Each page has a table
