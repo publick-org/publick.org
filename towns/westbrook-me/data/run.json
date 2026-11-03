@@ -1,46 +1,46 @@
 {
   "town": "westbrook",
   "folder": "westbrook-me",
-  "started_at": "2026-11-01T22:46:16+00:00",
-  "finished_at": "2026-11-01T22:49:03+00:00",
-  "engine": "v1.83.0",
+  "started_at": "2026-11-02T21:44:42+00:00",
+  "finished_at": "2026-11-02T21:46:45+00:00",
+  "engine": "v1.86.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 125.9
+      "seconds": 82.5
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 8.2
+      "seconds": 5.2
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 31.7
+      "seconds": 25.0
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 5.9
+      "seconds": 10.9
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.7
+      "seconds": 1.1
     }
   ],
   "update": {
     "town": "westbrook",
     "sources": "all",
-    "started_at": "2026-11-01T22:46:16+00:00",
+    "started_at": "2026-11-02T21:44:43+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 21.2,
+        "seconds": 26.3,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 89.2,
+        "seconds": 12.5,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 13.0,
+        "seconds": 41.2,
         "cadence": "continuous"
       },
       {
@@ -153,7 +153,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -162,7 +162,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 0 days ago; checked every 30 days"
+        "skipped": "checked 1 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -171,7 +171,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch housing figures",
@@ -180,7 +180,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -249,14 +249,14 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-01T17:46:17-05:00",
+      "updated_at": "2026-11-02T16:44:43-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-01T17:46:38-05:00",
+      "updated_at": "2026-11-02T16:45:10-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -332,9 +332,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-02T06:45:41+00:00",
-  "data_bytes": 271704,
-  "data_bytes_added": 50112,
+  "last_good_at": "2026-11-03T09:04:52+00:00",
+  "data_bytes": 832163,
+  "data_bytes_added": 2087,
   "activity": {
     "boards": 14,
     "meetings_by_date": {
@@ -344,8 +344,8 @@
     }
   },
   "fact_checks": {
-    "summaries": 0,
-    "ok": 0,
+    "summaries": 6,
+    "ok": 6,
     "failed": 0,
     "weak": 0,
     "unchecked": 0,
@@ -354,6 +354,24 @@
     "entries_not_shown": 0,
     "vote_counts_left_out": 0
   },
-  "published_at": "2026-11-02T06:45:41+00:00",
-  "published_engine": "v1.85.0"
+  "recordings": {
+    "since": "2026-10-26",
+    "until": "2026-11-01",
+    "held": 0,
+    "next_day": 0,
+    "steps": {
+      "summarized": 0,
+      "minutes": 0,
+      "transcribed": 0,
+      "waiting": 0,
+      "failed": 0,
+      "unmatched": 0,
+      "not_found": 0,
+      "no_source": 0,
+      "no_recordings": 0
+    },
+    "misses": []
+  },
+  "published_at": "2026-11-03T09:04:52+00:00",
+  "published_engine": "v1.87.0"
 }

@@ -13,8 +13,10 @@
 # daily run's jobs, so it runs here: a job a town whose recordings Whisper
 # transcribes (it needs the machine), and the towns whose only source is
 # YouTube in batches of YOUTUBE_BATCH a job, without ffmpeg or Whisper, since
-# Gemini transcribes them (minutes a meeting) and a matrix holds at most 256
-# jobs. A job writes only its towns' data/meetings/recordings.json and
+# Gemini transcribes them (minutes a meeting). A matrix holds at most 256
+# jobs, so past MAX_JOBS Whisper towns they share jobs too, as evenly as can
+# be, each town in turn with what's left of the job's hours; and past MAX_JOBS
+# YouTube batches, the batches grow. A job writes only its towns' data/meetings/recordings.json and
 # recordings_status.json, which no other run writes, so its commit never
 # conflicts with the daily run's; the audio and transcripts go in the
 # documents bucket.
@@ -50,6 +52,8 @@ permissions:
 env:
   # YouTube-only towns a job: about ten minutes of Gemini a town on a busy morning.
   YOUTUBE_BATCH: 10
+  # Jobs in each matrix at most (GitHub's limit is 256 a matrix).
+  MAX_JOBS: 250
 
 jobs:
   plan:
@@ -91,21 +95,25 @@ jobs:
           # A town whose only source is YouTube needs no Whisper: those share jobs.
           whisper = sorted(t for t, p in platforms.items() if p != {"youtube"})
           youtube = sorted(t for t, p in platforms.items() if p == {"youtube"})
-          size = int(os.environ["YOUTUBE_BATCH"])
+          most = int(os.environ["MAX_JOBS"])
+          # Whisper towns a job each, up to MAX_JOBS jobs; past that, dealt out in turn, so jobs differ by one town.
+          jobs = min(len(whisper), most)
+          whisper_batches = [",".join(whisper[i::jobs]) for i in range(jobs)]
+          size = max(int(os.environ["YOUTUBE_BATCH"]), -(-len(youtube) // most))
           batches = [",".join(youtube[i:i + size]) for i in range(0, len(youtube), size)]
           with open(os.environ["GITHUB_OUTPUT"], "a") as out:
-              out.write(f"towns={json.dumps(whisper)}\n")
+              out.write(f"towns={json.dumps(whisper_batches)}\n")
               out.write(f"youtube={json.dumps(batches)}\n")
               out.write(f"engine={open('engine-version').read().strip()}\n")
               out.write(f"started={datetime.now(timezone.utc).isoformat(timespec='seconds')}\n")
-          print("Whisper:", ", ".join(whisper) or "none")
+          print("Whisper:", " | ".join(whisper_batches) or "none")
           print("YouTube:", " | ".join(batches) or "none")
           EOF
 
   town:
     needs: plan
     if: needs.plan.outputs.towns != '[]'
-    name: ${{ matrix.town }}
+    name: ${{ matrix.towns }}
     runs-on: ubuntu-latest
     # The job's own hours, and the time to read the recordings and save what was made.
     timeout-minutes: 330
@@ -114,19 +122,31 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        town: ${{ fromJSON(needs.plan.outputs.towns) }}
+        # A town each, or past MAX_JOBS towns, a few a job (comma-separated).
+        towns: ${{ fromJSON(needs.plan.outputs.towns) }}
     # One run a town at a time: a later run waits, and doesn't transcribe what this one is transcribing.
     concurrency:
-      group: recordings-${{ matrix.town }}
+      group: recordings-${{ matrix.towns }}
       cancel-in-progress: false
     steps:
+      - name: The job's town folders
+        id: folders
+        env:
+          TOWNS: ${{ matrix.towns }}
+        run: |
+          {
+            echo "paths<<EOF"
+            tr ',' '\n' <<< "$TOWNS" | sed 's|^|towns/|'
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           filter: blob:none
           sparse-checkout: |
             .github
             defaults
-            towns/${{ matrix.town }}
+            ${{ steps.folders.outputs.paths }}
 
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -147,31 +167,48 @@ jobs:
           sudo apt-get install -y -q ffmpeg
           pip install -r .publick-engine/requirements.txt -r .publick-engine/requirements-recordings.txt
 
+      # Each town in turn, with what's left of the job's hours; one town's failure doesn't stop the others.
+      # The town's folder, and the network's shared settings, as the daily run gives them (the engine's network.py).
       - name: Find and transcribe recordings
         env:
-          FOLDER: ${{ matrix.town }}
+          TOWNS: ${{ matrix.towns }}
           HOURS: ${{ inputs.hours || '4' }}
           FIND_ONLY: ${{ inputs.find_only && '--find-only' || '' }}
           STORAGE_ACCESS_KEY_ID: ${{ secrets.STORAGE_ACCESS_KEY_ID }}
           STORAGE_SECRET_ACCESS_KEY: ${{ secrets.STORAGE_SECRET_ACCESS_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
-        # The town's folder, and the network's shared settings, as the daily run gives them (the engine's network.py).
         run: |
-          export PUBLICK_TOWN_DIR="$GITHUB_WORKSPACE/towns/$FOLDER" PUBLICK_NETWORK_DIR="$GITHUB_WORKSPACE"
-          slug=$(basename "$PUBLICK_TOWN_DIR"/config/*.toml .toml)
-          cd .publick-engine
-          python -m pipeline.fetch_recordings --town "$slug" --hours "$HOURS" $FIND_ONLY
+          failed=""
+          for folder in ${TOWNS//,/ }; do
+            left=$(python3 -c "print(max($HOURS - $SECONDS / 3600, 0.05))")
+            echo "::group::$folder ($left hours left)"
+            export PUBLICK_TOWN_DIR="$GITHUB_WORKSPACE/towns/$folder" PUBLICK_NETWORK_DIR="$GITHUB_WORKSPACE"
+            slug=$(basename "$PUBLICK_TOWN_DIR"/config/*.toml .toml)
+            (cd .publick-engine && python -m pipeline.fetch_recordings --town "$slug" --hours "$left" $FIND_ONLY) \
+              || failed="$failed $folder"
+            echo "::endgroup::"
+          done
+          if [ -n "$failed" ]; then
+            echo "::error::Failed:$failed"
+            exit 1
+          fi
 
       # What was finished is kept even when the step failed partway.
       - name: Commit what was found and transcribed
         if: ${{ !cancelled() }}
         env:
-          FOLDER: ${{ matrix.town }}
+          TOWNS: ${{ matrix.towns }}
           COMMIT_ATTEMPTS: 10
         run: |
-          .publick-engine/.github/scripts/commit-data.sh "Update recordings for $FOLDER" \
-            "towns/$FOLDER/data/meetings/recordings.json" "towns/$FOLDER/data/meetings/recordings_status.json"
+          files=()
+          for folder in ${TOWNS//,/ }; do
+            for f in "towns/$folder/data/meetings/recordings.json" "towns/$folder/data/meetings/recordings_status.json"; do
+              if [ -e "$f" ]; then files+=("$f"); fi
+            done
+          done
+          [ ${#files[@]} -gt 0 ] || exit 0
+          .publick-engine/.github/scripts/commit-data.sh "Update recordings for ${TOWNS//,/, }" "${files[@]}"
 
   # The towns whose job (a town's own, or a YouTube batch's) transcribed something in this run, as their recordings_status.json says (one
   # written before the run started is a job's that failed before writing it), get a Network run that
@@ -208,7 +245,8 @@ jobs:
           from datetime import datetime
           started = datetime.fromisoformat(os.environ["STARTED"])
           new = []
-          towns = json.loads(os.environ["TOWNS"]) + [t for batch in json.loads(os.environ["YOUTUBE"]) for t in batch.split(",")]
+          batches = json.loads(os.environ["TOWNS"]) + json.loads(os.environ["YOUTUBE"])
+          towns = [t for batch in batches for t in batch.split(",")]
           for town in towns:
               try:
                   status = json.load(open(f"towns/{town}/data/meetings/recordings_status.json"))
