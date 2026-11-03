@@ -1,8 +1,8 @@
 {
   "town": "portland",
   "folder": "portland-me",
-  "started_at": "2026-11-03T14:44:10+00:00",
-  "finished_at": "2026-11-03T14:48:58+00:00",
+  "started_at": "2026-11-03T16:30:30+00:00",
+  "finished_at": "2026-11-03T16:34:32+00:00",
   "engine": "v1.87.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 143.9
+      "seconds": 96.6
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 15.0
+      "seconds": 15.5
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 117.5
+      "seconds": 123.5
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 4.8
+      "seconds": 3.9
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 1.0
+      "seconds": 1.9
     }
   ],
   "update": {
     "town": "portland",
     "sources": "meetings",
-    "started_at": "2026-11-03T14:44:11+00:00",
+    "started_at": "2026-11-03T16:30:30+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 37.1,
+        "seconds": 37.0,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.5,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 67.9,
+        "seconds": 20.3,
         "cadence": "continuous"
       },
       {
@@ -222,14 +222,14 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-03T09:44:11-05:00",
+      "updated_at": "2026-11-03T11:30:30-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Board of Public Education meetings (Diligent Community)",
       "file": "meetings/diligent_status.json",
-      "updated_at": "2026-11-03T09:44:48-05:00",
+      "updated_at": "2026-11-03T11:31:08-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -319,9 +319,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-03T14:53:50+00:00",
-  "data_bytes": 12379085,
-  "data_bytes_added": 10622786,
+  "last_good_at": "2026-11-03T16:34:32+00:00",
+  "data_bytes": 12432504,
+  "data_bytes_added": 10621729,
   "activity": {
     "boards": 41,
     "meetings_by_date": {
@@ -335,15 +335,15 @@
     }
   },
   "fact_checks": {
-    "summaries": 102,
-    "ok": 94,
-    "failed": 8,
+    "summaries": 110,
+    "ok": 99,
+    "failed": 11,
     "weak": 0,
     "unchecked": 0,
     "not_yet": 0,
-    "held_back": 8,
-    "entries_not_shown": 28,
-    "vote_counts_left_out": 3
+    "held_back": 11,
+    "entries_not_shown": 41,
+    "vote_counts_left_out": 20
   },
   "recordings": {
     "since": "2026-10-27",
@@ -421,7 +421,5 @@
     ],
     "pairs": [],
     "waiting": {}
-  },
-  "published_at": "2026-11-03T14:53:50+00:00",
-  "published_engine": "v1.87.0"
+  }
 }
