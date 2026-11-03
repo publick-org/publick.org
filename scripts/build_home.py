@@ -25,6 +25,9 @@ The open data page, publick.org/data/ (from home/data.html), lists each live
 town's export, /data/meetings.json, and its Data page, both built by the engine
 with the town's site.
 
+How Publick reads other websites, publick.org/bot/ (home/bot/index.html), is
+copied as written, for the people who run the sites the engine reads.
+
 Everything else on the pages is home/index.html and home/state.html as
 written; the generated parts go between their <!-- towns:... --> markers.
 
@@ -241,6 +244,7 @@ def sitemap(states: list[str], today: date) -> str:
     entries = [f"  <url><loc>{SITE}/</loc><lastmod>{today.isoformat()}</lastmod></url>"]
     entries += [f"  <url><loc>{SITE}/{abbr}/</loc></url>" for abbr in sorted(states)]
     entries.append(f"  <url><loc>{SITE}/data/</loc></url>")
+    entries.append(f"  <url><loc>{SITE}/bot/</loc></url>")
     return ('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
             + "\n".join(entries) + "\n</urlset>\n")
 

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How Publick reads town websites</title>
+  <meta name="description" content="For the people who run the websites Publick reads: how to recognize its requests, what it reads and how often, what it does with it, and how to reach us.">
+  <link rel="canonical" href="https://publick.org/bot/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Publick">
+  <meta property="og:title" content="How Publick reads town websites">
+  <meta property="og:url" content="https://publick.org/bot/">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self'; img-src 'self' data: https://publick.goatcounter.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#faf7f0">
+  <link rel="preload" href="../fonts/public-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/source-serif-4-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../favicon-96.png" type="image/png" sizes="96x96">
+  <link rel="icon" href="../favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <link rel="stylesheet" href="../css/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- How Publick's engine reads other websites, for the people who run them. Copied as written by
+       scripts/build_home.py. Keep it true to the engine: change it in the same pull request as any
+       change to how the engine identifies itself, paces its requests, or what it reads. -->
+  <header class="site-header">
+    <div class="wrap">
+      <div class="masthead">
+        <p class="brand"><a href="../"><img src="../favicon.svg" alt="" width="44" height="44"> Publick</a></p>
+        <p class="masthead-line">Your town's public record, every day.</p>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <div class="wrap">
+      <h1 class="page-title">How Publick reads town websites</h1>
+      <p class="lede">Publick reads the meetings, agendas and minutes that towns post online, and turns them into plain pages for the people who live there. This page is for the people who run those websites: the town's, the school district's, and the platforms they use.</p>
+      <p>If something here doesn't answer your question, or you'd like us to read your site differently, write to <a href="mailto:hello@publick.org">hello@publick.org</a>.</p>
+
+      <h2>How to recognize our requests</h2>
+      <p>Every request names Publick in its User-Agent header. Each town's daily update names that town's site:</p>
+      <p><code>salem-ma.publick.org (+https://salem-ma.publick.org/about/)</code></p>
+      <p>Figures read once for a whole state (tax rates, budgets, school figures) name the network:</p>
+      <p><code>publick.org (+https://publick.org)</code></p>
+      <p>When we first look at a town, to see what it publishes, the requests name the helper that does it:</p>
+      <p><code>Publick town helper (+https://publick.org; hello@publick.org)</code></p>
+      <p>The requests come from GitHub Actions, which runs Publick's updates. GitHub publishes the address ranges its Actions machines use, under <code>actions</code> in <a href="https://api.github.com/meta">api.github.com/meta</a>. Our code is public: <a href="https://github.com/publick-org/publick-engine">publick-engine</a> on GitHub.</p>
+
+      <h2>What we read</h2>
+      <ul>
+        <li>Public meeting calendars and listings, and the agendas, minutes and packets they link to.</li>
+        <li>Recordings of public meetings, where a listing links one, to transcribe them.</li>
+        <li>311 requests, through SeeClickFix's API, for towns that use it.</li>
+        <li>Published state and federal figures: budgets, tax rates, schools, housing and jobs.</li>
+      </ul>
+      <p>We read only what anyone can open without signing in. We never sign in, and we don't try to get around a login or a check for automated visitors. If your site stops automated reading, we'll ask you before reading it again.</p>
+
+      <h2>How often, and how hard</h2>
+      <ul>
+        <li>Each town is usually updated once a day, in the early morning, Eastern time (between 9:00 and 14:30 UTC). Meeting recordings are looked for a few more times a day.</li>
+        <li>We wait between requests to the same site: three seconds for most town websites, and never less than one.</li>
+        <li>If your server asks us to wait, with a <code>Retry-After</code> header, we wait that long.</li>
+        <li>A request that fails is tried at most three more times, 10, 30 and 90 seconds apart.</li>
+      </ul>
+
+      <h2>What we do with it</h2>
+      <ul>
+        <li>Each town's site lists its meetings and links each summary to the document it came from. The town's own documents stay the official record.</li>
+        <li>Agendas and minutes are summarized in plain language by AI, labeled as AI summaries, and checked against their document. Publick doesn't train AI models.</li>
+        <li>We keep a copy of each document we summarize, at files.publick.org, so a summary's link keeps working if the original moves.</li>
+        <li>What we publish is free to read and to reuse under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, with credit.</li>
+      </ul>
+
+      <h2>If you run a site we read</h2>
+      <p>Write to <a href="mailto:hello@publick.org">hello@publick.org</a> with your site's address, and tell us what you'd like:</p>
+      <ul>
+        <li>to slow us down, or read at another time of day;</li>
+        <li>to point us to a feed, an API or a data export we should read instead of your pages;</li>
+        <li>to tell us we've got something wrong;</li>
+        <li>or to stop reading your site.</li>
+      </ul>
+      <p>A person reads every message, and we'll do what you ask.</p>
+      <p class="back"><a href="../">All towns</a></p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="footer-brand">Publick</p>
+      <ul class="footer-links">
+        <li><a href="mailto:hello@publick.org">hello@publick.org</a></li>
+        <li><a href="../status/">Network status</a></li>
+        <li><a href="../data/">Open data</a></li>
+        <li><a href="../bot/">How we read websites</a></li>
+        <li><a href="https://github.com/publick-org">Source code on GitHub</a></li>
+      </ul>
+      <p class="small">We count visits with <a href="https://www.goatcounter.com">GoatCounter</a>, without cookies, and keep nothing that identifies you.</p>
+    </div>
+  </footer>
+  <!-- The visit count, as on the homepage (home/index.html): an image GoatCounter counts, under home/. -->
+  <img class="counter" src="https://publick.goatcounter.com/count?p=home/bot/&amp;t=How%20Publick%20reads%20town%20websites" alt="" width="1" height="1">
+</body>
+</html>
