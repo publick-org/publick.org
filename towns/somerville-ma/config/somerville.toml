@@ -166,14 +166,19 @@ page_url = "https://www.somerville.k12.ma.us/about-sps/school-committee/meetings
 source_name = "Somerville Public Schools"
 since = "2026-07-01"
 
+board = "School Committee"
 # The subcommittees, as the district's Subcommittees page names them.
+committees = [
+  "School Committee Educational Programs and Instruction Subcommittee",
+  "School Committee Finance and Facilities Subcommittee",
+  "School Committee Rules Management Subcommittee",
+  "School Committee School Building Facilities and Maintenance Subcommittee",
+  "School Committee Long-Range Planning Subcommittee",
+]
+
+# A name the engine doesn't read from those: the subcommittee's titles leave out "and Instruction".
 [ical_meetings.bodies]
-"Regular School Committee" = "School Committee"
 "Educational Programs" = "School Committee Educational Programs and Instruction Subcommittee"
-"Finance and Facilities" = "School Committee Finance and Facilities Subcommittee"
-"Rules Management" = "School Committee Rules Management Subcommittee"
-"School Building Facilities and Maintenance" = "School Committee School Building Facilities and Maintenance Subcommittee"
-"Long-Range Planning" = "School Committee Long-Range Planning Subcommittee"
 
 # The weekly digest's email signup, on /digest/ (the engine's pipeline/digest.py). The form posts
 # to this site's /digest/subscribe, which the sites Worker answers (worker/digest.js) and passes on
