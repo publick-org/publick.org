@@ -1,46 +1,46 @@
 {
   "town": "malden",
   "folder": "malden-ma",
-  "started_at": "2026-11-02T12:10:11+00:00",
-  "finished_at": "2026-11-02T12:13:17+00:00",
-  "engine": "v1.85.0",
+  "started_at": "2026-11-03T09:15:02+00:00",
+  "finished_at": "2026-11-03T09:18:09+00:00",
+  "engine": "v1.87.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 59.6
+      "seconds": 69.2
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 22.6
+      "seconds": 12.8
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 142.4
+      "seconds": 96.2
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 12.3
+      "seconds": 7.5
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.8
+      "seconds": 1.0
     }
   ],
   "update": {
     "town": "malden",
     "sources": "all",
-    "started_at": "2026-11-02T12:10:12+00:00",
+    "started_at": "2026-11-03T09:15:02+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 12.6,
+        "seconds": 22.4,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 6.9,
         "cadence": "continuous"
       },
       {
@@ -136,7 +136,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 31.5,
+        "seconds": 24.5,
         "cadence": "continuous"
       },
       {
@@ -222,7 +222,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 9.3,
+        "seconds": 10.5,
         "cadence": "continuous"
       },
       {
@@ -239,7 +239,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 4.4,
+        "seconds": 3.7,
         "cadence": "continuous"
       }
     ]
@@ -249,21 +249,21 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-02T07:10:12-05:00",
+      "updated_at": "2026-11-03T04:15:02-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-02T07:10:57-05:00",
+      "updated_at": "2026-11-03T04:15:57-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-02T07:11:07-05:00",
+      "updated_at": "2026-11-03T04:16:08-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -351,15 +351,15 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-03T09:03:30+00:00",
-  "data_bytes": 19391806,
-  "data_bytes_added": 15836368,
+  "last_good_at": "2026-11-03T09:18:09+00:00",
+  "data_bytes": 19422342,
+  "data_bytes_added": 15857433,
   "activity": {
-    "boards": 66,
+    "boards": 52,
     "meetings_by_date": {
-      "2026-11-02": 1,
+      "2026-11-05": 1,
       "2026-11-09": 1,
-      "2026-11-10": 1
+      "2026-11-10": 2
     }
   },
   "fact_checks": {
@@ -373,6 +373,54 @@
     "entries_not_shown": 16,
     "vote_counts_left_out": 61
   },
-  "published_at": "2026-11-03T09:03:30+00:00",
-  "published_engine": "v1.87.0"
+  "recordings": {
+    "since": "2026-10-27",
+    "until": "2026-11-02",
+    "held": 1,
+    "next_day": 0,
+    "steps": {
+      "summarized": 1,
+      "minutes": 0,
+      "transcribed": 0,
+      "waiting": 0,
+      "failed": 0,
+      "unmatched": 0,
+      "not_found": 0,
+      "no_source": 0,
+      "no_recordings": 0
+    },
+    "misses": []
+  },
+  "documents": {
+    "since": "2026-08-05",
+    "until": "2026-11-02",
+    "held": 102,
+    "boards": 42,
+    "counts": {
+      "no_documents": 0,
+      "no_minutes": 4,
+      "pairs": 0
+    },
+    "no_documents": [],
+    "no_minutes": [
+      {
+        "board": "Board of Registrar of Voters",
+        "meetings": 2
+      },
+      {
+        "board": "Comprehensive Master Plan Steering Committee",
+        "meetings": 2
+      },
+      {
+        "board": "Northeast Metro Tech Building Committee",
+        "meetings": 2
+      },
+      {
+        "board": "Planning Board",
+        "meetings": 2
+      }
+    ],
+    "pairs": [],
+    "waiting": {}
+  }
 }
