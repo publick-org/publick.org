@@ -1,46 +1,46 @@
 {
   "town": "portland",
   "folder": "portland-me",
-  "started_at": "2026-11-03T16:30:30+00:00",
-  "finished_at": "2026-11-03T16:34:32+00:00",
-  "engine": "v1.87.0",
+  "started_at": "2026-11-03T20:28:21+00:00",
+  "finished_at": "2026-11-03T20:32:10+00:00",
+  "engine": "v1.88.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 96.6
+      "seconds": 125.7
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 14.6
+      "seconds": 14.5
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 92.7
+      "seconds": 81.9
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 3.0
+      "seconds": 5.9
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 1.1
+      "seconds": 1.0
     }
   ],
   "update": {
     "town": "portland",
     "sources": "meetings",
-    "started_at": "2026-11-03T16:30:30+00:00",
+    "started_at": "2026-11-03T20:28:22+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 37.0,
+        "seconds": 36.5,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
+        "seconds": 1.7,
         "cadence": "continuous"
       },
       {
@@ -91,7 +91,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 36.6,
+        "seconds": 36.4,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 20.3,
+        "seconds": 48.7,
         "cadence": "continuous"
       },
       {
@@ -143,7 +143,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -187,7 +187,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -195,7 +195,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -212,7 +212,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       }
     ]
@@ -222,14 +222,14 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-03T11:30:30-05:00",
+      "updated_at": "2026-11-03T15:28:23-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Board of Public Education meetings (Diligent Community)",
       "file": "meetings/diligent_status.json",
-      "updated_at": "2026-11-03T11:31:08-05:00",
+      "updated_at": "2026-11-03T15:29:01-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -319,9 +319,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-03T16:53:45+00:00",
-  "data_bytes": 12432504,
-  "data_bytes_added": 10621729,
+  "last_good_at": "2026-11-03T20:32:10+00:00",
+  "data_bytes": 12473030,
+  "data_bytes_added": 10617198,
   "activity": {
     "boards": 41,
     "meetings_by_date": {
@@ -335,15 +335,15 @@
     }
   },
   "fact_checks": {
-    "summaries": 110,
-    "ok": 99,
+    "summaries": 116,
+    "ok": 105,
     "failed": 11,
     "weak": 0,
     "unchecked": 0,
     "not_yet": 0,
     "held_back": 11,
-    "entries_not_shown": 41,
-    "vote_counts_left_out": 20
+    "entries_not_shown": 28,
+    "vote_counts_left_out": 37
   },
   "recordings": {
     "since": "2026-10-27",
@@ -351,9 +351,9 @@
     "held": 3,
     "next_day": 1,
     "steps": {
-      "summarized": 2,
+      "summarized": 3,
       "minutes": 0,
-      "transcribed": 1,
+      "transcribed": 0,
       "waiting": 0,
       "failed": 0,
       "unmatched": 0,
@@ -361,14 +361,7 @@
       "no_source": 0,
       "no_recordings": 0
     },
-    "misses": [
-      {
-        "date": "2026-10-29",
-        "board": "City Council Finance Committee",
-        "step": "transcribed",
-        "detail": "transcript not summarized yet"
-      }
-    ]
+    "misses": []
   },
   "documents": {
     "since": "2026-08-05",
@@ -421,7 +414,5 @@
     ],
     "pairs": [],
     "waiting": {}
-  },
-  "published_at": "2026-11-03T16:53:45+00:00",
-  "published_engine": "v1.88.0"
+  }
 }
