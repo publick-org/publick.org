@@ -1,34 +1,34 @@
 {
   "town": "portland",
   "folder": "portland-me",
-  "started_at": "2026-11-03T05:47:09+00:00",
-  "finished_at": "2026-11-03T05:51:45+00:00",
-  "engine": "v1.86.0",
+  "started_at": "2026-11-03T14:44:10+00:00",
+  "finished_at": "2026-11-03T14:48:58+00:00",
+  "engine": "v1.87.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 122.2
+      "seconds": 143.9
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 16.3
+      "seconds": 14.9
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 120.3
+      "seconds": 123.9
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.5
+      "seconds": 3.8
     },
     {
       "name": "Check live site",
@@ -40,7 +40,7 @@
   "update": {
     "town": "portland",
     "sources": "meetings",
-    "started_at": "2026-11-03T05:47:10+00:00",
+    "started_at": "2026-11-03T14:44:11+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 42.9,
+        "seconds": 37.1,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 6.9,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -91,7 +91,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 38.6,
+        "seconds": 36.6,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 30.7,
+        "seconds": 67.9,
         "cadence": "continuous"
       },
       {
@@ -151,8 +151,9 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.7,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -161,15 +162,16 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 20 days ago; checked every 30 days"
+        "skipped": "checked 21 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
-        "cadence": "yearly"
+        "seconds": 0,
+        "cadence": "yearly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch housing figures",
@@ -178,7 +180,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 4 days ago; checked every 7 days"
+        "skipped": "checked 5 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -220,14 +222,14 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-03T00:47:10-05:00",
+      "updated_at": "2026-11-03T09:44:11-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Board of Public Education meetings (Diligent Community)",
       "file": "meetings/diligent_status.json",
-      "updated_at": "2026-11-03T00:48:00-05:00",
+      "updated_at": "2026-11-03T09:44:48-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -317,9 +319,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-03T10:18:44+00:00",
-  "data_bytes": 12315013,
-  "data_bytes_added": 10629568,
+  "last_good_at": "2026-11-03T14:48:58+00:00",
+  "data_bytes": 12379085,
+  "data_bytes_added": 10622786,
   "activity": {
     "boards": 41,
     "meetings_by_date": {
@@ -333,46 +335,91 @@
     }
   },
   "fact_checks": {
-    "summaries": 95,
-    "ok": 88,
-    "failed": 7,
+    "summaries": 102,
+    "ok": 94,
+    "failed": 8,
     "weak": 0,
     "unchecked": 0,
     "not_yet": 0,
-    "held_back": 7,
-    "entries_not_shown": 21,
+    "held_back": 8,
+    "entries_not_shown": 28,
     "vote_counts_left_out": 3
   },
   "recordings": {
     "since": "2026-10-27",
     "until": "2026-11-02",
     "held": 3,
-    "next_day": 0,
+    "next_day": 1,
     "steps": {
-      "summarized": 1,
+      "summarized": 2,
       "minutes": 0,
       "transcribed": 1,
       "waiting": 0,
       "failed": 0,
       "unmatched": 0,
       "not_found": 0,
-      "no_source": 1,
+      "no_source": 0,
       "no_recordings": 0
     },
     "misses": [
       {
         "date": "2026-10-29",
         "board": "City Council Finance Committee",
-        "step": "no_source"
-      },
-      {
-        "date": "2026-11-02",
-        "board": "City Council",
         "step": "transcribed",
         "detail": "transcript not summarized yet"
       }
     ]
   },
-  "published_at": "2026-11-03T10:18:44+00:00",
-  "published_engine": "v1.87.0"
+  "documents": {
+    "since": "2026-08-05",
+    "until": "2026-11-02",
+    "held": 112,
+    "boards": 36,
+    "counts": {
+      "no_documents": 0,
+      "no_minutes": 9,
+      "pairs": 0
+    },
+    "no_documents": [],
+    "no_minutes": [
+      {
+        "board": "Historic Preservation Board",
+        "meetings": 4
+      },
+      {
+        "board": "Board of Public Education",
+        "meetings": 3
+      },
+      {
+        "board": "Public Art Committee",
+        "meetings": 3
+      },
+      {
+        "board": "Board of Public Education Curriculum and Student Success Committee",
+        "meetings": 2
+      },
+      {
+        "board": "City Council Sustainability and Transportation Committee",
+        "meetings": 2
+      },
+      {
+        "board": "Land Bank Commission",
+        "meetings": 2
+      },
+      {
+        "board": "Parks Commission",
+        "meetings": 2
+      },
+      {
+        "board": "Portland Development Corporation",
+        "meetings": 2
+      },
+      {
+        "board": "Portland Fish Pier Authority",
+        "meetings": 2
+      }
+    ],
+    "pairs": [],
+    "waiting": {}
+  }
 }
