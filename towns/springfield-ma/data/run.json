@@ -1,46 +1,46 @@
 {
   "town": "springfield",
   "folder": "springfield-ma",
-  "started_at": "2026-11-02T13:24:55+00:00",
-  "finished_at": "2026-11-02T13:26:39+00:00",
-  "engine": "v1.85.0",
+  "started_at": "2026-11-03T09:19:06+00:00",
+  "finished_at": "2026-11-03T09:20:47+00:00",
+  "engine": "v1.87.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 41.4
+      "seconds": 51.7
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 11.4
+      "seconds": 8.3
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 46.3
+      "seconds": 36.0
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 28.0
+      "seconds": 4.4
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 1.2
+      "seconds": 1.0
     }
   ],
   "update": {
     "town": "springfield",
     "sources": "all",
-    "started_at": "2026-11-02T13:24:56+00:00",
+    "started_at": "2026-11-03T09:19:06+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 30.7,
+        "seconds": 39.9,
         "cadence": "continuous"
       },
       {
@@ -127,7 +127,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 4.7,
+        "seconds": 5.7,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 3.9,
+        "seconds": 4.2,
         "cadence": "continuous"
       },
       {
@@ -145,7 +145,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 5 days ago; checked every 30 days"
+        "skipped": "checked 6 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -154,7 +154,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "skipped": "checked 6 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -163,7 +163,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 5 days ago; checked every 30 days"
+        "skipped": "checked 6 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -172,7 +172,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 5 days ago; checked every 30 days"
+        "skipped": "checked 6 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -181,7 +181,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "skipped": "checked 6 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -250,14 +250,14 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-02T08:24:56-05:00",
+      "updated_at": "2026-11-03T04:19:06-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee minutes (school district website)",
       "file": "meetings/sharpschool_status.json",
-      "updated_at": "2026-11-02T08:25:27-05:00",
+      "updated_at": "2026-11-03T04:19:46-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -345,20 +345,20 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-03T09:04:29+00:00",
-  "data_bytes": 1488376,
-  "data_bytes_added": 2,
+  "last_good_at": "2026-11-03T09:20:47+00:00",
+  "data_bytes": 1495261,
+  "data_bytes_added": 6643,
   "activity": {
     "boards": 46,
     "meetings_by_date": {
-      "2026-11-02": 1,
       "2026-11-03": 2,
       "2026-11-04": 7,
       "2026-11-05": 2,
       "2026-11-06": 2,
       "2026-11-09": 1,
       "2026-11-10": 2,
-      "2026-11-12": 1
+      "2026-11-12": 1,
+      "2026-11-16": 2
     }
   },
   "fact_checks": {
@@ -372,6 +372,89 @@
     "entries_not_shown": 8,
     "vote_counts_left_out": 53
   },
-  "published_at": "2026-11-03T09:04:29+00:00",
-  "published_engine": "v1.87.0"
+  "recordings": {
+    "since": "2026-10-27",
+    "until": "2026-11-02",
+    "held": 1,
+    "next_day": 0,
+    "steps": {
+      "summarized": 0,
+      "minutes": 0,
+      "transcribed": 0,
+      "waiting": 0,
+      "failed": 0,
+      "unmatched": 0,
+      "not_found": 0,
+      "no_source": 1,
+      "no_recordings": 0
+    },
+    "misses": [
+      {
+        "date": "2026-10-28",
+        "board": "Zoning Board of Appeals",
+        "step": "no_source"
+      }
+    ]
+  },
+  "documents": {
+    "since": "2026-08-05",
+    "until": "2026-11-02",
+    "held": 132,
+    "boards": 41,
+    "counts": {
+      "no_documents": 1,
+      "no_minutes": 10,
+      "pairs": 0
+    },
+    "no_documents": [
+      {
+        "board": "Public Health Council",
+        "meetings": 2
+      }
+    ],
+    "no_minutes": [
+      {
+        "board": "Board of Assessors",
+        "meetings": 5
+      },
+      {
+        "board": "Board of Public Works",
+        "meetings": 5
+      },
+      {
+        "board": "Historical Commission",
+        "meetings": 5
+      },
+      {
+        "board": "Board of Police Commissioners",
+        "meetings": 3
+      },
+      {
+        "board": "License Commission",
+        "meetings": 3
+      },
+      {
+        "board": "Park Commission",
+        "meetings": 2
+      },
+      {
+        "board": "Residency Commission",
+        "meetings": 2
+      },
+      {
+        "board": "Retirement Board",
+        "meetings": 2
+      },
+      {
+        "board": "School Committee Legislative & Contracts Subcommittee",
+        "meetings": 2
+      },
+      {
+        "board": "Traffic Commission",
+        "meetings": 2
+      }
+    ],
+    "pairs": [],
+    "waiting": {}
+  }
 }
