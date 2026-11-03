@@ -142,23 +142,24 @@ since = "2026-01-01"
 "Preliminary Screening" = "City Council Budget/Management Analyst Screening Committee"
 "PreliminaryScreening" = "City Council Budget/Management Analyst Screening Committee"
 
-# The School Committee's meetings, from the school district's calendar feed
-# (Edlio), with their times ([ical_meetings], engine v1.31 on). Agendas are on
-# the district's website.
+# The School Committee's meetings and its subcommittees', from the school
+# district's calendar feed (Edlio), with their times ([ical_meetings]). The
+# engine reads which board a title names from the names below
+# (pipeline/ical.py); the feed's other events (holidays, concerts) are left
+# out. Agendas are on the district's website.
 [ical_meetings]
 ical_url = "https://www.beverlyschools.org/apps/events/ical/?id=0"
 page_url = "https://www.beverlyschools.org/apps/pages/index.jsp?uREC_ID=2083091&type=d"
 source_name = "Beverly Public Schools"
 since = "2026-09-01"
-
-[ical_meetings.bodies]
-"School Committee" = "School Committee"
-"Committee of the Whole" = "School Committee of the Whole"
-"Policy Subcommittee" = "School Committee Policy Subcommittee"
-"Policy Committee" = "School Committee Policy Subcommittee"
-"Finance & Facilities" = "School Committee Finance and Facilities Subcommittee"
-"Negotiations Subcommittee" = "School Committee Negotiations Subcommittee"
-"Curriculum, Instruction & Student Life" = "School Committee Curriculum, Instruction and Student Life Subcommittee"
+board = "School Committee"
+committees = [
+  "School Committee of the Whole",
+  "School Committee Policy Subcommittee",
+  "School Committee Finance and Facilities Subcommittee",
+  "School Committee Negotiations Subcommittee",
+  "School Committee Curriculum, Instruction and Student Life Subcommittee",
+]
 
 # Agenda and minutes PDFs, in the network's documents bucket.
 [storage]
