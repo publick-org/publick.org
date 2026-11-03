@@ -1,8 +1,8 @@
 {
   "town": "biddeford",
   "folder": "biddeford-me",
-  "started_at": "2026-11-03T14:44:04+00:00",
-  "finished_at": "2026-11-03T14:48:59+00:00",
+  "started_at": "2026-11-03T16:30:31+00:00",
+  "finished_at": "2026-11-03T16:35:42+00:00",
   "engine": "v1.87.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 238.8
+      "seconds": 256.0
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 9.5
+      "seconds": 9.7
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 41.4
+      "seconds": 41.1
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.7
+      "seconds": 2.3
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.8
+      "seconds": 1.0
     }
   ],
   "update": {
     "town": "biddeford",
     "sources": "meetings",
-    "started_at": "2026-11-03T14:44:05+00:00",
+    "started_at": "2026-11-03T16:30:32+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 198.6,
+        "seconds": 196.5,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 10.7,
+        "seconds": 10.0,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 26.9,
+        "seconds": 46.8,
         "cadence": "continuous"
       },
       {
@@ -143,7 +143,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -195,7 +195,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -212,7 +212,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       }
     ]
@@ -222,14 +222,14 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-03T09:44:05-05:00",
+      "updated_at": "2026-11-03T11:30:32-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-03T09:47:24-05:00",
+      "updated_at": "2026-11-03T11:33:49-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -305,9 +305,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-03T14:54:34+00:00",
-  "data_bytes": 1056290,
-  "data_bytes_added": 9996,
+  "last_good_at": "2026-11-03T16:35:42+00:00",
+  "data_bytes": 1128247,
+  "data_bytes_added": -1055,
   "activity": {
     "boards": 41,
     "meetings_by_date": {
@@ -319,14 +319,14 @@
     }
   },
   "fact_checks": {
-    "summaries": 35,
-    "ok": 31,
-    "failed": 4,
+    "summaries": 44,
+    "ok": 39,
+    "failed": 5,
     "weak": 0,
     "unchecked": 0,
     "not_yet": 0,
-    "held_back": 4,
-    "entries_not_shown": 10,
+    "held_back": 5,
+    "entries_not_shown": 15,
     "vote_counts_left_out": 0
   },
   "recordings": {
@@ -382,7 +382,5 @@
     ],
     "pairs": [],
     "waiting": {}
-  },
-  "published_at": "2026-11-03T14:54:34+00:00",
-  "published_engine": "v1.87.0"
+  }
 }
