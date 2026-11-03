@@ -116,8 +116,9 @@ Worker, which picks the site by hostname: `gloucester-ma.publick.org` is
   urgent fix, release the engine now (its **Actions → Release → Run
   workflow**) and run **Actions → Engine**.
 - **On a pull request:** builds and checks the towns it touches. Nothing is published.
-- **The weekly digest**, each Sunday at 5:30 PM in the town's time: the
-  scheduler Worker emails each town in its `DIGEST_TOWNS`
+- **The weekly digest**, each Sunday at 7 AM in the town's time, from the
+  issue each town's Saturday run builds (its Sunday run, if Saturday's
+  didn't publish): the scheduler Worker emails each town in its `DIGEST_TOWNS`
   (`wrangler.scheduler.toml`) its newest issue through Buttondown, to that
   town's readers alone. The signup form on a town's `/digest/` page (its
   config's `[digest] signup`) posts to the sites Worker, which passes the
