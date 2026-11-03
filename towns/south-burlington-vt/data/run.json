@@ -1,46 +1,46 @@
 {
   "town": "south-burlington",
   "folder": "south-burlington-vt",
-  "started_at": "2026-11-02T21:44:33+00:00",
-  "finished_at": "2026-11-02T21:53:55+00:00",
-  "engine": "v1.86.0",
+  "started_at": "2026-11-03T19:35:02+00:00",
+  "finished_at": "2026-11-03T19:39:49+00:00",
+  "engine": "v1.88.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 526.0
+      "seconds": 250.9
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 8.6
+      "seconds": 5.7
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 37.7
+      "seconds": 26.5
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.3
+      "seconds": 3.3
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 1.0
+      "seconds": 0.8
     }
   ],
   "update": {
     "town": "south-burlington",
     "sources": "all",
-    "started_at": "2026-11-02T21:44:33+00:00",
+    "started_at": "2026-11-03T19:35:02+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 16.4,
+        "seconds": 65.7,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 191.8,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.0,
+        "seconds": 1.5,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 315.5,
+        "seconds": 182.3,
         "cadence": "continuous"
       },
       {
@@ -145,7 +145,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 1 days ago; checked every 30 days"
+        "skipped": "checked 2 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -154,7 +154,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -163,7 +163,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 1 days ago; checked every 30 days"
+        "skipped": "checked 2 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -172,7 +172,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 1 days ago; checked every 30 days"
+        "skipped": "checked 2 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -181,7 +181,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -250,14 +250,14 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-02T16:44:33-05:00",
+      "updated_at": "2026-11-03T14:35:02-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Board meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-02T16:48:02-05:00",
+      "updated_at": "2026-11-03T14:36:08-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -345,43 +345,43 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-03T16:53:30+00:00",
-  "data_bytes": 1185795,
-  "data_bytes_added": 53556,
+  "last_good_at": "2026-11-03T19:39:49+00:00",
+  "data_bytes": 1267878,
+  "data_bytes_added": 79484,
   "activity": {
     "boards": 23,
     "meetings_by_date": {
-      "2026-11-02": 1,
       "2026-11-03": 1,
       "2026-11-04": 3,
       "2026-11-06": 1,
       "2026-11-09": 1,
       "2026-11-10": 3,
-      "2026-11-12": 1
+      "2026-11-12": 1,
+      "2026-11-16": 1
     }
   },
   "fact_checks": {
     "summaries": 56,
-    "ok": 42,
+    "ok": 44,
     "failed": 10,
-    "weak": 0,
-    "unchecked": 4,
+    "weak": 2,
+    "unchecked": 0,
     "not_yet": 0,
     "held_back": 10,
-    "entries_not_shown": 13,
+    "entries_not_shown": 11,
     "vote_counts_left_out": 0
   },
   "recordings": {
-    "since": "2026-10-26",
-    "until": "2026-11-01",
-    "held": 2,
+    "since": "2026-10-27",
+    "until": "2026-11-02",
+    "held": 3,
     "next_day": 0,
     "steps": {
       "summarized": 0,
       "minutes": 1,
       "transcribed": 0,
       "waiting": 1,
-      "failed": 0,
+      "failed": 1,
       "unmatched": 0,
       "not_found": 0,
       "no_source": 0,
@@ -392,10 +392,38 @@
         "date": "2026-10-27",
         "board": "Planning Commission",
         "step": "waiting",
-        "detail": "1 recording(s) found"
+        "detail": "2 recording(s) found"
+      },
+      {
+        "date": "2026-11-02",
+        "board": "City Council",
+        "step": "failed",
+        "detail": "youtube-Ia9lKnd_lTc: Gemini: HTTP 403: {\"error\":{\"message\":\"The caller does not have permission\",\"code\":\"permission_denied\"}}"
       }
     ]
   },
-  "published_at": "2026-11-03T16:53:30+00:00",
-  "published_engine": "v1.88.0"
+  "documents": {
+    "since": "2026-08-05",
+    "until": "2026-11-02",
+    "held": 61,
+    "boards": 19,
+    "counts": {
+      "no_documents": 0,
+      "no_minutes": 2,
+      "pairs": 0
+    },
+    "no_documents": [],
+    "no_minutes": [
+      {
+        "board": "Library Board of Trustees Advisory Committee",
+        "meetings": 2
+      },
+      {
+        "board": "Recreation & Parks Committee",
+        "meetings": 2
+      }
+    ],
+    "pairs": [],
+    "waiting": {}
+  }
 }
