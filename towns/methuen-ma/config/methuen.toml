@@ -246,32 +246,26 @@ since = "2026-07-01"
 since = "2026-10-19"
 
 # Methuen Community Studios' Cablecast: the City Council's project (157), titled "City Council Meeting -
-# October 19, 2026" (a joint hearing or budget workshop is left out), the Community Development Board's
-# (193), titled "Community Development Board - October 14, 2026", and the Zoning Board of Appeals' (192),
-# titled "Zoning Board of Appeals - September 23, 2026".
+# October 19, 2026", the Community Development Board's (193), titled "Community Development Board -
+# October 14, 2026", and the Zoning Board of Appeals' (192), titled "Zoning Board of Appeals - September
+# 23, 2026".
 [[recordings.sources]]
 platform = "cablecast"
 host = "https://methuentv.cablecast.tv"
 projects = [157, 193, 192]
-
-[recordings.sources.boards]
-"City Council" = '^City Council (Regular |Special )?Meeting\b'
-"Community Development Board" = '^Community Development Board\b'
-"Zoning Board of Appeals" = '^Zoning Board of Appeals\b'
+boards = "listed"
 
 # The City of Methuen Public Meetings channel on YouTube (@methuenmeetings), the backup: the station's
 # Cablecast files answer GitHub's runners 403, so a meeting whose files can't be read there is
 # transcribed from its video here. It streams the City Council's meetings, titled "City Council Regular
 # Meeting - October 19, 2026", "City Council Special Meeting - September 24, 2026" and "City Council
-# Public Hearings & City Council Regular Meeting - July 6, 2026" (a budget workshop or joint workshop
-# is left out, as on Cablecast). The Community Development Board and the Zoning Board of Appeals aren't
-# on it.
+# Public Hearings & City Council Regular Meeting - July 6, 2026", and its committees' (a joint meeting
+# with another body is left out). The Community Development Board and the Zoning Board of Appeals
+# aren't on it.
 [[recordings.sources]]
 platform = "youtube"
 channel = "UCr7jrQAkh_Om3WUDZIZsxTQ"
-
-[recordings.sources.boards]
-"City Council" = '^City Council (Public Hearings? & City Council )?(Regular |Special )?Meeting\b'
+boards = "listed"
 
 # How residents can take part, per board, shown on its meeting pages. From
 # Rule XI of the council's Rules and Procedures (as amended February 5, 2024,

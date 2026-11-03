@@ -218,14 +218,14 @@ since = "2026-07-01"
 since = "2026-10-26"
 
 # Medford Community Media's Castus channel: the City Council's playlist, titled "City Council 10/27/26"
-# (its committees and ward meetings, in the same playlist, are left out), and the School Committee's,
-# titled "School Committee 10/19/26" (its subcommittees and the high school building committee, in the
-# same playlist, are left out).
+# (and its committees' and ward meetings', in the same playlist, where the city lists them), and the School Committee's,
+# titled "School Committee 10/19/26" (and its subcommittees' and the high school building committee's,
+# in the same playlist, where they're listed).
 [[recordings.sources]]
 platform = "castus"
 channel = "medford"
 playlists = ["Medford City Council", "Medford School Committee"]
-boards = { "City Council" = '^City Council( Special Meeting)? \d', "School Committee" = '^School Committee \d' }
+boards = "listed"
 
 # The Council's Rules (last updated September 1, 2022), Rule 16; its agendas
 # give the Zoom link and the address for written comments (agenda of October

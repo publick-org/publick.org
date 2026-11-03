@@ -126,15 +126,13 @@ since = "2026-10-26"
 # alone ("October 15, 2026", "April 13, 2026 Part 1") or with the council named
 # ("September 14, 2026 City Council Meeting", "Special City Council May 28,
 # 2026"), and some of the School Board's ("June 9, 2026 Central Falls School
-# Board Meeting"). Its ethics trainings, the Charter Review Commission's
-# meetings and the mayor's budget addresses are left out.
+# Board Meeting"). Its ethics trainings and the mayor's budget addresses
+# are left out.
 [[recordings.sources]]
 platform = "youtube"
 channel = "UCi76DPS_-IhkSW-6N8wlrGQ"
 
-[recordings.sources.boards]
-"City Council" = '^(?!.*\b(?:ethics|training|charter|school|budget\s+address)\b)(?:\s*[a-z]+\s+\d{1,2},?\s*\d{4}(?:\s+part\s*\w+)?\s*$|.*\bcity\s+council\b)'
-"School Board" = '\bschool\s+board\b'
+boards = "listed"
 
 # The school district's channel, whose videos the School Board's minutes link
 # ("Recording:"): the board's meetings, titled "City of Central Falls School
@@ -142,7 +140,7 @@ channel = "UCi76DPS_-IhkSW-6N8wlrGQ"
 [[recordings.sources]]
 platform = "youtube"
 channel = "UCZy7W7_kCdBm79rVWWV1hfQ"
-boards = { "School Board" = '\bschool\s+board\b' }
+boards = "listed"
 
 # How residents can take part, per board, shown on its meeting pages. Only
 # what the city or the school district has published; each entry names its

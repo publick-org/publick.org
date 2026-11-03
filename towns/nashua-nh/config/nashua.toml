@@ -512,15 +512,15 @@ members = [
 [recordings]
 since = "2026-10-26"
 
-# The videos the meetings link on CivicClerk (each event's externalMediaUrl): matched to the meeting that links
-# them, with no title pattern. The channel below finds what a meeting doesn't link.
+# The videos every board's meetings link on CivicClerk (each event's externalMediaUrl): matched to the
+# meeting that links them, with no title pattern. The channel below finds what a meeting doesn't link.
 [[recordings.sources]]
 platform = "youtube"
-boards = ["Board of Aldermen"]
+boards = "listed"
 
-# The city's channel: the Board of Aldermen's meetings, titled "GOV Board of Aldermen October 27 2026"
-# (its committees are left out).
+# The city's channel: the Board of Aldermen's meetings, titled "GOV Board of Aldermen October 27 2026",
+# and its committees', where the city lists them.
 [[recordings.sources]]
 platform = "youtube"
 channel = "UCSDUnus2ubPU8CXWXyAzbdg"
-boards = { "Board of Aldermen" = '\b(?:board\s+of\s+aldermen|boa)\b' }
+boards = "listed"

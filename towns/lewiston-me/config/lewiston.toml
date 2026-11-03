@@ -392,9 +392,9 @@ members = [
 [recordings]
 since = "2026-10-26"
 
-# The city's channel: the City Council's meetings, titled "Lewiston City Council Meeting 10/20/26"
-# (subcommittees are left out).
+# The city's channel: the City Council's meetings, titled "Lewiston City Council Meeting 10/20/26",
+# and other boards', where the city lists them.
 [[recordings.sources]]
 platform = "youtube"
 channel = "UCprFi23oI7DclYQ8kxx_mmQ"
-boards = { "City Council" = '^\s*(?:lewiston\s+)?city\s+council\b(?!.*\b(?:sub)?committee\b)' }
+boards = "listed"

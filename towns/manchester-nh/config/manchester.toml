@@ -283,17 +283,14 @@ one_meeting_a_day = true
 since = "2026-10-19"
 
 # Manchester Public TV's Castus channel: the board's playlist, titled "10/20/26 Board of Mayor and Aldermen"
-# (its committees, in the same playlist, are left out), and the Planning and Zoning boards' playlist,
+# (and its committees', in the same playlist), and the Planning and Zoning boards' playlist,
 # titled "10/15/26 Planning Board" and "10/08/26 Zoning Board".
 [[recordings.sources]]
 platform = "castus"
 channel = "manchestertv"
 playlists = ["Board of Mayor & Aldermen meetings", "Planning & Zoning Board meetings"]
 
-[recordings.sources.boards]
-"Board of Mayor and Aldermen" = '^\d{1,2}/\d{1,2}/\d{2,4} Board of Mayor and Aldermen$'
-"Planning Board" = '^\d{1,2}/\d{1,2}/\d{2,4} Planning Board$'
-"Zoning Board of Adjustment" = '^\d{1,2}/\d{1,2}/\d{2,4} Zoning Board( of Adjustment)?$'
+boards = "listed"
 
 # How residents can take part, per board, shown on its meeting pages. Only
 # what the city or the school district has published; each entry names its
