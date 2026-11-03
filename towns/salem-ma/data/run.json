@@ -1,28 +1,28 @@
 {
   "town": "salem",
   "folder": "salem-ma",
-  "started_at": "2026-11-02T13:07:14+00:00",
-  "finished_at": "2026-11-02T13:20:58+00:00",
-  "engine": "v1.85.0",
+  "started_at": "2026-11-03T09:08:42+00:00",
+  "finished_at": "2026-11-03T09:12:50+00:00",
+  "engine": "v1.87.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 712.8
+      "seconds": 144.5
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 18.5
+      "seconds": 16.3
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 87.6
+      "seconds": 79.3
     },
     {
       "name": "Publish site",
@@ -34,13 +34,13 @@
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.8
+      "seconds": 1.0
     }
   ],
   "update": {
     "town": "salem",
     "sources": "all",
-    "started_at": "2026-11-02T13:07:15+00:00",
+    "started_at": "2026-11-03T09:08:43+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 21.8,
+        "seconds": 121.1,
         "cadence": "continuous"
       },
       {
@@ -136,7 +136,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 8.0,
+        "seconds": 8.6,
         "cadence": "continuous"
       },
       {
@@ -153,8 +153,9 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.6,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -179,8 +180,9 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 24.6,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -220,7 +222,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 651.8,
+        "seconds": 9.9,
         "cadence": "continuous"
       },
       {
@@ -237,7 +239,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 3.6,
+        "seconds": 2.9,
         "cadence": "continuous"
       }
     ]
@@ -247,21 +249,21 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-02T08:07:15-05:00",
+      "updated_at": "2026-11-03T04:08:43-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-02T08:08:12-05:00",
+      "updated_at": "2026-11-03T04:10:54-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-02T08:19:04-05:00",
+      "updated_at": "2026-11-03T04:11:04-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -349,21 +351,21 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-02T13:20:58+00:00",
-  "data_bytes": 11550184,
-  "data_bytes_added": 8548564,
+  "last_good_at": "2026-11-03T09:16:47+00:00",
+  "data_bytes": 11562315,
+  "data_bytes_added": 8560873,
   "activity": {
-    "boards": 57,
+    "boards": 53,
     "meetings_by_date": {
-      "2026-11-02": 1,
-      "2026-11-03": 2,
+      "2026-11-03": 1,
       "2026-11-04": 3,
-      "2026-11-05": 4,
-      "2026-11-09": 2,
+      "2026-11-05": 5,
+      "2026-11-09": 3,
       "2026-11-10": 3,
       "2026-11-11": 1,
-      "2026-11-12": 4,
-      "2026-11-13": 1
+      "2026-11-12": 3,
+      "2026-11-13": 1,
+      "2026-11-16": 2
     }
   },
   "fact_checks": {
@@ -376,5 +378,65 @@
     "held_back": 8,
     "entries_not_shown": 13,
     "vote_counts_left_out": 38
-  }
+  },
+  "recordings": {
+    "since": "2026-10-27",
+    "until": "2026-11-02",
+    "held": 0,
+    "next_day": 0,
+    "steps": {
+      "summarized": 0,
+      "minutes": 0,
+      "transcribed": 0,
+      "waiting": 0,
+      "failed": 0,
+      "unmatched": 0,
+      "not_found": 0,
+      "no_source": 0,
+      "no_recordings": 0
+    },
+    "misses": []
+  },
+  "documents": {
+    "since": "2026-08-05",
+    "until": "2026-11-02",
+    "held": 116,
+    "boards": 42,
+    "counts": {
+      "no_documents": 0,
+      "no_minutes": 6,
+      "pairs": 0
+    },
+    "no_documents": [],
+    "no_minutes": [
+      {
+        "board": "Beautification Committee",
+        "meetings": 3
+      },
+      {
+        "board": "Licensing Board",
+        "meetings": 3
+      },
+      {
+        "board": "School Committee Policy Subcommittee",
+        "meetings": 3
+      },
+      {
+        "board": "Housing Authority Board",
+        "meetings": 2
+      },
+      {
+        "board": "North Shore Public Health Collaborative",
+        "meetings": 2
+      },
+      {
+        "board": "Salem Human Rights Coalition",
+        "meetings": 2
+      }
+    ],
+    "pairs": [],
+    "waiting": {}
+  },
+  "published_at": "2026-11-03T09:16:47+00:00",
+  "published_engine": "v1.87.0"
 }
