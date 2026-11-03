@@ -44,7 +44,7 @@ official_site = "https://www.manchesternh.gov"
 [[sections]]
 slug = "meetings"
 title = "Meetings"
-summary = "When the Board of Mayor and Aldermen, its committees, and the city's boards and commissions meet, with agendas, and minutes from January 2026 on for the aldermen, the Planning Board, the Zoning Board of Adjustment, and the Conservation Commission."
+summary = "When the Board of Mayor and Aldermen, the Board of School Committee, their committees, and the city's boards and commissions meet, with agendas, and minutes from January 2026 on for the aldermen, the Planning Board, the Zoning Board of Adjustment, and the Conservation Commission."
 status = "live"
 
 [[sections]]
@@ -101,15 +101,16 @@ prefix = "manchester-nh"
 [digest]
 # The network's settings (defaults/network.toml): having the table turns the signup on.
 
-# Public meetings, from two places. The Board of Mayor and Aldermen, its
+# Public meetings, from three places. The Board of Mayor and Aldermen, its
 # committees, and the City Clerk's boards are on the city's CivicClerk portal
 # (the address the city calendar's agenda links go to). Other boards and
 # commissions (Planning, Zoning, Conservation, Highway, Water, and more) are on
-# the city calendar only. Agendas and minutes are saved for the CivicClerk
-# meetings (from [meetings.civicclerk] since on), and for the Planning and
-# Community Development department's boards from its own pages
-# ([page_meetings]); the city calendar's other meetings link to their agendas
-# where the city posts them.
+# the city calendar only. The Board of School Committee and its committees are
+# on the school district's calendar feed ([ical_meetings]). Agendas and minutes
+# are saved for the CivicClerk meetings (from [meetings.civicclerk] since on),
+# and for the Planning and Community Development department's boards from its
+# own pages ([page_meetings]); the city calendar's other meetings link to their
+# agendas where the city posts them.
 [meetings]
 calendar_url = "https://www.manchesternh.gov/Government/City-Calendars"
 archive_url = "https://www.manchesternh.gov/Departments/City-Clerk/Meeting-Minutes-and-Agendas"
@@ -157,6 +158,7 @@ boards = [
 
 # Other names the calendars use for a board.
 [meetings.aliases]
+"Parks, Rec & Cemetery Commission" = "Parks, Recreation & Cemetery Commission"
 "ZBA" = "Zoning Board of Adjustment"
 "Zoning Board" = "Zoning Board of Adjustment"
 # The Board of Health's entries are titled "Regular Meeting", at the Health Department.
@@ -177,6 +179,43 @@ months_ahead = 2
 include_pattern = '\b(board|commission|committee|council|corporation|trust|funds|meeting|hearing)\b'
 # The aldermanic boards come from CivicClerk; their calendar entries repeat them.
 exclude_pattern = '\b(Aldermen|Committee on|Board of Registrars|Board of Recount|Personnel Appeals Board)\b'
+
+# The Board of School Committee's meetings and its committees', from the school
+# district's public Google Calendar, the one its Board Calendar page shows
+# (engine v1.31 on). Titles name the board or committee: "Board of School
+# Committee", "BOSC - PUBLIC HEARING - BUDGET", "Finance and Facilities",
+# "Policy Committee", "Student Conduct", "Teaching and Learning Committee (Was
+# C&I)", "BoSC Special Committee on Athletics Meeting", "Strategic Plan AD HOC
+# Committee". Holidays and school events on the same calendar name none of these
+# and are left out. The special committees are listed by their own names, as the
+# aldermen's are, so they don't read as special meetings. The joint meetings are
+# on CivicClerk too. "Joint School Building Meeting" is the Committee on Joint
+# School Buildings', listed once with CivicClerk's (pipeline/listings.py).
+# "Joint BMA and BOSC Meeting" names neither board in full, so it couldn't be
+# told for CivicClerk's "Joint Meeting of the Board of Mayor and Aldermen &
+# Board of School Committee" and would be listed twice: it maps to no board
+# (""), and is left out. The district posts agendas and minutes on its website's
+# document pages, which the site doesn't read; the meeting pages link the Board
+# Calendar page.
+[ical_meetings]
+ical_url = "https://calendar.google.com/calendar/ical/mansd.org_pl91crqis2oo123akmibbkkns8%40group.calendar.google.com/public/basic.ics"
+page_url = "https://www.mansd.org/page/calendar-bosc"
+source_name = "Manchester School District"
+# The current board took office at the January 6, 2026 inauguration.
+since = "2026-01-01"
+
+[ical_meetings.bodies]
+"Board of School Committee" = "Board of School Committee"
+"BOSC" = "Board of School Committee"
+"Finance and Facilities" = "School Committee Finance and Facilities Committee"
+"Policy Committee" = "School Committee Policy Committee"
+"Student Conduct" = "School Committee Student Conduct Committee"
+"Teaching and Learning" = "School Committee Teaching and Learning Committee"
+"Special Committee on Education Legislation" = "Special Committee on Education Legislation"
+"Special Committee on Athletics" = "Special Committee on Athletics"
+"Strategic Plan" = "School Committee Strategic Plan Ad Hoc Committee"
+"Joint BMA and BOSC" = ""
+"Joint School Building" = "Committee on Joint School Buildings"
 
 # Where the city's own listing is wrong, found by hand: shown on the meeting's
 # page with the reason and how it's known (engine v1.31 on). Once the city
@@ -356,7 +395,7 @@ local_series = "LAUCT334514000000003"
 # Sources that change daily. Figures published monthly or yearly (tax bill, budget, schools,
 # unemployment, housing) are judged by the engine, by the period they cover (pipeline/rhythms.py).
 sources = [
-  { label = "Meetings (city calendar and CivicClerk)", file = "meetings/status.json", max_days = 2 },
+  { label = "Meetings (city calendar, CivicClerk, and school district calendar)", file = "meetings/status.json", max_days = 2 },
   { label = "Planning and zoning boards' documents (city website)", file = "meetings/page_status.json", max_days = 2 },
   { label = "311 requests", file = "311/status.json", max_days = 2 },
   { label = "311 scorecard", file = "311/scorecard.json", field = "generated_at", max_days = 2 },
@@ -412,7 +451,7 @@ members = [
 [[officials.bodies]]
 name = "Board of School Committee"
 url = "https://www.mansd.org/page/bosc"
-note = "Twelve members elected by ward and two at-large, with the mayor as chair. Its meetings aren't listed on this site yet: the school district posts them on its own website, which the site doesn't read."
+note = "Twelve members elected by ward and two at-large, with the mayor as chair. Its meetings are listed from the school district's calendar; their agendas and minutes are on the district's website."
 members = [
   { name = "Jay Ruais", seat = "Mayor", role = "Chair", term_ends = "2028-01", email = "mayor@manchesternh.gov" },
   { name = "Julie Turner", seat = "Ward 1", ward = 1, term_ends = "2028-01", email = "boscward1@mansd.org" },
@@ -445,7 +484,7 @@ members = [
 "An independent guide to city government in Manchester, New Hampshire" = "Una guía independiente sobre el gobierno de la ciudad de Manchester, New Hampshire"
 
 # Section summaries (the engine translates the section names every town shares).
-"When the Board of Mayor and Aldermen, its committees, and the city's boards and commissions meet, with agendas, and minutes from January 2026 on for the aldermen, the Planning Board, the Zoning Board of Adjustment, and the Conservation Commission." = "Cuándo se reúnen la Junta del Alcalde y Concejales, sus comités y las juntas y comisiones de la ciudad, con sus agendas, y las actas desde enero de 2026 de los concejales, la Junta de Planificación, la Junta de Ajustes de Zonificación y la Comisión de Conservación."
+"When the Board of Mayor and Aldermen, the Board of School Committee, their committees, and the city's boards and commissions meet, with agendas, and minutes from January 2026 on for the aldermen, the Planning Board, the Zoning Board of Adjustment, and the Conservation Commission." = "Cuándo se reúnen la Junta del Alcalde y Concejales, el Comité Escolar, sus comités y las juntas y comisiones de la ciudad, con sus agendas, y las actas desde enero de 2026 de los concejales, la Junta de Planificación, la Junta de Ajustes de Zonificación y la Comisión de Conservación."
 "How fast the city responds to service requests to Public Works, Parking, and Police, by category and ward." = "Qué tan rápido responde la ciudad a las solicitudes de servicio a Obras Públicas, Estacionamiento y la Policía, por categoría y por distrito."
 "The city's adopted budget, its property tax rate and where the tax goes, and the average single-family tax bill." = "El presupuesto aprobado de la ciudad, la tasa del impuesto a la propiedad y a dónde va ese dinero, y la factura promedio del impuesto a la propiedad de una casa unifamiliar."
 "Manchester School District's graduation rate, state test results, and cost per pupil, with the state's." = "La tasa de graduación del Distrito Escolar de Manchester, los resultados de los exámenes estatales y el costo por estudiante, comparados con los del estado."
@@ -465,18 +504,19 @@ members = [
 
 # Where the city posts agendas and minutes, and the data the site keeps up to date.
 "city's Meeting Minutes and Agendas page" = "página de Actas y Agendas de Reuniones de la ciudad"
-"Meetings (city calendar and CivicClerk)" = "Reuniones (calendario de la ciudad y CivicClerk)"
+"Meetings (city calendar, CivicClerk, and school district calendar)" = "Reuniones (calendario de la ciudad, CivicClerk y calendario del distrito escolar)"
 "Planning and zoning boards' documents (city website)" = "Documentos de las juntas de planificación y zonificación (sitio web de la ciudad)"
 "311 requests" = "Solicitudes al 311"
 
 # Officials: notes, seats, and roles.
 "Elected citywide for two years. The mayor presides over the Board of Mayor and Aldermen and chairs the Board of School Committee." = "Elegido por toda la ciudad por dos años. El alcalde preside la Junta del Alcalde y Concejales y el Comité Escolar."
 "Twelve aldermen elected by ward and two at-large, for two years. The mayor presides." = "Doce concejales elegidos por distrito y dos por toda la ciudad, por dos años. El alcalde preside."
-"Twelve members elected by ward and two at-large, with the mayor as chair. Its meetings aren't listed on this site yet: the school district posts them on its own website, which the site doesn't read." = "Doce miembros elegidos por distrito y dos por toda la ciudad, con el alcalde como presidente. Sus reuniones todavía no aparecen en este sitio: el distrito escolar las publica en su propio sitio web, que este sitio no lee."
+"Twelve members elected by ward and two at-large, with the mayor as chair. Its meetings are listed from the school district's calendar; their agendas and minutes are on the district's website." = "Doce miembros elegidos por distrito y dos por toda la ciudad, con el alcalde como presidente. Sus reuniones se toman del calendario del distrito escolar; sus agendas y actas están en el sitio web del distrito."
 "Chairman of the Board" = "Presidente de la Junta"
 "Appointed February 2026 to fill a vacancy" = "Por nombramiento en febrero de 2026, para cubrir una vacante"
 
-# Boards, as CivicClerk and the city calendar name them (after [meetings.aliases]).
+# Boards, as CivicClerk, the city calendar and the school district's calendar name them (after
+# [meetings.aliases] and [ical_meetings.bodies]).
 "Board of Mayor and Aldermen" = "Junta del Alcalde y Concejales"
 "Committee on Accounts, Enrollment & Revenue Administration" = "Comité de Cuentas, Registro y Administración de Ingresos"
 "Committee on Administration/Information Systems" = "Comité de Administración y Sistemas de Información"
@@ -492,6 +532,13 @@ members = [
 "Special Committee on Baseball/Civic Center" = "Comité Especial de Béisbol y Centro Cívico"
 "Special Committee on Solid Waste Activities" = "Comité Especial de Desechos Sólidos"
 "Board of School Committee" = "Comité Escolar"
+"School Committee Finance and Facilities Committee" = "Comité de Finanzas e Instalaciones del Comité Escolar"
+"School Committee Policy Committee" = "Comité de Políticas del Comité Escolar"
+"School Committee Student Conduct Committee" = "Comité de Conducta Estudiantil del Comité Escolar"
+"School Committee Teaching and Learning Committee" = "Comité de Enseñanza y Aprendizaje del Comité Escolar"
+"Special Committee on Education Legislation" = "Comité Especial sobre Legislación Educativa"
+"Special Committee on Athletics" = "Comité Especial de Deportes"
+"School Committee Strategic Plan Ad Hoc Committee" = "Comité Ad Hoc del Plan Estratégico del Comité Escolar"
 "Heritage Commission" = "Comisión del Patrimonio"
 "Highway Commission" = "Comisión de Vías Públicas"
 "Parks, Recreation & Cemetery Commission" = "Comisión de Parques, Recreación y Cementerios"
