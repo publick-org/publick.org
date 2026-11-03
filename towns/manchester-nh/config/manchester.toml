@@ -108,9 +108,10 @@ prefix = "manchester-nh"
 # the city calendar only. The Board of School Committee and its committees are
 # on the school district's calendar feed ([ical_meetings]). Agendas and minutes
 # are saved for the CivicClerk meetings (from [meetings.civicclerk] since on),
-# and for the Planning and Community Development department's boards from its
-# own pages ([page_meetings]); the city calendar's other meetings link to their
-# agendas where the city posts them.
+# for the Planning and Community Development department's boards from its own
+# pages ([page_meetings]), and for the school board's from the district's
+# document folders ([page_meetings.pages]); the city calendar's other meetings
+# link to their agendas where the city posts them.
 [meetings]
 calendar_url = "https://www.manchesternh.gov/Government/City-Calendars"
 archive_url = "https://www.manchesternh.gov/Departments/City-Clerk/Meeting-Minutes-and-Agendas"
@@ -191,9 +192,9 @@ exclude_pattern = '\b(Aldermen|Committee on|Board of Registrars|Board of Recount
 # The joint meetings are on CivicClerk too, and each is listed once with
 # CivicClerk's (pipeline/identity.py): "Joint School Building Meeting" as the
 # Committee on Joint School Buildings', and "Joint BMA and BOSC Meeting" as the
-# joint meeting of both boards. The district posts agendas and minutes on its
-# website's document pages, which the site doesn't read; the meeting pages link
-# the Board Calendar page.
+# joint meeting of both boards. The board's and its committees' agendas and
+# minutes are read from the district's document folders ([page_meetings.pages],
+# below).
 [ical_meetings]
 ical_url = "https://calendar.google.com/calendar/ical/mansd.org_pl91crqis2oo123akmibbkkns8%40group.calendar.google.com/public/basic.ics"
 page_url = "https://www.mansd.org/page/calendar-bosc"
@@ -261,6 +262,97 @@ one_meeting_a_day = true
 [page_meetings.pages]
 "https://www.manchesternh.gov/Departments/Planning-and-Comm-Dev/Commissions/Conservation-Commission/Meeting-Minutes-and-Agendas" = "Conservation Commission"
 "https://www.manchesternh.gov/Departments/Planning-and-Comm-Dev/Commissions/Heritage-Commission/Agendas" = "Heritage Commission"
+
+# The Board of School Committee's agendas and minutes, and its committees', from
+# the school district's documents (mansd.org/documents, Apptegy): a folder of
+# agendas and one of minutes for each, each a folder of years, each year's
+# files named by the date and the meeting ("2026-10-13 BOSC Agenda",
+# "2026-9-16 Finance and Facilities Minutes"). The engine reads the years from
+# since on, and only the files that are agendas or minutes, not the memos and
+# handouts filed with them. The meetings are listed from the district's
+# calendar ([ical_meetings]), and each is listed once with these
+# (pipeline/identity.py). The Committee on Joint School Buildings' documents
+# are on CivicClerk; the Strategic Plan committee has no minutes folder.
+[page_meetings.pages."https://www.mansd.org/documents/board-of-school-committee/agendas/full-board-agendas/24536449"]
+board = "Board of School Committee"
+source_name = "Manchester School District"
+# A committee's file filed with the board's ("2026-4-8 Finance and Facilities Minutes") is the committee's.
+exclude_pattern = '\b(?:finance|facilities|policy|student\s+conduct|teaching|athletics|legislation|strategic)\b'
+# A board can hold a public hearing and a meeting the same evening, each with an agenda.
+one_meeting_a_day = false
+# One meeting's agenda and minutes can name it two ways ("BOSC - Public Hearing on
+# Donation", "BOSC Special (PH on Donation)"; "Student Conduct", "Student Conduct - Hearing").
+name_ignore_pattern = '\b(?:special|public\s+hearing|ph|hearing|meeting)\b'
+other_pages = ["https://www.mansd.org/documents/board-of-school-committee/minutes/full-board/24536894"]
+
+[page_meetings.pages."https://www.mansd.org/documents/board-of-school-committee/agendas/finance-and-facilities-agendas/24536541"]
+board = "School Committee Finance and Facilities Committee"
+source_name = "Manchester School District"
+# A board can hold a public hearing and a meeting the same evening, each with an agenda.
+one_meeting_a_day = false
+# One meeting's agenda and minutes can name it two ways ("BOSC - Public Hearing on
+# Donation", "BOSC Special (PH on Donation)"; "Student Conduct", "Student Conduct - Hearing").
+name_ignore_pattern = '\b(?:special|public\s+hearing|ph|hearing|meeting)\b'
+other_pages = ["https://www.mansd.org/documents/board-of-school-committee/minutes/finance-and-facilities-minutes/24536998"]
+
+[page_meetings.pages."https://www.mansd.org/documents/board-of-school-committee/agendas/policy-agendas/24536599"]
+board = "School Committee Policy Committee"
+source_name = "Manchester School District"
+# A board can hold a public hearing and a meeting the same evening, each with an agenda.
+one_meeting_a_day = false
+# One meeting's agenda and minutes can name it two ways ("BOSC - Public Hearing on
+# Donation", "BOSC Special (PH on Donation)"; "Student Conduct", "Student Conduct - Hearing").
+name_ignore_pattern = '\b(?:special|public\s+hearing|ph|hearing|meeting)\b'
+other_pages = ["https://www.mansd.org/documents/board-of-school-committee/minutes/policy-minutes/24537049"]
+
+[page_meetings.pages."https://www.mansd.org/documents/board-of-school-committee/agendas/student-conduct-agendas/24536669"]
+board = "School Committee Student Conduct Committee"
+source_name = "Manchester School District"
+# A board can hold a public hearing and a meeting the same evening, each with an agenda.
+one_meeting_a_day = false
+# One meeting's agenda and minutes can name it two ways ("BOSC - Public Hearing on
+# Donation", "BOSC Special (PH on Donation)"; "Student Conduct", "Student Conduct - Hearing").
+name_ignore_pattern = '\b(?:special|public\s+hearing|ph|hearing|meeting)\b'
+other_pages = ["https://www.mansd.org/documents/board-of-school-committee/minutes/student-conduct-minutes/24537104"]
+
+[page_meetings.pages."https://www.mansd.org/documents/board-of-school-committee/agendas/teaching-and-learning-agendas/24536737"]
+board = "School Committee Teaching and Learning Committee"
+source_name = "Manchester School District"
+# A board can hold a public hearing and a meeting the same evening, each with an agenda.
+one_meeting_a_day = false
+# One meeting's agenda and minutes can name it two ways ("BOSC - Public Hearing on
+# Donation", "BOSC Special (PH on Donation)"; "Student Conduct", "Student Conduct - Hearing").
+name_ignore_pattern = '\b(?:special|public\s+hearing|ph|hearing|meeting)\b'
+other_pages = ["https://www.mansd.org/documents/board-of-school-committee/minutes/teaching-and-learning-minutes/24536947"]
+
+[page_meetings.pages."https://www.mansd.org/documents/board-of-school-committee/agendas/education-legislation-agendas/24536811"]
+board = "Special Committee on Education Legislation"
+source_name = "Manchester School District"
+# A board can hold a public hearing and a meeting the same evening, each with an agenda.
+one_meeting_a_day = false
+# One meeting's agenda and minutes can name it two ways ("BOSC - Public Hearing on
+# Donation", "BOSC Special (PH on Donation)"; "Student Conduct", "Student Conduct - Hearing").
+name_ignore_pattern = '\b(?:special|public\s+hearing|ph|hearing|meeting)\b'
+other_pages = ["https://www.mansd.org/documents/board-of-school-committee/minutes/education-legislation-minutes/24537169"]
+
+[page_meetings.pages."https://www.mansd.org/documents/board-of-school-committee/agendas/special-committee-on-athletics/24536868"]
+board = "Special Committee on Athletics"
+source_name = "Manchester School District"
+# A board can hold a public hearing and a meeting the same evening, each with an agenda.
+one_meeting_a_day = false
+# One meeting's agenda and minutes can name it two ways ("BOSC - Public Hearing on
+# Donation", "BOSC Special (PH on Donation)"; "Student Conduct", "Student Conduct - Hearing").
+name_ignore_pattern = '\b(?:special|public\s+hearing|ph|hearing|meeting)\b'
+other_pages = ["https://www.mansd.org/documents/board-of-school-committee/minutes/athletics-special-committee/24537190"]
+
+[page_meetings.pages."https://www.mansd.org/documents/board-of-school-committee/agendas/special-committee-on-the-strategic-plan/31664549"]
+board = "School Committee Strategic Plan Ad Hoc Committee"
+source_name = "Manchester School District"
+# A board can hold a public hearing and a meeting the same evening, each with an agenda.
+one_meeting_a_day = false
+# One meeting's agenda and minutes can name it two ways ("BOSC - Public Hearing on
+# Donation", "BOSC Special (PH on Donation)"; "Student Conduct", "Student Conduct - Hearing").
+name_ignore_pattern = '\b(?:special|public\s+hearing|ph|hearing|meeting)\b'
 
 # The boards' meetings below, transcribed from their recordings for a summary
 # the day after, until the minutes come (the engine's pipeline/recordings.py).
