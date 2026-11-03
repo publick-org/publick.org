@@ -1,46 +1,46 @@
 {
   "town": "beverly",
   "folder": "beverly-ma",
-  "started_at": "2026-11-02T07:10:06+00:00",
-  "finished_at": "2026-11-02T07:12:09+00:00",
-  "engine": "v1.85.0",
+  "started_at": "2026-11-03T09:06:50+00:00",
+  "finished_at": "2026-11-03T09:08:56+00:00",
+  "engine": "v1.87.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 46.6
+      "seconds": 73.6
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 18.4
+      "seconds": 13.0
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 47.9
+      "seconds": 33.5
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 14.1
+      "seconds": 4.0
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.7
+      "seconds": 1.2
     }
   ],
   "update": {
     "town": "beverly",
-    "sources": "meetings",
-    "started_at": "2026-11-02T07:10:07+00:00",
+    "sources": "all",
+    "started_at": "2026-11-03T09:06:51+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 17.4,
+        "seconds": 36.9,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -136,7 +136,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 26.7,
+        "seconds": 34.9,
         "cadence": "continuous"
       },
       {
@@ -146,7 +146,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 1 days ago; checked every 30 days"
+        "skipped": "checked 2 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -155,7 +155,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 2 days ago; checked every 7 days"
+        "skipped": "checked 3 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -164,7 +164,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 1 days ago; checked every 30 days"
+        "skipped": "checked 2 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -173,7 +173,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 1 days ago; checked every 30 days"
+        "skipped": "checked 2 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -182,14 +182,14 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -197,7 +197,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -214,8 +214,35 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
+      },
+      {
+        "name": "Fetch 311 requests",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [seeclickfix] in the config"
+      },
+      {
+        "name": "Fetch 311 requests from an open data portal",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [socrata_311] in the config"
+      },
+      {
+        "name": "Compute 311 scorecard",
+        "ok": true,
+        "required": true,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [seeclickfix] or [socrata_311] in the config"
       }
     ]
   },
@@ -224,7 +251,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-02T02:10:07-05:00",
+      "updated_at": "2026-11-03T04:06:51-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -312,28 +339,120 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-03T08:59:58+00:00",
-  "data_bytes": 3487393,
-  "data_bytes_added": 1869,
+  "last_good_at": "2026-11-03T09:08:56+00:00",
+  "data_bytes": 3511560,
+  "data_bytes_added": 3843,
   "activity": {
-    "boards": 60,
+    "boards": 52,
     "meetings_by_date": {
-      "2026-11-04": 3,
+      "2026-11-04": 2,
       "2026-11-05": 4,
       "2026-11-09": 3
     }
   },
   "fact_checks": {
-    "summaries": 174,
-    "ok": 171,
+    "summaries": 177,
+    "ok": 174,
     "failed": 0,
     "weak": 2,
     "unchecked": 1,
     "not_yet": 0,
     "held_back": 0,
     "entries_not_shown": 0,
-    "vote_counts_left_out": 0
+    "vote_counts_left_out": 6
   },
-  "published_at": "2026-11-03T08:59:58+00:00",
-  "published_engine": "v1.87.0"
+  "recordings": {
+    "since": "2026-10-27",
+    "until": "2026-11-02",
+    "held": 3,
+    "next_day": 0,
+    "steps": {
+      "summarized": 1,
+      "minutes": 0,
+      "transcribed": 0,
+      "waiting": 0,
+      "failed": 0,
+      "unmatched": 0,
+      "not_found": 1,
+      "no_source": 1,
+      "no_recordings": 0
+    },
+    "misses": [
+      {
+        "date": "2026-10-27",
+        "board": "City Council",
+        "step": "not_found"
+      },
+      {
+        "date": "2026-10-28",
+        "board": "Zoning Board of Appeals",
+        "step": "no_source"
+      }
+    ]
+  },
+  "documents": {
+    "since": "2026-08-05",
+    "until": "2026-11-02",
+    "held": 119,
+    "boards": 42,
+    "counts": {
+      "no_documents": 4,
+      "no_minutes": 4,
+      "pairs": 3
+    },
+    "no_documents": [
+      {
+        "board": "School Committee",
+        "meetings": 3
+      },
+      {
+        "board": "School Committee Curriculum, Instruction and Student Life Subcommittee",
+        "meetings": 2
+      },
+      {
+        "board": "School Committee Finance and Facilities Subcommittee",
+        "meetings": 2
+      },
+      {
+        "board": "School Committee of the Whole",
+        "meetings": 2
+      }
+    ],
+    "no_minutes": [
+      {
+        "board": "Airport Commission",
+        "meetings": 4
+      },
+      {
+        "board": "Council on Aging",
+        "meetings": 3
+      },
+      {
+        "board": "Licensing Board",
+        "meetings": 2
+      },
+      {
+        "board": "South Essex Sewerage Board",
+        "meetings": 2
+      }
+    ],
+    "pairs": [
+      {
+        "date": "2026-10-13",
+        "board": "to 10-14-Beverly Regional Airport Commission Subcommittee on Mission",
+        "other": "Airport Commission"
+      },
+      {
+        "date": "2026-10-14",
+        "board": "Bevery Regional Airport Subcommittee on Mission Meeting Agenda",
+        "other": "Airport Commission"
+      },
+      {
+        "date": "2026-10-27",
+        "board": "Beverly Regional Airport Commission Meeting Subcommittee on Access and Badging",
+        "other": "Airport Commission"
+      }
+    ],
+    "waiting": {}
+  }
 }
