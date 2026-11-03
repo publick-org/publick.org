@@ -1,28 +1,28 @@
 {
   "town": "lowell",
   "folder": "lowell-ma",
-  "started_at": "2026-11-02T09:14:27+00:00",
-  "finished_at": "2026-11-02T09:15:46+00:00",
-  "engine": "v1.85.0",
+  "started_at": "2026-11-03T05:47:13+00:00",
+  "finished_at": "2026-11-03T05:48:47+00:00",
+  "engine": "v1.86.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 11.5
+      "seconds": 22.2
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 11.8
+      "seconds": 8.0
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 52.6
+      "seconds": 35.6
     },
     {
       "name": "Publish site",
@@ -34,13 +34,13 @@
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.8
+      "seconds": 0.9
     }
   ],
   "update": {
     "town": "lowell",
-    "sources": "all",
-    "started_at": "2026-11-02T09:14:27+00:00",
+    "sources": "meetings",
+    "started_at": "2026-11-03T05:47:14+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.9,
+        "seconds": 6.4,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.1,
+        "seconds": 5.7,
         "cadence": "continuous"
       },
       {
@@ -136,7 +136,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 6.7,
+        "seconds": 7.5,
         "cadence": "continuous"
       },
       {
@@ -146,16 +146,15 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 20 days ago; checked every 30 days"
+        "skipped": "checked 21 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 6 days ago; checked every 7 days"
+        "seconds": 0.6,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch school figures",
@@ -164,7 +163,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 20 days ago; checked every 30 days"
+        "skipped": "checked 21 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -173,7 +172,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 20 days ago; checked every 30 days"
+        "skipped": "checked 21 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -182,14 +181,14 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 4 days ago; checked every 7 days"
+        "skipped": "checked 5 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -197,7 +196,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -214,35 +213,8 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
+        "seconds": 0.4,
         "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [seeclickfix] in the config"
-      },
-      {
-        "name": "Fetch 311 requests from an open data portal",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [socrata_311] in the config"
-      },
-      {
-        "name": "Compute 311 scorecard",
-        "ok": true,
-        "required": true,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [seeclickfix] or [socrata_311] in the config"
       }
     ]
   },
@@ -251,7 +223,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-02T04:14:28-05:00",
+      "updated_at": "2026-11-03T00:47:14-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -294,13 +266,13 @@
     {
       "label": "Unemployment rate (BLS)",
       "file": "labor/unemployment.json",
-      "updated_at": "2026-10-27T05:12:15-04:00",
+      "updated_at": "2026-11-03T00:47:34-05:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
       "stale": false,
-      "latest": "August 2026 rate",
-      "next": "September 2026 rate usually by November 10, 2026",
+      "latest": "September 2026 rate",
+      "next": "October 2026 rate usually by December 10, 2026",
       "behind": null
     },
     {
@@ -339,16 +311,15 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-02T09:15:46+00:00",
-  "data_bytes": 2470073,
-  "data_bytes_added": 2,
+  "last_good_at": "2026-11-03T09:01:05+00:00",
+  "data_bytes": 2476022,
+  "data_bytes_added": 4016,
   "activity": {
     "boards": 40,
     "meetings_by_date": {
-      "2026-11-02": 1,
       "2026-11-03": 1,
       "2026-11-04": 4,
-      "2026-11-09": 1
+      "2026-11-09": 2
     }
   },
   "fact_checks": {
@@ -361,5 +332,32 @@
     "held_back": 15,
     "entries_not_shown": 65,
     "vote_counts_left_out": 133
-  }
+  },
+  "recordings": {
+    "since": "2026-10-27",
+    "until": "2026-11-02",
+    "held": 2,
+    "next_day": 0,
+    "steps": {
+      "summarized": 1,
+      "minutes": 0,
+      "transcribed": 1,
+      "waiting": 0,
+      "failed": 0,
+      "unmatched": 0,
+      "not_found": 0,
+      "no_source": 0,
+      "no_recordings": 0
+    },
+    "misses": [
+      {
+        "date": "2026-11-02",
+        "board": "Planning Board",
+        "step": "transcribed",
+        "detail": "transcript not summarized yet"
+      }
+    ]
+  },
+  "published_at": "2026-11-03T09:01:05+00:00",
+  "published_engine": "v1.87.0"
 }

@@ -145,6 +145,18 @@ one that's caught up, sends nothing. If the daily runs stop altogether, the sche
 hours, and closes it when a run finishes. A pull request's run still fails when
 a town does, so a broken site can't be merged.
 
+Two more issues are reports, not alerts: each run that fetches replaces their
+text, from the towns' run records, and an edit sends no email.
+**Next-day summaries from recordings** (label `next-day recordings`, from
+`python -m pipeline.network recordings`) counts the main boards' meetings of the
+last week by how far each got toward a summary from its recording.
+**Meetings missing documents** (label `missing documents`, from
+`python -m pipeline.network documents`) lists the last 90 days' boards with no
+agenda or minutes, boards whose minutes never came, meetings likely listed under
+two names, and meetings a reader hasn't saved the documents of yet. Each line
+is a lead to look at: many boards don't post minutes, and a board's documents
+can be posted where the town's sources don't read them.
+
 Between the daily runs, the scheduler loads publick.org and every town's
 homepage (from the network's sitemap) through the sites Worker every hour, at
 :50. A site that doesn't load, tried twice a few seconds apart, opens an issue such as

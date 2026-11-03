@@ -690,6 +690,30 @@ jobs:
             gh issue create --title "Next-day summaries from recordings" --label "$LABEL" --body "$body"
           fi
 
+      # The last 90 days' meetings missing their agendas and minutes, from towns/*/data/run.json (the
+      # engine's network.py documents): boards with no agenda or minutes, boards whose minutes never came,
+      # meetings likely listed under two names, and readers' meetings still waiting. One issue, its text
+      # replaced after each run that fetches, as for recordings. An engine without the command leaves the
+      # issue as it is.
+      - name: Update the issue on meetings missing documents
+        if: needs.plan.outputs.fetch == 'true' && github.event_name != 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          LABEL: missing documents
+        run: |
+          if ! body=$(python -m pipeline.network documents); then
+            echo "::notice::This engine has no network.py documents; the issue is left as it is."
+            exit 0
+          fi
+          gh label create "$LABEL" --color FBCA04 --description "Meetings missing their agendas or minutes" --force
+          number=$(gh issue list --label "$LABEL" --state open --json number --jq '.[0].number // empty')
+          if [ -n "$number" ]; then
+            gh issue edit "$number" --body "$body"
+          else
+            gh issue create --title "Meetings missing documents" --label "$LABEL" --body "$body"
+          fi
+
       - name: Publish the homepage
         if: needs.plan.outputs.deploy == 'true'
         env:

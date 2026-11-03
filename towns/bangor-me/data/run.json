@@ -1,46 +1,46 @@
 {
   "town": "bangor",
   "folder": "bangor-me",
-  "started_at": "2026-11-02T13:10:09+00:00",
-  "finished_at": "2026-11-02T13:11:54+00:00",
-  "engine": "v1.85.0",
+  "started_at": "2026-11-03T09:27:32+00:00",
+  "finished_at": "2026-11-03T09:30:56+00:00",
+  "engine": "v1.87.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 32.8
+      "seconds": 145.7
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 12.7
+      "seconds": 9.8
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 56.5
+      "seconds": 41.5
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.2
+      "seconds": 5.4
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.9
+      "seconds": 0.7
     }
   ],
   "update": {
     "town": "bangor",
     "sources": "all",
-    "started_at": "2026-11-02T13:10:09+00:00",
+    "started_at": "2026-11-03T09:27:32+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 16.1,
+        "seconds": 105.8,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -136,7 +136,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 5.3,
+        "seconds": 4.2,
         "cadence": "continuous"
       },
       {
@@ -144,7 +144,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -152,9 +152,8 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 6 days ago; checked every 7 days"
+        "seconds": 0.5,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch school figures",
@@ -163,32 +162,30 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 27 days ago; checked every 30 days"
+        "skipped": "checked 28 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "yearly",
-        "skipped": "checked 6 days ago; checked every 7 days"
+        "seconds": 0.3,
+        "cadence": "yearly"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 6 days ago; checked every 7 days"
+        "seconds": 24.5,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -196,7 +193,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -213,7 +210,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -221,7 +218,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 8.1,
+        "seconds": 8.0,
         "cadence": "continuous"
       },
       {
@@ -238,7 +235,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 1.0,
+        "seconds": 0.9,
         "cadence": "continuous"
       }
     ]
@@ -248,28 +245,28 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-02T08:10:09-05:00",
+      "updated_at": "2026-11-03T04:27:32-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-02T08:10:33-05:00",
+      "updated_at": "2026-11-03T04:29:49-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-02T08:10:41-05:00",
+      "updated_at": "2026-11-03T04:29:57-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Tax rate and property tax",
       "file": "finance/budget.json",
-      "updated_at": "2026-10-27T05:23:58-04:00",
+      "updated_at": "2026-11-03T04:29:24-05:00",
       "max_days": null,
       "cadence": "yearly",
       "failing": 0,
@@ -293,25 +290,25 @@
     {
       "label": "Unemployment rate (BLS)",
       "file": "labor/unemployment.json",
-      "updated_at": "2026-10-27T05:23:58-04:00",
+      "updated_at": "2026-11-03T04:29:23-05:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
       "stale": false,
-      "latest": "August 2026 rate",
-      "next": "September 2026 rate usually by November 10, 2026",
+      "latest": "September 2026 rate",
+      "next": "October 2026 rate usually by December 10, 2026",
       "behind": null
     },
     {
       "label": "Housing figures",
       "file": "housing/housing.json",
-      "updated_at": "2026-10-27T05:23:59-04:00",
+      "updated_at": "2026-11-03T04:29:24-05:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
       "stale": false,
-      "latest": "2025 building permits; August 2026 building permits; ACS 2024 5-year estimates",
-      "next": "2026 building permits usually by June 1, 2027; September 2026 building permits usually by November 1, 2026; ACS 2025 5-year estimates usually by December 15, 2026",
+      "latest": "2025 building permits; September 2026 building permits; ACS 2024 5-year estimates",
+      "next": "2026 building permits usually by June 1, 2027; October 2026 building permits usually by December 1, 2026; ACS 2025 5-year estimates usually by December 15, 2026",
       "behind": null
     },
     {
@@ -338,18 +335,19 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-02T13:11:54+00:00",
-  "data_bytes": 3714290,
-  "data_bytes_added": 1788556,
+  "last_good_at": "2026-11-03T09:30:56+00:00",
+  "data_bytes": 3717435,
+  "data_bytes_added": 1791458,
   "activity": {
     "boards": 32,
     "meetings_by_date": {
-      "2026-11-04": 3,
+      "2026-11-04": 2,
       "2026-11-05": 1,
       "2026-11-09": 4,
       "2026-11-10": 2,
       "2026-11-12": 4,
-      "2026-11-13": 1
+      "2026-11-13": 1,
+      "2026-11-16": 3
     }
   },
   "fact_checks": {
@@ -362,5 +360,83 @@
     "held_back": 10,
     "entries_not_shown": 34,
     "vote_counts_left_out": 18
+  },
+  "recordings": {
+    "since": "2026-10-27",
+    "until": "2026-11-02",
+    "held": 1,
+    "next_day": 0,
+    "steps": {
+      "summarized": 0,
+      "minutes": 0,
+      "transcribed": 0,
+      "waiting": 0,
+      "failed": 0,
+      "unmatched": 0,
+      "not_found": 0,
+      "no_source": 1,
+      "no_recordings": 0
+    },
+    "misses": [
+      {
+        "date": "2026-10-28",
+        "board": "School Committee",
+        "step": "no_source"
+      }
+    ]
+  },
+  "documents": {
+    "since": "2026-08-05",
+    "until": "2026-11-02",
+    "held": 82,
+    "boards": 25,
+    "counts": {
+      "no_documents": 0,
+      "no_minutes": 8,
+      "pairs": 1
+    },
+    "no_documents": [],
+    "no_minutes": [
+      {
+        "board": "City Council Workshop",
+        "meetings": 7
+      },
+      {
+        "board": "Advisory Committee on Homelessness",
+        "meetings": 3
+      },
+      {
+        "board": "Commission on Cultural Development",
+        "meetings": 3
+      },
+      {
+        "board": "BanAir Board of Directors",
+        "meetings": 2
+      },
+      {
+        "board": "Bangor Livable Communities",
+        "meetings": 2
+      },
+      {
+        "board": "City Council Finance Committee",
+        "meetings": 2
+      },
+      {
+        "board": "City Council Government Operations Committee",
+        "meetings": 2
+      },
+      {
+        "board": "City Council Personnel Committee",
+        "meetings": 2
+      }
+    ],
+    "pairs": [
+      {
+        "date": "2026-10-20",
+        "board": "Commission on Cultural Development subcommittee",
+        "other": "Commission on Cultural Development"
+      }
+    ],
+    "waiting": {}
   }
 }
