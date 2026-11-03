@@ -201,20 +201,17 @@ since = "2026-10-26"
 
 # The city's CivicClerk portal keeps each meeting's video with it, recorded
 # from its live stream: the City Council's meetings, named "City Council
-# Meeting (Live)" or "Special City Council Meeting" (its workshops and site
-# walks are left out), and the Planning Board's and Zoning Board of Appeals'
-# meetings, named "Planning Board Meeting (Live)" and "Zoning Board of Appeals
-# Meeting (Live)".
+# Meeting (Live)" or "Special City Council Meeting", the Planning Board's and
+# Zoning Board of Appeals' meetings, named "Planning Board Meeting (Live)" and
+# "Zoning Board of Appeals Meeting (Live)", and other boards' and committees'.
+# Each is matched to the meeting it's posted with.
 [[recordings.sources]]
 platform = "civicclerk"
 api_url = "https://biddefordme.api.civicclerk.com/v1"
 portal_url = "https://biddefordme.portal.civicclerk.com"
 media_url = "https://cpmedia.azureedge.net/biddefordme"
 
-[recordings.sources.boards]
-"City Council" = '^(Special )?City Council Meeting\b'
-"Planning Board" = '^Planning Board Meeting\b'
-"Zoning Board of Appeals" = '^Zoning Board of Appeals Meeting\b'
+boards = "listed"
 
 # The School Committee's meetings are streamed and kept on YouTube, in the
 # playlist "Biddeford School Committee Meetings", embedded on the committee's
@@ -225,8 +222,7 @@ media_url = "https://cpmedia.azureedge.net/biddefordme"
 platform = "youtube"
 playlist = "PLDdnzxQFjf6d08EDlacfRBJ8VioiVCYcM"
 
-[recordings.sources.boards]
-"School Committee" = '\bBiddeford School Committee Meeting\b'
+boards = "listed"
 
 # How residents can take part, per board, shown on its meeting pages. Only
 # what the city or the school department has published; each entry names its

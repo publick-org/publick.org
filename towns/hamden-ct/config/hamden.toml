@@ -320,14 +320,14 @@ since = "2026-08-01"
 since = "2026-10-26"
 
 # The town's CivicClerk portal keeps the land use boards' videos with their meetings: "Planning & Zoning
-# Commission Regular Meeting" and "Zoning Board of Appeals Regular Meeting" (or "Special Meeting"). Each
-# is matched to the meeting it's posted with. The Inland Wetlands Commission's, also there, is left out.
+# Commission Regular Meeting" and "Zoning Board of Appeals Regular Meeting" (or "Special Meeting"), and
+# the Inland Wetlands Commission's. Each is matched to the meeting it's posted with.
 [[recordings.sources]]
 platform = "civicclerk"
 api_url = "https://hamdenct.api.civicclerk.com/v1"
 portal_url = "https://hamdenct.portal.civicclerk.com"
 media_url = "https://cpmedia.azureedge.net/hamdenct"
-boards = { "Planning & Zoning Commission" = '^Planning & Zoning Commission\b', "Zoning Board of Appeals" = '^Zoning Board of Appeals\b' }
+boards = "listed"
 
 # How residents can take part, per board, shown on its meeting pages. Only
 # what the town or the school district has published; each entry names its

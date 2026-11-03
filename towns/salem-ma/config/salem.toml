@@ -239,19 +239,14 @@ since = "2026-10-26"
 
 # SATV's Cablecast (plain HTTP only): its Government shows, titled "City Council Regular Meeting 10-22-26",
 # "Salem School Committee Meeting 10/19/2026", "Salem Zoning Board of Appeals Meeting 10/21/26", "Salem
-# Planning Board Meeting 10/15/26", "Salem Licensing Board Meeting 10/26/26" (a joint meeting, or a
-# council committee's, is left out).
+# Planning Board Meeting 10/15/26", "Salem Licensing Board Meeting 10/26/26", and other boards' (a
+# joint meeting with another body is left out).
 [[recordings.sources]]
 platform = "cablecast"
 host = "http://cc.satvonline.org"
 categories = [44]
 
-[recordings.sources.boards]
-"City Council" = '^(Salem )?City Council (Regular |Special )?Meeting \d'
-"School Committee" = '^(Salem )?School Committee (Regular |Special )?Meeting \d'
-"Planning Board" = '^(Salem )?Planning Board (Regular |Special )?Meeting \d'
-"Zoning Board of Appeals" = '^(Salem )?Zoning Board of Appeals (Regular |Special )?Meeting \d'
-"Licensing Board" = '^(Salem )?Licensing Board (Regular |Special )?Meeting \d'
+boards = "listed"
 
 # How residents can take part, from each board's own agendas. The council's
 # Rules for Testimony (Sec. 26C in the city's Manual of the City Government)

@@ -276,45 +276,35 @@ since = "2026-10-26"
 # Concord Board of Education Meeting - October 26, 2026"), the Planning Board
 # (6649) and the Zoning Board of Adjustment (6648, "Zoning Board Meeting -
 # October 7 2026"). The Board of Education's playlist also holds its
-# committees' meetings and public hearings, which are left out.
+# committees' meetings and public hearings.
 [[recordings.sources]]
 platform = "telvue"
 player = "Xr8MIp6iGKk9kd2-nGV5XvtU7qurHzBe"
 playlists = [6647, 6650, 6649, 6648]
 
-[recordings.sources.boards]
-"City Council" = '^(inaugural\s+)?city council meeting\s*-'
-"Board of Education" = '^(special\s+)?(concord\s+)?board of education\s+(monthly\s+|special\s+)?meeting\s*-'
-"Planning Board" = '^planning board meeting\s*-'
-"Zoning Board of Adjustment" = '^zoning board meeting\s*-'
+boards = "listed"
 
 # The city's YouTube channel (@CityofConcordNH603, which the city's website
 # links), where its meetings are streamed live and kept: "City Council
 # Meeting- 10/13/26", "Planning Board Meeting - 10/21/26", "Zoning Board
-# Meeting - 10/7/26", "Finance Committee Meeting - 5/21/26" (other videos, and
-# the ad-hoc committees' meetings, are left out). Read for a meeting ConcordTV
-# hasn't posted.
+# Meeting - 10/7/26", "Finance Committee Meeting - 5/21/26" (other videos are
+# left out). Read for a meeting ConcordTV hasn't posted.
 [[recordings.sources]]
 platform = "youtube"
 channel = "UCDD8p5ZXUSNhW3_l8S78W5w"
 
-[recordings.sources.boards]
-"City Council" = '^\s*(inaugural\s+)?city council meeting\s*-'
-"Planning Board" = '^\s*planning board meeting\s*-'
-"Zoning Board of Adjustment" = '^\s*zoning board meeting\s*-'
-"Finance Committee" = '^\s*finance committee meeting\b'
+boards = "listed"
 
 # The Concord School District's YouTube channel, which the district's
 # meetings page links for each meeting's video: the Board's meetings, titled
 # "Concord Board of Education Monthly Meeting | 11-2-26" or "Special Board of
-# Education Meeting | 10-26-26" (its committees' meetings are left out). Read
-# for a meeting ConcordTV hasn't posted.
+# Education Meeting | 10-26-26", and its committees'. Read for a meeting
+# ConcordTV hasn't posted.
 [[recordings.sources]]
 platform = "youtube"
 channel = "UCwtAgZi2rv4LG1D-5VHpyAA"
 
-[recordings.sources.boards]
-"Board of Education" = '^\s*(concord\s+)?board of education\s+(monthly|special)\s+meeting\b|^\s*special board of education meeting\b|^\s*concord board of education\s*-\s*special board meeting\b'
+boards = "listed"
 
 # How residents can take part, per board, shown on its meeting pages. Only
 # what the city or the school district has published; each entry names its

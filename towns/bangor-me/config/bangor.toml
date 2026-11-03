@@ -377,9 +377,9 @@ members = [
 [recordings]
 since = "2026-10-26"
 
-# The city's channel: the City Council's meetings, titled "City Council 10.26.26"
-# (the Council's workshops, a separate body, are left out).
+# The city's channel: the City Council's meetings, titled "City Council 10.26.26", its workshops (a body
+# of their own), "City Council Workshop 10.26.26", and other boards', titled the same way.
 [[recordings.sources]]
 platform = "youtube"
 channel = "UCsyYWz8xrsNb-QeENebc9XA"
-boards = { "City Council" = '^\s*(?:special\s+)?city\s+council\s+\d{1,2}\.\d{1,2}\.\d{2}(?:\d{2})?\b' }
+boards = "listed"

@@ -212,17 +212,13 @@ since = "2026-10-26"
 # meeting: the Town Council's meetings, titled "Town Council: 10/20/2026"; the School Board's, "School
 # Board Meeting: 10/13/2026" or "School board meeting and Public Hearing: 10/27/2026"; the Planning
 # Board's, "Planning Board: 10/7/2026"; and the Zoning Board of Adjustment's, "Zoning Board Meeting:
-# 10/15/2026" or "Zoning Board of Adjustments: 9/17/2026" (the Conservation Commission's, and other
-# programs, are left out).
+# 10/15/2026" or "Zoning Board of Adjustments: 9/17/2026"; and other boards', such as the
+# Conservation Commission's (other programs are left out).
 [[recordings.sources]]
 platform = "youtube"
 channel = "UC-zsA_ULQ3Tc3aJUVVKOEKw"
 
-[recordings.sources.boards]
-"Town Council" = '\btown\s+council\b'
-"Derry School Board" = '^\s*school\s+board\b'
-"Planning Board" = '^\s*planning\s+board\b'
-"Zoning Board of Adjustment" = '^\s*zoning\s+board\b'
+boards = "listed"
 
 # How residents can take part, per board, shown on its meeting pages. Only
 # what the town has published; each entry names its source. From the Town
