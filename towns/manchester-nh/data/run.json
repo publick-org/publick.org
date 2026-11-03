@@ -1,8 +1,8 @@
 {
   "town": "manchester",
   "folder": "manchester-nh",
-  "started_at": "2026-11-03T14:44:23+00:00",
-  "finished_at": "2026-11-03T14:50:20+00:00",
+  "started_at": "2026-11-03T16:30:30+00:00",
+  "finished_at": "2026-11-03T16:35:22+00:00",
   "engine": "v1.87.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 227.9
+      "seconds": 191.1
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 19.9
+      "seconds": 16.4
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 94.8
+      "seconds": 79.9
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 7.7
+      "seconds": 3.0
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 1.5
+      "seconds": 1.0
     }
   ],
   "update": {
     "town": "manchester",
     "sources": "meetings",
-    "started_at": "2026-11-03T14:44:24+00:00",
+    "started_at": "2026-11-03T16:30:31+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 65.5,
+        "seconds": 63.9,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 108.6,
+        "seconds": 16.2,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 51.1,
+        "seconds": 108.8,
         "cadence": "continuous"
       },
       {
@@ -188,7 +188,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -223,14 +223,14 @@
     {
       "label": "Meetings (city calendar, CivicClerk, and school district calendar)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-03T09:44:24-05:00",
+      "updated_at": "2026-11-03T11:30:31-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Planning and zoning boards' documents (city website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-03T09:45:30-05:00",
+      "updated_at": "2026-11-03T11:31:36-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -332,9 +332,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-03T14:56:39+00:00",
-  "data_bytes": 20019872,
-  "data_bytes_added": 15709093,
+  "last_good_at": "2026-11-03T16:35:22+00:00",
+  "data_bytes": 20307351,
+  "data_bytes_added": 15696502,
   "activity": {
     "boards": 36,
     "meetings_by_date": {
@@ -345,14 +345,14 @@
     }
   },
   "fact_checks": {
-    "summaries": 118,
-    "ok": 108,
-    "failed": 7,
-    "weak": 2,
+    "summaries": 131,
+    "ok": 117,
+    "failed": 8,
+    "weak": 5,
     "unchecked": 0,
     "not_yet": 1,
-    "held_back": 7,
-    "entries_not_shown": 28,
+    "held_back": 8,
+    "entries_not_shown": 32,
     "vote_counts_left_out": 46
   },
   "recordings": {
@@ -431,7 +431,5 @@
       }
     ],
     "waiting": {}
-  },
-  "published_at": "2026-11-03T14:56:39+00:00",
-  "published_engine": "v1.87.0"
+  }
 }
