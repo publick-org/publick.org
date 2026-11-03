@@ -1,46 +1,46 @@
 {
   "town": "worcester",
   "folder": "worcester-ma",
-  "started_at": "2026-11-02T09:10:56+00:00",
-  "finished_at": "2026-11-02T09:17:37+00:00",
-  "engine": "v1.85.0",
+  "started_at": "2026-11-03T09:14:06+00:00",
+  "finished_at": "2026-11-03T09:20:56+00:00",
+  "engine": "v1.87.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 335.6
+      "seconds": 307.8
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 17.6
+      "seconds": 10.9
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 93.9
+      "seconds": 81.6
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 15.5
+      "seconds": 8.2
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.8
+      "seconds": 1.0
     }
   ],
   "update": {
     "town": "worcester",
     "sources": "all",
-    "started_at": "2026-11-02T09:10:56+00:00",
+    "started_at": "2026-11-03T09:14:06+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 3.5,
+        "seconds": 3.6,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.0,
+        "seconds": 2.6,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 97.1,
+        "seconds": 32.7,
         "cadence": "continuous"
       },
       {
@@ -145,7 +145,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 5 days ago; checked every 30 days"
+        "skipped": "checked 6 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -154,7 +154,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "skipped": "checked 6 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -163,7 +163,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 5 days ago; checked every 30 days"
+        "skipped": "checked 6 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -172,7 +172,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 5 days ago; checked every 30 days"
+        "skipped": "checked 6 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -181,14 +181,14 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "skipped": "checked 6 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -196,7 +196,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -221,7 +221,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 230.0,
+        "seconds": 262.3,
         "cadence": "continuous"
       },
       {
@@ -238,7 +238,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 2.8,
+        "seconds": 4.9,
         "cadence": "continuous"
       }
     ]
@@ -248,28 +248,28 @@
     {
       "label": "Meetings (PrimeGov)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-02T04:10:57-05:00",
+      "updated_at": "2026-11-03T04:14:07-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-02T04:11:00-05:00",
+      "updated_at": "2026-11-03T04:14:10-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-02T04:12:39-05:00",
+      "updated_at": "2026-11-03T04:14:47-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-02T04:16:29-05:00",
+      "updated_at": "2026-11-03T04:19:09-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -357,9 +357,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-03T09:06:28+00:00",
-  "data_bytes": 13636496,
-  "data_bytes_added": 10512541,
+  "last_good_at": "2026-11-03T09:20:56+00:00",
+  "data_bytes": 15476224,
+  "data_bytes_added": 12346406,
   "activity": {
     "boards": 23,
     "meetings_by_date": {
@@ -379,6 +379,46 @@
     "entries_not_shown": 18,
     "vote_counts_left_out": 8
   },
-  "published_at": "2026-11-03T09:06:28+00:00",
-  "published_engine": "v1.87.0"
+  "recordings": {
+    "since": "2026-10-27",
+    "until": "2026-11-02",
+    "held": 1,
+    "next_day": 0,
+    "steps": {
+      "summarized": 1,
+      "minutes": 0,
+      "transcribed": 0,
+      "waiting": 0,
+      "failed": 0,
+      "unmatched": 0,
+      "not_found": 0,
+      "no_source": 0,
+      "no_recordings": 0
+    },
+    "misses": []
+  },
+  "documents": {
+    "since": "2026-08-05",
+    "until": "2026-11-02",
+    "held": 67,
+    "boards": 20,
+    "counts": {
+      "no_documents": 0,
+      "no_minutes": 2,
+      "pairs": 0
+    },
+    "no_documents": [],
+    "no_minutes": [
+      {
+        "board": "School Committee Standing Committee on Operations and Governance",
+        "meetings": 3
+      },
+      {
+        "board": "Zoning Board of Appeals",
+        "meetings": 2
+      }
+    ],
+    "pairs": [],
+    "waiting": {}
+  }
 }
