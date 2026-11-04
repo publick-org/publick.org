@@ -29,8 +29,7 @@
 # The report is the run's summary; every result is saved as the artifact
 # evaluation.json. It fails when a wrong outcome would be shown (not the
 # batch set, an experiment; the shadow set only when a request can't be
-# made). It runs on the network's Anthropic key, outside the towns' summary
-# budget.
+# made). It runs on the network's Anthropic key.
 #
 # It gets the Anthropic key and nothing else, reads this repository only, and
 # never runs on a push or a pull request.
