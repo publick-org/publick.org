@@ -426,7 +426,7 @@ wards_url = "https://www.arcgis.com/home/item.html?id=3d1a8bdf3eaa49e09cf5d9da5b
 # the three at-large seats each November (Section 2), taking office at the
 # Board's first regular meeting in January (Section 4).
 [officials]
-checked = "2026-11-01"
+checked = "2026-11-04"
 # The next election of any member listed: the Board of Education's, on
 # Tuesday, November 3, 2026 (the district charter, Section 2), for one seat
 # in each zone (Campbell's, Boucher's and Hastings's, whose terms the
@@ -497,4 +497,27 @@ members = [
   { name = "Alex Dubois", seat = "Zone C", wards = [8, 9, 10], term_ends = "2029-01", email = "adubois@sau8.org" },
   { name = "Barb Higgins", seat = "At-large", term_ends = "2028-01", email = "bhiggins@sau8.org" },
   { name = "Sarah Sadowski", seat = "At-large", term_ends = "2028-01", email = "ssadowski@sau8.org" },
+]
+
+# Elected November 3, 2026, by the City Clerk's results of that day's election
+# ("November 3, 2026 State General Election Results", in the Archive Center's
+# Election Results, posted November 4, 2026): Zone A, Jackie Figueira, 3,389
+# votes, unopposed (Jess Campbell's seat); Zone B, Liz Boucher, 3,183, to Don
+# Brueggemann's 2,495; Zone C, Brenda Hastings, 3,098, to Dr. Aaron Thompson's
+# 1,905. Three-year terms (the district charter, Section 2), from the first
+# regular meeting in January (Section 4), held on the first Monday of the
+# month (Section 7): January 4, 2027. Officers are chosen at that meeting, so
+# none are listed.
+[officials.bodies.incoming]
+takes_office = "2027-01-04"
+members = [
+  { name = "Pamela Walsh", seat = "At-large", term_ends = "2028-01", email = "pwalsh@sau8.org" },
+  { name = "Barb Higgins", seat = "At-large", term_ends = "2028-01", email = "bhiggins@sau8.org" },
+  { name = "Sarah Sadowski", seat = "At-large", term_ends = "2028-01", email = "ssadowski@sau8.org" },
+  { name = "Jackie Figueira", seat = "Zone A", wards = [1, 2, 3, 4], term_ends = "2030-01" },
+  { name = "Madeleine Mineau", seat = "Zone A", wards = [1, 2, 3, 4], term_ends = "2029-01", email = "mmineau@sau8.org" },
+  { name = "Liz Boucher", seat = "Zone B", wards = [5, 6, 7], term_ends = "2030-01", email = "eboucher@sau8.org" },
+  { name = "Cara Meeker", seat = "Zone B", wards = [5, 6, 7], term_ends = "2029-01", email = "cmeeker@sau8.org" },
+  { name = "Brenda Hastings", seat = "Zone C", wards = [8, 9, 10], term_ends = "2030-01", email = "bhastings@sau8.org" },
+  { name = "Alex Dubois", seat = "Zone C", wards = [8, 9, 10], term_ends = "2029-01", email = "adubois@sau8.org" },
 ]
