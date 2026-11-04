@@ -16,7 +16,7 @@ towns/<town>-<state>/         One folder per town, laid out as a town repository
   config/<town>.toml            everything town-specific, over the settings in defaults/
   data/                         collected data, committed by the daily run, with run.json (its last
                                 daily run); a 311 town's requests and scorecard are kept in the documents
-                                bucket instead, since 2026-10-13 (below), and what its AI summaries cost
+                                bucket instead (below), and what its AI summaries cost
                                 in the private store (below), never in git
   site/static/                  files that replace or add to the engine's (the share image)
 defaults/network.toml         The settings every town shares ([summaries] model and prices, the documents bucket,
@@ -374,9 +374,10 @@ In the Cloudflare account that holds `publick.org`:
 5. **Workers Routes:** any other hostname under `publick.org` that must not
    reach the Worker needs a route with **no Worker**, such as
    `files.publick.org/*` (the documents bucket).
-6. **Workers Paid plan** (**Workers & Pages → Plans**). Every request to every
-   site, each page and its CSS, scripts, and images, runs the sites Worker, and
-   the digest's send makes two requests a town each run.
+6. **Workers plan** (**Workers & Pages → Plans**): one that allows the
+   network's requests. Every request to every site, each page and its CSS,
+   scripts, and images, runs the sites Worker, and the digest's send makes two
+   requests a town each run.
 7. **Email Routing → Routing rules → Catch-all address**, *Send to an email*:
    every `@publick.org` address, each town's `contact_email` among them, is
    forwarded.
@@ -393,7 +394,7 @@ In this repository's **Settings → Secrets and variables → Actions**:
 | `SITES_ACCESS_KEY_ID`, `SITES_SECRET_ACCESS_KEY` | The R2 token from step 2 |
 | `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` | The token from step 3, and the account ID |
 | `ANTHROPIC_API_KEY`, `BLS_API_KEY`, `STORAGE_ACCESS_KEY_ID`, `STORAGE_SECRET_ACCESS_KEY` | As for a town repository (engine README, Secrets) |
-| `ENGINE_PR_TOKEN` | For `engine.yml`, which moves the engine each day: a fine-grained personal access token with resource owner `publick-org`, this repository only, and **Contents** and **Pull requests** read and write. Required: what the workflow's own token pushes, opens, or merges starts no other workflow, so the pull request wouldn't be checked and the merge wouldn't publish. It expires; replace it before it does (until then the engine doesn't move, and the workflow's failure emails the owner) |
+| `ENGINE_PR_TOKEN` | For `engine.yml`, which moves the engine each day: a fine-grained personal access token with resource owner `publick-org`, this repository only, and **Contents** and **Pull requests** read and write. Required: what the workflow's own token pushes, opens, or merges starts no other workflow, so the pull request wouldn't be checked and the merge wouldn't publish. |
 | `BUTTONDOWN_SUBSCRIBE_KEY` | For the weekly digest's signup form, which the sites Worker answers: a Buttondown API key with subscribers read and write, and sending disabled, so it can't send email. Without it, the form says it didn't go through |
 | `BUTTONDOWN_SEND_KEY` | For the weekly digest's Sunday send, from the scheduler Worker: a Buttondown API key with emails read and write, and sending enabled. Without it, nothing is sent |
 | `DIGEST_TEST_RECIPIENTS` | The addresses **Actions → Digest test** sends a test of the weekly digest to, separated by commas. A secret so they stay out of the public run logs. Without it, the test sends nothing |
@@ -402,7 +403,7 @@ In this repository's **Settings → Secrets and variables → Actions**:
 | `SUMMARY_BUDGET` | The network's monthly budget for AI summaries and translations, in dollars. A secret, so the run logs never show it. Without it, no town summarizes |
 | `SUMMARY_BUDGET_MONTH` | A month with a budget of its own, as `YYYY-MM=dollars` (several separated by commas); empty for none |
 | `ALERT_ASSIGNEE` | The GitHub account the alert issues are assigned to (network, engine, and Worker workflows, and the scheduler Worker). A secret, so the run logs don't name it. Without it, they're assigned to no one |
-| `SCHEDULER_GITHUB_TOKEN` | For the scheduler Worker: a fine-grained personal access token with resource owner `publick-org`, for this repository with **Actions** and **Issues** read and write, and for `publick-engine` with **Actions** read and write (so the scheduler can start the engine's release). It expires; replace it (then run **Actions → Worker**) before it does. Until then, runs fall back to GitHub's own schedule |
+| `SCHEDULER_GITHUB_TOKEN` | For the scheduler Worker: a fine-grained personal access token with resource owner `publick-org`, for this repository with **Actions** and **Issues** read and write, and for `publick-engine` with **Actions** read and write (so the scheduler can start the engine's release). When it's replaced, run **Actions → Worker**. Without it, runs fall back to GitHub's own schedule |
 
 The scheduler's Cron Triggers also need the Cloudflare account to have a
 `workers.dev` subdomain: opening **Workers & Pages** in the dashboard once

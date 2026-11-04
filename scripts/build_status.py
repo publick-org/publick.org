@@ -14,11 +14,11 @@ delayed" when a daily step of its last run failed or a source is behind, and
 is "not updated" when it has had no daily run for LATE_HOURS. Figures that are
 published monthly or yearly (FIGURE_STEPS) are behind only when newer figures
 should have been published by now; a failed check of one isn't shown here, since
-the site still has the latest figures (the engine reports repeated failures to
-the maintainer).
+the site still has the latest figures (the engine reports repeated failures as
+alerts).
 
 It never shows what running the network costs or how much data it keeps:
-those are for the maintainer, not the towns' readers.
+those aren't for the towns' readers.
 
 The page's last-daily-run meta tag is when the most recent town's daily run
 finished; the publick-scheduler Worker reads it to tell when the network's
