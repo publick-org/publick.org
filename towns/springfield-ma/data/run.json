@@ -1,46 +1,46 @@
 {
   "town": "springfield",
   "folder": "springfield-ma",
-  "started_at": "2026-11-03T09:19:06+00:00",
-  "finished_at": "2026-11-03T09:20:47+00:00",
-  "engine": "v1.87.0",
+  "started_at": "2026-11-04T05:38:36+00:00",
+  "finished_at": "2026-11-04T05:45:48+00:00",
+  "engine": "v1.88.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 51.7
+      "seconds": 341.5
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 7.8
+      "seconds": 11.1
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 31.7
+      "seconds": 49.7
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.5
+      "seconds": 28.5
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.8
+      "seconds": 0.9
     }
   ],
   "update": {
     "town": "springfield",
-    "sources": "all",
-    "started_at": "2026-11-03T09:19:06+00:00",
+    "sources": "meetings",
+    "started_at": "2026-11-04T05:38:37+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 39.9,
+        "seconds": 37.2,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
+        "seconds": 22.4,
         "cadence": "continuous"
       },
       {
@@ -124,10 +124,10 @@
       },
       {
         "name": "Fetch the school district's minutes library",
-        "ok": true,
+        "ok": false,
         "required": false,
-        "error": null,
-        "seconds": 5.7,
+        "error": "exited with status 1",
+        "seconds": 221.1,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 4.2,
+        "seconds": 33.4,
         "cadence": "continuous"
       },
       {
@@ -145,16 +145,15 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 6 days ago; checked every 30 days"
+        "skipped": "checked 7 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 6 days ago; checked every 7 days"
+        "seconds": 0.7,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch school figures",
@@ -163,7 +162,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 6 days ago; checked every 30 days"
+        "skipped": "checked 7 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -172,16 +171,15 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 6 days ago; checked every 30 days"
+        "skipped": "checked 7 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 6 days ago; checked every 7 days"
+        "seconds": 24.7,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch place",
@@ -215,33 +213,6 @@
         "error": null,
         "seconds": 0.4,
         "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [seeclickfix] in the config"
-      },
-      {
-        "name": "Fetch 311 requests from an open data portal",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [socrata_311] in the config"
-      },
-      {
-        "name": "Compute 311 scorecard",
-        "ok": true,
-        "required": true,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [seeclickfix] or [socrata_311] in the config"
       }
     ]
   },
@@ -250,7 +221,7 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-03T04:19:06-05:00",
+      "updated_at": "2026-11-04T00:38:37-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -300,19 +271,19 @@
     {
       "label": "Unemployment rate (BLS)",
       "file": "labor/unemployment.json",
-      "updated_at": "2026-10-27T21:12:35-04:00",
+      "updated_at": "2026-11-04T00:43:51-05:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
       "stale": false,
-      "latest": "August 2026 rate",
-      "next": "September 2026 rate usually by November 10, 2026",
+      "latest": "September 2026 rate",
+      "next": "October 2026 rate usually by December 10, 2026",
       "behind": null
     },
     {
       "label": "Housing figures",
       "file": "housing/housing.json",
-      "updated_at": "2026-10-27T21:12:37-04:00",
+      "updated_at": "2026-11-04T00:43:52-05:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
@@ -345,36 +316,36 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-03T16:53:41+00:00",
-  "data_bytes": 1495261,
-  "data_bytes_added": 6643,
+  "last_good_at": "2026-11-04T05:45:48+00:00",
+  "data_bytes": 1529120,
+  "data_bytes_added": 12666,
   "activity": {
     "boards": 46,
     "meetings_by_date": {
-      "2026-11-03": 2,
       "2026-11-04": 7,
-      "2026-11-05": 2,
+      "2026-11-05": 3,
       "2026-11-06": 2,
       "2026-11-09": 1,
       "2026-11-10": 2,
       "2026-11-12": 1,
-      "2026-11-16": 2
+      "2026-11-16": 2,
+      "2026-11-17": 2
     }
   },
   "fact_checks": {
-    "summaries": 74,
-    "ok": 68,
-    "failed": 5,
+    "summaries": 77,
+    "ok": 72,
+    "failed": 4,
     "weak": 1,
     "unchecked": 0,
     "not_yet": 0,
-    "held_back": 5,
-    "entries_not_shown": 8,
+    "held_back": 4,
+    "entries_not_shown": 7,
     "vote_counts_left_out": 53
   },
   "recordings": {
-    "since": "2026-10-27",
-    "until": "2026-11-02",
+    "since": "2026-10-28",
+    "until": "2026-11-03",
     "held": 1,
     "next_day": 0,
     "steps": {
@@ -384,26 +355,26 @@
       "waiting": 0,
       "failed": 0,
       "unmatched": 0,
-      "not_found": 0,
-      "no_source": 1,
+      "not_found": 1,
+      "no_source": 0,
       "no_recordings": 0
     },
     "misses": [
       {
         "date": "2026-10-28",
         "board": "Zoning Board of Appeals",
-        "step": "no_source"
+        "step": "not_found"
       }
     ]
   },
   "documents": {
-    "since": "2026-08-05",
-    "until": "2026-11-02",
+    "since": "2026-08-06",
+    "until": "2026-11-03",
     "held": 132,
     "boards": 41,
     "counts": {
       "no_documents": 1,
-      "no_minutes": 10,
+      "no_minutes": 8,
       "pairs": 0
     },
     "no_documents": [
@@ -442,21 +413,11 @@
         "meetings": 2
       },
       {
-        "board": "Retirement Board",
-        "meetings": 2
-      },
-      {
         "board": "School Committee Legislative & Contracts Subcommittee",
-        "meetings": 2
-      },
-      {
-        "board": "Traffic Commission",
         "meetings": 2
       }
     ],
     "pairs": [],
     "waiting": {}
-  },
-  "published_at": "2026-11-03T16:53:41+00:00",
-  "published_engine": "v1.88.0"
+  }
 }
