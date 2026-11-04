@@ -67,6 +67,10 @@ on:
     - cron: "17 12 * * *"
   push:
     branches: [main]
+    # Not for the data the daily run and the statewide fetch commit: each town was built and published
+    # before its data was committed, so such a push has nothing to rebuild (pipeline.network changed_towns
+    # leaves data out), and a run for it would only wait behind the daily run for a runner.
+    paths-ignore: ["towns/*/data/**", "states/**"]
   pull_request:
   workflow_dispatch:
     inputs:
@@ -251,10 +255,13 @@ jobs:
               ;;
           esac
           matrix=$(python -m pipeline.network plan "${args[@]}" --batch-size "$batch")
-          if [ "$(jq '.include | length' <<< "$matrix")" -gt "$MAX_JOBS" ]; then
+          # A pull request's jobs stay one town each up to GitHub's limit on a matrix: each is named for its
+          # town, which is how engine.yml tells which towns failed an engine's checks and holds them back.
+          most="$MAX_JOBS"; [ "$EVENT" = pull_request ] && most=256
+          if [ "$(jq '.include | length' <<< "$matrix")" -gt "$most" ]; then
             count=$(jq '[.include[].towns | split(" ")[]] | length' <<< "$matrix")
-            batch=$(( (count + MAX_JOBS - 1) / MAX_JOBS ))
-            echo "$count towns: $batch a job, to stay within $MAX_JOBS jobs"
+            batch=$(( (count + most - 1) / most ))
+            echo "$count towns: $batch a job, to stay within $most jobs"
             matrix=$(python -m pipeline.network plan "${args[@]}" --batch-size "$batch")
           fi
           echo "$matrix"

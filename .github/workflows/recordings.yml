@@ -121,6 +121,9 @@ jobs:
       contents: write
     strategy:
       fail-fast: false
+      # With the YouTube jobs below, at most 10 at once: the daily run (network.yml, 10 at a time) keeps
+      # its runners under the organization's limit on jobs running at once, and the rest wait their turn.
+      max-parallel: 6
       matrix:
         # A town each, or past MAX_JOBS towns, a few a job (comma-separated).
         towns: ${{ fromJSON(needs.plan.outputs.towns) }}
@@ -277,6 +280,8 @@ jobs:
       contents: write
     strategy:
       fail-fast: false
+      # See the Whisper jobs above: 6 and 4 leave the daily run its 10.
+      max-parallel: 4
       matrix:
         towns: ${{ fromJSON(needs.plan.outputs.youtube) }}
     concurrency:
