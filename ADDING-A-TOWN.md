@@ -84,8 +84,8 @@ left. Then publish (step 7).
       Community, nested Drive folders; leave the board out and say so in the
       pull request.
 - [ ] **Minutes.** Download two or three. A scanned PDF (no text to select)
-      is transcribed by the model, which costs money every month; note how
-      many pages a year that would be. Minutes as Word files aren't read.
+      is transcribed by the model; note how many pages a year that would
+      be. Minutes as Word files aren't read.
 - [ ] **Recordings.** Where the main board's meetings are recorded: the
       city's or its public-access station's own video platform (TelVue for
       Lowell, Cablecast, Castus cloud for Manchester, Town Meeting TV's

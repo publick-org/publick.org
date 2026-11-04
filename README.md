@@ -374,9 +374,10 @@ In the Cloudflare account that holds `publick.org`:
 5. **Workers Routes:** any other hostname under `publick.org` that must not
    reach the Worker needs a route with **no Worker**, such as
    `files.publick.org/*` (the documents bucket).
-6. **Workers plan** (**Workers & Pages → Plans**). Every request to every
-   site, each page and its CSS, scripts, and images, runs the sites Worker, and
-   the digest's send makes two requests a town each run.
+6. **Workers plan** (**Workers & Pages → Plans**): one that allows the
+   network's requests. Every request to every site, each page and its CSS,
+   scripts, and images, runs the sites Worker, and the digest's send makes two
+   requests a town each run.
 7. **Email Routing → Routing rules → Catch-all address**, *Send to an email*:
    every `@publick.org` address, each town's `contact_email` among them, is
    forwarded.
@@ -402,7 +403,7 @@ In this repository's **Settings → Secrets and variables → Actions**:
 | `SUMMARY_BUDGET` | The network's monthly budget for AI summaries and translations, in dollars. A secret, so the run logs never show it. Without it, no town summarizes |
 | `SUMMARY_BUDGET_MONTH` | A month with a budget of its own, as `YYYY-MM=dollars` (several separated by commas); empty for none |
 | `ALERT_ASSIGNEE` | The GitHub account the alert issues are assigned to (network, engine, and Worker workflows, and the scheduler Worker). A secret, so the run logs don't name it. Without it, they're assigned to no one |
-| `SCHEDULER_GITHUB_TOKEN` | For the scheduler Worker: a fine-grained personal access token with resource owner `publick-org`, for this repository with **Actions** and **Issues** read and write, and for `publick-engine` with **Actions** read and write (so the scheduler can start the engine's release). |
+| `SCHEDULER_GITHUB_TOKEN` | For the scheduler Worker: a fine-grained personal access token with resource owner `publick-org`, for this repository with **Actions** and **Issues** read and write, and for `publick-engine` with **Actions** read and write (so the scheduler can start the engine's release). When it's replaced, run **Actions → Worker**. Without it, runs fall back to GitHub's own schedule |
 
 The scheduler's Cron Triggers also need the Cloudflare account to have a
 `workers.dev` subdomain: opening **Workers & Pages** in the dashboard once
