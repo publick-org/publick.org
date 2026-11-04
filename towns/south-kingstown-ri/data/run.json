@@ -1,46 +1,46 @@
 {
   "town": "south-kingstown",
   "folder": "south-kingstown-ri",
-  "started_at": "2026-11-03T09:08:58+00:00",
-  "finished_at": "2026-11-03T09:11:06+00:00",
-  "engine": "v1.87.0",
+  "started_at": "2026-11-04T09:09:13+00:00",
+  "finished_at": "2026-11-04T09:11:39+00:00",
+  "engine": "v1.90.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 80.0
+      "seconds": 100.4
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 12.4
+      "seconds": 6.7
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 56.7
+      "seconds": 34.1
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 20.0
+      "seconds": 3.1
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 1.2
+      "seconds": 0.8
     }
   ],
   "update": {
     "town": "south-kingstown",
     "sources": "all",
-    "started_at": "2026-11-03T09:08:58+00:00",
+    "started_at": "2026-11-04T09:09:13+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 43.3,
+        "seconds": 45.7,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -109,7 +109,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 20.1,
+        "seconds": 22.0,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 5.1,
+        "seconds": 22.3,
         "cadence": "continuous"
       },
       {
@@ -151,8 +151,9 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.6,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -161,24 +162,24 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 20 days ago; checked every 30 days"
+        "skipped": "checked 21 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
-        "cadence": "yearly"
+        "seconds": 0,
+        "cadence": "yearly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "seconds": 0.3,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch place",
@@ -218,7 +219,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 7.9,
+        "seconds": 7.8,
         "cadence": "continuous"
       },
       {
@@ -235,7 +236,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 1.0,
+        "seconds": 0.7,
         "cadence": "continuous"
       }
     ]
@@ -245,28 +246,28 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-03T04:08:59-05:00",
+      "updated_at": "2026-11-04T04:09:14-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee meetings (Open Meetings portal)",
       "file": "meetings/opengov_status.json",
-      "updated_at": "2026-11-03T04:09:42-05:00",
+      "updated_at": "2026-11-04T04:10:00-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-03T04:10:10-05:00",
+      "updated_at": "2026-11-04T04:10:45-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-03T04:10:17-05:00",
+      "updated_at": "2026-11-04T04:10:53-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -342,13 +343,12 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-04T09:08:01+00:00",
-  "data_bytes": 1912200,
-  "data_bytes_added": 352069,
+  "last_good_at": "2026-11-04T09:11:39+00:00",
+  "data_bytes": 1922647,
+  "data_bytes_added": 354538,
   "activity": {
     "boards": 21,
     "meetings_by_date": {
-      "2026-11-03": 1,
       "2026-11-04": 3,
       "2026-11-05": 3,
       "2026-11-09": 1,
@@ -358,20 +358,20 @@
     }
   },
   "fact_checks": {
-    "summaries": 64,
-    "ok": 61,
-    "failed": 2,
+    "summaries": 65,
+    "ok": 63,
+    "failed": 1,
     "weak": 1,
     "unchecked": 0,
     "not_yet": 0,
-    "held_back": 2,
-    "entries_not_shown": 4,
+    "held_back": 1,
+    "entries_not_shown": 2,
     "vote_counts_left_out": 6
   },
   "recordings": {
-    "since": "2026-10-27",
-    "until": "2026-11-02",
-    "held": 3,
+    "since": "2026-10-28",
+    "until": "2026-11-03",
+    "held": 1,
     "next_day": 0,
     "steps": {
       "summarized": 0,
@@ -380,31 +380,21 @@
       "waiting": 0,
       "failed": 0,
       "unmatched": 0,
-      "not_found": 0,
-      "no_source": 3,
+      "not_found": 1,
+      "no_source": 0,
       "no_recordings": 0
     },
     "misses": [
       {
-        "date": "2026-10-27",
-        "board": "Planning Board",
-        "step": "no_source"
-      },
-      {
-        "date": "2026-10-27",
-        "board": "School Committee",
-        "step": "no_source"
-      },
-      {
         "date": "2026-11-02",
         "board": "School Committee",
-        "step": "no_source"
+        "step": "not_found"
       }
     ]
   },
   "documents": {
-    "since": "2026-08-05",
-    "until": "2026-11-02",
+    "since": "2026-08-06",
+    "until": "2026-11-03",
     "held": 67,
     "boards": 17,
     "counts": {
@@ -419,15 +409,15 @@
         "meetings": 4
       },
       {
-        "board": "Economic Development Committee",
-        "meetings": 3
-      },
-      {
         "board": "School Building Committee",
         "meetings": 3
       },
       {
         "board": "Bicycle-Pedestrian Advisory Committee",
+        "meetings": 2
+      },
+      {
+        "board": "Economic Development Committee",
         "meetings": 2
       },
       {
@@ -437,7 +427,5 @@
     ],
     "pairs": [],
     "waiting": {}
-  },
-  "published_at": "2026-11-04T09:08:01+00:00",
-  "published_engine": "v1.90.0"
+  }
 }
