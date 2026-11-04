@@ -1,46 +1,46 @@
 {
   "town": "south-burlington",
   "folder": "south-burlington-vt",
-  "started_at": "2026-11-04T14:10:18+00:00",
-  "finished_at": "2026-11-04T14:12:36+00:00",
-  "engine": "v1.90.0",
+  "started_at": "2026-11-04T20:36:58+00:00",
+  "finished_at": "2026-11-04T20:39:09+00:00",
+  "engine": "v1.92.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 85.7
+      "seconds": 88.1
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 10.1
+      "seconds": 6.9
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 42.8
+      "seconds": 31.4
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.2
+      "seconds": 2.9
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 1.0
+      "seconds": 1.2
     }
   ],
   "update": {
     "town": "south-burlington",
-    "sources": "all",
-    "started_at": "2026-11-04T14:10:18+00:00",
+    "sources": "meetings",
+    "started_at": "2026-11-04T20:36:59+00:00",
     "ok": true,
     "steps": [
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
+        "seconds": 1.6,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.6,
+        "seconds": 1.1,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 6.0,
+        "seconds": 7.9,
         "cadence": "continuous"
       },
       {
@@ -188,7 +188,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -196,7 +196,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -213,35 +213,8 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [seeclickfix] in the config"
-      },
-      {
-        "name": "Fetch 311 requests from an open data portal",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [socrata_311] in the config"
-      },
-      {
-        "name": "Compute 311 scorecard",
-        "ok": true,
-        "required": true,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [seeclickfix] or [socrata_311] in the config"
       }
     ]
   },
@@ -250,14 +223,14 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-04T09:10:19-05:00",
+      "updated_at": "2026-11-04T15:36:59-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Board meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-04T09:11:35-05:00",
+      "updated_at": "2026-11-04T15:38:17-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -345,9 +318,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-04T19:16:14+00:00",
-  "data_bytes": 1268802,
-  "data_bytes_added": 190,
+  "last_good_at": "2026-11-04T20:39:09+00:00",
+  "data_bytes": 1263504,
+  "data_bytes_added": 7398,
   "activity": {
     "boards": 23,
     "meetings_by_date": {
@@ -379,9 +352,9 @@
     "steps": {
       "summarized": 0,
       "minutes": 1,
-      "transcribed": 0,
+      "transcribed": 1,
       "waiting": 0,
-      "failed": 1,
+      "failed": 0,
       "unmatched": 0,
       "not_found": 0,
       "no_source": 0,
@@ -391,8 +364,8 @@
       {
         "date": "2026-11-02",
         "board": "City Council",
-        "step": "failed",
-        "detail": "youtube-Ia9lKnd_lTc: Gemini: HTTP 403: {\"error\":{\"message\":\"The caller does not have permission\",\"code\":\"permission_denied\"}}"
+        "step": "transcribed",
+        "detail": "transcript not summarized yet"
       }
     ]
   },
@@ -419,7 +392,5 @@
     ],
     "pairs": [],
     "waiting": {}
-  },
-  "published_at": "2026-11-04T19:16:14+00:00",
-  "published_engine": "v1.92.0"
+  }
 }
