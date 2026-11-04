@@ -1,10 +1,10 @@
 {
   "headline": "Resumen de correspondencia, posible sesión ejecutiva, sesión confidencial, informes, y asuntos pendientes y nuevos asuntos.",
-  "summary": "La agenda incluye comentarios del público y un resumen de la correspondencia recibida desde la última actualización. También incluye una posible sesión ejecutiva si el abogado de la ciudad la recomienda, una sesión confidencial, informes, y asuntos pendientes y nuevos asuntos.",
+  "summary": "La agenda incluye comentarios del público y un resumen de la correspondencia recibida desde la última actualización. También incluye una posible sesión ejecutiva si la asesoría legal de la ciudad la recomienda, una sesión confidencial, informes, y asuntos pendientes y nuevos asuntos.",
   "items": [
     "Comentarios del público",
     "Resumen de correspondencia desde la última actualización",
-    "Sesión ejecutiva, si la recomienda el abogado de la ciudad",
+    "Sesión ejecutiva, si la recomienda la asesoría legal de la ciudad",
     "Sesión confidencial",
     "Informes",
     "Asuntos pendientes",
@@ -15,16 +15,17 @@
   "source_sha256": "88c8c58d84ab2ce4133b50ee5246f9f4e127beb135ee8f678f5cf9012877ef8f",
   "source_hash": "c99aad2a6c29d7dbf340b233d3a746107403b9b270d6645a72cdd87b93a6f07a",
   "check": "ok",
-  "review": "summary: \"el abogado de la ciudad\" gives the town attorney a male gender, but the English doesn't say whether the attorney is a man or a woman. It also says \"ciudad\" for \"town\". The rules say to write no word that gives a gender, for example \"si la asesoría legal de la ciudad lo recomienda\".; items 3: \"el abogado de la ciudad\" gives the town attorney a male gender, but the English doesn't give one. Use the office instead, for example \"la asesoría legal\".",
-  "attempts": 1,
+  "review": "summary: \"town attorney\" is rendered as \"la asesoría legal de la ciudad\"; the English says \"town,\" not \"city,\" so the place type is changed. It should be \"la asesoría legal del pueblo\" or \"del municipio.\"; items 3: \"town attorney\" is rendered as \"la asesoría legal de la ciudad\"; the English says \"town,\" not \"city,\" so the place type is changed. It should be \"del pueblo\" or \"del municipio.\"",
+  "attempts": 2,
   "model": "claude-haiku-5-5",
   "prompt_version": 7,
   "glossary": "15e785ad511105f0",
-  "generated_at": "2026-11-03T14:51:02-05:00",
+  "generated_at": "2026-11-04T09:15:52-05:00",
   "usage": {
-    "input_tokens": 270,
-    "output_tokens": 987,
-    "cache_read_input_tokens": 2742
+    "input_tokens": 762,
+    "output_tokens": 1165,
+    "cache_creation_input_tokens": 2742
   },
-  "cost": 0.004559
+  "cost": 0.011443,
+  "replaced_cost": 0.004559
 }
