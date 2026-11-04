@@ -4,8 +4,24 @@
 #
 # Started on 2026-11-04 by the engine's helper (python -m pipeline.new_town),
 # from Derry's config.
-# To fill in: what the town uses for meetings, minutes, 311, and its school
-#   board, in a few sentences, as other towns' configs begin.
+#
+# Londonderry's website runs on CivicPlus. Its boards post agendas and minutes
+# in the Agenda Center: the Town Council and the town's boards, committees and
+# commissions, each under its own category, with subcommittees under their
+# committee's. The town calendar, one calendar a board, lists meetings before
+# their agendas are posted, with times and places ([meetings.civicplus]). The
+# minutes are text PDFs. Meetings are recorded by the town's cable access
+# center and posted on its government YouTube channel ([recordings]).
+# The School Board is the Londonderry School District's (SAU 12), which posts
+# its agendas and minutes in public Google Drive folders, one folder a
+# calendar year with the date at the start of each file's name. The engine
+# doesn't read that layout yet, so the School Board's meetings are left out;
+# its members are on the Officials page.
+# There is no 311 section: the town takes service requests through forms on
+# its own website ([absences]). Its tax rate and tax bill are New Hampshire's
+# (the engine's pipeline/states/nh/), and so are its school figures: the
+# Londonderry School District's, with its own high school's graduation rate
+# ([schools]).
 #
 # The site is in English and Spanish ([site] languages), as every town's is.
 # The first runs draft the Spanish for the town's own text; [strings.es], at
@@ -25,11 +41,10 @@ contact_email = "londonderry-nh@publick.org"
 user_agent = "londonderry-nh.publick.org (+https://londonderry-nh.publick.org/about/)"
 
 # From the town website's stylesheets (www.londonderrynh.gov): its two most
-# used blues (74 and 22 uses); the most used of another hue (35 uses); primary
-# darkened from #0098d4 (2.9 to 1 on the site's lightest background) to pass;
-# primary_soft a light tint of primary. Each passes WCAG AA on white (5.2,
-# 17.8, 5.2 to 1).
-# To fill in: check the colors against the town's website.
+# used blues (74 and 22 uses); the most used of another hue, the red of its
+# buttons and alerts (35 uses); primary darkened from #0098d4 (2.9 to 1 on the
+# site's lightest background) to pass; primary_soft a light tint of primary.
+# Each passes WCAG AA on white (5.2, 17.8, 5.2 to 1).
 [site.colors]
 primary = "#0074a1"
 primary_dark = "#021735"
@@ -46,13 +61,7 @@ official_site = "https://www.londonderrynh.gov"
 [[sections]]
 slug = "meetings"
 title = "Meetings"
-summary = "Every board and committee meeting on the town calendar and in its Agenda Center, with agendas, and minutes from January 2026 on."
-status = "live"
-
-[[sections]]
-slug = "schools"
-title = "Schools"
-summary = "Derry Cooperative School District's state test results and cost per pupil, and Pinkerton Academy's graduation rate, with the state's."
+summary = "When the Town Council and the town's boards, committees and commissions meet, from the town calendar and its Agenda Center, with agendas and minutes from January 2026 on."
 status = "live"
 
 [[sections]]
@@ -63,19 +72,23 @@ summary = "The town's property tax rate and where the tax goes, what it raises p
 status = "live"
 
 [[sections]]
+slug = "schools"
+title = "Schools"
+summary = "The Londonderry School District's state test results, cost per pupil and graduation rate, with the state's."
+status = "live"
+
+[[sections]]
 slug = "housing"
 title = "Housing"
 summary = "New homes permitted, home values and rents, and the housing stock."
 status = "live"
 
-# To fill in: the Officials page's section (below, commented out), once
-#   [officials] is filled in.
-# [[sections]]
-# slug = "officials"
-# title = "Who represents you"
-# nav = "Officials"
-# summary = "The mayor, Town Council, and School Committee, by office and by ward, and how to reach them."
-# status = "live"
+[[sections]]
+slug = "officials"
+title = "Who represents you"
+nav = "Officials"
+summary = "The Town Council and the School Board, by office, and how to reach them."
+status = "live"
 
 [[sections]]
 slug = "about"
@@ -102,30 +115,29 @@ max_event_pages = 40
 # The town calendar, read month by month: the meetings the town lists before
 # their agendas are posted, with their times and places. Read: the calendars
 # whose events, over the last three months and the next three, were mostly
-# meetings, and Elections, with meetings of the town's boards among its other
-# events. Not read: Cemetery Trustees, Community Events, DPW Working Group,
-# Engineering & Environmental Services, Fire Department, Main Calendar, Master
-# Plan Steering Committee, Municipal Records Committee, Permits Issued,
-# Pettengill Road TIF District Advisory Board, Recreation, School District
-# Offices Working Group, Senior Center, Town Clerk / Tax Collector, Town
-# Events, Town Meetings, Trustees of the Trust Funds.
+# meetings, and Elections, with the Board of Elections' meetings among its
+# other events. Not read: Community Events, Engineering & Environmental
+# Services, Fire Department, Main Calendar, Permits Issued, Recreation, Senior
+# Center, Town Clerk / Tax Collector and Town Events, which list no board's
+# meetings; Cemetery Trustees, DPW Working Group, Master Plan Steering
+# Committee, Municipal Records Committee, Pettengill Road TIF District
+# Advisory Board, Town Meetings and Trustees of the Trust Funds, with one
+# meeting or none in six months, each of them in the Agenda Center; and
+# School District Offices Working Group, whose events are the school
+# district's.
 [meetings.civicplus]
 calendars = ["Arts Council", "Beautify Londonderry", "Budget Committee", "CIP Committee", "Conservation Commission", "Elections", "Heritage / Historic District Commission", "Housing & Redevelopment Authority", "Leach Library Trustees", "Old Home Day", "Planning Board", "Recreation Commission", "Senior Resources Committee", "Town Council", "Traffic Safety Committee", "Utilities Committee", "Zoning Board of Adjustment"]
 # Some of their events aren't meetings: only titles naming a board are kept.
-include_pattern = '\b(boards?|commissions?|committees?|subcommittees?|councils?|authority|trustees|ZBA|task force)\b'
-# To fill in: include_pattern leaves out these meetings, which a board's name
-#   in it can bring back: "Beautify Londonderry Meeting"; "School District
-#   Fiscal Year 2028 Budget Meeting".
-# To fill in: include_pattern keeps these from Elections; an exclude_pattern
-#   can leave out any that aren't a board's meetings: "Board of Elections
-#   Meeting".
+# "Beautify Londonderry Meeting" names its committee without the word. The
+# school district's budget presentation on the Budget Committee's calendar
+# ("School District Fiscal Year 2028 Budget Presentation") is left out, with
+# the School Board's other meetings.
+include_pattern = '\b(boards?|commissions?|committees?|subcommittees?|councils?|authority|trustees|ZBA|task force|Beautify Londonderry)\b'
 # A meeting on the calendar and in the Agenda Center is shown once.
-# To fill in: check the calendars read, and any left out that list meetings.
 
 [meetings.aliases]
-# To fill in: board names the engine doesn't fix itself: a calendar meeting
-#   next to an Agenda Center one of the same day, not shown as one, needs an
-#   alias (python -m pipeline.listings, in the report).
+# The Town Council's budget workshops, on its own calendar, are its meetings.
+"Town Council Meeting / Budget Workshop" = "Town Council"
 
 [meetings.agenda_center]
 base_url = "https://www.londonderrynh.gov"
@@ -133,24 +145,23 @@ base_url = "https://www.londonderrynh.gov"
 # on.
 since = "2026-01-01"
 
-# To fill in: [meetings.agenda_center.committees."<category>"]: committees and
-#   other bodies posted under another's category, each by a phrase in its
-#   titles: under "Leach Library Trustees", "Leach Library Trustees Bylaws
-#   Committee Meeting", "Leach Library Personnel Policy Subcommittee Meeting",
-#   "Leach Library Trustees Financial Ad Hoc Committee Meeting"; under
-#   "Utilities Committee", "Utilities Committee Water Subcommittee Agenda",
-#   "Utilities Committee Energy Subcommittee Agenda", "Utilities Committee
-#   Sewer & Solid Waste Subcommittee Agenda"; under "Old Home Day Committee",
-#   "Old Home Day Board of Directors Meeting Agenda", "Old Home Day Board of
-#   Directors Meeting Materials", "Old Home Day Board of Directors Regular
-#   Meeting Agenda"; under "Town Council", "Town Council / Leach Library
-#   Trustees Joint Meeting Agenda".
+# Committees posted under another body's category, each by a phrase in its
+# titles.
+[meetings.agenda_center.committees."Leach Library Trustees"]
+"Bylaws Committee" = "Leach Library Trustees Bylaws Committee"
+"Personnel Policy Subcommittee" = "Leach Library Trustees Personnel Policy Subcommittee"
+"Financial Ad Hoc Committee" = "Leach Library Trustees Financial Ad Hoc Committee"
 
-# To fill in: the School Committee's meetings: where the district posts them
-#   ([ical_meetings], [page_meetings], [finalsite_meetings], [drive_meetings],
-#   [diligent_meetings], [boardbook_meetings], [opengov_meetings]), named in
-#   the Meetings section's summary and in [freshness] sources; a platform the
-#   engine doesn't read is left out and said so (ADDING-A-TOWN.md, step 1).
+[meetings.agenda_center.committees."Utilities Committee"]
+"Water Subcommittee" = "Utilities Committee Water Subcommittee"
+"Energy Subcommittee" = "Utilities Committee Energy Subcommittee"
+"Sewer & Solid Waste Subcommittee" = "Utilities Committee Sewer & Solid Waste Subcommittee"
+
+[meetings.agenda_center.committees."Old Home Day Committee"]
+"Board of Directors" = "Old Home Day Board of Directors"
+
+[meetings.agenda_center.committees."Town Council"]
+"Leach Library Trustees Joint Meeting" = "Joint Town Council & Leach Library Trustees"
 
 # Agenda and minutes PDFs live in the network's documents bucket, not in git
 # (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID,
@@ -165,19 +176,59 @@ prefix = "londonderry-nh"
 [summaries]
 since = "2026-08-01"
 
-# To fill in: how residents can take part, per board ([participation."Town
-#   Council"], [participation."School Committee"]): comment, source_title,
-#   source_url, video_title, video_url, each from the board's own rules or
-#   agendas.
-# To fill in: [[glossary]], terms that come up in this city's agendas and mean
-#   something of its own here, each from an official page. The state's and the
-#   network's terms are in its glossary already: non-public session, ought to
-#   pass, RSA, ZBA, abatement, ADA, CBA, CDBG, CIP, COLA, Committee of the
-#   Whole, consent agenda, first reading, mill rate, quitclaim deed, receive
-#   and file, Select Board, tabled, TIF, town meeting, variance, warrant
-#   article.
+# Its recordings are read from YouTube, which servers can't download from:
+# Gemini reads each video from its link. The town's Watch page also links its
+# cable access center's Cablecast on-demand server (GOV-22 OnDemand), whose
+# shows carry no project or category, which the engine's Cablecast reader
+# needs to pick out a board's meetings.
+[recordings]
+since = "2026-10-28"
 
-# Schools: the New Hampshire Department of Education's statewide figures.
+# The cable access center's government channel ("YouTube - Government" on the
+# town's Watch page), a day or two after the meeting: the Town Council's
+# meetings, titled "Town Council from 10-19-26", and other boards', titled
+# the same way ("Planning Board from 10-14-26", "Zoning Board of Adjustment
+# from 10-21-26", "Conservation Commission from 10-27-26"). Other programs are
+# left out. A title with a wrong or cut-off date matches no meeting and is
+# skipped, and so is one that shortens a board's name: the Library Trustees'
+# recordings titled "Library Trustees from 10-7-26" don't name the Leach
+# Library Trustees, while those titled "Leach Library Trustees from ..." do.
+# The channel is the one the town's Watch page links ("YouTube - Government",
+# @londonderrynhgovernmentacc4988).
+[[recordings.sources]]
+platform = "youtube"
+channel = "UC_fCidrBftlN-LEjDtTSK7w"
+
+boards = "listed"
+
+# How residents can take part, per board, shown on its meeting pages. Only
+# what the town has published; each entry names its source. From the Town
+# Council's agendas (November 2, 2026: "Public Comment" after the call to
+# order, and at each public hearing "Questions & comments by the public", with
+# "Residents who are unable to attend the public hearing may submit written
+# comments to the Town Council by email"). The Council's page says its
+# meetings are recorded and broadcast live on cable access and YouTube.
+[participation."Town Council"]
+comment = "Each regular meeting opens with public comment, right after the call to order. At a public hearing, the public can ask questions and comment before the Council decides; residents who can't attend can send written comments to the Council by email, through the link on the agenda."
+source_title = "the Town Council's agendas"
+source_url = "https://www.londonderrynh.gov/AgendaCenter"
+video_title = "the town's Watch page"
+video_url = "https://www.londonderrynh.gov/577/Watch"
+
+# Terms that come up on agendas and minutes, explained on each meeting page
+# where they appear. Acronyms match exactly; other terms ignore case. From the
+# Town Charter (Section 5.05, on the town's Town Charter page).
+[[glossary]]
+term = "deliberative session"
+definition = "The first session of Londonderry's annual town meeting, held on a Saturday in late January or early February, where each warrant article is explained, discussed and debated, and may be amended. Voters decide the articles, as amended, on the official ballot on the second Tuesday in March."
+
+[[glossary]]
+term = "default budget"
+definition = "The town's budget if voters reject the proposed operating budget in March: the previous year's operating budget, adjusted for debt payments, contracts, salaries and benefits already agreed to, and other obligations, less one-time spending. On the ballot, voters choose between the two; a tie approves the default budget."
+
+# School figures (pipeline/states/nh/), from the Department of Education's
+# files in the engine (pipeline/states/nh/figures/), which name the district
+# "Londonderry", with the graduation rate of its own high school.
 [schools]
 doe_district = "Londonderry"
 district_name = "Londonderry School District"
@@ -187,8 +238,10 @@ district_name = "Londonderry School District"
 # engine's yearly statewide figures and NH GRANIT's parcel map.
 [finance]
 dra_municipality = "Londonderry"
-# To fill in: budget_documents_url, the page where the town posts its own
-#   budget books, which the budget page links (leave it out if there's none).
+# The town posts its budget books, one a fiscal year back to 2005, in the
+# Archive Center's Budget Documents, which the budget page links rather than
+# reading one.
+budget_documents_url = "https://www.londonderrynh.gov/Archive.aspx?AMID=36"
 
 # Housing: Census building permits (state and place FIPS codes), American
 # Community Survey through Census Reporter (geo ids).
@@ -210,55 +263,62 @@ sources = [
   { label = "Meetings (Agenda Center)", file = "meetings/status.json", max_days = 2 },
 ]
 
-# To fill in: [seeclickfix], with the city's organization ID, once a person
-#   has confirmed the city uses it (the issues listing needs a login now; the
-#   Open311 listing at seeclickfix.com/open311/v2/<id>/services.json names its
-#   request types), and the 311 section and its [freshness] sources (with 311
-#   the tagline can say "responds, decides, and spends", as Gloucester's,
-#   Malden's, and Methuen's do); or, if the city takes requests some other
-#   way, [absences] 311 saying so. SeeClickFix's places: Londonderry, place
-#   13782 (https://seeclickfix.com/londonderry).
+# The About page's "What this site doesn't cover": why there's no 311 section.
+# The town's Form Center has a Public Works Issue Report Form and a Traffic
+# Concern Form, CivicPlus forms whose requests aren't public. SeeClickFix has
+# a place named Londonderry (place 13782, at seeclickfix.com/londonderry), but
+# on 2026-11-04 it had two requests ever, from 2015 and 2019.
+[absences]
+311 = "The town takes service requests through forms on its own website, whose requests aren't made public, so there's no data to show."
 
-# Who represents you (the Officials page). Kept by hand from official city and
+# Who represents you (the Officials page). Kept by hand from official town and
 # school websites; checked is the date the list was last checked against them.
-# Only city- and school-issued email addresses, and the mayor's office phone.
+# Only town- and school-issued email addresses. The Town Charter (on the
+# town's Town Charter page, as revised March 10, 2026): five councilors,
+# elected at-large for staggered three-year terms (Section 2.02), at the
+# regular town election on the second Tuesday in March (6.01). The
+# Londonderry School District's School Board is elected on the same ballot.
+# Every seat is elected townwide, so there is no ward file.
 [officials]
-# To fill in: checked, the date the list below was checked against official
-#   pages.
-# To fill in: next_election, the date of the town's next regular municipal
-#   election, from the city's election calendar or its charter.
-# To fill in: wards_file, the town's wards (ADDING-A-TOWN.md, step 3), or none
-#   if every seat is elected townwide.
+checked = "2026-11-04"
+# The next regular town election: Tuesday, March 9, 2027, the second Tuesday
+# in March (Charter 6.01); the school district's 2026-2027 calendar lists
+# "March 9 Election Day".
+next_election = "2027-03-09"
 
-# To fill in: the Mayor, from the town's and the school district's own pages,
-#   confirmed against the last election's official results (ADDING-A-TOWN.md,
-#   step 4). Never from news sites or memory.
-# [[officials.bodies]]
-# name = "Mayor"
-# url = ""
-# note = ""
-# members = [
-#   { name = "", seat = "" },
-# ]
+# Names, officers and terms from the Town Council's page, which links each
+# councilor's contact form rather than an address, and gives one address for
+# the whole Council. Confirmed against the Town Clerk's official results of
+# the March 12, 2024 (Faber), March 11, 2025 (Paul, Bouchard) and March 10,
+# 2026 (Dunn, Combes) town elections, on the Election Results page. Four are
+# on the roll of October 19, 2026 (the newest minutes), with Councilor Combes
+# absent; he is on the roll of October 5, with Vice Chair Faber absent.
+[[officials.bodies]]
+name = "Town Council"
+url = "https://www.londonderrynh.gov/378/Town-Council"
+note = "Five councilors, elected at-large for staggered three-year terms. The Council is the town's legislative and governing body; it appoints the Town Manager, who runs the town day to day. Write to the whole Council at towncouncil@londonderrynh.org, or to one councilor through the Council's page."
+members = [
+  { name = "Ron Dunn", seat = "At-large", role = "Chair", term_ends = "2029-03" },
+  { name = "Shawn Faber", seat = "At-large", role = "Vice Chair", term_ends = "2027-03" },
+  { name = "Dan Bouchard", seat = "At-large", term_ends = "2028-03" },
+  { name = "Ted Combes", seat = "At-large", term_ends = "2029-03" },
+  { name = "Deb Paul", seat = "At-large", term_ends = "2028-03" },
+]
 
-# To fill in: the Town Council, from the town's and the school district's own
-#   pages, confirmed against the last election's official results
-#   (ADDING-A-TOWN.md, step 4). Never from news sites or memory.
-# [[officials.bodies]]
-# name = "Town Council"
-# url = ""
-# note = ""
-# members = [
-#   { name = "", seat = "" },
-# ]
-
-# To fill in: the School Committee, from the town's and the school district's
-#   own pages, confirmed against the last election's official results
-#   (ADDING-A-TOWN.md, step 4). Never from news sites or memory.
-# [[officials.bodies]]
-# name = "School Committee"
-# url = ""
-# note = ""
-# members = [
-#   { name = "", seat = "" },
-# ]
+# Members, officers, terms and district (londonderry.org) addresses from the
+# district's Board Members page, which also prints members' home addresses,
+# left out here. Confirmed against the Town Clerk's official results of the
+# March 12, 2024 (Loughlin, Butcher), March 11, 2025 (Gray) and March 10, 2026
+# (Slater, Porter) school elections. Every seat is at-large. Its meetings
+# aren't read (above), so the body has no board page.
+[[officials.bodies]]
+name = "School Board"
+url = "https://www.londonderry.org/school-board/board-members"
+note = "The Londonderry School District's board: five members elected at-large at the March town and school election, for three years."
+members = [
+  { name = "Bob Slater", seat = "At-large", role = "Chair", term_ends = "2029-03", email = "bslater@londonderry.org" },
+  { name = "Amanda Butcher", seat = "At-large", role = "Vice Chair", term_ends = "2027-03", email = "abutcher@londonderry.org" },
+  { name = "Kevin Gray", seat = "At-large", term_ends = "2028-03", email = "kgray@londonderry.org" },
+  { name = "Sara Loughlin", seat = "At-large", term_ends = "2027-03", email = "sloughlin@londonderry.org" },
+  { name = "Tim Porter", seat = "At-large", term_ends = "2029-03", email = "tporter@londonderry.org" },
+]
