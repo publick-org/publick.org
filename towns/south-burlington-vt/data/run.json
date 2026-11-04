@@ -1,22 +1,22 @@
 {
   "town": "south-burlington",
   "folder": "south-burlington-vt",
-  "started_at": "2026-11-03T19:35:02+00:00",
-  "finished_at": "2026-11-03T19:39:49+00:00",
-  "engine": "v1.88.0",
+  "started_at": "2026-11-04T14:10:18+00:00",
+  "finished_at": "2026-11-04T14:12:36+00:00",
+  "engine": "v1.90.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 250.9
+      "seconds": 85.7
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 10.9
+      "seconds": 8.4
     },
     {
       "name": "Check site",
@@ -28,19 +28,19 @@
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 7.1
+      "seconds": 2.4
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.8
+      "seconds": 1.2
     }
   ],
   "update": {
     "town": "south-burlington",
     "sources": "all",
-    "started_at": "2026-11-03T19:35:02+00:00",
+    "started_at": "2026-11-04T14:10:18+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 65.7,
+        "seconds": 75.9,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.5,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.5,
+        "seconds": 1.6,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 182.3,
+        "seconds": 6.0,
         "cadence": "continuous"
       },
       {
@@ -145,7 +145,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 2 days ago; checked every 30 days"
+        "skipped": "checked 3 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -154,7 +154,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 2 days ago; checked every 7 days"
+        "skipped": "checked 3 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -163,7 +163,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 2 days ago; checked every 30 days"
+        "skipped": "checked 3 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -172,7 +172,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 2 days ago; checked every 30 days"
+        "skipped": "checked 3 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -181,14 +181,14 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 2 days ago; checked every 7 days"
+        "skipped": "checked 3 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -196,7 +196,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -213,7 +213,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -250,14 +250,14 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-03T14:35:02-05:00",
+      "updated_at": "2026-11-04T09:10:19-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Board meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-03T14:36:08-05:00",
+      "updated_at": "2026-11-04T09:11:35-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -345,19 +345,19 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-04T09:07:12+00:00",
-  "data_bytes": 1267878,
-  "data_bytes_added": 79484,
+  "last_good_at": "2026-11-04T14:12:36+00:00",
+  "data_bytes": 1268802,
+  "data_bytes_added": 190,
   "activity": {
     "boards": 23,
     "meetings_by_date": {
-      "2026-11-03": 1,
       "2026-11-04": 3,
       "2026-11-06": 1,
       "2026-11-09": 1,
       "2026-11-10": 3,
       "2026-11-12": 1,
-      "2026-11-16": 1
+      "2026-11-16": 1,
+      "2026-11-17": 3
     }
   },
   "fact_checks": {
@@ -372,15 +372,15 @@
     "vote_counts_left_out": 0
   },
   "recordings": {
-    "since": "2026-10-27",
-    "until": "2026-11-02",
-    "held": 3,
+    "since": "2026-10-28",
+    "until": "2026-11-03",
+    "held": 2,
     "next_day": 0,
     "steps": {
       "summarized": 0,
       "minutes": 1,
       "transcribed": 0,
-      "waiting": 1,
+      "waiting": 0,
       "failed": 1,
       "unmatched": 0,
       "not_found": 0,
@@ -388,12 +388,6 @@
       "no_recordings": 0
     },
     "misses": [
-      {
-        "date": "2026-10-27",
-        "board": "Planning Commission",
-        "step": "waiting",
-        "detail": "2 recording(s) found"
-      },
       {
         "date": "2026-11-02",
         "board": "City Council",
@@ -403,8 +397,8 @@
     ]
   },
   "documents": {
-    "since": "2026-08-05",
-    "until": "2026-11-02",
+    "since": "2026-08-06",
+    "until": "2026-11-03",
     "held": 61,
     "boards": 19,
     "counts": {
@@ -425,7 +419,5 @@
     ],
     "pairs": [],
     "waiting": {}
-  },
-  "published_at": "2026-11-04T09:07:12+00:00",
-  "published_engine": "v1.90.0"
+  }
 }
