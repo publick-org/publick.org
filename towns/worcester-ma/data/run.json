@@ -1,46 +1,46 @@
 {
   "town": "worcester",
   "folder": "worcester-ma",
-  "started_at": "2026-11-04T09:10:18+00:00",
-  "finished_at": "2026-11-04T09:39:01+00:00",
-  "engine": "v1.90.0",
+  "started_at": "2026-11-05T09:07:12+00:00",
+  "finished_at": "2026-11-05T09:15:32+00:00",
+  "engine": "v1.93.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 1633.3
+      "seconds": 374.9
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 16.9
+      "seconds": 13.1
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 99.2
+      "seconds": 90.8
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.6
+      "seconds": 19.6
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.9
+      "seconds": 1.2
     }
   ],
   "update": {
     "town": "worcester",
     "sources": "all",
-    "started_at": "2026-11-04T09:10:18+00:00",
+    "started_at": "2026-11-05T09:07:13+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 3.7,
+        "seconds": 10.8,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 3.2,
+        "seconds": 1.2,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 44.4,
+        "seconds": 57.9,
         "cadence": "continuous"
       },
       {
@@ -145,15 +145,16 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 7 days ago; checked every 30 days"
+        "skipped": "checked 8 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -162,7 +163,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 7 days ago; checked every 30 days"
+        "skipped": "checked 8 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -171,15 +172,16 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 7 days ago; checked every 30 days"
+        "skipped": "checked 8 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 24.6,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -211,7 +213,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -219,7 +221,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1547.7,
+        "seconds": 293.9,
         "cadence": "continuous"
       },
       {
@@ -236,7 +238,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 7.6,
+        "seconds": 8.8,
         "cadence": "continuous"
       }
     ]
@@ -246,28 +248,28 @@
     {
       "label": "Meetings (PrimeGov)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-04T04:10:18-05:00",
+      "updated_at": "2026-11-05T04:07:13-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-04T04:10:22-05:00",
+      "updated_at": "2026-11-05T04:07:24-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-04T04:11:36-05:00",
+      "updated_at": "2026-11-05T04:08:24-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-04T04:37:24-05:00",
+      "updated_at": "2026-11-05T04:13:18-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -355,36 +357,36 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-05T00:16:05+00:00",
-  "data_bytes": 20266197,
-  "data_bytes_added": 17132902,
+  "last_good_at": "2026-11-05T09:15:32+00:00",
+  "data_bytes": 21727468,
+  "data_bytes_added": 18560651,
   "activity": {
     "boards": 23,
     "meetings_by_date": {
       "2026-11-05": 2,
-      "2026-11-09": 2,
+      "2026-11-09": 3,
       "2026-11-10": 1,
       "2026-11-17": 1
     }
   },
   "fact_checks": {
-    "summaries": 64,
-    "ok": 57,
-    "failed": 7,
+    "summaries": 66,
+    "ok": 58,
+    "failed": 8,
     "weak": 0,
     "unchecked": 0,
     "not_yet": 0,
-    "held_back": 7,
-    "entries_not_shown": 18,
-    "vote_counts_left_out": 8
+    "held_back": 8,
+    "entries_not_shown": 37,
+    "vote_counts_left_out": 36
   },
   "recordings": {
-    "since": "2026-10-28",
-    "until": "2026-11-03",
-    "held": 1,
+    "since": "2026-10-29",
+    "until": "2026-11-04",
+    "held": 0,
     "next_day": 0,
     "steps": {
-      "summarized": 1,
+      "summarized": 0,
       "minutes": 0,
       "transcribed": 0,
       "waiting": 0,
@@ -397,9 +399,9 @@
     "misses": []
   },
   "documents": {
-    "since": "2026-08-06",
-    "until": "2026-11-03",
-    "held": 66,
+    "since": "2026-08-07",
+    "until": "2026-11-04",
+    "held": 65,
     "boards": 20,
     "counts": {
       "no_documents": 0,
@@ -419,7 +421,5 @@
     ],
     "pairs": [],
     "waiting": {}
-  },
-  "published_at": "2026-11-05T00:16:05+00:00",
-  "published_engine": "v1.93.0"
+  }
 }
