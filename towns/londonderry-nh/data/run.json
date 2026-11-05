@@ -1,8 +1,8 @@
 {
   "town": "londonderry",
   "folder": "londonderry-nh",
-  "started_at": "2026-11-05T05:38:13+00:00",
-  "finished_at": "2026-11-05T05:40:38+00:00",
+  "started_at": "2026-11-05T13:36:45+00:00",
+  "finished_at": "2026-11-05T13:38:54+00:00",
   "engine": "v1.93.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 70.6
+      "seconds": 71.3
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 9.9
+      "seconds": 10.0
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 45.4
+      "seconds": 44.5
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 12.1
+      "seconds": 2.5
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.9
+      "seconds": 0.8
     }
   ],
   "update": {
     "town": "londonderry",
     "sources": "meetings",
-    "started_at": "2026-11-05T05:38:14+00:00",
+    "started_at": "2026-11-05T13:36:46+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 60.9,
+        "seconds": 61.0,
         "cadence": "continuous"
       },
       {
@@ -136,7 +136,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 7.0,
+        "seconds": 7.2,
         "cadence": "continuous"
       },
       {
@@ -189,7 +189,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.5,
         "cadence": "continuous"
       },
       {
@@ -197,7 +197,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.5,
         "cadence": "continuous"
       },
       {
@@ -214,7 +214,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.5,
         "cadence": "continuous"
       }
     ]
@@ -224,7 +224,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-05T00:38:14-05:00",
+      "updated_at": "2026-11-05T08:36:46-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -312,9 +312,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-05T12:37:52+00:00",
-  "data_bytes": 1149647,
-  "data_bytes_added": 1448,
+  "last_good_at": "2026-11-05T13:38:54+00:00",
+  "data_bytes": 1271706,
+  "data_bytes_added": 873,
   "activity": {
     "boards": 32,
     "meetings_by_date": {
@@ -327,14 +327,14 @@
     }
   },
   "fact_checks": {
-    "summaries": 46,
-    "ok": 35,
-    "failed": 6,
-    "weak": 1,
-    "unchecked": 4,
+    "summaries": 48,
+    "ok": 38,
+    "failed": 8,
+    "weak": 2,
+    "unchecked": 0,
     "not_yet": 0,
-    "held_back": 6,
-    "entries_not_shown": 16,
+    "held_back": 8,
+    "entries_not_shown": 22,
     "vote_counts_left_out": 2
   },
   "recordings": {
@@ -343,10 +343,10 @@
     "held": 2,
     "next_day": 0,
     "steps": {
-      "summarized": 0,
+      "summarized": 1,
       "minutes": 0,
       "transcribed": 1,
-      "waiting": 1,
+      "waiting": 0,
       "failed": 0,
       "unmatched": 0,
       "not_found": 0,
@@ -355,16 +355,10 @@
     },
     "misses": [
       {
-        "date": "2026-11-02",
-        "board": "Town Council",
-        "step": "transcribed",
-        "detail": "transcript not summarized yet"
-      },
-      {
         "date": "2026-11-04",
         "board": "Planning Board",
-        "step": "waiting",
-        "detail": "1 recording(s) found"
+        "step": "transcribed",
+        "detail": "transcript not summarized yet"
       }
     ]
   },
@@ -387,7 +381,5 @@
     ],
     "pairs": [],
     "waiting": {}
-  },
-  "published_at": "2026-11-05T12:37:52+00:00",
-  "published_engine": "v1.93.0"
+  }
 }
