@@ -1,46 +1,46 @@
 {
   "town": "somerville",
   "folder": "somerville-ma",
-  "started_at": "2026-11-04T12:07:19+00:00",
-  "finished_at": "2026-11-04T12:09:46+00:00",
-  "engine": "v1.90.0",
+  "started_at": "2026-11-05T09:22:39+00:00",
+  "finished_at": "2026-11-05T09:24:12+00:00",
+  "engine": "v1.93.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 70.2
+      "seconds": 28.1
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 11.7
+      "seconds": 8.2
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 35.7
+      "seconds": 43.2
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.7
+      "seconds": 12.5
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 1.1
+      "seconds": 1.0
     }
   ],
   "update": {
     "town": "somerville",
     "sources": "all",
-    "started_at": "2026-11-04T12:07:20+00:00",
+    "started_at": "2026-11-05T09:22:39+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 4.8,
+        "seconds": 4.4,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -118,7 +118,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 4.1,
+        "seconds": 3.2,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 21.8,
+        "seconds": 8.2,
         "cadence": "continuous"
       },
       {
@@ -145,15 +145,16 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 7 days ago; checked every 30 days"
+        "skipped": "checked 8 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.7,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -162,7 +163,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 7 days ago; checked every 30 days"
+        "skipped": "checked 8 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -171,22 +172,23 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 7 days ago; checked every 30 days"
+        "skipped": "checked 8 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 24.8,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -194,7 +196,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -228,7 +230,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 7.4,
+        "seconds": 7.3,
         "cadence": "continuous"
       },
       {
@@ -236,38 +238,38 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 4.1,
+        "seconds": 3.2,
         "cadence": "continuous"
       }
     ]
   },
-  "stale": true,
+  "stale": false,
   "sources": [
     {
       "label": "Meetings (Legistar)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-04T07:07:20-05:00",
+      "updated_at": "2026-11-05T04:22:39-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee documents (city events calendar)",
       "file": "meetings/meetingdocs_status.json",
-      "updated_at": "2026-11-04T07:07:25-05:00",
+      "updated_at": "2026-11-05T04:22:44-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests (open data portal)",
       "file": "311/status.json",
-      "updated_at": "2026-10-31T06:04:30.198000+00:00",
+      "updated_at": "2026-11-05T07:05:19.881000+00:00",
       "max_days": 3,
-      "stale": true
+      "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-04T07:08:25-05:00",
+      "updated_at": "2026-11-05T04:23:04-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -355,18 +357,18 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-03T09:03:10+00:00",
-  "data_bytes": 40723706,
-  "data_bytes_added": 39160872,
+  "last_good_at": "2026-11-05T09:24:12+00:00",
+  "data_bytes": 40945049,
+  "data_bytes_added": 39393571,
   "activity": {
     "boards": 16,
     "meetings_by_date": {
-      "2026-11-04": 1,
       "2026-11-05": 1,
       "2026-11-09": 1,
       "2026-11-10": 2,
       "2026-11-16": 3,
-      "2026-11-17": 1
+      "2026-11-17": 1,
+      "2026-11-18": 2
     }
   },
   "fact_checks": {
@@ -381,8 +383,8 @@
     "vote_counts_left_out": 123
   },
   "recordings": {
-    "since": "2026-10-28",
-    "until": "2026-11-03",
+    "since": "2026-10-29",
+    "until": "2026-11-04",
     "held": 1,
     "next_day": 1,
     "steps": {
@@ -399,9 +401,9 @@
     "misses": []
   },
   "documents": {
-    "since": "2026-08-06",
-    "until": "2026-11-03",
-    "held": 47,
+    "since": "2026-08-07",
+    "until": "2026-11-04",
+    "held": 48,
     "boards": 15,
     "counts": {
       "no_documents": 0,
@@ -412,7 +414,5 @@
     "no_minutes": [],
     "pairs": [],
     "waiting": {}
-  },
-  "published_at": "2026-11-05T00:12:48+00:00",
-  "published_engine": "v1.93.0"
+  }
 }
