@@ -1,8 +1,8 @@
 {
   "town": "derry",
   "folder": "derry-nh",
-  "started_at": "2026-11-05T09:57:33+00:00",
-  "finished_at": "2026-11-05T09:59:47+00:00",
+  "started_at": "2026-11-05T17:59:22+00:00",
+  "finished_at": "2026-11-05T18:01:16+00:00",
   "engine": "v1.93.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 84.0
+      "seconds": 66.4
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 7.6
+      "seconds": 7.5
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 35.1
+      "seconds": 36.2
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.1
+      "seconds": 2.8
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.8
+      "seconds": 0.9
     }
   ],
   "update": {
     "town": "derry",
-    "sources": "all",
-    "started_at": "2026-11-05T09:57:33+00:00",
+    "sources": "meetings",
+    "started_at": "2026-11-05T17:59:23+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 75.8,
+        "seconds": 46.1,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
+        "seconds": 8.6,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.9,
+        "seconds": 0.7,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 5.2,
+        "seconds": 8.6,
         "cadence": "continuous"
       },
       {
@@ -163,7 +163,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 3 days ago; checked every 30 days"
+        "skipped": "checked 4 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -196,7 +196,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -215,33 +215,6 @@
         "error": null,
         "seconds": 0.4,
         "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [seeclickfix] in the config"
-      },
-      {
-        "name": "Fetch 311 requests from an open data portal",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [socrata_311] in the config"
-      },
-      {
-        "name": "Compute 311 scorecard",
-        "ok": true,
-        "required": true,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [seeclickfix] or [socrata_311] in the config"
       }
     ]
   },
@@ -250,14 +223,14 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-05T04:57:34-05:00",
+      "updated_at": "2026-11-05T12:59:23-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Board meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-05T04:58:50-05:00",
+      "updated_at": "2026-11-05T13:00:18-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -345,9 +318,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-05T10:17:32+00:00",
-  "data_bytes": 1275773,
-  "data_bytes_added": 6153,
+  "last_good_at": "2026-11-05T18:01:16+00:00",
+  "data_bytes": 1277415,
+  "data_bytes_added": 2968,
   "activity": {
     "boards": 15,
     "meetings_by_date": {
@@ -377,11 +350,11 @@
     "steps": {
       "summarized": 0,
       "minutes": 0,
-      "transcribed": 0,
+      "transcribed": 1,
       "waiting": 0,
       "failed": 0,
       "unmatched": 0,
-      "not_found": 2,
+      "not_found": 1,
       "no_source": 0,
       "no_recordings": 0
     },
@@ -394,7 +367,8 @@
       {
         "date": "2026-11-04",
         "board": "Planning Board",
-        "step": "not_found"
+        "step": "transcribed",
+        "detail": "transcript not summarized yet"
       }
     ]
   },
@@ -412,7 +386,5 @@
     "no_minutes": [],
     "pairs": [],
     "waiting": {}
-  },
-  "published_at": "2026-11-05T10:17:32+00:00",
-  "published_engine": "v1.93.0"
+  }
 }
