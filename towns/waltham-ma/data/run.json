@@ -1,8 +1,8 @@
 {
   "town": "waltham",
   "folder": "waltham-ma",
-  "started_at": "2026-11-05T09:07:00+00:00",
-  "finished_at": "2026-11-05T09:09:52+00:00",
+  "started_at": "2026-11-05T17:59:19+00:00",
+  "finished_at": "2026-11-05T18:02:02+00:00",
   "engine": "v1.93.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 112.5
+      "seconds": 111.1
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 7.6
+      "seconds": 7.9
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 35.1
+      "seconds": 39.5
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.6
+      "seconds": 2.3
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.7
+      "seconds": 1.6
     }
   ],
   "update": {
     "town": "waltham",
-    "sources": "all",
-    "started_at": "2026-11-05T09:07:00+00:00",
+    "sources": "meetings",
+    "started_at": "2026-11-05T17:59:20+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 81.1,
+        "seconds": 56.7,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 21.0,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.1,
+        "seconds": 5.2,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 7.3,
+        "seconds": 22.4,
         "cadence": "continuous"
       },
       {
@@ -145,7 +145,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 22 days ago; checked every 30 days"
+        "skipped": "checked 23 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -154,7 +154,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -163,7 +163,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 22 days ago; checked every 30 days"
+        "skipped": "checked 23 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -172,14 +172,14 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 22 days ago; checked every 30 days"
+        "skipped": "checked 23 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 24.7,
         "cadence": "monthly"
       },
       {
@@ -187,7 +187,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -214,33 +214,6 @@
         "error": null,
         "seconds": 0.3,
         "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [seeclickfix] in the config"
-      },
-      {
-        "name": "Fetch 311 requests from an open data portal",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [socrata_311] in the config"
-      },
-      {
-        "name": "Compute 311 scorecard",
-        "ok": true,
-        "required": true,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [seeclickfix] or [socrata_311] in the config"
       }
     ]
   },
@@ -249,14 +222,14 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-05T04:07:00-05:00",
+      "updated_at": "2026-11-05T12:59:20-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-05T04:08:42-05:00",
+      "updated_at": "2026-11-05T13:00:17-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -311,7 +284,7 @@
     {
       "label": "Housing figures",
       "file": "housing/housing.json",
-      "updated_at": "2026-10-29T05:13:38-04:00",
+      "updated_at": "2026-11-05T13:00:45-05:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
@@ -344,9 +317,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-05T09:22:37+00:00",
-  "data_bytes": 1640860,
-  "data_bytes_added": 16524,
+  "last_good_at": "2026-11-05T18:02:02+00:00",
+  "data_bytes": 1657350,
+  "data_bytes_added": 3243,
   "activity": {
     "boards": 22,
     "meetings_by_date": {
@@ -358,14 +331,14 @@
     }
   },
   "fact_checks": {
-    "summaries": 61,
-    "ok": 51,
-    "failed": 8,
+    "summaries": 63,
+    "ok": 52,
+    "failed": 9,
     "weak": 2,
     "unchecked": 0,
     "not_yet": 0,
-    "held_back": 8,
-    "entries_not_shown": 33,
+    "held_back": 9,
+    "entries_not_shown": 34,
     "vote_counts_left_out": 35
   },
   "recordings": {
@@ -376,11 +349,11 @@
     "steps": {
       "summarized": 0,
       "minutes": 0,
-      "transcribed": 0,
+      "transcribed": 2,
       "waiting": 0,
       "failed": 0,
       "unmatched": 0,
-      "not_found": 2,
+      "not_found": 0,
       "no_source": 0,
       "no_recordings": 0
     },
@@ -388,12 +361,14 @@
       {
         "date": "2026-11-04",
         "board": "Board of Survey and Planning",
-        "step": "not_found"
+        "step": "transcribed",
+        "detail": "transcript not summarized yet"
       },
       {
         "date": "2026-11-04",
         "board": "School Committee",
-        "step": "not_found"
+        "step": "transcribed",
+        "detail": "transcript not summarized yet"
       }
     ]
   },
@@ -411,7 +386,5 @@
     "no_minutes": [],
     "pairs": [],
     "waiting": {}
-  },
-  "published_at": "2026-11-05T09:22:37+00:00",
-  "published_engine": "v1.93.0"
+  }
 }
