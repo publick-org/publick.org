@@ -1,8 +1,8 @@
 {
   "town": "bristol",
   "folder": "bristol-ct",
-  "started_at": "2026-11-05T18:08:57+00:00",
-  "finished_at": "2026-11-05T18:12:16+00:00",
+  "started_at": "2026-11-05T20:55:50+00:00",
+  "finished_at": "2026-11-05T20:59:22+00:00",
   "engine": "v1.93.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 135.1
+      "seconds": 130.4
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 12.8
+      "seconds": 15.9
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 41.2
+      "seconds": 60.5
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.9
+      "seconds": 3.5
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 1.0
+      "seconds": 1.4
     }
   ],
   "update": {
     "town": "bristol",
     "sources": "meetings",
-    "started_at": "2026-11-05T18:08:58+00:00",
+    "started_at": "2026-11-05T20:55:50+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 96.4,
+        "seconds": 106.0,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 1.6,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.0,
+        "seconds": 1.1,
         "cadence": "continuous"
       },
       {
@@ -99,7 +99,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.8,
+        "seconds": 1.1,
         "cadence": "continuous"
       },
       {
@@ -134,7 +134,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 35.3,
+        "seconds": 19.1,
         "cadence": "continuous"
       },
       {
@@ -187,7 +187,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -195,7 +195,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -212,7 +212,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       }
     ]
@@ -222,21 +222,21 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-05T13:08:58-05:00",
+      "updated_at": "2026-11-05T15:55:51-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Board of Education meetings (BoardBook)",
       "file": "meetings/boardbook_status.json",
-      "updated_at": "2026-11-05T13:10:36-05:00",
+      "updated_at": "2026-11-05T15:57:39-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Board of Education minutes (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-05T13:10:35-05:00",
+      "updated_at": "2026-11-05T15:57:38-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -324,9 +324,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-05T18:13:40+00:00",
-  "data_bytes": 2971886,
-  "data_bytes_added": 479,
+  "last_good_at": "2026-11-05T20:59:22+00:00",
+  "data_bytes": 2979681,
+  "data_bytes_added": 4563,
   "activity": {
     "boards": 59,
     "meetings_by_date": {
@@ -341,14 +341,14 @@
     }
   },
   "fact_checks": {
-    "summaries": 133,
+    "summaries": 134,
     "ok": 119,
-    "failed": 12,
+    "failed": 13,
     "weak": 2,
     "unchecked": 0,
     "not_yet": 0,
-    "held_back": 12,
-    "entries_not_shown": 17,
+    "held_back": 13,
+    "entries_not_shown": 18,
     "vote_counts_left_out": 71
   },
   "recordings": {
@@ -358,21 +358,16 @@
     "next_day": 1,
     "steps": {
       "summarized": 1,
-      "minutes": 0,
+      "minutes": 1,
       "transcribed": 0,
       "waiting": 0,
       "failed": 0,
       "unmatched": 0,
-      "not_found": 2,
+      "not_found": 1,
       "no_source": 0,
       "no_recordings": 0
     },
     "misses": [
-      {
-        "date": "2026-10-29",
-        "board": "City Council",
-        "step": "not_found"
-      },
       {
         "date": "2026-11-04",
         "board": "Zoning Board of Appeals",
@@ -415,7 +410,5 @@
     ],
     "pairs": [],
     "waiting": {}
-  },
-  "published_at": "2026-11-05T18:13:40+00:00",
-  "published_engine": "v1.93.0"
+  }
 }
