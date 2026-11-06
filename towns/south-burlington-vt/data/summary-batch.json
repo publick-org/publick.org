@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_016Lisxwtkk7Fxbqvgk87C21",
-  "sent_at": "2026-11-06T18:20:23+00:00",
+  "id": "msgbatch_01FpChmbKbwjKosvX59v1B5H",
+  "sent_at": "2026-11-06T18:25:45+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,32 +11,16 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
-      "kind": "recording",
-      "older": false,
-      "meeting": {
-        "title": "School Board Meeting",
-        "date": "2026-11-04",
-        "body": "School Board"
-      },
-      "doc": {
-        "id": "youtube-atWa9RNqWZk",
-        "sha256": "3f456993d2f4be8a9c7fc4bc43000dcb7ce8e8a00c11d1d233a6f625a226a835",
-        "file": "youtube-atWa9RNqWZk.txt",
-        "source_url": "https://www.youtube.com/watch?v=atWa9RNqWZk"
-      }
-    },
-    {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "62f5acf32418faaf8bc94e47f598f7eea9a53ce6f3f1aef9551fcf437e75f04e",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Economic Development Committee Meeting",
@@ -46,6 +30,28 @@
       "doc": {
         "id": "315",
         "sha256": "fd8716e3136506fa0dd92824f1a167cd0d7a6ffb91b1cd8d3e94de07d7038b26"
+      }
+    },
+    {
+      "custom_id": "tr-1",
+      "type": "translation",
+      "lang": "es",
+      "kind": "recording",
+      "older": false,
+      "source_hash": "e2495ebba0e7f04a983b3420a1615f48bcb8a98993d4af4552a76d5c4ff9aedf",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "School Board Meeting",
+        "date": "2026-11-04",
+        "body": "School Board"
+      },
+      "doc": {
+        "id": "youtube-atWa9RNqWZk",
+        "sha256": "3f456993d2f4be8a9c7fc4bc43000dcb7ce8e8a00c11d1d233a6f625a226a835"
       }
     }
   ]
