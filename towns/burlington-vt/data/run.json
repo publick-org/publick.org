@@ -1,8 +1,8 @@
 {
   "town": "burlington",
   "folder": "burlington-vt",
-  "started_at": "2026-11-05T13:25:49+00:00",
-  "finished_at": "2026-11-05T13:28:48+00:00",
+  "started_at": "2026-11-06T05:59:42+00:00",
+  "finished_at": "2026-11-06T06:02:46+00:00",
   "engine": "v1.93.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 120.0
+      "seconds": 93.1
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 10.2
+      "seconds": 11.0
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 41.6
+      "seconds": 47.4
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.9
+      "seconds": 30.0
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.9
+      "seconds": 1.2
     }
   ],
   "update": {
     "town": "burlington",
     "sources": "meetings",
-    "started_at": "2026-11-05T13:25:50+00:00",
+    "started_at": "2026-11-06T05:59:43+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 36.9,
+        "seconds": 52.0,
         "cadence": "continuous"
       },
       {
@@ -91,7 +91,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 20.4,
+        "seconds": 28.5,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 61.2,
+        "seconds": 10.7,
         "cadence": "continuous"
       },
       {
@@ -223,14 +223,14 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-05T08:25:50-05:00",
+      "updated_at": "2026-11-06T00:59:43-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Board meetings (Diligent Community)",
       "file": "meetings/diligent_status.json",
-      "updated_at": "2026-11-05T08:26:27-05:00",
+      "updated_at": "2026-11-06T01:00:36-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -332,9 +332,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-05T13:31:08+00:00",
-  "data_bytes": 6087005,
-  "data_bytes_added": 2940342,
+  "last_good_at": "2026-11-06T06:02:46+00:00",
+  "data_bytes": 6102909,
+  "data_bytes_added": 2954376,
   "activity": {
     "boards": 58,
     "meetings_by_date": {
@@ -343,12 +343,13 @@
       "2026-11-10": 2,
       "2026-11-16": 3,
       "2026-11-17": 2,
-      "2026-11-18": 3
+      "2026-11-18": 3,
+      "2026-11-19": 3
     }
   },
   "fact_checks": {
-    "summaries": 236,
-    "ok": 221,
+    "summaries": 237,
+    "ok": 222,
     "failed": 13,
     "weak": 2,
     "unchecked": 0,
@@ -358,8 +359,8 @@
     "vote_counts_left_out": 16
   },
   "recordings": {
-    "since": "2026-10-29",
-    "until": "2026-11-04",
+    "since": "2026-10-30",
+    "until": "2026-11-05",
     "held": 0,
     "next_day": 0,
     "steps": {
@@ -376,8 +377,8 @@
     "misses": []
   },
   "documents": {
-    "since": "2026-08-07",
-    "until": "2026-11-04",
+    "since": "2026-08-08",
+    "until": "2026-11-05",
     "held": 145,
     "boards": 50,
     "counts": {
@@ -389,16 +390,14 @@
     "no_minutes": [
       {
         "board": "Tax Fairness Ad Hoc Committee",
-        "meetings": 3
+        "meetings": 4
       },
       {
         "board": "Design Advisory Board",
-        "meetings": 2
+        "meetings": 3
       }
     ],
     "pairs": [],
     "waiting": {}
-  },
-  "published_at": "2026-11-05T13:31:08+00:00",
-  "published_engine": "v1.93.0"
+  }
 }
