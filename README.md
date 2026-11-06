@@ -146,7 +146,7 @@ one that's caught up, sends nothing. If the daily runs stop altogether, the sche
 hours, and closes it when a run finishes. A pull request's run still fails when
 a town does, so a broken site can't be merged.
 
-Two more issues are reports, not alerts: each run that fetches replaces their
+Three more issues are reports, not alerts: each run that fetches replaces their
 text, from the towns' run records, and an edit sends no email.
 **Next-day summaries from recordings** (label `next-day recordings`, from
 `python -m pipeline.network recordings`) counts the main boards' meetings of the
@@ -157,6 +157,11 @@ agenda or minutes, boards whose minutes never came, meetings likely listed under
 two names, and meetings a reader hasn't saved the documents of yet. Each line
 is a lead to look at: many boards don't post minutes, and a board's documents
 can be posted where the town's sources don't read them.
+**Officials to check** (label `officials to check`, assigned to the account in
+the `ALERT_ASSIGNEE` secret, from `python -m pipeline.network officials`) lists
+the bodies whose own page doesn't name every member the town's config lists,
+names none of them, or can't be read, from each town's weekly check; it's closed
+when every page names its members (see [Keeping officials current](#keeping-officials-current)).
 
 Between the daily runs, the scheduler loads publick.org and every town's
 homepage (from the network's sitemap) through the sites Worker every hour, at
@@ -263,6 +268,14 @@ against the city and school websites after each municipal election, and
 whenever a seat changes between elections (a resignation, an appointment to
 fill a vacancy, new council or committee officers). Update the members and
 `checked` in one pull request.
+
+Each week, each town's run looks for every member's surname on their body's
+own page (the body's `url`), and the bodies whose page doesn't name them all
+go into **Officials to check**. A member the page doesn't name may have left,
+or the page may not be up to date yet; check the city's or district's other
+pages before changing the list. A page that names none of the members probably
+doesn't list them: set the body's `url` to the page that does. Nothing changes
+a list by itself, and the next run after a fix checks the town again.
 
 Each table's `next_election` is the town's next municipal election: November
 3, 2026 for Bangor, Central Falls, Lewiston, Pawtucket, Portland, and South
