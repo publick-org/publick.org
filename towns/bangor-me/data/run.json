@@ -1,46 +1,46 @@
 {
   "town": "bangor",
   "folder": "bangor-me",
-  "started_at": "2026-11-05T09:15:14+00:00",
-  "finished_at": "2026-11-05T09:18:46+00:00",
-  "engine": "v1.93.0",
+  "started_at": "2026-11-06T09:19:17+00:00",
+  "finished_at": "2026-11-06T09:22:41+00:00",
+  "engine": "v1.94.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 156.1
+      "seconds": 113.7
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 12.4
+      "seconds": 12.0
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 45.9
+      "seconds": 54.4
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 26.0
+      "seconds": 22.4
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 1.2
+      "seconds": 1.0
     }
   ],
   "update": {
     "town": "bangor",
     "sources": "all",
-    "started_at": "2026-11-05T09:15:14+00:00",
+    "started_at": "2026-11-06T09:19:17+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 140.6,
+        "seconds": 95.9,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -136,7 +136,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 4.3,
+        "seconds": 6.2,
         "cadence": "continuous"
       },
       {
@@ -154,15 +154,16 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
-        "cadence": "yearly"
+        "seconds": 0,
+        "cadence": "yearly",
+        "skipped": "checked 1 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -171,7 +172,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch housing figures",
@@ -180,14 +181,14 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -220,7 +221,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 8.5,
+        "seconds": 8.4,
         "cadence": "continuous"
       },
       {
@@ -237,31 +238,31 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 0.8,
+        "seconds": 1.1,
         "cadence": "continuous"
       }
     ]
   },
-  "stale": true,
+  "stale": false,
   "sources": [
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-05T04:15:15-05:00",
+      "updated_at": "2026-11-06T04:19:18-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-05T04:17:41-05:00",
+      "updated_at": "2026-11-06T04:21:01-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-05T04:17:50-05:00",
+      "updated_at": "2026-11-06T04:21:10-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -316,12 +317,12 @@
     {
       "label": "Elected officials",
       "file": "config",
-      "updated_at": "2026-10-04",
+      "updated_at": "2026-11-06",
       "max_days": null,
-      "stale": true,
+      "stale": false,
       "latest": null,
-      "next": null,
-      "behind": "not checked since the election of November 3, 2026",
+      "next": "a check once new members take office on November 9, 2026",
+      "behind": null,
       "passed": false
     },
     {
@@ -337,19 +338,19 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-05T00:08:45+00:00",
-  "data_bytes": 3733706,
-  "data_bytes_added": 1814599,
+  "last_good_at": "2026-11-06T09:22:41+00:00",
+  "data_bytes": 3734931,
+  "data_bytes_added": 1807467,
   "activity": {
     "boards": 31,
     "meetings_by_date": {
-      "2026-11-05": 1,
       "2026-11-09": 4,
       "2026-11-10": 2,
       "2026-11-12": 4,
       "2026-11-13": 1,
       "2026-11-16": 3,
-      "2026-11-17": 2
+      "2026-11-17": 2,
+      "2026-11-19": 1
     }
   },
   "fact_checks": {
@@ -364,8 +365,8 @@
     "vote_counts_left_out": 18
   },
   "recordings": {
-    "since": "2026-10-29",
-    "until": "2026-11-04",
+    "since": "2026-10-30",
+    "until": "2026-11-05",
     "held": 0,
     "next_day": 0,
     "steps": {
@@ -382,13 +383,13 @@
     "misses": []
   },
   "documents": {
-    "since": "2026-08-07",
-    "until": "2026-11-04",
+    "since": "2026-08-08",
+    "until": "2026-11-05",
     "held": 81,
-    "boards": 24,
+    "boards": 25,
     "counts": {
       "no_documents": 1,
-      "no_minutes": 7,
+      "no_minutes": 6,
       "pairs": 0
     },
     "no_documents": [
@@ -404,7 +405,7 @@
       },
       {
         "board": "Advisory Committee on Homelessness",
-        "meetings": 3
+        "meetings": 4
       },
       {
         "board": "City Council Finance Committee",
@@ -421,15 +422,9 @@
       {
         "board": "City Council Personnel Committee",
         "meetings": 2
-      },
-      {
-        "board": "Commission on Cultural Development",
-        "meetings": 2
       }
     ],
     "pairs": [],
     "waiting": {}
-  },
-  "published_at": "2026-11-06T02:33:27+00:00",
-  "published_engine": "v1.93.0"
+  }
 }
