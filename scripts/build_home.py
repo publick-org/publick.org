@@ -78,10 +78,12 @@ def live_towns(root: Path) -> list[dict]:
         config = read_config(configs[0], root)
         site, town = config["site"], config["town"]
         record = folder / "data" / "run.json"
-        activity = json.loads(record.read_text(encoding="utf-8")).get("activity") if record.exists() else None
+        run = json.loads(record.read_text(encoding="utf-8")) if record.exists() else {}
         towns.append({"name": site["name"], "domain": site["domain"], "url": f"https://{site['domain']}",
                       "town": town["name"], "state": town["state"], "state_abbr": town["state_abbr"].lower(),
-                      "activity": activity, "population": population(config, folder)})
+                      "activity": run.get("activity"), "population": population(config, folder),
+                      # The day the site was last published, for the sitemaps (a town not yet published has none).
+                      "updated": (run.get("published_at") or run.get("finished_at") or "")[:10] or None})
     return sorted(towns, key=lambda t: (t["state"], t["town"]))
 
 
@@ -230,18 +232,31 @@ def state_pages(template: str, root: Path, today: date | None = None) -> dict[st
     return pages
 
 
-def sitemap_index(towns: list[dict]) -> str:
-    """The network's sitemap: this site's own, then each live town's."""
-    entries = [f"  <sitemap><loc>{loc}</loc></sitemap>"
-               for loc in [f"{SITE}/sitemap-home.xml", *(f"{t['url']}/sitemap.xml" for t in towns)]]
+def sitemap_entry(tag: str, loc: str, updated: str | None) -> str:
+    return f"  <{tag}><loc>{loc}</loc>" + (f"<lastmod>{updated}</lastmod>" if updated else "") + f"</{tag}>"
+
+
+def sitemap_index(towns: list[dict], today: date) -> str:
+    """The network's sitemap: this site's own, then each live town's, each dated by the day its site was
+    last published, so a crawler rereads only the sitemaps that changed since it last looked."""
+    entries = [sitemap_entry("sitemap", f"{SITE}/sitemap-home.xml", newest(towns, today).isoformat())]
+    entries += [sitemap_entry("sitemap", f"{t['url']}/sitemap.xml", t["updated"]) for t in towns]
     return ('<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
             + "\n".join(entries) + "\n</sitemapindex>\n")
 
 
-def sitemap(states: list[str], today: date) -> str:
-    """This site's pages: the homepage, which changes with each day's counts, and each state's page,
-    which changes only when a town is added: it has no date, as the day it last changed isn't known."""
-    entries = [f"  <url><loc>{SITE}/</loc><lastmod>{today.isoformat()}</lastmod></url>"]
+def newest(towns: list[dict], today: date) -> date:
+    """The day a town's site was last published, or today if none has been: when the homepage, which lists
+    the towns and their coming meetings, last changed, as near as is known."""
+    days = [date.fromisoformat(t["updated"]) for t in towns if t["updated"]]
+    return min(max(days), today) if days else today
+
+
+def sitemap(states: list[str], today: date, towns: list[dict] = ()) -> str:
+    """This site's pages: the homepage, dated by the newest town's publication (today's date on every build
+    would be a date crawlers learn to ignore), and each state's page, which changes only when a town is
+    added: it has no date, as the day it last changed isn't known."""
+    entries = [f"  <url><loc>{SITE}/</loc><lastmod>{newest(towns, today).isoformat()}</lastmod></url>"]
     entries += [f"  <url><loc>{SITE}/{abbr}/</loc></url>" for abbr in sorted(states)]
     entries.append(f"  <url><loc>{SITE}/data/</loc></url>")
     entries.append(f"  <url><loc>{SITE}/bot/</loc></url>")
@@ -270,8 +285,9 @@ def main() -> int:
     (out / "data" / "index.html").write_text(
         fill((source / "data.html").read_text(encoding="utf-8"), "data", data_html(live_towns(args.root)), "home/data.html"),
         encoding="utf-8")
-    (out / "sitemap-home.xml").write_text(sitemap(list(states), datetime.now(timezone.utc).date()), encoding="utf-8")
-    (out / "sitemap.xml").write_text(sitemap_index(live_towns(args.root)), encoding="utf-8")
+    live, today = live_towns(args.root), datetime.now(timezone.utc).date()
+    (out / "sitemap-home.xml").write_text(sitemap(list(states), today, live), encoding="utf-8")
+    (out / "sitemap.xml").write_text(sitemap_index(live, today), encoding="utf-8")
     (out / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8")
     print(f"Wrote {out / 'index.html'}")
     return 0
