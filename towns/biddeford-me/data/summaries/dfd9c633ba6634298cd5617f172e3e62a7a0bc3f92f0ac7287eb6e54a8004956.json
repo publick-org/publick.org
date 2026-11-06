@@ -1,6 +1,6 @@
 {
-  "headline": "Westbrook Skating Rink windows and FY27 capital planning are on the agenda.",
-  "summary": "The agenda lists two new business items. They are the Westbrook Skating Rink windows and FY27 capital planning.",
+  "headline": "Westbrook Skating Rink windows and FY27 capital planning.",
+  "summary": "Minutes from the October 14, 2026 meeting are also up for approval.",
   "items": [
     "Westbrook Skating Rink windows",
     "FY27 capital planning"
@@ -11,8 +11,8 @@
   "source_url": "https://biddefordme.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=10049,plainText=false)",
   "source_sha256": "dfd9c633ba6634298cd5617f172e3e62a7a0bc3f92f0ac7287eb6e54a8004956",
   "model": "claude-haiku-5-5",
-  "prompt_version": 5,
-  "generated_at": "2026-11-04T00:42:53-05:00",
+  "prompt_version": 6,
+  "generated_at": "2026-11-05T00:42:28-05:00",
   "text_version": 2,
   "plain_text": "City of Biddeford \nCapital Projects / Operations Committee \nNovember 19, 2026 at 6:00 PM \nCity Hall Council Chambers & Teams \n  \nJoin Teams Meeting Online \nMeeting ID: 278 538 091 422 115 3 \nPasscode: 5pN3xP2s  \n  \nDial in by phone \n+1 872-242-8054, Phone conference ID: 527 628 634#  \n \nTeams Instructions \n \nCommittee Members \nMarc Lessard, Councilor-at-Large (Chair) \nJake Pierson, Ward 6 Councilor  \nBrad Cote, Ward 7 Councilor \nDominic Deschambault \nKenneth Griffin \n \n  \n1. Roll Call \n2. Adjustment(s) to Agenda \n3. Approval of Minutes \n 3.a 20261014 Capital Projects/ Operations Committee Meeting -Minutes \n4. Old Business \n5. New Business \n 5.a Westbrook Skating Rink Windows  \n 5.b FY27 Capital Planning  \n6. Adjourn",
   "text_note": "not a supported style",
@@ -20,7 +20,13 @@
   "fact_check": {
     "version": 10,
     "source": "pdf",
-    "result": "ok",
-    "problems": []
+    "result": "failed",
+    "problems": [
+      {
+        "field": "summary",
+        "kind": "date",
+        "what": "October 14, 2026"
+      }
+    ]
   }
 }

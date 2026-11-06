@@ -1,46 +1,46 @@
 {
   "town": "bangor",
   "folder": "bangor-me",
-  "started_at": "2026-11-04T09:43:18+00:00",
-  "finished_at": "2026-11-04T09:47:31+00:00",
-  "engine": "v1.90.0",
+  "started_at": "2026-11-06T09:19:17+00:00",
+  "finished_at": "2026-11-06T09:22:41+00:00",
+  "engine": "v1.94.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 198.8
+      "seconds": 113.7
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 10.0
+      "seconds": 11.5
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 38.7
+      "seconds": 36.1
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 19.9
+      "seconds": 15.0
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.8
+      "seconds": 0.7
     }
   ],
   "update": {
     "town": "bangor",
     "sources": "all",
-    "started_at": "2026-11-04T09:43:18+00:00",
+    "started_at": "2026-11-06T09:19:17+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 90.7,
+        "seconds": 95.9,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -136,7 +136,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 97.4,
+        "seconds": 6.2,
         "cadence": "continuous"
       },
       {
@@ -154,7 +154,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -163,7 +163,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 29 days ago; checked every 30 days"
+        "skipped": "checked 1 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -172,7 +172,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch housing figures",
@@ -181,14 +181,14 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -221,7 +221,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 8.1,
+        "seconds": 8.4,
         "cadence": "continuous"
       },
       {
@@ -238,7 +238,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 0.9,
+        "seconds": 1.1,
         "cadence": "continuous"
       }
     ]
@@ -248,21 +248,21 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-04T04:43:18-05:00",
+      "updated_at": "2026-11-06T04:19:18-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-04T04:46:28-05:00",
+      "updated_at": "2026-11-06T04:21:01-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-04T04:46:36-05:00",
+      "updated_at": "2026-11-06T04:21:10-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -281,7 +281,7 @@
     {
       "label": "School figures",
       "file": "schools/schools.json",
-      "updated_at": "2026-10-05T14:41:43-04:00",
+      "updated_at": "2026-11-05T04:17:40-05:00",
       "max_days": null,
       "cadence": "yearly",
       "failing": 0,
@@ -317,11 +317,11 @@
     {
       "label": "Elected officials",
       "file": "config",
-      "updated_at": "2026-10-04",
+      "updated_at": "2026-11-06",
       "max_days": null,
       "stale": false,
       "latest": null,
-      "next": "a check after the election of November 3, 2026",
+      "next": "a check once new members take office on November 9, 2026",
       "behind": null,
       "passed": false
     },
@@ -338,25 +338,24 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-04T16:52:59+00:00",
-  "data_bytes": 3727292,
-  "data_bytes_added": 1798063,
+  "last_good_at": "2026-11-06T09:52:20+00:00",
+  "data_bytes": 3734931,
+  "data_bytes_added": 1807467,
   "activity": {
-    "boards": 32,
+    "boards": 31,
     "meetings_by_date": {
-      "2026-11-04": 2,
-      "2026-11-05": 1,
       "2026-11-09": 4,
       "2026-11-10": 2,
       "2026-11-12": 4,
       "2026-11-13": 1,
       "2026-11-16": 3,
-      "2026-11-17": 2
+      "2026-11-17": 2,
+      "2026-11-19": 1
     }
   },
   "fact_checks": {
-    "summaries": 52,
-    "ok": 41,
+    "summaries": 53,
+    "ok": 42,
     "failed": 10,
     "weak": 1,
     "unchecked": 0,
@@ -366,9 +365,9 @@
     "vote_counts_left_out": 18
   },
   "recordings": {
-    "since": "2026-10-28",
-    "until": "2026-11-03",
-    "held": 1,
+    "since": "2026-10-30",
+    "until": "2026-11-05",
+    "held": 0,
     "next_day": 0,
     "steps": {
       "summarized": 0,
@@ -377,29 +376,28 @@
       "waiting": 0,
       "failed": 0,
       "unmatched": 0,
-      "not_found": 1,
+      "not_found": 0,
       "no_source": 0,
       "no_recordings": 0
     },
-    "misses": [
-      {
-        "date": "2026-10-28",
-        "board": "School Committee",
-        "step": "not_found"
-      }
-    ]
+    "misses": []
   },
   "documents": {
-    "since": "2026-08-06",
-    "until": "2026-11-03",
+    "since": "2026-08-08",
+    "until": "2026-11-05",
     "held": 81,
     "boards": 25,
     "counts": {
-      "no_documents": 0,
-      "no_minutes": 7,
-      "pairs": 1
+      "no_documents": 1,
+      "no_minutes": 6,
+      "pairs": 0
     },
-    "no_documents": [],
+    "no_documents": [
+      {
+        "board": "Public Workshop",
+        "meetings": 2
+      }
+    ],
     "no_minutes": [
       {
         "board": "City Council Workshop",
@@ -407,18 +405,14 @@
       },
       {
         "board": "Advisory Committee on Homelessness",
-        "meetings": 3
+        "meetings": 4
       },
       {
-        "board": "Commission on Cultural Development",
+        "board": "City Council Finance Committee",
         "meetings": 3
       },
       {
         "board": "Bangor Livable Communities",
-        "meetings": 2
-      },
-      {
-        "board": "City Council Finance Committee",
         "meetings": 2
       },
       {
@@ -430,15 +424,9 @@
         "meetings": 2
       }
     ],
-    "pairs": [
-      {
-        "date": "2026-10-20",
-        "board": "Commission on Cultural Development subcommittee",
-        "other": "Commission on Cultural Development"
-      }
-    ],
+    "pairs": [],
     "waiting": {}
   },
-  "published_at": "2026-11-04T16:52:59+00:00",
-  "published_engine": "v1.91.0"
+  "published_at": "2026-11-06T09:52:20+00:00",
+  "published_engine": "v1.94.0"
 }

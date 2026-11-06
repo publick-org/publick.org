@@ -1,46 +1,46 @@
 {
   "town": "medford",
   "folder": "medford-ma",
-  "started_at": "2026-11-04T05:38:18+00:00",
-  "finished_at": "2026-11-04T05:40:33+00:00",
-  "engine": "v1.88.0",
+  "started_at": "2026-11-05T20:55:39+00:00",
+  "finished_at": "2026-11-05T20:57:12+00:00",
+  "engine": "v1.93.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 59.3
+      "seconds": 23.0
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 10.0
+      "seconds": 5.8
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 61.9
+      "seconds": 40.8
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 7.1
+      "seconds": 9.2
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.9
+      "seconds": 0.8
     }
   ],
   "update": {
     "town": "medford",
     "sources": "meetings",
-    "started_at": "2026-11-04T05:38:19+00:00",
+    "started_at": "2026-11-05T20:55:40+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 7.8,
+        "seconds": 14.3,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 23.0,
+        "seconds": 5.7,
         "cadence": "continuous"
       },
       {
@@ -145,15 +145,16 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 7 days ago; checked every 30 days"
+        "skipped": "checked 8 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.6,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -162,7 +163,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 7 days ago; checked every 30 days"
+        "skipped": "checked 8 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -171,15 +172,16 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 7 days ago; checked every 30 days"
+        "skipped": "checked 8 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 24.8,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -221,28 +223,28 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-04T00:38:20-05:00",
+      "updated_at": "2026-11-05T15:55:40-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-04T00:38:28-05:00",
+      "updated_at": "2026-11-05T15:55:55-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-03T04:13:37-05:00",
+      "updated_at": "2026-11-05T04:07:47-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-03T04:13:46-05:00",
+      "updated_at": "2026-11-05T04:14:28-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -330,21 +332,20 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-04T16:55:44+00:00",
-  "data_bytes": 6925885,
-  "data_bytes_added": 6119921,
+  "last_good_at": "2026-11-06T09:54:54+00:00",
+  "data_bytes": 6945966,
+  "data_bytes_added": 6143079,
   "activity": {
     "boards": 8,
     "meetings_by_date": {
-      "2026-11-04": 1,
       "2026-11-09": 1,
       "2026-11-10": 1,
       "2026-11-17": 1
     }
   },
   "fact_checks": {
-    "summaries": 24,
-    "ok": 17,
+    "summaries": 25,
+    "ok": 18,
     "failed": 3,
     "weak": 4,
     "unchecked": 0,
@@ -354,14 +355,14 @@
     "vote_counts_left_out": 120
   },
   "recordings": {
-    "since": "2026-10-28",
-    "until": "2026-11-03",
+    "since": "2026-10-29",
+    "until": "2026-11-04",
     "held": 1,
     "next_day": 0,
     "steps": {
-      "summarized": 0,
+      "summarized": 1,
       "minutes": 0,
-      "transcribed": 1,
+      "transcribed": 0,
       "waiting": 0,
       "failed": 0,
       "unmatched": 0,
@@ -369,19 +370,12 @@
       "no_source": 0,
       "no_recordings": 0
     },
-    "misses": [
-      {
-        "date": "2026-11-02",
-        "board": "City Council",
-        "step": "transcribed",
-        "detail": "transcript not summarized yet"
-      }
-    ]
+    "misses": []
   },
   "documents": {
-    "since": "2026-08-06",
-    "until": "2026-11-03",
-    "held": 17,
+    "since": "2026-08-07",
+    "until": "2026-11-04",
+    "held": 18,
     "boards": 6,
     "counts": {
       "no_documents": 0,
@@ -393,6 +387,6 @@
     "pairs": [],
     "waiting": {}
   },
-  "published_at": "2026-11-04T16:55:44+00:00",
-  "published_engine": "v1.91.0"
+  "published_at": "2026-11-06T09:54:54+00:00",
+  "published_engine": "v1.94.0"
 }

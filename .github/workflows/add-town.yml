@@ -10,7 +10,8 @@
 #                   doesn't read) opens nothing, and its report is in the run's summary.
 #   first fetches   Once that pull request is merged: the town's first fetching runs (ADDING-A-TOWN.md, step 7),
 #                   one Network run after another, until a run collects fewer minutes than one run may
-#                   (MINUTES_PER_RUN), or `runs` runs have collected, each with `catch_up` if it's given.
+#                   (MINUTES_PER_RUN), or `runs` runs have collected, each with `catch_up` if it's given. A run
+#                   that couldn't fetch one of the town's meeting sources stops it with an error, naming them.
 #
 # The pull request is opened with ENGINE_PR_TOKEN (engine.yml says what it is): one this workflow's own token
 # opened wouldn't start its checks. The Network runs are started with this workflow's own token, which a
@@ -206,6 +207,13 @@ jobs:
               python3 -c 'import json, sys; print(sum(len(m.get("minutes") or []) for m in json.load(sys.stdin).values()))' 2>/dev/null ||
               echo 0
           }
+          # The meeting sources the town's last run couldn't fetch (meetings/status.json, failed_calendars), as
+          # minutes() last fetched main: a run that reached none collects no minutes, and isn't done.
+          failed_sources() {
+            git show "origin/main:towns/$folder/data/meetings/status.json" 2>/dev/null |
+              python3 -c 'import json, sys; print(", ".join(json.load(sys.stdin).get("failed_calendars") or []))' 2>/dev/null ||
+              true
+          }
           git fetch -q --filter=blob:none origin main
           if ! git cat-file -e "origin/main:towns/$folder/config"; then
             echo "::error::towns/$folder isn't on main yet: merge its pull request first."
@@ -235,6 +243,12 @@ jobs:
             before=$after
             echo "  $conclusion: $added minutes collected"
             echo "- [Run $i]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$run): $conclusion, $added minutes collected" >> "$GITHUB_STEP_SUMMARY"
+            failed=$(failed_sources)
+            if [ "$conclusion" != cancelled ] && [ -n "$failed" ]; then
+              echo "- Meetings couldn't be fetched from: $failed" >> "$GITHUB_STEP_SUMMARY"
+              echo "::error::Run $i couldn't fetch meetings from: $failed (towns/$folder/data/meetings/status.json has the errors). Run the first fetches again once the town's site answers."
+              exit 1
+            fi
             # A run a daily start replaced while it waited collected nothing; the next one goes on.
             if [ "$conclusion" != cancelled ] && [ "$added" -lt "$MINUTES_PER_RUN" ]; then
               echo "No more minutes waiting for $folder."

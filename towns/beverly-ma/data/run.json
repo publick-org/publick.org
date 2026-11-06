@@ -1,46 +1,46 @@
 {
   "town": "beverly",
   "folder": "beverly-ma",
-  "started_at": "2026-11-04T09:07:02+00:00",
-  "finished_at": "2026-11-04T09:09:18+00:00",
-  "engine": "v1.90.0",
+  "started_at": "2026-11-06T09:07:00+00:00",
+  "finished_at": "2026-11-06T09:10:07+00:00",
+  "engine": "v1.93.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 59.3
+      "seconds": 112.1
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 18.1
+      "seconds": 13.6
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 39.0
+      "seconds": 34.3
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 26.4
+      "seconds": 19.0
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 1.2
+      "seconds": 0.8
     }
   ],
   "update": {
     "town": "beverly",
     "sources": "all",
-    "started_at": "2026-11-04T09:07:03+00:00",
+    "started_at": "2026-11-06T09:07:01+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 25.1,
+        "seconds": 49.1,
         "cadence": "continuous"
       },
       {
@@ -136,7 +136,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 31.7,
+        "seconds": 59.8,
         "cadence": "continuous"
       },
       {
@@ -146,16 +146,15 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 3 days ago; checked every 30 days"
+        "skipped": "checked 5 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 4 days ago; checked every 7 days"
+        "seconds": 0.7,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch school figures",
@@ -164,7 +163,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 3 days ago; checked every 30 days"
+        "skipped": "checked 5 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -173,7 +172,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 3 days ago; checked every 30 days"
+        "skipped": "checked 5 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -182,7 +181,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 2 days ago; checked every 7 days"
+        "skipped": "checked 4 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -251,7 +250,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-04T04:07:03-05:00",
+      "updated_at": "2026-11-06T04:07:01-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -294,7 +293,7 @@
     {
       "label": "Unemployment rate (BLS)",
       "file": "labor/unemployment.json",
-      "updated_at": "2026-10-30T05:14:38-04:00",
+      "updated_at": "2026-11-06T04:08:51-05:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
@@ -339,21 +338,24 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-04T16:53:40+00:00",
-  "data_bytes": 3530190,
-  "data_bytes_added": 956,
+  "last_good_at": "2026-11-06T09:52:20+00:00",
+  "data_bytes": 3541086,
+  "data_bytes_added": 13845,
   "activity": {
-    "boards": 52,
+    "boards": 54,
     "meetings_by_date": {
-      "2026-11-04": 2,
-      "2026-11-05": 4,
-      "2026-11-09": 3,
-      "2026-11-17": 2
+      "2026-11-09": 4,
+      "2026-11-10": 3,
+      "2026-11-12": 2,
+      "2026-11-16": 1,
+      "2026-11-17": 2,
+      "2026-11-18": 3,
+      "2026-11-19": 1
     }
   },
   "fact_checks": {
-    "summaries": 179,
-    "ok": 176,
+    "summaries": 185,
+    "ok": 182,
     "failed": 0,
     "weak": 2,
     "unchecked": 1,
@@ -363,9 +365,9 @@
     "vote_counts_left_out": 6
   },
   "recordings": {
-    "since": "2026-10-28",
-    "until": "2026-11-03",
-    "held": 1,
+    "since": "2026-10-30",
+    "until": "2026-11-05",
+    "held": 0,
     "next_day": 0,
     "steps": {
       "summarized": 0,
@@ -374,32 +376,26 @@
       "waiting": 0,
       "failed": 0,
       "unmatched": 0,
-      "not_found": 1,
+      "not_found": 0,
       "no_source": 0,
       "no_recordings": 0
     },
-    "misses": [
-      {
-        "date": "2026-10-28",
-        "board": "Zoning Board of Appeals",
-        "step": "not_found"
-      }
-    ]
+    "misses": []
   },
   "documents": {
-    "since": "2026-08-06",
-    "until": "2026-11-03",
-    "held": 118,
-    "boards": 42,
+    "since": "2026-08-08",
+    "until": "2026-11-05",
+    "held": 119,
+    "boards": 43,
     "counts": {
       "no_documents": 4,
-      "no_minutes": 3,
-      "pairs": 3
+      "no_minutes": 4,
+      "pairs": 0
     },
     "no_documents": [
       {
         "board": "School Committee",
-        "meetings": 3
+        "meetings": 4
       },
       {
         "board": "School Committee Curriculum, Instruction and Student Life Subcommittee",
@@ -416,37 +412,25 @@
     ],
     "no_minutes": [
       {
-        "board": "Airport Commission",
-        "meetings": 4
-      },
-      {
         "board": "Council on Aging",
         "meetings": 3
       },
       {
-        "board": "Licensing Board",
+        "board": "Airport Commission",
+        "meetings": 2
+      },
+      {
+        "board": "Airport Commission Subcommittee",
+        "meetings": 2
+      },
+      {
+        "board": "City Council",
         "meetings": 2
       }
     ],
-    "pairs": [
-      {
-        "date": "2026-10-13",
-        "board": "to 10-14-Beverly Regional Airport Commission Subcommittee on Mission",
-        "other": "Airport Commission"
-      },
-      {
-        "date": "2026-10-14",
-        "board": "Bevery Regional Airport Subcommittee on Mission Meeting Agenda",
-        "other": "Airport Commission"
-      },
-      {
-        "date": "2026-10-27",
-        "board": "Beverly Regional Airport Commission Meeting Subcommittee on Access and Badging",
-        "other": "Airport Commission"
-      }
-    ],
+    "pairs": [],
     "waiting": {}
   },
-  "published_at": "2026-11-04T16:53:40+00:00",
-  "published_engine": "v1.91.0"
+  "published_at": "2026-11-06T09:52:20+00:00",
+  "published_engine": "v1.94.0"
 }

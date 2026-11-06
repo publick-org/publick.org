@@ -272,8 +272,12 @@ sources = [
 # for three years end in January 2027, those elected in 2025 for two in
 # January 2028.
 [officials]
-checked = "2026-10-04"
+checked = "2026-11-06"
 # The next municipal election: the list is due a check after it, or once new terms begin.
+# Kept at November 3, 2026 until the mayor's race is decided: no candidate won
+# a majority (the City Clerk's official results of that day: Ricky R.
+# LaChapelle 6,164 votes, Carl L. Sheline 4,766, of 13,486), so the two go to
+# a run-off. Set this to the run-off's date once the City Clerk posts it.
 next_election = "2026-11-03"
 wards_file = "lewiston-wards-2020.geojson"
 wards_publisher = "the City of Lewiston"
@@ -308,6 +312,28 @@ members = [
   { name = "Bret Martel", seat = "Ward 7", ward = 7, term_ends = "2028-01", email = "bmartel@lewistonmaine.gov", url = "https://www.lewistonmaine.gov/1419/WARD-7-Councilor-Bret-Martel" },
 ]
 
+# Elected November 3, 2026, by the City Clerk's official results ("November 3,
+# 2026 Official State General and Municipal Election Results", on the city's
+# Election Results page): Ward 2, Susan G. Longchamps, 1,222 votes, to Rebecca
+# J. Long's 1,181; Ward 4, Chandra L. Sasseville, 1,050, to Michael R. Roy's
+# 631 and Matthew D. Agren's 370; Ward 6, Robert C. Glaspy Jr., 1,381, to
+# Hollie Anne Niemi's 809. Two-year terms, as for the seats elected in 2025.
+# The councilors elected in 2025 took the oath of office at the council's
+# first meeting of January, on Monday, January 5, 2026 (its minutes); the
+# first Monday of January 2027 is January 4. The council chooses its
+# president after, so none is listed.
+[officials.bodies.incoming]
+takes_office = "2027-01-04"
+members = [
+  { name = "Joshua L. Nagine", seat = "Ward 1", ward = 1, term_ends = "2028-01", email = "jnagine@lewistonmaine.gov", url = "https://www.lewistonmaine.gov/1340/Ward-1-Councilor-Joshua-Nagine" },
+  { name = "Susan G. Longchamps", seat = "Ward 2", ward = 2, term_ends = "2029-01", email = "slongchamps@lewistonmaine.gov", url = "https://www.lewistonmaine.gov/1341/Ward-2-Councilor-Susan-Longchamps" },
+  { name = "Scott A. Harriman", seat = "Ward 3", ward = 3, term_ends = "2028-01", email = "sharriman@lewistonmaine.gov", url = "https://www.lewistonmaine.gov/1184/Ward-3-Councilor-Scott-A-Harriman" },
+  { name = "Chandra L. Sasseville", seat = "Ward 4", ward = 4, term_ends = "2029-01" },
+  { name = "Chrissy Noble", seat = "Ward 5", ward = 5, role = "Appointed January 2026 to fill a vacancy", term_ends = "2028-01", email = "cnoble@lewistonmaine.gov", url = "https://www.lewistonmaine.gov/1421/Ward-5-Councilor-Chrissy-Noble" },
+  { name = "Robert C. Glaspy Jr.", seat = "Ward 6", ward = 6, term_ends = "2029-01" },
+  { name = "Bret Martel", seat = "Ward 7", ward = 7, term_ends = "2028-01", email = "bmartel@lewistonmaine.gov", url = "https://www.lewistonmaine.gov/1419/WARD-7-Councilor-Bret-Martel" },
+]
+
 # From the school department's School Committee page and the committee's
 # minutes of September 21, 2026 (members present). Wards 2, 4 and 6 and the
 # at-large seat elected on November 4, 2025, Wards 1 and 3 on November 7, 2023
@@ -329,6 +355,31 @@ members = [
   { name = "Lynnea Hawkins", seat = "Ward 5", ward = 5, role = "Appointed January 2026 to fill a vacancy", term_ends = "2027-01", email = "lhawkins@lewistonpublicschools.org" },
   { name = "Meghan Hird", seat = "Ward 6", ward = 6, term_ends = "2028-01", email = "mhird@lewistonpublicschools.org" },
   { name = "Emily Levasseur", seat = "Ward 7", ward = 7, role = "Appointed July 2026 to fill a vacancy", term_ends = "2027-01" },
+  { name = "Scott A. Harriman", seat = "City Council representative", email = "sharriman@lewistonpublicschools.org" },
+]
+
+# Elected November 3, 2026, by the City Clerk's official results (as for the
+# council): Ward 1, Phoenix McLaughlin (on the ballot as Jean Phoenix Irons
+# McLaughlin), 1,328 votes, unopposed; Ward 3, Amran M. Osman, 772,
+# unopposed; Ward 5, Nicole L. Johnson, 546, to Marcel A. Leclair's 294; Ward
+# 7, Emily S. Levasseur, 1,641, unopposed. Two-year terms, as for the seats
+# elected in 2025. The members elected in 2025 took the oath of office at the
+# committee's meeting of Monday, January 5, 2026 (its minutes), as the
+# council's did that day; the first Monday of January 2027 is January 4. The
+# committee chooses its chair and vice chair after, so none are listed. The
+# council's representative, chosen by the council each year, is listed until
+# it names another.
+[officials.bodies.incoming]
+takes_office = "2027-01-04"
+members = [
+  { name = "Luke Jensen", seat = "At-large", term_ends = "2028-01", email = "lukejensen@lewistonpublicschools.org" },
+  { name = "Phoenix McLaughlin", seat = "Ward 1", ward = 1, term_ends = "2029-01", email = "pmclaughlin@lewistonpublicschools.org" },
+  { name = "Janet Beaudoin", seat = "Ward 2", ward = 2, term_ends = "2028-01", email = "jbeaudoin@lewistonpublicschools.org" },
+  { name = "Amran Osman", seat = "Ward 3", ward = 3, term_ends = "2029-01" },
+  { name = "Julia Harper", seat = "Ward 4", ward = 4, term_ends = "2028-01", email = "jharper@lewistonpublicschools.org" },
+  { name = "Nicole Johnson", seat = "Ward 5", ward = 5, term_ends = "2029-01" },
+  { name = "Meghan Hird", seat = "Ward 6", ward = 6, term_ends = "2028-01", email = "mhird@lewistonpublicschools.org" },
+  { name = "Emily Levasseur", seat = "Ward 7", ward = 7, term_ends = "2029-01" },
   { name = "Scott A. Harriman", seat = "City Council representative", email = "sharriman@lewistonpublicschools.org" },
 ]
 

@@ -1,46 +1,46 @@
 {
   "town": "biddeford",
   "folder": "biddeford-me",
-  "started_at": "2026-11-04T05:38:08+00:00",
-  "finished_at": "2026-11-04T05:42:50+00:00",
-  "engine": "v1.88.0",
+  "started_at": "2026-11-06T05:59:51+00:00",
+  "finished_at": "2026-11-06T06:06:07+00:00",
+  "engine": "v1.93.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 231.5
+      "seconds": 290.6
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 8.1
+      "seconds": 9.8
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 33.1
+      "seconds": 45.0
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 25.9
+      "seconds": 11.3
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 1.2
+      "seconds": 0.9
     }
   ],
   "update": {
     "town": "biddeford",
     "sources": "meetings",
-    "started_at": "2026-11-04T05:38:08+00:00",
+    "started_at": "2026-11-06T05:59:52+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 201.0,
+        "seconds": 216.5,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.0,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 10.0,
+        "seconds": 10.5,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 18.3,
+        "seconds": 61.0,
         "cadence": "continuous"
       },
       {
@@ -143,7 +143,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.2,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -153,7 +153,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 3 days ago; checked every 7 days"
+        "skipped": "checked 5 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -162,7 +162,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 3 days ago; checked every 30 days"
+        "skipped": "checked 5 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -171,7 +171,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 3 days ago; checked every 7 days"
+        "skipped": "checked 5 days ago; checked every 7 days"
       },
       {
         "name": "Fetch housing figures",
@@ -180,14 +180,14 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 3 days ago; checked every 7 days"
+        "skipped": "checked 5 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.2,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -195,7 +195,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.2,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -212,7 +212,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.2,
+        "seconds": 0.4,
         "cadence": "continuous"
       }
     ]
@@ -222,14 +222,14 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-04T00:38:08-05:00",
+      "updated_at": "2026-11-06T00:59:52-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-04T00:41:30-05:00",
+      "updated_at": "2026-11-06T01:03:29-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -305,40 +305,41 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-04T16:52:59+00:00",
-  "data_bytes": 1133930,
-  "data_bytes_added": 4836,
+  "last_good_at": "2026-11-06T09:52:27+00:00",
+  "data_bytes": 1182659,
+  "data_bytes_added": 16929,
   "activity": {
-    "boards": 41,
+    "boards": 42,
     "meetings_by_date": {
-      "2026-11-04": 3,
-      "2026-11-05": 1,
-      "2026-11-09": 1,
-      "2026-11-12": 2,
-      "2026-11-16": 2,
-      "2026-11-17": 2
+      "2026-11-09": 2,
+      "2026-11-10": 1,
+      "2026-11-12": 3,
+      "2026-11-16": 4,
+      "2026-11-17": 2,
+      "2026-11-18": 4,
+      "2026-11-19": 2
     }
   },
   "fact_checks": {
-    "summaries": 44,
-    "ok": 39,
-    "failed": 5,
+    "summaries": 51,
+    "ok": 44,
+    "failed": 7,
     "weak": 0,
     "unchecked": 0,
     "not_yet": 0,
-    "held_back": 5,
-    "entries_not_shown": 14,
+    "held_back": 7,
+    "entries_not_shown": 15,
     "vote_counts_left_out": 0
   },
   "recordings": {
-    "since": "2026-10-28",
-    "until": "2026-11-03",
-    "held": 1,
-    "next_day": 0,
+    "since": "2026-10-30",
+    "until": "2026-11-05",
+    "held": 2,
+    "next_day": 1,
     "steps": {
       "summarized": 1,
       "minutes": 0,
-      "transcribed": 0,
+      "transcribed": 1,
       "waiting": 0,
       "failed": 0,
       "unmatched": 0,
@@ -346,16 +347,23 @@
       "no_source": 0,
       "no_recordings": 0
     },
-    "misses": []
+    "misses": [
+      {
+        "date": "2026-11-05",
+        "board": "City Council",
+        "step": "transcribed",
+        "detail": "transcript not summarized yet"
+      }
+    ]
   },
   "documents": {
-    "since": "2026-08-06",
-    "until": "2026-11-03",
-    "held": 73,
-    "boards": 24,
+    "since": "2026-08-08",
+    "until": "2026-11-05",
+    "held": 77,
+    "boards": 25,
     "counts": {
       "no_documents": 0,
-      "no_minutes": 5,
+      "no_minutes": 7,
       "pairs": 0
     },
     "no_documents": [],
@@ -366,7 +374,7 @@
       },
       {
         "board": "Charter Revision Commission",
-        "meetings": 3
+        "meetings": 4
       },
       {
         "board": "Capital Projects / Operations Committee",
@@ -379,11 +387,19 @@
       {
         "board": "Historic Preservation Commission",
         "meetings": 2
+      },
+      {
+        "board": "Sustainability Commission",
+        "meetings": 2
+      },
+      {
+        "board": "Traffic Committee",
+        "meetings": 2
       }
     ],
     "pairs": [],
     "waiting": {}
   },
-  "published_at": "2026-11-04T16:52:59+00:00",
-  "published_engine": "v1.91.0"
+  "published_at": "2026-11-06T09:52:27+00:00",
+  "published_engine": "v1.94.0"
 }

@@ -269,7 +269,10 @@ shows no ward map; a town with neither (Bangor) has no 311 section yet.
 - [ ] Merge, then **Actions → Add a town → Run workflow**, step `first
       fetches`, with the town's name and state: it runs **Network** for the
       town, fetching, one run after another until a run collects fewer than
-      60 minutes (a run's most), or `runs` runs have. **Actions → Network →
+      60 minutes (a run's most), or `runs` runs have. A run that couldn't
+      fetch one of the town's meeting sources (`failed_calendars` in its
+      `data/meetings/status.json`) stops it with an error naming them; run
+      it again once the town's site answers. **Actions → Network →
       Run workflow** for the town, fetching, does one such run by hand.
       No DNS change; the homepage lists the town under its state by itself.
       Its older documents get a small share of the summary budget each run;
