@@ -261,9 +261,12 @@ sources = [
 # at large, so there is no ward map. Bangor has no elected mayor: the council
 # chooses its chair, who serves as mayor, and appoints a city manager.
 [officials]
-checked = "2026-10-04"
+checked = "2026-11-06"
 # The next municipal election: the list is due a check after it, or once new terms begin.
-next_election = "2026-11-03"
+# Three council seats and two or three School Committee seats are elected each
+# November (the bodies' notes), on the Tuesday after the first Monday, as on
+# November 4, 2025 and November 3, 2026 (the City Clerk's official results).
+next_election = "2027-11-02"
 
 # From the council's page and each councilor's page in the city directory
 # (the year each term ends), confirmed against the official results of
@@ -289,6 +292,31 @@ members = [
   { name = "Angela Walker", seat = "At-large", term_ends = "2028-11", email = "angela.walker@bangormaine.gov" },
 ]
 
+# Elected November 3, 2026, by the City Clerk's official results ("Official
+# Voting Results for Nov. 3, 2026, General Election", on the city's Voting &
+# Elections page): Anthony Cote, 4,758 votes; Terry Dinkins, 4,615; Joseph
+# Pratt, 4,099; the next, Adam Baker, 3,331, of twelve candidates for the
+# three seats of Deane, Fish and Leonard (Leonard, 3,165). Three-year terms
+# (the council's page). They take office at the council's reorganizational
+# meeting of Monday, November 9, 2026 (the city's calendar), where the council
+# also chooses its chair, as at the organizational meeting of November 10,
+# 2025 (its agenda: the swearing in of newly elected members, then the
+# election of the chair), so no chair is listed. No city email addresses yet
+# for the new members.
+[officials.bodies.incoming]
+takes_office = "2026-11-09"
+members = [
+  { name = "Susan Hawes", seat = "At-large", term_ends = "2027-11", email = "susan.hawes@bangormaine.gov" },
+  { name = "Michael Beck", seat = "At-large", term_ends = "2027-11", email = "michael.beck@bangormaine.gov" },
+  { name = "Daniel Carson", seat = "At-large", term_ends = "2028-11", email = "daniel.carson@bangormaine.gov" },
+  { name = "Anthony Cote", seat = "At-large", term_ends = "2029-11" },
+  { name = "Terry Dinkins", seat = "At-large", term_ends = "2029-11" },
+  { name = "Susan Faloon", seat = "At-large", term_ends = "2028-11", email = "Susan.Faloon@bangormaine.gov" },
+  { name = "Wayne Mallar", seat = "At-large", term_ends = "2027-11", email = "wayne.mallar@bangormaine.gov" },
+  { name = "Joseph Pratt", seat = "At-large", term_ends = "2029-11" },
+  { name = "Angela Walker", seat = "At-large", term_ends = "2028-11", email = "angela.walker@bangormaine.gov" },
+]
+
 # From the School Committee's page on the school department's website (members,
 # officers, terms, and email addresses), confirmed against the official results
 # of November 5, 2024 (Luciano, Sprague) and November 4, 2025 (Cook, Speed),
@@ -305,6 +333,26 @@ members = [
   { name = "Shelly Okere", seat = "At-large", term_ends = "2026-11", email = "sokere@bangorschools.net" },
   { name = "Ben Speed", seat = "At-large", term_ends = "2028-11", email = "benspeed@bangorschools.net" },
   { name = "Ben Sprague", seat = "At-large", term_ends = "2027-11", email = "bsprague@bangorschools.net" },
+]
+
+# Elected November 3, 2026, by the City Clerk's official results (as for the
+# council): Katie Brydon, 7,593 votes; Emily Tilton, 7,233; Jamie Beck, 7,147,
+# the three candidates for the three seats of Surrette, Brydon and Okere.
+# Three-year terms. They take office at the committee's reorganizational
+# meeting of Monday, November 9, 2026 (the city's calendar), which also
+# elects its officers, as at the organizational meeting of November 10, 2025
+# (its agenda: the oath of office, then the election of the chair and vice
+# chair), so none are listed.
+[officials.bodies.incoming]
+takes_office = "2026-11-09"
+members = [
+  { name = "Katie Brydon", seat = "At-large", term_ends = "2029-11", email = "kbrydon@bangorschools.net" },
+  { name = "Jamie Beck", seat = "At-large", term_ends = "2029-11" },
+  { name = "Mallory Cook", seat = "At-large", term_ends = "2028-11", email = "malcook@bangorschools.net" },
+  { name = "Sara Luciano", seat = "At-large", term_ends = "2027-11", email = "sluciano@bangorschools.net" },
+  { name = "Ben Speed", seat = "At-large", term_ends = "2028-11", email = "benspeed@bangorschools.net" },
+  { name = "Ben Sprague", seat = "At-large", term_ends = "2027-11", email = "bsprague@bangorschools.net" },
+  { name = "Emily Tilton", seat = "At-large", term_ends = "2029-11" },
 ]
 
 # The town's own text in Spanish, keyed by its English as written above or as
