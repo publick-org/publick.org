@@ -1,46 +1,46 @@
 {
   "town": "londonderry",
   "folder": "londonderry-nh",
-  "started_at": "2026-11-05T13:36:45+00:00",
-  "finished_at": "2026-11-05T13:38:54+00:00",
-  "engine": "v1.93.0",
+  "started_at": "2026-11-06T09:37:55+00:00",
+  "finished_at": "2026-11-06T09:40:22+00:00",
+  "engine": "v1.94.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 71.3
+      "seconds": 80.0
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 8.9
+      "seconds": 8.6
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 42.2
+      "seconds": 39.9
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 3.1
+      "seconds": 17.0
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 1.1
+      "seconds": 1.2
     }
   ],
   "update": {
     "town": "londonderry",
-    "sources": "meetings",
-    "started_at": "2026-11-05T13:36:46+00:00",
+    "sources": "all",
+    "started_at": "2026-11-06T09:37:55+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 61.0,
+        "seconds": 60.9,
         "cadence": "continuous"
       },
       {
@@ -136,7 +136,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 7.2,
+        "seconds": 17.0,
         "cadence": "continuous"
       },
       {
@@ -146,7 +146,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 0 days ago; checked every 30 days"
+        "skipped": "checked 1 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -155,7 +155,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -164,7 +164,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 0 days ago; checked every 30 days"
+        "skipped": "checked 1 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -173,7 +173,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 0 days ago; checked every 30 days"
+        "skipped": "checked 1 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -182,14 +182,14 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -197,7 +197,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -214,8 +214,35 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
+        "seconds": 0.4,
         "cadence": "continuous"
+      },
+      {
+        "name": "Fetch 311 requests",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [seeclickfix] in the config"
+      },
+      {
+        "name": "Fetch 311 requests from an open data portal",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [socrata_311] in the config"
+      },
+      {
+        "name": "Compute 311 scorecard",
+        "ok": true,
+        "required": true,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [seeclickfix] or [socrata_311] in the config"
       }
     ]
   },
@@ -224,7 +251,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-05T08:36:46-05:00",
+      "updated_at": "2026-11-06T04:37:56-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -312,9 +339,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-05T13:40:51+00:00",
-  "data_bytes": 1271706,
-  "data_bytes_added": 873,
+  "last_good_at": "2026-11-06T09:40:22+00:00",
+  "data_bytes": 1275526,
+  "data_bytes_added": -453,
   "activity": {
     "boards": 32,
     "meetings_by_date": {
@@ -323,12 +350,13 @@
       "2026-11-12": 1,
       "2026-11-16": 1,
       "2026-11-17": 2,
-      "2026-11-18": 1
+      "2026-11-18": 1,
+      "2026-11-19": 1
     }
   },
   "fact_checks": {
-    "summaries": 48,
-    "ok": 38,
+    "summaries": 49,
+    "ok": 39,
     "failed": 8,
     "weak": 2,
     "unchecked": 0,
@@ -338,14 +366,14 @@
     "vote_counts_left_out": 2
   },
   "recordings": {
-    "since": "2026-10-29",
-    "until": "2026-11-04",
+    "since": "2026-10-30",
+    "until": "2026-11-05",
     "held": 2,
-    "next_day": 0,
+    "next_day": 1,
     "steps": {
-      "summarized": 1,
+      "summarized": 2,
       "minutes": 0,
-      "transcribed": 1,
+      "transcribed": 0,
       "waiting": 0,
       "failed": 0,
       "unmatched": 0,
@@ -353,18 +381,11 @@
       "no_source": 0,
       "no_recordings": 0
     },
-    "misses": [
-      {
-        "date": "2026-11-04",
-        "board": "Planning Board",
-        "step": "transcribed",
-        "detail": "transcript not summarized yet"
-      }
-    ]
+    "misses": []
   },
   "documents": {
-    "since": "2026-08-07",
-    "until": "2026-11-04",
+    "since": "2026-08-08",
+    "until": "2026-11-05",
     "held": 57,
     "boards": 22,
     "counts": {
@@ -381,7 +402,5 @@
     ],
     "pairs": [],
     "waiting": {}
-  },
-  "published_at": "2026-11-05T13:40:51+00:00",
-  "published_engine": "v1.93.0"
+  }
 }
