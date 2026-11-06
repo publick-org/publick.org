@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_014agJGBB1yA5nEzhqcHtggC",
-  "sent_at": "2026-11-06T19:30:49+00:00",
+  "id": "msgbatch_01MW74M3QN6tTU6UiufNwfQC",
+  "sent_at": "2026-11-06T19:38:17+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,25 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
-      "meeting": {
-        "title": "School Committee Meeting",
-        "date": "2026-11-09",
-        "body": "School Committee"
+      "source_hash": "86aeafce8d6c6b955995a822df8505276669c8d59990f63dde7b0e92599554fa",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
       },
-      "doc": {
-        "id": "3c3f7f06659d6b1c-c21c933c",
-        "sha256": "c21c933ca83b9f534983f899c8ca207b903c9fe65d43f784944022185ca85b7e",
-        "file": "3c3f7f06659d6b1c-c21c933c.pdf",
-        "source_url": "https://www.mps02155.org/fs/resource-manager/view/00d7f407-4c13-46c3-a9a8-37474ea5af0a"
-      }
-    },
-    {
-      "custom_id": "doc-1",
-      "kind": "agenda",
-      "older": false,
       "meeting": {
         "title": "City Council Regular Meeting",
         "date": "2026-11-10",
@@ -37,31 +29,29 @@
       },
       "doc": {
         "id": "civicclerk-1019",
-        "sha256": "5a5a2bc387281a077fae44c2db73882af20edeffadecadf9396619f02112373b",
-        "file": "civicclerk-1019.pdf",
-        "source_url": "https://medfordma.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=1019,plainText=false)"
+        "sha256": "5a5a2bc387281a077fae44c2db73882af20edeffadecadf9396619f02112373b"
       }
     },
     {
-      "custom_id": "tr-0",
-      "type": "review",
+      "custom_id": "tr-1",
+      "type": "translation",
       "lang": "es",
-      "kind": "recording",
+      "kind": "agenda",
       "older": false,
-      "source_hash": "fe5350bc693e032c441c64933da2df0a0826c8a28626be33f1fd261f27d5dade",
-      "model": "claude-sonnet-5-5",
+      "source_hash": "23766930f8138e1660b28d646dfde46980eb3eff12604fbac62e5826398da2d6",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
-        "title": "Council Resident Services & Public Engagement Committee Meeting",
-        "date": "2026-11-04",
-        "body": "City Council Resident Services and Public Engagement Committee"
+        "title": "School Committee Meeting",
+        "date": "2026-11-09",
+        "body": "School Committee"
       },
       "doc": {
-        "id": "castus-6aecd1775ca31f0002a257e0",
-        "sha256": "6fc5be626d57f9d1e6dd7904429067a8cc9cec4f69d63bc5cbb9349c82ae757b"
+        "id": "3c3f7f06659d6b1c-c21c933c",
+        "sha256": "c21c933ca83b9f534983f899c8ca207b903c9fe65d43f784944022185ca85b7e"
       }
     }
   ]
