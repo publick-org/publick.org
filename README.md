@@ -76,7 +76,7 @@ Worker, which picks the site by hostname: `gloucester-ma.publick.org` is
     `SUMMARY_BUDGET` (a month can have its own in the secret `SUMMARY_BUDGET_MONTH`):
     each run gives each of its towns a share of what's left, new documents first.
     What each town spends is kept in the private store, a bucket nothing serves
-    (the engine's README, Cost records), not in git; the run's `budget` job reads
+    (the engine's docs/storage.md, Cost records), not in git; the run's `budget` job reads
     it, and prints how much of the budget is used and each town's share as
     fractions, never as amounts, since the run logs are public. A manual run's
     `catch_up` is a percent of the month's budget.
@@ -125,45 +125,11 @@ Worker, which picks the site by hostname: `gloucester-ma.publick.org` is
   address on to Buttondown, within the `SIGNUP_LIMITER` rate limit
   (`wrangler.toml`). A new town joins a full week after its launch, not at
   launch (ADDING-A-TOWN.md, step 8): its `[digest]` table, its place in
-  `DIGEST_TOWNS`, then **Actions → Worker**, which makes its Buttondown tag. A run makes two requests for each town and two more. See the engine README's Weekly
-  digest.
+  `DIGEST_TOWNS`, then **Actions → Worker**, which makes its Buttondown tag. A run makes two requests for each town and two more. See the engine's docs/site.md,
+  Weekly digest.
 - **By hand** (**Actions → Network → Run workflow**): tick **daily** for a daily
   run, as the scheduler starts; or any towns, with or without fetching; with no
   towns named, every town and the homepage.
-
-## Alerts
-
-A daily run doesn't fail when a town does; its data is still committed. Instead,
-one GitHub issue, **Towns need attention** (label `towns behind`, assigned to
-the account in the `ALERT_ASSIGNEE` secret), is opened when a town has had no good
-update (published, with fresh data) for 30 hours, or a figure source's checks
-keep failing, or a state's statewide checks have failed three times in a row.
-Each daily run updates it and closes it when every town is caught up. An edit
-sends no email, so the run also comments with the towns newly behind (from
-`python -m pipeline.network behind --new-since`); a town already listed, or
-one that's caught up, sends nothing. If the daily runs stop altogether, the scheduler opens
-**The network's daily runs have stopped** (label `network stopped`) after 30
-hours, and closes it when a run finishes. A pull request's run still fails when
-a town does, so a broken site can't be merged.
-
-Two more issues are reports, not alerts: each run that fetches replaces their
-text, from the towns' run records, and an edit sends no email.
-**Next-day summaries from recordings** (label `next-day recordings`, from
-`python -m pipeline.network recordings`) counts the main boards' meetings of the
-last week by how far each got toward a summary from its recording.
-**Meetings missing documents** (label `missing documents`, from
-`python -m pipeline.network documents`) lists the last 90 days' boards with no
-agenda or minutes, boards whose minutes never came, meetings likely listed under
-two names, and meetings a reader hasn't saved the documents of yet. Each line
-is a lead to look at: many boards don't post minutes, and a board's documents
-can be posted where the town's sources don't read them.
-
-Between the daily runs, the scheduler loads publick.org and every town's
-homepage (from the network's sitemap) through the sites Worker every hour, at
-:50. A site that doesn't load, tried twice a few seconds apart, opens an issue such as
-**gloucester-ma.publick.org isn't loading** (label `site down`, assigned to the account in the
-`ALERT_ASSIGNEE` secret, which **Actions → Worker** gives the scheduler); the issue lists every site down while any is, and
-is closed when all load again.
 
 ## Status page
 
@@ -189,7 +155,7 @@ URL>`, which writes the town's folder with everything left for a person
 marked `# To fill in:`. In short:
 
 Add `towns/<town>-<state>/` with its `config/<town>.toml` (start from the
-engine's `tests/fixtures/town/config/gloucester.toml` and its README), an
+engine's `tests/fixtures/town/config/gloucester.toml` and its docs/configuration.md), an
 empty `data/`, and optionally `site/static/share/<town>.png`. Set
 `[site] domain` to `<town>-<state>.publick.org` and `[town] state_abbr` to
 the state's code. Add an `[analytics]` table with `prefix` set to the town's
@@ -197,7 +163,7 @@ folder, so its page views count apart on the network's GoatCounter site, and a
 `[storage]` table with `prefix` set to the town's folder too (it defaults to
 the config file's name). Its
 `contact_email`, `<town>-<state>@publick.org`, needs no rule of its own: the
-catch-all rule in Cloudflare Email Routing (Setup, step 7) forwards it.
+catch-all rule in Cloudflare Email Routing forwards it.
 Merge, then run the workflow for the town by hand to fetch its data (set
 `catch_up` to a few percent of the month's budget to summarize its first
 months' documents in that run, within the town's share). No DNS
@@ -223,7 +189,7 @@ its translator is given and checked against (the engine's
 `pipeline/glossary.py`). A town's own `[[glossary]]` entries are only what
 means something of its own there (Nashua's ordinance numbers, Gloucester's
 Retirement Board warrant), and win over a term of the same name. The engine's `pipeline/config.py`
-checks both files (its README's "Settings shared by a network's towns"), and
+checks both files (its docs/network.md, "Settings shared by a network's towns"), and
 
 ```
 PYTHONPATH=../publick-engine PUBLICK_TOWN_DIR=towns/<town>-<state> python -m pipeline.config show
@@ -234,7 +200,7 @@ prints a town's config with the file each value came from. A change to
 state's towns.
 
 The town's tax, budget, and school figures come from its state, through the
-engine's package for that state (the engine README's States section): its
+engine's package for that state (the engine's docs/states.md): its
 `[finance]` and `[schools]` tables take that state's keys. Every New England
 state has a package. Start from a town in the same state: Gloucester or Malden
 for Massachusetts, Manchester for New Hampshire, Wallingford for Connecticut,
@@ -248,166 +214,10 @@ no package for leaves those tables and the budget and schools sections out; it
 still gets meetings, 311, unemployment, and housing. List each source in its `[freshness]` table, so the
 status page shows it.
 
-Add the `officials` section and an `[officials]` table (the engine README's
-config table): the mayor, the council, and the school committee, from official
+Add the `officials` section and an `[officials]` table (the engine's
+docs/configuration.md): the mayor, the council, and the school committee, from official
 city and school websites, with `checked` set to the day you checked them. Use
 only city- or school-issued email addresses and the mayor's office phone, not
 personal numbers the city may also publish. Give a member a `ward` only if
 the seat is elected by that ward, and `wards` if it's elected by several (a
 district of wards, as on Beverly's School Committee).
-
-## Keeping officials current
-
-Each town's `[officials]` table is kept by hand. Check every town's members
-against the city and school websites after each municipal election, and
-whenever a seat changes between elections (a resignation, an appointment to
-fill a vacancy, new council or committee officers). Update the members and
-`checked` in one pull request.
-
-Each table's `next_election` is the town's next municipal election: November
-3, 2026 for Bangor, Central Falls, Lewiston, Pawtucket, Portland, and South
-Kingstown; Town Meeting Day, March 2, 2027, for Burlington, South Burlington,
-and Winooski; March 9, 2027 for Derry; November 2, 2027 for Beverly,
-Biddeford, Bristol, Gloucester, Hamden, Lawrence, Lowell, Malden, Manchester,
-Medford, Methuen, Nashua, Salem, Somerville, Springfield, Waltham,
-Wallingford, Westbrook, and Worcester. A list
-is due a check on election day, or once new terms begin if that's later (the
-first month a member's `term_ends` on or after the election's month, such as
-January 2027 for Lewiston and April 2027 for Burlington; a town with no
-`term_ends`, such as Lowell, is due on election day). A week after, a list
-whose `checked` is earlier shows as behind on the town's About page and the
-status page, and the town goes into **Towns need attention**. Two days after
-the election, a list not checked since is flagged there and in the daily
-alert too, so its results are recorded before the winners take office.
-
-### After an election
-
-Winners usually take office days or weeks after the election: Bangor's
-council the Monday after, South Kingstown's council and School Committee
-at a meeting later in November, Portland's at
-the council's inaugural meeting on the first Monday of December, and
-Lewiston's and Pawtucket's council in January. Record the results as soon as they're official,
-without changing who is listed now:
-
-1. For each body with seats on the ballot, add an
-   `[officials.bodies.incoming]` table after its `members`: `takes_office`,
-   the day the winners are sworn in, and `members`, the whole body from that
-   day, in the same form as `members`. Keep every member whose term
-   continues (the build stops if one whose `term_ends` is later is missing),
-   give the winners their new `term_ends`, and leave out any officer `role`
-   (chair, president, mayor pro tem) the body chooses when it organizes.
-2. Set `checked` to the day you checked the results.
-
-Until `takes_office`, the Officials page lists the sitting members, with a
-line under the body naming the winners and the day they take office. On that
-day the daily run's build lists the incoming members instead, with no pull
-request needed. The list is then due a check that day, for the officers
-chosen at that meeting: a week after, it shows as behind if `checked` is
-earlier. To check it, move the incoming members into `members` (removing
-`incoming`), add the officers, set `checked`, and set `next_election` to the
-election after; until then, the daily run warns.
-
-## Testing the weekly digest
-
-**Actions → Digest test → Run workflow** sends each town's newest issue now,
-as it would go on Sunday, to the addresses in `DIGEST_TEST_RECIPIENTS` and
-no subscriber, with `[Test]` before its subject. Left empty, **engine** sends
-the issue on the town's site now; given an engine branch, tag, or commit,
-the town is built with that engine first, to see an engine change's email
-before it's released. The newest issue is the last Sunday's: a new one
-appears on its Sunday.
-
-## Checking meetings by hand
-
-About once a week while towns are added, compare each town's upcoming
-meetings with its city's own calendar, Agenda Center or portal, and school
-district site. With the engine on
-`PYTHONPATH` and `PUBLICK_TOWN_DIR` set to the town's folder:
-
-- `python -m pipeline.listings` lists the meetings shown as one and why. A
-  calendar meeting beside an Agenda Center one of the same board and day
-  that isn't put together means the two name the board differently: add the
-  calendar's name to `[meetings.aliases]`.
-- A meeting the city posted after the morning's run comes in on the next.
-- Where the city's own listing is wrong (an entry left over from a board's
-  old schedule, a typo in a time), add a `[[meetings.corrections]]` entry
-  with the reason, a link to the evidence and the date checked. It can go
-  up in English: the next run drafts its Spanish, and a translation in
-  `[strings.es]` is used instead when there is one. Manchester's Arts Commission entry for
-  November 9, 2026 is the first. The engine's README says what each field
-  does; a correction comes down by itself when the city changes the listing.
-
-## New Hampshire's yearly figures
-
-New Hampshire's tax rates and school figures come from statewide files the
-engine saves once a year, because the state's websites refuse automated
-requests. When the status page shows "New Hampshire state figures (yearly)" as
-behind for a New Hampshire town, download the new files in a browser and run
-the engine's `python -m pipeline.states.nh.extract` (the engine README, New
-Hampshire's yearly figures) and merge that to the engine. The next morning's
-release and engine move (`engine.yml`) take it to every New Hampshire town.
-
-## Rolling back
-
-With the sites bucket's keys set (below), from a checkout of the engine:
-
-```sh
-python -m pipeline.deploy rollback --domain gloucester-ma.publick.org                  # the build before
-python -m pipeline.deploy rollback --domain gloucester-ma.publick.org --build <build>
-```
-
-To go back to an older engine for every town, set `engine-version` to the
-earlier release and merge.
-
-## Setup, once
-
-In the Cloudflare account that holds `publick.org`:
-
-1. **R2 → Create bucket** `publick-sites`, with no public address.
-2. **R2 → Manage API tokens → Create Account API token** with *Object Read & Write*
-   on `publick-sites` only.
-3. **My Profile → API Tokens → Create Token** from the *Edit Cloudflare Workers*
-   template, limited to this account and the `publick.org` zone, for deploying the Worker.
-4. **DNS:** proxied (orange cloud) `AAAA` records for `*` and for `@`, both to
-   `100::`. The address is never reached; the Worker answers first. Remove any
-   GitHub Pages `A` records for `@`.
-5. **Workers Routes:** any other hostname under `publick.org` that must not
-   reach the Worker needs a route with **no Worker**, such as
-   `files.publick.org/*` (the documents bucket).
-6. **Workers plan** (**Workers & Pages → Plans**): one that allows the
-   network's requests. Every request to every site, each page and its CSS,
-   scripts, and images, runs the sites Worker, and the digest's send makes two
-   requests a town each run.
-7. **Email Routing → Routing rules → Catch-all address**, *Send to an email*:
-   every `@publick.org` address, each town's `contact_email` among them, is
-   forwarded.
-8. **R2 → Create bucket** for the cost records, with no public address (no
-   custom domain, no `r2.dev` address, no Worker binding), and an R2 API token
-   for it (the engine's README, Cost records).
-
-In this repository's **Settings → Secrets and variables → Actions**:
-
-| Secret | What |
-|---|---|
-| `SITES_ENDPOINT` | `https://<account id>.r2.cloudflarestorage.com` |
-| `SITES_BUCKET` | `publick-sites` |
-| `SITES_ACCESS_KEY_ID`, `SITES_SECRET_ACCESS_KEY` | The R2 token from step 2 |
-| `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` | The token from step 3, and the account ID |
-| `ANTHROPIC_API_KEY`, `BLS_API_KEY`, `STORAGE_ACCESS_KEY_ID`, `STORAGE_SECRET_ACCESS_KEY` | As for a town repository (engine README, Secrets) |
-| `ENGINE_PR_TOKEN` | For `engine.yml`, which moves the engine each day: a fine-grained personal access token with resource owner `publick-org`, this repository only, and **Contents** and **Pull requests** read and write. Required: what the workflow's own token pushes, opens, or merges starts no other workflow, so the pull request wouldn't be checked and the merge wouldn't publish. |
-| `BUTTONDOWN_SUBSCRIBE_KEY` | For the weekly digest's signup form, which the sites Worker answers: a Buttondown API key with subscribers read and write, and sending disabled, so it can't send email. Without it, the form says it didn't go through |
-| `BUTTONDOWN_SEND_KEY` | For the weekly digest's Sunday send, from the scheduler Worker: a Buttondown API key with emails read and write, and sending enabled. Without it, nothing is sent |
-| `DIGEST_TEST_RECIPIENTS` | The addresses **Actions → Digest test** sends a test of the weekly digest to, separated by commas. A secret so they stay out of the public run logs. Without it, the test sends nothing |
-| `PRIVATE_ENDPOINT`, `PRIVATE_BUCKET` | The cost records' bucket (step 8): `https://<account id>.r2.cloudflarestorage.com`, and its name |
-| `PRIVATE_ACCESS_KEY_ID`, `PRIVATE_SECRET_ACCESS_KEY` | The R2 token from step 8 |
-| `SUMMARY_BUDGET` | The network's monthly budget for AI summaries and translations, in dollars. A secret, so the run logs never show it. Without it, no town summarizes |
-| `SUMMARY_BUDGET_MONTH` | A month with a budget of its own, as `YYYY-MM=dollars` (several separated by commas); empty for none |
-| `ALERT_ASSIGNEE` | The GitHub account the alert issues are assigned to (network, engine, and Worker workflows, and the scheduler Worker). A secret, so the run logs don't name it. Without it, they're assigned to no one |
-| `SCHEDULER_GITHUB_TOKEN` | For the scheduler Worker: a fine-grained personal access token with resource owner `publick-org`, for this repository with **Actions** and **Issues** read and write, and for `publick-engine` with **Actions** read and write (so the scheduler can start the engine's release). When it's replaced, run **Actions → Worker**. Without it, runs fall back to GitHub's own schedule |
-
-The scheduler's Cron Triggers also need the Cloudflare account to have a
-`workers.dev` subdomain: opening **Workers & Pages** in the dashboard once
-creates it. The Workers don't use it; both have `workers_dev = false`.
-
-Then turn off GitHub Pages for this repository (**Settings → Pages**), and
-run **Actions → Worker**.
