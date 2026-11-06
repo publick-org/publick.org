@@ -1,46 +1,46 @@
 {
   "town": "pawtucket",
   "folder": "pawtucket-ri",
-  "started_at": "2026-11-05T10:00:49+00:00",
-  "finished_at": "2026-11-05T10:16:11+00:00",
-  "engine": "v1.93.0",
+  "started_at": "2026-11-06T09:14:54+00:00",
+  "finished_at": "2026-11-06T09:29:37+00:00",
+  "engine": "v1.94.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 840.1
+      "seconds": 788.0
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 9.9
+      "seconds": 10.6
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 56.8
+      "seconds": 61.7
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.2
+      "seconds": 20.6
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.7
+      "seconds": 1.1
     }
   ],
   "update": {
     "town": "pawtucket",
     "sources": "all",
-    "started_at": "2026-11-05T10:00:50+00:00",
+    "started_at": "2026-11-06T09:14:55+00:00",
     "ok": true,
     "steps": [
       {
@@ -109,7 +109,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 664.3,
+        "seconds": 686.0,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 164.1,
+        "seconds": 89.9,
         "cadence": "continuous"
       },
       {
@@ -143,7 +143,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -195,7 +195,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -220,7 +220,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 7.7,
+        "seconds": 8.1,
         "cadence": "continuous"
       },
       {
@@ -237,7 +237,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 0.9,
+        "seconds": 1.0,
         "cadence": "continuous"
       }
     ]
@@ -247,21 +247,21 @@
     {
       "label": "Meetings (Open Meetings portal)",
       "file": "meetings/opengov_status.json",
-      "updated_at": "2026-11-05T05:00:51-05:00",
+      "updated_at": "2026-11-06T04:14:56-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-05T05:14:41-05:00",
+      "updated_at": "2026-11-06T04:27:54-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-05T05:14:49-05:00",
+      "updated_at": "2026-11-06T04:28:02-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -338,18 +338,18 @@
   "deployed": true,
   "ok": true,
   "last_good_at": "2026-11-05T00:12:20+00:00",
-  "data_bytes": 2313096,
-  "data_bytes_added": 167979,
+  "data_bytes": 2375865,
+  "data_bytes_added": 167189,
   "activity": {
     "boards": 32,
     "meetings_by_date": {
-      "2026-11-09": 1,
-      "2026-11-10": 1
+      "2026-11-09": 2,
+      "2026-11-10": 5
     }
   },
   "fact_checks": {
-    "summaries": 152,
-    "ok": 140,
+    "summaries": 153,
+    "ok": 141,
     "failed": 8,
     "weak": 0,
     "unchecked": 4,
@@ -359,8 +359,8 @@
     "vote_counts_left_out": 69
   },
   "recordings": {
-    "since": "2026-10-29",
-    "until": "2026-11-04",
+    "since": "2026-10-30",
+    "until": "2026-11-05",
     "held": 1,
     "next_day": 0,
     "steps": {
@@ -383,8 +383,8 @@
     ]
   },
   "documents": {
-    "since": "2026-08-07",
-    "until": "2026-11-04",
+    "since": "2026-08-08",
+    "until": "2026-11-05",
     "held": 82,
     "boards": 25,
     "counts": {
@@ -396,9 +396,7 @@
     "no_minutes": [],
     "pairs": [],
     "waiting": {
-      "opengov_status": 168
+      "opengov_status": 144
     }
-  },
-  "published_at": "2026-11-05T10:19:31+00:00",
-  "published_engine": "v1.93.0"
+  }
 }
