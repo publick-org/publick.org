@@ -1,34 +1,34 @@
 {
   "town": "central-falls",
   "folder": "central-falls-ri",
-  "started_at": "2026-11-06T09:25:37+00:00",
-  "finished_at": "2026-11-06T09:28:13+00:00",
-  "engine": "v1.94.0",
+  "started_at": "2026-11-07T09:30:55+00:00",
+  "finished_at": "2026-11-07T09:34:33+00:00",
+  "engine": "v1.96.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 125.2
+      "seconds": 168.9
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 5.5
+      "seconds": 5.0
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 26.4
+      "seconds": 35.0
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.0
+      "seconds": 8.6
     },
     {
       "name": "Check live site",
@@ -40,7 +40,7 @@
   "update": {
     "town": "central-falls",
     "sources": "all",
-    "started_at": "2026-11-06T09:25:38+00:00",
+    "started_at": "2026-11-07T09:30:55+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.5,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -109,7 +109,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 119.1,
+        "seconds": 117.0,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 4.3,
+        "seconds": 20.0,
         "cadence": "continuous"
       },
       {
@@ -143,7 +143,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -153,7 +153,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 4 days ago; checked every 7 days"
+        "skipped": "checked 6 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -162,7 +162,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 4 days ago; checked every 30 days"
+        "skipped": "checked 6 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -171,7 +171,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 4 days ago; checked every 7 days"
+        "skipped": "checked 5 days ago; checked every 7 days"
       },
       {
         "name": "Fetch housing figures",
@@ -180,14 +180,14 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 4 days ago; checked every 7 days"
+        "skipped": "checked 5 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.5,
         "cadence": "continuous"
       },
       {
@@ -195,7 +195,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -208,11 +208,19 @@
         "skipped": "no [permits] in the config"
       },
       {
+        "name": "Check officials",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 28.9,
+        "cadence": "continuous"
+      },
+      {
         "name": "Move saved documents to storage",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -249,7 +257,7 @@
     {
       "label": "Meetings (Open Meetings portal)",
       "file": "meetings/opengov_status.json",
-      "updated_at": "2026-11-06T04:25:38-05:00",
+      "updated_at": "2026-11-07T04:30:56-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -326,17 +334,18 @@
   "deployed": true,
   "ok": true,
   "last_good_at": "2026-11-05T00:08:43+00:00",
-  "data_bytes": 683063,
-  "data_bytes_added": 2484,
+  "data_bytes": 705540,
+  "data_bytes_added": 4242,
   "activity": {
     "boards": 8,
     "meetings_by_date": {
-      "2026-11-09": 1
+      "2026-11-09": 1,
+      "2026-11-10": 1
     }
   },
   "fact_checks": {
-    "summaries": 39,
-    "ok": 37,
+    "summaries": 40,
+    "ok": 38,
     "failed": 2,
     "weak": 0,
     "unchecked": 0,
@@ -346,9 +355,9 @@
     "vote_counts_left_out": 6
   },
   "recordings": {
-    "since": "2026-10-30",
-    "until": "2026-11-05",
-    "held": 1,
+    "since": "2026-10-31",
+    "until": "2026-11-06",
+    "held": 0,
     "next_day": 0,
     "steps": {
       "summarized": 0,
@@ -357,21 +366,15 @@
       "waiting": 0,
       "failed": 0,
       "unmatched": 0,
-      "not_found": 1,
+      "not_found": 0,
       "no_source": 0,
       "no_recordings": 0
     },
-    "misses": [
-      {
-        "date": "2026-10-30",
-        "board": "City Council",
-        "step": "not_found"
-      }
-    ]
+    "misses": []
   },
   "documents": {
-    "since": "2026-08-08",
-    "until": "2026-11-05",
+    "since": "2026-08-09",
+    "until": "2026-11-06",
     "held": 24,
     "boards": 7,
     "counts": {
@@ -389,6 +392,19 @@
     "pairs": [],
     "waiting": {}
   },
-  "published_at": "2026-11-07T02:22:04+00:00",
-  "published_engine": "v1.96.0"
+  "officials": {
+    "checked_at": "2026-11-07T04:33:15-05:00",
+    "leads": [
+      {
+        "name": "Mayor",
+        "url": "https://centralfallsri.gov",
+        "error": "https://centralfallsri.gov: HTTP 403"
+      },
+      {
+        "name": "City Council",
+        "url": "https://centralfallsri.gov",
+        "error": "https://centralfallsri.gov: HTTP 403"
+      }
+    ]
+  }
 }
