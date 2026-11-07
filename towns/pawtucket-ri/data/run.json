@@ -1,46 +1,46 @@
 {
   "town": "pawtucket",
   "folder": "pawtucket-ri",
-  "started_at": "2026-11-06T09:14:54+00:00",
-  "finished_at": "2026-11-06T09:29:37+00:00",
-  "engine": "v1.94.0",
+  "started_at": "2026-11-07T09:08:26+00:00",
+  "finished_at": "2026-11-07T09:21:38+00:00",
+  "engine": "v1.96.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 788.0
+      "seconds": 726.3
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 13.0
+      "seconds": 6.4
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 62.7
+      "seconds": 35.9
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 3.3
+      "seconds": 22.7
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.9
+      "seconds": 0.8
     }
   ],
   "update": {
     "town": "pawtucket",
     "sources": "all",
-    "started_at": "2026-11-06T09:14:55+00:00",
+    "started_at": "2026-11-07T09:08:26+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -109,7 +109,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 686.0,
+        "seconds": 677.2,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 89.9,
+        "seconds": 34.5,
         "cadence": "continuous"
       },
       {
@@ -143,7 +143,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -153,7 +153,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 4 days ago; checked every 7 days"
+        "skipped": "checked 5 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -162,7 +162,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 4 days ago; checked every 30 days"
+        "skipped": "checked 5 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -171,7 +171,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 4 days ago; checked every 7 days"
+        "skipped": "checked 5 days ago; checked every 7 days"
       },
       {
         "name": "Fetch housing figures",
@@ -180,14 +180,14 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 4 days ago; checked every 7 days"
+        "skipped": "checked 5 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -195,7 +195,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -208,11 +208,19 @@
         "skipped": "no [permits] in the config"
       },
       {
+        "name": "Check officials",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 4.6,
+        "cadence": "continuous"
+      },
+      {
         "name": "Move saved documents to storage",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -220,7 +228,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 8.1,
+        "seconds": 7.5,
         "cadence": "continuous"
       },
       {
@@ -237,7 +245,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 1.0,
+        "seconds": 0.7,
         "cadence": "continuous"
       }
     ]
@@ -247,21 +255,21 @@
     {
       "label": "Meetings (Open Meetings portal)",
       "file": "meetings/opengov_status.json",
-      "updated_at": "2026-11-06T04:14:56-05:00",
+      "updated_at": "2026-11-07T04:08:27-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-06T04:27:54-05:00",
+      "updated_at": "2026-11-07T04:20:24-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-06T04:28:02-05:00",
+      "updated_at": "2026-11-07T04:20:32-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -338,53 +346,47 @@
   "deployed": true,
   "ok": true,
   "last_good_at": "2026-11-05T00:12:20+00:00",
-  "data_bytes": 2375865,
-  "data_bytes_added": 167189,
+  "data_bytes": 2555551,
+  "data_bytes_added": 160491,
   "activity": {
     "boards": 32,
     "meetings_by_date": {
       "2026-11-09": 2,
-      "2026-11-10": 5
+      "2026-11-10": 6
     }
   },
   "fact_checks": {
-    "summaries": 153,
-    "ok": 141,
+    "summaries": 162,
+    "ok": 154,
     "failed": 8,
     "weak": 0,
-    "unchecked": 4,
+    "unchecked": 0,
     "not_yet": 0,
     "held_back": 8,
     "entries_not_shown": 12,
-    "vote_counts_left_out": 69
+    "vote_counts_left_out": 79
   },
   "recordings": {
-    "since": "2026-10-30",
-    "until": "2026-11-05",
+    "since": "2026-10-31",
+    "until": "2026-11-06",
     "held": 1,
     "next_day": 0,
     "steps": {
       "summarized": 0,
-      "minutes": 0,
+      "minutes": 1,
       "transcribed": 0,
       "waiting": 0,
       "failed": 0,
       "unmatched": 0,
-      "not_found": 1,
+      "not_found": 0,
       "no_source": 0,
       "no_recordings": 0
     },
-    "misses": [
-      {
-        "date": "2026-11-02",
-        "board": "School Committee",
-        "step": "not_found"
-      }
-    ]
+    "misses": []
   },
   "documents": {
-    "since": "2026-08-08",
-    "until": "2026-11-05",
+    "since": "2026-08-09",
+    "until": "2026-11-06",
     "held": 82,
     "boards": 25,
     "counts": {
@@ -396,9 +398,11 @@
     "no_minutes": [],
     "pairs": [],
     "waiting": {
-      "opengov_status": 144
+      "opengov_status": 115
     }
   },
-  "published_at": "2026-11-07T02:25:25+00:00",
-  "published_engine": "v1.96.0"
+  "officials": {
+    "checked_at": "2026-11-07T04:20:19-05:00",
+    "leads": []
+  }
 }
