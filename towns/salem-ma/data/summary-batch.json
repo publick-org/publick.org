@@ -1,0 +1,74 @@
+{
+  "id": "msgbatch_01HwbMwNTC1jBLqDTvD1vae5",
+  "sent_at": "2026-11-07T09:13:03+00:00",
+  "model": "claude-haiku-5-5",
+  "prices": {
+    "input_price": 0.1,
+    "output_price": 0.5,
+    "long_input_price": 0.5,
+    "long_output_price": 2.5,
+    "long_prompt_tokens": 100000
+  },
+  "documents": [
+    {
+      "custom_id": "doc-0",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "Beautification Committee Meeting",
+        "date": "2026-11-10",
+        "body": "Beautification Committee"
+      },
+      "doc": {
+        "id": "8504-202611061000",
+        "sha256": "0f66fdaeee1511b85787351d832cf73555dab0cad107cf83e1583946bcb06e86",
+        "file": "8504-202611061000.pdf",
+        "source_url": "https://www.salemma.gov/AgendaCenter/ViewFile/Agenda/_11102026-8504"
+      }
+    },
+    {
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "870c14d07f15927080417123cdf60ff5dccf22db0aa483780382bb734a7d48d4",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Salem Human Rights Coalition Meeting",
+        "date": "2026-11-10",
+        "body": "Salem Human Rights Coalition"
+      },
+      "doc": {
+        "id": "8502-202611051818",
+        "sha256": "c26056eef41dabe63bf88b9c254d51613dab1ac33284f0943e6d15dafcb03abf"
+      }
+    },
+    {
+      "custom_id": "tr-1",
+      "type": "translation",
+      "lang": "es",
+      "kind": "minutes",
+      "older": false,
+      "source_hash": "3af0c5c4f30d2ff00709ae6b92267e2ce1c4eea05f8f20d05a61294242ead36e",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Salem City Council Regular Meeting October 8, 2026",
+        "date": "2026-10-08",
+        "body": "City Council"
+      },
+      "doc": {
+        "id": "agendacenter-8449",
+        "sha256": "566be7a7cf4e980fb7d4fcc4f7945aa5506184cfba2839f675163ecd6bd24568"
+      }
+    }
+  ]
+}
