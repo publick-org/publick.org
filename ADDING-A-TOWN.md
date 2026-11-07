@@ -282,6 +282,9 @@ shows no ward map; a town with neither (Bangor) has no 311 section yet.
       launch, so the town's history doesn't take the month's budget (older
       meetings keep their records and documents). The month's budget and the town's own limit per
       run still apply.
+- [ ] The town's `data/README.md`, once its first fetches have run, since it
+      lists the files its data folder has: `python -m pipeline.data_readme`
+      with `PUBLICK_TOWN_DIR=towns/<town>-<state>`, in a pull request.
 - [ ] Nothing for email: a catch-all rule in Cloudflare's Email Routing
       forwards every `@publick.org` address, the site's `contact_email`
       among them.
