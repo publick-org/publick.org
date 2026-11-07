@@ -1,46 +1,46 @@
 {
   "town": "derry",
   "folder": "derry-nh",
-  "started_at": "2026-11-06T12:06:52+00:00",
-  "finished_at": "2026-11-06T12:09:46+00:00",
-  "engine": "v1.94.0",
+  "started_at": "2026-11-07T09:45:02+00:00",
+  "finished_at": "2026-11-07T09:46:59+00:00",
+  "engine": "v1.96.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 124.0
+      "seconds": 60.6
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 7.0
+      "seconds": 7.8
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 26.9
+      "seconds": 34.6
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 1.9
+      "seconds": 12.3
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.5
+      "seconds": 0.7
     }
   ],
   "update": {
     "town": "derry",
     "sources": "all",
-    "started_at": "2026-11-06T12:06:53+00:00",
+    "started_at": "2026-11-07T09:45:03+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 51.1,
+        "seconds": 46.3,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.8,
+        "seconds": 0.7,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 69.8,
+        "seconds": 8.7,
         "cadence": "continuous"
       },
       {
@@ -145,7 +145,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 5 days ago; checked every 30 days"
+        "skipped": "checked 6 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -154,7 +154,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "skipped": "checked 6 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -163,7 +163,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 4 days ago; checked every 30 days"
+        "skipped": "checked 5 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -172,7 +172,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 5 days ago; checked every 30 days"
+        "skipped": "checked 6 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -181,7 +181,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "skipped": "checked 6 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -207,6 +207,14 @@
         "seconds": 0,
         "cadence": "continuous",
         "skipped": "no [permits] in the config"
+      },
+      {
+        "name": "Check officials",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 2.8,
+        "cadence": "continuous"
       },
       {
         "name": "Move saved documents to storage",
@@ -250,14 +258,14 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-06T07:06:53-05:00",
+      "updated_at": "2026-11-07T04:45:03-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Board meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-06T07:07:44-05:00",
+      "updated_at": "2026-11-07T04:45:50-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -345,13 +353,14 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-07T02:22:03+00:00",
-  "data_bytes": 1351011,
-  "data_bytes_added": 3906,
+  "last_good_at": "2026-11-07T09:46:59+00:00",
+  "data_bytes": 1364484,
+  "data_bytes_added": 5357,
   "activity": {
-    "boards": 15,
+    "boards": 16,
     "meetings_by_date": {
       "2026-11-09": 1,
+      "2026-11-10": 2,
       "2026-11-16": 2,
       "2026-11-17": 1,
       "2026-11-18": 1,
@@ -359,8 +368,8 @@
     }
   },
   "fact_checks": {
-    "summaries": 39,
-    "ok": 30,
+    "summaries": 41,
+    "ok": 32,
     "failed": 6,
     "weak": 3,
     "unchecked": 0,
@@ -370,8 +379,8 @@
     "vote_counts_left_out": 32
   },
   "recordings": {
-    "since": "2026-10-30",
-    "until": "2026-11-05",
+    "since": "2026-10-31",
+    "until": "2026-11-06",
     "held": 3,
     "next_day": 1,
     "steps": {
@@ -399,8 +408,8 @@
     ]
   },
   "documents": {
-    "since": "2026-08-08",
-    "until": "2026-11-05",
+    "since": "2026-08-09",
+    "until": "2026-11-06",
     "held": 50,
     "boards": 14,
     "counts": {
@@ -413,6 +422,8 @@
     "pairs": [],
     "waiting": {}
   },
-  "published_at": "2026-11-07T02:22:03+00:00",
-  "published_engine": "v1.96.0"
+  "officials": {
+    "checked_at": "2026-11-07T04:46:00-05:00",
+    "leads": []
+  }
 }
