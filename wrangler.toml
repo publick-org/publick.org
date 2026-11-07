@@ -31,7 +31,7 @@ simple = { limit = 4, period = 60 }
 # Address alerts (the engine's worker/alerts.js): a town with [alerts] follow = true has a follow form
 # on its street lookup, which this Worker answers. ALERTS_DB keeps each follow (schema in the engine's
 # worker/alerts.sql, applied once with wrangler d1 execute). Emails go through Postmark, from each site's
-# name at ALERTS_FROM, a domain verified there. The Worker's secrets POSTMARK_TOKEN, ALERTS_HOOK_SECRET
+# name at its town's address on ALERTS_FROM, a domain verified there. The Worker's secrets POSTMARK_TOKEN, ALERTS_HOOK_SECRET
 # and ALERTS_TOKEN_SECRET are set by .github/workflows/worker.yml from the repository secrets of the
 # same names. ALERTS_MAILING_ADDRESS, the postal address in each email's footer, goes in [vars] once
 # there is one.
@@ -41,4 +41,5 @@ database_name = "publick-alerts"
 database_id = "bc188b4b-f1de-42b6-a1a3-d3a449652171"
 
 [vars]
-ALERTS_FROM = "alerts@alerts.publick.org"
+# Each town from its own address: "Gloucester Publick" <gloucester@alerts.publick.org>.
+ALERTS_FROM = "@alerts.publick.org"
