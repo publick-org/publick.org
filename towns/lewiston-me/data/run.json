@@ -1,46 +1,46 @@
 {
   "town": "lewiston",
   "folder": "lewiston-me",
-  "started_at": "2026-11-06T09:16:15+00:00",
-  "finished_at": "2026-11-06T09:19:15+00:00",
-  "engine": "v1.93.0",
+  "started_at": "2026-11-07T09:15:07+00:00",
+  "finished_at": "2026-11-07T09:18:14+00:00",
+  "engine": "v1.96.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 125.2
+      "seconds": 149.2
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 6.7
+      "seconds": 4.3
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 32.0
+      "seconds": 26.3
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.7
+      "seconds": 6.1
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.9
+      "seconds": 0.7
     }
   ],
   "update": {
     "town": "lewiston",
     "sources": "all",
-    "started_at": "2026-11-06T09:16:16+00:00",
+    "started_at": "2026-11-07T09:15:07+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 81.4,
+        "seconds": 75.9,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.4,
+        "seconds": 1.6,
         "cadence": "continuous"
       },
       {
@@ -64,7 +64,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 34.7,
+        "seconds": 34.6,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 6.2,
+        "seconds": 28.5,
         "cadence": "continuous"
       },
       {
@@ -145,7 +145,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 3 days ago; checked every 7 days"
+        "skipped": "checked 4 days ago; checked every 7 days"
       },
       {
         "name": "Fetch unemployment",
@@ -154,7 +154,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 3 days ago; checked every 7 days"
+        "skipped": "checked 4 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -163,7 +163,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 1 days ago; checked every 30 days"
+        "skipped": "checked 2 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -172,7 +172,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 3 days ago; checked every 7 days"
+        "skipped": "checked 4 days ago; checked every 7 days"
       },
       {
         "name": "Fetch housing figures",
@@ -181,7 +181,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -207,6 +207,14 @@
         "seconds": 0,
         "cadence": "continuous",
         "skipped": "no [permits] in the config"
+      },
+      {
+        "name": "Check officials",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 7.5,
+        "cadence": "continuous"
       },
       {
         "name": "Move saved documents to storage",
@@ -250,7 +258,7 @@
     {
       "label": "Meetings (city calendar)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-06T04:16:16-05:00",
+      "updated_at": "2026-11-07T04:15:07-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -338,9 +346,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-07T02:23:40+00:00",
-  "data_bytes": 1092340,
-  "data_bytes_added": 1270,
+  "last_good_at": "2026-11-07T09:18:14+00:00",
+  "data_bytes": 1191224,
+  "data_bytes_added": 2097,
   "activity": {
     "boards": 9,
     "meetings_by_date": {
@@ -351,8 +359,8 @@
     }
   },
   "fact_checks": {
-    "summaries": 47,
-    "ok": 44,
+    "summaries": 48,
+    "ok": 45,
     "failed": 2,
     "weak": 1,
     "unchecked": 0,
@@ -362,8 +370,8 @@
     "vote_counts_left_out": 0
   },
   "recordings": {
-    "since": "2026-10-30",
-    "until": "2026-11-05",
+    "since": "2026-10-31",
+    "until": "2026-11-06",
     "held": 1,
     "next_day": 0,
     "steps": {
@@ -386,8 +394,8 @@
     ]
   },
   "documents": {
-    "since": "2026-08-08",
-    "until": "2026-11-05",
+    "since": "2026-08-09",
+    "until": "2026-11-06",
     "held": 26,
     "boards": 7,
     "counts": {
@@ -400,6 +408,14 @@
     "pairs": [],
     "waiting": {}
   },
-  "published_at": "2026-11-07T02:23:40+00:00",
-  "published_engine": "v1.96.0"
+  "officials": {
+    "checked_at": "2026-11-07T04:17:29-05:00",
+    "leads": [
+      {
+        "name": "School Committee",
+        "url": "https://www.lewistonpublicschools.org/en-US/school-committee-bc9f3846",
+        "none": true
+      }
+    ]
+  }
 }
