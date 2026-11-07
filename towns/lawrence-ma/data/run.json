@@ -1,54 +1,54 @@
 {
   "town": "lawrence",
   "folder": "lawrence-ma",
-  "started_at": "2026-11-06T12:13:07+00:00",
-  "finished_at": "2026-11-06T12:23:12+00:00",
-  "engine": "v1.94.0",
+  "started_at": "2026-11-07T09:17:26+00:00",
+  "finished_at": "2026-11-07T09:19:52+00:00",
+  "engine": "v1.96.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 550.2
+      "seconds": 68.0
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 8.5
+      "seconds": 8.6
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 39.4
+      "seconds": 41.9
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.6
+      "seconds": 26.2
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.8
+      "seconds": 1.0
     }
   ],
   "update": {
     "town": "lawrence",
     "sources": "all",
-    "started_at": "2026-11-06T12:13:08+00:00",
+    "started_at": "2026-11-07T09:17:26+00:00",
     "ok": true,
     "steps": [
       {
         "name": "Fetch meetings",
-        "ok": false,
+        "ok": true,
         "required": false,
-        "error": "exited with status 1",
-        "seconds": 500.9,
+        "error": null,
+        "seconds": 46.0,
         "cadence": "continuous"
       },
       {
@@ -136,7 +136,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 46.5,
+        "seconds": 15.0,
         "cadence": "continuous"
       },
       {
@@ -146,15 +146,16 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 5 days ago; checked every 30 days"
+        "skipped": "checked 6 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.6,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -163,7 +164,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 5 days ago; checked every 30 days"
+        "skipped": "checked 6 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -172,7 +173,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 5 days ago; checked every 30 days"
+        "skipped": "checked 6 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -181,7 +182,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 4 days ago; checked every 7 days"
+        "skipped": "checked 5 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -207,6 +208,14 @@
         "seconds": 0,
         "cadence": "continuous",
         "skipped": "no [permits] in the config"
+      },
+      {
+        "name": "Check officials",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 4.9,
+        "cadence": "continuous"
       },
       {
         "name": "Move saved documents to storage",
@@ -250,7 +259,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-05T12:59:18-05:00",
+      "updated_at": "2026-11-07T04:17:27-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -338,13 +347,13 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-07T02:23:44+00:00",
-  "data_bytes": 1134252,
-  "data_bytes_added": -1740,
+  "last_good_at": "2026-11-07T09:19:52+00:00",
+  "data_bytes": 1148214,
+  "data_bytes_added": 13437,
   "activity": {
-    "boards": 29,
+    "boards": 31,
     "meetings_by_date": {
-      "2026-11-10": 1,
+      "2026-11-10": 5,
       "2026-11-12": 3,
       "2026-11-17": 1
     }
@@ -361,8 +370,8 @@
     "vote_counts_left_out": 19
   },
   "recordings": {
-    "since": "2026-10-30",
-    "until": "2026-11-05",
+    "since": "2026-10-31",
+    "until": "2026-11-06",
     "held": 2,
     "next_day": 1,
     "steps": {
@@ -385,8 +394,8 @@
     ]
   },
   "documents": {
-    "since": "2026-08-08",
-    "until": "2026-11-05",
+    "since": "2026-08-09",
+    "until": "2026-11-06",
     "held": 81,
     "boards": 26,
     "counts": {
@@ -407,7 +416,7 @@
       },
       {
         "board": "Licensing Board",
-        "meetings": 4
+        "meetings": 5
       },
       {
         "board": "City Council",
@@ -415,6 +424,10 @@
       },
       {
         "board": "City Council Ordinance and Intergovernmental Relations Committee",
+        "meetings": 3
+      },
+      {
+        "board": "Retirement Board",
         "meetings": 3
       },
       {
@@ -436,15 +449,13 @@
       {
         "board": "Lawrence Redevelopment Authority",
         "meetings": 2
-      },
-      {
-        "board": "Retirement Board",
-        "meetings": 2
       }
     ],
     "pairs": [],
     "waiting": {}
   },
-  "published_at": "2026-11-07T02:23:44+00:00",
-  "published_engine": "v1.96.0"
+  "officials": {
+    "checked_at": "2026-11-07T04:18:29-05:00",
+    "leads": []
+  }
 }
