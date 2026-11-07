@@ -1,46 +1,46 @@
 {
   "town": "medford",
   "folder": "medford-ma",
-  "started_at": "2026-11-06T19:30:12+00:00",
-  "finished_at": "2026-11-06T19:32:18+00:00",
-  "engine": "v1.95.0",
+  "started_at": "2026-11-07T14:06:51+00:00",
+  "finished_at": "2026-11-07T14:08:20+00:00",
+  "engine": "v1.96.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 51.8
+      "seconds": 36.4
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 9.1
+      "seconds": 5.4
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 60.8
+      "seconds": 37.8
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.1
+      "seconds": 8.5
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.6
+      "seconds": 0.9
     }
   ],
   "update": {
     "town": "medford",
     "sources": "all",
-    "started_at": "2026-11-06T19:30:13+00:00",
+    "started_at": "2026-11-07T14:06:51+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 10.3,
+        "seconds": 6.9,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 4.3,
+        "seconds": 0.5,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 21.9,
+        "seconds": 9.1,
         "cadence": "continuous"
       },
       {
@@ -145,7 +145,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 9 days ago; checked every 30 days"
+        "skipped": "checked 10 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -154,7 +154,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 2 days ago; checked every 7 days"
+        "skipped": "checked 3 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -163,7 +163,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 9 days ago; checked every 30 days"
+        "skipped": "checked 10 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -172,7 +172,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 9 days ago; checked every 30 days"
+        "skipped": "checked 10 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -181,14 +181,14 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 2 days ago; checked every 7 days"
+        "skipped": "checked 3 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -196,7 +196,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -209,11 +209,19 @@
         "skipped": "no [permits] in the config"
       },
       {
+        "name": "Check officials",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 6.4,
+        "cadence": "continuous"
+      },
+      {
         "name": "Move saved documents to storage",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -221,7 +229,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 10.2,
+        "seconds": 10.3,
         "cadence": "continuous"
       },
       {
@@ -238,7 +246,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 2.6,
+        "seconds": 1.6,
         "cadence": "continuous"
       }
     ]
@@ -248,28 +256,28 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-06T14:30:13-05:00",
+      "updated_at": "2026-11-07T09:06:51-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-06T14:30:24-05:00",
+      "updated_at": "2026-11-07T09:06:59-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-06T14:30:52-05:00",
+      "updated_at": "2026-11-07T09:07:15-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-06T14:31:02-05:00",
+      "updated_at": "2026-11-07T09:07:26-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -357,9 +365,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-07T02:24:40+00:00",
-  "data_bytes": 6962326,
-  "data_bytes_added": 6153187,
+  "last_good_at": "2026-11-07T14:08:20+00:00",
+  "data_bytes": 7006611,
+  "data_bytes_added": 6161652,
   "activity": {
     "boards": 8,
     "meetings_by_date": {
@@ -369,8 +377,8 @@
     }
   },
   "fact_checks": {
-    "summaries": 26,
-    "ok": 19,
+    "summaries": 28,
+    "ok": 21,
     "failed": 3,
     "weak": 4,
     "unchecked": 0,
@@ -380,8 +388,8 @@
     "vote_counts_left_out": 120
   },
   "recordings": {
-    "since": "2026-10-30",
-    "until": "2026-11-05",
+    "since": "2026-10-31",
+    "until": "2026-11-06",
     "held": 1,
     "next_day": 0,
     "steps": {
@@ -398,8 +406,8 @@
     "misses": []
   },
   "documents": {
-    "since": "2026-08-08",
-    "until": "2026-11-05",
+    "since": "2026-08-09",
+    "until": "2026-11-06",
     "held": 18,
     "boards": 6,
     "counts": {
@@ -412,6 +420,8 @@
     "pairs": [],
     "waiting": {}
   },
-  "published_at": "2026-11-07T02:24:40+00:00",
-  "published_engine": "v1.96.0"
+  "officials": {
+    "checked_at": "2026-11-07T09:07:09-05:00",
+    "leads": []
+  }
 }
