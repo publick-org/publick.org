@@ -45,7 +45,7 @@
 # AI summaries share one monthly budget, the secret SUMMARY_BUDGET (and
 # SUMMARY_BUDGET_MONTH for a month with its own): the plan job adds up what
 # every town spent this month, from the towns' cost records in the private
-# store (PRIVATE_*; the engine's docs/storage.md, Cost records), and gives each town in
+# store (PRIVATE_*; the engine's README, Cost records), and gives each town in
 # the run its share of what's left, as a fraction of the month's budget, which
 # the town's summaries step makes dollars again with the same secrets. The cost
 # records are never in git, and no step prints an amount: the run logs are public.
@@ -287,7 +287,7 @@ jobs:
   # Each town's share, for this run, of what's left of the month's summary budget, as a fraction of the budget:
   # the job prints how much of the budget is used, and the shares, as fractions, never an amount. It reads what
   # each town spent from the private store, importing a town's summary-costs.json from git the first time (the
-  # engine's docs/storage.md, Cost records). Only a run that fetches makes summaries. A job of its own, so the budget's
+  # engine's README, Cost records). Only a run that fetches makes summaries. A job of its own, so the budget's
   # and the private store's secrets are in no other job's outputs: GitHub drops an output that contains a
   # secret's value. For the same reason the shares go out with their digits as letters (0-9 as a-j), since a
   # short number such as the budget could be part of a share's digits.
