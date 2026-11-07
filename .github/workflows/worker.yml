@@ -24,6 +24,12 @@
 # scheduler's Sunday send (emails read and write, sending enabled). Each town in the scheduler's
 # DIGEST_TOWNS gets its Buttondown tag (<town>-<state>-en) here, made if it isn't there yet.
 #
+# Address alerts (the engine's worker/alerts.js) take three secrets on the sites Worker, each set when
+# it's there: POSTMARK_TOKEN (the Postmark server's API token, which sends the emails),
+# ALERTS_HOOK_SECRET (which the network run's "Send address alerts" step sends to start a town's
+# alerts), and ALERTS_TOKEN_SECRET (which makes each reader's links to manage and unsubscribe; changing
+# it changes every reader's links, so the old ones stop working).
+#
 # The scheduler submits each new town's sitemap to Google Search Console (the engine's
 # worker/search.js) with GSC_SERVICE_ACCOUNT_JSON, set when it's there: the JSON key of a Google
 # service account that is a user of the publick.org Search Console property, with Full permission.
@@ -130,7 +136,11 @@ jobs:
 
       - name: Test the Workers
         if: steps.decide.outputs.deploy == 'true'
-        run: node --test .publick-engine/worker/sites.test.js .publick-engine/worker/scheduler.test.js
+        run: |
+          tests=(.publick-engine/worker/sites.test.js .publick-engine/worker/scheduler.test.js)
+          # The alerts' tests, with an engine that has them.
+          if [ -f .publick-engine/worker/alerts.test.js ]; then tests+=(.publick-engine/worker/alerts.test.js); fi
+          node --test "${tests[@]}"
 
       # wrangler at an exact version (here and below), since it runs with the Cloudflare token: moved by hand.
       - name: Deploy the sites Worker
@@ -152,6 +162,23 @@ jobs:
             exit 0
           fi
           printf '%s' "$BUTTONDOWN_SUBSCRIBE_KEY" | npx --yes wrangler@4.137.0 secret put BUTTONDOWN_SUBSCRIBE_KEY
+
+      - name: Give the sites Worker the address alerts' keys
+        if: steps.decide.outputs.sites == 'true'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          POSTMARK_TOKEN: ${{ secrets.POSTMARK_TOKEN }}
+          ALERTS_HOOK_SECRET: ${{ secrets.ALERTS_HOOK_SECRET }}
+          ALERTS_TOKEN_SECRET: ${{ secrets.ALERTS_TOKEN_SECRET }}
+        run: |
+          for name in POSTMARK_TOKEN ALERTS_HOOK_SECRET ALERTS_TOKEN_SECRET; do
+            if [ -z "${!name}" ]; then
+              echo "::warning::$name isn't set, so address alerts can't be followed or sent."
+              continue
+            fi
+            printf '%s' "${!name}" | npx --yes wrangler@4.137.0 secret put "$name"
+          done
 
       # After the sites Worker, which its service binding names. The token is set right after the deploy
       # (a secret can only be set on a Worker that exists); a start in between would only fail once.
