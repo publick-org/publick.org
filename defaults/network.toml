@@ -93,6 +93,14 @@ signup = true
 provider = "Buttondown"
 privacy_url = "https://buttondown.com/legal/privacy"
 
+# Address alerts (the engine's worker/alerts.js), for a town whose config has
+# [alerts] follow = true: a form on the street lookup to be emailed when an
+# address comes up, which the sites Worker answers and sends through Postmark.
+# The About page names who sends the emails.
+[alerts]
+provider = "Postmark"
+privacy_url = "https://postmarkapp.com/privacy-policy"
+
 # 311 requests from SeeClickFix (public requests only), for a town whose config
 # has [seeclickfix], with its organization_id and report_url.
 [seeclickfix]

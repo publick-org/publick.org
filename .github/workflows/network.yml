@@ -559,6 +559,47 @@ jobs:
           fi
           exit "$status"
 
+      # Each published town with address alerts ([alerts] follow in its config) emails its readers what's new
+      # (the engine's worker/alerts.js): after the job's last publish of the town, as its summaries' batch can add
+      # agenda text and so new mentions. The Worker sends a town at most once a day; a send that fails is tried
+      # by the next publish, so it warns rather than fail the run. It answers with counts, never addresses.
+      - name: Send address alerts
+        if: ${{ !cancelled() && needs.plan.outputs.deploy == 'true' && github.event_name != 'pull_request' }}
+        env:
+          TOWNS: ${{ matrix.towns }}
+          ALERTS_HOOK_SECRET: ${{ secrets.ALERTS_HOOK_SECRET }}
+        run: |
+          read -ra towns <<< "$TOWNS"
+          hosts=()
+          for town in "${towns[@]}"; do
+            host=$(python - "$town" <<'PY'
+          import sys
+          from pathlib import Path
+          from pipeline import network
+          config = network.town_config(Path("."), sys.argv[1])
+          print(config["site"]["domain"] if config.get("alerts", {}).get("follow") else "")
+          PY
+            ) || continue
+            [ -n "$host" ] && hosts+=("$host")
+          done
+          [ "${#hosts[@]}" -gt 0 ] || exit 0
+          if [ -z "$ALERTS_HOOK_SECRET" ]; then
+            echo "::warning::ALERTS_HOOK_SECRET isn't set, so no address alerts were sent."
+            exit 0
+          fi
+          # The Worker keeps a site's manifest for a minute (the engine's worker/sites.js): wait it out, so the
+          # send reads the build just published.
+          sleep 65
+          for host in "${hosts[@]}"; do
+            if answer=$(curl -sS --max-time 120 -X POST -H "Authorization: Bearer $ALERTS_HOOK_SECRET" \
+                -w ' (HTTP %{http_code})' "https://$host/alerts/send"); then
+              echo "$host: $answer"
+              case "$answer" in *"(HTTP 200)") ;; *) echo "::warning::Address alerts for $host didn't all send: $answer" ;; esac
+            else
+              echo "::warning::Address alerts for $host couldn't be reached."
+            fi
+          done
+
       # The data is kept even if a town's build or checks failed, as each town's own workflow did. Each town's
       # was committed as it finished; this catches any that couldn't be, after the step above failed.
       - name: Commit data
