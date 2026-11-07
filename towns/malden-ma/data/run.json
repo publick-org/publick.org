@@ -1,46 +1,46 @@
 {
   "town": "malden",
   "folder": "malden-ma",
-  "started_at": "2026-11-06T09:24:33+00:00",
-  "finished_at": "2026-11-06T09:29:51+00:00",
-  "engine": "v1.94.0",
+  "started_at": "2026-11-07T09:31:12+00:00",
+  "finished_at": "2026-11-07T09:39:12+00:00",
+  "engine": "v1.96.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 142.8
+      "seconds": 334.4
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 23.5
+      "seconds": 15.9
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 140.6
+      "seconds": 109.4
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 1.9
+      "seconds": 19.7
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.6
+      "seconds": 0.8
     }
   ],
   "update": {
     "town": "malden",
     "sources": "all",
-    "started_at": "2026-11-06T09:24:33+00:00",
+    "started_at": "2026-11-07T09:31:12+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 49.6,
+        "seconds": 22.9,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -136,7 +136,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 49.1,
+        "seconds": 26.4,
         "cadence": "continuous"
       },
       {
@@ -146,7 +146,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 8 days ago; checked every 30 days"
+        "skipped": "checked 9 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -155,7 +155,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 2 days ago; checked every 7 days"
+        "skipped": "checked 3 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -164,7 +164,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 7 days ago; checked every 30 days"
+        "skipped": "checked 8 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -173,22 +173,23 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 8 days ago; checked every 30 days"
+        "skipped": "checked 9 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 24.8,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -209,11 +210,19 @@
         "skipped": "no [permits] in the config"
       },
       {
+        "name": "Check officials",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 5.1,
+        "cadence": "continuous"
+      },
+      {
         "name": "Move saved documents to storage",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -221,7 +230,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 11.3,
+        "seconds": 274.2,
         "cadence": "continuous"
       },
       {
@@ -238,7 +247,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 5.7,
+        "seconds": 4.2,
         "cadence": "continuous"
       }
     ]
@@ -248,21 +257,21 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-06T04:24:34-05:00",
+      "updated_at": "2026-11-07T04:31:12-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-06T04:26:39-05:00",
+      "updated_at": "2026-11-07T04:32:08-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-06T04:26:50-05:00",
+      "updated_at": "2026-11-07T04:36:42-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -350,9 +359,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-07T02:26:09+00:00",
-  "data_bytes": 19504708,
-  "data_bytes_added": 15895419,
+  "last_good_at": "2026-11-07T09:39:12+00:00",
+  "data_bytes": 19568400,
+  "data_bytes_added": 15891317,
   "activity": {
     "boards": 54,
     "meetings_by_date": {
@@ -364,8 +373,8 @@
     }
   },
   "fact_checks": {
-    "summaries": 237,
-    "ok": 209,
+    "summaries": 245,
+    "ok": 217,
     "failed": 7,
     "weak": 4,
     "unchecked": 15,
@@ -375,8 +384,8 @@
     "vote_counts_left_out": 61
   },
   "recordings": {
-    "since": "2026-10-30",
-    "until": "2026-11-05",
+    "since": "2026-10-31",
+    "until": "2026-11-06",
     "held": 0,
     "next_day": 0,
     "steps": {
@@ -393,13 +402,13 @@
     "misses": []
   },
   "documents": {
-    "since": "2026-08-08",
-    "until": "2026-11-05",
+    "since": "2026-08-09",
+    "until": "2026-11-06",
     "held": 102,
     "boards": 42,
     "counts": {
       "no_documents": 0,
-      "no_minutes": 5,
+      "no_minutes": 6,
       "pairs": 0
     },
     "no_documents": [],
@@ -421,6 +430,10 @@
         "meetings": 2
       },
       {
+        "board": "School Committee Policy Subcommittee",
+        "meetings": 2
+      },
+      {
         "board": "Site Plan Review Committee",
         "meetings": 2
       }
@@ -428,6 +441,8 @@
     "pairs": [],
     "waiting": {}
   },
-  "published_at": "2026-11-07T02:26:09+00:00",
-  "published_engine": "v1.96.0"
+  "officials": {
+    "checked_at": "2026-11-07T04:32:02-05:00",
+    "leads": []
+  }
 }
