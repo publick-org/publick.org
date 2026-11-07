@@ -721,6 +721,37 @@ jobs:
             gh issue create --title "Meetings missing documents" --label "$LABEL" --body "$body"
           fi
 
+      # The officials lists whose members their bodies' own pages don't all name, from towns/*/data/run.json
+      # (the engine's network.py officials, from each town's weekly check): a member the page doesn't name,
+      # a page that names none of them, or one that can't be read. One issue, its text replaced after each
+      # run that fetches, and closed when there's nothing to look at. Nothing changes a list by itself. An
+      # engine without the command leaves the issue as it is.
+      - name: Update the issue on officials to check
+        if: needs.plan.outputs.fetch == 'true' && github.event_name != 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          LABEL: officials to check
+          # Who the issue is assigned to, as for the towns that need attention. Unset, no one.
+          ALERT_ASSIGNEE: ${{ secrets.ALERT_ASSIGNEE }}
+        run: |
+          if ! body=$(python -m pipeline.network officials); then
+            echo "::notice::This engine has no network.py officials; the issue is left as it is."
+            exit 0
+          fi
+          gh label create "$LABEL" --color 5319E7 --description "Officials lists that differ from their bodies' pages" --force
+          number=$(gh issue list --label "$LABEL" --state open --json number --jq '.[0].number // empty')
+          if [ -n "$body" ]; then
+            if [ -n "$number" ]; then
+              gh issue edit "$number" --body "$body"
+            else
+              gh issue create --title "Officials to check" --label "$LABEL" ${ALERT_ASSIGNEE:+--assignee "$ALERT_ASSIGNEE"} \
+                --body "$body"
+            fi
+          elif [ -n "$number" ]; then
+            gh issue close "$number" --comment "Every body's page names its members as the town's config lists them."
+          fi
+
       - name: Publish the homepage
         if: needs.plan.outputs.deploy == 'true'
         env:
