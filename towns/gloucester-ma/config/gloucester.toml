@@ -88,6 +88,10 @@ prefix = "gloucester-ma"
 [digest]
 # The network's settings (defaults/network.toml): having the table turns the signup on.
 
+[alerts]
+# Email alerts for an address, from the street lookup (the network's settings name who sends them).
+follow = true
+
 # Public meetings, from the city's CivicPlus calendar.
 [meetings]
 base_url = "https://www.gloucester-ma.gov"
