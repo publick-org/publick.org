@@ -1,34 +1,34 @@
 {
   "town": "south-kingstown",
   "folder": "south-kingstown-ri",
-  "started_at": "2026-11-06T09:11:47+00:00",
-  "finished_at": "2026-11-06T09:15:12+00:00",
-  "engine": "v1.94.0",
+  "started_at": "2026-11-07T09:08:19+00:00",
+  "finished_at": "2026-11-07T09:10:56+00:00",
+  "engine": "v1.96.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 130.4
+      "seconds": 99.9
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 11.7
+      "seconds": 6.8
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 59.5
+      "seconds": 34.8
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.5
+      "seconds": 13.8
     },
     {
       "name": "Check live site",
@@ -40,7 +40,7 @@
   "update": {
     "town": "south-kingstown",
     "sources": "all",
-    "started_at": "2026-11-06T09:11:47+00:00",
+    "started_at": "2026-11-07T09:08:19+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 48.9,
+        "seconds": 42.5,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -109,7 +109,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 19.9,
+        "seconds": 19.6,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 41.0,
+        "seconds": 24.1,
         "cadence": "continuous"
       },
       {
@@ -143,7 +143,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -162,7 +162,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 23 days ago; checked every 30 days"
+        "skipped": "checked 24 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -187,7 +187,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -195,7 +195,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -208,11 +208,19 @@
         "skipped": "no [permits] in the config"
       },
       {
+        "name": "Check officials",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 3.5,
+        "cadence": "continuous"
+      },
+      {
         "name": "Move saved documents to storage",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -220,7 +228,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 17.3,
+        "seconds": 7.8,
         "cadence": "continuous"
       },
       {
@@ -237,7 +245,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 0.8,
+        "seconds": 0.7,
         "cadence": "continuous"
       }
     ]
@@ -247,28 +255,28 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-06T04:11:47-05:00",
+      "updated_at": "2026-11-07T04:08:20-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee meetings (Open Meetings portal)",
       "file": "meetings/opengov_status.json",
-      "updated_at": "2026-11-06T04:12:37-05:00",
+      "updated_at": "2026-11-07T04:09:02-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-06T04:13:39-05:00",
+      "updated_at": "2026-11-07T04:09:51-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-06T04:13:56-05:00",
+      "updated_at": "2026-11-07T04:09:58-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -345,8 +353,8 @@
   "deployed": true,
   "ok": true,
   "last_good_at": "2026-11-05T00:13:27+00:00",
-  "data_bytes": 1934130,
-  "data_bytes_added": 351135,
+  "data_bytes": 1963588,
+  "data_bytes_added": 351303,
   "activity": {
     "boards": 21,
     "meetings_by_date": {
@@ -358,8 +366,8 @@
     }
   },
   "fact_checks": {
-    "summaries": 69,
-    "ok": 67,
+    "summaries": 71,
+    "ok": 69,
     "failed": 1,
     "weak": 1,
     "unchecked": 0,
@@ -369,8 +377,8 @@
     "vote_counts_left_out": 6
   },
   "recordings": {
-    "since": "2026-10-30",
-    "until": "2026-11-05",
+    "since": "2026-10-31",
+    "until": "2026-11-06",
     "held": 2,
     "next_day": 0,
     "steps": {
@@ -398,8 +406,8 @@
     ]
   },
   "documents": {
-    "since": "2026-08-08",
-    "until": "2026-11-05",
+    "since": "2026-08-09",
+    "until": "2026-11-06",
     "held": 70,
     "boards": 17,
     "counts": {
@@ -433,6 +441,8 @@
     "pairs": [],
     "waiting": {}
   },
-  "published_at": "2026-11-07T02:26:47+00:00",
-  "published_engine": "v1.96.0"
+  "officials": {
+    "checked_at": "2026-11-07T04:09:47-05:00",
+    "leads": []
+  }
 }
