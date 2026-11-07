@@ -1,46 +1,46 @@
 {
   "town": "springfield",
   "folder": "springfield-ma",
-  "started_at": "2026-11-06T09:10:09+00:00",
-  "finished_at": "2026-11-06T09:12:44+00:00",
-  "engine": "v1.94.0",
+  "started_at": "2026-11-07T09:21:35+00:00",
+  "finished_at": "2026-11-07T09:24:34+00:00",
+  "engine": "v1.96.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 76.7
+      "seconds": 82.1
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 14.6
+      "seconds": 10.9
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 53.8
+      "seconds": 50.9
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.7
+      "seconds": 33.9
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 1.1
+      "seconds": 1.2
     }
   ],
   "update": {
     "town": "springfield",
     "sources": "all",
-    "started_at": "2026-11-06T09:10:10+00:00",
+    "started_at": "2026-11-07T09:21:35+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 37.1,
+        "seconds": 34.1,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.6,
+        "seconds": 1.6,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 32.6,
+        "seconds": 28.3,
         "cadence": "continuous"
       },
       {
@@ -145,7 +145,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 9 days ago; checked every 30 days"
+        "skipped": "checked 10 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -154,7 +154,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 2 days ago; checked every 7 days"
+        "skipped": "checked 3 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -163,7 +163,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 9 days ago; checked every 30 days"
+        "skipped": "checked 10 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -172,7 +172,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 9 days ago; checked every 30 days"
+        "skipped": "checked 10 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -181,7 +181,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 2 days ago; checked every 7 days"
+        "skipped": "checked 3 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -196,7 +196,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -207,6 +207,14 @@
         "seconds": 0,
         "cadence": "continuous",
         "skipped": "no [permits] in the config"
+      },
+      {
+        "name": "Check officials",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 11.8,
+        "cadence": "continuous"
       },
       {
         "name": "Move saved documents to storage",
@@ -250,14 +258,14 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-06T04:10:10-05:00",
+      "updated_at": "2026-11-07T04:21:35-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee minutes (school district website)",
       "file": "meetings/sharpschool_status.json",
-      "updated_at": "2026-11-06T04:10:48-05:00",
+      "updated_at": "2026-11-07T04:22:11-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -345,15 +353,14 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-07T02:26:53+00:00",
-  "data_bytes": 1566506,
-  "data_bytes_added": 2937,
+  "last_good_at": "2026-11-07T09:24:34+00:00",
+  "data_bytes": 1575679,
+  "data_bytes_added": 3148,
   "activity": {
     "boards": 46,
     "meetings_by_date": {
-      "2026-11-06": 2,
       "2026-11-09": 1,
-      "2026-11-10": 2,
+      "2026-11-10": 1,
       "2026-11-12": 2,
       "2026-11-16": 2,
       "2026-11-17": 3,
@@ -362,8 +369,8 @@
     }
   },
   "fact_checks": {
-    "summaries": 87,
-    "ok": 79,
+    "summaries": 88,
+    "ok": 80,
     "failed": 7,
     "weak": 1,
     "unchecked": 0,
@@ -373,8 +380,8 @@
     "vote_counts_left_out": 57
   },
   "recordings": {
-    "since": "2026-10-30",
-    "until": "2026-11-05",
+    "since": "2026-10-31",
+    "until": "2026-11-06",
     "held": 1,
     "next_day": 0,
     "steps": {
@@ -397,9 +404,9 @@
     ]
   },
   "documents": {
-    "since": "2026-08-08",
-    "until": "2026-11-05",
-    "held": 140,
+    "since": "2026-08-09",
+    "until": "2026-11-06",
+    "held": 142,
     "boards": 41,
     "counts": {
       "no_documents": 1,
@@ -414,11 +421,11 @@
     ],
     "no_minutes": [
       {
-        "board": "Board of Assessors",
-        "meetings": 5
+        "board": "Board of Public Works",
+        "meetings": 6
       },
       {
-        "board": "Board of Public Works",
+        "board": "Board of Assessors",
         "meetings": 5
       },
       {
@@ -430,11 +437,11 @@
         "meetings": 4
       },
       {
-        "board": "Board of Police Commissioners",
-        "meetings": 3
+        "board": "License Commission",
+        "meetings": 4
       },
       {
-        "board": "License Commission",
+        "board": "Board of Police Commissioners",
         "meetings": 3
       },
       {
@@ -449,6 +456,8 @@
     "pairs": [],
     "waiting": {}
   },
-  "published_at": "2026-11-07T02:26:53+00:00",
-  "published_engine": "v1.96.0"
+  "officials": {
+    "checked_at": "2026-11-07T04:22:45-05:00",
+    "leads": []
+  }
 }
