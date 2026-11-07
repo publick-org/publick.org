@@ -1,46 +1,46 @@
 {
   "town": "waltham",
   "folder": "waltham-ma",
-  "started_at": "2026-11-06T12:23:14+00:00",
-  "finished_at": "2026-11-06T12:33:30+00:00",
-  "engine": "v1.94.0",
+  "started_at": "2026-11-07T09:47:04+00:00",
+  "finished_at": "2026-11-07T10:09:01+00:00",
+  "engine": "v1.96.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 557.7
+      "seconds": 1255.5
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 9.7
+      "seconds": 9.4
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 44.8
+      "seconds": 43.7
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 3.2
+      "seconds": 7.4
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 1.0
+      "seconds": 0.8
     }
   ],
   "update": {
     "town": "waltham",
     "sources": "all",
-    "started_at": "2026-11-06T12:23:14+00:00",
+    "started_at": "2026-11-07T09:47:04+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": false,
         "required": false,
         "error": "exited with status 1",
-        "seconds": 500.9,
+        "seconds": 500.8,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.0,
+        "seconds": 0.9,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 53.7,
+        "seconds": 10.5,
         "cadence": "continuous"
       },
       {
@@ -145,7 +145,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 23 days ago; checked every 30 days"
+        "skipped": "checked 24 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -154,7 +154,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 3 days ago; checked every 7 days"
+        "skipped": "checked 4 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -163,7 +163,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 23 days ago; checked every 30 days"
+        "skipped": "checked 24 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -172,7 +172,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 23 days ago; checked every 30 days"
+        "skipped": "checked 24 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -181,7 +181,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -207,6 +207,14 @@
         "seconds": 0,
         "cadence": "continuous",
         "skipped": "no [permits] in the config"
+      },
+      {
+        "name": "Check officials",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 741.3,
+        "cadence": "continuous"
       },
       {
         "name": "Move saved documents to storage",
@@ -257,7 +265,7 @@
     {
       "label": "School Committee meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-06T07:31:36-05:00",
+      "updated_at": "2026-11-07T04:55:26-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -345,9 +353,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-07T02:27:02+00:00",
-  "data_bytes": 1696476,
-  "data_bytes_added": 204,
+  "last_good_at": "2026-11-07T10:09:01+00:00",
+  "data_bytes": 1703108,
+  "data_bytes_added": 1964,
   "activity": {
     "boards": 22,
     "meetings_by_date": {
@@ -370,8 +378,8 @@
     "vote_counts_left_out": 39
   },
   "recordings": {
-    "since": "2026-10-30",
-    "until": "2026-11-05",
+    "since": "2026-10-31",
+    "until": "2026-11-06",
     "held": 2,
     "next_day": 2,
     "steps": {
@@ -388,20 +396,38 @@
     "misses": []
   },
   "documents": {
-    "since": "2026-08-08",
-    "until": "2026-11-05",
+    "since": "2026-08-09",
+    "until": "2026-11-06",
     "held": 51,
     "boards": 18,
     "counts": {
       "no_documents": 0,
-      "no_minutes": 0,
+      "no_minutes": 1,
       "pairs": 0
     },
     "no_documents": [],
-    "no_minutes": [],
+    "no_minutes": [
+      {
+        "board": "License Commission",
+        "meetings": 2
+      }
+    ],
     "pairs": [],
     "waiting": {}
   },
-  "published_at": "2026-11-07T02:27:02+00:00",
-  "published_engine": "v1.96.0"
+  "officials": {
+    "checked_at": "2026-11-07T04:55:38-05:00",
+    "leads": [
+      {
+        "name": "Mayor",
+        "url": "https://www.city.waltham.ma.us/1714/Mayors-Office",
+        "error": "https://www.city.waltham.ma.us/1714/Mayors-Office: HTTPSConnectionPool(host='www.city.waltham.ma.us', port=443): Max retries exceeded with url: /1714/Mayors-Office (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.city.waltham.ma.us', port=443) at 0x779325f92570>, 'Connection to www.city.waltham.ma.us timed out. (connect timeout=60.0)'))"
+      },
+      {
+        "name": "City Council",
+        "url": "https://www.city.waltham.ma.us/1341/City-Council",
+        "error": "https://www.city.waltham.ma.us/1341/City-Council: HTTPSConnectionPool(host='www.city.waltham.ma.us', port=443): Max retries exceeded with url: /1341/City-Council (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.city.waltham.ma.us', port=443) at 0x779325f933b0>, 'Connection to www.city.waltham.ma.us timed out. (connect timeout=60.0)'))"
+      }
+    ]
+  }
 }
