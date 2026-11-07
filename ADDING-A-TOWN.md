@@ -285,8 +285,8 @@ shows no ward map; a town with neither (Bangor) has no 311 section yet.
 - [ ] Nothing for email: a catch-all rule in Cloudflare's Email Routing
       forwards every `@publick.org` address, the site's `contact_email`
       among them.
-- [ ] Add the town to the README's "Keeping officials current" election
-      dates if they differ.
+- [ ] Add the town's municipal election dates to the schedule of
+      officials checks if they differ.
 - [ ] **Search Console**, the morning after the town's first build: check
       `https://<town>-<state>.publick.org/sitemap.xml` is listed under
       **Sitemaps** on the `publick.org` domain property. The scheduler
