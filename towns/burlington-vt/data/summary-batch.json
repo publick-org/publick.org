@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01EhH493UWFH8UjNBkezvKb6",
-  "sent_at": "2026-11-07T09:08:24+00:00",
+  "id": "msgbatch_01DsQnD2JPYpbCMrcu9iftZK",
+  "sent_at": "2026-11-07T10:03:54+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,57 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "review",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
-      "meeting": {
-        "title": "Board of Finance Meeting",
-        "date": "2026-11-09",
-        "body": "Board of Finance"
+      "source_hash": "5cfba969ddf847f08cc8bd55e648065ebfe3ef64bfa7e7d211e0a5f6ef485f0a",
+      "model": "claude-sonnet-5-5",
+      "prices": {
+        "input_price": 2.0,
+        "output_price": 10.0
       },
-      "doc": {
-        "id": "civicclerk-21549",
-        "sha256": "6b5106ffa4d371e6f8d6a044aa84f28412e0b335d0786a01ab6d2cda0a84ad3d",
-        "file": "civicclerk-21549.pdf",
-        "source_url": "https://burlingtonvt.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=21549,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-1",
-      "kind": "agenda",
-      "older": false,
-      "meeting": {
-        "title": "City Council Meeting",
-        "date": "2026-11-09",
-        "body": "City Council"
-      },
-      "doc": {
-        "id": "civicclerk-21547",
-        "sha256": "784e7e11afe00f1fcb1e463670d9d1543b3d69110c67dfb13871749f610ead0b",
-        "file": "civicclerk-21547.pdf",
-        "source_url": "https://burlingtonvt.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=21547,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-2",
-      "kind": "agenda",
-      "older": false,
-      "meeting": {
-        "title": "Parks & Recreation Commission Meeting",
-        "date": "2026-11-10",
-        "body": "Parks Commission"
-      },
-      "doc": {
-        "id": "civicclerk-21552",
-        "sha256": "d5d6b1f1f25a0dfd14320e8b612d005328a17a605f163f6b01a2fb4595870975",
-        "file": "civicclerk-21552.pdf",
-        "source_url": "https://burlingtonvt.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=21552,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-3",
-      "kind": "agenda",
-      "older": false,
       "meeting": {
         "title": "City Council - Tax Abatement Committee Meeting",
         "date": "2026-11-17",
@@ -69,15 +29,87 @@
       },
       "doc": {
         "id": "civicclerk-21554",
-        "sha256": "b5c7653d7f0111526827657feb636f26c3960113183f25cacfe060d2d97a5cfe",
-        "file": "civicclerk-21554.pdf",
-        "source_url": "https://burlingtonvt.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=21554,plainText=false)"
+        "sha256": "b5c7653d7f0111526827657feb636f26c3960113183f25cacfe060d2d97a5cfe"
       }
     },
     {
-      "custom_id": "doc-4",
+      "custom_id": "tr-1",
+      "type": "review",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "077cc7439d731a6ee6525109ba8296df0a0b00dc87e1811474fa1959eef15eae",
+      "model": "claude-sonnet-5-5",
+      "prices": {
+        "input_price": 2.0,
+        "output_price": 10.0
+      },
+      "meeting": {
+        "title": "Parks & Recreation Commission Meeting",
+        "date": "2026-11-10",
+        "body": "Parks Commission"
+      },
+      "doc": {
+        "id": "civicclerk-21552",
+        "sha256": "d5d6b1f1f25a0dfd14320e8b612d005328a17a605f163f6b01a2fb4595870975"
+      }
+    },
+    {
+      "custom_id": "tr-2",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "b5968720513a32dbbeb977db120e129e90b18c99d404db0a106fd77546d79f5c",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Board of Finance Meeting",
+        "date": "2026-11-09",
+        "body": "Board of Finance"
+      },
+      "doc": {
+        "id": "civicclerk-21549",
+        "sha256": "6b5106ffa4d371e6f8d6a044aa84f28412e0b335d0786a01ab6d2cda0a84ad3d"
+      }
+    },
+    {
+      "custom_id": "tr-3",
+      "type": "review",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "47e425c693d56f088f9a578701768caa7d9711d6b233fc48fe86a19422648f78",
+      "model": "claude-sonnet-5-5",
+      "prices": {
+        "input_price": 2.0,
+        "output_price": 10.0
+      },
+      "meeting": {
+        "title": "City Council Meeting",
+        "date": "2026-11-09",
+        "body": "City Council"
+      },
+      "doc": {
+        "id": "civicclerk-21547",
+        "sha256": "784e7e11afe00f1fcb1e463670d9d1543b3d69110c67dfb13871749f610ead0b"
+      }
+    },
+    {
+      "custom_id": "tr-4",
+      "type": "review",
+      "lang": "es",
       "kind": "minutes",
       "older": false,
+      "source_hash": "82f4ac78800cca8f066bcd369346662602c7a85d4aa51896fa834fc68ed99ac1",
+      "model": "claude-sonnet-5-5",
+      "prices": {
+        "input_price": 2.0,
+        "output_price": 10.0
+      },
       "meeting": {
         "title": "Development Review Board Meeting",
         "date": "2026-11-04",
@@ -85,53 +117,7 @@
       },
       "doc": {
         "id": "civicclerk-21551",
-        "sha256": "fb0236ff5183f7c80e4697ca2b1e4edd708aef328412f5cdc375566e0549e2f0",
-        "file": "civicclerk-21551.pdf",
-        "source_url": "https://burlingtonvt.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=21551,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "tr-0",
-      "type": "translation",
-      "lang": "es",
-      "kind": "recording",
-      "older": false,
-      "source_hash": "88ebe9b406c1bd577d859ce407727cbc09bdac44700540d11abb6905b78e7852",
-      "model": "claude-haiku-5-5",
-      "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
-      },
-      "meeting": {
-        "title": "Airport Commission",
-        "date": "2026-11-04",
-        "body": "Airport Commission"
-      },
-      "doc": {
-        "id": "youtube-KmnbqygR79k",
-        "sha256": "f024b5d57981febcc2dd74417f3ffd61889a55d39ceac6acb5649cda4f4ed453"
-      }
-    },
-    {
-      "custom_id": "tr-1",
-      "type": "translation",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "9d6f0799b2f2394278ea9dbba4d8ade8756147bf15a45463f8dd7f60f6cd2d0a",
-      "model": "claude-haiku-5-5",
-      "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
-      },
-      "meeting": {
-        "title": "School Board Meeting",
-        "date": "2026-11-03",
-        "body": "School Board"
-      },
-      "doc": {
-        "id": "diligent-17494-13a0e7ea",
-        "sha256": "13a0e7eaedb76860eb5d18a686b51ef30ad33285e72a980ab7237cfcd04dfdfe"
+        "sha256": "fb0236ff5183f7c80e4697ca2b1e4edd708aef328412f5cdc375566e0549e2f0"
       }
     }
   ]
