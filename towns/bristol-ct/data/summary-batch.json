@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01XpoFaUtjauBvEn6PsppukK",
-  "sent_at": "2026-11-07T13:11:04+00:00",
+  "id": "msgbatch_01TsQZCKYNfq4EQPL6wmok8x",
+  "sent_at": "2026-11-07T13:49:58+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,9 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "review",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
+      "source_hash": "a6889de66f233135b4967a6011b519aee5b6c9ed52e29151a362d84723b13fde",
+      "model": "claude-sonnet-5-5",
+      "prices": {
+        "input_price": 2.0,
+        "output_price": 10.0
+      },
       "meeting": {
         "title": "COA November 19 2026",
         "date": "2026-11-19",
@@ -21,60 +29,20 @@
       },
       "doc": {
         "id": "civicclerk-13905",
-        "sha256": "39155129fc20d5b605714df37725468a7d3108f4237b7c220dadf84f0e068f25",
-        "file": "civicclerk-13905.pdf",
-        "source_url": "https://bristolct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=13905,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-1",
-      "kind": "minutes",
-      "older": false,
-      "meeting": {
-        "title": "COA September 17 2026",
-        "date": "2026-09-17",
-        "body": "Commission on Aging"
-      },
-      "doc": {
-        "id": "civicclerk-13904",
-        "sha256": "755b2baaf2f6dfaaaa455b05c4e587e2a6cfee00f249c7daa41e0fdfc8e8420a",
-        "file": "civicclerk-13904.pdf",
-        "source_url": "https://bristolct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=13904,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "tr-0",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "43c60f268615ea01c88847dec6ef2df1c94f5f15d7a3294ea676d2e502802385",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Retirement Board",
-        "date": "2026-11-12",
-        "body": "Retirement Board"
-      },
-      "doc": {
-        "id": "civicclerk-13903",
-        "sha256": "7880c4aa3f94c70155f4f926844e3d72dac241dc3fff0b6646af668338767f3b"
+        "sha256": "39155129fc20d5b605714df37725468a7d3108f4237b7c220dadf84f0e068f25"
       }
     },
     {
       "custom_id": "tr-1",
-      "type": "review",
+      "type": "translation",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "3709c702872ccff70dcbff1203974926180e82db6699a8344c46a37f85844ff6",
-      "model": "claude-sonnet-5-5",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
         "title": "City Council Meeting",
@@ -88,156 +56,24 @@
     },
     {
       "custom_id": "tr-2",
-      "type": "translation",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "210aa47e4fd4e06427fe7c8eb520974fefa0309833627f560e7e9e0b4880c2fa",
-      "model": "claude-haiku-5-5",
-      "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
-      },
-      "meeting": {
-        "title": "Joint Meeting of City Council and Board of Finance",
-        "date": "2026-11-10",
-        "body": "Joint Meeting of the City Council and Board of Finance"
-      },
-      "doc": {
-        "id": "civicclerk-13895",
-        "sha256": "09b5c5d5819b139b58f9d0bcea540f1455df2879c4b9cde3b537af72203be77b"
-      }
-    },
-    {
-      "custom_id": "tr-3",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "542ad56e62c5a54d0075af9093557a5653570a3b584e2859c078d081916de251",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Zoning Commission",
-        "date": "2026-11-09",
-        "body": "Zoning Commission"
-      },
-      "doc": {
-        "id": "civicclerk-13885",
-        "sha256": "d1e3f9b133585f9c136607a8940aaa6f1dd5d70c20affbf79225f32a5fe1a840"
-      }
-    },
-    {
-      "custom_id": "tr-4",
-      "type": "review",
-      "lang": "es",
-      "kind": "recording",
-      "older": false,
-      "source_hash": "91b0ad4d4df397c59ca992ea8966fba2b562c10e21615a32db442018e9e39cb3",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Economic and Community Development",
-        "date": "2026-11-05",
-        "body": "Economic and Community Development Board"
-      },
-      "doc": {
-        "id": "civicclerk-video-4966",
-        "sha256": "22e96e78024a21ff2678975e108a046b818bf654634fc3dfa628abe6ade05df9"
-      }
-    },
-    {
-      "custom_id": "tr-5",
-      "type": "review",
-      "lang": "es",
-      "kind": "recording",
-      "older": false,
-      "source_hash": "6b8da81a22b2d443b1933bc0dc3f183db83bdabbb116149d3703572952493303",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Board of Ethics",
-        "date": "2026-11-04",
-        "body": "Board of Ethics"
-      },
-      "doc": {
-        "id": "civicclerk-video-5587",
-        "sha256": "f145d1532cc1f06fdf0ff63a9bb62d4201d01dc1042ece5c7a3db5813d5303df"
-      }
-    },
-    {
-      "custom_id": "tr-6",
       "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
-      "source_hash": "67254ef76b6820b67617657576c13dd08da1581f710227204378aaad145f53cf",
+      "source_hash": "18788d727f613211b5e495eca589424c7f8638c1dcf5019a5a0aa9a97b391b8c",
       "model": "claude-sonnet-5-5",
       "prices": {
         "input_price": 2.0,
         "output_price": 10.0
       },
       "meeting": {
-        "title": "Conservation Commission/ Inland Wetlands and Watercourses Agency - On-Site Inspection",
-        "date": "2026-10-20",
-        "body": "Conservation Commission/Inland Wetlands and Watercourses Agency"
+        "title": "COA September 17 2026",
+        "date": "2026-09-17",
+        "body": "Commission on Aging"
       },
       "doc": {
-        "id": "civicclerk-13898",
-        "sha256": "170069f3104e7198259bc13a4b840966b733fa246661e5f08d3b741fe50df12d"
-      }
-    },
-    {
-      "custom_id": "tr-7",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "dc8bf48f87e8ccf6b38ab81e773ac26c2cb6e1a1dc166fb6e703fc88e7b6a82c",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Conservation Commission/ Inland Wetlands and Watercourse Agency",
-        "date": "2026-10-05",
-        "body": "Conservation Commission/Inland Wetlands and Watercourses Agency"
-      },
-      "doc": {
-        "id": "civicclerk-13900",
-        "sha256": "e9b4d8c60c8b9d54d65517cabeda373e043dd24d534c700997268d5e592d287b"
-      }
-    },
-    {
-      "custom_id": "tr-8",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "cf47be3d09ed09637a9418da162a44e2c3554461a8568478caf6ebe3b6e3c0d0",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Economic and Community Development",
-        "date": "2026-10-01",
-        "body": "Economic and Community Development Board"
-      },
-      "doc": {
-        "id": "civicclerk-13894",
-        "sha256": "1839a2d19b526e3e3bd2405162b678c36804d8ad40cd5efac4e2e5f087a65f4d"
+        "id": "civicclerk-13904",
+        "sha256": "755b2baaf2f6dfaaaa455b05c4e587e2a6cfee00f249c7daa41e0fdfc8e8420a"
       }
     }
   ]
