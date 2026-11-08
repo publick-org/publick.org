@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01F5jXjJtNSSsFzYqeE2dwPG",
-  "sent_at": "2026-11-08T07:35:53+00:00",
+  "id": "msgbatch_016J9yy47WbbNfCtkFcaHjwR",
+  "sent_at": "2026-11-08T07:41:49+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,48 +11,16 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
-      "kind": "minutes",
-      "older": false,
-      "meeting": {
-        "title": "Housing Board of Review Meeting",
-        "date": "2026-11-02",
-        "body": "Housing Board of Review"
-      },
-      "doc": {
-        "id": "civicclerk-21556",
-        "sha256": "7aab7e8e7a0df280b36ad729e8cf0cef617a22c19290a8b42069d52e7d7fbcf5",
-        "file": "civicclerk-21556.pdf",
-        "source_url": "https://burlingtonvt.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=21556,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-1",
-      "kind": "recording",
-      "older": false,
-      "meeting": {
-        "title": "Police Commission Meeting",
-        "date": "2026-10-27",
-        "body": "Police Commission"
-      },
-      "doc": {
-        "id": "archive-cctv17vt-Burlington_Police_Commission_-_10_27_2026-5ro8TtotDWc",
-        "sha256": "caa947ebd4c7b07254fc1eeacb8b7d2c40c171e6c8edb034013067e8a45dc6aa",
-        "file": "archive-cctv17vt-Burlington_Police_Commission_-_10_27_2026-5ro8TtotDWc.txt",
-        "source_url": "https://archive.org/details/cctv17vt-Burlington_Police_Commission_-_10_27_2026-5ro8TtotDWc"
-      }
-    },
-    {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "82f4ac78800cca8f066bcd369346662602c7a85d4aa51896fa834fc68ed99ac1",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Development Review Board Meeting",
@@ -62,6 +30,50 @@
       "doc": {
         "id": "civicclerk-21551",
         "sha256": "fb0236ff5183f7c80e4697ca2b1e4edd708aef328412f5cdc375566e0549e2f0"
+      }
+    },
+    {
+      "custom_id": "tr-1",
+      "type": "translation",
+      "lang": "es",
+      "kind": "minutes",
+      "older": false,
+      "source_hash": "faeab0e48a5abfc8f59158dc948526001236c7e96d797c80a026b8cde88659ac",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Housing Board of Review Meeting",
+        "date": "2026-11-02",
+        "body": "Housing Board of Review"
+      },
+      "doc": {
+        "id": "civicclerk-21556",
+        "sha256": "7aab7e8e7a0df280b36ad729e8cf0cef617a22c19290a8b42069d52e7d7fbcf5"
+      }
+    },
+    {
+      "custom_id": "tr-2",
+      "type": "translation",
+      "lang": "es",
+      "kind": "recording",
+      "older": false,
+      "source_hash": "68f1f365958783b1dc40414a7244e6b48560e3afe5dc6abf723ede0106654611",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Police Commission Meeting",
+        "date": "2026-10-27",
+        "body": "Police Commission"
+      },
+      "doc": {
+        "id": "archive-cctv17vt-Burlington_Police_Commission_-_10_27_2026-5ro8TtotDWc",
+        "sha256": "caa947ebd4c7b07254fc1eeacb8b7d2c40c171e6c8edb034013067e8a45dc6aa"
       }
     }
   ]
