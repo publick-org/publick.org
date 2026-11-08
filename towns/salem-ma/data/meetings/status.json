@@ -6,19 +6,25 @@
     },
     "CivicClerk": {
       "listed": 10,
-      "updated_at": "2026-11-07T04:11:01-05:00"
+      "updated_at": "2026-11-08T04:16:31-05:00"
     },
     "city calendar": {
       "listed": 70,
       "updated_at": "2026-11-07T04:11:01-05:00"
     }
   },
-  "errors": [],
-  "event_pages_checked": 33,
-  "failed_calendars": [],
-  "listed_in_feed": 595,
-  "new_meetings": 2,
-  "renamed": 2,
-  "requests": 19,
+  "errors": [
+    "city calendar: https://www.salemma.gov/Calendar.aspx?CID=0&view=list&month=11&year=2026: HTTPSConnectionPool(host='www.salemma.gov', port=443): Max retries exceeded with url: /Calendar.aspx?CID=0&view=list&month=11&year=2026 (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.salemma.gov', port=443) at 0x7fde32bf1fd0>, 'Connection to www.salemma.gov timed out. (connect timeout=30.0)'))",
+    "Agenda Center: https://www.salemma.gov/AgendaCenter/Search/?term=&CIDs=all&startDate=01/01/2026&endDate=01/07/2027&dateRange=&dateSelector=: HTTPSConnectionPool(host='www.salemma.gov', port=443): Max retries exceeded with url: /AgendaCenter/Search/?term=&CIDs=all&startDate=01/01/2026&endDate=01/07/2027&dateRange=&dateSelector= (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.salemma.gov', port=443) at 0x7fde32e87410>, 'Connection to www.salemma.gov timed out. (connect timeout=30.0)'))"
+  ],
+  "event_pages_checked": 3,
+  "failed_calendars": [
+    "city calendar",
+    "Agenda Center"
+  ],
+  "listed_in_feed": 10,
+  "new_meetings": 0,
+  "renamed": 0,
+  "requests": 9,
   "updated_at": "2026-11-07T04:11:01-05:00"
 }
