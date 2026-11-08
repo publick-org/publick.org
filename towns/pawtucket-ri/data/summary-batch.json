@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01P4ajBAPKANoLXTeu5KnDiS",
-  "sent_at": "2026-11-07T09:51:53+00:00",
+  "id": "msgbatch_014J6PCQ2dugcPngKMV3xoQN",
+  "sent_at": "2026-11-08T09:23:37+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -12,15 +12,15 @@
   "documents": [
     {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "5a459527e4730eb9b1112c1796962db407ea1df73e6a3519d6568db279e69420",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "City Council Committee on Claims and Pending Suits Meeting",
@@ -36,13 +36,35 @@
       "custom_id": "tr-1",
       "type": "translation",
       "lang": "es",
-      "kind": "minutes",
+      "kind": "agenda",
       "older": false,
-      "source_hash": "043b958ae3a48d0dc6d5251135f9f3ce6f1abb92d39dd58f5c00764583d0327d",
+      "source_hash": "4a5aec0f5ab13f7737c67fe0b9366ffd8636f95d1237c528ba7053b09660b7c0",
       "model": "claude-haiku-5-5",
       "prices": {
         "input_price": 0.1,
         "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Water Supply Board Meeting",
+        "date": "2026-11-10",
+        "body": "Water Supply Board"
+      },
+      "doc": {
+        "id": "opengov-570827-775fab08",
+        "sha256": "775fab0801029ad63d9e5ace90b8b98f29bb3522fc8065aebe7d3681c48b35f2"
+      }
+    },
+    {
+      "custom_id": "tr-2",
+      "type": "review",
+      "lang": "es",
+      "kind": "minutes",
+      "older": false,
+      "source_hash": "043b958ae3a48d0dc6d5251135f9f3ce6f1abb92d39dd58f5c00764583d0327d",
+      "model": "claude-sonnet-5-5",
+      "prices": {
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "School Committee Meeting",
@@ -55,16 +77,16 @@
       }
     },
     {
-      "custom_id": "tr-2",
-      "type": "translation",
+      "custom_id": "tr-3",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "179ac094bf4ce794ba389520e37dd4cb05e2769018c2cf9fde91c0f750445643",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "School Committee Finance Subcommittee Meeting",
@@ -77,16 +99,16 @@
       }
     },
     {
-      "custom_id": "tr-3",
-      "type": "translation",
+      "custom_id": "tr-4",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "1b30e433769e3d76659427346e7da0688e58b7e499c41b0ed8984b35ad64f24a",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "School Committee Policy Subcommittee Meeting",
@@ -99,16 +121,16 @@
       }
     },
     {
-      "custom_id": "tr-4",
-      "type": "translation",
+      "custom_id": "tr-5",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "ca8abedb79e348dce1fed4803507f3309d8e14a905c39d3196344b3b10821877",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "School Committee Policy Subcommittee Meeting",
@@ -118,28 +140,6 @@
       "doc": {
         "id": "opengov-570858-725aa8ae",
         "sha256": "725aa8aeef55c7257c00fd77a4a6db829374bef3859ccc072f3d61c2d7d5ae5e"
-      }
-    },
-    {
-      "custom_id": "tr-5",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "9a641042c6e44f34091b0a35207eb73160fa86d8f6ef0664aae400ea30ed8d23",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Board of License Commissioners Meeting",
-        "date": "2026-10-21",
-        "body": "Board of License Commissioners"
-      },
-      "doc": {
-        "id": "opengov-570773-b93608c2",
-        "sha256": "b93608c2ef6968cc401d342ff09458c64048c496c69dcb5b7adaebccf8eb3367"
       }
     }
   ]
