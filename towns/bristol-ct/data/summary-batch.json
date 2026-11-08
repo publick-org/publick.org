@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01TsQZCKYNfq4EQPL6wmok8x",
-  "sent_at": "2026-11-07T13:49:58+00:00",
+  "id": "msgbatch_013h5kaB8kNDwTH4JwgAkone",
+  "sent_at": "2026-11-08T09:29:12+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -12,15 +12,15 @@
   "documents": [
     {
       "custom_id": "tr-0",
-      "type": "review",
+      "type": "translation",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "a6889de66f233135b4967a6011b519aee5b6c9ed52e29151a362d84723b13fde",
-      "model": "claude-sonnet-5-5",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
         "title": "COA November 19 2026",
@@ -34,15 +34,15 @@
     },
     {
       "custom_id": "tr-1",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "3709c702872ccff70dcbff1203974926180e82db6699a8344c46a37f85844ff6",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "City Council Meeting",
@@ -56,15 +56,15 @@
     },
     {
       "custom_id": "tr-2",
-      "type": "review",
+      "type": "translation",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "18788d727f613211b5e495eca589424c7f8638c1dcf5019a5a0aa9a97b391b8c",
-      "model": "claude-sonnet-5-5",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
         "title": "COA September 17 2026",
@@ -74,6 +74,28 @@
       "doc": {
         "id": "civicclerk-13904",
         "sha256": "755b2baaf2f6dfaaaa455b05c4e587e2a6cfee00f249c7daa41e0fdfc8e8420a"
+      }
+    },
+    {
+      "custom_id": "tr-3",
+      "type": "review",
+      "lang": "es",
+      "kind": "minutes",
+      "older": false,
+      "source_hash": "bff8ea3561339151eb0237b0106f257a6dba6da44a85e860d2bc87933ee14dfe",
+      "model": "claude-sonnet-5-5",
+      "prices": {
+        "input_price": 2.0,
+        "output_price": 10.0
+      },
+      "meeting": {
+        "title": "City Council Meeting",
+        "date": "2026-08-12",
+        "body": "City Council"
+      },
+      "doc": {
+        "id": "civicclerk-13401",
+        "sha256": "bffc7b4edd760a95b20bb3cbf11d04651eb1f796624a2da167488b25ca566712"
       }
     }
   ]
