@@ -1,54 +1,54 @@
 {
   "town": "winooski",
   "folder": "winooski-vt",
-  "started_at": "2026-11-08T09:06:49+00:00",
-  "finished_at": "2026-11-08T09:12:39+00:00",
-  "engine": "v1.101.0",
+  "started_at": "2026-11-09T09:12:24+00:00",
+  "finished_at": "2026-11-09T09:13:31+00:00",
+  "engine": "v1.102.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 307.8
+      "seconds": 22.6
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 6.2
+      "seconds": 4.6
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 34.1
+      "seconds": 27.3
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 15.2
+      "seconds": 11.1
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 1.0
+      "seconds": 0.9
     }
   ],
   "update": {
     "town": "winooski",
     "sources": "all",
-    "started_at": "2026-11-08T09:06:50+00:00",
+    "started_at": "2026-11-09T09:12:25+00:00",
     "ok": true,
     "steps": [
       {
         "name": "Fetch meetings",
-        "ok": false,
+        "ok": true,
         "required": false,
-        "error": "exited with status 1",
-        "seconds": 251.4,
+        "error": null,
+        "seconds": 5.9,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 13.9,
+        "seconds": 10.6,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 11.5,
+        "seconds": 4.1,
         "cadence": "continuous"
       },
       {
@@ -145,23 +145,25 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 6 days ago; checked every 30 days"
+        "skipped": "checked 7 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.7,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 3.6,
-        "cadence": "yearly"
+        "seconds": 0,
+        "cadence": "yearly",
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch budget figures",
@@ -170,22 +172,23 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 7 days ago; checked every 30 days"
+        "skipped": "checked 8 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 24.5,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -255,14 +258,14 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-07T04:06:46-05:00",
+      "updated_at": "2026-11-09T04:12:25-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Board meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-08T04:11:02-05:00",
+      "updated_at": "2026-11-09T04:12:31-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -350,9 +353,9 @@
   "failing": [],
   "deployed": true,
   "ok": true,
-  "last_good_at": "2026-11-09T09:08:32+00:00",
-  "data_bytes": 1138442,
-  "data_bytes_added": 6331,
+  "last_good_at": "2026-11-09T09:13:31+00:00",
+  "data_bytes": 1144948,
+  "data_bytes_added": -577,
   "activity": {
     "boards": 21,
     "meetings_by_date": {
@@ -361,8 +364,8 @@
     }
   },
   "fact_checks": {
-    "summaries": 48,
-    "ok": 39,
+    "summaries": 49,
+    "ok": 40,
     "failed": 9,
     "weak": 0,
     "unchecked": 0,
@@ -372,8 +375,8 @@
     "vote_counts_left_out": 2
   },
   "recordings": {
-    "since": "2026-11-01",
-    "until": "2026-11-07",
+    "since": "2026-11-02",
+    "until": "2026-11-08",
     "held": 1,
     "next_day": 0,
     "steps": {
@@ -390,8 +393,8 @@
     "misses": []
   },
   "documents": {
-    "since": "2026-08-10",
-    "until": "2026-11-07",
+    "since": "2026-08-11",
+    "until": "2026-11-08",
     "held": 39,
     "boards": 14,
     "counts": {
@@ -409,7 +412,5 @@
   "officials": {
     "checked_at": "2026-11-07T04:07:40-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-09T09:08:32+00:00",
-  "published_engine": "v1.102.0"
+  }
 }
