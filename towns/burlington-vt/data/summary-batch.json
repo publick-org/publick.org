@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_016J9yy47WbbNfCtkFcaHjwR",
-  "sent_at": "2026-11-08T07:41:49+00:00",
+  "id": "msgbatch_01KSyeLaLxmkfwg7cLe4y2V4",
+  "sent_at": "2026-11-09T09:11:38+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,38 +11,48 @@
   },
   "documents": [
     {
+      "custom_id": "doc-0",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "Library Commission Meeting",
+        "date": "2026-11-18",
+        "body": "Library Commission"
+      },
+      "doc": {
+        "id": "civicclerk-21557",
+        "sha256": "d8f4c0600c143d6f3f7e2c12b22a93ae3f61cba20bc6858616934bc79bda5c0b",
+        "file": "civicclerk-21557.pdf",
+        "source_url": "https://burlingtonvt.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=21557,plainText=false)"
+      }
+    },
+    {
+      "custom_id": "doc-1",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "Fletcher Free Library Commission",
+        "date": "2026-12-16",
+        "body": "Library Commission"
+      },
+      "doc": {
+        "id": "civicclerk-21558",
+        "sha256": "b64da67791c2c44567bdeeaec9f321c64a524456cbe668f7eef1bf2f2662aed0",
+        "file": "civicclerk-21558.pdf",
+        "source_url": "https://burlingtonvt.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=21558,plainText=false)"
+      }
+    },
+    {
       "custom_id": "tr-0",
       "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
-      "source_hash": "82f4ac78800cca8f066bcd369346662602c7a85d4aa51896fa834fc68ed99ac1",
+      "source_hash": "faeab0e48a5abfc8f59158dc948526001236c7e96d797c80a026b8cde88659ac",
       "model": "claude-sonnet-5-5",
       "prices": {
         "input_price": 2.0,
         "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Development Review Board Meeting",
-        "date": "2026-11-04",
-        "body": "Development Review Board"
-      },
-      "doc": {
-        "id": "civicclerk-21551",
-        "sha256": "fb0236ff5183f7c80e4697ca2b1e4edd708aef328412f5cdc375566e0549e2f0"
-      }
-    },
-    {
-      "custom_id": "tr-1",
-      "type": "translation",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "faeab0e48a5abfc8f59158dc948526001236c7e96d797c80a026b8cde88659ac",
-      "model": "claude-haiku-5-5",
-      "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
       },
       "meeting": {
         "title": "Housing Board of Review Meeting",
@@ -55,16 +65,16 @@
       }
     },
     {
-      "custom_id": "tr-2",
-      "type": "translation",
+      "custom_id": "tr-1",
+      "type": "review",
       "lang": "es",
       "kind": "recording",
       "older": false,
       "source_hash": "68f1f365958783b1dc40414a7244e6b48560e3afe5dc6abf723ede0106654611",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Police Commission Meeting",
