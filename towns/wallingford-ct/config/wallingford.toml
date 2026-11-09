@@ -166,6 +166,29 @@ schedule_url = "https://www.wallingford.k12.ct.us/board-of-education/board-of-ed
 "Instructional" = "Board of Education Instructional Committee"
 "Policy" = "Board of Education Policy Committee"
 
+# Where a meeting's summary is wrong, the meeting's page says so and shows it
+# corrected (the engine's docs/meetings.md, "Corrections"): words replaced, or a
+# decision taken off or added, each with the reason and the evidence. Once the
+# summary is made again after `checked`, the correction comes down until it's
+# checked again.
+[[meetings.corrections]]
+board = "Inland Wetlands & Watercourses Commission"
+date = "2026-11-04"
+replaces = "South Colony Street"
+with = "South Colony Road"
+checked = "2026-11-09"
+note = "Misheard in the recording; the agenda says South Colony Road."
+evidence = "https://www.wallingfordct.gov/minutes-and-agendas/DownloadFile.aspx?FileID=12247"
+
+[[meetings.corrections]]
+board = "Inland Wetlands & Watercourses Commission"
+date = "2026-11-04"
+replaces = "932 Northford Road"
+with = "932 Northrop Road"
+checked = "2026-11-09"
+note = "Misheard in the recording; the agenda says 932 Northrop Road."
+evidence = "https://www.wallingfordct.gov/minutes-and-agendas/DownloadFile.aspx?FileID=12247"
+
 # Agenda and minutes PDFs, in the network's documents bucket.
 [storage]
 prefix = "wallingford-ct"
@@ -288,6 +311,9 @@ members = [
 ]
 
 [strings.es]
+# The corrections of meeting summaries in [[meetings.corrections]].
+"Misheard in the recording; the agenda says South Colony Road." = "Se entendió mal en la grabación; la agenda dice South Colony Road."
+"Misheard in the recording; the agenda says 932 Northrop Road." = "Se entendió mal en la grabación; la agenda dice 932 Northrop Road."
 # The masthead and the share text.
 "Public data on how Wallingford, Connecticut decides and spends. Updated daily." = "Datos públicos sobre cómo Wallingford, Connecticut, toma decisiones y gasta su dinero. Se actualizan a diario."
 "An independent guide to town government in Wallingford, Connecticut" = "Una guía independiente sobre el gobierno municipal de Wallingford, Connecticut"

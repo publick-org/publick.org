@@ -225,6 +225,19 @@ wards_publisher = "MassGIS"
 wards_year = "2022"
 wards_url = "https://gis.data.mass.gov/maps/aec5130790814ace94438d3bcf23cf9a"
 
+# Where a meeting's summary is wrong, the meeting's page says so and shows it
+# corrected (the engine's docs/meetings.md, "Corrections"): words replaced, or a
+# decision taken off or added, each with the reason and the evidence. Once the
+# summary is made again after `checked`, the correction comes down until it's
+# checked again.
+[[meetings.corrections]]
+meeting = "1645"
+replaces = "Jeffrey Farrely"
+with = "Jeffrey Farelli"
+checked = "2026-11-09"
+note = "Misheard in the recording; the agenda says Jeffrey Farelli."
+evidence = "https://www.methuen.gov/AgendaCenter/ViewFile/Agenda/_11022026-1171"
+
 # Agenda and minutes PDFs live in the network's documents bucket, not in git
 # (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID, STORAGE_SECRET_ACCESS_KEY.
 [storage]

@@ -174,6 +174,47 @@ name_columns = ["Date"]
 [digest]
 # The network's settings (defaults/network.toml): having the table turns the signup on.
 
+# Where a meeting's summary is wrong, the meeting's page says so and shows it
+# corrected (the engine's docs/meetings.md, "Corrections"): words replaced, or a
+# decision taken off or added, each with the reason and the evidence. Once the
+# summary is made again after `checked`, the correction comes down until it's
+# checked again.
+[[meetings.corrections]]
+board = "Planning Board"
+date = "2026-10-28"
+replaces = "23 Everton Street"
+with = "23 Everton Avenue"
+checked = "2026-11-09"
+note = "Misheard in the recording; the agenda says 23 Everton Avenue."
+evidence = "https://worcesterma.primegov.com/Public/CompiledDocument?meetingTemplateId=76884&compileOutputType=1"
+
+[[meetings.corrections]]
+board = "Standing Committee on Traffic and Parking"
+date = "2026-10-28"
+replaces = "Mentor Street"
+with = "Minthorne Street"
+checked = "2026-11-09"
+note = "Misheard in the recording; the agenda says Clive St. at Minthorne St.."
+evidence = "https://worcesterma.primegov.com/Public/CompiledDocument?meetingTemplateId=76743&compileOutputType=1"
+
+[[meetings.corrections]]
+board = "License Commission"
+date = "2026-11-05"
+replaces = "IC Gaming"
+with = "Icy Gaming"
+checked = "2026-11-09"
+note = "Misheard in the recording; the agenda says Icy Gaming."
+evidence = "https://worcesterma.primegov.com/Public/CompiledDocument?meetingTemplateId=77176&compileOutputType=1"
+
+[[meetings.corrections]]
+board = "License Commission"
+date = "2026-11-05"
+replaces = "Eddie's Pub"
+with = "Eddy's Pub"
+checked = "2026-11-09"
+note = "Misheard in the recording; the agenda says Eddy's Pub and Sports Bar, Inc.."
+evidence = "https://worcesterma.primegov.com/Public/CompiledDocument?meetingTemplateId=77176&compileOutputType=1"
+
 # Agenda and minutes PDFs live in the network's documents bucket, not in git
 # (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID,
 # STORAGE_SECRET_ACCESS_KEY.

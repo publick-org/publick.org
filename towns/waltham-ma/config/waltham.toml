@@ -225,6 +225,38 @@ exclude_pattern = "Español"
 # alone ("June 10, 2026 Special Meeting").
 agenda_pattern = '\bagenda\b|special meeting|workshop|public hearing'
 
+# Where a meeting's summary is wrong, the meeting's page says so and shows it
+# corrected (the engine's docs/meetings.md, "Corrections"): words replaced, or a
+# decision taken off or added, each with the reason and the evidence. Once the
+# summary is made again after `checked`, the correction comes down until it's
+# checked again.
+[[meetings.corrections]]
+board = "City Council"
+date = "2026-10-26"
+replaces = "Hits and Hollows"
+with = "Hits and Holos"
+checked = "2026-11-09"
+note = "Misheard in the recording; the agenda says Hits and Holos."
+evidence = "https://www.city.waltham.ma.us/AgendaCenter/ViewFile/Agenda/_10262026-712"
+
+[[meetings.corrections]]
+board = "City Council"
+date = "2026-10-26"
+replaces = "Manu Park"
+with = "Minwoo Park"
+checked = "2026-11-09"
+note = "Misheard in the recording; the agenda says Minwoo Park."
+evidence = "https://www.city.waltham.ma.us/AgendaCenter/ViewFile/Agenda/_10262026-712"
+
+[[meetings.corrections]]
+board = "License Commission"
+date = "2026-10-28"
+replaces = "Child's Review Museum"
+with = "Charles River Museum of Industry and Innovation"
+checked = "2026-11-09"
+note = "Misheard in the recording; the agenda says Charles River Museum of Industry and Innovation."
+evidence = "https://www.city.waltham.ma.us/AgendaCenter/ViewFile/Agenda/_10282026-722"
+
 # Agenda and minutes PDFs live in the network's documents bucket, not in git
 # (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID, STORAGE_SECRET_ACCESS_KEY.
 [storage]
