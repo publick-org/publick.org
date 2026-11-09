@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01TMh7vgELBJ9RW9TRFHEpBE",
-  "sent_at": "2026-11-08T10:16:33+00:00",
+  "id": "msgbatch_01Nnw3jDj9b2LXxX6Enm7EH1",
+  "sent_at": "2026-11-09T09:18:15+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,38 +11,48 @@
   },
   "documents": [
     {
+      "custom_id": "doc-0",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "Parks & Recreation Commission Regular Meeting",
+        "date": "2026-11-10",
+        "body": "Parks & Recreation Commission"
+      },
+      "doc": {
+        "id": "civicclerk-14245",
+        "sha256": "0cf638f41e949b9afa39d5e2cafa77151bfd9587db4e3f048f2241f90fa54196",
+        "file": "civicclerk-14245.pdf",
+        "source_url": "https://hamdenct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=14245,plainText=false)"
+      }
+    },
+    {
+      "custom_id": "doc-1",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "Solid Waste & Recycling Commission Regular Meeting",
+        "date": "2026-11-11",
+        "body": "Solid Waste & Recycling Commission"
+      },
+      "doc": {
+        "id": "civicclerk-14244",
+        "sha256": "f54cd90414be96a29df328558e688501f1d47c8a8de7b3d58d65f60db876809d",
+        "file": "civicclerk-14244.pdf",
+        "source_url": "https://hamdenct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=14244,plainText=false)"
+      }
+    },
+    {
       "custom_id": "tr-0",
       "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
-      "source_hash": "59f9469784f66616f5230c4510da9fa5ce68b62b713307ca64ef4d5fb641f7d0",
+      "source_hash": "adbc3435a89fe21f0e3b2d9354b114f87e011131203c4e1e1ba8aa59bf129f96",
       "model": "claude-sonnet-5-5",
       "prices": {
         "input_price": 2.0,
         "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Energy Use & Climate Change Commission Regular Meeting",
-        "date": "2026-11-09",
-        "body": "Energy Use & Climate Change Commission"
-      },
-      "doc": {
-        "id": "civicclerk-14241",
-        "sha256": "60183470bdc3fb6def737973e07aa5025afa09fbc689b8fd654e95eb97cb7488"
-      }
-    },
-    {
-      "custom_id": "tr-1",
-      "type": "translation",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "adbc3435a89fe21f0e3b2d9354b114f87e011131203c4e1e1ba8aa59bf129f96",
-      "model": "claude-haiku-5-5",
-      "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
       },
       "meeting": {
         "title": "Legislative Council Regular Meeting - Nov 9",
@@ -52,28 +62,6 @@
       "doc": {
         "id": "civicclerk-14242",
         "sha256": "a486d10052265911745a4d1fbf5ff942379d6f61f06901c8c17e7be49de5ad7e"
-      }
-    },
-    {
-      "custom_id": "tr-2",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "9d3b8e98593c13b9fcfccd1e0cbd7a7dc0b83071badb3a33548ce92adf93ea5c",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Traffic Authority Commission Regular Meeting",
-        "date": "2026-11-09",
-        "body": "Traffic Authority"
-      },
-      "doc": {
-        "id": "civicclerk-14238",
-        "sha256": "2c76649d77a2236d48479559d082841339a0977c0aa065537d18933ed024e311"
       }
     }
   ]
