@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01KSyeLaLxmkfwg7cLe4y2V4",
-  "sent_at": "2026-11-09T09:11:38+00:00",
+  "id": "msgbatch_01E9hEcxHhtnohTAZaoUo1SL",
+  "sent_at": "2026-11-09T09:22:48+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,25 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
-      "meeting": {
-        "title": "Library Commission Meeting",
-        "date": "2026-11-18",
-        "body": "Library Commission"
+      "source_hash": "52fa964ba6df3443bdbcc22937e77adbedbcd027d8c0cbbc134fab337223e85b",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
       },
-      "doc": {
-        "id": "civicclerk-21557",
-        "sha256": "d8f4c0600c143d6f3f7e2c12b22a93ae3f61cba20bc6858616934bc79bda5c0b",
-        "file": "civicclerk-21557.pdf",
-        "source_url": "https://burlingtonvt.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=21557,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-1",
-      "kind": "agenda",
-      "older": false,
       "meeting": {
         "title": "Fletcher Free Library Commission",
         "date": "2026-12-16",
@@ -37,53 +29,29 @@
       },
       "doc": {
         "id": "civicclerk-21558",
-        "sha256": "b64da67791c2c44567bdeeaec9f321c64a524456cbe668f7eef1bf2f2662aed0",
-        "file": "civicclerk-21558.pdf",
-        "source_url": "https://burlingtonvt.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=21558,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "tr-0",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "faeab0e48a5abfc8f59158dc948526001236c7e96d797c80a026b8cde88659ac",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Housing Board of Review Meeting",
-        "date": "2026-11-02",
-        "body": "Housing Board of Review"
-      },
-      "doc": {
-        "id": "civicclerk-21556",
-        "sha256": "7aab7e8e7a0df280b36ad729e8cf0cef617a22c19290a8b42069d52e7d7fbcf5"
+        "sha256": "b64da67791c2c44567bdeeaec9f321c64a524456cbe668f7eef1bf2f2662aed0"
       }
     },
     {
       "custom_id": "tr-1",
-      "type": "review",
+      "type": "translation",
       "lang": "es",
-      "kind": "recording",
+      "kind": "agenda",
       "older": false,
-      "source_hash": "68f1f365958783b1dc40414a7244e6b48560e3afe5dc6abf723ede0106654611",
-      "model": "claude-sonnet-5-5",
+      "source_hash": "630ab1e529901a27aba86357759c4da968937ee8b5f9c0a6a876930e08db77da",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
-        "title": "Police Commission Meeting",
-        "date": "2026-10-27",
-        "body": "Police Commission"
+        "title": "Library Commission Meeting",
+        "date": "2026-11-18",
+        "body": "Library Commission"
       },
       "doc": {
-        "id": "archive-cctv17vt-Burlington_Police_Commission_-_10_27_2026-5ro8TtotDWc",
-        "sha256": "caa947ebd4c7b07254fc1eeacb8b7d2c40c171e6c8edb034013067e8a45dc6aa"
+        "id": "civicclerk-21557",
+        "sha256": "d8f4c0600c143d6f3f7e2c12b22a93ae3f61cba20bc6858616934bc79bda5c0b"
       }
     }
   ]
