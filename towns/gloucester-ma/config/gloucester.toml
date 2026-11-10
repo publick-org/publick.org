@@ -121,6 +121,43 @@ max_event_pages = 40
 "Personnel Subcommittee Online" = "School Committee Personnel Subcommittee"
 "Ad Hoc Communications Subcommittee" = "School Committee Ad Hoc Communications Subcommittee"
 
+# Where a meeting's summary is wrong, the meeting's page says so and shows it
+# corrected (the engine's docs/meetings.md, "Corrections"): words replaced, or a
+# decision taken off or added, each with the reason and the evidence. Once the
+# summary is made again after `checked`, the correction comes down until it's
+# checked again.
+[[meetings.corrections]]
+board = "City Council"
+date = "2026-10-27"
+add_decision = "Approved accepting a $132,000 Massachusetts Downtown Initiative capital grant to refresh the HarborWalk, 8-1."
+checked = "2026-11-10"
+note = "Missing from the votes."
+evidence = "https://www.youtube.com/watch?v=Kb0teFwRY1s&t=3665s"
+
+[[meetings.corrections]]
+board = "City Council"
+date = "2026-10-27"
+add_decision = "Approved the appointment of Angela Sanfilippo to the Fisheries Commission, for a term ending February 15, 2029, 9-0."
+checked = "2026-11-10"
+note = "Missing from the votes."
+evidence = "https://www.youtube.com/watch?v=Kb0teFwRY1s&t=1946s"
+
+[[meetings.corrections]]
+board = "City Council"
+date = "2026-10-27"
+add_decision = "Approved the consent agenda, as amended, 9-0."
+checked = "2026-11-10"
+note = "Missing from the votes."
+evidence = "https://www.youtube.com/watch?v=Kb0teFwRY1s&t=1946s"
+
+[[meetings.corrections]]
+board = "City Council"
+date = "2026-10-27"
+add_decision = "Denied a motion to set a residential tax factor of one, equal tax rates for all classes of property, 2-7."
+checked = "2026-11-10"
+note = "Missing from the votes."
+evidence = "https://www.youtube.com/watch?v=Kb0teFwRY1s&t=6017s"
+
 # 311 requests, from SeeClickFix (public requests only).
 [seeclickfix]
 organization_id = 547
@@ -329,6 +366,12 @@ members = [
 # only; the site shows its English name after it. To be checked by a person who
 # reads Spanish before the site launches.
 [strings.es]
+# Corrections of meeting summaries ([[meetings.corrections]], above).
+"Missing from the votes." = "Faltaba entre las votaciones."
+"Approved the appointment of Angela Sanfilippo to the Fisheries Commission, for a term ending February 15, 2029, 9-0." = "Se aprobó el nombramiento de Angela Sanfilippo a la Comisión de Pesca, por un período que termina el 15 de febrero de 2029, 9-0."
+"Approved the consent agenda, as amended, 9-0." = "Se aprobó la agenda de consentimiento, con enmiendas, 9-0."
+"Denied a motion to set a residential tax factor of one, equal tax rates for all classes of property, 2-7." = "Se rechazó una moción para fijar un factor residencial de uno, con tasas iguales para todas las clases de propiedad, 2-7."
+"Approved accepting a $132,000 Massachusetts Downtown Initiative capital grant to refresh the HarborWalk, 8-1." = "Se aprobó aceptar una subvención de capital de $132,000 de Massachusetts Downtown Initiative para renovar HarborWalk, 8-1."
 # The masthead and the share text.
 "Public data on how Gloucester, Massachusetts responds, decides, and spends. Updated daily." = "Datos públicos sobre cómo Gloucester, Massachusetts, responde, toma decisiones y gasta su dinero. Se actualizan a diario."
 "An independent guide to city government in Gloucester, Massachusetts" = "Una guía independiente sobre el gobierno de la ciudad de Gloucester, Massachusetts"
