@@ -1,34 +1,34 @@
 {
   "town": "portland",
   "folder": "portland-me",
-  "started_at": "2026-11-09T09:13:34+00:00",
-  "finished_at": "2026-11-09T09:17:05+00:00",
-  "engine": "v1.102.0",
+  "started_at": "2026-11-10T01:04:25+00:00",
+  "finished_at": "2026-11-10T01:07:48+00:00",
+  "engine": "v1.103.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 97.9
+      "seconds": 94.1
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 13.9
+      "seconds": 12.1
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 95.1
+      "seconds": 93.2
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.2
+      "seconds": 2.9
     },
     {
       "name": "Check live site",
@@ -39,8 +39,8 @@
   ],
   "update": {
     "town": "portland",
-    "sources": "all",
-    "started_at": "2026-11-09T09:13:34+00:00",
+    "sources": "meetings",
+    "started_at": "2026-11-10T01:04:26+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 33.9,
+        "seconds": 39.8,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -91,7 +91,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 38.5,
+        "seconds": 36.4,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 10.5,
+        "seconds": 14.8,
         "cadence": "continuous"
       },
       {
@@ -151,9 +151,8 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 6 days ago; checked every 7 days"
+        "seconds": 0.5,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch school figures",
@@ -162,16 +161,15 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 26 days ago; checked every 30 days"
+        "skipped": "checked 27 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "yearly",
-        "skipped": "checked 6 days ago; checked every 7 days"
+        "seconds": 0.3,
+        "cadence": "yearly"
       },
       {
         "name": "Fetch housing figures",
@@ -180,7 +178,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 3 days ago; checked every 7 days"
+        "skipped": "checked 4 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -222,31 +220,6 @@
         "error": null,
         "seconds": 0.3,
         "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 9.7,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests from an open data portal",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [socrata_311] in the config"
-      },
-      {
-        "name": "Compute 311 scorecard",
-        "ok": true,
-        "required": true,
-        "error": null,
-        "seconds": 3.5,
-        "cadence": "continuous"
       }
     ]
   },
@@ -255,14 +228,14 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-09T04:13:34-05:00",
+      "updated_at": "2026-11-09T20:04:26-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Board of Public Education meetings (Diligent Community)",
       "file": "meetings/diligent_status.json",
-      "updated_at": "2026-11-09T04:14:08-05:00",
+      "updated_at": "2026-11-09T20:05:06-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -283,7 +256,7 @@
     {
       "label": "Tax rate and property tax",
       "file": "finance/budget.json",
-      "updated_at": "2026-11-03T00:49:10-05:00",
+      "updated_at": "2026-11-09T20:05:58-05:00",
       "max_days": null,
       "cadence": "yearly",
       "failing": 0,
@@ -307,7 +280,7 @@
     {
       "label": "Unemployment rate (BLS)",
       "file": "labor/unemployment.json",
-      "updated_at": "2026-11-03T00:49:10-05:00",
+      "updated_at": "2026-11-09T20:05:57-05:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
@@ -351,25 +324,26 @@
   ],
   "failing": [],
   "deployed": true,
+  "corrections": [],
   "ok": true,
   "last_good_at": "2026-11-05T00:13:15+00:00",
-  "data_bytes": 12712036,
-  "data_bytes_added": 10788285,
+  "data_bytes": 12718888,
+  "data_bytes_added": 10789127,
   "activity": {
     "boards": 41,
     "meetings_by_date": {
-      "2026-11-09": 2,
       "2026-11-10": 3,
       "2026-11-12": 2,
       "2026-11-16": 3,
       "2026-11-17": 3,
       "2026-11-18": 6,
-      "2026-11-19": 3
+      "2026-11-19": 3,
+      "2026-11-23": 1
     }
   },
   "fact_checks": {
-    "summaries": 128,
-    "ok": 117,
+    "summaries": 129,
+    "ok": 118,
     "failed": 11,
     "weak": 0,
     "unchecked": 0,
@@ -397,20 +371,20 @@
     "misses": []
   },
   "documents": {
-    "since": "2026-08-11",
-    "until": "2026-11-08",
+    "since": "2026-08-12",
+    "until": "2026-11-09",
     "held": 112,
     "boards": 36,
     "counts": {
       "no_documents": 0,
-      "no_minutes": 9,
+      "no_minutes": 8,
       "pairs": 0
     },
     "no_documents": [],
     "no_minutes": [
       {
         "board": "Board of Public Education",
-        "meetings": 4
+        "meetings": 3
       },
       {
         "board": "Historic Preservation Board",
@@ -433,10 +407,6 @@
         "meetings": 2
       },
       {
-        "board": "Planning Board",
-        "meetings": 2
-      },
-      {
         "board": "Portland Development Corporation",
         "meetings": 2
       },
@@ -450,7 +420,7 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-09T02:25:29-05:00",
+    "at": "2026-11-09T19:46:13-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-03T15:11:04-05:00"
@@ -458,8 +428,5 @@
   "officials": {
     "checked_at": "2026-11-07T04:24:41-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-09T19:32:47+00:00",
-  "published_engine": "v1.103.0",
-  "corrections": []
+  }
 }
