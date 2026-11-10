@@ -1,46 +1,46 @@
 {
   "town": "lowell",
   "folder": "lowell-ma",
-  "started_at": "2026-11-09T09:14:29+00:00",
-  "finished_at": "2026-11-09T09:15:53+00:00",
-  "engine": "v1.102.0",
+  "started_at": "2026-11-10T09:11:43+00:00",
+  "finished_at": "2026-11-10T09:12:50+00:00",
+  "engine": "v1.103.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 12.8
+      "seconds": 11.9
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 11.7
+      "seconds": 7.3
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 48.3
+      "seconds": 32.7
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 9.6
+      "seconds": 14.0
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.7
+      "seconds": 1.0
     }
   ],
   "update": {
     "town": "lowell",
     "sources": "all",
-    "started_at": "2026-11-09T09:14:29+00:00",
+    "started_at": "2026-11-10T09:11:43+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 2.0,
+        "seconds": 1.8,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.0,
+        "seconds": 0.8,
         "cadence": "continuous"
       },
       {
@@ -136,7 +136,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 7.7,
+        "seconds": 7.2,
         "cadence": "continuous"
       },
       {
@@ -146,16 +146,15 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 27 days ago; checked every 30 days"
+        "skipped": "checked 28 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 6 days ago; checked every 7 days"
+        "seconds": 0.6,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch school figures",
@@ -164,7 +163,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 27 days ago; checked every 30 days"
+        "skipped": "checked 28 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -173,7 +172,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 27 days ago; checked every 30 days"
+        "skipped": "checked 28 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -182,14 +181,14 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 4 days ago; checked every 7 days"
+        "skipped": "checked 5 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -197,7 +196,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -214,7 +213,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -222,7 +221,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -259,7 +258,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-09T04:14:30-05:00",
+      "updated_at": "2026-11-10T04:11:43-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -302,7 +301,7 @@
     {
       "label": "Unemployment rate (BLS)",
       "file": "labor/unemployment.json",
-      "updated_at": "2026-11-03T00:47:34-05:00",
+      "updated_at": "2026-11-10T04:11:53-05:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
@@ -346,14 +345,14 @@
   ],
   "failing": [],
   "deployed": true,
+  "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-09T09:15:53+00:00",
-  "data_bytes": 2718316,
-  "data_bytes_added": -568,
+  "last_good_at": "2026-11-10T09:12:50+00:00",
+  "data_bytes": 2718310,
+  "data_bytes_added": 2,
   "activity": {
     "boards": 40,
     "meetings_by_date": {
-      "2026-11-09": 3,
       "2026-11-10": 1
     }
   },
@@ -369,28 +368,35 @@
     "vote_counts_left_out": 124
   },
   "recordings": {
-    "since": "2026-11-02",
-    "until": "2026-11-08",
+    "since": "2026-11-03",
+    "until": "2026-11-09",
     "held": 3,
-    "next_day": 3,
+    "next_day": 2,
     "steps": {
-      "summarized": 3,
+      "summarized": 2,
       "minutes": 0,
       "transcribed": 0,
-      "waiting": 0,
+      "waiting": 1,
       "failed": 0,
       "unmatched": 0,
       "not_found": 0,
       "no_source": 0,
       "no_recordings": 0
     },
-    "misses": []
+    "misses": [
+      {
+        "date": "2026-11-09",
+        "board": "Zoning Board of Appeals",
+        "step": "waiting",
+        "detail": "1 recording(s) found"
+      }
+    ]
   },
   "documents": {
-    "since": "2026-08-11",
-    "until": "2026-11-08",
-    "held": 89,
-    "boards": 31,
+    "since": "2026-08-12",
+    "until": "2026-11-09",
+    "held": 87,
+    "boards": 29,
     "counts": {
       "no_documents": 0,
       "no_minutes": 1,
@@ -408,7 +414,7 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-09T02:25:02-05:00",
+    "at": "2026-11-10T02:27:26-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-07T00:25:21-05:00"

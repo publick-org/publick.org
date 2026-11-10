@@ -1,46 +1,46 @@
 {
   "town": "south-kingstown",
   "folder": "south-kingstown-ri",
-  "started_at": "2026-11-09T09:10:38+00:00",
-  "finished_at": "2026-11-09T09:13:07+00:00",
-  "engine": "v1.102.0",
+  "started_at": "2026-11-10T09:10:29+00:00",
+  "finished_at": "2026-11-10T09:13:07+00:00",
+  "engine": "v1.103.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 81.1
+      "seconds": 79.6
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 10.8
+      "seconds": 9.6
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 52.8
+      "seconds": 53.2
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 3.4
+      "seconds": 14.6
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.9
+      "seconds": 1.0
     }
   ],
   "update": {
     "town": "south-kingstown",
     "sources": "all",
-    "started_at": "2026-11-09T09:10:38+00:00",
+    "started_at": "2026-11-10T09:10:30+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 43.1,
+        "seconds": 40.1,
         "cadence": "continuous"
       },
       {
@@ -109,7 +109,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 19.5,
+        "seconds": 19.4,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 6.4,
+        "seconds": 6.6,
         "cadence": "continuous"
       },
       {
@@ -151,9 +151,8 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 6 days ago; checked every 7 days"
+        "seconds": 0.8,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch school figures",
@@ -162,16 +161,15 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 26 days ago; checked every 30 days"
+        "skipped": "checked 27 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "yearly",
-        "skipped": "checked 6 days ago; checked every 7 days"
+        "seconds": 0.4,
+        "cadence": "yearly"
       },
       {
         "name": "Fetch housing figures",
@@ -180,7 +178,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 4 days ago; checked every 7 days"
+        "skipped": "checked 5 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -245,7 +243,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 1.1,
+        "seconds": 0.9,
         "cadence": "continuous"
       }
     ]
@@ -255,35 +253,35 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-09T04:10:39-05:00",
+      "updated_at": "2026-11-10T04:10:30-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee meetings (Open Meetings portal)",
       "file": "meetings/opengov_status.json",
-      "updated_at": "2026-11-09T04:11:22-05:00",
+      "updated_at": "2026-11-10T04:11:11-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-09T04:11:50-05:00",
+      "updated_at": "2026-11-10T04:11:40-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-09T04:11:58-05:00",
+      "updated_at": "2026-11-10T04:11:48-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Tax rates and levy",
       "file": "finance/budget.json",
-      "updated_at": "2026-11-03T04:10:08-05:00",
+      "updated_at": "2026-11-10T04:11:38-05:00",
       "max_days": null,
       "cadence": "yearly",
       "failing": 0,
@@ -307,7 +305,7 @@
     {
       "label": "Unemployment rate (BLS)",
       "file": "labor/unemployment.json",
-      "updated_at": "2026-11-03T04:10:08-05:00",
+      "updated_at": "2026-11-10T04:11:37-05:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
@@ -351,18 +349,19 @@
   ],
   "failing": [],
   "deployed": true,
+  "corrections": [],
   "ok": true,
   "last_good_at": "2026-11-05T00:13:27+00:00",
-  "data_bytes": 1966279,
-  "data_bytes_added": 352754,
+  "data_bytes": 1973580,
+  "data_bytes_added": 359501,
   "activity": {
     "boards": 21,
     "meetings_by_date": {
-      "2026-11-09": 1,
       "2026-11-10": 2,
       "2026-11-12": 2,
       "2026-11-16": 2,
-      "2026-11-18": 1
+      "2026-11-18": 1,
+      "2026-11-23": 1
     }
   },
   "fact_checks": {
@@ -377,38 +376,39 @@
     "vote_counts_left_out": 6
   },
   "recordings": {
-    "since": "2026-11-02",
-    "until": "2026-11-08",
+    "since": "2026-11-03",
+    "until": "2026-11-09",
     "held": 2,
     "next_day": 0,
     "steps": {
       "summarized": 0,
       "minutes": 0,
       "transcribed": 0,
-      "waiting": 0,
+      "waiting": 1,
       "failed": 0,
       "unmatched": 0,
-      "not_found": 2,
+      "not_found": 1,
       "no_source": 0,
       "no_recordings": 0
     },
     "misses": [
       {
-        "date": "2026-11-02",
+        "date": "2026-11-04",
         "board": "School Committee",
         "step": "not_found"
       },
       {
-        "date": "2026-11-04",
-        "board": "School Committee",
-        "step": "not_found"
+        "date": "2026-11-09",
+        "board": "Town Council",
+        "step": "waiting",
+        "detail": "1 recording(s) found"
       }
     ]
   },
   "documents": {
-    "since": "2026-08-11",
-    "until": "2026-11-08",
-    "held": 70,
+    "since": "2026-08-12",
+    "until": "2026-11-09",
+    "held": 69,
     "boards": 17,
     "counts": {
       "no_documents": 0,
@@ -447,7 +447,7 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-09T02:23:55-05:00",
+    "at": "2026-11-10T02:23:55-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-02T04:23:55-05:00"

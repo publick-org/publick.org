@@ -1,46 +1,46 @@
 {
   "town": "springfield",
   "folder": "springfield-ma",
-  "started_at": "2026-11-09T09:36:22+00:00",
-  "finished_at": "2026-11-09T09:38:13+00:00",
-  "engine": "v1.102.0",
+  "started_at": "2026-11-10T09:24:17+00:00",
+  "finished_at": "2026-11-10T09:26:21+00:00",
+  "engine": "v1.103.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 43.3
+      "seconds": 53.3
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 11.3
+      "seconds": 8.0
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 53.6
+      "seconds": 33.1
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 1.6
+      "seconds": 3.1
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.6
+      "seconds": 0.9
     }
   ],
   "update": {
     "town": "springfield",
     "sources": "all",
-    "started_at": "2026-11-09T09:36:22+00:00",
+    "started_at": "2026-11-10T09:24:17+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 31.2,
+        "seconds": 39.8,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.6,
+        "seconds": 1.0,
         "cadence": "continuous"
       },
       {
@@ -127,7 +127,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 4.7,
+        "seconds": 4.6,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 4.7,
+        "seconds": 6.7,
         "cadence": "continuous"
       },
       {
@@ -145,7 +145,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 12 days ago; checked every 30 days"
+        "skipped": "checked 13 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -154,7 +154,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "skipped": "checked 6 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -163,7 +163,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 12 days ago; checked every 30 days"
+        "skipped": "checked 13 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -172,7 +172,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 12 days ago; checked every 30 days"
+        "skipped": "checked 13 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -181,14 +181,14 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "skipped": "checked 6 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -196,7 +196,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -213,7 +213,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -221,7 +221,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -258,14 +258,14 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-09T04:36:23-05:00",
+      "updated_at": "2026-11-10T04:24:18-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee minutes (school district website)",
       "file": "meetings/sharpschool_status.json",
-      "updated_at": "2026-11-09T04:36:54-05:00",
+      "updated_at": "2026-11-10T04:24:58-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -352,20 +352,21 @@
   ],
   "failing": [],
   "deployed": true,
+  "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-09T09:38:13+00:00",
-  "data_bytes": 1581639,
-  "data_bytes_added": 2,
+  "last_good_at": "2026-11-10T09:34:39+00:00",
+  "data_bytes": 1589101,
+  "data_bytes_added": 7176,
   "activity": {
     "boards": 46,
     "meetings_by_date": {
-      "2026-11-09": 1,
       "2026-11-10": 1,
-      "2026-11-12": 2,
+      "2026-11-12": 4,
       "2026-11-16": 2,
       "2026-11-17": 3,
       "2026-11-18": 2,
-      "2026-11-19": 1
+      "2026-11-19": 1,
+      "2026-11-23": 1
     }
   },
   "fact_checks": {
@@ -380,8 +381,8 @@
     "vote_counts_left_out": 57
   },
   "recordings": {
-    "since": "2026-11-02",
-    "until": "2026-11-08",
+    "since": "2026-11-03",
+    "until": "2026-11-09",
     "held": 1,
     "next_day": 0,
     "steps": {
@@ -404,9 +405,9 @@
     ]
   },
   "documents": {
-    "since": "2026-08-11",
-    "until": "2026-11-08",
-    "held": 142,
+    "since": "2026-08-12",
+    "until": "2026-11-09",
+    "held": 141,
     "boards": 41,
     "counts": {
       "no_documents": 1,
@@ -429,10 +430,6 @@
         "meetings": 5
       },
       {
-        "board": "Conservation Commission",
-        "meetings": 4
-      },
-      {
         "board": "Historical Commission",
         "meetings": 4
       },
@@ -442,6 +439,10 @@
       },
       {
         "board": "Board of Police Commissioners",
+        "meetings": 3
+      },
+      {
+        "board": "Conservation Commission",
         "meetings": 3
       },
       {
@@ -458,7 +459,7 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-09T04:23:58-05:00",
+    "at": "2026-11-10T04:23:54-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-04T00:24:03-05:00"
@@ -466,5 +467,7 @@
   "officials": {
     "checked_at": "2026-11-07T04:22:45-05:00",
     "leads": []
-  }
+  },
+  "published_at": "2026-11-10T09:34:39+00:00",
+  "published_engine": "v1.103.0"
 }
