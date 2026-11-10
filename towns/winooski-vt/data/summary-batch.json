@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01PcnH4WZN6voufnJT1VFUhK",
-  "sent_at": "2026-11-10T09:12:39+00:00",
+  "id": "msgbatch_01CbWeUnAT7G7wGe6sFsT8hV",
+  "sent_at": "2026-11-10T09:22:34+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,25 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
-      "meeting": {
-        "title": "City Council Meeting",
-        "date": "2026-11-10",
-        "body": "City Council"
+      "source_hash": "b919acb719a16590ae7edf44b89d07c1c362d56466e66497d29724005a98374c",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
       },
-      "doc": {
-        "id": "1724",
-        "sha256": "c543b29bf13d805ec236b8258df18982fbdfff06b0fa6324521d1cee5b9b71ea",
-        "file": "1724.pdf",
-        "source_url": "https://www.winooskivt.gov/AgendaCenter/ViewFile/Agenda/_11102026-1724"
-      }
-    },
-    {
-      "custom_id": "doc-1",
-      "kind": "agenda",
-      "older": false,
       "meeting": {
         "title": "School Board Meeting",
         "date": "2026-11-11",
@@ -37,9 +29,29 @@
       },
       "doc": {
         "id": "1Efcrfj9XMhx2lJYmeilqIFJgE3A1k1IjljBijZXqbfc-e4ee0c12",
-        "sha256": "e4ee0c12c86875bc1fc3f67afcceaf725b5621e2178840c41a6f283b52f96d1f",
-        "file": "1Efcrfj9XMhx2lJYmeilqIFJgE3A1k1IjljBijZXqbfc-e4ee0c12.pdf",
-        "source_url": "https://docs.google.com/document/d/1Efcrfj9XMhx2lJYmeilqIFJgE3A1k1IjljBijZXqbfc/edit?usp=sharing"
+        "sha256": "e4ee0c12c86875bc1fc3f67afcceaf725b5621e2178840c41a6f283b52f96d1f"
+      }
+    },
+    {
+      "custom_id": "tr-1",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "20fb4836f7a069e735cfe0cb34580da6dc4ea52e304331a78d811c49ee31deb2",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "City Council Meeting",
+        "date": "2026-11-10",
+        "body": "City Council"
+      },
+      "doc": {
+        "id": "1724",
+        "sha256": "c543b29bf13d805ec236b8258df18982fbdfff06b0fa6324521d1cee5b9b71ea"
       }
     }
   ]
