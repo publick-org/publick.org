@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01Gy3thVQ8N666wPwYDWvdH7",
-  "sent_at": "2026-11-10T13:53:14+00:00",
+  "id": "msgbatch_01LkPsy5bPkYZYHuRGNJfZSY",
+  "sent_at": "2026-11-10T14:06:38+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,16 +11,32 @@
   },
   "documents": [
     {
+      "custom_id": "doc-0",
+      "kind": "recording",
+      "older": false,
+      "meeting": {
+        "title": "Diversity, Equity and Inclusion Committee Meeting",
+        "date": "2026-11-09",
+        "body": "Diversity, Equity and Inclusion Committee"
+      },
+      "doc": {
+        "id": "civicclerk-video-4824",
+        "sha256": "f84fe7092f3c8a6e93db38a5c1876039976a4cad30a86c937025e2a1bd651ea8",
+        "file": "civicclerk-video-4824.txt",
+        "source_url": "https://biddefordme.portal.civicclerk.com/event/4824/media"
+      }
+    },
+    {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "recording",
       "older": false,
       "source_hash": "acf7c17f495de3c5ec0e9e64948bcbe69efd02b2333d041e3954aea80e97c72a",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Charter Revision Commission Meeting (Live)",
@@ -30,28 +46,6 @@
       "doc": {
         "id": "civicclerk-video-4965",
         "sha256": "7f3b3c752b1673a8df20f12b8db6878343cad5a323336f8a7ef2c86a0cc9d70b"
-      }
-    },
-    {
-      "custom_id": "tr-1",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "8bbb99d6369b42f0207e240a84c884a89cbb28915690976c7f933770ce651649",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "School Committee Meeting",
-        "date": "2026-10-28",
-        "body": "School Committee"
-      },
-      "doc": {
-        "id": "1wUTT4cj_c0YATcDorZbaWW6PDM6GqoHxlc1Jfmsfj-E-0592a6fc",
-        "sha256": "0592a6fc0b250f17856d3199517b8a2690f5e5a97033f3f5471d83e792f9e513"
       }
     }
   ]
