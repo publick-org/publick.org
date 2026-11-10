@@ -1,8 +1,8 @@
 {
   "town": "biddeford",
   "folder": "biddeford-me",
-  "started_at": "2026-11-10T05:46:50+00:00",
-  "finished_at": "2026-11-10T05:52:08+00:00",
+  "started_at": "2026-11-10T13:42:51+00:00",
+  "finished_at": "2026-11-10T13:47:34+00:00",
   "engine": "v1.103.0",
   "fetched": true,
   "steps": [
@@ -10,25 +10,25 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 235.8
+      "seconds": 236.1
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 11.7
+      "seconds": 8.4
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 47.9
+      "seconds": 34.5
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.4
+      "seconds": 2.6
     },
     {
       "name": "Check live site",
@@ -40,7 +40,7 @@
   "update": {
     "town": "biddeford",
     "sources": "meetings",
-    "started_at": "2026-11-10T05:46:50+00:00",
+    "started_at": "2026-11-10T13:42:52+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 206.2,
+        "seconds": 196.1,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 16.8,
+        "seconds": 13.4,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 10.2,
+        "seconds": 24.5,
         "cadence": "continuous"
       },
       {
@@ -153,7 +153,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -171,7 +171,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch housing figures",
@@ -180,7 +180,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -195,7 +195,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -230,14 +230,14 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-10T00:46:51-05:00",
+      "updated_at": "2026-11-10T08:42:52-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-10T00:50:17-05:00",
+      "updated_at": "2026-11-10T08:46:09-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -314,9 +314,9 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-10T11:02:35+00:00",
-  "data_bytes": 1224241,
-  "data_bytes_added": 8745,
+  "last_good_at": "2026-11-10T13:47:34+00:00",
+  "data_bytes": 1274170,
+  "data_bytes_added": 12332,
   "activity": {
     "boards": 42,
     "meetings_by_date": {
@@ -330,8 +330,8 @@
     }
   },
   "fact_checks": {
-    "summaries": 56,
-    "ok": 47,
+    "summaries": 61,
+    "ok": 52,
     "failed": 9,
     "weak": 0,
     "unchecked": 0,
@@ -404,7 +404,7 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-10T00:24:17-05:00",
+    "at": "2026-11-10T08:25:29-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-01T18:42:20-05:00"
@@ -412,7 +412,5 @@
   "officials": {
     "checked_at": "2026-11-07T04:10:49-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-10T11:02:35+00:00",
-  "published_engine": "v1.103.0"
+  }
 }
