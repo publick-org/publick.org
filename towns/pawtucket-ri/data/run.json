@@ -1,46 +1,46 @@
 {
   "town": "pawtucket",
   "folder": "pawtucket-ri",
-  "started_at": "2026-11-09T09:24:06+00:00",
-  "finished_at": "2026-11-09T09:37:59+00:00",
-  "engine": "v1.102.0",
+  "started_at": "2026-11-10T09:12:56+00:00",
+  "finished_at": "2026-11-10T09:23:20+00:00",
+  "engine": "v1.103.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 765.4
+      "seconds": 556.9
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 11.7
+      "seconds": 6.8
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 58.3
+      "seconds": 38.5
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.5
+      "seconds": 21.3
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 1.0
+      "seconds": 0.9
     }
   ],
   "update": {
     "town": "pawtucket",
     "sources": "all",
-    "started_at": "2026-11-09T09:24:07+00:00",
+    "started_at": "2026-11-10T09:12:56+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -109,7 +109,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 711.5,
+        "seconds": 536.9,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 11.1,
+        "seconds": 9.2,
         "cadence": "continuous"
       },
       {
@@ -143,7 +143,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -162,7 +162,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 7 days ago; checked every 30 days"
+        "skipped": "checked 8 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -178,15 +178,16 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 22.7,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -194,7 +195,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -211,7 +212,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -219,7 +220,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -227,7 +228,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 16.0,
+        "seconds": 7.7,
         "cadence": "continuous"
       },
       {
@@ -244,7 +245,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 1.0,
+        "seconds": 0.7,
         "cadence": "continuous"
       }
     ]
@@ -254,21 +255,21 @@
     {
       "label": "Meetings (Open Meetings portal)",
       "file": "meetings/opengov_status.json",
-      "updated_at": "2026-11-09T04:24:08-05:00",
+      "updated_at": "2026-11-10T04:12:57-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-09T04:36:35-05:00",
+      "updated_at": "2026-11-10T04:22:04-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-09T04:36:51-05:00",
+      "updated_at": "2026-11-10T04:22:12-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -343,15 +344,16 @@
   ],
   "failing": [],
   "deployed": true,
+  "corrections": [],
   "ok": true,
   "last_good_at": "2026-11-05T00:12:20+00:00",
-  "data_bytes": 2726884,
-  "data_bytes_added": 150620,
+  "data_bytes": 2744943,
+  "data_bytes_added": 125718,
   "activity": {
     "boards": 32,
     "meetings_by_date": {
-      "2026-11-09": 2,
-      "2026-11-10": 6
+      "2026-11-10": 6,
+      "2026-11-12": 2
     }
   },
   "fact_checks": {
@@ -366,13 +368,13 @@
     "vote_counts_left_out": 79
   },
   "recordings": {
-    "since": "2026-11-02",
-    "until": "2026-11-08",
-    "held": 1,
+    "since": "2026-11-03",
+    "until": "2026-11-09",
+    "held": 0,
     "next_day": 0,
     "steps": {
       "summarized": 0,
-      "minutes": 1,
+      "minutes": 0,
       "transcribed": 0,
       "waiting": 0,
       "failed": 0,
@@ -384,10 +386,10 @@
     "misses": []
   },
   "documents": {
-    "since": "2026-08-11",
-    "until": "2026-11-08",
-    "held": 82,
-    "boards": 25,
+    "since": "2026-08-12",
+    "until": "2026-11-09",
+    "held": 80,
+    "boards": 24,
     "counts": {
       "no_documents": 0,
       "no_minutes": 0,
@@ -397,16 +399,10 @@
     "no_minutes": [],
     "pairs": [],
     "waiting": {},
-    "backlog": {
-      "opengov_status": {
-        "count": 30,
-        "unit": "meetings",
-        "newest": "2026-01-13"
-      }
-    }
+    "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-09T02:24:04-05:00",
+    "at": "2026-11-10T02:24:03-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-01T18:45:52-05:00"
@@ -414,8 +410,5 @@
   "officials": {
     "checked_at": "2026-11-07T04:20:19-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-09T19:32:04+00:00",
-  "published_engine": "v1.103.0",
-  "corrections": []
+  }
 }
