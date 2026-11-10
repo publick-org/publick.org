@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01EE9qQdRr2AyDudgzj1KySv",
-  "sent_at": "2026-11-10T09:51:54+00:00",
+  "id": "msgbatch_01W6CwTr1Z1qAhZmsKXGJJxm",
+  "sent_at": "2026-11-10T22:47:22+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,16 +11,128 @@
   },
   "documents": [
     {
+      "custom_id": "doc-0",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "Salem City Council Regular Meeting November 12, 2026",
+        "date": "2026-11-12",
+        "body": "City Council"
+      },
+      "doc": {
+        "id": "8512",
+        "sha256": "a0206640d18781acf0106cc3bbab31f11a3c91c61467a75df88f78d5b8eb0b87",
+        "file": "8512.pdf",
+        "source_url": "https://www.salemma.gov/AgendaCenter/ViewFile/Agenda/_11122026-8512"
+      }
+    },
+    {
+      "custom_id": "doc-1",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "Conservation Commission Meetings",
+        "date": "2026-11-17",
+        "body": "Conservation Commission"
+      },
+      "doc": {
+        "id": "8510-202611101448",
+        "sha256": "8fd200572fbfe24166e7945f1a2a5f59bd80fbae316ab9c44dccfd5e4dc48d0e",
+        "file": "8510-202611101448.pdf",
+        "source_url": "https://www.salemma.gov/AgendaCenter/ViewFile/Agenda/_11172026-8510"
+      }
+    },
+    {
+      "custom_id": "doc-2",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "Council on Aging Board Meeting",
+        "date": "2026-11-18",
+        "body": "Council on Aging Board"
+      },
+      "doc": {
+        "id": "8511-202611101526",
+        "sha256": "de7a04f011e3ddb04eb8caa4a19e9dd0a2c103820906314b757333b5f7ddd537",
+        "file": "8511-202611101526.pdf",
+        "source_url": "https://www.salemma.gov/AgendaCenter/ViewFile/Agenda/_11182026-8511"
+      }
+    },
+    {
+      "custom_id": "doc-3",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "Design Review Board Meetings",
+        "date": "2026-11-18",
+        "body": "Design Review Board"
+      },
+      "doc": {
+        "id": "8508-202611100842",
+        "sha256": "c857cef0260f3543dc64c9d04095d4812e5bf313fba494aefb1bea10598a27ce",
+        "file": "8508-202611100842.pdf",
+        "source_url": "https://www.salemma.gov/AgendaCenter/ViewFile/Agenda/_11182026-8508"
+      }
+    },
+    {
+      "custom_id": "doc-4",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "Sustainability, Energy, Resiliency Committee - Regular Meeting",
+        "date": "2026-11-18",
+        "body": "Sustainability, Energy, & Resiliency Committee"
+      },
+      "doc": {
+        "id": "8509",
+        "sha256": "9576a7475dad9b77d025570dd3b6af787f172552af6528f24faee955c03ee9c4",
+        "file": "8509.pdf",
+        "source_url": "https://www.salemma.gov/AgendaCenter/ViewFile/Agenda/_11182026-8509"
+      }
+    },
+    {
+      "custom_id": "doc-5",
+      "kind": "recording",
+      "older": false,
+      "meeting": {
+        "title": "Salem School Committee - Regular Session",
+        "date": "2026-11-09",
+        "body": "School Committee"
+      },
+      "doc": {
+        "id": "cablecast-47306",
+        "sha256": "2925aad72c2f637720aa5f20f3bec4391ec53fe96dd285b248eda12fef2aa718",
+        "file": "cablecast-47306.txt",
+        "source_url": "http://cc.satvonline.org/internetchannel/show/47306"
+      }
+    },
+    {
+      "custom_id": "doc-6",
+      "kind": "minutes",
+      "older": true,
+      "meeting": {
+        "title": "Cemetery Commission Meeting",
+        "date": "2026-08-11",
+        "body": "Cemetery Commission"
+      },
+      "doc": {
+        "id": "agendacenter-8371",
+        "sha256": "0b6198c07ac17a5318e7e5a4d9310ab62a799a4f9981b03ca3cdf30e8a698c51",
+        "file": "agendacenter-8371.pdf",
+        "source_url": "https://www.salemma.gov/AgendaCenter/ViewFile/Minutes/_08112026-8371"
+      }
+    },
+    {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "a5e74cdae71f12002c6ac1b4616158476957372f4b0ad65b438e0ede7618db76",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Historical Commission meeting",
@@ -34,15 +146,15 @@
     },
     {
       "custom_id": "tr-1",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "b6ad6957ff01aeffa02baf26ab06008d47f19756ab15ea3bb859892d05528257",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Affordable Housing Trust Meeting, November 16, 2026 ( from 10/6/2026 regular meeting)",
@@ -56,15 +168,15 @@
     },
     {
       "custom_id": "tr-2",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "c1bb60596e3721682dee76bfbf2c28667fc2fa828f2b9addcc92f187b2e12eeb",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Salem Harbor Port Authority Meeting",

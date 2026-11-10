@@ -1,8 +1,8 @@
 {
   "town": "salem",
   "folder": "salem-ma",
-  "started_at": "2026-11-10T09:20:54+00:00",
-  "finished_at": "2026-11-10T09:36:17+00:00",
+  "started_at": "2026-11-10T22:45:31+00:00",
+  "finished_at": "2026-11-10T22:48:58+00:00",
   "engine": "v1.103.0",
   "fetched": true,
   "steps": [
@@ -10,25 +10,25 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 787.6
+      "seconds": 115.2
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 17.6
+      "seconds": 16.3
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 81.4
+      "seconds": 70.5
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.7
+      "seconds": 3.3
     },
     {
       "name": "Check live site",
@@ -39,8 +39,8 @@
   ],
   "update": {
     "town": "salem",
-    "sources": "all",
-    "started_at": "2026-11-10T09:20:54+00:00",
+    "sources": "meetings",
+    "started_at": "2026-11-10T22:45:32+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 91.2,
+        "seconds": 91.1,
         "cadence": "continuous"
       },
       {
@@ -136,7 +136,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 12.5,
+        "seconds": 20.7,
         "cadence": "continuous"
       },
       {
@@ -180,15 +180,16 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 22.6,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -213,7 +214,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -221,32 +222,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 655.2,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests from an open data portal",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [socrata_311] in the config"
-      },
-      {
-        "name": "Compute 311 scorecard",
-        "ok": true,
-        "required": true,
-        "error": null,
-        "seconds": 2.5,
+        "seconds": 0.3,
         "cadence": "continuous"
       }
     ]
@@ -256,7 +232,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-10T04:20:55-05:00",
+      "updated_at": "2026-11-10T17:45:32-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -359,9 +335,9 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-10T09:53:39+00:00",
-  "data_bytes": 12169305,
-  "data_bytes_added": 8644612,
+  "last_good_at": "2026-11-10T22:48:58+00:00",
+  "data_bytes": 12205185,
+  "data_bytes_added": 8655855,
   "activity": {
     "boards": 54,
     "meetings_by_date": {
@@ -371,13 +347,13 @@
       "2026-11-13": 1,
       "2026-11-16": 2,
       "2026-11-17": 5,
-      "2026-11-18": 6,
+      "2026-11-18": 7,
       "2026-11-19": 3
     }
   },
   "fact_checks": {
-    "summaries": 133,
-    "ok": 122,
+    "summaries": 135,
+    "ok": 124,
     "failed": 10,
     "weak": 1,
     "unchecked": 0,
@@ -394,11 +370,11 @@
     "steps": {
       "summarized": 0,
       "minutes": 0,
-      "transcribed": 0,
+      "transcribed": 1,
       "waiting": 0,
       "failed": 0,
       "unmatched": 0,
-      "not_found": 4,
+      "not_found": 3,
       "no_source": 0,
       "no_recordings": 0
     },
@@ -421,7 +397,8 @@
       {
         "date": "2026-11-09",
         "board": "School Committee",
-        "step": "not_found"
+        "step": "transcribed",
+        "detail": "transcript not summarized yet"
       }
     ]
   },
@@ -458,7 +435,5 @@
   "officials": {
     "checked_at": "2026-11-07T04:13:05-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-10T09:53:39+00:00",
-  "published_engine": "v1.103.0"
+  }
 }
