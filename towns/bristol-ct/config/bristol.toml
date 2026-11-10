@@ -287,6 +287,20 @@ url = "https://www.bristol.k12.ct.us/boe-calendar"
 source_name = "Bristol Public Schools"
 body = "Board of Education"
 
+# Where a meeting's summary is wrong, the meeting's page says so and shows it
+# corrected (the engine's docs/meetings.md, "Corrections"): words replaced, or a
+# decision taken off or added, each with the reason and the evidence. Once the
+# summary is made again after `checked`, the correction comes down until it's
+# checked again.
+[[meetings.corrections]]
+board = "Economic and Community Development Board"
+date = "2026-11-05"
+replaces = "Chippany"
+with = "Chippanee"
+checked = "2026-11-09"
+note = "Misheard in the recording; the agenda says Chippanee."
+evidence = "https://bristolct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=13871,plainText=false)"
+
 # Agenda and minutes PDFs live in the network's documents bucket, not in git
 # (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID,
 # STORAGE_SECRET_ACCESS_KEY.

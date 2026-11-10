@@ -225,6 +225,24 @@ checked = "2026-10-02"
 note = "The city calendar also lists the Arts Commission on Tuesday, October 27 and Tuesday, November 24: the fourth Tuesday of the month, when the commission now meets. This Monday entry is older than those two and is most likely left over from its earlier schedule. Check with the city before going."
 evidence = "https://www.manchesternh.gov/Government/City-Calendars/ModuleID/3737/ItemID/106927/mctl/EventDetails"
 
+[[meetings.corrections]]
+board = "Board of Mayor and Aldermen"
+date = "2026-10-20"
+replaces = "kratum"
+with = "Kratom"
+checked = "2026-11-09"
+note = "Misheard in the recording; the agenda says Kratom."
+evidence = "https://manchesternh.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=5351,plainText=false)"
+
+[[meetings.corrections]]
+board = "Planning Board"
+date = "2026-11-05"
+replaces = "Coppas Avenue"
+with = "Cohas Avenue"
+checked = "2026-11-09"
+note = "Misheard in the recording; the agenda says 333 Cohas Avenue."
+evidence = "https://www.manchesternh.gov/Portals/2/Departments/pcd/BoardsCommissions/PlanningBoard/Agendas2/2026-11-05_PB_AGENDA_REV_11.5.26.PDF"
+
 # The Planning and Community Development department's boards' agendas and
 # minutes, from the department's own pages of manchesternh.gov: a list of PDF
 # links each, labelled with the file's name, which starts with the meeting's
@@ -567,8 +585,10 @@ members = [
 # site shows its English name after it. To be checked by a person who reads
 # Spanish before the site launches.
 [strings.es]
-# The correction in [[meetings.corrections]].
+# The corrections in [[meetings.corrections]].
 "The city calendar also lists the Arts Commission on Tuesday, October 27 and Tuesday, November 24: the fourth Tuesday of the month, when the commission now meets. This Monday entry is older than those two and is most likely left over from its earlier schedule. Check with the city before going." = "El calendario de la ciudad también muestra la Comisión de las Artes el martes 27 de octubre y el martes 24 de noviembre: el cuarto martes del mes, cuando la comisión se reúne ahora. Esta publicación de un lunes es más antigua que esas dos y probablemente quedó de su horario anterior. Consulte con la ciudad antes de ir."
+"Misheard in the recording; the agenda says Kratom." = "Se entendió mal en la grabación; la agenda dice Kratom."
+"Misheard in the recording; the agenda says 333 Cohas Avenue." = "Se entendió mal en la grabación; la agenda dice 333 Cohas Avenue."
 # The masthead and the share text.
 "Public data on how Manchester, New Hampshire is doing. Updated daily." = "Datos públicos sobre cómo le va a Manchester, New Hampshire. Se actualizan a diario."
 "An independent guide to city government in Manchester, New Hampshire" = "Una guía independiente sobre el gobierno de la ciudad de Manchester, New Hampshire"

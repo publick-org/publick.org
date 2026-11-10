@@ -182,6 +182,47 @@ minutes_in_agenda = true
 "Advisory Committee on Curriculum" = "School Committee Advisory Committee on Curriculum"
 "Advisory Committee on Policy" = "School Committee Advisory Committee on Policy"
 
+# Where a meeting's summary is wrong, the meeting's page says so and shows it
+# corrected (the engine's docs/meetings.md, "Corrections"): words replaced, or a
+# decision taken off or added, each with the reason and the evidence. Once the
+# summary is made again after `checked`, the correction comes down until it's
+# checked again.
+[[meetings.corrections]]
+board = "Policy Committee"
+date = "2026-10-26"
+replaces = "Canon Plaza"
+with = "Cannon Plaza"
+checked = "2026-11-09"
+note = "Misheard in the recording; the City Council's November 5 agenda says Cannon Plaza."
+evidence = "https://biddefordme.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=10043,plainText=false)"
+
+[[meetings.corrections]]
+board = "Conservation Commission"
+date = "2026-10-28"
+replaces = "Bitterford"
+with = "Biddeford"
+checked = "2026-11-09"
+note = "Misheard in the recording; the city is Biddeford."
+evidence = "https://www.biddefordmaine.org/Calendar.aspx?EID=5549"
+
+[[meetings.corrections]]
+board = "Historic Preservation Commission"
+date = "2026-11-04"
+replaces = "Klein Builder"
+with = "Kleinfelder"
+checked = "2026-11-09"
+note = "Misheard in the recording; the agenda says Kleinfelder Survey Final Report."
+evidence = "https://biddefordme.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=10020,plainText=false)"
+
+[[meetings.corrections]]
+board = "City Council"
+date = "2026-11-05"
+replaces = "Lori Smith"
+with = "Laurie Smith"
+checked = "2026-11-09"
+note = "Misheard in the recording; the agenda says Laurie Smith."
+evidence = "https://biddefordme.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=10043,plainText=false)"
+
 # Agenda and minutes PDFs live in the network's documents bucket, not in git
 # (see pipeline/documents.py).
 [storage]

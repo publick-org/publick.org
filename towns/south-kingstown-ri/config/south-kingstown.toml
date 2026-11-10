@@ -162,6 +162,47 @@ since = "2026-01-01"
 # lists for the town.
 exclude_pattern = '^(One Time Event|Special Meeting)$|Narragansett Library Association'
 
+# Where a meeting's summary is wrong, the meeting's page says so and shows it
+# corrected (the engine's docs/meetings.md, "Corrections"): words replaced, or a
+# decision taken off or added, each with the reason and the evidence. Once the
+# summary is made again after `checked`, the correction comes down until it's
+# checked again.
+[[meetings.corrections]]
+board = "Town Council"
+date = "2026-10-26"
+replaces = "$12,826"
+with = "$12,008.26"
+checked = "2026-11-09"
+note = "Misheard in the recording; the agenda says $12,008.26."
+evidence = "https://southkingstownri.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=8327,plainText=false)"
+
+[[meetings.corrections]]
+board = "Town Council"
+date = "2026-10-26"
+replaces = "Charlene Butler"
+with = "Charlene Traynum"
+checked = "2026-11-09"
+note = "Misheard in the recording; the agenda says Charlene Traynum."
+evidence = "https://southkingstownri.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=8327,plainText=false)"
+
+[[meetings.corrections]]
+board = "Town Council"
+date = "2026-10-26"
+replaces = "Paul Carmody"
+with = "Paul McConnell"
+checked = "2026-11-09"
+note = "Misheard in the recording; the agenda says Paul McConnell."
+evidence = "https://southkingstownri.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=8327,plainText=false)"
+
+[[meetings.corrections]]
+board = "Town Council"
+date = "2026-10-26"
+replaces = "David Kokette"
+with = "David Cote"
+checked = "2026-11-09"
+note = "Misheard in the recording; the agenda says David Cote."
+evidence = "https://southkingstownri.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=8327,plainText=false)"
+
 # Agenda and minutes PDFs, in the network's documents bucket.
 [storage]
 prefix = "south-kingstown-ri"
@@ -291,6 +332,11 @@ members = [
 ]
 
 [strings.es]
+# The corrections of meeting summaries in [[meetings.corrections]].
+"Misheard in the recording; the agenda says $12,008.26." = "Se entendió mal en la grabación; la agenda dice $12,008.26."
+"Misheard in the recording; the agenda says Charlene Traynum." = "Se entendió mal en la grabación; la agenda dice Charlene Traynum."
+"Misheard in the recording; the agenda says Paul McConnell." = "Se entendió mal en la grabación; la agenda dice Paul McConnell."
+"Misheard in the recording; the agenda says David Cote." = "Se entendió mal en la grabación; la agenda dice David Cote."
 # The masthead and the share text.
 "Public data on how South Kingstown, Rhode Island decides and spends. Updated daily." = "Datos públicos sobre cómo South Kingstown, Rhode Island, toma decisiones y gasta su dinero. Se actualizan a diario."
 "An independent guide to town government in South Kingstown, Rhode Island" = "Una guía independiente sobre el gobierno municipal de South Kingstown, Rhode Island"
