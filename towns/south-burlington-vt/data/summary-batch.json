@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01S2Ueyvj63V8ZcGCW5ogNaa",
-  "sent_at": "2026-11-10T12:14:01+00:00",
+  "id": "msgbatch_01QN4RCUj5jkEqa1W7sioNMY",
+  "sent_at": "2026-11-10T12:19:52+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,9 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
+      "source_hash": "71144a9f7a7423cd3648910d2a456ac060a2a84cc31cd927f92a93bd61df6740",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Library Communications Meeting",
         "date": "2026-11-19",
@@ -21,22 +29,20 @@
       },
       "doc": {
         "id": "483",
-        "sha256": "84f107674540720c2b856716f3f26637af43cac123a123559ab20ff40f6cc8c6",
-        "file": "483.pdf",
-        "source_url": "https://www.southburlingtonvt.gov/AgendaCenter/ViewFile/Agenda/_11192026-483"
+        "sha256": "84f107674540720c2b856716f3f26637af43cac123a123559ab20ff40f6cc8c6"
       }
     },
     {
-      "custom_id": "tr-0",
-      "type": "review",
+      "custom_id": "tr-1",
+      "type": "translation",
       "lang": "es",
       "kind": "recording",
       "older": false,
       "source_hash": "1ff7024679cae70cdde40d175ff2ef8f19a2a4474192607fe9a46fb1cd2822a7",
-      "model": "claude-sonnet-5-5",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
         "title": "Development Review Board Meeting",
