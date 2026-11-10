@@ -1,8 +1,8 @@
 {
   "town": "lowell",
   "folder": "lowell-ma",
-  "started_at": "2026-11-10T14:01:17+00:00",
-  "finished_at": "2026-11-10T14:02:24+00:00",
+  "started_at": "2026-11-10T17:38:08+00:00",
+  "finished_at": "2026-11-10T17:39:29+00:00",
   "engine": "v1.103.0",
   "fetched": true,
   "steps": [
@@ -10,19 +10,19 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 16.6
+      "seconds": 24.0
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 9.3
+      "seconds": 11.2
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 37.0
+      "seconds": 41.3
     },
     {
       "name": "Publish site",
@@ -34,13 +34,13 @@
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.5
+      "seconds": 1.0
     }
   ],
   "update": {
     "town": "lowell",
     "sources": "meetings",
-    "started_at": "2026-11-10T14:01:17+00:00",
+    "started_at": "2026-11-10T17:38:09+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.8,
+        "seconds": 2.2,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.8,
+        "seconds": 5.6,
         "cadence": "continuous"
       },
       {
@@ -136,7 +136,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 12.1,
+        "seconds": 13.8,
         "cadence": "continuous"
       },
       {
@@ -146,7 +146,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 28 days ago; checked every 30 days"
+        "skipped": "checked 29 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -164,7 +164,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 28 days ago; checked every 30 days"
+        "skipped": "checked 29 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -173,7 +173,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 28 days ago; checked every 30 days"
+        "skipped": "checked 29 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -189,7 +189,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -214,7 +214,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -222,7 +222,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       }
     ]
@@ -232,7 +232,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-10T09:01:18-05:00",
+      "updated_at": "2026-11-10T12:38:09-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -321,9 +321,9 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-10T14:03:42+00:00",
-  "data_bytes": 2731175,
-  "data_bytes_added": 3508,
+  "last_good_at": "2026-11-10T17:39:29+00:00",
+  "data_bytes": 2732870,
+  "data_bytes_added": 1963,
   "activity": {
     "boards": 40,
     "meetings_by_date": {
@@ -349,8 +349,8 @@
     "steps": {
       "summarized": 2,
       "minutes": 0,
-      "transcribed": 0,
-      "waiting": 1,
+      "transcribed": 1,
+      "waiting": 0,
       "failed": 0,
       "unmatched": 0,
       "not_found": 0,
@@ -361,8 +361,8 @@
       {
         "date": "2026-11-09",
         "board": "Zoning Board of Appeals",
-        "step": "waiting",
-        "detail": "1 recording(s) found"
+        "step": "transcribed",
+        "detail": "transcript not summarized yet"
       }
     ]
   },
@@ -388,15 +388,13 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-10T08:37:19-05:00",
+    "at": "2026-11-10T12:24:57-05:00",
     "refused": 0,
     "transcribed": 1,
-    "last_transcribed_at": "2026-11-10T08:37:19-05:00"
+    "last_transcribed_at": "2026-11-10T12:24:57-05:00"
   },
   "officials": {
     "checked_at": "2026-11-07T00:28:32-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-10T14:03:42+00:00",
-  "published_engine": "v1.103.0"
+  }
 }
