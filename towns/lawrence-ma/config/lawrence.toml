@@ -156,6 +156,28 @@ since = "2026-01-01"
 [meetings.agenda_center.committees."School Committee"]
 "Library Board of Trustee" = "Library Trustees"
 
+# Where a meeting's summary is wrong, the meeting's page says so and shows it
+# corrected (the engine's docs/meetings.md, "Corrections"): words replaced, or a
+# decision taken off or added, each with the reason and the evidence. Once the
+# summary is made again after `checked`, the correction comes down until it's
+# checked again.
+[[meetings.corrections]]
+board = "City Council"
+date = "2026-11-04"
+replaces = "$7,881,647"
+with = "$7,861,647"
+checked = "2026-11-09"
+note = "The agenda (item 393/26) says $7,861,647."
+evidence = "https://www.cityoflawrence.com/AgendaCenter/ViewFile/Agenda/_11042026-1999"
+
+[[meetings.corrections]]
+board = "City Council"
+date = "2026-11-04"
+add_decision = "Approved a $10,149,973 bond for the airport administration building (item 182/26), after a public hearing."
+checked = "2026-11-09"
+note = "Missing from the summary."
+evidence = "https://www.cityoflawrence.com/AgendaCenter/ViewFile/Agenda/_11042026-1999"
+
 # Agenda and minutes PDFs, in the network's documents bucket.
 [storage]
 prefix = "lawrence-ma"
@@ -275,6 +297,10 @@ members = [
 # shows its English name after it. Not checked by a person: the site says it's
 # translated with AI.
 [strings.es]
+# The corrections of meeting summaries in [[meetings.corrections]].
+"Missing from the summary." = "Faltaba en el resumen."
+"The agenda (item 393/26) says $7,861,647." = "La agenda (punto 393/26) dice $7,861,647."
+"Approved a $10,149,973 bond for the airport administration building (item 182/26), after a public hearing." = "Se aprobó un bono de $10,149,973 para el edificio administrativo del aeropuerto (punto 182/26), después de una audiencia pública."
 "The city takes concerns through a form on its own website, which has no public data." = "La ciudad recibe inquietudes mediante un formulario en su propio sitio web, que no tiene datos públicos."
 # The masthead and the share text.
 "Public data on how Lawrence, Massachusetts decides and spends. Updated daily." = "Datos públicos sobre cómo Lawrence, Massachusetts, toma decisiones y gasta su dinero. Se actualizan a diario."

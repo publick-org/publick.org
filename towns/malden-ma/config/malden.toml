@@ -195,6 +195,27 @@ wards_publisher = "MassGIS"
 wards_year = "2022"
 wards_url = "https://gis.data.mass.gov/maps/aec5130790814ace94438d3bcf23cf9a"
 
+# Where a meeting's summary is wrong, the meeting's page says so and shows it
+# corrected (the engine's docs/meetings.md, "Corrections"): words replaced, or a
+# decision taken off or added, each with the reason and the evidence. Once the
+# summary is made again after `checked`, the correction comes down until it's
+# checked again.
+[[meetings.corrections]]
+board = "City Council"
+date = "2026-10-27"
+remove_decision = "an amendment to keep the 15% affordable housing requirement"
+checked = "2026-11-09"
+note = "A committee vote, not the council's."
+evidence = "https://www.cityofmalden.org/AgendaCenter/ViewFile/Agenda/_10272026-4499"
+
+[[meetings.corrections]]
+board = "City Council"
+date = "2026-10-27"
+add_decision = "Approved enrolling Papers 335-26 and 335A-26 (as amended), which replace the inclusionary zoning ordinance."
+checked = "2026-11-09"
+note = "Missing from the summary."
+evidence = "https://www.cityofmalden.org/AgendaCenter/ViewFile/Agenda/_10272026-4499"
+
 # Agenda and minutes PDFs live in the network's documents bucket, not in git
 # (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID, STORAGE_SECRET_ACCESS_KEY.
 [storage]
@@ -341,6 +362,10 @@ show = true
 # only; the site shows its English name after it. To be checked by a person who
 # reads Spanish before the site launches.
 [strings.es]
+# The corrections of meeting summaries in [[meetings.corrections]].
+"Missing from the summary." = "Faltaba en el resumen."
+"A committee vote, not the council's." = "Una votación del comité, no del concejo."
+"Approved enrolling Papers 335-26 and 335A-26 (as amended), which replace the inclusionary zoning ordinance." = "Se aprobó inscribir los documentos 335-26 y 335A-26 (con sus enmiendas), que reemplazan la ordenanza de zonificación inclusiva."
 # The masthead and the share text.
 "Public data on how Malden, Massachusetts responds, decides, and spends. Updated daily." = "Datos públicos sobre cómo Malden, Massachusetts, responde, toma decisiones y gasta su dinero. Se actualizan a diario."
 "An independent guide to city government in Malden, Massachusetts" = "Una guía independiente sobre el gobierno de la ciudad de Malden, Massachusetts"

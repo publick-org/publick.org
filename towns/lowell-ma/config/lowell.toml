@@ -138,6 +138,38 @@ since = "2026-01-01"
 # Not meetings: notices that the council released earlier executive sessions' minutes.
 exclude_categories = ["CITY COUNCIL EXECUTIVE SESSION MINUTES"]
 
+# Where a meeting's summary is wrong, the meeting's page says so and shows it
+# corrected (the engine's docs/meetings.md, "Corrections"): words replaced, or a
+# decision taken off or added, each with the reason and the evidence. Once the
+# summary is made again after `checked`, the correction comes down until it's
+# checked again.
+[[meetings.corrections]]
+board = "Planning Board"
+date = "2026-11-02"
+replaces = "Protected Boulevard"
+with = "Pawtucket Boulevard"
+checked = "2026-11-09"
+note = "Misheard in the recording; the agenda says 585 Pawtucket Boulevard."
+evidence = "https://www.lowellma.gov/AgendaCenter/ViewFile/Agenda/_11022026-4083"
+
+[[meetings.corrections]]
+board = "Planning Board"
+date = "2026-11-02"
+replaces = "41 Third Street"
+with = "41 Hurd Street"
+checked = "2026-11-09"
+note = "Misheard in the recording; the agenda says 41 Hurd Street."
+evidence = "https://www.lowellma.gov/AgendaCenter/ViewFile/Agenda/_11022026-4083"
+
+[[meetings.corrections]]
+board = "City Council"
+date = "2026-10-27"
+replaces = "A letter opposing that use was approved."
+with = "A request for a letter opposing that use was referred to the City Manager."
+checked = "2026-11-09"
+note = "The minutes say it was referred, not approved."
+evidence = "https://www.lowellma.gov/AgendaCenter/ViewFile/Minutes/_10272026-4075"
+
 # Agenda and minutes PDFs live in the network's documents bucket, not in git
 # (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID, STORAGE_SECRET_ACCESS_KEY.
 [storage]
