@@ -1,8 +1,8 @@
 {
   "town": "bristol",
   "folder": "bristol-ct",
-  "started_at": "2026-11-10T22:45:12+00:00",
-  "finished_at": "2026-11-10T22:48:35+00:00",
+  "started_at": "2026-11-11T06:05:25+00:00",
+  "finished_at": "2026-11-11T06:08:29+00:00",
   "engine": "v1.103.0",
   "fetched": true,
   "steps": [
@@ -10,25 +10,25 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 138.9
+      "seconds": 110.5
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 12.3
+      "seconds": 12.5
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 44.6
+      "seconds": 45.9
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 4.5
+      "seconds": 13.9
     },
     {
       "name": "Check live site",
@@ -40,7 +40,7 @@
   "update": {
     "town": "bristol",
     "sources": "meetings",
-    "started_at": "2026-11-10T22:45:13+00:00",
+    "started_at": "2026-11-11T06:05:25+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 96.3,
+        "seconds": 90.9,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 15.9,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.9,
+        "seconds": 0.6,
         "cadence": "continuous"
       },
       {
@@ -99,7 +99,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.8,
+        "seconds": 0.7,
         "cadence": "continuous"
       },
       {
@@ -134,7 +134,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 23.3,
+        "seconds": 16.5,
         "cadence": "continuous"
       },
       {
@@ -144,7 +144,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 9 days ago; checked every 30 days"
+        "skipped": "checked 10 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -162,7 +162,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 8 days ago; checked every 30 days"
+        "skipped": "checked 9 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -230,21 +230,21 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-10T17:45:13-05:00",
+      "updated_at": "2026-11-11T01:05:25-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Board of Education meetings (BoardBook)",
       "file": "meetings/boardbook_status.json",
-      "updated_at": "2026-11-10T17:47:06-05:00",
+      "updated_at": "2026-11-11T01:06:57-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Board of Education minutes (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-10T17:47:05-05:00",
+      "updated_at": "2026-11-11T01:06:57-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -333,37 +333,37 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-10T22:51:41+00:00",
-  "data_bytes": 3125832,
-  "data_bytes_added": 7665,
+  "last_good_at": "2026-11-11T06:08:29+00:00",
+  "data_bytes": 3187828,
+  "data_bytes_added": 9151,
   "activity": {
     "boards": 59,
     "meetings_by_date": {
-      "2026-11-10": 3,
       "2026-11-11": 1,
       "2026-11-12": 2,
       "2026-11-17": 3,
       "2026-11-18": 4,
       "2026-11-19": 4,
       "2026-11-21": 1,
-      "2026-11-23": 1
+      "2026-11-23": 1,
+      "2026-11-24": 1
     }
   },
   "fact_checks": {
-    "summaries": 148,
-    "ok": 132,
-    "failed": 14,
+    "summaries": 152,
+    "ok": 135,
+    "failed": 15,
     "weak": 2,
     "unchecked": 0,
     "not_yet": 0,
-    "held_back": 14,
-    "entries_not_shown": 19,
-    "vote_counts_left_out": 79
+    "held_back": 15,
+    "entries_not_shown": 20,
+    "vote_counts_left_out": 88
   },
   "recordings": {
-    "since": "2026-11-03",
-    "until": "2026-11-09",
-    "held": 3,
+    "since": "2026-11-04",
+    "until": "2026-11-10",
+    "held": 4,
     "next_day": 1,
     "steps": {
       "summarized": 1,
@@ -372,7 +372,7 @@
       "waiting": 0,
       "failed": 0,
       "unmatched": 0,
-      "not_found": 2,
+      "not_found": 3,
       "no_source": 0,
       "no_recordings": 0
     },
@@ -386,35 +386,28 @@
         "date": "2026-11-09",
         "board": "Zoning Commission",
         "step": "not_found"
+      },
+      {
+        "date": "2026-11-10",
+        "board": "City Council",
+        "step": "not_found"
       }
     ]
   },
   "documents": {
-    "since": "2026-08-12",
-    "until": "2026-11-09",
-    "held": 145,
-    "boards": 48,
+    "since": "2026-08-13",
+    "until": "2026-11-10",
+    "held": 140,
+    "boards": 47,
     "counts": {
       "no_documents": 0,
-      "no_minutes": 6,
+      "no_minutes": 3,
       "pairs": 0
     },
     "no_documents": [],
     "no_minutes": [
       {
-        "board": "Board of Education Finance and Operations Committee",
-        "meetings": 2
-      },
-      {
-        "board": "Board of Education Policy Committee",
-        "meetings": 2
-      },
-      {
         "board": "Board of Education Student Achievement Committee",
-        "meetings": 2
-      },
-      {
-        "board": "Commission for Persons with Disabilities",
         "meetings": 2
       },
       {
@@ -431,7 +424,7 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-10T17:27:13-05:00",
+    "at": "2026-11-11T00:24:33-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-05T08:24:19-05:00"
@@ -439,7 +432,5 @@
   "officials": {
     "checked_at": "2026-11-07T08:11:06-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-10T22:51:41+00:00",
-  "published_engine": "v1.103.0"
+  }
 }
