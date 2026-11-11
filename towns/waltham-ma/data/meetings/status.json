@@ -9,12 +9,18 @@
       "updated_at": "2026-11-10T12:37:35-05:00"
     }
   },
-  "errors": [],
-  "event_pages_checked": 8,
-  "failed_calendars": [],
-  "listed_in_feed": 254,
+  "errors": [
+    "city calendar: https://www.city.waltham.ma.us/Calendar.aspx?CID=0&view=list&month=11&year=2026: HTTPSConnectionPool(host='www.city.waltham.ma.us', port=443): Max retries exceeded with url: /Calendar.aspx?CID=0&view=list&month=11&year=2026 (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.city.waltham.ma.us', port=443) at 0x7bd56eaf94f0>, 'Connection to www.city.waltham.ma.us timed out. (connect timeout=30.0)'))",
+    "Agenda Center: https://www.city.waltham.ma.us/AgendaCenter/Search/?term=&CIDs=all&startDate=01/01/2026&endDate=01/10/2027&dateRange=&dateSelector=: HTTPSConnectionPool(host='www.city.waltham.ma.us', port=443): Max retries exceeded with url: /AgendaCenter/Search/?term=&CIDs=all&startDate=01/01/2026&endDate=01/10/2027&dateRange=&dateSelector= (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.city.waltham.ma.us', port=443) at 0x7bd56eafa300>, 'Connection to www.city.waltham.ma.us timed out. (connect timeout=30.0)'))"
+  ],
+  "event_pages_checked": 0,
+  "failed_calendars": [
+    "city calendar",
+    "Agenda Center"
+  ],
+  "listed_in_feed": 0,
   "new_meetings": 0,
   "renamed": 0,
-  "requests": 12,
+  "requests": 8,
   "updated_at": "2026-11-10T12:37:35-05:00"
 }
