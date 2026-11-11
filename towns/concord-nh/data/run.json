@@ -1,46 +1,46 @@
 {
   "town": "concord",
   "folder": "concord-nh",
-  "started_at": "2026-11-10T05:48:47+00:00",
-  "finished_at": "2026-11-10T05:54:35+00:00",
-  "engine": "v1.103.0",
+  "started_at": "2026-11-11T09:11:42+00:00",
+  "finished_at": "2026-11-11T09:17:42+00:00",
+  "engine": "v1.104.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 262.4
+      "seconds": 283.1
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 10.2
+      "seconds": 11.4
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 47.0
+      "seconds": 62.3
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 14.0
+      "seconds": 2.6
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.7
+      "seconds": 0.6
     }
   ],
   "update": {
     "town": "concord",
-    "sources": "meetings",
-    "started_at": "2026-11-10T05:48:47+00:00",
+    "sources": "all",
+    "started_at": "2026-11-11T09:11:42+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 221.4,
+        "seconds": 216.4,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 25.9,
+        "seconds": 36.0,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 11.8,
+        "seconds": 18.2,
         "cadence": "continuous"
       },
       {
@@ -145,7 +145,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 8 days ago; checked every 30 days"
+        "skipped": "checked 9 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -154,7 +154,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -163,7 +163,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 8 days ago; checked every 30 days"
+        "skipped": "checked 9 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -172,7 +172,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 8 days ago; checked every 30 days"
+        "skipped": "checked 9 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -181,7 +181,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -213,7 +213,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -223,6 +223,31 @@
         "error": null,
         "seconds": 0.4,
         "cadence": "continuous"
+      },
+      {
+        "name": "Fetch 311 requests",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 8.4,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch 311 requests from an open data portal",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [socrata_311] in the config"
+      },
+      {
+        "name": "Compute 311 scorecard",
+        "ok": true,
+        "required": true,
+        "error": null,
+        "seconds": 1.1,
+        "cadence": "continuous"
       }
     ]
   },
@@ -231,28 +256,28 @@
     {
       "label": "Meetings (city calendar and Legistar)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-10T00:48:48-05:00",
+      "updated_at": "2026-11-11T04:11:43-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Board of Education meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-10T00:52:55-05:00",
+      "updated_at": "2026-11-11T04:15:55-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-09T04:21:34-05:00",
+      "updated_at": "2026-11-11T04:16:16-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-09T04:21:58-05:00",
+      "updated_at": "2026-11-11T04:16:24-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -341,65 +366,51 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-11T09:01:50+00:00",
-  "data_bytes": 4235566,
-  "data_bytes_added": 2255722,
+  "last_good_at": "2026-11-11T09:17:42+00:00",
+  "data_bytes": 4324676,
+  "data_bytes_added": 2278811,
   "activity": {
     "boards": 40,
     "meetings_by_date": {
-      "2026-11-10": 4,
       "2026-11-12": 2,
-      "2026-11-16": 1,
       "2026-11-17": 2,
       "2026-11-18": 2,
       "2026-11-19": 3
     }
   },
   "fact_checks": {
-    "summaries": 63,
-    "ok": 52,
-    "failed": 10,
+    "summaries": 70,
+    "ok": 58,
+    "failed": 11,
     "weak": 1,
     "unchecked": 0,
     "not_yet": 0,
-    "held_back": 10,
-    "entries_not_shown": 21,
+    "held_back": 11,
+    "entries_not_shown": 24,
     "vote_counts_left_out": 31
   },
   "recordings": {
-    "since": "2026-11-03",
-    "until": "2026-11-09",
+    "since": "2026-11-04",
+    "until": "2026-11-10",
     "held": 2,
-    "next_day": 0,
+    "next_day": 1,
     "steps": {
-      "summarized": 0,
-      "minutes": 0,
-      "transcribed": 1,
+      "summarized": 1,
+      "minutes": 1,
+      "transcribed": 0,
       "waiting": 0,
       "failed": 0,
       "unmatched": 0,
-      "not_found": 1,
+      "not_found": 0,
       "no_source": 0,
       "no_recordings": 0
     },
-    "misses": [
-      {
-        "date": "2026-11-04",
-        "board": "Zoning Board of Adjustment",
-        "step": "not_found"
-      },
-      {
-        "date": "2026-11-09",
-        "board": "City Council",
-        "step": "transcribed",
-        "detail": "transcript not summarized yet"
-      }
-    ]
+    "misses": []
   },
   "documents": {
-    "since": "2026-08-12",
-    "until": "2026-11-09",
-    "held": 58,
+    "since": "2026-08-13",
+    "until": "2026-11-10",
+    "held": 64,
     "boards": 28,
     "counts": {
       "no_documents": 0,
@@ -413,15 +424,13 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-10T00:24:54-05:00",
+    "at": "2026-11-11T02:24:30-05:00",
     "refused": 0,
-    "transcribed": 1,
+    "transcribed": 0,
     "last_transcribed_at": "2026-11-10T00:24:54-05:00"
   },
   "officials": {
     "checked_at": "2026-11-07T04:23:09-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-11T09:01:50+00:00",
-  "published_engine": "v1.104.0"
+  }
 }
