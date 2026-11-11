@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01SEshfByAa3VHxNtxJ8jN1u",
-  "sent_at": "2026-11-11T09:18:16+00:00",
+  "id": "msgbatch_01SyTfeEMuGAMPVPnz52HcWA",
+  "sent_at": "2026-11-11T09:50:47+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,9 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
+      "source_hash": "a312ffc2bcc4b11acbd1a92e356f9b473d4483e31a163b426e677784ad99878d",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Planning Commission Meeting",
         "date": "2026-11-12",
@@ -21,15 +29,21 @@
       },
       "doc": {
         "id": "1725",
-        "sha256": "26a355fbaf2d46f2f3f709213b6c421ba6e4ba1ed8c1ced3629988f7e0818050",
-        "file": "1725.pdf",
-        "source_url": "https://www.winooskivt.gov/AgendaCenter/ViewFile/Agenda/_11122026-1725"
+        "sha256": "26a355fbaf2d46f2f3f709213b6c421ba6e4ba1ed8c1ced3629988f7e0818050"
       }
     },
     {
-      "custom_id": "doc-1",
+      "custom_id": "tr-1",
+      "type": "translation",
+      "lang": "es",
       "kind": "minutes",
       "older": false,
+      "source_hash": "4a055d9c89e38bae058c2ada3ce220ad79ddd38948cf641e25968689ca7a372c",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Planning Commission Meeting",
         "date": "2026-10-29",
@@ -37,53 +51,7 @@
       },
       "doc": {
         "id": "agendacenter-1720",
-        "sha256": "57c2918ae9429379137f13b82deeb1563180251717ce004f908874fd767f30c5",
-        "file": "agendacenter-1720.pdf",
-        "source_url": "https://www.winooskivt.gov/AgendaCenter/ViewFile/Minutes/_10292026-1720"
-      }
-    },
-    {
-      "custom_id": "tr-0",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "b919acb719a16590ae7edf44b89d07c1c362d56466e66497d29724005a98374c",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "School Board Meeting",
-        "date": "2026-11-11",
-        "body": "School Board"
-      },
-      "doc": {
-        "id": "1Efcrfj9XMhx2lJYmeilqIFJgE3A1k1IjljBijZXqbfc-e4ee0c12",
-        "sha256": "e4ee0c12c86875bc1fc3f67afcceaf725b5621e2178840c41a6f283b52f96d1f"
-      }
-    },
-    {
-      "custom_id": "tr-1",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "20fb4836f7a069e735cfe0cb34580da6dc4ea52e304331a78d811c49ee31deb2",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "City Council Meeting",
-        "date": "2026-11-10",
-        "body": "City Council"
-      },
-      "doc": {
-        "id": "1724",
-        "sha256": "c543b29bf13d805ec236b8258df18982fbdfff06b0fa6324521d1cee5b9b71ea"
+        "sha256": "57c2918ae9429379137f13b82deeb1563180251717ce004f908874fd767f30c5"
       }
     }
   ]
