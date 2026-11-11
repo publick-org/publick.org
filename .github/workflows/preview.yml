@@ -19,11 +19,16 @@
 # engine-version, then loads the preview's homepage until it is the one built.
 #
 # The engine asked for needs build_site --preview. Each preview replaces the
-# town's last one. Actions -> Remove a site takes one down
-# (preview-<town>.publick.org).
+# town's last one, and comes down by itself a week after it was last
+# published: once a day, the expire job deletes the previews older than that
+# (scripts/expire_previews.py), and only what was built as a preview.
+# Actions -> Remove a site takes one down sooner (preview-<town>.publick.org).
 name: Preview
 
 on:
+  schedule:
+    # Once a day, for the expire job alone.
+    - cron: "43 4 * * *"
   workflow_dispatch:
     inputs:
       town:
@@ -45,6 +50,7 @@ concurrency:
 
 jobs:
   build:
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -199,3 +205,31 @@ jobs:
             exit 1
           fi
           echo "Preview of $TOWN${ENGINE:+ with engine $ENGINE}: https://$HOST/" >> "$GITHUB_STEP_SUMMARY"
+
+  # The scheduled run: previews last published more than a week ago.
+  expire:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /scripts/expire_previews.py
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+
+      # At the engine's version (its requirements.txt), since it runs with the bucket's keys.
+      - run: pip install boto3==1.43.106
+
+      - name: Take down old previews
+        env:
+          SITES_ENDPOINT: ${{ secrets.SITES_ENDPOINT }}
+          SITES_BUCKET: ${{ secrets.SITES_BUCKET }}
+          SITES_ACCESS_KEY_ID: ${{ secrets.SITES_ACCESS_KEY_ID }}
+          SITES_SECRET_ACCESS_KEY: ${{ secrets.SITES_SECRET_ACCESS_KEY }}
+        run: python scripts/expire_previews.py
