@@ -1,10 +1,17 @@
 # This repository is public, and so is everything attached to a pull request.
 # This check fails one whose title, description, commit messages, or added
 # Markdown lines read like internal notes (CONTRIBUTING.md says what stays out), or
+# whose commit messages or title link a working session, or whose branch isn't
+# named for its change, or
 # whose added lines in any other file give a cost or budget figure, or that
-# commits a cost record (summary-costs.json, data/costs/); see
-# .github/public_check.py. A false positive is cleared by the `public-ok`
-# label, or for one line of code, a `public-ok` comment on it.
+# commits a cost record (summary-costs.json, data/costs/). A false positive is
+# cleared by the `public-ok` label, or for one line of code, a `public-ok`
+# comment on it.
+#
+# The check itself is the engine's (.github/public_check.py there, with its
+# tests), read from the engine's main branch, not engine-version: it checks
+# pull requests, not towns, and one copy keeps the two repositories' rules the
+# same. The job has no secrets and only reads.
 name: Public check
 
 on:
@@ -24,10 +31,21 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          repository: publick-org/publick-engine
+          ref: main
+          path: .publick-engine
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /.github/public_check.py
+
       - name: Look for internal notes
         env:
           PR_TITLE: ${{ github.event.pull_request.title }}
           PR_BODY: ${{ github.event.pull_request.body }}
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
-        run: python3 .github/public_check.py
+          HEAD_REF: ${{ github.head_ref }}
+        run: python3 .publick-engine/.github/public_check.py
