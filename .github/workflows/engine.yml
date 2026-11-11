@@ -177,5 +177,8 @@ jobs:
               ${ALERT_ASSIGNEE:+--assignee "$ALERT_ASSIGNEE"} \
               --body "Engine [$newest](https://github.com/publick-org/publick-engine/releases/tag/$newest) moved every town but these. $note Close this issue when they're published again."
           fi
-          gh pr merge "$number" --merge --match-head-commit "$sha" --delete-branch
+          # Squashed, as this repository's other pull requests are; as a merge commit where the repository
+          # doesn't allow squashing.
+          gh pr merge "$number" --squash --match-head-commit "$sha" --delete-branch \
+            || gh pr merge "$number" --merge --match-head-commit "$sha" --delete-branch
           echo "Merged #$number: every town${held:+ but ${held[*]}} moves to $newest on the push run that follows."
