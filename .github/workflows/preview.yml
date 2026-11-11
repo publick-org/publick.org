@@ -21,7 +21,8 @@
 # The engine asked for needs build_site --preview. Each preview replaces the
 # town's last one, and comes down by itself a week after it was last
 # published: once a day, the expire job deletes the previews older than that
-# (scripts/expire_previews.py), and only what was built as a preview.
+# (scripts/expire_previews.py), and only what was built as a preview. The
+# publish job checks the same before it publishes.
 # Actions -> Remove a site takes one down sooner (preview-<town>.publick.org).
 name: Preview
 
@@ -143,6 +144,7 @@ jobs:
           sparse-checkout: |
             /engine-version
             /defaults/
+            /scripts/expire_previews.py
             /towns/${{ inputs.town }}/config/
 
       - id: engine
@@ -175,6 +177,10 @@ jobs:
         with:
           name: preview-site
           path: _site
+
+      # Before the keys are used: only what the expire job would recognize, and so take down, goes up.
+      - name: Check it was built as a preview
+        run: python scripts/expire_previews.py --check-site _site
 
       - name: Publish the preview
         env:
