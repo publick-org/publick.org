@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01VwonSg6pv7F8MRqsc9VvyB",
-  "sent_at": "2026-11-11T09:48:15+00:00",
+  "id": "msgbatch_01RziWv3EZJo1QkLpfTPP93J",
+  "sent_at": "2026-11-11T17:44:35+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,16 +11,32 @@
   },
   "documents": [
     {
+      "custom_id": "doc-0",
+      "kind": "recording",
+      "older": false,
+      "meeting": {
+        "title": "Planning Commission Meeting",
+        "date": "2026-11-10",
+        "body": "Planning Commission"
+      },
+      "doc": {
+        "id": "youtube-PLjQeopyJeY",
+        "sha256": "c0f49f51175a69e0c952117e06e69fd5f77ae1aa9f6b7843b8aba91a5d493cfd",
+        "file": "youtube-PLjQeopyJeY.txt",
+        "source_url": "https://www.youtube.com/watch?v=PLjQeopyJeY"
+      }
+    },
+    {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "576bd513322387beddb1f6bfda8a7ea86cdec58c6b82042a284874a6ca05002c",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Development Review Board Meeting",
@@ -34,15 +50,15 @@
     },
     {
       "custom_id": "tr-1",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "22e2316eea4fe70bc09be9258ca9fa3242b5f8c4f2b4d94d544fce32bf0ab8e1",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "School Board Meeting",
@@ -56,15 +72,15 @@
     },
     {
       "custom_id": "tr-2",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "116349781ddb76c631789f6e884a8e950800ca851f8abaa40f4a954a71c35345",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Economic Development Committee Meeting",
