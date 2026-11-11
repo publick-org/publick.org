@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01Jc4Thh4ojR9z2LEvhVAu4E",
-  "sent_at": "2026-11-11T06:07:12+00:00",
+  "id": "msgbatch_0177eVtJMdNbrkxiRimRdY7E",
+  "sent_at": "2026-11-11T06:13:34+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,9 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "recording",
       "older": false,
+      "source_hash": "21b21495e5d8b4388a46b94a3406ee1703d95f4e4e32db6f1facfb3b9fe6849b",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Joint Meeting of City Council and Board of Finance",
         "date": "2026-11-10",
@@ -21,44 +29,20 @@
       },
       "doc": {
         "id": "civicclerk-video-4754",
-        "sha256": "0b09fcb0ae2d3bd69cd2a200509b5acbf5ef103d90d00057f1a036cb135540b9",
-        "file": "civicclerk-video-4754.txt",
-        "source_url": "https://bristolct.portal.civicclerk.com/event/4754/media"
-      }
-    },
-    {
-      "custom_id": "tr-0",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "5ed75da645e950ce83821fa6086d24f4e6b063992ca819148d79ca2fe164b569",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Board of Assessment Appeals",
-        "date": "2026-11-18",
-        "body": "Board of Assessment Appeals"
-      },
-      "doc": {
-        "id": "civicclerk-13921",
-        "sha256": "91fa6a0886fbbd784d7c848a24014445eccacf8c5a4641af79b897bdf696b98c"
+        "sha256": "0b09fcb0ae2d3bd69cd2a200509b5acbf5ef103d90d00057f1a036cb135540b9"
       }
     },
     {
       "custom_id": "tr-1",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "bc2bc28872b3144ee8d8890424d37dfb99d928ba7a3de11d5d2fc6d1c7e82b60",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Code Enforcement Committee",
@@ -68,72 +52,6 @@
       "doc": {
         "id": "civicclerk-13930",
         "sha256": "8fe4378ff017775b68a9f3fd5c6b77ade1febb386bf2c6c7eacc1685a286f549"
-      }
-    },
-    {
-      "custom_id": "tr-2",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "7a6f00b266833738b3a4611d4a0737ecc7adadd17041486b3da9bb686813cca4",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Real Estate Committee",
-        "date": "2026-11-02",
-        "body": "Real Estate Committee"
-      },
-      "doc": {
-        "id": "civicclerk-13926",
-        "sha256": "21d40f851cc4aceedf3a37d5ff3599ae0a077add0f41772be54cef27dcbb559b"
-      }
-    },
-    {
-      "custom_id": "tr-3",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "944117c2b262d0b52a6fef0cc768942d4e362fb6239d77237c994ad944b27bb9",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Zoning Commission",
-        "date": "2026-10-19",
-        "body": "Zoning Commission"
-      },
-      "doc": {
-        "id": "civicclerk-13929",
-        "sha256": "537e34ed35eb833ce964ffa211b054ce727be7c676817f2468aa4f1747227ccc"
-      }
-    },
-    {
-      "custom_id": "tr-4",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "96bc4538d2a7f51b975359e75ca58f7dfb53ba25380900dd2aed4ce69a50c677",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Board of Assessment Appeals",
-        "date": "2026-09-15",
-        "body": "Board of Assessment Appeals"
-      },
-      "doc": {
-        "id": "civicclerk-13923",
-        "sha256": "5505c5ef4cd17deb9535a520eff4e48f1fe4ab63c3fef95fb788684269c87d53"
       }
     }
   ]
