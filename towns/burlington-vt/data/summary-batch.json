@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01PGWAmqPYFRTtTV8Tn5ua7U",
-  "sent_at": "2026-11-11T12:13:31+00:00",
+  "id": "msgbatch_019fjZgH5pyn6goxRDSMJqsi",
+  "sent_at": "2026-11-11T12:19:58+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,9 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
+      "source_hash": "22d01b7a984553a48a8af702389c83affb7c84a97eeefae896b13d2549c15661",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Special Fire Commission Meeting",
         "date": "2026-11-13",
@@ -21,60 +29,20 @@
       },
       "doc": {
         "id": "civicclerk-21588",
-        "sha256": "6fa0671168bee21887b709cbbff524c85d6a7da3af2d3922626e5f698de541c5",
-        "file": "civicclerk-21588.pdf",
-        "source_url": "https://burlingtonvt.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=21588,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-1",
-      "kind": "minutes",
-      "older": false,
-      "meeting": {
-        "title": "City Council - Ordinance Committee Meeting",
-        "date": "2026-11-06",
-        "body": "City Council Ordinance Committee"
-      },
-      "doc": {
-        "id": "civicclerk-21590",
-        "sha256": "42eb614d7bbda30de4207cd069035c238c7f2563fe562ca87a9fc6803b7b4e54",
-        "file": "civicclerk-21590.pdf",
-        "source_url": "https://burlingtonvt.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=21590,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "tr-0",
-      "type": "translation",
-      "lang": "es",
-      "kind": "recording",
-      "older": false,
-      "source_hash": "6f269bbd94e6a6d39170f8c5c4d3e159839b074074335980871f2069f4fdf905",
-      "model": "claude-haiku-5-5",
-      "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
-      },
-      "meeting": {
-        "title": "Board of Finance Meeting",
-        "date": "2026-11-09",
-        "body": "Board of Finance"
-      },
-      "doc": {
-        "id": "youtube-bmtBYBIakPk",
-        "sha256": "6655b5c0f861921971d725052ec43fc8efcb85190c698c52cb23f7f0efa47785"
+        "sha256": "6fa0671168bee21887b709cbbff524c85d6a7da3af2d3922626e5f698de541c5"
       }
     },
     {
       "custom_id": "tr-1",
-      "type": "review",
+      "type": "translation",
       "lang": "es",
       "kind": "recording",
       "older": false,
       "source_hash": "ad4883a7a66dd288a2b924752377f1d7abbcd1d5503956b81eefb09e25c83c2f",
-      "model": "claude-sonnet-5-5",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
         "title": "City Council Meeting",
@@ -88,24 +56,24 @@
     },
     {
       "custom_id": "tr-2",
-      "type": "review",
+      "type": "translation",
       "lang": "es",
       "kind": "minutes",
       "older": false,
-      "source_hash": "74f34bfda36c1cc1d366ed64af206b155217cd2adb01fba3f9cb1aa32089297a",
-      "model": "claude-sonnet-5-5",
+      "source_hash": "6521b514ada09355f5476e062c1492c8ca5c681b7a0227d6903aa348360f4eab",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
-        "title": "Airport Commission",
-        "date": "2026-10-07",
-        "body": "Airport Commission"
+        "title": "City Council - Ordinance Committee Meeting",
+        "date": "2026-11-06",
+        "body": "City Council Ordinance Committee"
       },
       "doc": {
-        "id": "civicclerk-21568",
-        "sha256": "37455f9e1129c793bb2b8741233a3d7cba5f884fc944beed269f5ed760346742"
+        "id": "civicclerk-21590",
+        "sha256": "42eb614d7bbda30de4207cd069035c238c7f2563fe562ca87a9fc6803b7b4e54"
       }
     }
   ]
