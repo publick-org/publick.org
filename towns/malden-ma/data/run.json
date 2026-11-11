@@ -1,46 +1,46 @@
 {
   "town": "malden",
   "folder": "malden-ma",
-  "started_at": "2026-11-10T09:16:33+00:00",
-  "finished_at": "2026-11-10T09:20:46+00:00",
-  "engine": "v1.103.0",
+  "started_at": "2026-11-11T09:39:55+00:00",
+  "finished_at": "2026-11-11T09:43:01+00:00",
+  "engine": "v1.104.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 79.7
+      "seconds": 78.7
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 18.9
+      "seconds": 12.6
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 113.0
+      "seconds": 89.2
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 27.9
+      "seconds": 4.5
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.9
+      "seconds": 0.8
     }
   ],
   "update": {
     "town": "malden",
     "sources": "all",
-    "started_at": "2026-11-10T09:16:33+00:00",
+    "started_at": "2026-11-11T09:39:55+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 30.9,
+        "seconds": 43.3,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 9.9,
+        "seconds": 1.2,
         "cadence": "continuous"
       },
       {
@@ -136,7 +136,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 21.1,
+        "seconds": 19.2,
         "cadence": "continuous"
       },
       {
@@ -146,16 +146,15 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 11 days ago; checked every 30 days"
+        "skipped": "checked 13 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "seconds": 0.5,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch school figures",
@@ -164,7 +163,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 10 days ago; checked every 30 days"
+        "skipped": "checked 12 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -173,7 +172,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 11 days ago; checked every 30 days"
+        "skipped": "checked 13 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -182,14 +181,14 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 3 days ago; checked every 7 days"
+        "skipped": "checked 5 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -197,7 +196,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -214,7 +213,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -222,7 +221,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -230,7 +229,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 10.9,
+        "seconds": 9.8,
         "cadence": "continuous"
       },
       {
@@ -247,7 +246,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 4.8,
+        "seconds": 3.4,
         "cadence": "continuous"
       }
     ]
@@ -257,21 +256,21 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-10T04:16:33-05:00",
+      "updated_at": "2026-11-11T04:39:55-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-10T04:17:37-05:00",
+      "updated_at": "2026-11-11T04:41:00-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-10T04:17:48-05:00",
+      "updated_at": "2026-11-11T04:41:10-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -314,7 +313,7 @@
     {
       "label": "Unemployment rate (BLS)",
       "file": "labor/unemployment.json",
-      "updated_at": "2026-11-04T04:16:45-05:00",
+      "updated_at": "2026-11-11T04:40:59-05:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
@@ -360,22 +359,25 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-11T09:05:31+00:00",
-  "data_bytes": 19607966,
-  "data_bytes_added": 15919067,
+  "last_good_at": "2026-11-11T09:43:01+00:00",
+  "data_bytes": 19664697,
+  "data_bytes_added": 15942552,
   "activity": {
     "boards": 55,
     "meetings_by_date": {
-      "2026-11-10": 6,
       "2026-11-12": 3,
-      "2026-11-18": 3,
+      "2026-11-16": 1,
+      "2026-11-17": 1,
+      "2026-11-18": 5,
+      "2026-11-19": 1,
       "2026-11-21": 1,
-      "2026-11-23": 1
+      "2026-11-23": 1,
+      "2026-11-24": 2
     }
   },
   "fact_checks": {
-    "summaries": 246,
-    "ok": 218,
+    "summaries": 250,
+    "ok": 222,
     "failed": 7,
     "weak": 4,
     "unchecked": 15,
@@ -385,14 +387,14 @@
     "vote_counts_left_out": 61
   },
   "recordings": {
-    "since": "2026-11-03",
-    "until": "2026-11-09",
-    "held": 1,
+    "since": "2026-11-04",
+    "until": "2026-11-10",
+    "held": 2,
     "next_day": 0,
     "steps": {
       "summarized": 0,
       "minutes": 0,
-      "transcribed": 0,
+      "transcribed": 1,
       "waiting": 1,
       "failed": 0,
       "unmatched": 0,
@@ -404,22 +406,33 @@
       {
         "date": "2026-11-09",
         "board": "School Committee",
+        "step": "transcribed",
+        "detail": "transcript not summarized yet"
+      },
+      {
+        "date": "2026-11-10",
+        "board": "City Council",
         "step": "waiting",
         "detail": "1 recording(s) found"
       }
     ]
   },
   "documents": {
-    "since": "2026-08-12",
-    "until": "2026-11-09",
-    "held": 105,
+    "since": "2026-08-13",
+    "until": "2026-11-10",
+    "held": 110,
     "boards": 43,
     "counts": {
-      "no_documents": 0,
-      "no_minutes": 6,
+      "no_documents": 1,
+      "no_minutes": 5,
       "pairs": 0
     },
-    "no_documents": [],
+    "no_documents": [
+      {
+        "board": "FY27 Residential Factor",
+        "meetings": 2
+      }
+    ],
     "no_minutes": [
       {
         "board": "Comprehensive Master Plan Steering Committee",
@@ -431,10 +444,6 @@
       },
       {
         "board": "Northeast Metro Tech Building Committee",
-        "meetings": 2
-      },
-      {
-        "board": "Planning Board",
         "meetings": 2
       },
       {
@@ -451,15 +460,13 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-10T02:24:00-05:00",
+    "at": "2026-11-11T04:24:00-05:00",
     "refused": 0,
     "transcribed": 0,
-    "last_transcribed_at": "2026-10-31T06:14:51-04:00"
+    "last_transcribed_at": "2026-11-10T08:24:02-05:00"
   },
   "officials": {
     "checked_at": "2026-11-07T04:32:02-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-11T09:05:31+00:00",
-  "published_engine": "v1.104.0"
+  }
 }
