@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01AQDv7VsV98hXguJ33qSc2P",
-  "sent_at": "2026-11-11T09:23:03+00:00",
+  "id": "msgbatch_013uDF42mntaQ3rwHAzjfike",
+  "sent_at": "2026-11-11T09:52:48+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,25 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
-      "meeting": {
-        "title": "Board of Elections Meeting",
-        "date": "2026-11-13",
-        "body": "Board of Elections"
+      "source_hash": "177060c86cf826f8cdb6806c926533129d2a834460b8f06392c6d718b8babd86",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
       },
-      "doc": {
-        "id": "civicclerk-23789",
-        "sha256": "d68d302041e42e09391a31870343071a154d08057735214f1ccb97cc36bd8eda",
-        "file": "civicclerk-23789.pdf",
-        "source_url": "https://springfieldma.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=23789,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-1",
-      "kind": "agenda",
-      "older": false,
       "meeting": {
         "title": "Planning & Economic Development Subcommittee",
         "date": "2026-11-19",
@@ -37,97 +29,29 @@
       },
       "doc": {
         "id": "civicclerk-23788",
-        "sha256": "e6adeed39c04e8e26dbcca2f50d617148cae2969c228e4123d53075212c22463",
-        "file": "civicclerk-23788.pdf",
-        "source_url": "https://springfieldma.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=23788,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "tr-0",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "cf29af70424bc40524b835a31a04071b602a1c8d7835e409dc2f3f647de77805",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Public Safety Subcommittee Meeting",
-        "date": "2026-11-12",
-        "body": "Public Safety Committee"
-      },
-      "doc": {
-        "id": "civicclerk-23782",
-        "sha256": "9083bd206d82d607245fcdea35ede4f08f43d6682ec664f641c6fc7e7dab573b"
+        "sha256": "e6adeed39c04e8e26dbcca2f50d617148cae2969c228e4123d53075212c22463"
       }
     },
     {
       "custom_id": "tr-1",
-      "type": "review",
+      "type": "translation",
       "lang": "es",
       "kind": "agenda",
       "older": false,
-      "source_hash": "0c940d1dcf3107bda203773f26cd2c6644b160a456a516d09bfd5bf33ab52bbf",
-      "model": "claude-sonnet-5-5",
+      "source_hash": "03110a00e56a04002e151d81fc48b50ceb51bdf87d35164353cbb33f9d07dc52",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
-        "title": "Springfield School Committee - Special Meeting",
-        "date": "2026-11-12",
-        "body": "School Committee"
+        "title": "Board of Elections Meeting",
+        "date": "2026-11-13",
+        "body": "Board of Elections"
       },
       "doc": {
-        "id": "civicclerk-23783",
-        "sha256": "50079b95c1d8d1b77e14f67d0751d0467e3718b5d4ad952630bf2f7e6e8a1531"
-      }
-    },
-    {
-      "custom_id": "tr-2",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "3f5570b23445b93bba80d0df6df1611d11d9dbbffbba2d958b3f6d7bb1ab54f1",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Springfield School Committee - Student Advisory Reps. (2) & Regular Meeting",
-        "date": "2026-11-12",
-        "body": "School Committee"
-      },
-      "doc": {
-        "id": "civicclerk-23784",
-        "sha256": "f68a2b36bff218128e3ae4e4dc63198a3fee5418c3b2502583aad752f97aebdb"
-      }
-    },
-    {
-      "custom_id": "tr-3",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "a657dd8cc93a50c4abf52bb86e658390ea6c1e9dd8a74b8ec5de825cf7337b2e",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Sustainability & Environment Subcommittee",
-        "date": "2026-11-06",
-        "body": "Sustainability & Environment Committee"
-      },
-      "doc": {
-        "id": "civicclerk-23781",
-        "sha256": "396ff412876ea0b063d0dca1e4da08738843f75cc6159a185aecf63585b2b7a2"
+        "id": "civicclerk-23789",
+        "sha256": "d68d302041e42e09391a31870343071a154d08057735214f1ccb97cc36bd8eda"
       }
     }
   ]
