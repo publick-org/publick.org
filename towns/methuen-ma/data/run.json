@@ -1,46 +1,46 @@
 {
   "town": "methuen",
   "folder": "methuen-ma",
-  "started_at": "2026-11-10T09:10:54+00:00",
-  "finished_at": "2026-11-10T09:13:16+00:00",
-  "engine": "v1.103.0",
+  "started_at": "2026-11-11T09:12:03+00:00",
+  "finished_at": "2026-11-11T09:14:24+00:00",
+  "engine": "v1.104.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 62.4
+      "seconds": 82.1
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 8.7
+      "seconds": 7.8
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 42.3
+      "seconds": 44.9
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 15.3
+      "seconds": 4.2
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.8
+      "seconds": 0.7
     }
   ],
   "update": {
     "town": "methuen",
     "sources": "all",
-    "started_at": "2026-11-10T09:10:55+00:00",
+    "started_at": "2026-11-11T09:12:04+00:00",
     "ok": true,
     "steps": [
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 1.2,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 2.3,
+        "seconds": 13.9,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 10.2,
+        "seconds": 19.5,
         "cadence": "continuous"
       },
       {
@@ -145,15 +145,16 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 27 days ago; checked every 30 days"
+        "skipped": "checked 28 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.6,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -162,7 +163,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 27 days ago; checked every 30 days"
+        "skipped": "checked 28 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -171,7 +172,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 27 days ago; checked every 30 days"
+        "skipped": "checked 28 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -180,7 +181,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 4 days ago; checked every 7 days"
+        "skipped": "checked 5 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -228,7 +229,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 8.9,
+        "seconds": 9.0,
         "cadence": "continuous"
       },
       {
@@ -245,7 +246,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 1.5,
+        "seconds": 1.2,
         "cadence": "continuous"
       }
     ]
@@ -255,28 +256,28 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-10T04:10:55-05:00",
+      "updated_at": "2026-11-11T04:12:04-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-10T04:11:31-05:00",
+      "updated_at": "2026-11-11T04:12:41-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-10T04:11:46-05:00",
+      "updated_at": "2026-11-11T04:13:15-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-10T04:11:55-05:00",
+      "updated_at": "2026-11-11T04:13:25-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -365,22 +366,22 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-11T09:04:26+00:00",
-  "data_bytes": 5300258,
-  "data_bytes_added": 3293218,
+  "last_good_at": "2026-11-11T09:14:24+00:00",
+  "data_bytes": 5327747,
+  "data_bytes_added": 3311792,
   "activity": {
     "boards": 27,
     "meetings_by_date": {
-      "2026-11-10": 1,
-      "2026-11-12": 1,
+      "2026-11-12": 2,
+      "2026-11-13": 1,
       "2026-11-16": 2,
       "2026-11-18": 1,
       "2026-11-19": 2
     }
   },
   "fact_checks": {
-    "summaries": 80,
-    "ok": 70,
+    "summaries": 81,
+    "ok": 71,
     "failed": 10,
     "weak": 0,
     "unchecked": 0,
@@ -390,8 +391,8 @@
     "vote_counts_left_out": 32
   },
   "recordings": {
-    "since": "2026-11-03",
-    "until": "2026-11-09",
+    "since": "2026-11-04",
+    "until": "2026-11-10",
     "held": 2,
     "next_day": 0,
     "steps": {
@@ -421,13 +422,13 @@
     ]
   },
   "documents": {
-    "since": "2026-08-12",
-    "until": "2026-11-09",
-    "held": 66,
+    "since": "2026-08-13",
+    "until": "2026-11-10",
+    "held": 64,
     "boards": 17,
     "counts": {
       "no_documents": 0,
-      "no_minutes": 3,
+      "no_minutes": 1,
       "pairs": 0
     },
     "no_documents": [],
@@ -435,14 +436,6 @@
       {
         "board": "School Committee",
         "meetings": 4
-      },
-      {
-        "board": "Community Development Board",
-        "meetings": 2
-      },
-      {
-        "board": "Licensing Board",
-        "meetings": 2
       }
     ],
     "pairs": [],
@@ -450,7 +443,7 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-10T02:25:18-05:00",
+    "at": "2026-11-11T02:25:54-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-05T02:24:20-05:00"
@@ -458,7 +451,5 @@
   "officials": {
     "checked_at": "2026-11-07T04:17:18-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-11T09:04:26+00:00",
-  "published_engine": "v1.104.0"
+  }
 }
