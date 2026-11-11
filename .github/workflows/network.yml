@@ -16,9 +16,10 @@
 #              of each kind of record page (the engine's site_checks/pages.py).
 #              Then republishes the homepage, for its status page (publick.org/status/).
 #   push       Rebuilds and publishes the towns a change touched (all of them
-#              when engine-version, a workflow, or defaults/network.toml
+#              when engine-version, this workflow, or defaults/network.toml
 #              changed; a state's towns when defaults/states/<st>.toml
-#              did), records that in each
+#              did; none for a change to only the workflows that build no
+#              town, listed under paths-ignore below), records that in each
 #              town's run record (data/run.json), and rebuilds the homepage and
 #              its status page. No fetching. The browser checks run on a
 #              sample of pages: the pull request already checked every one.
@@ -70,8 +71,39 @@ on:
     # Not for the data the daily run and the statewide fetch commit: each town was built and published
     # before its data was committed, so such a push has nothing to rebuild (pipeline.network changed_towns
     # leaves data out), and a run for it would only wait behind the daily run for a runner.
-    paths-ignore: ["towns/*/data/**", "states/**"]
+    #
+    # Nor for a change to only the files below: this workflow's plan counts any file under .github/ as
+    # shared by every town (pipeline.network changed_towns), so such a push rebuilt and published them all.
+    paths-ignore:
+      - towns/*/data/**
+      - states/**
+      # The workflows that build no town's site, and what only they read. A new file under .github/ isn't
+      # here until it's added: until then a change to it rebuilds every town, which is the safe side.
+      - .github/dependabot.yml
+      - .github/workflows/add-town.yml
+      - .github/workflows/digest-test.yml
+      - .github/workflows/engine.yml
+      - .github/workflows/evaluate.yml
+      - .github/workflows/preview.yml
+      - .github/workflows/public-check.yml
+      - .github/workflows/recordings.yml
+      - .github/workflows/remove-site.yml
+      - .github/workflows/worker.yml
+      - scripts/expire_previews.py
   pull_request:
+    # A pull request that changes only these has no town to build or check.
+    paths-ignore:
+      - .github/dependabot.yml
+      - .github/workflows/add-town.yml
+      - .github/workflows/digest-test.yml
+      - .github/workflows/engine.yml
+      - .github/workflows/evaluate.yml
+      - .github/workflows/preview.yml
+      - .github/workflows/public-check.yml
+      - .github/workflows/recordings.yml
+      - .github/workflows/remove-site.yml
+      - .github/workflows/worker.yml
+      - scripts/expire_previews.py
   workflow_dispatch:
     inputs:
       daily:
