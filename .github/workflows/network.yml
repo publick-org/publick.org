@@ -16,10 +16,11 @@
 #              of each kind of record page (the engine's site_checks/pages.py).
 #              Then republishes the homepage, for its status page (publick.org/status/).
 #   push       Rebuilds and publishes the towns a change touched (all of them
-#              when engine-version, this workflow, or defaults/network.toml
-#              changed; a state's towns when defaults/states/<st>.toml
-#              did; none for a change to only the workflows that build no
-#              town, listed under paths-ignore below), records that in each
+#              when engine-version, defaults/network.toml, this workflow, or
+#              another file under .github/ that isn't listed under
+#              paths-ignore below changed; a state's towns when
+#              defaults/states/<st>.toml did; none for the workflows that
+#              build no town, listed there), records that in each
 #              town's run record (data/run.json), and rebuilds the homepage and
 #              its status page. No fetching. The browser checks run on a
 #              sample of pages: the pull request already checked every one.
@@ -73,7 +74,8 @@ on:
     # leaves data out), and a run for it would only wait behind the daily run for a runner.
     #
     # Nor for a change to only the files below: this workflow's plan counts any file under .github/ as
-    # shared by every town (pipeline.network changed_towns), so such a push rebuilt and published them all.
+    # shared by every town (pipeline.network changed_towns), so a push of one of those workflows rebuilt
+    # and published them all. The plan step leaves the same files out of what changed.
     paths-ignore:
       - towns/*/data/**
       - states/**
@@ -273,6 +275,12 @@ jobs:
                 git fetch --quiet --depth=1 origin "$since"
                 git diff --name-only "$since" HEAD > changed.txt
               fi
+              # The files the triggers above ignore build no town, so they're left out here too: a push of
+              # only them starts no run, and stays in the next run's changes, where the plan would count a
+              # file under .github/ as every town's. The same files as both paths-ignore lists.
+              no_town='^(\.github/(dependabot\.yml|workflows/(add-town|digest-test|engine|evaluate|preview|public-check|recordings|remove-site|worker)\.yml)|scripts/expire_previews\.py)$'
+              grep -vE "$no_town" changed.txt > changed.kept || true
+              mv changed.kept changed.txt
               args+=(--changed changed.txt)
               grep -qE '^(home|scripts|defaults)/|^towns/[^/]+/config/' changed.txt && home=true
               # A pull request checks every page, and builds the homepage to check it, but publishes nothing.
