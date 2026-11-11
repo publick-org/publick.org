@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01QJB5oVJsEKjeesyCCy5Ho9",
-  "sent_at": "2026-11-10T09:31:47+00:00",
+  "id": "msgbatch_01QBi3FEcf8ZqJazMJjN38hR",
+  "sent_at": "2026-11-11T09:15:48+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,16 +11,80 @@
   },
   "documents": [
     {
+      "custom_id": "doc-0",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "Police Commission Regular Meeting",
+        "date": "2026-11-11",
+        "body": "Police Commission"
+      },
+      "doc": {
+        "id": "civicclerk-14257",
+        "sha256": "0f0abe5116343312d462a615781c6d77bb46f0160c611f4b5aa637ede819ad6e",
+        "file": "civicclerk-14257.pdf",
+        "source_url": "https://hamdenct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=14257,plainText=false)"
+      }
+    },
+    {
+      "custom_id": "doc-1",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "Solid Waste & Recycling Commission Regular Meeting",
+        "date": "2026-11-11",
+        "body": "Solid Waste & Recycling Commission"
+      },
+      "doc": {
+        "id": "civicclerk-14255",
+        "sha256": "83da2495133f0c051121481d9c906852857f2b9f3ef1d7de03ecf21c31da09ab",
+        "file": "civicclerk-14255.pdf",
+        "source_url": "https://hamdenct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=14255,plainText=false)"
+      }
+    },
+    {
+      "custom_id": "doc-2",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "Human Rights & Relations Commission Regular Meeting",
+        "date": "2026-11-12",
+        "body": "Human Rights & Relations Commission"
+      },
+      "doc": {
+        "id": "civicclerk-14254",
+        "sha256": "7c6b98a5b059effa3cd3c89733de6d586666e5050327dc3feb9ba1365f1e30f4",
+        "file": "civicclerk-14254.pdf",
+        "source_url": "https://hamdenct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=14254,plainText=false)"
+      }
+    },
+    {
+      "custom_id": "doc-3",
+      "kind": "minutes",
+      "older": false,
+      "meeting": {
+        "title": "Veterans Commission Regular Meeting",
+        "date": "2026-11-04",
+        "body": "Veterans Commission"
+      },
+      "doc": {
+        "id": "civicclerk-14262",
+        "sha256": "822012e26cf928de6304180fcfe7114e24de3d2783fbaf7409581429d67907f6",
+        "file": "civicclerk-14262.pdf",
+        "source_url": "https://hamdenct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=14262,plainText=false)"
+      }
+    },
+    {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "2248ca7e0c15fa15ccd2014ca923ea9c4479ddfa949c0bf4907fb6a733d45ef0",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Finance Commission Regular Meeting",
@@ -34,15 +98,15 @@
     },
     {
       "custom_id": "tr-1",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "47bbe9c4ef8c80f62d5b63b648c9fd50671cc7f88e6f240d72e6ce4ed65f095c",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Board of Ethics Regular Meeting",
@@ -56,15 +120,15 @@
     },
     {
       "custom_id": "tr-2",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "e9efc75615154991ac6313692c76b963c1b6db7176cdbb5b581a16d7cf459ee1",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Economic Development Commission Regular Meeting",
@@ -78,15 +142,15 @@
     },
     {
       "custom_id": "tr-3",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "1da7233d93cacb9d59d798252ec35bd225e417c951d15c8a1215fad6244db6da",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Farmington Canal Commission Regular Meeting",
@@ -100,15 +164,15 @@
     },
     {
       "custom_id": "tr-4",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "c3f81b5ed14156544a1ffba28480391da30247a3c562322882b35b452d99e358",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Library Board Regular Meeting",
@@ -122,15 +186,15 @@
     },
     {
       "custom_id": "tr-5",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "c3a2e8f309e86f948f352ba941b6fd21d5fcb0b3d1ebcd5c70411eb2a6b6dc14",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Fair Rent Commission Regular Meeting",
