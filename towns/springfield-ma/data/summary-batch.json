@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_013uDF42mntaQ3rwHAzjfike",
-  "sent_at": "2026-11-11T09:52:48+00:00",
+  "id": "msgbatch_01XRrBLk618RthZQTvghRogC",
+  "sent_at": "2026-11-11T12:57:33+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,16 +11,32 @@
   },
   "documents": [
     {
+      "custom_id": "doc-0",
+      "kind": "recording",
+      "older": false,
+      "meeting": {
+        "title": "Sustainability & Environment Committee Meeting",
+        "date": "2026-11-09",
+        "body": "Sustainability & Environment Committee"
+      },
+      "doc": {
+        "id": "youtube-whNzJx9R89U",
+        "sha256": "3ce7ee4937422802c0627c45193a7671041078b96eb8385b70416630e50b97df",
+        "file": "youtube-whNzJx9R89U.txt",
+        "source_url": "https://www.youtube.com/watch?v=whNzJx9R89U"
+      }
+    },
+    {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "177060c86cf826f8cdb6806c926533129d2a834460b8f06392c6d718b8babd86",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Planning & Economic Development Subcommittee",
@@ -34,15 +50,15 @@
     },
     {
       "custom_id": "tr-1",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "03110a00e56a04002e151d81fc48b50ceb51bdf87d35164353cbb33f9d07dc52",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Board of Elections Meeting",
@@ -52,6 +68,28 @@
       "doc": {
         "id": "civicclerk-23789",
         "sha256": "d68d302041e42e09391a31870343071a154d08057735214f1ccb97cc36bd8eda"
+      }
+    },
+    {
+      "custom_id": "tr-2",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "3f5570b23445b93bba80d0df6df1611d11d9dbbffbba2d958b3f6d7bb1ab54f1",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Springfield School Committee - Student Advisory Reps. (2) & Regular Meeting",
+        "date": "2026-11-12",
+        "body": "School Committee"
+      },
+      "doc": {
+        "id": "civicclerk-23784",
+        "sha256": "f68a2b36bff218128e3ae4e4dc63198a3fee5418c3b2502583aad752f97aebdb"
       }
     }
   ]
