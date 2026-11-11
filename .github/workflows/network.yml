@@ -458,7 +458,15 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r .publick-engine/requirements.txt -r .publick-engine/requirements-dev.txt
-          python -m playwright install --with-deps chromium
+          python -m playwright install chromium
+
+      # Chromium's system packages, from Ubuntu's archive. The runner image already has the libraries Chromium
+      # needs, so this adds fonts for other alphabets; the pages and the share cards use the sites' own fonts.
+      # When the archive can't be reached, the step fails without stopping the run.
+      - name: Install the browser's system packages
+        continue-on-error: true
+        timeout-minutes: 5
+        run: python -m playwright install-deps chromium
 
       # One town at a time, each one's data committed when it's done (on a fetching run outside a pull request).
       - name: Update, build, check, and publish
