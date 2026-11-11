@@ -19,8 +19,10 @@ is anything under sites/ this doesn't recognize: only a site's own manifests
 (current.json, builds/<build>.json) are ever deleted. It lists the bucket by
 the "sites/preview-" prefix: its work grows with the previews, not the towns.
 
-Each site is listed again just before it is judged, so one published again
-while this runs is kept. One site's failure (a manifest that can't be read, a
+Each site is listed again just before it is judged, and its manifest's date
+is read again with the manifest, so one published again while this runs is
+kept. A publish that lands in the moment between that and the deletion is
+found right after it, and its build made live again. One site's failure (a manifest that can't be read, a
 deletion refused) doesn't stop the others: each is reported as it happens,
 and the run fails at the end if any did.
 
@@ -80,8 +82,11 @@ def expire_site(client, bucket: str, host: str, days: int, now: datetime, dry_ru
     # The live build says what the site is; with none (a deletion cut short), its newest build does.
     live = next((o for o in manifests if o["Key"] == f"sites/{host}/current.json"), None)
     judged = live or newest
-    manifest = json.loads(client.get_object(Bucket=bucket, Key=judged["Key"])["Body"].read())
-    if not built_as_preview(manifest):
+    response = client.get_object(Bucket=bucket, Key=judged["Key"])
+    # Published again since the listing: the manifest read is a new one.
+    if now - response["LastModified"] <= timedelta(days=days):
+        return "kept", "published again just now"
+    if not built_as_preview(json.loads(response["Body"].read())):
         return "skipped", "its robots.txt isn't a preview's"
     if not dry_run:
         # The live manifest first, so the preview stops being served even if a later deletion fails; the next
@@ -94,6 +99,16 @@ def expire_site(client, bucket: str, host: str, days: int, now: datetime, dry_ru
                 "Objects": [{"Key": k} for k in rest[i:i + 1000]], "Quiet": True})
             if response.get("Errors"):
                 raise RuntimeError(f"{len(response['Errors'])} deletions failed, e.g. {response['Errors'][0].get('Key')}")
+        # A publish that landed between the read above and the deletion: its build's manifest, written before its
+        # live one, is still here. Make it live again, as a rollback to it would.
+        after = [o for o in list_objects(client, bucket, f"sites/{host}/") if MANIFEST.fullmatch(o["Key"])]
+        fresh = [o for o in after if now - o["LastModified"] <= timedelta(days=days)]
+        if fresh:
+            current = f"sites/{host}/current.json"
+            if not any(o["Key"] == current for o in after):
+                build = max(fresh, key=lambda o: o["LastModified"])
+                client.copy_object(Bucket=bucket, Key=current, CopySource={"Bucket": bucket, "Key": build["Key"]})
+            return "kept", "published again while its old builds were deleted; its new build is live"
     return "deleted", f"last published {newest['LastModified']:%Y-%m-%d}" + left
 
 
