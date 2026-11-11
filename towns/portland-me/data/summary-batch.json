@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_0141bBqQk9BSdZuLqeQzA3V6",
-  "sent_at": "2026-11-11T06:06:57+00:00",
+  "id": "msgbatch_01TN8LizvGgDkfwgdtEzUogN",
+  "sent_at": "2026-11-11T06:13:42+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,80 +11,16 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
-      "kind": "agenda",
-      "older": false,
-      "meeting": {
-        "title": "City Council Meeting - November 16, 2026",
-        "date": "2026-11-16",
-        "body": "City Council"
-      },
-      "doc": {
-        "id": "civicclerk-20648",
-        "sha256": "0b2530af67a82aabd5ca2d7db79b898fe44c32809ae1d77f59042c9f0a894e36",
-        "file": "civicclerk-20648.pdf",
-        "source_url": "https://portlandme.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=20648,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-1",
-      "kind": "recording",
-      "older": false,
-      "meeting": {
-        "title": "HHS and Public Safety Meeting",
-        "date": "2026-11-10",
-        "body": "City Council Health and Human Services and Public Safety Committee"
-      },
-      "doc": {
-        "id": "civicclerk-video-8348",
-        "sha256": "2c4fcec0516ebde43bddf7c627cdb316d2a1626cdb70195b2bd5396182b61a63",
-        "file": "civicclerk-video-8348.txt",
-        "source_url": "https://portlandme.portal.civicclerk.com/event/8348/media"
-      }
-    },
-    {
-      "custom_id": "doc-2",
-      "kind": "recording",
-      "older": false,
-      "meeting": {
-        "title": "Hybrid Planning Board Meeting 11-10-2026",
-        "date": "2026-11-10",
-        "body": "Planning Board"
-      },
-      "doc": {
-        "id": "civicclerk-video-8441",
-        "sha256": "723b6c807b8ee02017cf536cb999fb6010eedc6c9338862195b5fe74e68642a0",
-        "file": "civicclerk-video-8441.txt",
-        "source_url": "https://portlandme.portal.civicclerk.com/event/8441/media"
-      }
-    },
-    {
-      "custom_id": "doc-3",
-      "kind": "agenda",
-      "older": false,
-      "meeting": {
-        "title": "Board of Public Education Meeting",
-        "date": "2026-11-10",
-        "body": "Board of Public Education"
-      },
-      "doc": {
-        "id": "diligent-24349-16a13eab",
-        "sha256": "16a13eab4711a5bf46290a49f524c92a780d85d846bb9e240f0e305b0cb3c4ee",
-        "file": "diligent-24349-16a13eab.pdf",
-        "source_url": "https://portlandschools.community.highbond.com/document/24349/?printPdf=true"
-      }
-    },
-    {
       "custom_id": "tr-0",
-      "type": "review",
+      "type": "translation",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "6e82dc3fbaddc7bc31479c55959155561b3bd5a1e63263f1633a8844cc716faf",
-      "model": "claude-sonnet-5-5",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
         "title": "Remote Rent Board Meeting ( from November 25, 2026)",
@@ -98,24 +34,90 @@
     },
     {
       "custom_id": "tr-1",
-      "type": "review",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "2595b12dd77f7c025c6f44c8e5acfe678a415c839336d884e2200d8b21e98f2f",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "City Council Meeting - November 16, 2026",
+        "date": "2026-11-16",
+        "body": "City Council"
+      },
+      "doc": {
+        "id": "civicclerk-20648",
+        "sha256": "0b2530af67a82aabd5ca2d7db79b898fe44c32809ae1d77f59042c9f0a894e36"
+      }
+    },
+    {
+      "custom_id": "tr-2",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "71521c962c822bbd892e7b1f8a6956023b10228d3588ed814ebd65a9edb84f74",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Board of Public Education Meeting",
+        "date": "2026-11-10",
+        "body": "Board of Public Education"
+      },
+      "doc": {
+        "id": "diligent-24349-16a13eab",
+        "sha256": "16a13eab4711a5bf46290a49f524c92a780d85d846bb9e240f0e305b0cb3c4ee"
+      }
+    },
+    {
+      "custom_id": "tr-3",
+      "type": "translation",
       "lang": "es",
       "kind": "recording",
       "older": false,
-      "source_hash": "1b68fab981c8f98323e2b68f88956b9134703dc99b3cd02b2b77db7585d8f866",
-      "model": "claude-sonnet-5-5",
+      "source_hash": "2c28b400bee876bc00e8dc2b5af5917307eb02c27cc016f13ead27eed3fb909a",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
-        "title": "Board of Public Education Finance, Personnel and Operations Committee Meeting",
-        "date": "2026-11-09",
-        "body": "Board of Public Education Finance, Personnel and Operations Committee"
+        "title": "HHS and Public Safety Meeting",
+        "date": "2026-11-10",
+        "body": "City Council Health and Human Services and Public Safety Committee"
       },
       "doc": {
-        "id": "youtube-zRcSK3KYXhw",
-        "sha256": "a91a1ddb65df25fa61981b62b35c7051be5007e237c4a6ebfab66c44b84555ee"
+        "id": "civicclerk-video-8348",
+        "sha256": "2c4fcec0516ebde43bddf7c627cdb316d2a1626cdb70195b2bd5396182b61a63"
+      }
+    },
+    {
+      "custom_id": "tr-4",
+      "type": "translation",
+      "lang": "es",
+      "kind": "recording",
+      "older": false,
+      "source_hash": "54be8410b6dac593fea2a2d3b5d9207c5f01204a73e2c21f81a65f81893cb26d",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Hybrid Planning Board Meeting 11-10-2026",
+        "date": "2026-11-10",
+        "body": "Planning Board"
+      },
+      "doc": {
+        "id": "civicclerk-video-8441",
+        "sha256": "723b6c807b8ee02017cf536cb999fb6010eedc6c9338862195b5fe74e68642a0"
       }
     }
   ]
