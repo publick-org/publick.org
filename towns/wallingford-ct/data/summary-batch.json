@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01AmTGPbAkw6Pvrwe1GzbDjP",
-  "sent_at": "2026-11-11T09:11:24+00:00",
+  "id": "msgbatch_012mu8Tm4KJrWjReyAqouWiF",
+  "sent_at": "2026-11-11T09:17:36+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,9 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
+      "source_hash": "806c6c7e009244d17520f4a6f0ea60aa3c2ee83bba7591fc18635295bb714219",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Conservation Commission Meeting",
         "date": "2026-11-12",
@@ -21,15 +29,21 @@
       },
       "doc": {
         "id": "filelist-12254",
-        "sha256": "3bfef1991a0e7f95ece504a25663759ede5bb05f80933e267972beb38ace2cfa",
-        "file": "filelist-12254.pdf",
-        "source_url": "https://www.wallingfordct.gov/minutes-and-agendas/DownloadFile.aspx?FileID=12254"
+        "sha256": "3bfef1991a0e7f95ece504a25663759ede5bb05f80933e267972beb38ace2cfa"
       }
     },
     {
-      "custom_id": "doc-1",
+      "custom_id": "tr-1",
+      "type": "translation",
+      "lang": "es",
       "kind": "minutes",
       "older": false,
+      "source_hash": "7028086ae3635bc00e9a71b243c4a96d5a8bd998260cd8a1abccbfa31fcfe0a2",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Inland Wetlands & Watercourses Commission Meeting",
         "date": "2026-11-04",
@@ -37,53 +51,7 @@
       },
       "doc": {
         "id": "filelist-12253",
-        "sha256": "9be776c8a2b46e9c3be8e6bfc4373ded1ec4c927d090589500236cb06117ee4f",
-        "file": "filelist-12253.pdf",
-        "source_url": "https://www.wallingfordct.gov/minutes-and-agendas/DownloadFile.aspx?FileID=12253"
-      }
-    },
-    {
-      "custom_id": "tr-0",
-      "type": "review",
-      "lang": "es",
-      "kind": "recording",
-      "older": false,
-      "source_hash": "46bdbd1d7d3702c8b1970d4fc0f47a29d600be61a9dbb9148002965757bf0768",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Planning & Zoning Commission Meeting",
-        "date": "2026-11-09",
-        "body": "Planning & Zoning Commission"
-      },
-      "doc": {
-        "id": "youtube-oi3B4FmlMcc",
-        "sha256": "05291380d3096e5f8187eeb2d1e3ab9ea8e994c0ce4f8c801f811a815cb69d70"
-      }
-    },
-    {
-      "custom_id": "tr-1",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "0f85db0559eb61a58624d0fe63f187641ad5a7f047f39b52acbfba14a8eaf1c2",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Veterans Memorial Committee Meeting",
-        "date": "2026-11-02",
-        "body": "Veterans Memorial Committee"
-      },
-      "doc": {
-        "id": "filelist-12252",
-        "sha256": "442d72fcba5304cf6116cd1beda98dca1b79deab79fa282fad3f508e0c09e540"
+        "sha256": "9be776c8a2b46e9c3be8e6bfc4373ded1ec4c927d090589500236cb06117ee4f"
       }
     }
   ]
