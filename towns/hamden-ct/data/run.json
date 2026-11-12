@@ -1,34 +1,34 @@
 {
   "town": "hamden",
   "folder": "hamden-ct",
-  "started_at": "2026-11-11T09:14:30+00:00",
-  "finished_at": "2026-11-11T09:17:01+00:00",
-  "engine": "v1.104.0",
+  "started_at": "2026-11-12T09:15:08+00:00",
+  "finished_at": "2026-11-12T09:18:29+00:00",
+  "engine": "v1.106.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 90.6
+      "seconds": 91.7
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 49.7
+      "seconds": 47.0
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 66.3
+      "seconds": 52.6
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 76.5
+      "seconds": 7.7
     },
     {
       "name": "Check live site",
@@ -40,7 +40,7 @@
   "update": {
     "town": "hamden",
     "sources": "all",
-    "started_at": "2026-11-11T09:14:31+00:00",
+    "started_at": "2026-11-12T09:15:09+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 57.9,
+        "seconds": 48.5,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.0,
+        "seconds": 3.9,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.1,
+        "seconds": 1.2,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 20.3,
+        "seconds": 27.7,
         "cadence": "continuous"
       },
       {
@@ -145,7 +145,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 9 days ago; checked every 30 days"
+        "skipped": "checked 10 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -154,7 +154,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -163,7 +163,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 9 days ago; checked every 30 days"
+        "skipped": "checked 10 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -172,7 +172,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch housing figures",
@@ -181,7 +181,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 2 days ago; checked every 7 days"
+        "skipped": "checked 3 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -246,7 +246,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 0.9,
+        "seconds": 1.0,
         "cadence": "continuous"
       }
     ]
@@ -256,21 +256,21 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-11T04:14:31-05:00",
+      "updated_at": "2026-11-12T04:15:09-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-11T04:15:52-05:00",
+      "updated_at": "2026-11-12T04:16:31-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-11T04:16:00-05:00",
+      "updated_at": "2026-11-12T04:16:39-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -359,16 +359,15 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-12T09:07:58+00:00",
-  "data_bytes": 4916516,
-  "data_bytes_added": 2532116,
+  "last_good_at": "2026-11-12T09:18:29+00:00",
+  "data_bytes": 4938530,
+  "data_bytes_added": 2522333,
   "activity": {
-    "boards": 50,
+    "boards": 51,
     "meetings_by_date": {
-      "2026-11-11": 1,
       "2026-11-12": 3,
       "2026-11-16": 2,
-      "2026-11-17": 2,
+      "2026-11-17": 4,
       "2026-11-18": 4,
       "2026-11-19": 1,
       "2026-11-23": 2,
@@ -376,8 +375,8 @@
     }
   },
   "fact_checks": {
-    "summaries": 126,
-    "ok": 122,
+    "summaries": 130,
+    "ok": 126,
     "failed": 3,
     "weak": 1,
     "unchecked": 0,
@@ -387,8 +386,8 @@
     "vote_counts_left_out": 16
   },
   "recordings": {
-    "since": "2026-11-04",
-    "until": "2026-11-10",
+    "since": "2026-11-05",
+    "until": "2026-11-11",
     "held": 3,
     "next_day": 0,
     "steps": {
@@ -421,9 +420,9 @@
     ]
   },
   "documents": {
-    "since": "2026-08-13",
-    "until": "2026-11-10",
-    "held": 135,
+    "since": "2026-08-14",
+    "until": "2026-11-11",
+    "held": 133,
     "boards": 46,
     "counts": {
       "no_documents": 1,
@@ -433,7 +432,7 @@
     "no_documents": [
       {
         "board": "Hamden Housing Authority",
-        "meetings": 3
+        "meetings": 2
       }
     ],
     "no_minutes": [
@@ -450,7 +449,5 @@
   "officials": {
     "checked_at": "2026-11-09T04:18:25-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-12T09:07:58+00:00",
-  "published_engine": "v1.106.0"
+  }
 }
