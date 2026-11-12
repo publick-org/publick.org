@@ -1,8 +1,8 @@
 {
   "town": "portland",
   "folder": "portland-me",
-  "started_at": "2026-11-12T09:10:46+00:00",
-  "finished_at": "2026-11-12T09:15:57+00:00",
+  "started_at": "2026-11-12T22:53:58+00:00",
+  "finished_at": "2026-11-12T22:58:21+00:00",
   "engine": "v1.106.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 115.3
+      "seconds": 123.6
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 59.5
+      "seconds": 54.7
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 121.8
+      "seconds": 79.7
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.6
+      "seconds": 3.3
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.7
+      "seconds": 0.9
     }
   ],
   "update": {
     "town": "portland",
-    "sources": "all",
-    "started_at": "2026-11-12T09:10:47+00:00",
+    "sources": "meetings",
+    "started_at": "2026-11-12T22:53:59+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 37.9,
+        "seconds": 43.4,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -91,7 +91,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 36.5,
+        "seconds": 38.1,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 21.9,
+        "seconds": 17.2,
         "cadence": "continuous"
       },
       {
@@ -143,7 +143,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.2,
         "cadence": "continuous"
       },
       {
@@ -160,8 +160,9 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
-        "cadence": "yearly"
+        "seconds": 0,
+        "cadence": "yearly",
+        "skipped": "checked 0 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -177,7 +178,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 22.7,
         "cadence": "monthly"
       },
       {
@@ -185,7 +186,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.2,
         "cadence": "continuous"
       },
       {
@@ -218,32 +219,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 10.7,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests from an open data portal",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [socrata_311] in the config"
-      },
-      {
-        "name": "Compute 311 scorecard",
-        "ok": true,
-        "required": true,
-        "error": null,
-        "seconds": 4.9,
+        "seconds": 0.2,
         "cadence": "continuous"
       }
     ]
@@ -253,14 +229,14 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-12T04:10:47-05:00",
+      "updated_at": "2026-11-12T17:53:59-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Board of Public Education meetings (Diligent Community)",
       "file": "meetings/diligent_status.json",
-      "updated_at": "2026-11-12T04:11:25-05:00",
+      "updated_at": "2026-11-12T17:54:43-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -317,13 +293,13 @@
     {
       "label": "Housing figures",
       "file": "housing/housing.json",
-      "updated_at": "2026-11-05T09:08:49-05:00",
+      "updated_at": "2026-11-12T17:55:38-05:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
       "stale": false,
-      "latest": "2025 building permits; September 2026 building permits; ACS 2024 5-year estimates",
-      "next": "2026 building permits usually by June 1, 2027; October 2026 building permits usually by December 1, 2026; ACS 2025 5-year estimates usually by December 15, 2026",
+      "latest": "2025 building permits; ACS 2024 5-year estimates",
+      "next": "2026 building permits usually by June 1, 2027; ACS 2025 5-year estimates usually by December 15, 2026",
       "behind": null
     },
     {
@@ -352,8 +328,8 @@
   "corrections": [],
   "ok": true,
   "last_good_at": "2026-11-05T00:13:15+00:00",
-  "data_bytes": 12876533,
-  "data_bytes_added": 10878625,
+  "data_bytes": 12885152,
+  "data_bytes_added": 10866104,
   "activity": {
     "boards": 41,
     "meetings_by_date": {
@@ -369,8 +345,8 @@
     }
   },
   "fact_checks": {
-    "summaries": 138,
-    "ok": 124,
+    "summaries": 139,
+    "ok": 125,
     "failed": 14,
     "weak": 0,
     "unchecked": 0,
@@ -443,15 +419,13 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-12T02:25:30-05:00",
+    "at": "2026-11-12T17:48:08-05:00",
     "refused": 0,
-    "transcribed": 0,
-    "last_transcribed_at": "2026-11-10T17:28:17-05:00"
+    "transcribed": 2,
+    "last_transcribed_at": "2026-11-12T17:48:08-05:00"
   },
   "officials": {
     "checked_at": "2026-11-07T04:24:41-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-12T09:49:03+00:00",
-  "published_engine": "v1.106.0"
+  }
 }
