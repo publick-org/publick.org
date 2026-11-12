@@ -1,54 +1,54 @@
 {
   "town": "waltham",
   "folder": "waltham-ma",
-  "started_at": "2026-11-11T12:22:37+00:00",
-  "finished_at": "2026-11-11T12:32:01+00:00",
-  "engine": "v1.104.0",
+  "started_at": "2026-11-12T09:19:36+00:00",
+  "finished_at": "2026-11-12T09:22:37+00:00",
+  "engine": "v1.106.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 512.7
+      "seconds": 70.5
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 62.7
+      "seconds": 61.9
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 48.9
+      "seconds": 45.2
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 48.8
+      "seconds": 2.1
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.7
+      "seconds": 0.6
     }
   ],
   "update": {
     "town": "waltham",
     "sources": "all",
-    "started_at": "2026-11-11T12:22:37+00:00",
+    "started_at": "2026-11-12T09:19:37+00:00",
     "ok": true,
     "steps": [
       {
         "name": "Fetch meetings",
-        "ok": false,
+        "ok": true,
         "required": false,
-        "error": "exited with status 1",
-        "seconds": 500.8,
+        "error": null,
+        "seconds": 55.9,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
+        "seconds": 0.6,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 8.6,
+        "seconds": 9.5,
         "cadence": "continuous"
       },
       {
@@ -143,9 +143,8 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "yearly",
-        "skipped": "checked 28 days ago; checked every 30 days"
+        "seconds": 0.5,
+        "cadence": "yearly"
       },
       {
         "name": "Fetch unemployment",
@@ -161,18 +160,16 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "yearly",
-        "skipped": "checked 28 days ago; checked every 30 days"
+        "seconds": 0.5,
+        "cadence": "yearly"
       },
       {
         "name": "Fetch budget figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "yearly",
-        "skipped": "checked 28 days ago; checked every 30 days"
+        "seconds": 0.5,
+        "cadence": "yearly"
       },
       {
         "name": "Fetch housing figures",
@@ -181,7 +178,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "skipped": "checked 6 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -196,7 +193,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.5,
         "cadence": "continuous"
       },
       {
@@ -213,7 +210,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.5,
         "cadence": "continuous"
       },
       {
@@ -258,21 +255,21 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-10T12:37:35-05:00",
+      "updated_at": "2026-11-12T04:19:37-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-11T07:30:59-05:00",
+      "updated_at": "2026-11-12T04:20:33-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Average tax bill (Mass. DLS)",
       "file": "finance/tax_bill.json",
-      "updated_at": "2026-10-13T09:24:01-04:00",
+      "updated_at": "2026-11-12T04:20:44-05:00",
       "max_days": null,
       "cadence": "yearly",
       "failing": 0,
@@ -284,7 +281,7 @@
     {
       "label": "City budget (Mass. DLS)",
       "file": "finance/budget.json",
-      "updated_at": "2026-10-13T09:24:06-04:00",
+      "updated_at": "2026-11-12T04:20:45-05:00",
       "max_days": null,
       "cadence": "yearly",
       "failing": 0,
@@ -296,7 +293,7 @@
     {
       "label": "School figures (DESE)",
       "file": "schools/schools.json",
-      "updated_at": "2026-10-13T09:24:02-04:00",
+      "updated_at": "2026-11-12T04:20:44-05:00",
       "max_days": null,
       "cadence": "yearly",
       "failing": 0,
@@ -354,9 +351,9 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-12T09:16:28+00:00",
-  "data_bytes": 1791897,
-  "data_bytes_added": 12917,
+  "last_good_at": "2026-11-12T09:22:37+00:00",
+  "data_bytes": 1793345,
+  "data_bytes_added": -190,
   "activity": {
     "boards": 22,
     "meetings_by_date": {
@@ -379,12 +376,12 @@
     "vote_counts_left_out": 39
   },
   "recordings": {
-    "since": "2026-11-04",
-    "until": "2026-11-10",
-    "held": 3,
-    "next_day": 3,
+    "since": "2026-11-05",
+    "until": "2026-11-11",
+    "held": 1,
+    "next_day": 1,
     "steps": {
-      "summarized": 3,
+      "summarized": 1,
       "minutes": 0,
       "transcribed": 0,
       "waiting": 0,
@@ -397,9 +394,9 @@
     "misses": []
   },
   "documents": {
-    "since": "2026-08-13",
-    "until": "2026-11-10",
-    "held": 52,
+    "since": "2026-08-14",
+    "until": "2026-11-11",
+    "held": 51,
     "boards": 18,
     "counts": {
       "no_documents": 0,
@@ -421,7 +418,5 @@
   "officials": {
     "checked_at": "2026-11-09T04:21:41-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-12T09:16:28+00:00",
-  "published_engine": "v1.106.0"
+  }
 }
