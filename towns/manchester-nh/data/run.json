@@ -1,46 +1,46 @@
 {
   "town": "manchester",
   "folder": "manchester-nh",
-  "started_at": "2026-11-11T09:18:22+00:00",
-  "finished_at": "2026-11-11T09:23:05+00:00",
-  "engine": "v1.104.0",
+  "started_at": "2026-11-12T09:21:32+00:00",
+  "finished_at": "2026-11-12T09:28:39+00:00",
+  "engine": "v1.106.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 198.2
+      "seconds": 191.2
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 148.0
+      "seconds": 148.6
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 69.4
+      "seconds": 78.8
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 77.8
+      "seconds": 7.4
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.8
+      "seconds": 0.9
     }
   ],
   "update": {
     "town": "manchester",
     "sources": "all",
-    "started_at": "2026-11-11T09:18:22+00:00",
+    "started_at": "2026-11-12T09:21:32+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 54.8,
+        "seconds": 54.9,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.5,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 115.2,
+        "seconds": 105.8,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 12.5,
+        "seconds": 13.9,
         "cadence": "continuous"
       },
       {
@@ -145,15 +145,16 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 11 days ago; checked every 30 days"
+        "skipped": "checked 12 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -162,7 +163,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 11 days ago; checked every 30 days"
+        "skipped": "checked 12 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -171,7 +172,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 11 days ago; checked every 30 days"
+        "skipped": "checked 12 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -180,14 +181,14 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 4 days ago; checked every 7 days"
+        "skipped": "checked 5 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -195,7 +196,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -212,7 +213,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -220,7 +221,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -228,7 +229,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 10.4,
+        "seconds": 10.9,
         "cadence": "continuous"
       },
       {
@@ -245,7 +246,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 2.8,
+        "seconds": 3.4,
         "cadence": "continuous"
       }
     ]
@@ -255,28 +256,28 @@
     {
       "label": "Meetings (city calendar, CivicClerk, and school district calendar)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-11T04:18:22-05:00",
+      "updated_at": "2026-11-12T04:21:32-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Planning and zoning boards' documents (city website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-11T04:19:17-05:00",
+      "updated_at": "2026-11-12T04:22:28-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-11T04:21:27-05:00",
+      "updated_at": "2026-11-12T04:24:29-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-11T04:21:37-05:00",
+      "updated_at": "2026-11-12T04:24:40-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -365,9 +366,9 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-12T09:13:13+00:00",
-  "data_bytes": 22095938,
-  "data_bytes_added": 15809186,
+  "last_good_at": "2026-11-12T09:28:39+00:00",
+  "data_bytes": 22220467,
+  "data_bytes_added": 15820744,
   "activity": {
     "boards": 36,
     "meetings_by_date": {
@@ -380,19 +381,19 @@
     }
   },
   "fact_checks": {
-    "summaries": 183,
-    "ok": 162,
+    "summaries": 186,
+    "ok": 165,
     "failed": 10,
     "weak": 10,
     "unchecked": 0,
     "not_yet": 1,
     "held_back": 10,
     "entries_not_shown": 32,
-    "vote_counts_left_out": 62
+    "vote_counts_left_out": 79
   },
   "recordings": {
-    "since": "2026-11-04",
-    "until": "2026-11-10",
+    "since": "2026-11-05",
+    "until": "2026-11-11",
     "held": 1,
     "next_day": 1,
     "steps": {
@@ -409,13 +410,13 @@
     "misses": []
   },
   "documents": {
-    "since": "2026-08-13",
-    "until": "2026-11-10",
-    "held": 79,
+    "since": "2026-08-14",
+    "until": "2026-11-11",
+    "held": 77,
     "boards": 32,
     "counts": {
       "no_documents": 2,
-      "no_minutes": 1,
+      "no_minutes": 0,
       "pairs": 0
     },
     "no_documents": [
@@ -428,12 +429,7 @@
         "meetings": 2
       }
     ],
-    "no_minutes": [
-      {
-        "board": "Manchester Development Corporation",
-        "meetings": 2
-      }
-    ],
+    "no_minutes": [],
     "pairs": [],
     "waiting": {},
     "backlog": {}
@@ -442,7 +438,5 @@
   "officials": {
     "checked_at": "2026-11-07T08:16:18-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-12T09:13:13+00:00",
-  "published_engine": "v1.106.0"
+  }
 }
