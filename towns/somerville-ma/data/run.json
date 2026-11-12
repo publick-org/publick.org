@@ -1,46 +1,46 @@
 {
   "town": "somerville",
   "folder": "somerville-ma",
-  "started_at": "2026-11-11T09:10:20+00:00",
-  "finished_at": "2026-11-11T09:11:38+00:00",
-  "engine": "v1.104.0",
+  "started_at": "2026-11-12T09:10:34+00:00",
+  "finished_at": "2026-11-12T09:14:23+00:00",
+  "engine": "v1.106.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 28.7
+      "seconds": 56.9
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 107.4
+      "seconds": 110.2
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 38.6
+      "seconds": 55.8
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 47.7
+      "seconds": 4.8
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.7
+      "seconds": 0.8
     }
   ],
   "update": {
     "town": "somerville",
     "sources": "all",
-    "started_at": "2026-11-11T09:10:21+00:00",
+    "started_at": "2026-11-12T09:10:35+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 4.5,
+        "seconds": 7.6,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.5,
         "cadence": "continuous"
       },
       {
@@ -118,7 +118,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 3.3,
+        "seconds": 4.2,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 9.4,
+        "seconds": 8.5,
         "cadence": "continuous"
       },
       {
@@ -145,15 +145,16 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 14 days ago; checked every 30 days"
+        "skipped": "checked 15 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -162,7 +163,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 14 days ago; checked every 30 days"
+        "skipped": "checked 15 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -171,14 +172,14 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 14 days ago; checked every 30 days"
+        "skipped": "checked 15 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 22.6,
         "cadence": "monthly"
       },
       {
@@ -186,7 +187,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -194,7 +195,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -211,7 +212,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -219,7 +220,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -236,7 +237,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 5.9,
+        "seconds": 7.0,
         "cadence": "continuous"
       },
       {
@@ -244,7 +245,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 2.7,
+        "seconds": 3.6,
         "cadence": "continuous"
       }
     ]
@@ -254,28 +255,28 @@
     {
       "label": "Meetings (Legistar)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-11T04:10:21-05:00",
+      "updated_at": "2026-11-12T04:10:35-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee documents (city events calendar)",
       "file": "meetings/meetingdocs_status.json",
-      "updated_at": "2026-11-11T04:10:26-05:00",
+      "updated_at": "2026-11-12T04:10:43-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests (open data portal)",
       "file": "311/status.json",
-      "updated_at": "2026-11-11T07:04:16.764000+00:00",
+      "updated_at": "2026-11-12T07:03:57.716000+00:00",
       "max_days": 3,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-11T04:10:46-05:00",
+      "updated_at": "2026-11-12T04:11:27-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -330,13 +331,13 @@
     {
       "label": "Housing figures",
       "file": "housing/housing.json",
-      "updated_at": "2026-11-04T07:07:52-05:00",
+      "updated_at": "2026-11-12T04:10:56-05:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
       "stale": false,
-      "latest": "2025 building permits; September 2026 building permits; ACS 2024 5-year estimates; Fiscal year 2027 parcel counts",
-      "next": "2026 building permits usually by June 1, 2027; October 2026 building permits usually by December 1, 2026; ACS 2025 5-year estimates usually by December 15, 2026; Fiscal year 2028 parcel counts usually by March 1, 2028",
+      "latest": "2025 building permits; ACS 2024 5-year estimates; Fiscal year 2027 parcel counts",
+      "next": "2026 building permits usually by June 1, 2027; ACS 2025 5-year estimates usually by December 15, 2026; Fiscal year 2028 parcel counts usually by March 1, 2028",
       "behind": null
     },
     {
@@ -364,9 +365,9 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-12T09:13:16+00:00",
-  "data_bytes": 41311790,
-  "data_bytes_added": 39719092,
+  "last_good_at": "2026-11-12T09:14:23+00:00",
+  "data_bytes": 41348644,
+  "data_bytes_added": 39756093,
   "activity": {
     "boards": 16,
     "meetings_by_date": {
@@ -388,8 +389,8 @@
     "vote_counts_left_out": 123
   },
   "recordings": {
-    "since": "2026-11-04",
-    "until": "2026-11-10",
+    "since": "2026-11-05",
+    "until": "2026-11-11",
     "held": 0,
     "next_day": 0,
     "steps": {
@@ -406,23 +407,28 @@
     "misses": []
   },
   "documents": {
-    "since": "2026-08-13",
-    "until": "2026-11-10",
+    "since": "2026-08-14",
+    "until": "2026-11-11",
     "held": 52,
     "boards": 15,
     "counts": {
       "no_documents": 0,
-      "no_minutes": 0,
+      "no_minutes": 1,
       "pairs": 0
     },
     "no_documents": [],
-    "no_minutes": [],
+    "no_minutes": [
+      {
+        "board": "School Committee Rules Management Subcommittee",
+        "meetings": 2
+      }
+    ],
     "pairs": [],
     "waiting": {},
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-11T02:23:55-05:00",
+    "at": "2026-11-12T02:23:50-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-03T12:24:17-05:00"
@@ -430,7 +436,5 @@
   "officials": {
     "checked_at": "2026-11-07T04:07:21-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-12T09:13:16+00:00",
-  "published_engine": "v1.106.0"
+  }
 }
