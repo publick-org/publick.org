@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01THgE5sDL1awyzav8HQGV4r",
-  "sent_at": "2026-11-11T09:48:09+00:00",
+  "id": "msgbatch_01FAzakStTcNV2onxJfSikSY",
+  "sent_at": "2026-11-12T09:24:07+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -12,15 +12,15 @@
   "documents": [
     {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "7b705106ef5cf8c16f2f32c69a9a5447c202b49361a114546fb4c19c1a0b31da",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Ad-Hoc City Manager Search Committee",
@@ -36,35 +36,13 @@
       "custom_id": "tr-1",
       "type": "review",
       "lang": "es",
-      "kind": "recording",
+      "kind": "minutes",
       "older": false,
-      "source_hash": "babf5a4b231564eea04c7507c33c87c986a584ad00d3d14c96cd0be88a000636",
+      "source_hash": "dc97ba2da39f0e67d51c923a496d1baaddd10d10f31bc6cecfdd68fb1e172fbe",
       "model": "claude-sonnet-5-5",
       "prices": {
         "input_price": 2.0,
         "output_price": 10.0
-      },
-      "meeting": {
-        "title": "City Council Meeting",
-        "date": "2026-11-09",
-        "body": "City Council"
-      },
-      "doc": {
-        "id": "youtube-1pI9JvegsJM",
-        "sha256": "07c04529a9c49ca004c80f1683ce5c6446d85b2b9a53a830248d047d97b6f746"
-      }
-    },
-    {
-      "custom_id": "tr-2",
-      "type": "translation",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "dc97ba2da39f0e67d51c923a496d1baaddd10d10f31bc6cecfdd68fb1e172fbe",
-      "model": "claude-haiku-5-5",
-      "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
       },
       "meeting": {
         "title": "Zoning Board of Adjustment",
@@ -77,16 +55,16 @@
       }
     },
     {
-      "custom_id": "tr-3",
-      "type": "translation",
+      "custom_id": "tr-2",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "b761174db3e4b0c87ac92a3c38e9bcdfb219c3b36995199c0fe692000611558e",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Architectural Design Review Committee",
@@ -99,16 +77,38 @@
       }
     },
     {
+      "custom_id": "tr-3",
+      "type": "review",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "be8a6d985681b21b87d0accc17f53ba0070ddd4f1d49d4e3708e6e14c7b86611",
+      "model": "claude-sonnet-5-5",
+      "prices": {
+        "input_price": 2.0,
+        "output_price": 10.0
+      },
+      "meeting": {
+        "title": "Planning Board",
+        "date": "2026-11-02",
+        "body": "Planning Board"
+      },
+      "doc": {
+        "id": "legistar-1501-agenda-20261030182015",
+        "sha256": "103831d42149ce69a0db417d696d5f650c9caae53db774d390d026fb23d5e9dc"
+      }
+    },
+    {
       "custom_id": "tr-4",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "a827b4b27a9d89f1b06c147d7927819a23650674d25cee96f744534669249d75",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Planning Board",
@@ -144,15 +144,15 @@
     },
     {
       "custom_id": "tr-6",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "c195e894f915e70b5b9d48c68d5b76599fc5a1b1829b30aa495000d440584fb3",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Ad-Hoc Impact Fee Review Committee",
@@ -166,15 +166,15 @@
     },
     {
       "custom_id": "tr-7",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "b9e021150e67d1ef6695fae06b80bb8187dc38f8213d583f0dc2accce87a185e",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Economic Development Advisory Committee",
@@ -188,15 +188,15 @@
     },
     {
       "custom_id": "tr-8",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "ad4f6ac080e83287b7b1bd206bdda87563cb50d17571c8f21b863e6da0113054",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Trustees of Trust Funds",
