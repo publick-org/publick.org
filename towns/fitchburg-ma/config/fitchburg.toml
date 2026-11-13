@@ -1,0 +1,384 @@
+# Site configuration for Fitchburg, Massachusetts. Everything town-specific
+# lives here; the code is the Publick engine
+# (github.com/publick-org/publick-engine).
+#
+# Fitchburg's website runs on CivicPlus, and every city board posts agendas and
+# minutes in the Agenda Center: the City Council, each of its committees (each
+# in a category of its own), and the School Committee and its subcommittees,
+# under "Fitchburg Public Schools". No city calendar lists the meetings, so a
+# meeting is listed once its agenda is posted. The School Committee's minutes
+# aren't posted there: the district keeps them in nested Google Drive folders
+# (year, month, then meeting), mostly as Word files, which the engine doesn't
+# read, so its meetings are summarized from their recordings on FATV, the
+# city's public-access station. 311 requests are on SeeClickFix. The state
+# sources (DLS, DESE, BLS, Census, the Subsidized Housing Inventory) are the
+# same as Malden's.
+#
+# Started on 2026-11-13 by the engine's helper (python -m pipeline.new_town),
+# from Methuen's config.
+#
+# The site is in English and Spanish ([site] languages), as every town's is.
+# The first runs draft the Spanish for the town's own text; [strings.es], at
+# the end, can correct it.
+
+[site]
+name = "Fitchburg Publick"
+# The masthead shows name_prefix in dark ink and name_suffix in the accent
+# color: the town, then the network.
+name_prefix = "Fitchburg "
+domain = "fitchburg-ma.publick.org"
+tagline = "Public data on how Fitchburg, Massachusetts responds, decides, and spends. Updated daily."
+# One line under the name at the top of every page.
+masthead = "An independent guide to city government in Fitchburg, Massachusetts"
+# Public contact address. Shown on the About and Accessibility pages when set.
+contact_email = "fitchburg-ma@publick.org"
+user_agent = "fitchburg-ma.publick.org (+https://fitchburg-ma.publick.org/about/)"
+
+# From the city website's stylesheets (www.fitchburgma.gov): its two most used
+# reds (27 and 14 uses), the brick red of its wordmark and search button; the
+# most used of another hue, a dark green (22 uses); primary_soft a light tint
+# of primary. Each passes WCAG AA on white (6.7, 10.2, 8.5 to 1).
+[site.colors]
+primary = "#834d4c"
+primary_dark = "#811617"
+primary_soft = "#f3eded"
+accent = "#0f5928"
+
+[town]
+name = "Fitchburg"
+state_abbr = "MA"
+official_site = "https://www.fitchburgma.gov"
+
+# Sections appear in the main navigation in this order. Each one is a folder
+# under site/pages/<slug>/ and is served at https://<domain>/<slug>/.
+[[sections]]
+slug = "meetings"
+title = "Meetings"
+summary = "Every board and committee meeting in the city's Agenda Center, with agendas, and minutes from January 2026 on. The School Committee's minutes aren't posted online with its agendas, so its meetings are summarized from their recordings."
+status = "live"
+
+[[sections]]
+slug = "311"
+title = "311 Requests"
+nav = "311"
+summary = "How fast the city responds to service requests on SeeClickFix, by category and ward."
+status = "live"
+
+[[sections]]
+slug = "schools"
+title = "Schools"
+summary = "Graduation, attendance, and MCAS results compared with the state."
+status = "live"
+
+[[sections]]
+slug = "budget"
+title = "City budget"
+nav = "Budget"
+summary = "Where general fund money comes from and how it is spent, reserves, and the property tax limit."
+status = "live"
+
+[[sections]]
+slug = "housing"
+title = "Housing"
+summary = "New homes permitted, home values and rents, affordable housing, and the housing stock."
+status = "live"
+
+[[sections]]
+slug = "officials"
+title = "Who represents you"
+nav = "Officials"
+summary = "The mayor, City Council, and School Committee, by office and by ward, and how to reach them."
+status = "live"
+
+[[sections]]
+slug = "about"
+title = "About"
+summary = "Data sources, update schedule, metric definitions, and corrections."
+status = "live"
+
+# Page view counting with GoatCounter, on the network's site; prefix is this
+# town's folder.
+[analytics]
+prefix = "fitchburg-ma"
+
+# Public meetings, from the city's Agenda Center. No CivicPlus calendar lists
+# meetings: "City Council Meetings" had no events over six months, "Boards &
+# Commissions" one, and the calendar the helper picked is the Veterans
+# Calendar's events, so none is read.
+[meetings]
+base_url = "https://www.fitchburgma.gov"
+archive_url = "https://www.fitchburgma.gov/AgendaCenter"
+archive_name = "city's Agenda Center"
+# The city's site resets about one connection in five; a slower pace and the
+# client's retries help, and `first fetches` is run again if it stops.
+request_delay = 5.0
+max_event_pages = 40
+
+# Agenda Center categories renamed to the board's usual name: the council's
+# seven committees, each a category of its own, as the council's committees
+# ("City Council Finance Committee"), and the district's category as the
+# School Committee.
+[meetings.aliases]
+"Finance Committee" = "City Council Finance Committee"
+"Appointments Committee" = "City Council Appointments Committee"
+"Legislative Affairs Committee" = "City Council Legislative Affairs Committee"
+"Public Works Committee" = "City Council Public Works Committee"
+"City Property Committee" = "City Council City Property Committee"
+"Public Safety Committee" = "City Council Public Safety Committee"
+"Economic Development Committee" = "City Council Economic Development Committee"
+"Fitchburg Public Schools" = "School Committee"
+"Fitchburg Board of Assessors" = "Board of Assessors"
+
+[meetings.agenda_center]
+base_url = "https://www.fitchburgma.gov"
+# The first run lists meetings from here, and minutes are collected from here
+# on.
+since = "2026-01-01"
+# Not the city's boards: the regional bodies whose agendas the city posts (the
+# Montachusett regional school district, planning commission, MPO,
+# transportation committee and public health network, and mosquito control);
+# and not meetings: "Community Outreach Meetings" holds legal notices (a
+# sheriff's sale, DPU notices), "Elections" the clerk's election notices.
+exclude_categories = [
+  "Montachusett Regional Vocational Technical School",
+  "Montachusett Regional Planning Commission",
+  "Montachusett Metropolitan Planning Organization (MPO)",
+  "Montachusett Joint Transportation Committee (MJTC)",
+  "Montachusett Public Health Network",
+  "Mosquito Control",
+  "Community Outreach Meetings",
+  "Elections",
+]
+
+# The council's Council as a Whole committee, and its joint conventions with
+# the School Committee (to fill a vacancy), posted under the council.
+[meetings.agenda_center.committees."City Council"]
+"Council as a Whole" = "City Council Committee of the Whole"
+"Joint Convention" = "Joint Convention of the City Council and School Committee"
+
+# Under "Fitchburg Public Schools", besides the committee's regular meetings
+# ("Fitchburg Public Schools Regular Committee Meeting, November 2, 2026"): its
+# subcommittees, its joint meetings with the Student Advisory Committee, the
+# Crocker Elementary School Building Committee, the schools' councils, and a
+# PTO's notice. A school council's "MEETING DATES" row (Reingold's) is listed
+# as a meeting on the day it was posted: the Agenda Center has no way to tell.
+[meetings.agenda_center.committees."Fitchburg Public Schools"]
+"Student Support Subcommittee" = "School Committee Student Support Subcommittee"
+"Policy Subcommittee" = "School Committee Policy Subcommittee"
+"Building Needs and Resource Committee" = "School Committee Building Needs and Resource Committee"
+"Student Advisory Committee" = "Joint School Committee and Student Advisory Committee"
+"Crocker Elementary School Building Committee" = "Crocker Elementary School Building Committee"
+"School Council" = "School Council"
+"Fitchburg High School Meeting Notice School Council" = "Fitchburg High School Council"
+"Memorial Middle School Council" = "Memorial Middle School Council"
+"Reingold Elementary School" = "Reingold Elementary School Council"
+"Early Learning Center PTO" = "South Street Early Learning Center PTO"
+
+[meetings.agenda_center.committees."Library Trustees"]
+"Finance Sub Committee" = "Library Trustees Finance Subcommittee"
+
+# The School Committee's minutes aren't read. They're in the district's public
+# Google Drive folder (linked from its "Meeting Information" page,
+# fitchburg.k12.ma.us/school-committee/meeting-information), in a folder a
+# year, a month, and a meeting, mostly Word files: [drive_meetings] reads one
+# folder per committee and no Word files. Its meetings are listed from the
+# Agenda Center, with their agendas, and summarized from FATV's recordings.
+
+# Agenda and minutes PDFs live in the network's documents bucket, not in git
+# (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID,
+# STORAGE_SECRET_ACCESS_KEY.
+[storage]
+prefix = "fitchburg-ma"
+
+# Plain-English agenda text and previews, and decisions from minutes, written
+# by a language model and labeled as AI-generated on the site. Only meetings
+# from `since` on are summarized, about three months before launch, so the
+# town's history doesn't take the month's budget. Most minutes have a text
+# layer; the Finance Committee's, the Board of Park Commissioners', the Airport
+# Commission's, the Board of Assessors' and some of the Retirement Board's are
+# scans, about 150 to 300 pages a year to transcribe.
+[summaries]
+since = "2026-08-01"
+
+# The boards' meetings below, transcribed from their recordings for a summary
+# the day after, until the minutes come (the engine's pipeline/recordings.py).
+[recordings]
+since = "2026-11-13"
+
+# FATV's TelVue player, which fatv.org embeds and the city's council page and
+# the district's School Committee page link: a playlist a board, each
+# recording titled "City Council - 10.20.2026", "School Committee -
+# 10.19.2026", "Finance Committee - 10.28.2026". The City Council's playlist
+# (3129) holds its committees' too. The others: School Committee (3136),
+# Planning Board (9281), Zoning Board of Appeals (10135), Conservation
+# Commission (9472), Board of Health (9484), Airport Commission (8964),
+# Cultural Council (8963), Housing Authority (11130), Historical Commission
+# (9137), Trustees of Public Burial Grounds (10799), Water & Wastewater
+# Commission (8907) and Agricultural Commission (10970). The Montachusett
+# Public Health Network's playlist (10874), Government Events & Specials
+# (3145) and the Mayor's briefings (10800) are left out.
+[[recordings.sources]]
+platform = "telvue"
+player = "yycCAZPb0NN3zj2o5qio-YFMNC43NjCG"
+playlists = [3129, 3136, 9281, 10135, 9472, 9484, 8964, 8963, 11130, 9137, 10799, 8907, 10970]
+boards = "listed"
+
+# How residents can take part, per board, shown on its meeting pages. The
+# council's from its page ("How to Speak at a City Council Meeting"); the
+# School Committee's from the Public Comment item on its agendas, whose link
+# gives the address. Both boards' meetings are broadcast and kept on demand by
+# FATV, which the council's page and the agendas name.
+[participation."City Council"]
+comment = "Residents can speak in the Public Forum at the start of each meeting, for up to two minutes, on an item on the agenda, giving their name and city of residence. To take part remotely, ask the City Clerk for a link at cityclerk@fitchburgma.gov."
+source_title = "the City Council's page"
+source_url = "https://www.fitchburgma.gov/385/City-Council"
+video_title = "FATV (Fitchburg Access Television)"
+video_url = "https://www.fatv.org/live-streaming"
+
+[participation."School Committee"]
+comment = "Residents can submit a public comment of no more than two minutes by email to the Superintendent at fpsquestions@fitchburg.k12.ma.us, by noon on the day of the meeting."
+source_title = "School Committee agenda of November 2, 2026"
+source_url = "https://www.fitchburgma.gov/AgendaCenter/ViewFile/Agenda/_11022026-5464"
+video_title = "FATV (Fitchburg Access Television)"
+video_url = "https://www.fatv.org/live-streaming"
+
+# School district figures from the state's education data portal (DESE).
+[schools]
+district_code = "00970000"
+district_name = "Fitchburg Public Schools"
+
+# Tax bill and budget figures (Mass. Division of Local Services). Some DLS
+# reports take the name, others the DOR code.
+[finance]
+dls_municipality = "Fitchburg"
+dls_code = "97"
+
+# Housing: Census building permits (state and place FIPS codes), American
+# Community Survey through Census Reporter (geo ids), and the state's
+# Subsidized Housing Inventory PDF (the town's name as the PDF lists it).
+[housing]
+bps_place = "23875"
+census_geo = "16000US2523875"
+shi_name = "Fitchburg"
+
+# Unemployment rate (BLS Local Area Unemployment Statistics, area
+# CT2523875000000, Fitchburg city, MA). City rates are not seasonally
+# adjusted; the state series is shown for context.
+[labor]
+local_series = "LAUCT252387500000003"
+
+# 311 requests, from SeeClickFix (public requests only). The city's
+# organization is 351 ("City of Fitchburg, MA"), the one its web portal
+# (seeclickfix.com/web_portal/YSWxXGjd4jLPPRGfK2iszWCt) belongs to, which the
+# SeeClickFix page the city's "Report a Concern" page links
+# (seeclickfix.com/fitchburg_2, place 9868) lists first. Its Open311 services
+# (seeclickfix.com/open311/v2/351/services.json) are 36 request types, all the
+# city's own. It's in use: 625 requests from 2026-08-01 to 2026-11-12, and of
+# the newest 100, 45 acknowledged and 10 closed.
+[seeclickfix]
+organization_id = 351
+report_url = "https://seeclickfix.com/web_portal/YSWxXGjd4jLPPRGfK2iszWCt/report/category"
+# The month the full history starts (python -m pipeline.fetch_311 --backfill).
+# Older requests are included only while they are still open.
+history_since = "2026-01"
+# Request types about a person, a household or a property that the engine's
+# own sensitive categories don't name: their requests are shown to the block.
+sensitive_categories = [
+  "Nuisance on Property",
+  "Tenant / Housing Inspection Request",
+  "Restaurant / Food Service Health Complaints",
+  "Animal Control",
+  "Zoning Violation(s)",
+  "Building - Work Without a Permit",
+  "Building - Unsafe Structure",
+  "Vacant and abandoned buildings",
+  "Vehicle parking on sidewalk",
+  "Cars Violating Snow Emergency Ordinance (Winter)",
+]
+precincts_file = "fitchburg-precincts-2022.geojson"
+wards_publisher = "MassGIS"
+wards_year = "2022"
+wards_url = "https://gis.data.mass.gov/maps/aec5130790814ace94438d3bcf23cf9a"
+
+# How often each data source should update. Figures published monthly or
+# yearly are judged by the engine, by the period they cover
+# (pipeline/rhythms.py).
+[freshness]
+sources = [
+  { label = "Meetings (Agenda Center)", file = "meetings/status.json", max_days = 2 },
+  { label = "311 requests", file = "311/status.json", max_days = 2 },
+  { label = "311 scorecard", file = "311/scorecard.json", field = "generated_at", max_days = 2 },
+]
+
+# Who represents you (the Officials page). Kept by hand from official city and
+# school websites; checked is the date the list was last checked against them.
+# Only city- and school-issued email addresses, and the mayor's office phone
+# (the council's page also lists councillors' own phones and home addresses,
+# which aren't used). Elections are every two years (the council's page, and
+# the Acts of 1928, chapter 145), so terms are two years, from January; the
+# School Committee's are four, half its seats elected each time.
+[officials]
+checked = "2026-11-13"
+# The next regular municipal election: the Tuesday after the first Monday of
+# November in an odd-numbered year (2025's was November 4).
+next_election = "2027-11-02"
+# The ward file is data/static/fitchburg-precincts-2022.geojson (MassGIS): six
+# wards, two precincts each.
+wards_file = "fitchburg-precincts-2022.geojson"
+wards_publisher = "MassGIS"
+wards_year = "2022"
+wards_url = "https://gis.data.mass.gov/maps/aec5130790814ace94438d3bcf23cf9a"
+
+# Re-elected on November 4, 2025 (the city's official results); the phone is
+# the Mayor's Office's, from its page.
+[[officials.bodies]]
+name = "Mayor"
+url = "https://www.fitchburgma.gov/412/Mayors-Office"
+note = "Elected citywide for two years. Chairs the School Committee."
+members = [
+  { name = "Samantha M. Squailia", seat = "Citywide", term_ends = "2028-01", email = "mayor@fitchburgma.gov", phone = "(978) 829-1801" },
+]
+
+# Elected on November 4, 2025 (the city's official results, which give
+# Councillor Walsh's name as Elizabeth R. Walsh); the President and Vice
+# President chosen on January 5, 2026 (the organizational meeting's minutes),
+# as the council's page gives them. Email addresses from the council's page.
+[[officials.bodies]]
+name = "City Council"
+url = "https://www.fitchburgma.gov/385/City-Council"
+note = "Eleven councillors elected for two years: one from each of the six wards, and five at-large."
+members = [
+  { name = "Bernard Schultz III", seat = "Ward 1", ward = 1, term_ends = "2028-01", email = "bschultz@fitchburgma.gov" },
+  { name = "Paul Beauchemin", seat = "Ward 2", ward = 2, term_ends = "2028-01", email = "pbeauchemin@fitchburgma.gov" },
+  { name = "Joseph Bowen", seat = "Ward 3", ward = 3, term_ends = "2028-01", email = "jbowen@fitchburgma.gov" },
+  { name = "Andrew Van Hazinga", seat = "Ward 4", ward = 4, term_ends = "2028-01", email = "avanhazinga@fitchburgma.gov" },
+  { name = "Marisa Fleming", seat = "Ward 5", ward = 5, term_ends = "2028-01", email = "mfleming@fitchburgma.gov" },
+  { name = "Derrick Cruz", seat = "Ward 6", ward = 6, role = "Vice President", term_ends = "2028-01", email = "dcruz@fitchburgma.gov" },
+  { name = "Anthony Zarrella", seat = "At-large", role = "President", term_ends = "2028-01", email = "azarrella@fitchburgma.gov" },
+  { name = "Sally Cragin", seat = "At-large", term_ends = "2028-01", email = "scragin@fitchburgma.gov" },
+  { name = "Amy Green", seat = "At-large", term_ends = "2028-01", email = "agreen@fitchburgma.gov" },
+  { name = "Beth Walsh", seat = "At-large", term_ends = "2028-01", email = "bwalsh@fitchburgma.gov" },
+  { name = "Kevin Starr", seat = "At-large", term_ends = "2028-01", email = "kstarr@fitchburgma.gov" },
+]
+
+# Peter V. Stephens and Robert H. Campbell elected on November 4, 2025, and
+# James M. Walsh, Debra A. Jeffries and Lindsey S. Englund on November 7, 2023
+# (the city's official results). Steffani J. Santiago was appointed by the
+# joint convention of the City Council and School Committee on September 14,
+# 2026 (its minutes), to a seat left by a resignation, whose term runs to
+# January 2030; she serves until the next regular election, which fills it for
+# the rest of the term. Names, the Vice Chairperson, terms and email addresses
+# as the district's School Committee page gives them.
+[[officials.bodies]]
+name = "School Committee"
+url = "https://www.fitchburg.k12.ma.us/school-committee"
+note = "Six members elected at-large for four years, three at each city election, and the mayor as chair. One seat, whose term runs to January 2030, is held by an appointee until the November 2027 election fills it."
+members = [
+  { name = "Samantha M. Squailia", seat = "Mayor", role = "Chairperson", term_ends = "2028-01", email = "mayor@fitchburgma.gov" },
+  { name = "Peter V. Stephens", seat = "At-large", role = "Vice Chairperson", term_ends = "2030-01", email = "stephensp@fitchburg.k12.ma.us" },
+  { name = "Robert H. Campbell", seat = "At-large", term_ends = "2030-01", email = "campbellr@fitchburg.k12.ma.us" },
+  { name = "Lindsey S. Englund", seat = "At-large", term_ends = "2028-01", email = "englundl@fitchburg.k12.ma.us" },
+  { name = "Debra A. Jeffries", seat = "At-large", term_ends = "2028-01", email = "jeffriesd@fitchburg.k12.ma.us" },
+  { name = "Steffani J. Santiago", seat = "At-large", term_ends = "2028-01", email = "santiagos@fitchburg.k12.ma.us" },
+  { name = "James M. Walsh", seat = "At-large", term_ends = "2028-01", email = "walshj@fitchburg.k12.ma.us" },
+]
