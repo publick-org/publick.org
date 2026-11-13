@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_012zVw2J93yyEjCvk5xWozgV",
-  "sent_at": "2026-11-12T17:46:31+00:00",
+  "id": "msgbatch_015HasHaVusFQqui1m5mTa1j",
+  "sent_at": "2026-11-13T05:54:16+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,16 +11,48 @@
   },
   "documents": [
     {
+      "custom_id": "doc-0",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "Board of Park Commissioners",
+        "date": "2026-11-18",
+        "body": "Board of Park Commissioners"
+      },
+      "doc": {
+        "id": "civicclerk-13950",
+        "sha256": "99f22e5ca25fb6eb8cf238ced712597b5bd36e47253bcb5ce2332dc27284fbb7",
+        "file": "civicclerk-13950.pdf",
+        "source_url": "https://bristolct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=13950,plainText=false)"
+      }
+    },
+    {
+      "custom_id": "doc-1",
+      "kind": "recording",
+      "older": false,
+      "meeting": {
+        "title": "Conservation Commission/ Inland Wetlands and Watercourses Agency",
+        "date": "2026-11-02",
+        "body": "Conservation Commission/Inland Wetlands and Watercourses Agency"
+      },
+      "doc": {
+        "id": "civicclerk-video-5523",
+        "sha256": "40c61ba51f663d944cf32779797b90c8bf108bc360978ac70d4cabd752106be8",
+        "file": "civicclerk-video-5523.txt",
+        "source_url": "https://bristolct.portal.civicclerk.com/event/5523/media"
+      }
+    },
+    {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "4044ae85e41f9ed26c2388a5b87bc6ea6fe5dd01ef2776da305befe24c38808d",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Conservation Commission/ Inland Wetlands and Watercourses Agency - On-Site Inspection",
@@ -34,15 +66,15 @@
     },
     {
       "custom_id": "tr-1",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "fc4c3513073d1411ea99b6cc5a216bd23189f38604915df3eb131ddee839cfed",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "BOF Banking & Audit Committee",
@@ -56,15 +88,15 @@
     },
     {
       "custom_id": "tr-2",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "e007339c596daa3386043daa51259dd6fc9bac080391af0c0793ffeffc9c595b",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Historic District Commission",
@@ -78,6 +110,28 @@
     },
     {
       "custom_id": "tr-3",
+      "type": "review",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "210aa47e4fd4e06427fe7c8eb520974fefa0309833627f560e7e9e0b4880c2fa",
+      "model": "claude-sonnet-5-5",
+      "prices": {
+        "input_price": 2.0,
+        "output_price": 10.0
+      },
+      "meeting": {
+        "title": "Joint Meeting of City Council and Board of Finance",
+        "date": "2026-11-10",
+        "body": "Joint Meeting of the City Council and Board of Finance"
+      },
+      "doc": {
+        "id": "civicclerk-13895",
+        "sha256": "09b5c5d5819b139b58f9d0bcea540f1455df2879c4b9cde3b537af72203be77b"
+      }
+    },
+    {
+      "custom_id": "tr-4",
       "type": "translation",
       "lang": "es",
       "kind": "recording",
@@ -99,16 +153,16 @@
       }
     },
     {
-      "custom_id": "tr-4",
-      "type": "translation",
+      "custom_id": "tr-5",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "299670b155bba3e9f93a5344f7f0a6d7062f7e7999b62eafcc026041e8969675",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Special City Council 10-29-26",
@@ -121,16 +175,16 @@
       }
     },
     {
-      "custom_id": "tr-5",
-      "type": "translation",
+      "custom_id": "tr-6",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "5d256f08e0bfe250a6687084f7d73a8577284dad850f6b225f60c16a7f08dfb2",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "City Council Meeting",
@@ -143,16 +197,16 @@
       }
     },
     {
-      "custom_id": "tr-6",
-      "type": "translation",
+      "custom_id": "tr-7",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "ca74680854fda2419abd094a775effe4bd1bfcedc4645475bc8a24c654f9ef93",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Joint Meeting of City Council and Board of Finance",
@@ -165,16 +219,16 @@
       }
     },
     {
-      "custom_id": "tr-7",
-      "type": "translation",
+      "custom_id": "tr-8",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "d8bc38fd00777734a0699393bcc7161996eabbf7f0a920804cf28ae84a7907c6",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Red Light Camera Presentations",
