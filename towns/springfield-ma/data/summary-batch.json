@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01Q3SpeSoLNinsdVEyNXgxbP",
-  "sent_at": "2026-11-13T09:21:43+00:00",
+  "id": "msgbatch_01Ai3XBAEAxirBYZitvGzhCY",
+  "sent_at": "2026-11-13T09:31:53+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,9 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
+      "source_hash": "9b975d8706012357cd30429ba00678c7b89ec641131e7044cf639ec6708a8a3d",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "City Council Regular Meeting",
         "date": "2026-11-16",
@@ -21,15 +29,21 @@
       },
       "doc": {
         "id": "civicclerk-23791",
-        "sha256": "4d77808f8d98f5e0e3bf27ef3ef13260dac08b86ecb5740b34fa025eb77ac469",
-        "file": "civicclerk-23791.pdf",
-        "source_url": "https://springfieldma.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=23791,plainText=false)"
+        "sha256": "4d77808f8d98f5e0e3bf27ef3ef13260dac08b86ecb5740b34fa025eb77ac469"
       }
     },
     {
-      "custom_id": "doc-1",
+      "custom_id": "tr-1",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
+      "source_hash": "b6a27ad7163a8459cc95251d7867be746b5b3d8ea33dd6e94ff446a583901d7e",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Finance Committee",
         "date": "2026-11-16",
@@ -37,9 +51,7 @@
       },
       "doc": {
         "id": "civicclerk-23793",
-        "sha256": "4c1ce75ada1f2ff89ebf110c0c10f834980c3fddb9c4ab289872aeb58b925458",
-        "file": "civicclerk-23793.pdf",
-        "source_url": "https://springfieldma.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=23793,plainText=false)"
+        "sha256": "4c1ce75ada1f2ff89ebf110c0c10f834980c3fddb9c4ab289872aeb58b925458"
       }
     }
   ]
