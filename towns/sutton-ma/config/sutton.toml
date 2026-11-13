@@ -17,10 +17,13 @@
 # the town's cable access station and posted on its YouTube channel
 # ([recordings]).
 # The School Committee is Sutton Public Schools', which posts its agendas and
-# minutes in Apptegy document folders on its own website, a folder a school
-# year ("2026-2027"), each file named only by its meeting's date. The engine
-# doesn't read that layout yet, so its meetings are listed from the town
-# calendar and summarized from their recordings, without their documents.
+# minutes in Apptegy document folders on its own website: a folder a school
+# year ("2026-2027"), holding an "Agendas" and a "Minutes" folder, whose
+# files the folder lists by the meeting's date alone ("November 9, 2026").
+# The engine's reader of Apptegy folders reads years named "2026", and tells
+# an agenda from minutes by a file's name, so it can't read these yet; the
+# Committee's meetings are listed from the town calendar and summarized from
+# their recordings, without their documents.
 # There is no 311 section ([absences]). Its tax bill, budget and school
 # figures are Massachusetts's ([finance], [schools]).
 #
@@ -105,6 +108,12 @@ status = "live"
 [analytics]
 prefix = "sutton-ma"
 
+# The weekly digest's email signup, on /digest/ (the engine's pipeline/digest.py). The form posts
+# to this site's /digest/subscribe, which the sites Worker answers (worker/digest.js) and passes on
+# to Buttondown with the tag sutton-ma-en. The About page names who keeps the addresses.
+[digest]
+# The network's settings (defaults/network.toml): having the table turns the signup on.
+
 # Public meetings, from the town calendar and its Agenda Center.
 [meetings]
 base_url = "https://www.suttonma.gov"
@@ -135,9 +144,17 @@ include_pattern = '\b(boards?|commissions?|committees?|subcommittees?|councils?|
 "Sutton Housing Authority" = "Housing Authority"
 "Sutton Cultural Council" = "Cultural Council"
 "Council On Aging" = "Council on Aging"
-# Town Meeting's fall session, as the calendar lists it; the Agenda Center's
-# category is "Town Meeting".
+# Town Meeting's sessions. The calendar's parser drops a title's trailing
+# "Meeting", so "Annual Fall Town Meeting" (as the calendar lists the fall
+# session) would be a board named "Annual Fall Town", and "Town Meeting" or
+# "Special Town Meeting" one named "Town". Each is the Agenda Center's "Town
+# Meeting", as are the names the town's Town Meeting & Election page gives
+# its sessions.
 "Annual Fall Town Meeting" = "Town Meeting"
+"Annual Spring Town Meeting" = "Town Meeting"
+"Fall Town Meeting" = "Town Meeting"
+"Spring Town Meeting" = "Town Meeting"
+"Town Meeting" = "Town Meeting"
 
 [meetings.agenda_center]
 base_url = "https://www.suttonma.gov"
@@ -171,8 +188,9 @@ since = "2026-11-01"
 # "PB_2026_11_02", "ZBA_2026_11_05", "CC_2026_10_21" (the Conservation
 # Commission), "FC_2026_09_30" (the Finance & Warrant Advisory Committee),
 # "SWR_2026_08_11", "CEM_2026_07_22", "HC_2026_08_25" (the Historical
-# Commission) and "COA 2026 10 20", each matched against the board meeting
-# that day in the Agenda Center. A title must start with its board's
+# Commission) and "COA 2026 10 20", each checked against the board meeting
+# that day in the Agenda Center. A recording is matched to its board's one
+# meeting listed that day, from the Agenda Center or the town calendar. A title must start with its board's
 # abbreviation, so a copy ("Copy of CC_2026_09_02") isn't read. A title whose
 # date is written with spaces ("COA 2026 10 20", "ATM 2026 10 19" for the Fall
 # Town Meeting) isn't read as a date by the engine yet, and so isn't matched.
