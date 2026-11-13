@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01UbZq9bKBbVW5vD2r7dUwPj",
-  "sent_at": "2026-11-13T09:43:29+00:00",
+  "id": "msgbatch_01E3wBboqaAebu9L7E5SuyYf",
+  "sent_at": "2026-11-13T13:45:44+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,38 +11,48 @@
   },
   "documents": [
     {
-      "custom_id": "tr-0",
-      "type": "review",
-      "lang": "es",
+      "custom_id": "doc-0",
       "kind": "agenda",
       "older": false,
-      "source_hash": "14e4d44d4802cd2fc15a5726317006f30c5b02ca13fe80d80a9fdd1b0652808d",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
       "meeting": {
-        "title": "Housing Committee Meeting",
-        "date": "2026-11-17",
-        "body": "Housing Committee"
+        "title": "Board of Abatement Meeting",
+        "date": "2026-11-18",
+        "body": "Board of Abatement"
       },
       "doc": {
-        "id": "487",
-        "sha256": "c29b98220f00c6a1b6f815745bc14dd919db15c04a100347b3c5dcb7c8bf8df4"
+        "id": "485",
+        "sha256": "90562a158e39023d5d4bdea40fb5a9c128fb86d29a33f1a21e1a4a14bb8dcb65",
+        "file": "485.pdf",
+        "source_url": "https://www.southburlingtonvt.gov/AgendaCenter/ViewFile/Agenda/_11182026-485"
       }
     },
     {
-      "custom_id": "tr-1",
-      "type": "review",
+      "custom_id": "doc-1",
+      "kind": "recording",
+      "older": false,
+      "meeting": {
+        "title": "Library Board of Trustees Meeting",
+        "date": "2026-11-12",
+        "body": "Library Board of Trustees"
+      },
+      "doc": {
+        "id": "youtube-aK9ruyrleXU",
+        "sha256": "dce55777a6397c3f4a13ee9d52bdb740577cacbb9e6898102de68ea2060b7a2d",
+        "file": "youtube-aK9ruyrleXU.txt",
+        "source_url": "https://www.youtube.com/watch?v=aK9ruyrleXU"
+      }
+    },
+    {
+      "custom_id": "tr-0",
+      "type": "translation",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "310634c1b60ae94850943359cc681f71678bc11f85b2b0eb667dbb3bd26da5a0",
-      "model": "claude-sonnet-5-5",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
         "title": "Public Art Committee Meeting",
@@ -52,116 +62,6 @@
       "doc": {
         "id": "339",
         "sha256": "6734183099392ed615d34f3c10bcf3097a2e572ad22be9914625e2ffb15506ff"
-      }
-    },
-    {
-      "custom_id": "tr-2",
-      "type": "translation",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "77e1e35e2ca588c65a3054d1d7621aece8ed54a65d4780e4c0020134519bf08a",
-      "model": "claude-haiku-5-5",
-      "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
-      },
-      "meeting": {
-        "title": "City Council Meeting",
-        "date": "2026-11-16",
-        "body": "City Council"
-      },
-      "doc": {
-        "id": "302",
-        "sha256": "08efc81f2ce114d2156063ab83c6f19f3490f09420d0edfc68fb8d80a21668c1"
-      }
-    },
-    {
-      "custom_id": "tr-3",
-      "type": "translation",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "cd3d062a5ee2ee375a732e2042aa10315e4a241ef28f1c3019e02b7c412e6c51",
-      "model": "claude-haiku-5-5",
-      "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
-      },
-      "meeting": {
-        "title": "City Council Meeting",
-        "date": "2026-11-02",
-        "body": "City Council"
-      },
-      "doc": {
-        "id": "agendacenter-301",
-        "sha256": "32c826773950dd69f8bdbf6bf30c803b7585ea775992189e95950607aa9d9d64"
-      }
-    },
-    {
-      "custom_id": "tr-4",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "393fc3c331e07987ca1b4a098c51bfa20ab863ae9a7969899f7cc35bb8ed4ebc",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Housing Committee Meeting",
-        "date": "2026-10-21",
-        "body": "Housing Committee"
-      },
-      "doc": {
-        "id": "agendacenter-473",
-        "sha256": "19a7cdb65735e3f2ebda2dfccf614cf1455bd52f98e0934ed176cca5c3798f46"
-      }
-    },
-    {
-      "custom_id": "tr-5",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "9ead802d2685acdb53ee662c5877f3dcef7e1520a3ebb70a41e3055b83a65873",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Bicycle & Pedestrian Committee",
-        "date": "2026-10-14",
-        "body": "Bicycle & Pedestrian Committee"
-      },
-      "doc": {
-        "id": "agendacenter-471",
-        "sha256": "51060cd2a333b0f47c6a44a30dd868bfbd0b57e1efa910ed3083df476200d8a0"
-      }
-    },
-    {
-      "custom_id": "tr-6",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "73e5a2eb76efe22f67a335d8f80bab27b1aed2be67ef24571df977f8cdb0b463",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Housing Committee Meeting",
-        "date": "2026-10-06",
-        "body": "Housing Committee"
-      },
-      "doc": {
-        "id": "agendacenter-462",
-        "sha256": "4190755bf078b3b4dd47ccd0a17ce2c53e60142c91e26a903fb50d44bc2b7dc6"
       }
     }
   ]
