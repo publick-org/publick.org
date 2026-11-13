@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_011nfXxt5T7YpEzxU2yN88hS",
-  "sent_at": "2026-11-13T12:16:39+00:00",
+  "id": "msgbatch_01Q5YkuhkAdYgJvR1sPNhAUT",
+  "sent_at": "2026-11-13T12:22:43+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,80 +11,16 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
-      "kind": "agenda",
-      "older": false,
-      "meeting": {
-        "title": "City-Owned Cemeteries Advisory Committee",
-        "date": "2026-11-17",
-        "body": "City-Owned Cemeteries Advisory Committee"
-      },
-      "doc": {
-        "id": "20277",
-        "sha256": "052f8d8f36ab04701bdddfd6e3f76445e4a60e3620a9026b06f3699bb9e8dc6d",
-        "file": "20277.pdf",
-        "source_url": "https://www.gloucester-ma.gov/Archive.aspx?ADID=20277"
-      }
-    },
-    {
-      "custom_id": "doc-1",
-      "kind": "agenda",
-      "older": false,
-      "meeting": {
-        "title": "Gloucester Lyceum & SFL Annual Meeting of the Corporation",
-        "date": "2026-11-17",
-        "body": "Gloucester Lyceum & SFL Annual Meeting of the Corporation"
-      },
-      "doc": {
-        "id": "20278",
-        "sha256": "f44b4fc18b2ccdf2a8cf7c17e4d0483ef31c3c5a8217ffd9201d6e03d8fbae74",
-        "file": "20278.pdf",
-        "source_url": "https://www.gloucester-ma.gov/Archive.aspx?ADID=20278"
-      }
-    },
-    {
-      "custom_id": "doc-2",
-      "kind": "minutes",
-      "older": false,
-      "meeting": {
-        "title": "Sawyer Free Library Board",
-        "date": "2026-09-22",
-        "body": "Sawyer Free Library Board"
-      },
-      "doc": {
-        "id": "20279",
-        "sha256": "88c252bea2a4054553b8905be5d416e33cd8c7ef7a9a8b468b0acec50fe3b6fe",
-        "file": "20279.pdf",
-        "source_url": "https://www.gloucester-ma.gov/Archive.aspx?ADID=20279"
-      }
-    },
-    {
-      "custom_id": "doc-3",
-      "kind": "minutes",
-      "older": false,
-      "meeting": {
-        "title": "Sawyer Free Library Board",
-        "date": "2026-09-15",
-        "body": "Sawyer Free Library Board"
-      },
-      "doc": {
-        "id": "20276",
-        "sha256": "8f556cc580e51f9f43bdcf0741fb5ec6fc460663a3319dabfd49412c0a94ad6f",
-        "file": "20276.pdf",
-        "source_url": "https://www.gloucester-ma.gov/Archive.aspx?ADID=20276"
-      }
-    },
-    {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "e9fbb0c88e9e297c475c2be7b38f1448d11c299c09dc5841356b142d6406b7dd",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Budget & Finance Meeting",
@@ -98,37 +34,59 @@
     },
     {
       "custom_id": "tr-1",
-      "type": "review",
+      "type": "translation",
       "lang": "es",
       "kind": "agenda",
       "older": false,
-      "source_hash": "e995972d6790057336d4d760c2a48d66e71654b402313596d00d01a16a405f2d",
-      "model": "claude-sonnet-5-5",
+      "source_hash": "292c66f6fee3b31823651d3305aca94219140177af3607df3747e941883b38c9",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
-        "title": "Planning & Development Meeting",
-        "date": "2026-11-18",
-        "body": "City Council Planning & Development Committee"
+        "title": "City-Owned Cemeteries Advisory Committee",
+        "date": "2026-11-17",
+        "body": "City-Owned Cemeteries Advisory Committee"
       },
       "doc": {
-        "id": "20271",
-        "sha256": "654195ddba49c764313b1aec15d789d6384cc84f246fa4a944f327b1945b5680"
+        "id": "20277",
+        "sha256": "052f8d8f36ab04701bdddfd6e3f76445e4a60e3620a9026b06f3699bb9e8dc6d"
       }
     },
     {
       "custom_id": "tr-2",
-      "type": "review",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "d58690a172b69e520f8947342d4deea59b10c4c1c9615a04a1c3a9dd82ce9721",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Gloucester Lyceum & SFL Annual Meeting of the Corporation",
+        "date": "2026-11-17",
+        "body": "Gloucester Lyceum & SFL Annual Meeting of the Corporation"
+      },
+      "doc": {
+        "id": "20278",
+        "sha256": "f44b4fc18b2ccdf2a8cf7c17e4d0483ef31c3c5a8217ffd9201d6e03d8fbae74"
+      }
+    },
+    {
+      "custom_id": "tr-3",
+      "type": "translation",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "05f96370a4775b6c8a8e05d631fa1854c0871011be5cfd5debc3027294a23eb7",
-      "model": "claude-sonnet-5-5",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
         "title": "Shellfish Advisory Commission",
@@ -141,60 +99,16 @@
       }
     },
     {
-      "custom_id": "tr-3",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "15749b73d969810ab50430fe624f85fc12c69b321c2b751b23ad338ac2aab47d",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Ordinances & Administration Meeting",
-        "date": "2026-11-16",
-        "body": "City Council Ordinances & Administration Committee"
-      },
-      "doc": {
-        "id": "20273",
-        "sha256": "ec1294a1977bc1289b017b8b9d02e04d7e35c68491bb3dace7f6fd64d9dac57a"
-      }
-    },
-    {
       "custom_id": "tr-4",
       "type": "review",
-      "lang": "es",
-      "kind": "recording",
-      "older": false,
-      "source_hash": "d701491f07ccb38536007a3852129c30f853d2d370cef08704a26e12c1571ea6",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Planning Board - REMOTE MEETING",
-        "date": "2026-11-05",
-        "body": "Planning Board"
-      },
-      "doc": {
-        "id": "youtube-P_lQNjIuMDQ",
-        "sha256": "aba5009118bdc6f8fee668775e87836630f15819a19d3f768b862cf8fe9478c6"
-      }
-    },
-    {
-      "custom_id": "tr-5",
-      "type": "translation",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "944dfcbcbe019cd9230fe46bcd64496f5b1f0d710128b2f0f984bb7005250ffc",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Ordinances & Administration Meeting",
@@ -207,16 +121,16 @@
       }
     },
     {
-      "custom_id": "tr-6",
-      "type": "translation",
+      "custom_id": "tr-5",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "0984ae012e977e1e5272b63868cd9f61ae3f79c0906690caff7af348c3b66555",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "City Council Meeting",
@@ -226,6 +140,50 @@
       "doc": {
         "id": "20267",
         "sha256": "ac4e064ced4b0606f32e89eb335a304b5abe1f3d228537cb736e6a7b017d6a4b"
+      }
+    },
+    {
+      "custom_id": "tr-6",
+      "type": "translation",
+      "lang": "es",
+      "kind": "minutes",
+      "older": false,
+      "source_hash": "5aee8debf6bcef59578a50ded9e82e222e356a50db3d2cdb9745568aae969642",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Sawyer Free Library Board",
+        "date": "2026-09-22",
+        "body": "Sawyer Free Library Board"
+      },
+      "doc": {
+        "id": "20279",
+        "sha256": "88c252bea2a4054553b8905be5d416e33cd8c7ef7a9a8b468b0acec50fe3b6fe"
+      }
+    },
+    {
+      "custom_id": "tr-7",
+      "type": "translation",
+      "lang": "es",
+      "kind": "minutes",
+      "older": false,
+      "source_hash": "700f65cb1282c8b9c8d97134192039ca586c5d018536fe3a619001123c6e1b60",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Sawyer Free Library Board",
+        "date": "2026-09-15",
+        "body": "Sawyer Free Library Board"
+      },
+      "doc": {
+        "id": "20276",
+        "sha256": "8f556cc580e51f9f43bdcf0741fb5ec6fc460663a3319dabfd49412c0a94ad6f"
       }
     }
   ]
