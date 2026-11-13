@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01PgCpNhzy5AiwkDer1QjcgH",
-  "sent_at": "2026-11-13T20:49:21+00:00",
+  "id": "msgbatch_01RaXAG7nGRGM1VQsHgc5Lar",
+  "sent_at": "2026-11-13T20:54:13+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,9 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
+      "source_hash": "0a583ea4e78ee06a9f5e6ca3e950c11b6bcb488feb73c8ef29068f3b530227ee",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Hybrid Public Art Committee Meeting 11-18-2025",
         "date": "2026-11-18",
@@ -21,15 +29,21 @@
       },
       "doc": {
         "id": "civicclerk-20668",
-        "sha256": "90c89ba7bf1b07a76cea4be8bac3a6740a55b751e0be5f7a6f429214a62be485",
-        "file": "civicclerk-20668.pdf",
-        "source_url": "https://portlandme.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=20668,plainText=false)"
+        "sha256": "90c89ba7bf1b07a76cea4be8bac3a6740a55b751e0be5f7a6f429214a62be485"
       }
     },
     {
-      "custom_id": "doc-1",
+      "custom_id": "tr-1",
+      "type": "translation",
+      "lang": "es",
       "kind": "recording",
       "older": false,
+      "source_hash": "b1203a18fc775292c6fc089387824b01c5694a7d0d4b8f2587471914eee35248",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Portland Fish Pier Authority Board - Portland Fish Exchange Subcommittee",
         "date": "2026-11-12",
@@ -37,31 +51,7 @@
       },
       "doc": {
         "id": "civicclerk-video-9709",
-        "sha256": "298195f3043267a0228988b4404a50eca7ede8be996395fef4046dc51ecd1d74",
-        "file": "civicclerk-video-9709.txt",
-        "source_url": "https://portlandme.portal.civicclerk.com/event/9709/media"
-      }
-    },
-    {
-      "custom_id": "tr-0",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "d0958a90dd4bfe8c0a498077fe6553c47163685b9fc0ce7aa796e1feb5bdcd33",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Portland Fish Pier Authority Board",
-        "date": "2026-11-19",
-        "body": "Portland Fish Pier Authority"
-      },
-      "doc": {
-        "id": "civicclerk-20658",
-        "sha256": "808cf0289ab0f4865981d9b225edcef49cefd21c48ed51baf0575b37fb10ec91"
+        "sha256": "298195f3043267a0228988b4404a50eca7ede8be996395fef4046dc51ecd1d74"
       }
     }
   ]
