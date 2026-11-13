@@ -1,0 +1,331 @@
+# Site configuration for Sutton, Massachusetts. Everything town-specific lives
+# here; the code is the Publick engine
+# (github.com/publick-org/publick-engine).
+#
+# Started on 2026-11-13 by the engine's helper (python -m pipeline.new_town),
+# from Methuen's config.
+#
+# Sutton is governed by a five-member Select Board, which appoints a Town
+# Manager, with open Town Meeting as its legislature (the Home Rule Charter).
+# Its website runs on CivicPlus. The town's boards, committees and
+# commissions, Town Meeting among them, post agendas and minutes in the Agenda
+# Center, each under its own category. The town calendar ("Meetings" and
+# "Main Calendar") lists meetings before their agendas are posted, with times
+# and places, the School Committee's and its subcommittees' too
+# ([meetings.civicplus]). Most agendas, and about half the minutes, are
+# scanned PDFs, read by the model; the rest are text. Meetings are recorded by
+# the town's cable access station and posted on its YouTube channel
+# ([recordings]).
+# The School Committee is Sutton Public Schools', which posts its agendas and
+# minutes in Apptegy document folders on its own website: a folder a school
+# year ("2026-2027"), holding an "Agendas" and a "Minutes" folder, whose
+# files the folder lists by the meeting's date alone ("November 9, 2026").
+# The engine's reader of Apptegy folders reads years named "2026", and tells
+# an agenda from minutes by a file's name, so it can't read these yet; the
+# Committee's meetings are listed from the town calendar and summarized from
+# their recordings, without their documents.
+# There is no 311 section ([absences]). Its tax bill, budget and school
+# figures are Massachusetts's ([finance], [schools]).
+#
+# The site is in English and Spanish ([site] languages), as every town's is.
+# The first runs draft the Spanish for the town's own text; [strings.es], at
+# the end, can correct it.
+
+[site]
+name = "Sutton Publick"
+# The masthead shows name_prefix in dark ink and name_suffix in the accent
+# color: the town, then the network.
+name_prefix = "Sutton "
+domain = "sutton-ma.publick.org"
+tagline = "Public data on how Sutton, Massachusetts decides and spends. Updated daily."
+# One line under the name at the top of every page.
+masthead = "An independent guide to town government in Sutton, Massachusetts"
+# Public contact address. Shown on the About and Accessibility pages when set.
+contact_email = "sutton-ma@publick.org"
+user_agent = "sutton-ma.publick.org (+https://sutton-ma.publick.org/about/)"
+
+# From the town website's stylesheets (www.suttonma.gov): its green (#274322,
+# 40 uses, the homepage's band of links and its search box) and a darker
+# shade of it; its gold (#facb74, and #c39f56 on the homepage's tiles),
+# darkened to pass as the accent; primary_soft a light tint of primary. Each
+# passes WCAG AA on white (11.0, 15.6, 4.6 to 1).
+[site.colors]
+primary = "#274322"
+primary_dark = "#172814"
+primary_soft = "#e9ece9"
+accent = "#8c723e"
+
+[town]
+name = "Sutton"
+state_abbr = "MA"
+official_site = "https://www.suttonma.gov"
+# Sutton has no wards: its areas are its voting precincts (MassGIS's 2022 file
+# has no WARD).
+areas = "precincts"
+
+# Sections appear in the main navigation in this order. Each one is a folder
+# under site/pages/<slug>/ and is served at https://<domain>/<slug>/.
+[[sections]]
+slug = "meetings"
+title = "Meetings"
+summary = "When the Select Board, Town Meeting, the School Committee and the town's boards, committees and commissions meet, from the town calendar and its Agenda Center, with agendas and minutes from January 2026 on."
+status = "live"
+
+[[sections]]
+slug = "schools"
+title = "Schools"
+summary = "Graduation, attendance, and MCAS results compared with the state."
+status = "live"
+
+[[sections]]
+slug = "budget"
+title = "Town budget"
+nav = "Budget"
+summary = "Where general fund money comes from and how it is spent, reserves, and the property tax limit."
+status = "live"
+
+[[sections]]
+slug = "housing"
+title = "Housing"
+summary = "New homes permitted, home values and rents, affordable housing, and the housing stock."
+status = "live"
+
+[[sections]]
+slug = "officials"
+title = "Who represents you"
+nav = "Officials"
+summary = "The Select Board and the School Committee, and how to reach them."
+status = "live"
+
+[[sections]]
+slug = "about"
+title = "About"
+summary = "Data sources, update schedule, metric definitions, and corrections."
+status = "live"
+
+# Page view counting with GoatCounter, on the network's site; prefix is this
+# town's folder.
+[analytics]
+prefix = "sutton-ma"
+
+# The weekly digest's email signup, on /digest/ (the engine's pipeline/digest.py). The form posts
+# to this site's /digest/subscribe, which the sites Worker answers (worker/digest.js) and passes on
+# to Buttondown with the tag sutton-ma-en. The About page names who keeps the addresses.
+[digest]
+# The network's settings (defaults/network.toml): having the table turns the signup on.
+
+# Public meetings, from the town calendar and its Agenda Center.
+[meetings]
+base_url = "https://www.suttonma.gov"
+archive_url = "https://www.suttonma.gov/AgendaCenter"
+archive_name = "town's Agenda Center"
+governing_body = "Select Board"
+# The town's site resets some connections (4 of the helper's); a slower pace
+# and the client's retries help.
+request_delay = 5.0
+max_event_pages = 40
+
+# The town calendar, read month by month: the meetings the town lists before
+# their agendas are posted, with their times and places. Read: the calendars
+# whose events, over the last three months and the next three, were mostly
+# meetings. Not read: Events and Prep for Reveal, which had none.
+[meetings.civicplus]
+calendars = ["Main Calendar", "Meetings"]
+# Some of their events aren't meetings: only titles naming a board, or Town
+# Meeting, are kept. Left out: community meetings a department holds
+# ("Manchaug Village Community Meeting - Municipal Vulnerability Preparedness
+# Grant").
+include_pattern = '\b(boards?|commissions?|committees?|subcommittees?|councils?|authority|trustees|ZBA|task force|town meeting)\b'
+# A meeting on the calendar and in the Agenda Center is shown once.
+
+# The calendar's names for boards the Agenda Center names otherwise.
+[meetings.aliases]
+"Library Trustees" = "Board of Library Trustees"
+"Sutton Housing Authority" = "Housing Authority"
+"Sutton Cultural Council" = "Cultural Council"
+"Council On Aging" = "Council on Aging"
+# Town Meeting's sessions. The calendar's parser drops a title's trailing
+# "Meeting", so "Annual Fall Town Meeting" (as the calendar lists the fall
+# session) would be a board named "Annual Fall Town", and "Town Meeting" or
+# "Special Town Meeting" one named "Town". Each is the Agenda Center's "Town
+# Meeting", as are the names the town's Town Meeting & Election page gives
+# its sessions.
+"Annual Fall Town Meeting" = "Town Meeting"
+"Annual Spring Town Meeting" = "Town Meeting"
+"Fall Town Meeting" = "Town Meeting"
+"Spring Town Meeting" = "Town Meeting"
+"Town Meeting" = "Town Meeting"
+
+[meetings.agenda_center]
+base_url = "https://www.suttonma.gov"
+# The first run lists meetings from here, and minutes are collected from here
+# on.
+since = "2026-01-01"
+# The Planning Board's agenda for its session at a Select Board meeting
+# ("Planning Board at Select Board Meeting Agenda") is the Planning Board's
+# meeting, posted under its own category, so no committee is listed.
+
+# Agenda and minutes PDFs live in the network's documents bucket, not in git
+# (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID,
+# STORAGE_SECRET_ACCESS_KEY.
+[storage]
+prefix = "sutton-ma"
+
+# Plain-English agenda text and previews, and decisions from minutes, written
+# by a language model and labeled as AI-generated on the site. Only meetings
+# from `since` on are summarized, about three months before launch, so the
+# town's history doesn't take the month's budget.
+[summaries]
+since = "2026-08-01"
+
+[recordings]
+since = "2026-11-01"
+
+# The town's cable access channel on YouTube ("Town of Sutton Cable",
+# @townofsuttoncable), which the town's homepage and its Select Board Meeting
+# Videos page link. Its titles name the board by an abbreviation and the date
+# with underscores: "BOS_2026_11_10" (the Select Board), "SC_2026_11_09",
+# "PB_2026_11_02", "ZBA_2026_11_05", "CC_2026_10_21" (the Conservation
+# Commission), "FC_2026_09_30" (the Finance & Warrant Advisory Committee),
+# "SWR_2026_08_11", "CEM_2026_07_22", "HC_2026_08_25" (the Historical
+# Commission) and "COA 2026 10 20", each checked against the board meeting
+# that day in the Agenda Center. A recording is matched to its board's one
+# meeting listed that day, from the Agenda Center or the town calendar. A title must start with its board's
+# abbreviation, so a copy ("Copy of CC_2026_09_02") isn't read. A title whose
+# date is written with spaces ("COA 2026 10 20", "ATM 2026 10 19" for the Fall
+# Town Meeting) isn't read as a date by the engine yet, and so isn't matched.
+# Other programs (parades, concerts) name no board and are left out.
+[[recordings.sources]]
+platform = "youtube"
+channel = "UCvE2OUek7LYKU2s4ZSSTXXQ"
+
+[recordings.sources.boards]
+"Select Board" = '^\s*bos(?![a-z])'
+"School Committee" = '^\s*sc(?![a-z])'
+"Planning Board" = '^\s*pb(?![a-z])'
+"Zoning Board of Appeals" = '^\s*zba(?![a-z])'
+"Conservation Commission" = '^\s*cc(?![a-z])'
+"Finance & Warrant Advisory Committee" = '^\s*fc(?![a-z])'
+"Sewer Commission" = '^\s*swr(?![a-z])'
+"Cemetery Commission" = '^\s*cem(?![a-z])'
+"Historical Commission" = '^\s*hc(?![a-z])'
+"Council on Aging" = '^\s*coa(?![a-z])'
+"Town Meeting" = '^\s*[as]tm(?![a-z])'
+"Sutton Leadership Group" = '^\s*sutton\s+leadership\s+group\b'
+
+# How residents can take part, per board, shown on its meeting pages. Only
+# what the town and the school district have published; each entry names its
+# source. From the Select Board's agenda of November 10, 2026 ("Public
+# Forum" after the call to order; held at Town Hall and on Zoom, with the
+# meeting ID on the agenda) and its page on the town's website (the Board's
+# shared address).
+[participation."Select Board"]
+comment = "Each meeting has a Public Forum near its start, after the Pledge of Allegiance. Meetings are held at Town Hall and can be joined on Zoom or by phone, with the meeting ID on the agenda. To write to the whole Select Board, email SB@town.sutton.ma.us."
+source_title = "the Select Board's agenda of November 10, 2026"
+source_url = "https://www.suttonma.gov/AgendaCenter/ViewFile/Agenda/_11102026-489"
+video_title = "the Select Board's meeting videos"
+video_url = "https://www.suttonma.gov/1347/Select-Board-Meeting-Videos"
+
+# From the School Committee's agenda of November 9, 2026, on the district's
+# website (item 3, "Public Forum", and the hybrid meeting's details). The
+# town's School Committee page links the cable channel for its videos.
+[participation."School Committee"]
+comment = "Each meeting has a Public Forum near its start, for anyone wishing to discuss any matter with the committee: three minutes a person, and 15 minutes in all. Meetings are hybrid, at the Sutton Municipal Center (4 Uxbridge Road) and on Zoom or by phone, with the meeting ID on the agenda; join remotely under your full name."
+source_title = "the School Committee's agenda of November 9, 2026"
+source_url = "https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/3430/Ssd/4368b3e7-b9f6-48ec-9ea8-89953d5cd3f6/01---Agenda-11-09-26.pdf?disposition=inline"
+video_title = "the town's cable channel on YouTube"
+video_url = "https://www.youtube.com/channel/UCvE2OUek7LYKU2s4ZSSTXXQ"
+
+# School district figures from the state's education data portal (DESE).
+[schools]
+district_code = "02900000"
+district_name = "Sutton Public Schools"
+
+# Tax bill and budget figures (Mass. Division of Local Services). Some DLS
+# reports take the name, others the DOR code.
+[finance]
+dls_municipality = "Sutton"
+dls_code = "290"
+
+# Housing: Census building permits (state and town codes), American Community
+# Survey through Census Reporter (geo ids), and the state's Subsidized Housing
+# Inventory PDF (the town's name as the PDF lists it).
+[housing]
+bps_mcd = "68610"
+census_geo = "06000US2502768610"
+shi_name = "Sutton"
+
+# Unemployment rate (BLS Local Area Unemployment Statistics, area
+# CS2568610000000, Sutton town, MA). Town rates are not seasonally adjusted;
+# the state series is shown for context.
+[labor]
+local_series = "LAUCS256861000000003"
+
+# How often each data source should update. Figures published monthly or
+# yearly are judged by the engine, by the period they cover
+# (pipeline/rhythms.py).
+[freshness]
+sources = [
+  { label = "Meetings (Agenda Center)", file = "meetings/status.json", max_days = 2 },
+]
+
+# The About page's "What this site doesn't cover": why there's no 311 section.
+# SeeClickFix has no place named for Sutton, and the town's Form Center has no
+# form for service requests (on 2026-11-13).
+[absences]
+311 = "The town doesn't publish residents' service requests in any public system, so there's no data to show."
+
+# Who represents you (the Officials page). Kept by hand from official town and
+# school websites; checked is the date the list was last checked against them.
+# Only town- and school-issued email addresses. The Home Rule Charter (Chapter
+# 147 of the Acts of 2018, as amended in 2022): a Select Board of five members
+# elected for staggered three-year terms, and an elected School Committee
+# (Sections 3-2 and 3-3); the annual town election is held as the by-laws
+# say, the fourth Tuesday in May (General Bylaws). Every seat is elected
+# townwide, so the Officials page has no ward map.
+[officials]
+checked = "2026-11-13"
+# The next annual town election: Tuesday, May 25, 2027, the fourth Tuesday in
+# May. The last two were on May 27, 2025 and May 26, 2026, both the fourth
+# Tuesday.
+next_election = "2027-05-25"
+# No wards: data/static/sutton-precincts-2022.geojson (MassGIS) has the voting
+# precincts.
+
+# Names, officers, terms and town-issued addresses from the Select Board's
+# page, which links each member's address and gives one for the whole Board.
+# Confirmed against the Town Clerk's minutes of the annual town elections of
+# May 28, 2024 (Anderson, Limanek), May 27, 2025 (Ettamarna, three years;
+# Watkins, one year) and May 26, 2026 (Watkins, Spengler: the two highest of
+# three for two seats; the minutes declare only Watkins). All five are on the
+# roll of the Board's minutes of September 8, 2026 (Limanek by Zoom).
+[[officials.bodies]]
+name = "Select Board"
+url = "https://www.suttonma.gov/1235/Select-Board"
+note = "Five members, elected townwide for staggered three-year terms at the annual town election in May. The Select Board is the town's executive and policy-making body; it appoints the Town Manager, who runs the town day to day. Town Meeting, open to every registered voter, is the town's legislature. Write to the whole Board at SB@town.sutton.ma.us."
+members = [
+  { name = "Jonathan Anderson", seat = "At-large", role = "Chair", term_ends = "2027-05", email = "j.anderson@town.sutton.ma.us" },
+  { name = "James Ettamarna", seat = "At-large", role = "Vice Chair", term_ends = "2028-05", email = "j.ettamarna@town.sutton.ma.us" },
+  { name = "Christine Watkins", seat = "At-large", role = "Clerk", term_ends = "2029-05", email = "c.watkins@town.sutton.ma.us" },
+  { name = "Jesse Limanek", seat = "At-large", term_ends = "2027-05", email = "j.limanek@town.sutton.ma.us" },
+  { name = "Dan Spengler", seat = "At-large", term_ends = "2029-05", email = "d.spengler@town.sutton.ma.us" },
+]
+
+# Names, officers and terms from the School Committee's page on the town's
+# website; district (suttonschools.net) addresses from the district's School
+# Committee Members page. Confirmed against the Town Clerk's minutes of the
+# annual town elections of May 28, 2024 (Kozaczka), May 27, 2025 (Darling,
+# Reid-Eriksen) and May 26, 2026 (Matera, three years; Royce, one year). The
+# district's minutes of October 5, 2026 list Matera as Chair and Royce
+# present. Its meetings are listed from the town calendar.
+[[officials.bodies]]
+name = "School Committee"
+url = "https://www.suttonma.gov/1236/School-Committee"
+note = "Sutton Public Schools' committee: five members, elected townwide at the annual town election in May for staggered three-year terms."
+members = [
+  { name = "Christopher Matera", seat = "At-large", role = "Chair", term_ends = "2029-05", email = "materac@suttonschools.net" },
+  { name = "Patrick Royce", seat = "At-large", role = "Vice Chair", term_ends = "2027-05", email = "roycep@suttonschools.net" },
+  { name = "Jill Kozaczka", seat = "At-large", role = "Secretary", term_ends = "2027-05", email = "kozaczkaj@suttonschools.net" },
+  { name = "Jennifer Darling", seat = "At-large", term_ends = "2028-05", email = "darlingj@suttonschools.net" },
+  { name = "Erin Reid-Eriksen", seat = "At-large", term_ends = "2028-05", email = "reid-eriksene@suttonschools.net" },
+]
