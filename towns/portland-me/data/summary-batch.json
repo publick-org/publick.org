@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01WXjEYfmViLfQq2e8g3og5C",
-  "sent_at": "2026-11-13T20:09:32+00:00",
+  "id": "msgbatch_01PgCpNhzy5AiwkDer1QjcgH",
+  "sent_at": "2026-11-13T20:49:21+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,38 +11,48 @@
   },
   "documents": [
     {
+      "custom_id": "doc-0",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "Hybrid Public Art Committee Meeting 11-18-2025",
+        "date": "2026-11-18",
+        "body": "Public Art Committee"
+      },
+      "doc": {
+        "id": "civicclerk-20668",
+        "sha256": "90c89ba7bf1b07a76cea4be8bac3a6740a55b751e0be5f7a6f429214a62be485",
+        "file": "civicclerk-20668.pdf",
+        "source_url": "https://portlandme.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=20668,plainText=false)"
+      }
+    },
+    {
+      "custom_id": "doc-1",
+      "kind": "recording",
+      "older": false,
+      "meeting": {
+        "title": "Portland Fish Pier Authority Board - Portland Fish Exchange Subcommittee",
+        "date": "2026-11-12",
+        "body": "Portland Fish Pier Authority Fish Exchange Subcommittee"
+      },
+      "doc": {
+        "id": "civicclerk-video-9709",
+        "sha256": "298195f3043267a0228988b4404a50eca7ede8be996395fef4046dc51ecd1d74",
+        "file": "civicclerk-video-9709.txt",
+        "source_url": "https://portlandme.portal.civicclerk.com/event/9709/media"
+      }
+    },
+    {
       "custom_id": "tr-0",
       "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
-      "source_hash": "8fc2268ea156254d38079332506fb3355d03da3dd3305afb38c08a9762a00942",
+      "source_hash": "d0958a90dd4bfe8c0a498077fe6553c47163685b9fc0ce7aa796e1feb5bdcd33",
       "model": "claude-sonnet-5-5",
       "prices": {
         "input_price": 2.0,
         "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Portland Development Corporation",
-        "date": "2026-11-19",
-        "body": "Portland Development Corporation"
-      },
-      "doc": {
-        "id": "civicclerk-20664",
-        "sha256": "37bde990c5ee025d80e6a8d46b235cdb4b038e89c42d30202b498bec5f2cb44b"
-      }
-    },
-    {
-      "custom_id": "tr-1",
-      "type": "translation",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "d0958a90dd4bfe8c0a498077fe6553c47163685b9fc0ce7aa796e1feb5bdcd33",
-      "model": "claude-haiku-5-5",
-      "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
       },
       "meeting": {
         "title": "Portland Fish Pier Authority Board",
@@ -52,72 +62,6 @@
       "doc": {
         "id": "civicclerk-20658",
         "sha256": "808cf0289ab0f4865981d9b225edcef49cefd21c48ed51baf0575b37fb10ec91"
-      }
-    },
-    {
-      "custom_id": "tr-2",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "210512a6a4291828bf896900d97ab333bea77e3e0254625e8a5205a779489e05",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Sustainability & Transportation Committee Meeting",
-        "date": "2026-11-18",
-        "body": "City Council Sustainability and Transportation Committee"
-      },
-      "doc": {
-        "id": "civicclerk-20666",
-        "sha256": "20836f6ff59fe482ba8de5ca84ce3cca3a6cef11a4bace925d28c844df06a6b4"
-      }
-    },
-    {
-      "custom_id": "tr-3",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "c53eba0e30022660967cf380f891ff16c2b0068a17befb0dbb9aea49f93aba31",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Board of Public Education Policy Committee Meeting",
-        "date": "2026-11-18",
-        "body": "Board of Public Education Policy Committee"
-      },
-      "doc": {
-        "id": "diligent-24372-4ad02c9a",
-        "sha256": "4ad02c9a20e0e2096abbaf1e6b1f88c8e0d939e1f3eadb99fd92c160086fe7ed"
-      }
-    },
-    {
-      "custom_id": "tr-4",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "0cb36097ab0ff939fd35ee9acf68d85509ca384f20d667dee4214e57245078d3",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Housing & Economic Development Committee Meeting",
-        "date": "2026-11-17",
-        "body": "City Council Housing and Economic Development Committee"
-      },
-      "doc": {
-        "id": "civicclerk-20662",
-        "sha256": "5a5216ec6f1831ccd845207a7d3fe6ce8e21a7b3d78bcab564775c789fd3facd"
       }
     }
   ]
