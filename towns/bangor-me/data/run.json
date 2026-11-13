@@ -1,8 +1,8 @@
 {
   "town": "bangor",
   "folder": "bangor-me",
-  "started_at": "2026-11-13T09:33:14+00:00",
-  "finished_at": "2026-11-13T09:36:27+00:00",
+  "started_at": "2026-11-13T13:44:56+00:00",
+  "finished_at": "2026-11-13T13:47:57+00:00",
   "engine": "v1.107.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 96.7
+      "seconds": 85.0
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 54.6
+      "seconds": 56.3
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 35.7
+      "seconds": 37.3
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 5.1
+      "seconds": 1.7
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.8
+      "seconds": 0.5
     }
   ],
   "update": {
     "town": "bangor",
-    "sources": "all",
-    "started_at": "2026-11-13T09:33:14+00:00",
+    "sources": "meetings",
+    "started_at": "2026-11-13T13:44:57+00:00",
     "ok": true,
     "steps": [
       {
@@ -136,7 +136,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 9.4,
+        "seconds": 6.8,
         "cadence": "continuous"
       },
       {
@@ -221,32 +221,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 8.6,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests from an open data portal",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [socrata_311] in the config"
-      },
-      {
-        "name": "Compute 311 scorecard",
-        "ok": true,
-        "required": true,
-        "error": null,
-        "seconds": 1.0,
+        "seconds": 0.2,
         "cadence": "continuous"
       }
     ]
@@ -256,7 +231,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-13T04:33:14-05:00",
+      "updated_at": "2026-11-13T08:44:57-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -347,9 +322,9 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-13T09:36:27+00:00",
-  "data_bytes": 3957630,
-  "data_bytes_added": 1839161,
+  "last_good_at": "2026-11-13T13:47:57+00:00",
+  "data_bytes": 3958935,
+  "data_bytes_added": 1839099,
   "activity": {
     "boards": 31,
     "meetings_by_date": {
@@ -461,10 +436,10 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-13T04:23:53-05:00",
+    "at": "2026-11-13T08:23:59-05:00",
     "refused": 0,
     "transcribed": 0,
-    "last_transcribed_at": "2026-11-09T19:44:28-05:00"
+    "last_transcribed_at": "2026-11-13T08:14:13-05:00"
   },
   "officials": {
     "checked_at": "2026-11-09T04:18:04-05:00",
