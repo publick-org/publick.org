@@ -80,9 +80,10 @@ left. Then publish (step 7).
       committee, a Finalsite district's board posts, a district's calendar
       feed, a page of a board's dates, and a page that links each meeting's
       agenda and minutes (`[page_meetings]`: Methuen, Waltham, Nashua), and a
-      board's Diligent Community portal (`[diligent_meetings]`). Not yet:
-      BoardDocs, nested Drive folders; leave the board out and say so in the
-      pull request.
+      board's Diligent Community, BoardBook or SharpSchool pages; the engine's
+      `docs/configuration.md` lists every reader, each a `[<source>_meetings]`
+      table. Not yet: BoardDocs, nested Drive folders; leave the board out
+      and say so in the pull request.
 - [ ] **Minutes.** Download two or three. A scanned PDF (no text to select)
       is transcribed by the model; note how many pages a year that would
       be. Minutes as Word files aren't read.

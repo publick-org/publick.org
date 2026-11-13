@@ -112,10 +112,10 @@ archive_name = "city's Agenda Center"
 # The city's site resets about one connection in five; a slower pace and the
 # client's retries help, and `first fetches` is run again if it stops.
 request_delay = 5.0
-max_event_pages = 40
 
 # Agenda Center categories renamed to the board's usual name: the council's
-# seven committees, each a category of its own, as the council's committees
+# eight committees that post there, each a category of its own (its ninth,
+# Council as a Whole, posts under the council), as the council's committees
 # ("City Council Finance Committee"), the district's category as the School
 # Committee, and the Housing Authority by its board's full name, as FATV
 # titles its recordings ("Fitchburg Housing Authority Board of Commissioners
@@ -129,6 +129,7 @@ max_event_pages = 40
 "City Property Committee" = "City Council City Property Committee"
 "Public Safety Committee" = "City Council Public Safety Committee"
 "Economic Development Committee" = "City Council Economic Development Committee"
+"Records Committee" = "City Council Records Committee"
 "Fitchburg Public Schools" = "School Committee"
 "Fitchburg Board of Assessors" = "Board of Assessors"
 
@@ -137,45 +138,61 @@ base_url = "https://www.fitchburgma.gov"
 # The first run lists meetings from here, and minutes are collected from here
 # on.
 since = "2026-01-01"
-# Not the city's boards: the regional bodies whose agendas the city posts (the
-# Montachusett regional school district, planning commission, MPO,
-# transportation committee and public health network, and mosquito control);
-# and not meetings: "Community Outreach Meetings" holds legal notices (a
-# sheriff's sale, DPU notices), "Elections" the clerk's election notices.
+# Not the city's boards: the regional and state bodies whose agendas and
+# notices the city posts (the Montachusett regional school district, planning
+# commission, MPO, transportation committee, public health network and transit
+# authority, mosquito control, MassHire's workforce board, MassDOT, and the
+# Department of Public Utilities' notices of a utility's petitions); and not
+# meetings: "Community Outreach Meetings" and "Sheriff's Sale" hold legal
+# notices, "Elections" the clerk's election notices.
 exclude_categories = [
   "Montachusett Regional Vocational Technical School",
   "Montachusett Regional Planning Commission",
   "Montachusett Metropolitan Planning Organization (MPO)",
   "Montachusett Joint Transportation Committee (MJTC)",
   "Montachusett Public Health Network",
+  "Montachusett Regional Transit Authority (MART)",
   "Mosquito Control",
+  "MassHire North Central Workforce Board",
+  "Massachusetts Department of Transportation",
+  "Department of Public Utilities",
   "Community Outreach Meetings",
+  "Sheriff's Sale",
   "Elections",
 ]
 
-# The council's Council as a Whole committee, and its joint conventions with
-# the School Committee (to fill a vacancy), posted under the council.
+# The council's Council as a Whole committee, named as FATV titles it ("City
+# Council as a Whole Committee"), and its joint conventions with the School
+# Committee (to fill a seat), posted under the council.
 [meetings.agenda_center.committees."City Council"]
-"Council as a Whole" = "City Council Committee of the Whole"
+"Council as a Whole" = "City Council as a Whole Committee"
 "Joint Convention" = "Joint Convention of the City Council and School Committee"
 
 # Under "Fitchburg Public Schools", besides the committee's regular meetings
 # ("Fitchburg Public Schools Regular Committee Meeting, November 2, 2026"): its
 # subcommittees, its joint meetings with the Student Advisory Committee, the
-# Crocker Elementary School Building Committee, the schools' councils, and a
-# PTO's notice. A school council's "MEETING DATES" row (Reingold's) is listed
-# as a meeting on the day it was posted: the Agenda Center has no way to tell.
+# Crocker Elementary School Building Committee, the schools' councils (each
+# school's, titled "Memorial Middle School Council Agenda", "Reingold
+# Elementary School - Monthly School Council Meeting", or "Reingold Elementary
+# School Meeting Agenda"), and a school's PTO's notice ("South Street Early
+# Learning Center PTO Agenda"), kept apart so it isn't taken for the
+# committee's.
+#
+# Rows that aren't one meeting are listed as one, on the date the Agenda
+# Center gives them, since it has no way to tell: the year's schedules ("2026
+# City Council Meeting Dates", "Finance Committee Notice Meetings 2026", the
+# License Commission's, the Zoning Board of Appeals' "Meeting Dates and
+# Deadlines for Filing 2027", a school council's "MEETING DATES"), and a
+# "Cancellation Notice" row, which isn't read as a cancellation.
 [meetings.agenda_center.committees."Fitchburg Public Schools"]
 "Student Support Subcommittee" = "School Committee Student Support Subcommittee"
 "Policy Subcommittee" = "School Committee Policy Subcommittee"
 "Building Needs and Resource Committee" = "School Committee Building Needs and Resource Committee"
 "Student Advisory Committee" = "Joint School Committee and Student Advisory Committee"
 "Crocker Elementary School Building Committee" = "Crocker Elementary School Building Committee"
-"School Council" = "School Council"
-"Fitchburg High School Meeting Notice School Council" = "Fitchburg High School Council"
-"Memorial Middle School Council" = "Memorial Middle School Council"
-"Reingold Elementary School" = "Reingold Elementary School Council"
-"Early Learning Center PTO" = "South Street Early Learning Center PTO"
+"School Council" = "School Councils"
+"Elementary School Meeting" = "School Councils"
+"PTO" = "Parent-Teacher Organizations"
 
 [meetings.agenda_center.committees."Library Trustees"]
 "Finance Sub Committee" = "Library Trustees Finance Subcommittee"
@@ -219,7 +236,10 @@ since = "2026-11-13"
 # (9137), Trustees of Public Burial Grounds (10799), Water & Wastewater
 # Commission (8907) and Agricultural Commission (10970). The Montachusett
 # Public Health Network's playlist (10874), Government Events & Specials
-# (3145) and the Mayor's briefings (10800) are left out.
+# (3145) and the Mayor's briefings (10800) are left out. A joint convention's
+# recording ("Joint Convention of the City Council & School Committee -
+# 9.14.2026") isn't matched to its meeting: a title that starts with "Joint"
+# names no listed board to the engine.
 [[recordings.sources]]
 platform = "telvue"
 player = "yycCAZPb0NN3zj2o5qio-YFMNC43NjCG"
@@ -297,6 +317,7 @@ sensitive_categories = [
   "Vacant and abandoned buildings",
   "Vehicle parking on sidewalk",
   "Cars Violating Snow Emergency Ordinance (Winter)",
+  "Vacant Lot",
 ]
 precincts_file = "fitchburg-precincts-2022.geojson"
 wards_publisher = "MassGIS"
@@ -325,12 +346,9 @@ checked = "2026-11-13"
 # The next regular municipal election: the Tuesday after the first Monday of
 # November in an odd-numbered year (2025's was November 4).
 next_election = "2027-11-02"
-# The ward file is data/static/fitchburg-precincts-2022.geojson (MassGIS): six
-# wards, two precincts each.
-wards_file = "fitchburg-precincts-2022.geojson"
-wards_publisher = "MassGIS"
-wards_year = "2022"
-wards_url = "https://gis.data.mass.gov/maps/aec5130790814ace94438d3bcf23cf9a"
+# The ward file is [seeclickfix] precincts_file,
+# data/static/fitchburg-precincts-2022.geojson (MassGIS): six wards, two
+# precincts each.
 
 # Re-elected on November 4, 2025 (the city's official results); the phone is
 # the Mayor's Office's, from its page.
