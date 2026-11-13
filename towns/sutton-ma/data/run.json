@@ -1,0 +1,261 @@
+{
+  "town": "sutton",
+  "folder": "sutton-ma",
+  "started_at": "2026-11-13T19:29:03+00:00",
+  "finished_at": "2026-11-13T19:30:10+00:00",
+  "engine": "v1.107.0",
+  "fetched": true,
+  "steps": [
+    {
+      "name": "Fetch new data",
+      "ok": true,
+      "error": null,
+      "seconds": 26.3
+    },
+    {
+      "name": "Build site",
+      "ok": true,
+      "error": null,
+      "seconds": 2.3
+    },
+    {
+      "name": "Check site",
+      "ok": true,
+      "error": null,
+      "seconds": 24.7
+    },
+    {
+      "name": "Publish site",
+      "ok": true,
+      "error": null,
+      "seconds": 2.3
+    },
+    {
+      "name": "Check live site",
+      "ok": true,
+      "error": null,
+      "seconds": 11.0
+    }
+  ],
+  "update": {
+    "town": "sutton",
+    "sources": "figures",
+    "started_at": "2026-11-13T19:29:04+00:00",
+    "ok": true,
+    "steps": [
+      {
+        "name": "Fetch tax bill",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.4,
+        "cadence": "yearly"
+      },
+      {
+        "name": "Fetch unemployment",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.6,
+        "cadence": "monthly"
+      },
+      {
+        "name": "Fetch school figures",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.4,
+        "cadence": "yearly"
+      },
+      {
+        "name": "Fetch budget figures",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.5,
+        "cadence": "yearly"
+      },
+      {
+        "name": "Fetch housing figures",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 22.7,
+        "cadence": "monthly"
+      },
+      {
+        "name": "Fetch place",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.5,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch address ranges",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.4,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch building permits",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [permits] in the config"
+      }
+    ]
+  },
+  "stale": true,
+  "sources": [
+    {
+      "label": "Meetings (Agenda Center)",
+      "file": "meetings/status.json",
+      "updated_at": null,
+      "max_days": 2,
+      "stale": true
+    },
+    {
+      "label": "Average tax bill (Mass. DLS)",
+      "file": "finance/tax_bill.json",
+      "updated_at": "2026-11-13T14:29:04-05:00",
+      "max_days": null,
+      "cadence": "yearly",
+      "failing": 0,
+      "stale": false,
+      "latest": "Fiscal year 2026",
+      "next": "Fiscal year 2027 usually by February 1, 2027",
+      "behind": null
+    },
+    {
+      "label": "City budget (Mass. DLS)",
+      "file": "finance/budget.json",
+      "updated_at": "2026-11-13T14:29:06-05:00",
+      "max_days": null,
+      "cadence": "yearly",
+      "failing": 0,
+      "stale": false,
+      "latest": "Fiscal year 2025 spending",
+      "next": "Fiscal year 2026 spending usually by June 1, 2027",
+      "behind": null
+    },
+    {
+      "label": "School figures (DESE)",
+      "file": "schools/schools.json",
+      "updated_at": "2026-11-13T14:29:05-05:00",
+      "max_days": null,
+      "cadence": "yearly",
+      "failing": 0,
+      "stale": false,
+      "latest": "Class of 2025 graduation rate; Spring 2026 MCAS results; 2025\u201326 attendance",
+      "next": "Class of 2026 graduation rate usually by May 1, 2027; Spring 2027 MCAS results usually by October 1, 2027; 2026\u201327 attendance usually by October 1, 2027",
+      "behind": null
+    },
+    {
+      "label": "Unemployment rate (BLS)",
+      "file": "labor/unemployment.json",
+      "updated_at": "2026-11-13T14:29:05-05:00",
+      "max_days": null,
+      "cadence": "monthly",
+      "failing": 0,
+      "stale": false,
+      "latest": "September 2026 rate",
+      "next": "October 2026 rate usually by December 10, 2026",
+      "behind": null
+    },
+    {
+      "label": "Housing figures",
+      "file": "housing/housing.json",
+      "updated_at": "2026-11-13T14:29:06-05:00",
+      "max_days": null,
+      "cadence": "monthly",
+      "failing": 0,
+      "stale": false,
+      "latest": "2025 building permits; ACS 2024 5-year estimates; Fiscal year 2027 parcel counts",
+      "next": "2026 building permits usually by June 1, 2027; ACS 2025 5-year estimates usually by December 15, 2026; Fiscal year 2028 parcel counts usually by March 1, 2028",
+      "behind": null
+    },
+    {
+      "label": "Elected officials",
+      "file": "config",
+      "updated_at": "2026-11-13",
+      "max_days": null,
+      "stale": false,
+      "latest": null,
+      "next": "a check after the election of May 25, 2027",
+      "behind": null,
+      "passed": false
+    },
+    {
+      "label": "Meeting summaries",
+      "file": "summaries",
+      "updated_at": null,
+      "max_days": 2,
+      "stale": false,
+      "waiting": [],
+      "waiting_count": 0
+    }
+  ],
+  "failing": [],
+  "deployed": true,
+  "corrections": [],
+  "ok": true,
+  "last_good_at": null,
+  "data_bytes": 47986,
+  "data_bytes_added": 26021,
+  "activity": {
+    "boards": 0,
+    "meetings_by_date": {}
+  },
+  "fact_checks": {
+    "summaries": 0,
+    "ok": 0,
+    "failed": 0,
+    "weak": 0,
+    "unchecked": 0,
+    "not_yet": 0,
+    "held_back": 0,
+    "entries_not_shown": 0,
+    "vote_counts_left_out": 0
+  },
+  "recordings": {
+    "since": "2026-11-06",
+    "until": "2026-11-12",
+    "held": 0,
+    "next_day": 0,
+    "steps": {
+      "summarized": 0,
+      "minutes": 0,
+      "transcribed": 0,
+      "waiting": 0,
+      "failed": 0,
+      "unmatched": 0,
+      "not_found": 0,
+      "no_source": 0,
+      "no_recordings": 0
+    },
+    "misses": []
+  },
+  "documents": {
+    "since": "2026-08-15",
+    "until": "2026-11-12",
+    "held": 0,
+    "boards": 0,
+    "counts": {
+      "no_documents": 0,
+      "no_minutes": 0,
+      "pairs": 0
+    },
+    "no_documents": [],
+    "no_minutes": [],
+    "pairs": [],
+    "waiting": {},
+    "backlog": {}
+  },
+  "gemini": null,
+  "officials": null
+}
