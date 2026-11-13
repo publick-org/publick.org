@@ -1,34 +1,34 @@
 {
   "town": "hamden",
   "folder": "hamden-ct",
-  "started_at": "2026-11-12T09:15:08+00:00",
-  "finished_at": "2026-11-12T09:18:29+00:00",
-  "engine": "v1.106.0",
+  "started_at": "2026-11-13T09:10:24+00:00",
+  "finished_at": "2026-11-13T09:13:18+00:00",
+  "engine": "v1.107.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 91.7
+      "seconds": 77.9
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 51.8
+      "seconds": 45.2
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 68.5
+      "seconds": 43.7
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 65.3
+      "seconds": 6.1
     },
     {
       "name": "Check live site",
@@ -40,7 +40,7 @@
   "update": {
     "town": "hamden",
     "sources": "all",
-    "started_at": "2026-11-12T09:15:09+00:00",
+    "started_at": "2026-11-13T09:10:25+00:00",
     "ok": true,
     "steps": [
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 3.9,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.2,
+        "seconds": 1.3,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 27.7,
+        "seconds": 17.2,
         "cadence": "continuous"
       },
       {
@@ -145,7 +145,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 10 days ago; checked every 30 days"
+        "skipped": "checked 11 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -154,7 +154,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 2 days ago; checked every 7 days"
+        "skipped": "checked 3 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -163,7 +163,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 10 days ago; checked every 30 days"
+        "skipped": "checked 11 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -172,7 +172,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 2 days ago; checked every 7 days"
+        "skipped": "checked 3 days ago; checked every 7 days"
       },
       {
         "name": "Fetch housing figures",
@@ -181,7 +181,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 3 days ago; checked every 7 days"
+        "skipped": "checked 4 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -196,7 +196,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.2,
         "cadence": "continuous"
       },
       {
@@ -221,7 +221,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.2,
         "cadence": "continuous"
       },
       {
@@ -229,7 +229,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 8.2,
+        "seconds": 8.4,
         "cadence": "continuous"
       },
       {
@@ -246,7 +246,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 1.0,
+        "seconds": 0.9,
         "cadence": "continuous"
       }
     ]
@@ -256,21 +256,21 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-12T04:15:09-05:00",
+      "updated_at": "2026-11-13T04:10:25-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-12T04:16:31-05:00",
+      "updated_at": "2026-11-13T04:11:33-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-12T04:16:39-05:00",
+      "updated_at": "2026-11-13T04:11:41-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -359,26 +359,25 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-13T09:08:52+00:00",
-  "data_bytes": 4938530,
-  "data_bytes_added": 2522333,
+  "last_good_at": "2026-11-13T09:13:18+00:00",
+  "data_bytes": 4953684,
+  "data_bytes_added": 2524281,
   "activity": {
     "boards": 51,
     "meetings_by_date": {
-      "2026-11-12": 3,
       "2026-11-16": 2,
       "2026-11-17": 4,
-      "2026-11-18": 4,
+      "2026-11-18": 5,
       "2026-11-19": 1,
       "2026-11-23": 2,
       "2026-11-24": 1
     }
   },
   "fact_checks": {
-    "summaries": 130,
-    "ok": 126,
+    "summaries": 132,
+    "ok": 127,
     "failed": 3,
-    "weak": 1,
+    "weak": 2,
     "unchecked": 0,
     "not_yet": 0,
     "held_back": 3,
@@ -386,8 +385,8 @@
     "vote_counts_left_out": 16
   },
   "recordings": {
-    "since": "2026-11-05",
-    "until": "2026-11-11",
+    "since": "2026-11-06",
+    "until": "2026-11-12",
     "held": 3,
     "next_day": 0,
     "steps": {
@@ -420,27 +419,22 @@
     ]
   },
   "documents": {
-    "since": "2026-08-14",
-    "until": "2026-11-11",
-    "held": 133,
+    "since": "2026-08-15",
+    "until": "2026-11-12",
+    "held": 134,
     "boards": 46,
     "counts": {
       "no_documents": 1,
-      "no_minutes": 1,
+      "no_minutes": 0,
       "pairs": 0
     },
     "no_documents": [
       {
         "board": "Hamden Housing Authority",
-        "meetings": 2
+        "meetings": 3
       }
     ],
-    "no_minutes": [
-      {
-        "board": "Legislative Council Public Works, Facilities and Sustainability Committee",
-        "meetings": 2
-      }
-    ],
+    "no_minutes": [],
     "pairs": [],
     "waiting": {},
     "backlog": {}
@@ -449,7 +443,5 @@
   "officials": {
     "checked_at": "2026-11-09T04:18:25-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-13T09:08:52+00:00",
-  "published_engine": "v1.107.0"
+  }
 }
