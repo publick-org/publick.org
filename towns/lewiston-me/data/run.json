@@ -1,62 +1,62 @@
 {
   "town": "lewiston",
   "folder": "lewiston-me",
-  "started_at": "2026-11-12T09:14:08+00:00",
-  "finished_at": "2026-11-12T09:24:54+00:00",
-  "engine": "v1.106.0",
+  "started_at": "2026-11-13T09:15:37+00:00",
+  "finished_at": "2026-11-13T09:18:46+00:00",
+  "engine": "v1.107.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 569.0
+      "seconds": 113.6
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 43.5
+      "seconds": 42.3
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 24.1
+      "seconds": 27.6
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 13.9
+      "seconds": 4.3
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.7
+      "seconds": 0.9
     }
   ],
   "update": {
     "town": "lewiston",
     "sources": "all",
-    "started_at": "2026-11-12T09:14:09+00:00",
+    "started_at": "2026-11-13T09:15:37+00:00",
     "ok": true,
     "steps": [
       {
         "name": "Fetch meetings",
-        "ok": false,
+        "ok": true,
         "required": false,
-        "error": "exited with status 1",
-        "seconds": 251.1,
+        "error": null,
+        "seconds": 70.6,
         "cadence": "continuous"
       },
       {
         "name": "Fetch minutes",
-        "ok": false,
+        "ok": true,
         "required": false,
-        "error": "exited with status 1",
-        "seconds": 251.0,
+        "error": null,
+        "seconds": 1.0,
         "cadence": "continuous"
       },
       {
@@ -135,7 +135,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 8.2,
+        "seconds": 6.0,
         "cadence": "continuous"
       },
       {
@@ -145,7 +145,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 3 days ago; checked every 7 days"
       },
       {
         "name": "Fetch unemployment",
@@ -154,7 +154,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 3 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -163,7 +163,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 7 days ago; checked every 30 days"
+        "skipped": "checked 8 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -172,15 +172,16 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 3 days ago; checked every 7 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 22.5,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -257,7 +258,7 @@
     {
       "label": "Meetings (city calendar)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-11T04:19:12-05:00",
+      "updated_at": "2026-11-13T04:15:38-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -346,9 +347,9 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-13T09:09:21+00:00",
-  "data_bytes": 1201640,
-  "data_bytes_added": 2890,
+  "last_good_at": "2026-11-13T09:18:46+00:00",
+  "data_bytes": 1201719,
+  "data_bytes_added": 913,
   "activity": {
     "boards": 9,
     "meetings_by_date": {
@@ -369,8 +370,8 @@
     "vote_counts_left_out": 0
   },
   "recordings": {
-    "since": "2026-11-05",
-    "until": "2026-11-11",
+    "since": "2026-11-06",
+    "until": "2026-11-12",
     "held": 0,
     "next_day": 0,
     "steps": {
@@ -387,8 +388,8 @@
     "misses": []
   },
   "documents": {
-    "since": "2026-08-14",
-    "until": "2026-11-11",
+    "since": "2026-08-15",
+    "until": "2026-11-12",
     "held": 26,
     "boards": 7,
     "counts": {
@@ -421,7 +422,5 @@
         "none": true
       }
     ]
-  },
-  "published_at": "2026-11-13T09:09:21+00:00",
-  "published_engine": "v1.107.0"
+  }
 }
