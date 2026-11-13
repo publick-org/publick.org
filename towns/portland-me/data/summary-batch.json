@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01BkFLHggPDAr3qQJUh4yKQj",
-  "sent_at": "2026-11-13T19:51:12+00:00",
+  "id": "msgbatch_01JA9FjTHaUfVjL5pmeJWdsJ",
+  "sent_at": "2026-11-13T20:04:08+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,57 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
-      "meeting": {
-        "title": "Housing & Economic Development Committee Meeting",
-        "date": "2026-11-17",
-        "body": "City Council Housing and Economic Development Committee"
+      "source_hash": "8fc2268ea156254d38079332506fb3355d03da3dd3305afb38c08a9762a00942",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
       },
-      "doc": {
-        "id": "civicclerk-20662",
-        "sha256": "5a5216ec6f1831ccd845207a7d3fe6ce8e21a7b3d78bcab564775c789fd3facd",
-        "file": "civicclerk-20662.pdf",
-        "source_url": "https://portlandme.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=20662,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-1",
-      "kind": "agenda",
-      "older": false,
-      "meeting": {
-        "title": "Sustainability & Transportation Committee Meeting",
-        "date": "2026-11-18",
-        "body": "City Council Sustainability and Transportation Committee"
-      },
-      "doc": {
-        "id": "civicclerk-20666",
-        "sha256": "20836f6ff59fe482ba8de5ca84ce3cca3a6cef11a4bace925d28c844df06a6b4",
-        "file": "civicclerk-20666.pdf",
-        "source_url": "https://portlandme.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=20666,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-2",
-      "kind": "agenda",
-      "older": false,
-      "meeting": {
-        "title": "Board of Public Education Policy Committee Meeting",
-        "date": "2026-11-18",
-        "body": "Board of Public Education Policy Committee"
-      },
-      "doc": {
-        "id": "diligent-24372-4ad02c9a",
-        "sha256": "4ad02c9a20e0e2096abbaf1e6b1f88c8e0d939e1f3eadb99fd92c160086fe7ed",
-        "file": "diligent-24372-4ad02c9a.pdf",
-        "source_url": "https://portlandschools.community.highbond.com/document/24372/?printPdf=true"
-      }
-    },
-    {
-      "custom_id": "doc-3",
-      "kind": "agenda",
-      "older": false,
       "meeting": {
         "title": "Portland Development Corporation",
         "date": "2026-11-19",
@@ -69,15 +29,21 @@
       },
       "doc": {
         "id": "civicclerk-20664",
-        "sha256": "37bde990c5ee025d80e6a8d46b235cdb4b038e89c42d30202b498bec5f2cb44b",
-        "file": "civicclerk-20664.pdf",
-        "source_url": "https://portlandme.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=20664,plainText=false)"
+        "sha256": "37bde990c5ee025d80e6a8d46b235cdb4b038e89c42d30202b498bec5f2cb44b"
       }
     },
     {
-      "custom_id": "doc-4",
+      "custom_id": "tr-1",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
+      "source_hash": "d0958a90dd4bfe8c0a498077fe6553c47163685b9fc0ce7aa796e1feb5bdcd33",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Portland Fish Pier Authority Board",
         "date": "2026-11-19",
@@ -85,97 +51,73 @@
       },
       "doc": {
         "id": "civicclerk-20658",
-        "sha256": "808cf0289ab0f4865981d9b225edcef49cefd21c48ed51baf0575b37fb10ec91",
-        "file": "civicclerk-20658.pdf",
-        "source_url": "https://portlandme.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=20658,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "tr-0",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "12b8ca80778543e425880f381ccb0be86e622ca5fe9a34792ae872017761cc7a",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Hybrid Historic Preservation Board Meeting 11-18-2026",
-        "date": "2026-11-18",
-        "body": "Historic Preservation Board"
-      },
-      "doc": {
-        "id": "civicclerk-20654",
-        "sha256": "f32d9e28804aba74b6ab7a2ce7759d19784014e8cbd493852ad56b690eff8893"
-      }
-    },
-    {
-      "custom_id": "tr-1",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "128535ed0b09b45c76c300064f160316d67758430a4fa0f988841e5c4da9dfa4",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Historic Preservation Board Site Visit to 32 Thomas Street 11-17-2026",
-        "date": "2026-11-17",
-        "body": "Historic Preservation Board"
-      },
-      "doc": {
-        "id": "civicclerk-20652",
-        "sha256": "4f0425695ab62c738456c327432436338d0d4f5dc05972ddec7764179ccddf66"
+        "sha256": "808cf0289ab0f4865981d9b225edcef49cefd21c48ed51baf0575b37fb10ec91"
       }
     },
     {
       "custom_id": "tr-2",
-      "type": "review",
+      "type": "translation",
       "lang": "es",
       "kind": "agenda",
       "older": false,
-      "source_hash": "9157867f03eb848e1ec33af494ee79de5132107e3b3421e553675f09c2b6d440",
-      "model": "claude-sonnet-5-5",
+      "source_hash": "210512a6a4291828bf896900d97ab333bea77e3e0254625e8a5205a779489e05",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
-        "title": "Hybrid Planning Board Meeting 11-17-2026",
-        "date": "2026-11-17",
-        "body": "Planning Board"
+        "title": "Sustainability & Transportation Committee Meeting",
+        "date": "2026-11-18",
+        "body": "City Council Sustainability and Transportation Committee"
       },
       "doc": {
-        "id": "civicclerk-20656",
-        "sha256": "1a46002a1e5ef39d54edc86ffbac7ddb687a5743f5ba0a21e46b46d4fe27624c"
+        "id": "civicclerk-20666",
+        "sha256": "20836f6ff59fe482ba8de5ca84ce3cca3a6cef11a4bace925d28c844df06a6b4"
       }
     },
     {
       "custom_id": "tr-3",
-      "type": "review",
+      "type": "translation",
       "lang": "es",
-      "kind": "recording",
+      "kind": "agenda",
       "older": false,
-      "source_hash": "d78af82b3947bab68e6fd34f49f9af645d8bc82557d5937d2b54d7ef9b57b5d0",
-      "model": "claude-sonnet-5-5",
+      "source_hash": "c53eba0e30022660967cf380f891ff16c2b0068a17befb0dbb9aea49f93aba31",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
-        "title": "Board of Public Education Meeting",
-        "date": "2026-11-10",
-        "body": "Board of Public Education"
+        "title": "Board of Public Education Policy Committee Meeting",
+        "date": "2026-11-18",
+        "body": "Board of Public Education Policy Committee"
       },
       "doc": {
-        "id": "youtube-QjPZJD7bWf4",
-        "sha256": "b08b4a6b829464f9f844f15c1059d4e2761c81f0686a13b22066fa80ebbfc117"
+        "id": "diligent-24372-4ad02c9a",
+        "sha256": "4ad02c9a20e0e2096abbaf1e6b1f88c8e0d939e1f3eadb99fd92c160086fe7ed"
+      }
+    },
+    {
+      "custom_id": "tr-4",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "0cb36097ab0ff939fd35ee9acf68d85509ca384f20d667dee4214e57245078d3",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Housing & Economic Development Committee Meeting",
+        "date": "2026-11-17",
+        "body": "City Council Housing and Economic Development Committee"
+      },
+      "doc": {
+        "id": "civicclerk-20662",
+        "sha256": "5a5216ec6f1831ccd845207a7d3fe6ce8e21a7b3d78bcab564775c789fd3facd"
       }
     }
   ]
