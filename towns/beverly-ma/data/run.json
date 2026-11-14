@@ -1,46 +1,46 @@
 {
   "town": "beverly",
   "folder": "beverly-ma",
-  "started_at": "2026-11-13T09:13:21+00:00",
-  "finished_at": "2026-11-13T09:17:50+00:00",
-  "engine": "v1.107.0",
+  "started_at": "2026-11-14T09:07:14+00:00",
+  "finished_at": "2026-11-14T09:11:14+00:00",
+  "engine": "v1.108.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 97.5
+      "seconds": 60.6
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 130.0
+      "seconds": 132.0
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 35.3
+      "seconds": 42.8
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 26.2
+      "seconds": 2.9
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.7
+      "seconds": 0.8
     }
   ],
   "update": {
     "town": "beverly",
     "sources": "all",
-    "started_at": "2026-11-13T09:13:21+00:00",
+    "started_at": "2026-11-14T09:07:15+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 60.9,
+        "seconds": 37.1,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 12.9,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -123,6 +123,15 @@
         "skipped": "no [meetingdocs_meetings] in the config"
       },
       {
+        "name": "Fetch the city website's meetings",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [proudcity_meetings] in the config"
+      },
+      {
         "name": "Fetch the school district's minutes library",
         "ok": true,
         "required": false,
@@ -136,7 +145,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 19.4,
+        "seconds": 21.1,
         "cadence": "continuous"
       },
       {
@@ -146,15 +155,16 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 12 days ago; checked every 30 days"
+        "skipped": "checked 13 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.6,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -163,7 +173,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 12 days ago; checked every 30 days"
+        "skipped": "checked 13 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -172,7 +182,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 12 days ago; checked every 30 days"
+        "skipped": "checked 13 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -188,7 +198,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -196,7 +206,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 2.6,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -213,7 +223,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -221,7 +231,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -258,7 +268,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-13T04:13:21-05:00",
+      "updated_at": "2026-11-14T04:07:15-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -347,25 +357,25 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-14T09:07:39+00:00",
-  "data_bytes": 3823160,
-  "data_bytes_added": 28325,
+  "last_good_at": "2026-11-14T09:11:14+00:00",
+  "data_bytes": 3907655,
+  "data_bytes_added": 763,
   "activity": {
     "boards": 56,
     "meetings_by_date": {
       "2026-11-16": 1,
       "2026-11-17": 4,
-      "2026-11-18": 5,
+      "2026-11-18": 6,
       "2026-11-19": 3,
       "2026-11-23": 2,
       "2026-11-24": 1
     }
   },
   "fact_checks": {
-    "summaries": 197,
-    "ok": 193,
+    "summaries": 208,
+    "ok": 203,
     "failed": 1,
-    "weak": 2,
+    "weak": 3,
     "unchecked": 1,
     "not_yet": 0,
     "held_back": 1,
@@ -373,8 +383,8 @@
     "vote_counts_left_out": 6
   },
   "recordings": {
-    "since": "2026-11-06",
-    "until": "2026-11-12",
+    "since": "2026-11-07",
+    "until": "2026-11-13",
     "held": 1,
     "next_day": 0,
     "steps": {
@@ -398,13 +408,13 @@
     ]
   },
   "documents": {
-    "since": "2026-08-15",
-    "until": "2026-11-12",
+    "since": "2026-08-16",
+    "until": "2026-11-13",
     "held": 124,
     "boards": 44,
     "counts": {
       "no_documents": 4,
-      "no_minutes": 5,
+      "no_minutes": 6,
       "pairs": 0
     },
     "no_documents": [
@@ -439,6 +449,10 @@
         "meetings": 2
       },
       {
+        "board": "Open Space & Recreation Committee",
+        "meetings": 2
+      },
+      {
         "board": "South Essex Sewerage Board",
         "meetings": 2
       },
@@ -452,7 +466,7 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-13T02:24:21-05:00",
+    "at": "2026-11-14T02:24:14-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-03T07:53:21-05:00"
@@ -460,7 +474,5 @@
   "officials": {
     "checked_at": "2026-11-07T04:14:01-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-14T09:07:39+00:00",
-  "published_engine": "v1.108.0"
+  }
 }
