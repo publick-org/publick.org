@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01Xy7CqmHWo1hx99ehrtef1U",
-  "sent_at": "2026-11-13T09:41:46+00:00",
+  "id": "msgbatch_01WG8EjvHUYKMQHbHt7bpWzM",
+  "sent_at": "2026-11-14T09:18:32+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,16 +11,48 @@
   },
   "documents": [
     {
+      "custom_id": "doc-0",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "Public Library Board of Trustees Meeting",
+        "date": "2026-11-17",
+        "body": "Public Library Board of Trustees"
+      },
+      "doc": {
+        "id": "opengov-571336-64acc7c2",
+        "sha256": "64acc7c20279bfa4e8d50665b5241706fa006df6bd6b58ccfdfe3502418ed303",
+        "file": "opengov-571336-64acc7c2.pdf",
+        "source_url": "https://opengov.sos.ri.gov/Common/DownloadMeetingFiles?FilePath=%5CNotices%5C4018%5C2026%5C571336.pdf"
+      }
+    },
+    {
+      "custom_id": "doc-1",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "School Committee Meeting",
+        "date": "2026-11-17",
+        "body": "School Committee"
+      },
+      "doc": {
+        "id": "opengov-571459-f4d705d3",
+        "sha256": "f4d705d307dd577e1488ac9c8b38557e8eded3bb79f2bba2ee38637cfca77e87",
+        "file": "opengov-571459-f4d705d3.pdf",
+        "source_url": "https://opengov.sos.ri.gov/Common/DownloadMeetingFiles?FilePath=%5CNotices%5C4832%5C2026%5C571459.pdf"
+      }
+    },
+    {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "3adc0bb79f69e6f473c4de090300f70d273cdb1d57aa30a027463fa1a2d0e400",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Pension Board Meeting",
@@ -34,15 +66,15 @@
     },
     {
       "custom_id": "tr-1",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "b9413512fe0ebbbf6dea96a0ad67e0a632507e020c432775bf2a95a2abe5d0b5",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "School Committee Wellness Committee Meeting",
@@ -56,15 +88,15 @@
     },
     {
       "custom_id": "tr-2",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "c5c881f66d9865f6106e454754ada32f1c70bcbb7efe370671916b295333b3f5",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Purchasing Board Meeting",
