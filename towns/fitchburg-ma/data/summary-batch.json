@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01NgXw6LKegqkYnS1t2RvqJ9",
-  "sent_at": "2026-11-14T09:20:18+00:00",
+  "id": "msgbatch_01KSvyu7HJFZgdCNa624FE3S",
+  "sent_at": "2026-11-14T09:35:55+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,9 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
+      "source_hash": "1790a689d5d94b1f3b2d9974eb4758f65cd665145f0d5b43819c408393883810",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Fitchburg Housing Authority Board of Commissioners Meeting",
         "date": "2026-11-18",
@@ -21,31 +29,7 @@
       },
       "doc": {
         "id": "5490-202611131412",
-        "sha256": "a27284adebf4dce5a3b7b69f2017cfa1a57a201270f527ed003f71a9f4257ee2",
-        "file": "5490-202611131412.pdf",
-        "source_url": "https://www.fitchburgma.gov/AgendaCenter/ViewFile/Agenda/_11182026-5490"
-      }
-    },
-    {
-      "custom_id": "tr-0",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "0220d209cebe0e2c955d0bcf6929c54103b3c92b2c94855485fe2b49bfe0ec92",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Water & Wastewater Commission Meeting",
-        "date": "2026-11-18",
-        "body": "Water & Wastewater Commission"
-      },
-      "doc": {
-        "id": "5488-202611130831",
-        "sha256": "b763d4ba7852c9d4518aa6c97e20f921ea02bd7082c7112a566668490b695d3f"
+        "sha256": "a27284adebf4dce5a3b7b69f2017cfa1a57a201270f527ed003f71a9f4257ee2"
       }
     }
   ]
