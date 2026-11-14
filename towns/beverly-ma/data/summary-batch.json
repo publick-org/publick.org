@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01HoSXb8z6MktkB6twAVtrJy",
-  "sent_at": "2026-11-14T09:08:12+00:00",
+  "id": "msgbatch_01WgUjnN2QTt8qB6u6nF53r6",
+  "sent_at": "2026-11-14T09:14:48+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,9 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
+      "source_hash": "335f9d8e1b6f7bbbe0df8755bb0d92eee39808d80d788abb4d1f41c07fac9aec",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "South Essex Sewerage District Meeting",
         "date": "2026-11-18",
@@ -21,141 +29,7 @@
       },
       "doc": {
         "id": "3007-202611131205",
-        "sha256": "299bc45a5e942478383d1ded455c355c53b7230528f97281b1fc9f641f62db53",
-        "file": "3007-202611131205.pdf",
-        "source_url": "https://www.beverlyma.gov/AgendaCenter/ViewFile/Agenda/_11182026-3007"
-      }
-    },
-    {
-      "custom_id": "tr-0",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "e6bace653dbe5e531c345fac77ffb5be483b74135c6e0fadee9ceac6b94cc074",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Board of Health Meeting",
-        "date": "2026-11-18",
-        "body": "Board of Health"
-      },
-      "doc": {
-        "id": "3006-202611121737",
-        "sha256": "f4fc9e400ece2235f321b72fd76e835a1c75b82d74d8b4496e4a3a1b47d17e4c"
-      }
-    },
-    {
-      "custom_id": "tr-1",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "753ccb50554b2c9bd80687b86879443a0b2595e6891189f5033787d7cec33bc9",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Conservation Commission Meeting",
-        "date": "2026-11-17",
-        "body": "Conservation Commission"
-      },
-      "doc": {
-        "id": "3001-202611121244",
-        "sha256": "b4f144c654b42901c5d83cfd4c9f259b1816fc9a130981c2ef8914f38348cb33"
-      }
-    },
-    {
-      "custom_id": "tr-2",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "4a3fb532ab975962903e3231873a3d6551693e0f8f9de900745aedc13bd3afa9",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Historic Districts Commission",
-        "date": "2026-11-17",
-        "body": "Historic District Commission"
-      },
-      "doc": {
-        "id": "3002-202611121403",
-        "sha256": "7fdd10aab55bf6cd29c33654dc5ba2cc65efaf3b03f8d2eb8e3fffa66a6e9e78"
-      }
-    },
-    {
-      "custom_id": "tr-3",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "a56bba6af8d1694dab79a8efc058a0cc10c1efeb7456e5ad41b822a5cabb08df",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "City Council Meeting",
-        "date": "2026-10-14",
-        "body": "City Council"
-      },
-      "doc": {
-        "id": "agendacenter-2952",
-        "sha256": "6dcbb01309c436c8854a10ec6e81fa35b8da1cd636bc101ef90b235e352757d8"
-      }
-    },
-    {
-      "custom_id": "tr-4",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "a049def2cb5ad859d3d7d5d5d3dc3785e1cb20dec79ccc23223c63d49bd75843",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Beverly Golf and Tennis Commission Meeting",
-        "date": "2026-10-13",
-        "body": "Beverly Golf & Tennis Club Commission"
-      },
-      "doc": {
-        "id": "agendacenter-2948",
-        "sha256": "5bd6be5a65b72bd4852466df29a6ef39ef59a08d7f3644bfd284643a6d1ce201"
-      }
-    },
-    {
-      "custom_id": "tr-5",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "01c0cd8844471810cc1e9b102ae25e850f82fbcf795eeabcec68f9b907f96910",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Clean Energy Advisory Committee Meeting",
-        "date": "2026-09-16",
-        "body": "Clean Energy Advisory Committee"
-      },
-      "doc": {
-        "id": "agendacenter-2894",
-        "sha256": "9e2e0f1c90c2cd6672cd914a64bd4a6320e1f5b54fac8b461591d1865ce0fda1"
+        "sha256": "299bc45a5e942478383d1ded455c355c53b7230528f97281b1fc9f641f62db53"
       }
     }
   ]
