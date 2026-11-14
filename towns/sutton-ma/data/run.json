@@ -1,8 +1,8 @@
 {
   "town": "sutton",
   "folder": "sutton-ma",
-  "started_at": "2026-11-14T00:56:08+00:00",
-  "finished_at": "2026-11-14T01:03:07+00:00",
+  "started_at": "2026-11-14T01:31:35+00:00",
+  "finished_at": "2026-11-14T01:34:48+00:00",
   "engine": "v1.107.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 369.0
+      "seconds": 133.8
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 22.1
+      "seconds": 23.0
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 26.1
+      "seconds": 31.6
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 14.9
+      "seconds": 2.8
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 1.2
+      "seconds": 1.0
     }
   ],
   "update": {
     "town": "sutton",
-    "sources": "all",
-    "started_at": "2026-11-14T00:56:09+00:00",
+    "sources": "meetings",
+    "started_at": "2026-11-14T01:31:37+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 85.9,
+        "seconds": 55.9,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 236.0,
+        "seconds": 10.5,
         "cadence": "continuous"
       },
       {
@@ -136,7 +136,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 42.9,
+        "seconds": 64.4,
         "cadence": "continuous"
       },
       {
@@ -189,7 +189,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -197,7 +197,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -214,7 +214,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 2.6,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -222,35 +222,8 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [seeclickfix] in the config"
-      },
-      {
-        "name": "Fetch 311 requests from an open data portal",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [socrata_311] in the config"
-      },
-      {
-        "name": "Compute 311 scorecard",
-        "ok": true,
-        "required": true,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [seeclickfix] or [socrata_311] in the config"
       }
     ]
   },
@@ -259,7 +232,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-13T19:56:09-05:00",
+      "updated_at": "2026-11-13T20:31:37-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -348,9 +321,9 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-14T01:12:56+00:00",
-  "data_bytes": 230842,
-  "data_bytes_added": 174199,
+  "last_good_at": "2026-11-14T01:34:48+00:00",
+  "data_bytes": 648150,
+  "data_bytes_added": 61124,
   "activity": {
     "boards": 19,
     "meetings_by_date": {
@@ -363,15 +336,15 @@
     }
   },
   "fact_checks": {
-    "summaries": 0,
-    "ok": 0,
-    "failed": 0,
-    "weak": 0,
+    "summaries": 39,
+    "ok": 36,
+    "failed": 1,
+    "weak": 2,
     "unchecked": 0,
     "not_yet": 0,
-    "held_back": 0,
-    "entries_not_shown": 0,
-    "vote_counts_left_out": 0
+    "held_back": 1,
+    "entries_not_shown": 1,
+    "vote_counts_left_out": 6
   },
   "recordings": {
     "since": "2026-11-06",
@@ -381,10 +354,10 @@
     "steps": {
       "summarized": 0,
       "minutes": 0,
-      "transcribed": 0,
+      "transcribed": 2,
       "waiting": 0,
       "failed": 0,
-      "unmatched": 2,
+      "unmatched": 0,
       "not_found": 0,
       "no_source": 0,
       "no_recordings": 0
@@ -393,14 +366,14 @@
       {
         "date": "2026-11-09",
         "board": "School Committee",
-        "step": "unmatched",
-        "detail": "youtube-zuzganJA41c"
+        "step": "transcribed",
+        "detail": "transcript not summarized yet"
       },
       {
         "date": "2026-11-10",
         "board": "Select Board",
-        "step": "unmatched",
-        "detail": "youtube-LOXDHvzjqj4"
+        "step": "transcribed",
+        "detail": "transcript not summarized yet"
       }
     ]
   },
@@ -429,11 +402,14 @@
     "waiting": {},
     "backlog": {}
   },
-  "gemini": null,
+  "gemini": {
+    "at": "2026-11-13T20:18:41-05:00",
+    "refused": 0,
+    "transcribed": 2,
+    "last_transcribed_at": "2026-11-13T20:18:41-05:00"
+  },
   "officials": {
     "checked_at": "2026-11-13T20:02:14-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-14T01:12:56+00:00",
-  "published_engine": "v1.107.0"
+  }
 }
