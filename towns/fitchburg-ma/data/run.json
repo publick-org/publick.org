@@ -1,46 +1,46 @@
 {
   "town": "fitchburg",
   "folder": "fitchburg-ma",
-  "started_at": "2026-11-13T14:18:51+00:00",
-  "finished_at": "2026-11-13T14:26:20+00:00",
-  "engine": "v1.107.0",
+  "started_at": "2026-11-14T09:20:03+00:00",
+  "finished_at": "2026-11-14T09:24:47+00:00",
+  "engine": "v1.108.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 348.6
+      "seconds": 166.3
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 37.7
+      "seconds": 35.9
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 67.0
+      "seconds": 67.5
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 24.4
+      "seconds": 12.4
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 1.0
+      "seconds": 1.1
     }
   ],
   "update": {
     "town": "fitchburg",
     "sources": "all",
-    "started_at": "2026-11-13T14:18:51+00:00",
+    "started_at": "2026-11-14T09:20:04+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 2.4,
+        "seconds": 6.4,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 191.0,
+        "seconds": 0.5,
         "cadence": "continuous"
       },
       {
@@ -123,6 +123,15 @@
         "skipped": "no [meetingdocs_meetings] in the config"
       },
       {
+        "name": "Fetch the city website's meetings",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [proudcity_meetings] in the config"
+      },
+      {
         "name": "Fetch the school district's minutes library",
         "ok": true,
         "required": false,
@@ -136,7 +145,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 29.7,
+        "seconds": 9.9,
         "cadence": "continuous"
       },
       {
@@ -230,7 +239,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 122.2,
+        "seconds": 145.4,
         "cadence": "continuous"
       },
       {
@@ -247,7 +256,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 1.4,
+        "seconds": 2.0,
         "cadence": "continuous"
       }
     ]
@@ -257,21 +266,21 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-13T09:18:52-05:00",
+      "updated_at": "2026-11-14T04:20:04-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-13T09:22:36-05:00",
+      "updated_at": "2026-11-14T04:20:23-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-13T09:24:38-05:00",
+      "updated_at": "2026-11-14T04:22:48-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -360,15 +369,15 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-14T09:06:47+00:00",
-  "data_bytes": 3881294,
-  "data_bytes_added": 2627164,
+  "last_good_at": "2026-11-14T09:24:47+00:00",
+  "data_bytes": 4834089,
+  "data_bytes_added": 3565756,
   "activity": {
     "boards": 42,
     "meetings_by_date": {
       "2026-11-16": 3,
       "2026-11-17": 5,
-      "2026-11-18": 3
+      "2026-11-18": 4
     }
   },
   "fact_checks": {
@@ -383,8 +392,8 @@
     "vote_counts_left_out": 2
   },
   "recordings": {
-    "since": "2026-11-06",
-    "until": "2026-11-12",
+    "since": "2026-11-07",
+    "until": "2026-11-13",
     "held": 1,
     "next_day": 0,
     "steps": {
@@ -407,8 +416,8 @@
     ]
   },
   "documents": {
-    "since": "2026-08-15",
-    "until": "2026-11-12",
+    "since": "2026-08-16",
+    "until": "2026-11-13",
     "held": 98,
     "boards": 35,
     "counts": {
@@ -420,7 +429,11 @@
     "no_minutes": [
       {
         "board": "Fitchburg Redevelopment Authority",
-        "meetings": 4
+        "meetings": 5
+      },
+      {
+        "board": "Fitchburg Housing Authority Board of Commissioners",
+        "meetings": 3
       },
       {
         "board": "Airport Commission",
@@ -439,10 +452,6 @@
         "meetings": 2
       },
       {
-        "board": "Fitchburg Housing Authority Board of Commissioners",
-        "meetings": 2
-      },
-      {
         "board": "Planning Board",
         "meetings": 2
       }
@@ -455,7 +464,5 @@
   "officials": {
     "checked_at": "2026-11-13T08:30:20-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-14T09:06:47+00:00",
-  "published_engine": "v1.108.0"
+  }
 }
