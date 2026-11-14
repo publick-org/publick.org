@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01PXzCpV9KdnNgWWn3GMNtGc",
-  "sent_at": "2026-11-14T09:30:22+00:00",
+  "id": "msgbatch_01WamBWkqXCEUJvJjPQCYhxp",
+  "sent_at": "2026-11-14T09:35:33+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -12,15 +12,15 @@
   "documents": [
     {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "6693548d5e6cd8ae5f425617fcd37bd2013c873e6e0bb80ede012a7bd7173ce7",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Planning Board",
@@ -34,59 +34,15 @@
     },
     {
       "custom_id": "tr-1",
-      "type": "translation",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "c2acc725205f796079cf36731481f068fff859fe6968d947ad83512d7b9e4666",
-      "model": "claude-haiku-5-5",
-      "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
-      },
-      "meeting": {
-        "title": "Town Council",
-        "date": "2026-11-17",
-        "body": "Town Council"
-      },
-      "doc": {
-        "id": "389",
-        "sha256": "4a569a23d49476ee18a6401c9c5557b86c4adfeefa41ecd4a42881628402275f"
-      }
-    },
-    {
-      "custom_id": "tr-2",
       "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
-      "source_hash": "ebf89c0bb03fcbfaf7bc6c7b495c8cfb6276d22e927e6da96f9d736b0bab0eb7",
+      "source_hash": "d4a450e745597f30cebdf4cb75d45aae5cd6d38748a1f2bf477a7f7458436628",
       "model": "claude-sonnet-5-5",
       "prices": {
         "input_price": 2.0,
         "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Zoning Board of Adjustment",
-        "date": "2026-10-15",
-        "body": "Zoning Board of Adjustment"
-      },
-      "doc": {
-        "id": "agendacenter-367",
-        "sha256": "829e12feb5320da329c430c472f481b1abc669aa37d374c92da4f8fde9b0854c"
-      }
-    },
-    {
-      "custom_id": "tr-3",
-      "type": "translation",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "d4a450e745597f30cebdf4cb75d45aae5cd6d38748a1f2bf477a7f7458436628",
-      "model": "claude-haiku-5-5",
-      "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
       },
       "meeting": {
         "title": "Zoning Board of Adjustment Meeting",
