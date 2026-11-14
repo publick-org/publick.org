@@ -1,8 +1,8 @@
 {
   "town": "sutton",
   "folder": "sutton-ma",
-  "started_at": "2026-11-14T01:31:35+00:00",
-  "finished_at": "2026-11-14T01:34:48+00:00",
+  "started_at": "2026-11-14T01:51:25+00:00",
+  "finished_at": "2026-11-14T01:54:08+00:00",
   "engine": "v1.107.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 133.8
+      "seconds": 107.0
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 24.3
+      "seconds": 25.6
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 30.6
+      "seconds": 25.4
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 5.3
+      "seconds": 3.4
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 1.2
+      "seconds": 0.9
     }
   ],
   "update": {
     "town": "sutton",
     "sources": "meetings",
-    "started_at": "2026-11-14T01:31:37+00:00",
+    "started_at": "2026-11-14T01:51:26+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 55.9,
+        "seconds": 55.8,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 10.5,
+        "seconds": 10.4,
         "cadence": "continuous"
       },
       {
@@ -136,7 +136,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 64.4,
+        "seconds": 38.6,
         "cadence": "continuous"
       },
       {
@@ -189,7 +189,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -197,7 +197,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -214,7 +214,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -222,7 +222,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       }
     ]
@@ -232,7 +232,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-13T20:31:37-05:00",
+      "updated_at": "2026-11-13T20:51:27-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -321,9 +321,9 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-14T01:41:37+00:00",
-  "data_bytes": 648150,
-  "data_bytes_added": 61124,
+  "last_good_at": "2026-11-14T01:54:08+00:00",
+  "data_bytes": 655349,
+  "data_bytes_added": 2563,
   "activity": {
     "boards": 19,
     "meetings_by_date": {
@@ -336,15 +336,15 @@
     }
   },
   "fact_checks": {
-    "summaries": 39,
-    "ok": 36,
+    "summaries": 41,
+    "ok": 38,
     "failed": 1,
     "weak": 2,
     "unchecked": 0,
     "not_yet": 0,
     "held_back": 1,
     "entries_not_shown": 1,
-    "vote_counts_left_out": 6
+    "vote_counts_left_out": 10
   },
   "recordings": {
     "since": "2026-11-06",
@@ -352,9 +352,9 @@
     "held": 2,
     "next_day": 0,
     "steps": {
-      "summarized": 0,
+      "summarized": 2,
       "minutes": 0,
-      "transcribed": 2,
+      "transcribed": 0,
       "waiting": 0,
       "failed": 0,
       "unmatched": 0,
@@ -362,20 +362,7 @@
       "no_source": 0,
       "no_recordings": 0
     },
-    "misses": [
-      {
-        "date": "2026-11-09",
-        "board": "School Committee",
-        "step": "transcribed",
-        "detail": "transcript not summarized yet"
-      },
-      {
-        "date": "2026-11-10",
-        "board": "Select Board",
-        "step": "transcribed",
-        "detail": "transcript not summarized yet"
-      }
-    ]
+    "misses": []
   },
   "documents": {
     "since": "2026-08-16",
@@ -403,15 +390,13 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-13T20:18:41-05:00",
+    "at": "2026-11-13T20:43:22-05:00",
     "refused": 0,
     "transcribed": 2,
-    "last_transcribed_at": "2026-11-13T20:18:41-05:00"
+    "last_transcribed_at": "2026-11-13T20:43:22-05:00"
   },
   "officials": {
     "checked_at": "2026-11-13T20:02:14-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-14T01:41:37+00:00",
-  "published_engine": "v1.107.0"
+  }
 }

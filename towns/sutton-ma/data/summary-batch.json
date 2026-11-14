@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_018J6nPYVW5iHQ4m8FfJnaZe",
-  "sent_at": "2026-11-14T01:40:33+00:00",
+  "id": "msgbatch_01UtPqEFWwarWiofrfqRcwar",
+  "sent_at": "2026-11-14T01:53:09+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,16 +11,48 @@
   },
   "documents": [
     {
+      "custom_id": "doc-0",
+      "kind": "recording",
+      "older": false,
+      "meeting": {
+        "title": "Zoning Board of Appeals",
+        "date": "2026-11-05",
+        "body": "Zoning Board of Appeals"
+      },
+      "doc": {
+        "id": "youtube-Kby2I0LIeq8",
+        "sha256": "4ffc43171c9fc7047767996818f7409cc7b52653a729f8932398a65cbcd881bd",
+        "file": "youtube-Kby2I0LIeq8.txt",
+        "source_url": "https://www.youtube.com/watch?v=Kby2I0LIeq8"
+      }
+    },
+    {
+      "custom_id": "doc-1",
+      "kind": "recording",
+      "older": false,
+      "meeting": {
+        "title": "Planning Board",
+        "date": "2026-11-02",
+        "body": "Planning Board"
+      },
+      "doc": {
+        "id": "youtube-SFa3iWu_OoQ",
+        "sha256": "34479022ee90a9f129713a7add2741484b30d6b7d4e6dcb90916fe4616145041",
+        "file": "youtube-SFa3iWu_OoQ.txt",
+        "source_url": "https://www.youtube.com/watch?v=SFa3iWu_OoQ"
+      }
+    },
+    {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "recording",
       "older": false,
       "source_hash": "91e87779f6587973ab334d41e03935f32f1cee94640d88b99f7270fc80294441",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Select Board",
@@ -34,15 +66,15 @@
     },
     {
       "custom_id": "tr-1",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "recording",
       "older": false,
       "source_hash": "e6ba3613f0bc5fb9ea9283dbfc665e96f35ec79706d90f5f58ac3c3e3265c8f3",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "School Committee",
@@ -60,33 +92,11 @@
       "lang": "es",
       "kind": "minutes",
       "older": false,
-      "source_hash": "9628bda0dadcb8dfe2fff95e72fd23704422a2930931e939a52af9c45e1abbdf",
+      "source_hash": "55e5bfeebb8d14c7592221fef099ba866dea8e8f4ee3df3a25198dcb335e80a9",
       "model": "claude-sonnet-5-5",
       "prices": {
         "input_price": 2.0,
         "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Board of Assessors Meeting",
-        "date": "2026-10-27",
-        "body": "Board of Assessors"
-      },
-      "doc": {
-        "id": "agendacenter-478",
-        "sha256": "781f2d5e8512b7d0c8f21676314dafb76c11d452063321731ec3b2a90ac55f28"
-      }
-    },
-    {
-      "custom_id": "tr-3",
-      "type": "translation",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "55e5bfeebb8d14c7592221fef099ba866dea8e8f4ee3df3a25198dcb335e80a9",
-      "model": "claude-haiku-5-5",
-      "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
       },
       "meeting": {
         "title": "Planning Board Meeting",
@@ -99,16 +109,16 @@
       }
     },
     {
-      "custom_id": "tr-4",
-      "type": "translation",
+      "custom_id": "tr-3",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "f797f93abd8171f3c1bc306e43b9f0a1305e5971e8b5e8aaab3a13041a0f48d6",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Board of Assessors Meeting",
@@ -121,16 +131,16 @@
       }
     },
     {
-      "custom_id": "tr-5",
-      "type": "translation",
+      "custom_id": "tr-4",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "836bef2ea0ade0e67ffdefb2b5136b2da7c7b3254e098fee668c5a9ca1ccba54",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Select Board Meeting",
@@ -143,16 +153,16 @@
       }
     },
     {
-      "custom_id": "tr-6",
-      "type": "translation",
+      "custom_id": "tr-5",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "7b1c098bb4c656802eecfc6d8f16a41a1119e763cd49e09ad7179f1ef3a77b2c",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Conservation Commission Meeting",
@@ -165,38 +175,16 @@
       }
     },
     {
-      "custom_id": "tr-7",
+      "custom_id": "tr-6",
       "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
-      "source_hash": "69a33a8e8e1ef3917f748817dd8b66537c3c46d3439bfe1ee1cf1827477025b5",
+      "source_hash": "315c13d952da6bf990aa73fc291b40bcf85c3d37919df2bad0ba27d7648b77e6",
       "model": "claude-sonnet-5-5",
       "prices": {
         "input_price": 2.0,
         "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Board of Assessors Meeting",
-        "date": "2026-09-15",
-        "body": "Board of Assessors"
-      },
-      "doc": {
-        "id": "agendacenter-455",
-        "sha256": "f5b8a11f3d3825ed2ffa32e16c05dbef3e79cd9a0961d99d47c393baaab23c16"
-      }
-    },
-    {
-      "custom_id": "tr-8",
-      "type": "translation",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "315c13d952da6bf990aa73fc291b40bcf85c3d37919df2bad0ba27d7648b77e6",
-      "model": "claude-haiku-5-5",
-      "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
       },
       "meeting": {
         "title": "Board of Assessors Meeting",
@@ -209,16 +197,16 @@
       }
     },
     {
-      "custom_id": "tr-9",
-      "type": "translation",
+      "custom_id": "tr-7",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "97327e5ca318cd727634e9dea4640005d3fb3f429a8f65047199e166aedb5d6c",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Select Board Meeting",
@@ -231,60 +219,16 @@
       }
     },
     {
-      "custom_id": "tr-10",
+      "custom_id": "tr-8",
       "type": "translation",
       "lang": "es",
       "kind": "minutes",
       "older": false,
-      "source_hash": "73890aa2773a55dfcc8ae0962bf1dbff994fca8a62e6a7d6875a42ee81db0ac6",
+      "source_hash": "22f37c72c063289451851f26a807c01c7e90d315ee0e784849eb450442e768a6",
       "model": "claude-haiku-5-5",
       "prices": {
         "input_price": 0.1,
         "output_price": 0.5
-      },
-      "meeting": {
-        "title": "Conservation Commission Meeting",
-        "date": "2026-09-02",
-        "body": "Conservation Commission"
-      },
-      "doc": {
-        "id": "agendacenter-446",
-        "sha256": "d4edd031979756ea53d92e2c781f3e78af2f2826de14201752bd293d17f2c7aa"
-      }
-    },
-    {
-      "custom_id": "tr-11",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "23ea18f9be7175d0812b7159764d3b422d220743f814cec4ec3d9da24505c161",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Select Board Meeting",
-        "date": "2026-08-18",
-        "body": "Select Board"
-      },
-      "doc": {
-        "id": "agendacenter-435",
-        "sha256": "ea494cc8e5459b26078b829fe044c5f80ca4cd6f5a022cec26d7d4e15a679eff"
-      }
-    },
-    {
-      "custom_id": "tr-12",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "22f37c72c063289451851f26a807c01c7e90d315ee0e784849eb450442e768a6",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
       },
       "meeting": {
         "title": "Planning Board Meeting",
@@ -297,60 +241,16 @@
       }
     },
     {
-      "custom_id": "tr-13",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "8f642cfff8014287350ddec7edb37862202f83dabf1b3f6ec46214a97336a105",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Board of Library Trustees Meeting",
-        "date": "2026-08-12",
-        "body": "Board of Library Trustees"
-      },
-      "doc": {
-        "id": "agendacenter-430",
-        "sha256": "9b1c51e3c08ca0ea4fa378def5075381578e36c273ba239a3504f84a4f154e07"
-      }
-    },
-    {
-      "custom_id": "tr-14",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "4955a66c92bd6276b93bd3bd94b9100babeade9352bbfaab401c0a5388387ed1",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Sutton Leadership Group Meeting",
-        "date": "2026-08-12",
-        "body": "Sutton Leadership Group"
-      },
-      "doc": {
-        "id": "agendacenter-429",
-        "sha256": "75f1863aa42b54af21ebb95f02a7dfacccda76c5ada82304278ccdbdbcf44d42"
-      }
-    },
-    {
-      "custom_id": "tr-15",
-      "type": "review",
+      "custom_id": "tr-9",
+      "type": "translation",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "942448a8de71fd68734afdee0dc43b6a3f2c4373ddb88299247f3a2e5b563f74",
-      "model": "claude-sonnet-5-5",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
         "title": "Board of Assessors Meeting",
@@ -363,16 +263,16 @@
       }
     },
     {
-      "custom_id": "tr-16",
-      "type": "translation",
+      "custom_id": "tr-10",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "1a7573b45e1cc76f911d500ac1379d02a51cac197ad0bf641b83ee2935a2a9f6",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Conservation Commission Meeting",
@@ -385,38 +285,16 @@
       }
     },
     {
-      "custom_id": "tr-17",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "24b7c6bdff98eb5c19f3e01814093c9ed12b8b41a66a9c9410d192db93ae5bb2",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Board of Assessors Meeting",
-        "date": "2026-08-04",
-        "body": "Board of Assessors"
-      },
-      "doc": {
-        "id": "agendacenter-423",
-        "sha256": "389801f3ffd309c48cf4eea82a98ab46dcfc79e7352d6384fb1f96a5e982aad5"
-      }
-    },
-    {
-      "custom_id": "tr-18",
-      "type": "review",
+      "custom_id": "tr-11",
+      "type": "translation",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "528940e45b498236a1da2ff749d90e72cdec55c925e710c68345a8a862c76f41",
-      "model": "claude-sonnet-5-5",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
         "title": "Select Board Meeting",
@@ -429,16 +307,16 @@
       }
     },
     {
-      "custom_id": "tr-19",
-      "type": "review",
+      "custom_id": "tr-12",
+      "type": "translation",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "e9b4298466e5308ebfac85061be91da9507ed3967332b0c27c29c8340a9e4abc",
-      "model": "claude-sonnet-5-5",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
         "title": "Planning Board Meeting",
