@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01AXH7v7WHLm6ACSLZKvNQu9",
-  "sent_at": "2026-11-14T09:28:41+00:00",
+  "id": "msgbatch_01PR5o86fYfp5BHUcRu9ftf7",
+  "sent_at": "2026-11-14T09:42:35+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,25 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
-      "meeting": {
-        "title": "City Council Regular Meeting",
-        "date": "2026-11-17",
-        "body": "City Council"
+      "source_hash": "12e6660de6cf086399a92025b580212ca6aef40a460b32b40d8b29466d279157",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
       },
-      "doc": {
-        "id": "2009-202611131525",
-        "sha256": "5392df5cac2b623b0d922a8a1c667e1627e1cbe681c674d986c3e755f9ac4611",
-        "file": "2009-202611131525.pdf",
-        "source_url": "https://www.cityoflawrence.com/AgendaCenter/ViewFile/Agenda/_11172026-2009"
-      }
-    },
-    {
-      "custom_id": "doc-1",
-      "kind": "agenda",
-      "older": false,
       "meeting": {
         "title": "Board of Health",
         "date": "2026-11-18",
@@ -37,15 +29,21 @@
       },
       "doc": {
         "id": "2008-202611131311",
-        "sha256": "d866600c95d98dd958b7d59eb19bd59327ffb7ddae2eda99b96d9d900857823d",
-        "file": "2008-202611131311.pdf",
-        "source_url": "https://www.cityoflawrence.com/AgendaCenter/ViewFile/Agenda/_11182026-2008"
+        "sha256": "d866600c95d98dd958b7d59eb19bd59327ffb7ddae2eda99b96d9d900857823d"
       }
     },
     {
-      "custom_id": "doc-2",
+      "custom_id": "tr-1",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
+      "source_hash": "519c36b45a75a374eb3fde4936e86fc9b071eb3e7a22159363fbb927ad32dbe9",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Greater Lawrence Sanitary District [glsd]",
         "date": "2026-11-18",
@@ -53,22 +51,42 @@
       },
       "doc": {
         "id": "2010-202611131526",
-        "sha256": "d8dbae53c57c4003b18d3ce67520c241264b9f8f343e6ddcc20df56844c7e332",
-        "file": "2010-202611131526.pdf",
-        "source_url": "https://www.cityoflawrence.com/AgendaCenter/ViewFile/Agenda/_11182026-2010"
+        "sha256": "d8dbae53c57c4003b18d3ce67520c241264b9f8f343e6ddcc20df56844c7e332"
       }
     },
     {
-      "custom_id": "tr-0",
-      "type": "review",
+      "custom_id": "tr-2",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "6127844907d5b09fecced87d2a3ade72bbfd637bd93b752cba9f574e45027713",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "City Council Regular Meeting",
+        "date": "2026-11-17",
+        "body": "City Council"
+      },
+      "doc": {
+        "id": "2009-202611131525",
+        "sha256": "5392df5cac2b623b0d922a8a1c667e1627e1cbe681c674d986c3e755f9ac4611"
+      }
+    },
+    {
+      "custom_id": "tr-3",
+      "type": "translation",
       "lang": "es",
       "kind": "recording",
       "older": false,
       "source_hash": "b80e6fa564f9f2f5d9f0e0939681c2b90d462fe08d26a555c711fbc5d18e0223",
-      "model": "claude-sonnet-5-5",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
         "title": "Licensing Board Meeting",
