@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01XWNqtvLJR3HD5rrWcrndnB",
-  "sent_at": "2026-11-14T09:09:17+00:00",
+  "id": "msgbatch_01Tj8zwgucQh47PNw4SprEUH",
+  "sent_at": "2026-11-14T09:18:01+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,57 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
-      "meeting": {
-        "title": "Board of Police Commissioners",
-        "date": "2026-11-17",
-        "body": "Board of Police Commissioners"
+      "source_hash": "e6cd7978f5f41b6fd27306ff952b1eb3962ca9656950c7dc8f45346b1e04094c",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
       },
-      "doc": {
-        "id": "civicclerk-13954",
-        "sha256": "ecd2a221d899f4c3efb16d05ca5c1242c80998bf10554dbd299f812c33e15f7b",
-        "file": "civicclerk-13954.pdf",
-        "source_url": "https://bristolct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=13954,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-1",
-      "kind": "agenda",
-      "older": false,
-      "meeting": {
-        "title": "Board of Education Student Achievement Committee Meeting",
-        "date": "2026-11-18",
-        "body": "Board of Education Student Achievement Committee"
-      },
-      "doc": {
-        "id": "boardbook-778278-agenda-8a5ada1f",
-        "sha256": "8a5ada1f217b03168c3e28f830b9f8380c3976d2526811cb7a9b595bad9e1c9e",
-        "file": "boardbook-778278-agenda-8a5ada1f.pdf",
-        "source_url": "https://meetings.boardbook.org/Public/Agenda/bristol?meeting=778278"
-      }
-    },
-    {
-      "custom_id": "doc-2",
-      "kind": "agenda",
-      "older": false,
-      "meeting": {
-        "title": "Board of Public Works",
-        "date": "2026-11-19",
-        "body": "Board of Public Works"
-      },
-      "doc": {
-        "id": "civicclerk-13952",
-        "sha256": "2fbba5a7720fd68a4215ce7b2ee697db2d87aeb5b136bb7316af8508e3beb129",
-        "file": "civicclerk-13952.pdf",
-        "source_url": "https://bristolct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=13952,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-3",
-      "kind": "agenda",
-      "older": false,
       "meeting": {
         "title": "Code Enforcement Committee",
         "date": "2026-12-02",
@@ -69,22 +29,64 @@
       },
       "doc": {
         "id": "civicclerk-13956",
-        "sha256": "375ea9b70f56c74b98b5ead6e72dd77a6702442f2b7f6aab00189a990718c0bf",
-        "file": "civicclerk-13956.pdf",
-        "source_url": "https://bristolct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=13956,plainText=false)"
+        "sha256": "375ea9b70f56c74b98b5ead6e72dd77a6702442f2b7f6aab00189a990718c0bf"
       }
     },
     {
-      "custom_id": "tr-0",
+      "custom_id": "tr-1",
       "type": "translation",
       "lang": "es",
       "kind": "agenda",
       "older": false,
-      "source_hash": "7ea3e9c3125098f55ab9398f06a072a0381404ac271b15c7570b6fe891bd11e9",
+      "source_hash": "cec46ebeb015202d924125ba99fee08a0ac3c47516640d9178d206c456343b0a",
       "model": "claude-haiku-5-5",
       "prices": {
         "input_price": 0.1,
         "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Board of Public Works",
+        "date": "2026-11-19",
+        "body": "Board of Public Works"
+      },
+      "doc": {
+        "id": "civicclerk-13952",
+        "sha256": "2fbba5a7720fd68a4215ce7b2ee697db2d87aeb5b136bb7316af8508e3beb129"
+      }
+    },
+    {
+      "custom_id": "tr-2",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "145460a00f546401992f47902e9e8254022eb1a8747d82b6e3ec3091bb03011c",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Board of Education Student Achievement Committee Meeting",
+        "date": "2026-11-18",
+        "body": "Board of Education Student Achievement Committee"
+      },
+      "doc": {
+        "id": "boardbook-778278-agenda-8a5ada1f",
+        "sha256": "8a5ada1f217b03168c3e28f830b9f8380c3976d2526811cb7a9b595bad9e1c9e"
+      }
+    },
+    {
+      "custom_id": "tr-3",
+      "type": "review",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "7ea3e9c3125098f55ab9398f06a072a0381404ac271b15c7570b6fe891bd11e9",
+      "model": "claude-sonnet-5-5",
+      "prices": {
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Board of Park Commissioners",
@@ -97,47 +99,25 @@
       }
     },
     {
-      "custom_id": "tr-1",
-      "type": "review",
+      "custom_id": "tr-4",
+      "type": "translation",
       "lang": "es",
-      "kind": "recording",
+      "kind": "agenda",
       "older": false,
-      "source_hash": "ff7448e940fa1a90ce0296d679a7646e80f7edef1d32b7370a6de4f7a2ea278f",
-      "model": "claude-sonnet-5-5",
+      "source_hash": "90af996e899cea491f9313f3890e4dd25111f6ac307f5f3dc419d6b09abda698",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
-        "title": "Conservation Commission/ Inland Wetlands and Watercourses Agency",
-        "date": "2026-11-02",
-        "body": "Conservation Commission/Inland Wetlands and Watercourses Agency"
+        "title": "Board of Police Commissioners",
+        "date": "2026-11-17",
+        "body": "Board of Police Commissioners"
       },
       "doc": {
-        "id": "civicclerk-video-5523",
-        "sha256": "40c61ba51f663d944cf32779797b90c8bf108bc360978ac70d4cabd752106be8"
-      }
-    },
-    {
-      "custom_id": "tr-2",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "5d256f08e0bfe250a6687084f7d73a8577284dad850f6b225f60c16a7f08dfb2",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "City Council Meeting",
-        "date": "2026-10-13",
-        "body": "City Council"
-      },
-      "doc": {
-        "id": "civicclerk-13933",
-        "sha256": "421c70f9b73e45aa5cbb29b5c4b8b45206b9b54996b065d17978751dc9adcb0d"
+        "id": "civicclerk-13954",
+        "sha256": "ecd2a221d899f4c3efb16d05ca5c1242c80998bf10554dbd299f812c33e15f7b"
       }
     }
   ]
