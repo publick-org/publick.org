@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_013sQyAfNQkAt5e7zQLxqp5R",
-  "sent_at": "2026-11-14T09:07:58+00:00",
+  "id": "msgbatch_01RLvuNbe4aKe6URcZr4yPEb",
+  "sent_at": "2026-11-14T09:18:37+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,25 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
-      "meeting": {
-        "title": "City Council Special Meeting",
-        "date": "2026-11-17",
-        "body": "City Council"
+      "source_hash": "fe4b37172863e61d83256c66eaaed93e54afe76935aa7709f4689460dfb9e6d3",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
       },
-      "doc": {
-        "id": "1728",
-        "sha256": "ce760924b2e2f123f30317bdfc4877ac90a3924ebd861ab10667a2d85427d7a4",
-        "file": "1728.pdf",
-        "source_url": "https://www.winooskivt.gov/AgendaCenter/ViewFile/Agenda/_11172026-1728"
-      }
-    },
-    {
-      "custom_id": "doc-1",
-      "kind": "agenda",
-      "older": false,
       "meeting": {
         "title": "Local Resources Advisory Board Meeting",
         "date": "2026-11-18",
@@ -37,31 +29,29 @@
       },
       "doc": {
         "id": "1727",
-        "sha256": "a6173953b8fe2171f610bb5b42cef0cf18149fc6346e100b96ccb0983e42afce",
-        "file": "1727.pdf",
-        "source_url": "https://www.winooskivt.gov/AgendaCenter/ViewFile/Agenda/_11182026-1727"
+        "sha256": "a6173953b8fe2171f610bb5b42cef0cf18149fc6346e100b96ccb0983e42afce"
       }
     },
     {
-      "custom_id": "tr-0",
-      "type": "review",
+      "custom_id": "tr-1",
+      "type": "translation",
       "lang": "es",
-      "kind": "minutes",
+      "kind": "agenda",
       "older": false,
-      "source_hash": "74eba48f4b9b17b632e15af4e11510619138ba2c6c84576002ae16f59a096377",
-      "model": "claude-sonnet-5-5",
+      "source_hash": "7e8a164adb81add42f7d6ff01fadd000219c381632658abb4c9e329d64ce17b2",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
-        "title": "Finance Commission Meeting",
-        "date": "2026-11-10",
-        "body": "Finance Commission"
+        "title": "City Council Special Meeting",
+        "date": "2026-11-17",
+        "body": "City Council"
       },
       "doc": {
-        "id": "agendacenter-1722",
-        "sha256": "87538c689dc6c07a43ac641edaa185df544a61532f5528751263f88308e8a7b8"
+        "id": "1728",
+        "sha256": "ce760924b2e2f123f30317bdfc4877ac90a3924ebd861ab10667a2d85427d7a4"
       }
     }
   ]
