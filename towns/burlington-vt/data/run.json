@@ -1,46 +1,46 @@
 {
   "town": "burlington",
   "folder": "burlington-vt",
-  "started_at": "2026-11-13T09:14:49+00:00",
-  "finished_at": "2026-11-13T09:18:37+00:00",
-  "engine": "v1.107.0",
+  "started_at": "2026-11-14T09:07:08+00:00",
+  "finished_at": "2026-11-14T09:11:36+00:00",
+  "engine": "v1.108.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 110.3
+      "seconds": 146.8
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 64.9
+      "seconds": 61.1
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 72.5
+      "seconds": 53.1
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 13.3
+      "seconds": 5.5
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.8
+      "seconds": 0.9
     }
   ],
   "update": {
     "town": "burlington",
     "sources": "all",
-    "started_at": "2026-11-13T09:14:49+00:00",
+    "started_at": "2026-11-14T09:07:10+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 54.8,
+        "seconds": 69.8,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 9.9,
+        "seconds": 9.8,
         "cadence": "continuous"
       },
       {
@@ -91,7 +91,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 18.5,
+        "seconds": 26.5,
         "cadence": "continuous"
       },
       {
@@ -122,6 +122,15 @@
         "skipped": "no [meetingdocs_meetings] in the config"
       },
       {
+        "name": "Fetch the city website's meetings",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [proudcity_meetings] in the config"
+      },
+      {
         "name": "Fetch the school district's minutes library",
         "ok": true,
         "required": false,
@@ -135,7 +144,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 15.5,
+        "seconds": 28.8,
         "cadence": "continuous"
       },
       {
@@ -145,7 +154,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 8 days ago; checked every 30 days"
+        "skipped": "checked 9 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -163,7 +172,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 8 days ago; checked every 30 days"
+        "skipped": "checked 9 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -172,7 +181,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 8 days ago; checked every 30 days"
+        "skipped": "checked 9 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -181,7 +190,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -229,7 +238,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 8.9,
+        "seconds": 8.1,
         "cadence": "continuous"
       },
       {
@@ -256,28 +265,28 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-13T04:14:49-05:00",
+      "updated_at": "2026-11-14T04:07:10-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Board meetings (Diligent Community)",
       "file": "meetings/diligent_status.json",
-      "updated_at": "2026-11-13T04:15:54-05:00",
+      "updated_at": "2026-11-14T04:08:30-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-13T04:16:29-05:00",
+      "updated_at": "2026-11-14T04:09:26-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-13T04:16:38-05:00",
+      "updated_at": "2026-11-14T04:09:34-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -366,35 +375,34 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-14T09:07:06+00:00",
-  "data_bytes": 6452515,
-  "data_bytes_added": 3038606,
+  "last_good_at": "2026-11-14T09:11:36+00:00",
+  "data_bytes": 6589456,
+  "data_bytes_added": 3051303,
   "activity": {
-    "boards": 58,
+    "boards": 59,
     "meetings_by_date": {
-      "2026-11-13": 1,
-      "2026-11-16": 3,
-      "2026-11-17": 5,
+      "2026-11-16": 4,
+      "2026-11-17": 8,
       "2026-11-18": 4,
-      "2026-11-19": 4,
+      "2026-11-19": 6,
       "2026-11-23": 3,
       "2026-11-24": 1
     }
   },
   "fact_checks": {
-    "summaries": 264,
-    "ok": 246,
-    "failed": 16,
+    "summaries": 274,
+    "ok": 255,
+    "failed": 17,
     "weak": 2,
     "unchecked": 0,
     "not_yet": 0,
-    "held_back": 16,
-    "entries_not_shown": 39,
-    "vote_counts_left_out": 22
+    "held_back": 17,
+    "entries_not_shown": 42,
+    "vote_counts_left_out": 33
   },
   "recordings": {
-    "since": "2026-11-06",
-    "until": "2026-11-12",
+    "since": "2026-11-07",
+    "until": "2026-11-13",
     "held": 3,
     "next_day": 2,
     "steps": {
@@ -411,13 +419,13 @@
     "misses": []
   },
   "documents": {
-    "since": "2026-08-15",
-    "until": "2026-11-12",
-    "held": 146,
+    "since": "2026-08-16",
+    "until": "2026-11-13",
+    "held": 147,
     "boards": 48,
     "counts": {
       "no_documents": 0,
-      "no_minutes": 3,
+      "no_minutes": 2,
       "pairs": 0
     },
     "no_documents": [],
@@ -429,10 +437,6 @@
       {
         "board": "Tax Fairness Ad Hoc Committee",
         "meetings": 3
-      },
-      {
-        "board": "Police Commission",
-        "meetings": 2
       }
     ],
     "pairs": [],
@@ -440,7 +444,7 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-13T02:24:28-05:00",
+    "at": "2026-11-14T02:24:38-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-11T12:24:18-05:00"
@@ -454,7 +458,5 @@
         "none": true
       }
     ]
-  },
-  "published_at": "2026-11-14T09:07:06+00:00",
-  "published_engine": "v1.108.0"
+  }
 }
