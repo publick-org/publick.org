@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01BFLxkkUmLGE6z7TfeeSHMq",
-  "sent_at": "2026-11-14T09:08:10+00:00",
+  "id": "msgbatch_012tYzDuqf6UnYzVhwQsLKEh",
+  "sent_at": "2026-11-14T09:21:18+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,25 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
-      "meeting": {
-        "title": "City Council Regular Meeting",
-        "date": "2026-11-16",
-        "body": "City Council"
+      "source_hash": "0c3255212afbecf1fdbc319c20c2f1fee58e7d666654c339c6b6a0e5eea7fca1",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
       },
-      "doc": {
-        "id": "1185",
-        "sha256": "0424ecda0f419bbe0855bb6a926a8ae1fcb202362ee19fae19efdfe6efb7fb39",
-        "file": "1185.pdf",
-        "source_url": "https://www.methuen.gov/AgendaCenter/ViewFile/Agenda/_11162026-1185"
-      }
-    },
-    {
-      "custom_id": "doc-1",
-      "kind": "agenda",
-      "older": false,
       "meeting": {
         "title": "Methuen Housing Authority Meeting",
         "date": "2026-11-18",
@@ -37,9 +29,29 @@
       },
       "doc": {
         "id": "1184",
-        "sha256": "54b2fa5853d4b2455be53e890948283e64bf8f67096ae00737ce0b66b9a21da6",
-        "file": "1184.pdf",
-        "source_url": "https://www.methuen.gov/AgendaCenter/ViewFile/Agenda/_11182026-1184"
+        "sha256": "54b2fa5853d4b2455be53e890948283e64bf8f67096ae00737ce0b66b9a21da6"
+      }
+    },
+    {
+      "custom_id": "tr-1",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "b3750b486ae08396c8d95b8d3e838c0df48fbba3a0457baa3a325a944e72df78",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "City Council Regular Meeting",
+        "date": "2026-11-16",
+        "body": "City Council"
+      },
+      "doc": {
+        "id": "1185",
+        "sha256": "0424ecda0f419bbe0855bb6a926a8ae1fcb202362ee19fae19efdfe6efb7fb39"
       }
     }
   ]
