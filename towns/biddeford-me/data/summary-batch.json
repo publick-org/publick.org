@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_016vhCf4vy8FTgsL1D2raTqu",
-  "sent_at": "2026-11-13T05:58:51+00:00",
+  "id": "msgbatch_01GS3iDkU4xswMUwZZnpTvB8",
+  "sent_at": "2026-11-14T09:16:03+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -10,6 +10,54 @@
     "long_prompt_tokens": 100000
   },
   "documents": [
+    {
+      "custom_id": "doc-0",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "City Council Meeting (Live)",
+        "date": "2026-11-17",
+        "body": "City Council"
+      },
+      "doc": {
+        "id": "civicclerk-10093",
+        "sha256": "6440c247b4f1612fde2294ec7c96d111c14e64053363aeadf83d4181e03ea8f6",
+        "file": "civicclerk-10093.pdf",
+        "source_url": "https://biddefordme.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=10093,plainText=false)"
+      }
+    },
+    {
+      "custom_id": "doc-1",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "School Committee Meeting",
+        "date": "2026-11-18",
+        "body": "School Committee"
+      },
+      "doc": {
+        "id": "1GV5U5zTVNKjXENbrF8WYGfI65ipsYT0pqA6Dg0vwrF8-fa075cdd",
+        "sha256": "fa075cdd188220f8af93ac0e9d03cfeb2121f8911f0985892f90196a94e2c5fb",
+        "file": "1GV5U5zTVNKjXENbrF8WYGfI65ipsYT0pqA6Dg0vwrF8-fa075cdd.pdf",
+        "source_url": "https://docs.google.com/document/d/1GV5U5zTVNKjXENbrF8WYGfI65ipsYT0pqA6Dg0vwrF8/edit?usp=sharing"
+      }
+    },
+    {
+      "custom_id": "doc-2",
+      "kind": "minutes",
+      "older": false,
+      "meeting": {
+        "title": "School Committee Meeting",
+        "date": "2026-11-10",
+        "body": "School Committee"
+      },
+      "doc": {
+        "id": "1NRaifC-xCMcU9GdQP_fGLSsmqEm_20Isz-dICMj-WR8-2c17a6b9",
+        "sha256": "2c17a6b92d526721a78d11d08bd858c4539d6164334b8541b32dee437057c84f",
+        "file": "1NRaifC-xCMcU9GdQP_fGLSsmqEm_20Isz-dICMj-WR8-2c17a6b9.pdf",
+        "source_url": "https://docs.google.com/document/d/1NRaifC-xCMcU9GdQP_fGLSsmqEm_20Isz-dICMj-WR8/edit?usp=sharing"
+      }
+    },
     {
       "custom_id": "tr-0",
       "type": "translation",
@@ -34,15 +82,15 @@
     },
     {
       "custom_id": "tr-1",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "488ca7f87df13bd80b1c7f5d571eab3c91974dfcf7177e6a093d5bd4f92fa41e",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Planning Board Meeting (Live)",
@@ -56,15 +104,15 @@
     },
     {
       "custom_id": "tr-2",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "fefa8cdda9be19a310e1fb9dd9a2e463860af68655e97971345d2bdbe1e3848e",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Finance Committee Meeting (Live)",
@@ -78,15 +126,15 @@
     },
     {
       "custom_id": "tr-3",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "8901aa079419f176cf86ce9383440d46d6fb78c3f7c9ebc1b7ad32fd1a667156",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Charter Revision Commission Meeting (Live)",
@@ -100,15 +148,15 @@
     },
     {
       "custom_id": "tr-4",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "b740e79cbb9a2bd221b110398a07c38ca1fc8c156b6fd13b6efa23aa4064d207",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Sustainability Commission Meeting",
@@ -122,15 +170,15 @@
     },
     {
       "custom_id": "tr-5",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "recording",
       "older": false,
       "source_hash": "ad8b3c1e9692055f1ef4e446608704824b96ba05c0af355ec320a1496e93550b",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Conservation Commission Meeting (Live)",
