@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_017Vb9n7w8nvUWtwCqByh5gT",
-  "sent_at": "2026-11-14T09:25:28+00:00",
+  "id": "msgbatch_019gMdc5kDh6hL2YdMBkVGX2",
+  "sent_at": "2026-11-14T09:38:29+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,25 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
-      "meeting": {
-        "title": "Gloucester School Committee Meeting",
-        "date": "2026-11-18",
-        "body": "School Committee"
+      "source_hash": "5cd51842e8ca6e6cfa148eab011568e8a9f54d2bf81cc42731a3535cef140c8a",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
       },
-      "doc": {
-        "id": "20281",
-        "sha256": "1b12a2f5cd87bac4959597f0e6035f7c7c1e960fa6625567ff349cf38a489455",
-        "file": "20281.pdf",
-        "source_url": "https://www.gloucester-ma.gov/Archive.aspx?ADID=20281"
-      }
-    },
-    {
-      "custom_id": "doc-1",
-      "kind": "agenda",
-      "older": false,
       "meeting": {
         "title": "Cape Ann Public Health Alliance PHE Advisory Board Meeting",
         "date": "2026-12-10",
@@ -37,44 +29,42 @@
       },
       "doc": {
         "id": "20280",
-        "sha256": "e6177c39a0c7aad85aed983d74e9cdbb6e556e6f18f09dfceeace53b11d22b6c",
-        "file": "20280.pdf",
-        "source_url": "https://www.gloucester-ma.gov/Archive.aspx?ADID=20280"
-      }
-    },
-    {
-      "custom_id": "tr-0",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "292c66f6fee3b31823651d3305aca94219140177af3607df3747e941883b38c9",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "City-Owned Cemeteries Advisory Committee",
-        "date": "2026-11-17",
-        "body": "City-Owned Cemeteries Advisory Committee"
-      },
-      "doc": {
-        "id": "20277",
-        "sha256": "052f8d8f36ab04701bdddfd6e3f76445e4a60e3620a9026b06f3699bb9e8dc6d"
+        "sha256": "e6177c39a0c7aad85aed983d74e9cdbb6e556e6f18f09dfceeace53b11d22b6c"
       }
     },
     {
       "custom_id": "tr-1",
-      "type": "review",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "6ba761451aea2e9e5340b28eba6ad9c34a520afce433112b086e72ac5685de32",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Gloucester School Committee Meeting",
+        "date": "2026-11-18",
+        "body": "School Committee"
+      },
+      "doc": {
+        "id": "20281",
+        "sha256": "1b12a2f5cd87bac4959597f0e6035f7c7c1e960fa6625567ff349cf38a489455"
+      }
+    },
+    {
+      "custom_id": "tr-2",
+      "type": "translation",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "d58690a172b69e520f8947342d4deea59b10c4c1c9615a04a1c3a9dd82ce9721",
-      "model": "claude-sonnet-5-5",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
         "title": "Gloucester Lyceum & SFL Annual Meeting of the Corporation",
@@ -84,72 +74,6 @@
       "doc": {
         "id": "20278",
         "sha256": "f44b4fc18b2ccdf2a8cf7c17e4d0483ef31c3c5a8217ffd9201d6e03d8fbae74"
-      }
-    },
-    {
-      "custom_id": "tr-2",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "05f96370a4775b6c8a8e05d631fa1854c0871011be5cfd5debc3027294a23eb7",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Shellfish Advisory Commission",
-        "date": "2026-11-17",
-        "body": "Shellfish Advisory Commission"
-      },
-      "doc": {
-        "id": "20275",
-        "sha256": "91fe8a79aa649eb4af238bc61897508faa6fc75c8cbcdd4764e2e52d99017cab"
-      }
-    },
-    {
-      "custom_id": "tr-3",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "5aee8debf6bcef59578a50ded9e82e222e356a50db3d2cdb9745568aae969642",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Sawyer Free Library Board",
-        "date": "2026-09-22",
-        "body": "Sawyer Free Library Board"
-      },
-      "doc": {
-        "id": "20279",
-        "sha256": "88c252bea2a4054553b8905be5d416e33cd8c7ef7a9a8b468b0acec50fe3b6fe"
-      }
-    },
-    {
-      "custom_id": "tr-4",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "700f65cb1282c8b9c8d97134192039ca586c5d018536fe3a619001123c6e1b60",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Sawyer Free Library Board",
-        "date": "2026-09-15",
-        "body": "Sawyer Free Library Board"
-      },
-      "doc": {
-        "id": "20276",
-        "sha256": "8f556cc580e51f9f43bdcf0741fb5ec6fc460663a3319dabfd49412c0a94ad6f"
       }
     }
   ]
