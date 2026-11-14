@@ -1,46 +1,46 @@
 {
   "town": "central-falls",
   "folder": "central-falls-ri",
-  "started_at": "2026-11-13T12:10:25+00:00",
-  "finished_at": "2026-11-13T12:13:49+00:00",
-  "engine": "v1.107.0",
+  "started_at": "2026-11-14T09:12:11+00:00",
+  "finished_at": "2026-11-14T09:16:03+00:00",
+  "engine": "v1.108.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 152.2
+      "seconds": 179.1
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 16.0
+      "seconds": 13.0
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 24.0
+      "seconds": 33.6
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 10.0
+      "seconds": 4.7
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.9
+      "seconds": 1.0
     }
   ],
   "update": {
     "town": "central-falls",
     "sources": "all",
-    "started_at": "2026-11-13T12:10:26+00:00",
+    "started_at": "2026-11-14T09:12:11+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.6,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -109,7 +109,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 108.3,
+        "seconds": 139.3,
         "cadence": "continuous"
       },
       {
@@ -120,6 +120,15 @@
         "seconds": 0,
         "cadence": "continuous",
         "skipped": "no [meetingdocs_meetings] in the config"
+      },
+      {
+        "name": "Fetch the city website's meetings",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [proudcity_meetings] in the config"
       },
       {
         "name": "Fetch the school district's minutes library",
@@ -135,7 +144,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 9.3,
+        "seconds": 7.9,
         "cadence": "continuous"
       },
       {
@@ -143,7 +152,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -187,7 +196,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -195,7 +204,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 2.1,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -212,7 +221,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 29.3,
+        "seconds": 29.1,
         "cadence": "continuous"
       },
       {
@@ -257,7 +266,7 @@
     {
       "label": "Meetings (Open Meetings portal)",
       "file": "meetings/opengov_status.json",
-      "updated_at": "2026-11-13T07:10:27-05:00",
+      "updated_at": "2026-11-14T04:12:12-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -335,11 +344,13 @@
   "corrections": [],
   "ok": true,
   "last_good_at": "2026-11-05T00:08:43+00:00",
-  "data_bytes": 760760,
-  "data_bytes_added": 5656,
+  "data_bytes": 762991,
+  "data_bytes_added": 2668,
   "activity": {
     "boards": 8,
-    "meetings_by_date": {}
+    "meetings_by_date": {
+      "2026-11-18": 1
+    }
   },
   "fact_checks": {
     "summaries": 44,
@@ -353,8 +364,8 @@
     "vote_counts_left_out": 6
   },
   "recordings": {
-    "since": "2026-11-06",
-    "until": "2026-11-12",
+    "since": "2026-11-07",
+    "until": "2026-11-13",
     "held": 2,
     "next_day": 0,
     "steps": {
@@ -377,8 +388,8 @@
     ]
   },
   "documents": {
-    "since": "2026-08-15",
-    "until": "2026-11-12",
+    "since": "2026-08-16",
+    "until": "2026-11-13",
     "held": 24,
     "boards": 7,
     "counts": {
@@ -398,15 +409,13 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-13T04:23:54-05:00",
+    "at": "2026-11-14T02:23:56-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-12T12:23:57-05:00"
   },
   "officials": {
-    "checked_at": "2026-11-13T07:12:28-05:00",
+    "checked_at": "2026-11-14T04:14:41-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-14T09:05:46+00:00",
-  "published_engine": "v1.108.0"
+  }
 }
