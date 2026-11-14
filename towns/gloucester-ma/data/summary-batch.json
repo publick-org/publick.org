@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01Q5YkuhkAdYgJvR1sPNhAUT",
-  "sent_at": "2026-11-13T12:22:43+00:00",
+  "id": "msgbatch_017Vb9n7w8nvUWtwCqByh5gT",
+  "sent_at": "2026-11-14T09:25:28+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,38 +11,48 @@
   },
   "documents": [
     {
+      "custom_id": "doc-0",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "Gloucester School Committee Meeting",
+        "date": "2026-11-18",
+        "body": "School Committee"
+      },
+      "doc": {
+        "id": "20281",
+        "sha256": "1b12a2f5cd87bac4959597f0e6035f7c7c1e960fa6625567ff349cf38a489455",
+        "file": "20281.pdf",
+        "source_url": "https://www.gloucester-ma.gov/Archive.aspx?ADID=20281"
+      }
+    },
+    {
+      "custom_id": "doc-1",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "Cape Ann Public Health Alliance PHE Advisory Board Meeting",
+        "date": "2026-12-10",
+        "body": "Cape Ann Public Health Alliance PHE Advisory Board"
+      },
+      "doc": {
+        "id": "20280",
+        "sha256": "e6177c39a0c7aad85aed983d74e9cdbb6e556e6f18f09dfceeace53b11d22b6c",
+        "file": "20280.pdf",
+        "source_url": "https://www.gloucester-ma.gov/Archive.aspx?ADID=20280"
+      }
+    },
+    {
       "custom_id": "tr-0",
       "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
-      "source_hash": "e9fbb0c88e9e297c475c2be7b38f1448d11c299c09dc5841356b142d6406b7dd",
+      "source_hash": "292c66f6fee3b31823651d3305aca94219140177af3607df3747e941883b38c9",
       "model": "claude-sonnet-5-5",
       "prices": {
         "input_price": 2.0,
         "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Budget & Finance Meeting",
-        "date": "2026-11-19",
-        "body": "City Council Budget & Finance Committee"
-      },
-      "doc": {
-        "id": "20269",
-        "sha256": "c174a58df44fe830b8991a74c7381545182fa50593875c2150ecff3eb4d23bdc"
-      }
-    },
-    {
-      "custom_id": "tr-1",
-      "type": "translation",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "292c66f6fee3b31823651d3305aca94219140177af3607df3747e941883b38c9",
-      "model": "claude-haiku-5-5",
-      "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
       },
       "meeting": {
         "title": "City-Owned Cemeteries Advisory Committee",
@@ -55,16 +65,16 @@
       }
     },
     {
-      "custom_id": "tr-2",
-      "type": "translation",
+      "custom_id": "tr-1",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "d58690a172b69e520f8947342d4deea59b10c4c1c9615a04a1c3a9dd82ce9721",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Gloucester Lyceum & SFL Annual Meeting of the Corporation",
@@ -77,16 +87,16 @@
       }
     },
     {
-      "custom_id": "tr-3",
-      "type": "translation",
+      "custom_id": "tr-2",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "05f96370a4775b6c8a8e05d631fa1854c0871011be5cfd5debc3027294a23eb7",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Shellfish Advisory Commission",
@@ -99,60 +109,16 @@
       }
     },
     {
-      "custom_id": "tr-4",
+      "custom_id": "tr-3",
       "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "944dfcbcbe019cd9230fe46bcd64496f5b1f0d710128b2f0f984bb7005250ffc",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Ordinances & Administration Meeting",
-        "date": "2026-11-02",
-        "body": "City Council Ordinances & Administration Committee"
-      },
-      "doc": {
-        "id": "20268",
-        "sha256": "eb405d6d703d180dc9288ca075d552306169bdbfd6b869671e5b84390fc53348"
-      }
-    },
-    {
-      "custom_id": "tr-5",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "0984ae012e977e1e5272b63868cd9f61ae3f79c0906690caff7af348c3b66555",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "City Council Meeting",
-        "date": "2026-10-27",
-        "body": "City Council"
-      },
-      "doc": {
-        "id": "20267",
-        "sha256": "ac4e064ced4b0606f32e89eb335a304b5abe1f3d228537cb736e6a7b017d6a4b"
-      }
-    },
-    {
-      "custom_id": "tr-6",
-      "type": "translation",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "5aee8debf6bcef59578a50ded9e82e222e356a50db3d2cdb9745568aae969642",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Sawyer Free Library Board",
@@ -165,16 +131,16 @@
       }
     },
     {
-      "custom_id": "tr-7",
-      "type": "translation",
+      "custom_id": "tr-4",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "700f65cb1282c8b9c8d97134192039ca586c5d018536fe3a619001123c6e1b60",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Sawyer Free Library Board",
