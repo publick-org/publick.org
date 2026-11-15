@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_013ip9UvVvRs6n8yx2mGCb7N",
-  "sent_at": "2026-11-14T09:36:40+00:00",
+  "id": "msgbatch_01AKEEAMARyh4g88X8LKoWay",
+  "sent_at": "2026-11-15T09:17:43+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,16 +11,64 @@
   },
   "documents": [
     {
+      "custom_id": "doc-0",
+      "kind": "recording",
+      "older": false,
+      "meeting": {
+        "title": "Board of Health Meeting 11/10/2026",
+        "date": "2026-11-10",
+        "body": "Board of Health"
+      },
+      "doc": {
+        "id": "cablecast-47310",
+        "sha256": "5ef4214f1d618b477b1d0a021edb0a422d8e8ab615aab6b69baeac4d426927ce",
+        "file": "cablecast-47310.txt",
+        "source_url": "http://cc.satvonline.org/internetchannel/show/47310"
+      }
+    },
+    {
+      "custom_id": "doc-1",
+      "kind": "recording",
+      "older": false,
+      "meeting": {
+        "title": "Salem School Committee - Regular Session",
+        "date": "2026-11-09",
+        "body": "School Committee"
+      },
+      "doc": {
+        "id": "cablecast-47306",
+        "sha256": "2925aad72c2f637720aa5f20f3bec4391ec53fe96dd285b248eda12fef2aa718",
+        "file": "cablecast-47306.txt",
+        "source_url": "http://cc.satvonline.org/internetchannel/show/47306"
+      }
+    },
+    {
+      "custom_id": "doc-2",
+      "kind": "minutes",
+      "older": false,
+      "meeting": {
+        "title": "Salem City Council Committee on Public Health, Safety and Environment co-posted with the Committee of the Whole October 14, 2026",
+        "date": "2026-10-14",
+        "body": "City Council Committee on Public Health, Safety and Environment"
+      },
+      "doc": {
+        "id": "agendacenter-8442",
+        "sha256": "0eee7f72945e5b5fe580c0d0a7c7f4d5fa2ed9b030ab240bd0fabb69cfb92c10",
+        "file": "agendacenter-8442.pdf",
+        "source_url": "https://www.salemma.gov/AgendaCenter/ViewFile/Minutes/_10142026-8442"
+      }
+    },
+    {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "326a2167db25469f284afb4eb51afd792e5542cfb5baee3427af13292d67eb7b",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Board of Library Trustees Meeting",
@@ -34,15 +82,15 @@
     },
     {
       "custom_id": "tr-1",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "c2577afe078151be9f3d85465cda1345a468f6c6910681470a0e8442d4953834",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Design Review Board Meetings",
@@ -60,33 +108,11 @@
       "lang": "es",
       "kind": "agenda",
       "older": false,
-      "source_hash": "28fbd565823c4ebab9d4144d7ad37f0b590a118c76fe4472b441a849d1f11996",
+      "source_hash": "6627616463969617b31e25d65782bd548f097f683d2f42f4e7989ec97014e878",
       "model": "claude-sonnet-5-5",
       "prices": {
         "input_price": 2.0,
         "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Historical Commission meeting",
-        "date": "2026-11-18",
-        "body": "Historical Commission"
-      },
-      "doc": {
-        "id": "8507",
-        "sha256": "0ff24dae086280541f5d4169a9908987ca443904045f992dafe10703f2fbf93d"
-      }
-    },
-    {
-      "custom_id": "tr-3",
-      "type": "translation",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "6627616463969617b31e25d65782bd548f097f683d2f42f4e7989ec97014e878",
-      "model": "claude-haiku-5-5",
-      "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
       },
       "meeting": {
         "title": "Commission on Disabilities Meeting",
@@ -99,16 +125,16 @@
       }
     },
     {
-      "custom_id": "tr-4",
-      "type": "translation",
+      "custom_id": "tr-3",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "6359c2adaefe4cd3407b9876f39efa819c31557ed79b78069a1868f307db2524",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Park and Recreation Commission Meeting",
@@ -121,16 +147,16 @@
       }
     },
     {
-      "custom_id": "tr-5",
-      "type": "translation",
+      "custom_id": "tr-4",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "a6a2aa16df3b8cf1c6c3f3da7523723c3c40b96bfb36d598fc16a79e224821e7",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Scholarship and Education Committee Meeting - Monday, November 16, 2026",
@@ -143,16 +169,16 @@
       }
     },
     {
-      "custom_id": "tr-6",
-      "type": "translation",
+      "custom_id": "tr-5",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "b828de4baa3614e0cc7ee5e9acdf7d472e38c1f57ecab0a54d7adb64aa126137",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Scholarship & Education Committee Meeting",
@@ -165,16 +191,16 @@
       }
     },
     {
-      "custom_id": "tr-7",
-      "type": "translation",
+      "custom_id": "tr-6",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "c185c9df34635a2826e0e5f0362c1856acf4c16f9e62c2389f1a39060be63fc5",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Board of Health Meeting",
