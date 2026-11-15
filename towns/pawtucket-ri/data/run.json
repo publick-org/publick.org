@@ -1,16 +1,16 @@
 {
   "town": "pawtucket",
   "folder": "pawtucket-ri",
-  "started_at": "2026-11-14T09:11:00+00:00",
-  "finished_at": "2026-11-14T09:20:57+00:00",
-  "engine": "v1.108.0",
+  "started_at": "2026-11-15T09:14:07+00:00",
+  "finished_at": "2026-11-15T09:24:07+00:00",
+  "engine": "v1.109.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 465.4
+      "seconds": 453.1
     },
     {
       "name": "Build site",
@@ -22,13 +22,13 @@
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 45.9
+      "seconds": 51.8
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.5
+      "seconds": 28.6
     },
     {
       "name": "Check live site",
@@ -40,7 +40,7 @@
   "update": {
     "town": "pawtucket",
     "sources": "all",
-    "started_at": "2026-11-14T09:11:00+00:00",
+    "started_at": "2026-11-15T09:14:07+00:00",
     "ok": true,
     "steps": [
       {
@@ -109,7 +109,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 431.6,
+        "seconds": 421.1,
         "cadence": "continuous"
       },
       {
@@ -144,7 +144,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 21.5,
+        "seconds": 15.4,
         "cadence": "continuous"
       },
       {
@@ -160,9 +160,8 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "seconds": 0.7,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch school figures",
@@ -171,16 +170,15 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 12 days ago; checked every 30 days"
+        "skipped": "checked 13 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "yearly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "seconds": 0.4,
+        "cadence": "yearly"
       },
       {
         "name": "Fetch housing figures",
@@ -189,7 +187,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 4 days ago; checked every 7 days"
+        "skipped": "checked 5 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -221,7 +219,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 4.8,
         "cadence": "continuous"
       },
       {
@@ -237,7 +235,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 7.9,
+        "seconds": 7.4,
         "cadence": "continuous"
       },
       {
@@ -254,7 +252,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 1.0,
+        "seconds": 0.8,
         "cadence": "continuous"
       }
     ]
@@ -264,28 +262,28 @@
     {
       "label": "Meetings (Open Meetings portal)",
       "file": "meetings/opengov_status.json",
-      "updated_at": "2026-11-14T04:11:02-05:00",
+      "updated_at": "2026-11-15T04:14:08-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-14T04:18:37-05:00",
+      "updated_at": "2026-11-15T04:21:32-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-14T04:18:45-05:00",
+      "updated_at": "2026-11-15T04:21:39-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Tax rates and levy",
       "file": "finance/budget.json",
-      "updated_at": "2026-11-08T04:23:40-05:00",
+      "updated_at": "2026-11-15T04:21:26-05:00",
       "max_days": null,
       "cadence": "yearly",
       "failing": 0,
@@ -309,7 +307,7 @@
     {
       "label": "Unemployment rate (BLS)",
       "file": "labor/unemployment.json",
-      "updated_at": "2026-11-08T04:23:40-05:00",
+      "updated_at": "2026-11-15T04:21:25-05:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
@@ -356,8 +354,8 @@
   "corrections": [],
   "ok": true,
   "last_good_at": "2026-11-05T00:12:20+00:00",
-  "data_bytes": 2854543,
-  "data_bytes_added": 116910,
+  "data_bytes": 2869181,
+  "data_bytes_added": 107521,
   "activity": {
     "boards": 32,
     "meetings_by_date": {
@@ -368,8 +366,8 @@
     }
   },
   "fact_checks": {
-    "summaries": 178,
-    "ok": 167,
+    "summaries": 180,
+    "ok": 169,
     "failed": 11,
     "weak": 0,
     "unchecked": 0,
@@ -379,8 +377,8 @@
     "vote_counts_left_out": 82
   },
   "recordings": {
-    "since": "2026-11-07",
-    "until": "2026-11-13",
+    "since": "2026-11-08",
+    "until": "2026-11-14",
     "held": 1,
     "next_day": 0,
     "steps": {
@@ -397,8 +395,8 @@
     "misses": []
   },
   "documents": {
-    "since": "2026-08-16",
-    "until": "2026-11-13",
+    "since": "2026-08-17",
+    "until": "2026-11-14",
     "held": 86,
     "boards": 25,
     "counts": {
@@ -418,15 +416,13 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-14T02:24:04-05:00",
+    "at": "2026-11-15T02:24:08-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-12T08:24:07-05:00"
   },
   "officials": {
-    "checked_at": "2026-11-07T04:20:19-05:00",
+    "checked_at": "2026-11-15T04:21:27-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-14T12:06:09+00:00",
-  "published_engine": "v1.109.0"
+  }
 }
