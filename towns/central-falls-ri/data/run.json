@@ -1,16 +1,16 @@
 {
   "town": "central-falls",
   "folder": "central-falls-ri",
-  "started_at": "2026-11-14T09:12:11+00:00",
-  "finished_at": "2026-11-14T09:16:03+00:00",
-  "engine": "v1.108.0",
+  "started_at": "2026-11-15T09:09:03+00:00",
+  "finished_at": "2026-11-15T09:12:25+00:00",
+  "engine": "v1.109.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 179.1
+      "seconds": 150.8
     },
     {
       "name": "Build site",
@@ -22,25 +22,25 @@
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 27.1
+      "seconds": 31.5
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 1.8
+      "seconds": 5.0
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.8
+      "seconds": 0.6
     }
   ],
   "update": {
     "town": "central-falls",
     "sources": "all",
-    "started_at": "2026-11-14T09:12:11+00:00",
+    "started_at": "2026-11-15T09:09:04+00:00",
     "ok": true,
     "steps": [
       {
@@ -109,7 +109,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 139.3,
+        "seconds": 109.1,
         "cadence": "continuous"
       },
       {
@@ -144,7 +144,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 7.9,
+        "seconds": 8.6,
         "cadence": "continuous"
       },
       {
@@ -160,9 +160,8 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "seconds": 0.7,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch school figures",
@@ -171,25 +170,23 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 12 days ago; checked every 30 days"
+        "skipped": "checked 13 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "yearly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "seconds": 0.4,
+        "cadence": "yearly"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "seconds": 0.4,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch place",
@@ -266,14 +263,14 @@
     {
       "label": "Meetings (Open Meetings portal)",
       "file": "meetings/opengov_status.json",
-      "updated_at": "2026-11-14T04:12:12-05:00",
+      "updated_at": "2026-11-15T04:09:05-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Tax rates and levy",
       "file": "finance/budget.json",
-      "updated_at": "2026-11-08T04:41:39-05:00",
+      "updated_at": "2026-11-15T04:11:04-05:00",
       "max_days": null,
       "cadence": "yearly",
       "failing": 0,
@@ -297,7 +294,7 @@
     {
       "label": "Unemployment rate (BLS)",
       "file": "labor/unemployment.json",
-      "updated_at": "2026-11-08T04:41:38-05:00",
+      "updated_at": "2026-11-15T04:11:03-05:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
@@ -344,8 +341,8 @@
   "corrections": [],
   "ok": true,
   "last_good_at": "2026-11-05T00:08:43+00:00",
-  "data_bytes": 762991,
-  "data_bytes_added": 2668,
+  "data_bytes": 769798,
+  "data_bytes_added": 22,
   "activity": {
     "boards": 8,
     "meetings_by_date": {
@@ -353,8 +350,8 @@
     }
   },
   "fact_checks": {
-    "summaries": 44,
-    "ok": 42,
+    "summaries": 45,
+    "ok": 43,
     "failed": 2,
     "weak": 0,
     "unchecked": 0,
@@ -364,8 +361,8 @@
     "vote_counts_left_out": 6
   },
   "recordings": {
-    "since": "2026-11-07",
-    "until": "2026-11-13",
+    "since": "2026-11-08",
+    "until": "2026-11-14",
     "held": 2,
     "next_day": 0,
     "steps": {
@@ -388,8 +385,8 @@
     ]
   },
   "documents": {
-    "since": "2026-08-16",
-    "until": "2026-11-13",
+    "since": "2026-08-17",
+    "until": "2026-11-14",
     "held": 24,
     "boards": 7,
     "counts": {
@@ -401,7 +398,7 @@
     "no_minutes": [
       {
         "board": "Purchasing Board",
-        "meetings": 3
+        "meetings": 4
       }
     ],
     "pairs": [],
@@ -409,15 +406,26 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-14T02:23:56-05:00",
+    "at": "2026-11-15T02:24:00-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-12T12:23:57-05:00"
   },
   "officials": {
-    "checked_at": "2026-11-14T04:14:41-05:00",
-    "leads": []
-  },
-  "published_at": "2026-11-14T12:00:57+00:00",
-  "published_engine": "v1.109.0"
+    "checked_at": "2026-11-15T04:11:05-05:00",
+    "leads": [
+      {
+        "name": "Mayor",
+        "url": "https://centralfallsri.gov",
+        "error": "https://centralfallsri.gov: HTTP 403",
+        "since": "2026-11-07T04:33:15-05:00"
+      },
+      {
+        "name": "City Council",
+        "url": "https://centralfallsri.gov",
+        "error": "https://centralfallsri.gov: HTTP 403",
+        "since": "2026-11-07T04:33:15-05:00"
+      }
+    ]
+  }
 }
