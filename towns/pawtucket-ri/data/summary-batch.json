@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_0122mXn8SJMBxxqS7d3xbUTy",
-  "sent_at": "2026-11-15T09:21:22+00:00",
+  "id": "msgbatch_013MmEtPhGp1WQLaBRA8UvYf",
+  "sent_at": "2026-11-15T09:31:57+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,32 +11,16 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
-      "kind": "recording",
-      "older": false,
-      "meeting": {
-        "title": "City Council Meeting",
-        "date": "2026-11-10",
-        "body": "City Council"
-      },
-      "doc": {
-        "id": "youtube-OjR4Uzk60PU",
-        "sha256": "70272090737107aa02fa6b0c33b7b1d7e312f973f9625085f24fb32f15d6c19c",
-        "file": "youtube-OjR4Uzk60PU.txt",
-        "source_url": "https://www.youtube.com/watch?v=OjR4Uzk60PU"
-      }
-    },
-    {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "14e6fe9d5c9d632693ce369a7b071246a61d73ada94ec7ec44f01f3d77fa5335",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "School Committee Meeting",
@@ -46,6 +30,28 @@
       "doc": {
         "id": "opengov-571459-f4d705d3",
         "sha256": "f4d705d307dd577e1488ac9c8b38557e8eded3bb79f2bba2ee38637cfca77e87"
+      }
+    },
+    {
+      "custom_id": "tr-1",
+      "type": "translation",
+      "lang": "es",
+      "kind": "recording",
+      "older": false,
+      "source_hash": "af459ae11ea4ee179b46ae31ea311e95b0c2685f99d096e6566ac308ba00c556",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "City Council Meeting",
+        "date": "2026-11-10",
+        "body": "City Council"
+      },
+      "doc": {
+        "id": "youtube-OjR4Uzk60PU",
+        "sha256": "70272090737107aa02fa6b0c33b7b1d7e312f973f9625085f24fb32f15d6c19c"
       }
     }
   ]
