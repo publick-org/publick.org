@@ -1,16 +1,16 @@
 {
-  "headline": "Council elects Daniel Carson as chair in a 7-2 vote.",
-  "summary": "Two councilors were nominated for chair: Susan Faloon and Daniel Carson. Each described plans for communicating with fellow councilors and the public. New councilors were sworn in earlier in the meeting.",
+  "headline": "Councilor Carson chosen as chair by seven votes to two over Councilor Faloon.",
+  "summary": "Two nominees, Councilor Faloon and Councilor Carson, each gave a statement of qualifications. Both spoke about communicating with fellow councilors and with the public. The vote was held right away instead of at 7:00 p.m. that evening.",
   "decisions": [
-    "Elected Daniel Carson as council chair, 7-2."
+    "Elected Councilor Carson as chair, 7 votes to 2 for Councilor Faloon."
   ],
   "discussion": [
-    "Chair nominations: Both nominees described plans to communicate regularly with councilors and the public, and to build relationships across the council."
+    "Chair candidate statements: Both nominees spoke about communicating with fellow councilors and with the public, and about building relationships across the council and community."
   ],
   "decision_evidence": [
     {
       "outcome": "approved",
-      "quote": "Councilor Carson? Carson. We had two for Falloon and seven for Carson."
+      "quote": "We had two for Falloon and seven for Carson."
     }
   ],
   "decision_titles": [
@@ -26,24 +26,35 @@
   "source_url": "https://www.youtube.com/watch?v=X2Sgbuv_ZO8",
   "source_sha256": "e7acfbdb950b7158d8bb54f0b9849dcae28fa399360899b80786c2f3615d51f6",
   "model": "claude-haiku-5-5",
-  "prompt_version": 4,
-  "generated_at": "2026-11-09T12:43:10-05:00",
+  "prompt_version": 5,
+  "generated_at": "2026-11-15T04:49:14-05:00",
   "transcript_source": "recording",
   "fact_check": {
     "version": 11,
     "source": "recording",
-    "result": "ok",
+    "result": "failed",
     "problems": [
       {
         "field": "headline",
-        "kind": "tally",
-        "what": "7-2"
+        "kind": "name",
+        "what": "Faloon"
+      },
+      {
+        "field": "summary",
+        "kind": "name",
+        "what": "Faloon"
       },
       {
         "field": "decisions",
         "entry": 1,
-        "kind": "tally",
-        "what": "7-2"
+        "kind": "number",
+        "what": "2"
+      },
+      {
+        "field": "decisions",
+        "entry": 1,
+        "kind": "name",
+        "what": "Faloon"
       },
       {
         "field": "decisions",
