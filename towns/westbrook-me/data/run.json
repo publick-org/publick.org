@@ -1,46 +1,46 @@
 {
   "town": "westbrook",
   "folder": "westbrook-me",
-  "started_at": "2026-11-14T09:07:16+00:00",
-  "finished_at": "2026-11-14T09:08:55+00:00",
-  "engine": "v1.108.0",
+  "started_at": "2026-11-15T09:06:45+00:00",
+  "finished_at": "2026-11-15T09:07:58+00:00",
+  "engine": "v1.109.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 48.8
+      "seconds": 40.5
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 5.4
+      "seconds": 4.5
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 26.2
+      "seconds": 19.8
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 1.2
+      "seconds": 7.1
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.4
+      "seconds": 0.7
     }
   ],
   "update": {
     "town": "westbrook",
     "sources": "all",
-    "started_at": "2026-11-14T09:07:16+00:00",
+    "started_at": "2026-11-15T09:06:46+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 27.8,
+        "seconds": 20.9,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 12.6,
+        "seconds": 12.4,
         "cadence": "continuous"
       },
       {
@@ -144,7 +144,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 5.7,
+        "seconds": 4.4,
         "cadence": "continuous"
       },
       {
@@ -152,7 +152,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.2,
         "cadence": "continuous"
       },
       {
@@ -160,9 +160,8 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "seconds": 0.4,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch school figures",
@@ -171,32 +170,30 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 13 days ago; checked every 30 days"
+        "skipped": "checked 14 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "yearly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "seconds": 0.2,
+        "cadence": "yearly"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "seconds": 0.2,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.2,
         "cadence": "continuous"
       },
       {
@@ -204,7 +201,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.2,
         "cadence": "continuous"
       },
       {
@@ -221,7 +218,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.2,
         "cadence": "continuous"
       },
       {
@@ -229,7 +226,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.2,
         "cadence": "continuous"
       },
       {
@@ -266,21 +263,21 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-14T04:07:17-05:00",
+      "updated_at": "2026-11-15T04:06:46-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-14T04:07:45-05:00",
+      "updated_at": "2026-11-15T04:07:07-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Tax rate and property tax",
       "file": "finance/budget.json",
-      "updated_at": "2026-11-08T04:32:16-05:00",
+      "updated_at": "2026-11-15T04:07:25-05:00",
       "max_days": null,
       "cadence": "yearly",
       "failing": 0,
@@ -304,7 +301,7 @@
     {
       "label": "Unemployment rate (BLS)",
       "file": "labor/unemployment.json",
-      "updated_at": "2026-11-08T04:32:16-05:00",
+      "updated_at": "2026-11-15T04:07:24-05:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
@@ -350,9 +347,9 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-14T12:08:52+00:00",
-  "data_bytes": 849111,
-  "data_bytes_added": 2379,
+  "last_good_at": "2026-11-15T09:07:58+00:00",
+  "data_bytes": 1172024,
+  "data_bytes_added": 2,
   "activity": {
     "boards": 14,
     "meetings_by_date": {
@@ -361,8 +358,8 @@
     }
   },
   "fact_checks": {
-    "summaries": 7,
-    "ok": 7,
+    "summaries": 8,
+    "ok": 8,
     "failed": 0,
     "weak": 0,
     "unchecked": 0,
@@ -372,8 +369,8 @@
     "vote_counts_left_out": 0
   },
   "recordings": {
-    "since": "2026-11-07",
-    "until": "2026-11-13",
+    "since": "2026-11-08",
+    "until": "2026-11-14",
     "held": 0,
     "next_day": 0,
     "steps": {
@@ -390,8 +387,8 @@
     "misses": []
   },
   "documents": {
-    "since": "2026-08-16",
-    "until": "2026-11-13",
+    "since": "2026-08-17",
+    "until": "2026-11-14",
     "held": 19,
     "boards": 10,
     "counts": {
@@ -418,7 +415,5 @@
   "officials": {
     "checked_at": "2026-11-09T04:22:15-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-14T12:08:52+00:00",
-  "published_engine": "v1.109.0"
+  }
 }
