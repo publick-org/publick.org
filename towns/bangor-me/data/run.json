@@ -1,46 +1,46 @@
 {
   "town": "bangor",
   "folder": "bangor-me",
-  "started_at": "2026-11-15T09:25:46+00:00",
-  "finished_at": "2026-11-15T09:29:57+00:00",
-  "engine": "v1.109.0",
+  "started_at": "2026-11-16T09:22:39+00:00",
+  "finished_at": "2026-11-16T09:27:00+00:00",
+  "engine": "v1.110.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 107.1
+      "seconds": 91.1
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 61.7
+      "seconds": 61.2
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 57.7
+      "seconds": 57.4
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 1.8
+      "seconds": 49.7
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.7
+      "seconds": 0.9
     }
   ],
   "update": {
     "town": "bangor",
     "sources": "all",
-    "started_at": "2026-11-15T09:25:46+00:00",
+    "started_at": "2026-11-16T09:22:39+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 40.8,
+        "seconds": 40.9,
         "cadence": "continuous"
       },
       {
@@ -145,7 +145,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 22.2,
+        "seconds": 20.8,
         "cadence": "continuous"
       },
       {
@@ -153,7 +153,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -163,7 +163,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 4 days ago; checked every 7 days"
+        "skipped": "checked 5 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -172,7 +172,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 10 days ago; checked every 30 days"
+        "skipped": "checked 11 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -181,7 +181,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 4 days ago; checked every 7 days"
+        "skipped": "checked 5 days ago; checked every 7 days"
       },
       {
         "name": "Fetch housing figures",
@@ -190,7 +190,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 4 days ago; checked every 7 days"
+        "skipped": "checked 5 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -222,7 +222,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 18.4,
         "cadence": "continuous"
       },
       {
@@ -238,7 +238,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 40.9,
+        "seconds": 8.0,
         "cadence": "continuous"
       },
       {
@@ -260,26 +260,26 @@
       }
     ]
   },
-  "stale": false,
+  "stale": true,
   "sources": [
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-15T04:25:46-05:00",
+      "updated_at": "2026-11-16T04:22:40-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-15T04:26:51-05:00",
+      "updated_at": "2026-11-16T04:24:02-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-15T04:27:32-05:00",
+      "updated_at": "2026-11-16T04:24:10-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -336,10 +336,10 @@
       "file": "config",
       "updated_at": "2026-11-06",
       "max_days": null,
-      "stale": false,
+      "stale": true,
       "latest": null,
-      "next": "a check once new members take office on November 9, 2026",
-      "behind": null,
+      "next": null,
+      "behind": "not checked since new members took office on November 9, 2026",
       "passed": false
     },
     {
@@ -357,8 +357,8 @@
   "corrections": [],
   "ok": true,
   "last_good_at": "2026-11-15T09:59:30+00:00",
-  "data_bytes": 4121180,
-  "data_bytes_added": 1875166,
+  "data_bytes": 4122412,
+  "data_bytes_added": 1863295,
   "activity": {
     "boards": 31,
     "meetings_by_date": {
@@ -379,13 +379,13 @@
     "not_yet": 0,
     "held_back": 12,
     "entries_not_shown": 42,
-    "vote_counts_left_out": 24
+    "vote_counts_left_out": 22
   },
   "recordings": {
-    "since": "2026-11-08",
-    "until": "2026-11-14",
+    "since": "2026-11-09",
+    "until": "2026-11-15",
     "held": 3,
-    "next_day": 1,
+    "next_day": 0,
     "steps": {
       "summarized": 1,
       "minutes": 0,
@@ -411,9 +411,9 @@
     ]
   },
   "documents": {
-    "since": "2026-08-17",
-    "until": "2026-11-14",
-    "held": 86,
+    "since": "2026-08-18",
+    "until": "2026-11-15",
+    "held": 82,
     "boards": 26,
     "counts": {
       "no_documents": 1,
@@ -436,10 +436,6 @@
         "meetings": 3
       },
       {
-        "board": "City Council Finance Committee",
-        "meetings": 3
-      },
-      {
         "board": "Advisory Committee on Racial Equity, Inclusion, and Human Rights",
         "meetings": 2
       },
@@ -448,11 +444,15 @@
         "meetings": 2
       },
       {
-        "board": "City Council Government Operations Committee",
+        "board": "City Council Finance Committee",
         "meetings": 2
       },
       {
         "board": "City Council Personnel Committee",
+        "meetings": 2
+      },
+      {
+        "board": "Commission on Cultural Development",
         "meetings": 2
       },
       {
@@ -465,23 +465,14 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-15T04:23:58-05:00",
+    "at": "2026-11-16T02:23:56-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-13T08:14:13-05:00"
   },
   "officials": {
-    "checked_at": "2026-11-09T04:18:04-05:00",
+    "checked_at": "2026-11-16T04:23:43-05:00",
     "leads": [
-      {
-        "name": "City Council",
-        "url": "https://www.bangormaine.gov/446/City-Council",
-        "missing": [
-          "Anthony Cote",
-          "Terry Dinkins",
-          "Joseph Pratt"
-        ]
-      },
       {
         "name": "School Committee",
         "url": "https://www.bangorschools.net/page/school-committee",
@@ -491,7 +482,5 @@
         ]
       }
     ]
-  },
-  "published_at": "2026-11-15T09:59:30+00:00",
-  "published_engine": "v1.109.0"
+  }
 }
