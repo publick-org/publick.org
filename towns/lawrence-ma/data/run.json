@@ -1,46 +1,46 @@
 {
   "town": "lawrence",
   "folder": "lawrence-ma",
-  "started_at": "2026-11-15T09:26:46+00:00",
-  "finished_at": "2026-11-15T09:29:10+00:00",
-  "engine": "v1.109.0",
+  "started_at": "2026-11-16T09:22:55+00:00",
+  "finished_at": "2026-11-16T09:26:07+00:00",
+  "engine": "v1.110.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 57.2
+      "seconds": 86.9
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 25.0
+      "seconds": 23.8
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 38.3
+      "seconds": 32.6
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.5
+      "seconds": 47.3
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.6
+      "seconds": 1.0
     }
   ],
   "update": {
     "town": "lawrence",
     "sources": "all",
-    "started_at": "2026-11-15T09:26:46+00:00",
+    "started_at": "2026-11-16T09:22:56+00:00",
     "ok": true,
     "steps": [
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -145,7 +145,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 14.0,
+        "seconds": 19.5,
         "cadence": "continuous"
       },
       {
@@ -155,7 +155,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 14 days ago; checked every 30 days"
+        "skipped": "checked 15 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -164,7 +164,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 2 days ago; checked every 7 days"
+        "skipped": "checked 3 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -173,7 +173,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 14 days ago; checked every 30 days"
+        "skipped": "checked 15 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -182,23 +182,22 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 14 days ago; checked every 30 days"
+        "skipped": "checked 15 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 6 days ago; checked every 7 days"
+        "seconds": 24.5,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -223,7 +222,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -231,7 +230,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -268,7 +267,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-15T04:26:47-05:00",
+      "updated_at": "2026-11-16T04:22:56-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -323,13 +322,13 @@
     {
       "label": "Housing figures",
       "file": "housing/housing.json",
-      "updated_at": "2026-11-09T04:20:13-05:00",
+      "updated_at": "2026-11-16T04:23:57-05:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
       "stale": false,
-      "latest": "2025 building permits; ACS 2024 5-year estimates; Fiscal year 2026 parcel counts",
-      "next": "2026 building permits usually by June 1, 2027; ACS 2025 5-year estimates usually by December 15, 2026; Fiscal year 2027 parcel counts usually by March 1, 2027",
+      "latest": "2025 building permits; September 2026 building permits; ACS 2024 5-year estimates; Fiscal year 2027 parcel counts",
+      "next": "2026 building permits usually by June 1, 2027; October 2026 building permits usually by December 1, 2026; ACS 2025 5-year estimates usually by December 15, 2026; Fiscal year 2028 parcel counts usually by March 1, 2028",
       "behind": null
     },
     {
@@ -361,9 +360,9 @@
     "Correction for City Council 2026-11-04: \"8 Henlow Street\" isn't in its summaries any more, so it isn't shown. Remove it, or check it again."
   ],
   "ok": true,
-  "last_good_at": "2026-11-15T09:39:51+00:00",
-  "data_bytes": 1264597,
-  "data_bytes_added": 9308,
+  "last_good_at": "2026-11-16T09:26:07+00:00",
+  "data_bytes": 1264803,
+  "data_bytes_added": 1507,
   "activity": {
     "boards": 32,
     "meetings_by_date": {
@@ -376,18 +375,18 @@
   },
   "fact_checks": {
     "summaries": 56,
-    "ok": 49,
-    "failed": 5,
+    "ok": 50,
+    "failed": 4,
     "weak": 1,
     "unchecked": 0,
     "not_yet": 1,
-    "held_back": 5,
-    "entries_not_shown": 21,
-    "vote_counts_left_out": 19
+    "held_back": 4,
+    "entries_not_shown": 16,
+    "vote_counts_left_out": 5
   },
   "recordings": {
-    "since": "2026-11-08",
-    "until": "2026-11-14",
+    "since": "2026-11-09",
+    "until": "2026-11-15",
     "held": 1,
     "next_day": 0,
     "steps": {
@@ -410,9 +409,9 @@
     ]
   },
   "documents": {
-    "since": "2026-08-17",
-    "until": "2026-11-14",
-    "held": 85,
+    "since": "2026-08-18",
+    "until": "2026-11-15",
+    "held": 84,
     "boards": 28,
     "counts": {
       "no_documents": 1,
@@ -447,10 +446,6 @@
         "meetings": 3
       },
       {
-        "board": "Retirement Board",
-        "meetings": 3
-      },
-      {
         "board": "Airport Commission",
         "meetings": 2
       },
@@ -469,6 +464,10 @@
       {
         "board": "Lawrence Redevelopment Authority",
         "meetings": 2
+      },
+      {
+        "board": "Retirement Board",
+        "meetings": 2
       }
     ],
     "pairs": [],
@@ -476,7 +475,7 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-15T04:24:03-05:00",
+    "at": "2026-11-16T02:24:00-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-13T08:16:33-05:00"
@@ -484,7 +483,5 @@
   "officials": {
     "checked_at": "2026-11-14T04:28:44-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-15T09:39:51+00:00",
-  "published_engine": "v1.109.0"
+  }
 }
