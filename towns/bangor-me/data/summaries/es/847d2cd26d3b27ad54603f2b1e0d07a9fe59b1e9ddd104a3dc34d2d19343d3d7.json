@@ -3,7 +3,7 @@
   "summary": "La dirección del aeropuerto dijo que una instalación a largo plazo podría costar entre $20-30 millones y se pagaría sola con el tiempo gracias a las tarifas. El dinero recaudado hasta ahora cubriría la planificación y el diseño, y los fondos para la construcción estarían listos en unos pocos años. También está pendiente la segunda lectura de una orden para crear una jefatura de departamento de tiempo completo que supervise el sistema de transporte Community Connector, con hasta $65,000 del saldo no asignado del fondo.",
   "decisions": [],
   "discussion": [
-    "Jefatura del departamento de transporte: Los integrantes preguntaron por el número de pasajeros y el salario. El personal dijo que el número de pasajeros ha crecido de forma constante, pero se ha estancado, y que un servicio confiable ayudaría a que regresen los pasajeros. El salario empezaría en los $100,000 bajos, hasta unos 150.",
+    "Jefatura del departamento de transporte: Los integrantes preguntaron por el número de pasajeros y el salario. El personal dijo que el número de pasajeros ha crecido de forma constante, pero se ha estancado, y que un servicio confiable ayudaría a que regresen los pasajeros. El salario empezaría en los $100,000 bajos, hasta unos $150,000.",
     "Instalación de alquiler de autos del aeropuerto: La dirección del aeropuerto dijo que el proyecto está en el plan maestro del aeropuerto y se paga con las tarifas recaudadas desde marzo, unos $1.9 millones hasta ahora. Cuando se preguntó si se necesitarían fondos de la ciudad, la dirección dijo que el proyecto se financiaría por sí solo.",
     "Capacitación del concejo: El personal dijo que la orientación para los nuevos concejales se dividirá en dos sesiones más cortas, con la capacitación legal primero. Una segunda capacitación está programada para el 16 de diciembre.",
     "Asesoría legal de la ciudad: Se reconocerán la última reunión del concejo y el último día de Dave Sauerzapf, a cargo de la asesoría legal de la ciudad. Grace Ennis, asistente de la asesoría legal de la ciudad, ocupará el cargo de forma interina. La búsqueda de personal para el puesto se discutirá en la próxima reunión del concejo."
@@ -12,13 +12,13 @@
   "kind": "recording",
   "source_sha256": "847d2cd26d3b27ad54603f2b1e0d07a9fe59b1e9ddd104a3dc34d2d19343d3d7",
   "source_hash": "da16772fc0a7eaeac5ac4e3a9fd2d7c9df771f98c016fc9acc4bbf8bb25e29e8",
-  "check": "ok",
-  "review": "discussion 1: \"ridership has grown steadily but is stagnant\" is rendered fine, but \"up to around 150\" is rendered as \"hasta unos 150\", which loses the thousands and could read as $150 rather than about $150,000. It should say \"unos $150,000\".",
-  "attempts": 1,
+  "check": "discussion 1: 150 not in the translation",
+  "review": "not reviewed: the check failed",
+  "attempts": 2,
   "model": "claude-haiku-5-5",
   "prompt_version": 7,
   "glossary": "22cce8937292d052",
-  "generated_at": "2026-11-16T04:23:22-05:00",
+  "generated_at": "2026-11-16T04:30:17-05:00",
   "reviewed": [
     "087d4bb742b2134d",
     "1e9e6b4517e19914",
