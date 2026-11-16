@@ -1,8 +1,8 @@
 {
   "town": "wallingford",
   "folder": "wallingford-ct",
-  "started_at": "2026-11-15T09:06:52+00:00",
-  "finished_at": "2026-11-15T09:09:34+00:00",
+  "started_at": "2026-11-16T09:07:01+00:00",
+  "finished_at": "2026-11-16T09:09:46+00:00",
   "engine": "v1.109.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 75.2
+      "seconds": 73.8
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 43.2
+      "seconds": 44.8
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 30.7
+      "seconds": 40.1
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.1
+      "seconds": 5.0
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.5
+      "seconds": 0.7
     }
   ],
   "update": {
     "town": "wallingford",
     "sources": "all",
-    "started_at": "2026-11-15T09:06:52+00:00",
+    "started_at": "2026-11-16T09:07:02+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 7.8,
+        "seconds": 8.1,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -73,7 +73,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 43.2,
+        "seconds": 43.3,
         "cadence": "continuous"
       },
       {
@@ -144,7 +144,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 16.0,
+        "seconds": 12.8,
         "cadence": "continuous"
       },
       {
@@ -154,7 +154,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 11 days ago; checked every 30 days"
+        "skipped": "checked 12 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -163,7 +163,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -172,32 +172,30 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 14 days ago; checked every 30 days"
+        "skipped": "checked 15 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "yearly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "seconds": 6.5,
+        "cadence": "yearly"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "seconds": 0.4,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -205,7 +203,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -222,7 +220,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 6.2,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -230,7 +228,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -267,14 +265,14 @@
     {
       "label": "Meetings (town website)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-15T04:06:53-05:00",
+      "updated_at": "2026-11-16T04:07:02-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Board of Education meetings (school district website)",
       "file": "meetings/finalsite_status.json",
-      "updated_at": "2026-11-15T04:07:01-05:00",
+      "updated_at": "2026-11-16T04:07:11-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -293,7 +291,7 @@
     {
       "label": "City budget",
       "file": "finance/budget.json",
-      "updated_at": "2026-11-09T04:13:10-05:00",
+      "updated_at": "2026-11-16T04:08:07-05:00",
       "max_days": null,
       "cadence": "yearly",
       "failing": 0,
@@ -363,9 +361,9 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-15T09:39:28+00:00",
-  "data_bytes": 2089234,
-  "data_bytes_added": 652,
+  "last_good_at": "2026-11-16T09:09:46+00:00",
+  "data_bytes": 2088917,
+  "data_bytes_added": -991,
   "activity": {
     "boards": 26,
     "meetings_by_date": {
@@ -387,13 +385,13 @@
     "not_yet": 0,
     "held_back": 10,
     "entries_not_shown": 27,
-    "vote_counts_left_out": 93
+    "vote_counts_left_out": 97
   },
   "recordings": {
-    "since": "2026-11-08",
-    "until": "2026-11-14",
+    "since": "2026-11-09",
+    "until": "2026-11-15",
     "held": 2,
-    "next_day": 2,
+    "next_day": 1,
     "steps": {
       "summarized": 2,
       "minutes": 0,
@@ -408,9 +406,9 @@
     "misses": []
   },
   "documents": {
-    "since": "2026-08-17",
-    "until": "2026-11-14",
-    "held": 65,
+    "since": "2026-08-18",
+    "until": "2026-11-15",
+    "held": 64,
     "boards": 24,
     "counts": {
       "no_documents": 0,
@@ -424,7 +422,7 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-15T02:23:58-05:00",
+    "at": "2026-11-16T02:24:03-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-11T12:24:00-05:00"
@@ -432,7 +430,5 @@
   "officials": {
     "checked_at": "2026-11-15T04:08:00-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-15T09:39:28+00:00",
-  "published_engine": "v1.109.0"
+  }
 }
