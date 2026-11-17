@@ -43,9 +43,9 @@ rest for a person (the engine's `pipeline/new_town.py`):
 - **Step 4:** a skeleton only. A person fills in the officials from official
   pages.
 - **Step 5:** the config, from the closest live town (the same meeting
-  platform and state), with the colors from the city's stylesheet. No
-  `[digest]`: that's step 8. No `[recordings]` either: a person finds the
-  source and adds it (steps 1 and 5).
+  platform and state), with the colors from the city's stylesheet, and an
+  empty `[digest]`: the weekly digest is on from launch (step 7). No
+  `[recordings]`: a person finds the source and adds it (steps 1 and 5).
 - **Step 6:** in a copy, so `data/` stays empty: a build with no data, four
   weeks of meetings fetched (`--full` for everything from `since`), a second
   build, the site checks, and `pipeline.listings`. Then the share image.
@@ -300,14 +300,13 @@ shows no ward map; a town with neither (Bangor) has no 311 section yet.
       `sitemap.xml` from its first build. If it isn't listed, add it there
       by hand, then read the scheduler's logs from that morning's first run
       (Cloudflare, **Workers & Pages → publick-scheduler → Logs**) for why.
-
-## 8. A week after launch
-
-- [ ] **Weekly digest by email**, once the town has a full week of
-      meetings to send: add an empty `[digest]` table to its config (the
-      signup's settings are in `defaults/network.toml`). That's the only
+- [ ] **Weekly digest by email**, from launch: the town's config has an
+      empty `[digest]` table (the helper writes it; add it if it's missing;
+      the signup's settings are in `defaults/network.toml`). That's the only
       edit: once it's merged, the **Worker** workflow deploys the scheduler
       with the town in its `DIGEST_TOWNS`, made from the towns' configs
       (`scripts/digest_towns.py`), and makes the town's Buttondown tag,
       `<town>-<state>-en`. Check its run under **Actions → Worker** lists
-      `<town>-<state>.publick.org` among the digest's towns.
+      `<town>-<state>.publick.org` among the digest's towns. A week with no
+      meetings and no new minutes has no issue, so nothing is sent before
+      the town's first fetches.

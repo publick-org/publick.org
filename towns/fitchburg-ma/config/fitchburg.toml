@@ -327,6 +327,12 @@ wards_url = "https://gis.data.mass.gov/maps/aec5130790814ace94438d3bcf23cf9a"
 # How often each data source should update. Figures published monthly or
 # yearly are judged by the engine, by the period they cover
 # (pipeline/rhythms.py).
+# The weekly digest's email signup, on /digest/ (the engine's pipeline/digest.py). The form posts
+# to this site's /digest/subscribe, which the sites Worker answers (worker/digest.js) and passes on
+# to Buttondown with the tag fitchburg-ma-en. The About page names who keeps the addresses.
+[digest]
+# The network's settings (defaults/network.toml): having the table turns the signup on.
+
 [freshness]
 sources = [
   { label = "Meetings (Agenda Center)", file = "meetings/status.json", max_days = 2 },
