@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01WAUN3ZPDw3VintGipgPsML",
-  "sent_at": "2026-11-17T09:10:25+00:00",
+  "id": "msgbatch_01HBt6SK8ienHGV22sQ9wRrF",
+  "sent_at": "2026-11-17T09:29:49+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,25 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
-      "meeting": {
-        "title": "Burlington Aging Council",
-        "date": "2026-11-19",
-        "body": "Burlington Aging Council"
+      "source_hash": "b06a7acac3359bf634c17fbdc78153c0d2a68f6e7f1c3195b1a5608742d4a614",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
       },
-      "doc": {
-        "id": "civicclerk-21657",
-        "sha256": "ddc7bc3260870f8787360dda4431b2013aa7ab868924d7f3859a6375bc537631",
-        "file": "civicclerk-21657.pdf",
-        "source_url": "https://burlingtonvt.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=21657,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-1",
-      "kind": "agenda",
-      "older": false,
       "meeting": {
         "title": "Design Advisory Board Meeting",
         "date": "2026-11-24",
@@ -37,15 +29,43 @@
       },
       "doc": {
         "id": "civicclerk-21652",
-        "sha256": "cdf63caf51f0f3deefcb9feb655330b30d454bba688272b15d29724746f680b7",
-        "file": "civicclerk-21652.pdf",
-        "source_url": "https://burlingtonvt.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=21652,plainText=false)"
+        "sha256": "cdf63caf51f0f3deefcb9feb655330b30d454bba688272b15d29724746f680b7"
       }
     },
     {
-      "custom_id": "doc-2",
+      "custom_id": "tr-1",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "cc0be0e19ea475fd1a9e3a0c1ca2e37c5ff79bec7581d576bee21f55d89405af",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Burlington Aging Council",
+        "date": "2026-11-19",
+        "body": "Burlington Aging Council"
+      },
+      "doc": {
+        "id": "civicclerk-21657",
+        "sha256": "ddc7bc3260870f8787360dda4431b2013aa7ab868924d7f3859a6375bc537631"
+      }
+    },
+    {
+      "custom_id": "tr-2",
+      "type": "translation",
+      "lang": "es",
       "kind": "minutes",
       "older": false,
+      "source_hash": "dac33dce50728505abbb6e8ff15a31e0082f54472382e6a846c9c3362587b88e",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Special Fire Commission Meeting",
         "date": "2026-11-13",
@@ -53,9 +73,7 @@
       },
       "doc": {
         "id": "civicclerk-21653",
-        "sha256": "b61c36ca9dffd189fee98f9ec9f715c9fdbcd67a3114692563a3d8c3e96e12af",
-        "file": "civicclerk-21653.pdf",
-        "source_url": "https://burlingtonvt.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=21653,plainText=false)"
+        "sha256": "b61c36ca9dffd189fee98f9ec9f715c9fdbcd67a3114692563a3d8c3e96e12af"
       }
     }
   ]
