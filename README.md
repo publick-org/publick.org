@@ -37,6 +37,8 @@ scripts/build_home.py         Writes the homepage's town lists, by state (each s
                               every town's sitemaps) and robots.txt
 scripts/build_status.py       Writes the network status page, publick.org/status/
 scripts/make_share_image.py   Draws home/share/publick.png, the homepage's card on Substack and social media
+scripts/digest_towns.py       Lists the towns whose weekly digest is emailed, from their configs ([digest]), for the
+                              scheduler; --check fails a pull request that would let the two disagree
 .github/workflows/network.yml The daily runs, and builds on push and pull request
 .github/workflows/engine.yml  Moves engine-version to each new engine release once the towns pass on it
 .github/workflows/add-town.yml Adds a town, by hand: the engine's helper and a draft pull request with its report, then,
@@ -44,7 +46,8 @@ scripts/make_share_image.py   Draws home/share/publick.png, the homepage's card 
 .github/workflows/evaluate.yml Runs the engine's minutes or translation prompt against the real model before a prompt change
                               ships, or the minutes as a batch at each effort, to measure the Batches API (by hand)
 .github/workflows/worker.yml  Deploys the Workers: the scheduler by itself when engine-version moves to an engine whose
-                              scheduler changed, or wrangler.scheduler.toml changes; the sites Worker only by hand (an
+                              scheduler changed, or wrangler.scheduler.toml, a town's config, or defaults/ changes (its
+                              digest's towns are made from them); the sites Worker only by hand (an
                               engine whose sites Worker changed opens an issue asking for it)
 ```
 
@@ -118,14 +121,16 @@ Worker, which picks the site by hostname: `gloucester-ma.publick.org` is
 - **On a pull request:** builds and checks the towns it touches. Nothing is published.
 - **The weekly digest**, each Sunday at 7 AM in the town's time, from the
   issue each town's Saturday run builds (its Sunday run, if Saturday's
-  didn't publish): the scheduler Worker emails each town in its `DIGEST_TOWNS`
-  (`wrangler.scheduler.toml`) its newest issue through Buttondown, to that
+  didn't publish): the scheduler Worker emails each town in its `DIGEST_TOWNS`,
+  every town whose config has a `[digest]` table (`scripts/digest_towns.py`,
+  run when `.github/workflows/worker.yml` deploys it), its newest issue through Buttondown, to that
   town's readers alone. The signup form on a town's `/digest/` page (its
   config's `[digest] signup`) posts to the sites Worker, which passes the
   address on to Buttondown, within the `SIGNUP_LIMITER` rate limit
   (`wrangler.toml`). A new town joins a full week after its launch, not at
-  launch (ADDING-A-TOWN.md, step 8): its `[digest]` table, its place in
-  `DIGEST_TOWNS`, then **Actions → Worker**, which makes its Buttondown tag. A run makes two requests for each town and two more. See the engine's docs/site.md,
+  launch (ADDING-A-TOWN.md, step 8): its `[digest]` table, and once that's
+  merged the Worker workflow deploys the scheduler with the town in its list,
+  and makes its Buttondown tag. A run makes two requests for each town and two more. See the engine's docs/site.md,
   Weekly digest.
 - **By hand** (**Actions → Network → Run workflow**): tick **daily** for a daily
   run, as the scheduler starts; or any towns, with or without fetching; with no

@@ -305,8 +305,9 @@ shows no ward map; a town with neither (Bangor) has no 311 section yet.
 
 - [ ] **Weekly digest by email**, once the town has a full week of
       meetings to send: add an empty `[digest]` table to its config (the
-      signup's settings are in `defaults/network.toml`), and add
-      `<town>-<state>.publick.org` to
-      `DIGEST_TOWNS` in `wrangler.scheduler.toml`. Once that's merged, run
-      **Actions → Worker**: it also makes the town's Buttondown tag,
-      `<town>-<state>-en`.
+      signup's settings are in `defaults/network.toml`). That's the only
+      edit: once it's merged, the **Worker** workflow deploys the scheduler
+      with the town in its `DIGEST_TOWNS`, made from the towns' configs
+      (`scripts/digest_towns.py`), and makes the town's Buttondown tag,
+      `<town>-<state>-en`. Check its run under **Actions → Worker** lists
+      `<town>-<state>.publick.org` among the digest's towns.

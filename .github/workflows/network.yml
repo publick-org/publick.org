@@ -28,7 +28,9 @@
 #              publishes its towns before it commits their data: built from
 #              the branch meanwhile, a town would go back to older data.
 #   pull_request  Builds and checks every page of the towns a change touches.
-#              Nothing is published. An engine update's (engine.yml's, from
+#              Nothing is published. Also checks the weekly digest's towns,
+#              which worker.yml makes from the towns' configs, agree with them
+#              (scripts/digest_towns.py --check). An engine update's (engine.yml's, from
 #              its engine-version branch) checks every page of the canaries,
 #              the fewest towns with every kind of town between them (the
 #              engine's network.py canaries), and a sample of the rest, so it
@@ -201,7 +203,8 @@ jobs:
           done
 
       # The towns' config files, the settings they share (defaults/), and run records: enough to list them
-      # and pick the ones that are due, without downloading any town's data. Outside a pull request, the
+      # and pick the ones that are due, without downloading any town's data (and, for a pull request's
+      # check of the digest's towns, its script and the scheduler's config). Outside a pull request, the
       # branch as it is when the run starts, not when it was queued: a run that waited behind another sees
       # the towns that one just updated.
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -215,6 +218,8 @@ jobs:
             /defaults/
             /towns/*/config/
             /towns/*/data/run.json
+            /scripts/digest_towns.py
+            /wrangler.scheduler.toml
 
       - id: engine
         run: echo "ref=$(tr -d '[:space:]' < engine-version)" >> "$GITHUB_OUTPUT"
@@ -229,6 +234,14 @@ jobs:
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: "3.12"
+
+      # A town with a [digest] table, its signup form shown, is a town the scheduler sends the digest to, and
+      # one without isn't: worker.yml makes the scheduler's list from the same configs, and this fails a pull
+      # request that would let them disagree (a [digest] with its signup off, or a hand-typed DIGEST_TOWNS
+      # in wrangler.scheduler.toml). A pull request only, so a daily run never stops for it.
+      - name: Check the digest's towns
+        if: github.event_name == 'pull_request'
+        run: python scripts/digest_towns.py --check
 
       - id: plan
         env:
