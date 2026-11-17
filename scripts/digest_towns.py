@@ -10,8 +10,10 @@ and makes each town's Buttondown tag from it.
 
 --check fails when the list and the configs could disagree: a town with a
 [digest] table whose signup is off (or one without the table whose signup is
-on), or a DIGEST_TOWNS of its own in wrangler.scheduler.toml, which the deploy
-would override. The network workflow runs it on every pull request.
+on), two digest towns with one domain, or a DIGEST_TOWNS of its own in
+wrangler.scheduler.toml, which the deploy would override. It also fails when
+the list outgrows what one Worker variable can hold (VARIABLE_BYTES). The
+network workflow runs it on every pull request.
 
     PYTHONPATH=../publick-engine python scripts/digest_towns.py            # the hostnames, comma-separated
     PYTHONPATH=../publick-engine python scripts/digest_towns.py --check    # exits 1 on a disagreement
@@ -21,23 +23,23 @@ from __future__ import annotations
 
 import argparse
 import sys
-import tomllib
 from pathlib import Path
 
 # The town configs are read with the engine's config reader, and their layers in defaults/: the engine is on
 # PYTHONPATH, as for building a town. Standard library only, so it runs without the engine's packages.
 from pipeline import digest
-from pipeline.network import TOWNS, town_config, town_dirs
+from pipeline.config import read_toml
+from pipeline.network import TOWNS, slug, town_config, town_dirs
 
 ROOT = Path(__file__).resolve().parent.parent
 SCHEDULER_CONFIG = "wrangler.scheduler.toml"
+# Cloudflare's limit on one Worker variable's value, which DIGEST_TOWNS is (about 200 towns' hostnames).
+VARIABLE_BYTES = 5 * 1024
 
 
 def own_table(root: Path, name: str) -> bool:
     """Whether the town's own config file (not its layers) has a [digest] table."""
-    path = next((root / TOWNS / name / "config").glob("*.toml"))
-    with path.open("rb") as f:
-        return "digest" in tomllib.load(f)
+    return "digest" in read_toml(root / TOWNS / name / "config" / f"{slug(root, name)}.toml")
 
 
 def towns(root: Path) -> list[tuple[str, str, bool]]:
@@ -63,16 +65,20 @@ def problems(root: Path, rows: list[tuple[str, str, bool]]) -> list[str]:
             found.append(f"towns/{name} has a [digest] table, but its signup is off, so {host} isn't in the list: "
                          "leave the table out to turn the digest off.")
         elif on and not table:
+            # Only if the engine's layers came to fill in [digest] for a town without the table.
             found.append(f"towns/{name} has no [digest] table, but its signup is on, so {host} is in the list.")
     hosts = [host for _, host, on in rows if on]
     found += [f"{host} is the domain of more than one town with a digest." for host in sorted(set(hosts))
               if hosts.count(host) > 1]
+    size = len(",".join(sorted(hosts)).encode())
+    if size > VARIABLE_BYTES:
+        found.append(f"DIGEST_TOWNS would be {size} bytes, past Cloudflare's limit of {VARIABLE_BYTES} on a Worker "
+                     "variable, so the scheduler's deploy would be refused: it needs to be read from KV instead.")
     scheduler = root / SCHEDULER_CONFIG
     if scheduler.is_file():
-        with scheduler.open("rb") as f:
-            if "DIGEST_TOWNS" in tomllib.load(f).get("vars", {}):
-                found.append(f"{SCHEDULER_CONFIG} sets DIGEST_TOWNS. It's made from the towns' configs when the "
-                             "scheduler is deployed (scripts/digest_towns.py), which replaces it: take it out.")
+        if "DIGEST_TOWNS" in read_toml(scheduler).get("vars", {}):
+            found.append(f"{SCHEDULER_CONFIG} sets DIGEST_TOWNS. It's made from the towns' configs when the "
+                         "scheduler is deployed (scripts/digest_towns.py), which replaces it: take it out.")
     return found
 
 

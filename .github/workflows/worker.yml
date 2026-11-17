@@ -85,20 +85,6 @@ jobs:
           path: .publick-engine
           fetch-depth: 0
 
-      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
-        with:
-          python-version: "3.12"
-
-      # The towns whose digest is emailed: every town whose config has a [digest] table, read with the engine's
-      # config reader. The scheduler's DIGEST_TOWNS, and the towns whose Buttondown tags are made below.
-      - id: digest
-        env:
-          PYTHONPATH: .publick-engine
-        run: |
-          towns=$(python scripts/digest_towns.py)
-          echo "The digest's towns: ${towns:-none}"
-          echo "towns=$towns" >> "$GITHUB_OUTPUT"
-
       # Run by hand: both. A push: the scheduler when its config or the digest's towns' files changed, or its
       # files did between the old engine-version and the new (anything it can't compare deploys it); never the
       # sites Worker, but whether its files changed, for the issue below. A push compares with the last run
@@ -216,6 +202,21 @@ jobs:
             printf '%s' "${!name}" | npx --yes wrangler@4.137.0 secret put "$name"
           done
 
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+
+      # The towns whose digest is emailed: every town whose config has a [digest] table, read with the engine's
+      # config reader. The scheduler's DIGEST_TOWNS, and the towns whose Buttondown tags are made below. After
+      # the sites Worker's steps, so a config it can't read stops only the scheduler's deploy and the tags.
+      - id: digest
+        env:
+          PYTHONPATH: .publick-engine
+        run: |
+          towns=$(python scripts/digest_towns.py)
+          echo "The digest's towns: ${towns:-none}"
+          echo "towns=$towns" >> "$GITHUB_OUTPUT"
+
       # After the sites Worker, which its service binding names. The token is set right after the deploy
       # (a secret can only be set on a Worker that exists); a start in between would only fail once.
       - name: Deploy the scheduler
@@ -290,14 +291,24 @@ jobs:
             exit 0
           fi
           towns=$(tr ',' ' ' <<< "$DIGEST_TOWNS")
-          # The tags already there, by name (Buttondown pages its list; 100 is more than the network has).
-          status=$(curl -sS -o tags.json -w '%{http_code}' "https://api.buttondown.com/v1/tags?page_size=100" \
-            -H "Authorization: Token $BUTTONDOWN_SUBSCRIBE_KEY")
-          if [ "$status" != 200 ]; then
-            echo "::error::Listing the tags: HTTP $status $(cat tags.json)"
-            exit 1
-          fi
-          jq -r '.results[].name' tags.json > tag-names.txt
+          # The tags already there, by name, every page of them (Buttondown pages its list). The key goes only to
+          # Buttondown's API, wherever its next page says to look.
+          api=https://api.buttondown.com/v1
+          url="$api/tags?page_size=100"
+          : > tag-names.txt
+          while [ -n "$url" ]; do
+            if [[ "$url" != "$api/"* ]]; then
+              echo "::error::Listing the tags: the next page isn't on Buttondown's API: $url"
+              exit 1
+            fi
+            status=$(curl -sS -o tags.json -w '%{http_code}' "$url" -H "Authorization: Token $BUTTONDOWN_SUBSCRIBE_KEY")
+            if [ "$status" != 200 ]; then
+              echo "::error::Listing the tags: HTTP $status $(cat tags.json)"
+              exit 1
+            fi
+            jq -r '.results[].name' tags.json >> tag-names.txt
+            url=$(jq -r '.next // empty' tags.json)
+          done
           failed=0
           for host in $towns; do
             tag="${host%%.*}-en"
@@ -305,7 +316,7 @@ jobs:
               echo "The tag $tag is there."
               continue
             fi
-            status=$(curl -sS -o tag.json -w '%{http_code}' -X POST https://api.buttondown.com/v1/tags \
+            status=$(curl -sS -o tag.json -w '%{http_code}' -X POST "$api/tags" \
               -H "Authorization: Token $BUTTONDOWN_SUBSCRIBE_KEY" -H "Content-Type: application/json" \
               -d "{\"name\": \"$tag\", \"color\": \"$TAG_COLOR\"}")
             if [ "$status" = 201 ]; then
