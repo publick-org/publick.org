@@ -131,10 +131,11 @@ since = "2026-01-01"
 # retreat, and the City Council's retreat; the schools' site councils and a
 # PTO's ("Morgan Site Council Meeting", "School Cite Council- Morgan", "HHS
 # School Council", "Lawrence School Site meeting", "McMahon PTO – Site
-# Council"); and the City Clerk's election work posted as meetings ("Voting
-# Machine Testing", "Post Election Tabulation", "RECOUNT-Ward 1 City Council")
-# and the Police Department's promotion interviews.
-exclude_pattern = 'Executive Session|Closed to the Public|Walkthrough|Retreat|Site Council|Cite Council|School Council|Site meeting|\bPTO\b|Voting Machine|Tabulation|Recount|Promotion Interview'
+# Council"), and a "Student Council"; and the City Clerk's election work
+# posted as meetings ("Voting Machine Testing", "Post Election Tabulation",
+# "RECOUNT-Ward 1 City Council") and the Police Department's promotion
+# interviews.
+exclude_pattern = 'Executive Session|Closed to the Public|Walkthrough|Retreat|Site Council|Cite Council|School Council|Student Council|Site meeting|\bPTO\b|Voting Machine|Tabulation|Recount|Promotion Interview'
 
 # Words in the posts' titles, each mapped to the board as the site names it;
 # the longest found wins. Titles name a board several ways ("Board of Fire
@@ -184,8 +185,7 @@ exclude_pattern = 'Executive Session|Closed to the Public|Walkthrough|Retreat|Si
 "Fire Commissioners" = "Board of Fire Commissioners"
 "Fire Commissioner" = "Board of Fire Commissioners"
 "Board of Assessors" = "Board of Assessors"
-"Registrar of Voters" = "Board of Registrars of Voters"
-"Registrar of Voter" = "Board of Registrars of Voters"
+"Registrar" = "Board of Registrars of Voters"
 "Council on Aging" = "Council on Aging Board of Directors"
 "Commission on Disabilities" = "Commission on Disabilities"
 "Community Preservation" = "Community Preservation Act Committee"
@@ -205,6 +205,7 @@ exclude_pattern = 'Executive Session|Closed to the Public|Walkthrough|Retreat|Si
 "Citizens Advisory Comm" = "Citizens Advisory Committee"
 "Recycling Advisory Committee" = "Recycling Advisory Committee"
 "Food Policy Council" = "Food Policy Council"
+"CAFO Screening Committee" = "CAFO Screening Committee"
 
 # Agenda and minutes PDFs live in the network's documents bucket, not in git
 # (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID,
