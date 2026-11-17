@@ -150,8 +150,9 @@ exclude_pattern = 'Executive Session|Closed to the Public|Walkthrough|Retreat|Si
 # and place, for an executive session the meeting may go into: it's the same
 # sitting, so it's shown as one meeting with the regular one (python -m
 # pipeline.listings). The Board of Health attaches its agendas as old Word
-# (.doc) files, which the engine doesn't read: its meetings are listed without
-# them, and an error names each file.
+# (.doc) files, which the engine doesn't read: each such page fails with an
+# error naming the file, is read again on the next run, and its minutes aren't
+# saved.
 [proudcity_meetings.bodies]
 "City Council" = "City Council"
 "Ordinance Committee" = "City Council Ordinance Committee"
@@ -173,6 +174,7 @@ exclude_pattern = 'Executive Session|Closed to the Public|Walkthrough|Retreat|Si
 "Parent and Community Engagement" = "School Committee Parent and Community Engagement Committee"
 "Local Control Subcommittee" = "School Committee Local Control Subcommittee"
 "Superintendent Search Committee" = "School Committee Superintendent Search Committee"
+"Accessibility Task Force" = "Superintendent Interview Question Accessibility Task Force"
 "Planning Board" = "Planning Board"
 "Conservation Commission" = "Conservation Commission"
 "Preliminary Screening Subcommittee" = "Conservation Commission Preliminary Screening Subcommittee"
@@ -182,7 +184,7 @@ exclude_pattern = 'Executive Session|Closed to the Public|Walkthrough|Retreat|Si
 "Gas & Electric Commission" = "Gas & Electric Commission"
 "Public Works" = "Public Works Commission"
 "Redevelopment Authority" = "Redevelopment Authority"
-"Economic Development" = "Holyoke Economic Development and Industrial Corporation"
+"Economic Development and Industrial" = "Holyoke Economic Development and Industrial Corporation"
 "HEDIC" = "Holyoke Economic Development and Industrial Corporation"
 "Housing Authority" = "Housing Authority"
 "Retirement Board" = "Retirement Board"
@@ -192,6 +194,7 @@ exclude_pattern = 'Executive Session|Closed to the Public|Walkthrough|Retreat|Si
 "Fire Commissioner" = "Board of Fire Commissioners"
 "Board of Assessors" = "Board of Assessors"
 "Registrar" = "Board of Registrars of Voters"
+"Registrars" = "Board of Registrars of Voters"
 "Council on Aging" = "Council on Aging Board of Directors"
 "Commission on Disabilities" = "Commission on Disabilities"
 "Community Preservation" = "Community Preservation Act Committee"
@@ -221,10 +224,8 @@ prefix = "holyoke-ma"
 
 # Plain-English agenda text and previews, and decisions from minutes, written
 # by a language model and labeled as AI-generated on the site. Only meetings
-# from `since` on are summarized, about three months before launch, so the
-# town's history doesn't take the month's budget. Most minutes have a text
-# layer (the council's are scans with Acrobat's OCR text); the Planning
-# Board's, the Redevelopment Authority's, the Board of Fire Commissioners',
+# from `since` on are summarized. Most minutes have a text layer (the
+# council's are scans with Acrobat's OCR text); the Planning Board's, the Redevelopment Authority's, the Board of Fire Commissioners',
 # the Health Benefit Trust's, the Tourism Advisory Committee's and the Local
 # Historic District Commission's are scans without one, about 140 to 180 pages
 # a year to transcribe, about 90 of them the Planning Board's.
@@ -277,7 +278,7 @@ boards = "listed"
 [[recordings.sources]]
 platform = "youtube"
 channel = "UCQpO1uQwX1TR7UHJOl8D1KQ"
-boards = { "School Committee" = '^School Committee (Special Meeting )?\d{1,2}[-/.]\d{1,2}[-/.]\d{2,4}( \(English\))?$' }
+boards = { "School Committee" = '^(Holyoke )?School Committee (Special |Organizational )?(Meeting )?\d{1,2}[-/.]\d{1,2}[-/.]\d{2,4}( \(English\))?$' }
 
 # How residents can take part, per board, shown on its meeting pages. The
 # council's from its rules (rule 7B, as amended August 4, 2026), which the
