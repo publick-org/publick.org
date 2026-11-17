@@ -1,0 +1,448 @@
+# Site configuration for Holyoke, Massachusetts. Everything town-specific
+# lives here; the code is the Publick engine
+# (github.com/publick-org/publick-engine).
+#
+# Holyoke's website (www.holyoke.org) runs on ProudCity, and every city board
+# posts its meetings there, each a post with its own page: the City Council and
+# its committees, the School Committee and its subcommittees, and the city's
+# boards and commissions, with each meeting's agenda, packet, minutes and video.
+# The council's minutes are posted about five or six weeks after a meeting; its
+# committees' come months later, so those meetings are summarized from their
+# recordings until then. The School Committee's minutes aren't on its meetings'
+# own pages: each is linked, as a Google Doc, from the packet of a later
+# meeting. Recordings are on YouTube: the council's and its committees' on
+# Holyoke Media's channel, the Planning Board's on its own, and the School
+# Committee's on the district's. 311 requests are on SeeClickFix. The state
+# sources (DLS, DESE, BLS, Census, the Subsidized Housing Inventory) are the
+# same as Malden's.
+#
+# Written on 2026-11-17 from Fitchburg's config; the ward file and the codes
+# are the engine's helper's (python -m pipeline.new_town).
+#
+# The site is in English and Spanish ([site] languages), as every town's is.
+# The first runs draft the Spanish for the town's own text; [strings.es], at
+# the end, can correct it.
+
+[site]
+name = "Holyoke Publick"
+# The masthead shows name_prefix in dark ink and name_suffix in the accent
+# color: the town, then the network.
+name_prefix = "Holyoke "
+domain = "holyoke-ma.publick.org"
+tagline = "Public data on how Holyoke, Massachusetts responds, decides, and spends. Updated daily."
+# One line under the name at the top of every page.
+masthead = "An independent guide to city government in Holyoke, Massachusetts"
+# Public contact address. Shown on the About and Accessibility pages when set.
+contact_email = "holyoke-ma@publick.org"
+user_agent = "holyoke-ma.publick.org (+https://holyoke-ma.publick.org/about/)"
+
+# From the city website's own theme (the styles holyoke.org sets in each page;
+# its stylesheets' most used colors are ProudCity's, every ProudCity site's):
+# the green of its buttons and labels (12 uses) as primary, a darker shade of
+# it as primary_dark, and the purple of its menu bar (11 uses) as accent;
+# primary_soft a light tint of primary. Each passes WCAG AA on white (6.4,
+# 15.2, 12.3 to 1), and primary 5.5 to 1 on its tint.
+[site.colors]
+primary = "#256d1e"
+primary_dark = "#0f2c0c"
+primary_soft = "#e9f0e8"
+accent = "#3b2770"
+
+[town]
+name = "Holyoke"
+state_abbr = "MA"
+official_site = "https://www.holyoke.org"
+
+# Sections appear in the main navigation in this order. Each one is a folder
+# under site/pages/<slug>/ and is served at https://<domain>/<slug>/.
+[[sections]]
+slug = "meetings"
+title = "Meetings"
+summary = "Every board and committee meeting on the city's website, with agendas, and minutes from January 2026 on. The council's committees post their minutes months later, so their meetings are summarized from their recordings until then."
+status = "live"
+
+[[sections]]
+slug = "311"
+title = "311 Requests"
+nav = "311"
+summary = "How fast the city responds to service requests on SeeClickFix, by category and ward."
+status = "live"
+
+[[sections]]
+slug = "schools"
+title = "Schools"
+summary = "Graduation, attendance, and MCAS results compared with the state."
+status = "live"
+
+[[sections]]
+slug = "budget"
+title = "City budget"
+nav = "Budget"
+summary = "Where general fund money comes from and how it is spent, reserves, and the property tax limit."
+status = "live"
+
+[[sections]]
+slug = "housing"
+title = "Housing"
+summary = "New homes permitted, home values and rents, affordable housing, and the housing stock."
+status = "live"
+
+[[sections]]
+slug = "officials"
+title = "Who represents you"
+nav = "Officials"
+summary = "The mayor, City Council, and School Committee, by office and by ward, and how to reach them."
+status = "live"
+
+[[sections]]
+slug = "about"
+title = "About"
+summary = "Data sources, update schedule, metric definitions, and corrections."
+status = "live"
+
+# Page view counting with GoatCounter, on the network's site; prefix is this
+# town's folder.
+[analytics]
+prefix = "holyoke-ma"
+
+# Public meetings, every one from the city's website ([proudcity_meetings],
+# below), whose Public Meetings page lists each board's meetings by year. The
+# city's CivicClerk portal (holyokema.portal.civicclerk.com) isn't read: it
+# lists the council's and its committees' meetings, with files for the
+# council's only, all of them on the website too.
+[meetings]
+governing_body = "City Council"
+calendar_url = "https://www.holyoke.org/departments/public-meetings/"
+archive_url = "https://www.holyoke.org/departments/public-meetings/"
+archive_name = "city's website"
+
+# Every board's meetings on holyoke.org, read through its REST API
+# (/wp-json/wp/v2/meetings), each post's page for its date, place, agenda,
+# minutes and video. About 550 posts a year.
+[proudcity_meetings]
+site_url = "https://www.holyoke.org"
+source_name = "City of Holyoke"
+# The first run lists meetings from here, and minutes are collected from here
+# on.
+since = "2026-01-01"
+# Posts that aren't a board's public meeting: executive sessions ("School
+# Committee Executive Session Meeting, -Closed to the Public", "Holyoke City
+# Council Executive Session"); the School Committee's school walkthroughs and
+# retreat, and the City Council's retreat; the schools' site councils and a
+# PTO's ("Morgan Site Council Meeting", "School Cite Council- Morgan", "HHS
+# School Council", "Lawrence School Site meeting", "McMahon PTO – Site
+# Council"), and a "Student Council"; and the City Clerk's election work
+# posted as meetings ("Voting Machine Testing", "Post Election Tabulation",
+# "RECOUNT-Ward 1 City Council") and the Police Department's promotion
+# interviews.
+exclude_pattern = 'Executive Session|Closed to the Public|Walkthrough|Retreat|Site Council|Cite Council|School Council|Student Council|Site meeting|\bPTO\b|Voting Machine|Tabulation|Recount|Promotion Interview'
+
+# Words in the posts' titles, each mapped to the board as the site names it;
+# the longest found wins. Titles name a board several ways ("Board of Fire
+# Commissioner", "Board of Fire Commissioners"; "Biking and Pedestrian",
+# "Bicycle and Pedestrian"), so each way is listed. The council's six standing
+# committees are named as the council's; the School Committee's subcommittees
+# as the committee's. Posts whose titles name none of these (a nonprofit's or a
+# cooperative's annual meeting the city posts, a public hearing of the Office
+# of Community Development) aren't read, and are listed in
+# meetings/proudcity_status.json. The Redevelopment Authority and HEDIC post
+# a second notice for some meetings, an "Executive Meeting" at the same time
+# and place, for an executive session the meeting may go into: it's the same
+# sitting, so it's shown as one meeting with the regular one (python -m
+# pipeline.listings). The Board of Health attaches its agendas as old Word
+# (.doc) files, which the engine doesn't read: each such page fails with an
+# error naming the file, is read again on the next run, and its minutes aren't
+# saved.
+[proudcity_meetings.bodies]
+"City Council" = "City Council"
+"Ordinance Committee" = "City Council Ordinance Committee"
+"Finance Committee" = "City Council Finance Committee"
+"Development and Governmental Relations" = "City Council Development and Governmental Relations Committee"
+"Charter and Rules" = "City Council Charter and Rules Committee"
+"Public Safety Committee" = "City Council Public Safety Committee"
+"Public Service Committee" = "City Council Public Service Committee"
+"Joint Committee of the City Council and School Committee" = "Joint Committee of the City Council and School Committee"
+# A joint session of the two bodies, to fill a School Committee vacancy
+# ("Holyoke City Council and School Committee Special Meeting June 17, 2026").
+"City Council and School Committee" = "Joint Convention of the City Council and School Committee"
+"School Committee" = "School Committee"
+"Finance and Operations" = "School Committee Finance and Operations Subcommittee"
+"Policy and Governance" = "School Committee Policy and Governance Subcommittee"
+"Leadership and Accountability" = "School Committee Leadership and Accountability Subcommittee"
+"Leadership Accountability" = "School Committee Leadership and Accountability Subcommittee"
+"Leadership Measurements" = "School Committee Leadership and Accountability Subcommittee"
+"Parent and Community Engagement" = "School Committee Parent and Community Engagement Committee"
+"Local Control Subcommittee" = "School Committee Local Control Subcommittee"
+"Superintendent Search Committee" = "School Committee Superintendent Search Committee"
+"Accessibility Task Force" = "Superintendent Interview Question Accessibility Task Force"
+"Planning Board" = "Planning Board"
+"Conservation Commission" = "Conservation Commission"
+"Preliminary Screening Subcommittee" = "Conservation Commission Preliminary Screening Subcommittee"
+"Board of Appeals" = "Board of Appeals"
+"License Board" = "License Board"
+"Water Works Commission" = "Water Works Commission"
+"Gas & Electric Commission" = "Gas & Electric Commission"
+"Public Works" = "Public Works Commission"
+"Redevelopment Authority" = "Redevelopment Authority"
+"Economic Development and Industrial" = "Holyoke Economic Development and Industrial Corporation"
+"HEDIC" = "Holyoke Economic Development and Industrial Corporation"
+"Housing Authority" = "Housing Authority"
+"Retirement Board" = "Retirement Board"
+"Health Benefit Trust" = "Health Benefit Trust"
+"Board of Health" = "Board of Health"
+"Fire Commissioners" = "Board of Fire Commissioners"
+"Fire Commissioner" = "Board of Fire Commissioners"
+"Board of Assessors" = "Board of Assessors"
+"Registrar" = "Board of Registrars of Voters"
+"Registrars" = "Board of Registrars of Voters"
+"Council on Aging" = "Council on Aging Board of Directors"
+"Commission on Disabilities" = "Commission on Disabilities"
+"Community Preservation" = "Community Preservation Act Committee"
+"Local Cultural Council" = "Local Cultural Council"
+"Local Historic District" = "Local Historic District Commission"
+"Historical Commission" = "Historical Commission"
+"Parks & Recreation Commission" = "Parks & Recreation Commission"
+"Library Board" = "Library Board"
+"Tourism Advisory Committee" = "Tourism Advisory Committee"
+"Parking Advisory Committee" = "Parking Advisory Committee"
+"Bicycle and Pedestrian" = "Bicycle and Pedestrian Committee"
+"Biking and Pedestrian" = "Bicycle and Pedestrian Committee"
+"Soldiers Memorial" = "Soldiers Memorial Commission"
+"Citizens Opioid" = "Citizens Opioid Advisory Committee"
+"Citizens Opioids" = "Citizens Opioid Advisory Committee"
+"Citizens Advisory Committee" = "Citizens Advisory Committee"
+"Citizens Advisory Comm" = "Citizens Advisory Committee"
+"Recycling Advisory Committee" = "Recycling Advisory Committee"
+"Food Policy Council" = "Food Policy Council"
+"CAFO Screening Committee" = "CAFO Screening Committee"
+
+# Agenda and minutes PDFs live in the network's documents bucket, not in git
+# (see pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID,
+# STORAGE_SECRET_ACCESS_KEY.
+[storage]
+prefix = "holyoke-ma"
+
+# Plain-English agenda text and previews, and decisions from minutes, written
+# by a language model and labeled as AI-generated on the site. Only meetings
+# from `since` on are summarized. Most minutes have a text layer (the
+# council's are scans with Acrobat's OCR text); the Planning Board's, the Redevelopment Authority's, the Board of Fire Commissioners',
+# the Health Benefit Trust's, the Tourism Advisory Committee's and the Local
+# Historic District Commission's are scans without one, about 140 to 180 pages
+# a year to transcribe, about 90 of them the Planning Board's.
+[summaries]
+since = "2026-08-01"
+
+# The boards' meetings below, transcribed from their recordings for a summary
+# the day after, until the minutes come (the engine's pipeline/recordings.py).
+# Every source is YouTube, transcribed by Gemini.
+[recordings]
+since = "2026-11-17"
+
+# The video each meeting's own page embeds: the council's and its committees'
+# from Holyoke Media, the Planning Board's from its channel.
+[[recordings.sources]]
+platform = "youtube"
+boards = "listed"
+
+# Holyoke Media's channel, which the city's Live Stream and Video Archive page
+# links: the council and its committees, and the Commission on Disabilities,
+# each posted the next day, in English ("Holyoke City Council Meeting
+# 11/05/26", "Finance Committee Meeting 11/10/26") and with Spanish
+# interpretation ("Concejo Municipal de Holyoke 11/05/26", "Comité de Finanzas
+# 11/10/26"). The Spanish titles name no kind of public body ("Comité",
+# "Concejo"), so they're passed over, as the channel's other programs are, and
+# not listed as unmatched. For a meeting whose page has no video yet.
+[[recordings.sources]]
+platform = "youtube"
+channel = "UCokKgazMWxHdi6-FPt6kmoA"
+boards = "listed"
+
+# The Planning Board's channel ("Planning Board Meetings"), whose videos its
+# meeting pages embed, titled "Planning Board Meeting October 13, 2026". They
+# go up 1 to 13 days after the meeting, so one can come after [recordings]'
+# max_age_days (14 days) and be left out; the minutes come later.
+[[recordings.sources]]
+platform = "youtube"
+channel = "UCPqoOMZ6x3ojmr-t7nkEc4w"
+boards = "listed"
+
+# The district's channel, Holyoke Public Schools Media Center, which its
+# website (www.hps.holyoke.ma.us) links: each School Committee meeting's live
+# stream ("School Committee 11-9-2026"), often an edited copy under the same
+# title, and a copy with Spanish interpretation ("School Committee 10-13-2026
+# (Spanish)"), with the schools' own programs. The pattern takes the English
+# copies of its meetings only: the Spanish copy names the committee too, and a
+# meeting is transcribed from the first recording found. A budget hearing's
+# short video ("School Committee Budget Hearing 6-8-2026") isn't taken for the
+# meeting that day.
+[[recordings.sources]]
+platform = "youtube"
+channel = "UCQpO1uQwX1TR7UHJOl8D1KQ"
+boards = { "School Committee" = '^(Holyoke )?School Committee (Special |Organizational )?(Meeting )?\d{1,2}[-/.]\d{1,2}[-/.]\d{2,4}( \(English\))?$' }
+
+# How residents can take part, per board, shown on its meeting pages. The
+# council's from its rules (rule 7B, as amended August 4, 2026), which the
+# council's page links; its agendas give the Zoom link and Spanish
+# interpretation. The School Committee's from its agendas' Public Comment item.
+[participation."City Council"]
+comment = "Residents can speak during Public Comment at each regular meeting, about anything on or off the agenda: up to 10 speakers, for 2 minutes each. Meetings are at City Hall (536 Dwight St.) and on Zoom, by the link on each agenda, with live Spanish interpretation."
+source_title = "City Council Rules, as amended August 4, 2026"
+source_url = "https://www.holyoke.org/documents/holyoke-city-council-rules-august-4-2026-amendment/"
+video_title = "Holyoke Media"
+video_url = "https://www.holyoke.org/live-stream-video-archive/"
+
+[participation."School Committee"]
+comment = "Residents can speak in the public discussion period, on items on the agenda, for up to two minutes, or email a public comment to ifeliciano@hps.holyoke.ma.us by 3:00 p.m. on the day of the meeting, to be displayed or read at the meeting. Meetings are also on Zoom, by the link on each agenda, with Spanish interpretation."
+source_title = "School Committee agenda of November 9, 2026"
+source_url = "https://www.holyoke.org/meetings/school-committee-meeting-november-9-2026/"
+video_title = "Holyoke Public Schools Media Center (YouTube)"
+video_url = "https://www.youtube.com/channel/UCQpO1uQwX1TR7UHJOl8D1KQ"
+
+# School district figures from the state's education data portal (DESE).
+[schools]
+district_code = "01370000"
+district_name = "Holyoke Public Schools"
+
+# Tax bill and budget figures (Mass. Division of Local Services). Some DLS
+# reports take the name, others the DOR code.
+[finance]
+dls_municipality = "Holyoke"
+dls_code = "137"
+
+# Housing: Census building permits (state and place FIPS codes), American
+# Community Survey through Census Reporter (geo ids), and the state's
+# Subsidized Housing Inventory PDF (the town's name as the PDF lists it).
+[housing]
+bps_place = "30840"
+census_geo = "16000US2530840"
+shi_name = "Holyoke"
+
+# Unemployment rate (BLS Local Area Unemployment Statistics, area
+# CT2530840000000, Holyoke city, MA). City rates are not seasonally adjusted;
+# the state series is shown for context.
+[labor]
+local_series = "LAUCT253084000000003"
+
+# 311 requests, from SeeClickFix (public requests only). The city's page on
+# SeeClickFix ("Enhance Our Community: Report Issues with SeeClickFix") links
+# seeclickfix.com/holyoke (place 9858), which lists the city's web portal
+# (seeclickfix.com/web_portal/88desw3DwmfUT3NRLjwji3iM), whose configuration
+# names its organization: 400 ("Holyoke, MA"). Its Open311 services
+# (seeclickfix.com/open311/v2/400/services.json) are 13 request types, all the
+# City of Holyoke's. It's in use: of the newest 100 requests (2026-09-16 to
+# 2026-11-16), 52 closed; most are streets and sidewalks, housing code and
+# trash.
+[seeclickfix]
+organization_id = 400
+report_url = "https://seeclickfix.com/web_portal/88desw3DwmfUT3NRLjwji3iM/report/category"
+# The month the full history starts (python -m pipeline.fetch_311 --backfill).
+# Older requests are included only while they are still open.
+history_since = "2026-01"
+# Request types about a person, a household or a property that the engine's
+# own sensitive categories don't name: their requests are shown to the block.
+sensitive_categories = [
+  "Housing Code Violation",
+  "Building Issues",
+  "Animal Control",
+  "Restaurants/ Food Establishments",
+  "Trash and Debris on Property",
+  "Abandoned Vehicle",
+  "Anonymous Reports & Tip Line",
+  "Graffiti Removal Request by Property Owner",
+]
+precincts_file = "holyoke-precincts-2022.geojson"
+wards_publisher = "MassGIS"
+wards_year = "2022"
+wards_url = "https://gis.data.mass.gov/maps/aec5130790814ace94438d3bcf23cf9a"
+
+# How often each data source should update. Figures published monthly or
+# yearly are judged by the engine, by the period they cover
+# (pipeline/rhythms.py).
+[freshness]
+sources = [
+  { label = "Meetings (city website)", file = "meetings/proudcity_status.json", max_days = 2 },
+  { label = "311 requests", file = "311/status.json", max_days = 2 },
+  { label = "311 scorecard", file = "311/scorecard.json", field = "generated_at", max_days = 2 },
+]
+
+# Who represents you (the Officials page). Kept by hand from official city and
+# school websites; checked is the date the list was last checked against them.
+# Only city- and school-issued email addresses, and the mayor's office phone:
+# several members list only a personal address (yahoo.com, gmail.com, aol.com,
+# comcast.net), and the district's page their own phones, none of which are
+# used. Municipal elections are in odd-numbered years: the council and the
+# School Committee's ward seats were on the ballot in both 2023 and 2025, so
+# their terms are two years, from January. The Mayor's is four (the Mayor's
+# Office's page). No official page gives the School Committee's at-large
+# terms, so they're left out.
+[officials]
+checked = "2026-11-17"
+# The next regular municipal election: the Tuesday after the first Monday of
+# November in an odd-numbered year (2025's was November 4).
+next_election = "2027-11-02"
+# The ward file is [seeclickfix] precincts_file,
+# data/static/holyoke-precincts-2022.geojson (MassGIS): seven wards, two
+# precincts each.
+
+# Re-elected on November 4, 2025 (the city's official results), for four
+# years (the Mayor's Office's page). The phone is the Mayor's Office's, from
+# its page; the address the Mayor's Office's, as the district's School
+# Committee page gives it.
+[[officials.bodies]]
+name = "Mayor"
+url = "https://www.holyoke.org/departments/mayors-office/"
+note = "Elected citywide for four years. A member of the School Committee."
+members = [
+  { name = "Joshua A. Garcia", seat = "Citywide", term_ends = "2030-01", email = "mayorsoffice@holyoke.org", phone = "(413) 322-5510" },
+]
+
+# Elected on November 4, 2025 (the city's official results); all thirteen
+# present at the reorganization meeting of January 5, 2026 (its minutes). The
+# President elected that day; the Vice President, Meg Magrath-Smith, elected on
+# February 17, 2026, after Israel Rivera, elected in January, gave up the
+# office (the minutes of February 3 and 17), as the council's members page
+# gives them. Email addresses from that page; Councilors Greaney, Maisonet,
+# Sullivan and Vacon list none at holyoke.org.
+[[officials.bodies]]
+name = "City Council"
+url = "https://www.holyoke.org/city-council-members/"
+note = "Thirteen councilors elected for two years: one from each of the seven wards, and six at-large. Email to citycouncilors@holyoke.org reaches every councilor."
+members = [
+  { name = "Jenny Rivera", seat = "Ward 1", ward = 1, term_ends = "2028-01", email = "riverajenny@holyoke.org" },
+  { name = "Nicole Maisonet", seat = "Ward 2", ward = 2, term_ends = "2028-01" },
+  { name = "Anne Thalheimer", seat = "Ward 3", ward = 3, term_ends = "2028-01", email = "athalheimer@holyoke.org" },
+  { name = "Richard Purcell", seat = "Ward 4", ward = 4, term_ends = "2028-01", email = "purcellr@holyoke.org" },
+  { name = "Linda Vacon", seat = "Ward 5", ward = 5, term_ends = "2028-01" },
+  { name = "Juan C. Anderson-Burgos", seat = "Ward 6", ward = 6, term_ends = "2028-01", email = "anderson-burgosju@holyoke.org" },
+  { name = "Meg Magrath-Smith", seat = "Ward 7", ward = 7, role = "Vice President", term_ends = "2028-01", email = "magrath-smithm@holyoke.org" },
+  { name = "Tessa R. Murphy-Romboletti", seat = "At-large", role = "President", term_ends = "2028-01", email = "murphy-rombolettit@holyoke.org" },
+  { name = "Patti Devine", seat = "At-large", term_ends = "2028-01", email = "devinep@holyoke.org" },
+  { name = "Israel Rivera", seat = "At-large", term_ends = "2028-01", email = "riverai@holyoke.org" },
+  { name = "Mimi Panitch", seat = "At-large", term_ends = "2028-01", email = "panitchm@holyoke.org" },
+  { name = "Michael J. Sullivan", seat = "At-large", term_ends = "2028-01" },
+  { name = "Howard Greaney Jr.", seat = "At-large", term_ends = "2028-01" },
+]
+
+# Elected on November 4, 2025 (the city's official results), but for Latitia
+# Molina, appointed by a joint session of the City Council and School
+# Committee on June 17, 2026 to the Ward 7 seat Eleanor Wilson left, until
+# January 2028 (its agenda). All on the roll of the meeting of September 28,
+# 2026 (its minutes). Names, the Chair and Vice Chair, and email addresses as
+# the district's School Committee page gives them; Members Sheehan, Lefebvre,
+# Lebron-Martinez, Tensley Williams, Isaza and Lubold list no district address.
+[[officials.bodies]]
+name = "School Committee"
+url = "https://www.hps.holyoke.ma.us/page/school-committee"
+note = "Seven members elected from the wards for two years, two elected at-large, and the mayor."
+members = [
+  { name = "Joshua A. Garcia", seat = "Mayor", term_ends = "2030-01", email = "mayorsoffice@holyoke.org" },
+  { name = "Gladys Lebron-Martinez", seat = "Ward 1", ward = 1, term_ends = "2028-01" },
+  { name = "Rosalee Tensley Williams", seat = "Ward 2", ward = 2, term_ends = "2028-01" },
+  { name = "Yadilette Rivera Colón", seat = "Ward 3", ward = 3, role = "Chair", term_ends = "2028-01", email = "yriveracolon@hps.holyoke.ma.us" },
+  { name = "Orlando Isaza", seat = "Ward 4", ward = 4, term_ends = "2028-01" },
+  { name = "Jens Michaelsen", seat = "Ward 5", ward = 5, term_ends = "2028-01", email = "jmichaelsen@hps.holyoke.ma.us" },
+  { name = "Patty Norris Lubold", seat = "Ward 6", ward = 6, term_ends = "2028-01" },
+  { name = "Latitia Molina", seat = "Ward 7", ward = 7, term_ends = "2028-01", email = "lmolina@hps.holyoke.ma.us" },
+  { name = "Devin Sheehan", seat = "At-large", role = "Vice Chair" },
+  { name = "Mildred Lefebvre", seat = "At-large" },
+]
