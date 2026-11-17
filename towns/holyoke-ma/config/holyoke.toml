@@ -145,7 +145,13 @@ exclude_pattern = 'Executive Session|Closed to the Public|Walkthrough|Retreat|Si
 # as the committee's. Posts whose titles name none of these (a nonprofit's or a
 # cooperative's annual meeting the city posts, a public hearing of the Office
 # of Community Development) aren't read, and are listed in
-# meetings/proudcity_status.json.
+# meetings/proudcity_status.json. The Redevelopment Authority and HEDIC post
+# a second notice for some meetings, an "Executive Meeting" at the same time
+# and place, for an executive session the meeting may go into: it's the same
+# sitting, so it's shown as one meeting with the regular one (python -m
+# pipeline.listings). The Board of Health attaches its agendas as old Word
+# (.doc) files, which the engine doesn't read: its meetings are listed without
+# them, and an error names each file.
 [proudcity_meetings.bodies]
 "City Council" = "City Council"
 "Ordinance Committee" = "City Council Ordinance Committee"
@@ -242,9 +248,9 @@ boards = "listed"
 # each posted the next day, in English ("Holyoke City Council Meeting
 # 11/05/26", "Finance Committee Meeting 11/10/26") and with Spanish
 # interpretation ("Concejo Municipal de Holyoke 11/05/26", "Comité de Finanzas
-# 11/10/26"). The Spanish titles name no board the city lists, so they stay
-# unmatched in recordings_status.json, about 100 a year. For a meeting whose
-# page has no video yet.
+# 11/10/26"). The Spanish titles name no kind of public body ("Comité",
+# "Concejo"), so they're passed over, as the channel's other programs are, and
+# not listed as unmatched. For a meeting whose page has no video yet.
 [[recordings.sources]]
 platform = "youtube"
 channel = "UCokKgazMWxHdi6-FPt6kmoA"
