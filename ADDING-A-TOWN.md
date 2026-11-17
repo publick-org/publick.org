@@ -95,12 +95,13 @@ left. Then publish (step 7).
       Kingstown). Take only a source the city's or the district's own site
       links. Note how its titles name the board and the date, and which other
       boards (school board, planning, zoning) are recorded there too.
-- [ ] **311.** Search SeeClickFix for the city
-      (`seeclickfix.com/api/v2/places?search=<City>`; the place may need its
-      state, like `<city>_ma`). Many issues the city
-      acknowledged means it uses SeeClickFix; a handful nobody answered means
-      it doesn't. Cities on other systems (QAlert, Beverly's MyBeverly) have no
-      public data: leave 311 out.
+- [ ] **311.** Look the city up on SeeClickFix. The helper lists the places
+      named for it; by hand, `seeclickfix.com/api/v2/places?address=<City>, <ST>`
+      lists the places around that address (`search=` is refused), and the
+      city's own is the one with its name and `place_type` "City". Many issues
+      the city acknowledged means it uses SeeClickFix; a handful nobody
+      answered means it doesn't. Cities on other systems (QAlert, Beverly's
+      MyBeverly) have no public data: leave 311 out.
 - [ ] **Building permits.** Only Gloucester's Data Hub file is read today.
 
 ## 2. The state's and the country's codes
