@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01EK4A3z1o7VmpVp6qX9qmxv",
-  "sent_at": "2026-11-17T09:08:26+00:00",
+  "id": "msgbatch_01GuKTz1Nv25PkT9TMMBcsKi",
+  "sent_at": "2026-11-17T09:12:42+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,9 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "minutes",
-      "older": true,
+      "older": false,
+      "source_hash": "9da7412d83838f6565ba29bfc1e9e5a93c043117b264ce1e397c85d2f4591b4b",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "City Council Meeting",
         "date": "2026-08-03",
@@ -21,15 +29,21 @@
       },
       "doc": {
         "id": "agendacenter-1022",
-        "sha256": "b74b5b189462d6a11aee8151232430706043ca546cf8a540759dd27d072ebf06",
-        "file": "agendacenter-1022.pdf",
-        "source_url": "https://www.westbrookmaine.gov/AgendaCenter/ViewFile/Minutes/_08032026-1022"
+        "sha256": "b74b5b189462d6a11aee8151232430706043ca546cf8a540759dd27d072ebf06"
       }
     },
     {
-      "custom_id": "doc-1",
+      "custom_id": "tr-1",
+      "type": "translation",
+      "lang": "es",
       "kind": "minutes",
-      "older": true,
+      "older": false,
+      "source_hash": "c2141b4d8f34c611128e75449f94f90174eaad4ce921cb11bbc945c8ec511552",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "City Council Facilities and Streets Committee Meeting",
         "date": "2026-08-03",
@@ -37,9 +51,7 @@
       },
       "doc": {
         "id": "agendacenter-1021",
-        "sha256": "6ff8b323b3417602fb6066105cfb3e5a036f7a7fe6bb7c69dabf92ce326bc4b4",
-        "file": "agendacenter-1021.pdf",
-        "source_url": "https://www.westbrookmaine.gov/AgendaCenter/ViewFile/Minutes/_08032026-1021"
+        "sha256": "6ff8b323b3417602fb6066105cfb3e5a036f7a7fe6bb7c69dabf92ce326bc4b4"
       }
     }
   ]
