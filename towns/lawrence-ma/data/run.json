@@ -1,8 +1,8 @@
 {
   "town": "lawrence",
   "folder": "lawrence-ma",
-  "started_at": "2026-11-16T09:22:55+00:00",
-  "finished_at": "2026-11-16T09:26:07+00:00",
+  "started_at": "2026-11-17T09:32:17+00:00",
+  "finished_at": "2026-11-17T09:35:44+00:00",
   "engine": "v1.110.0",
   "fetched": true,
   "steps": [
@@ -10,25 +10,25 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 86.9
+      "seconds": 76.0
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 28.0
+      "seconds": 26.1
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 45.4
+      "seconds": 43.3
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 25.9
+      "seconds": 60.2
     },
     {
       "name": "Check live site",
@@ -40,7 +40,7 @@
   "update": {
     "town": "lawrence",
     "sources": "all",
-    "started_at": "2026-11-16T09:22:56+00:00",
+    "started_at": "2026-11-17T09:32:17+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 40.9,
+        "seconds": 56.1,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.5,
         "cadence": "continuous"
       },
       {
@@ -145,7 +145,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 19.5,
+        "seconds": 17.3,
         "cadence": "continuous"
       },
       {
@@ -155,7 +155,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 15 days ago; checked every 30 days"
+        "skipped": "checked 16 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -164,7 +164,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 3 days ago; checked every 7 days"
+        "skipped": "checked 4 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -173,7 +173,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 15 days ago; checked every 30 days"
+        "skipped": "checked 16 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -182,22 +182,23 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 15 days ago; checked every 30 days"
+        "skipped": "checked 16 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 24.5,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -222,7 +223,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -230,7 +231,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -267,7 +268,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-16T04:22:56-05:00",
+      "updated_at": "2026-11-17T04:32:18-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -360,15 +361,14 @@
     "Correction for City Council 2026-11-04: \"8 Henlow Street\" isn't in its summaries any more, so it isn't shown. Remove it, or check it again."
   ],
   "ok": true,
-  "last_good_at": "2026-11-16T09:43:52+00:00",
-  "data_bytes": 1264803,
-  "data_bytes_added": 1507,
+  "last_good_at": "2026-11-17T09:35:44+00:00",
+  "data_bytes": 1270409,
+  "data_bytes_added": 5406,
   "activity": {
     "boards": 32,
     "meetings_by_date": {
-      "2026-11-16": 2,
       "2026-11-17": 2,
-      "2026-11-18": 3,
+      "2026-11-18": 4,
       "2026-11-19": 1,
       "2026-11-23": 1
     }
@@ -385,9 +385,9 @@
     "vote_counts_left_out": 5
   },
   "recordings": {
-    "since": "2026-11-09",
-    "until": "2026-11-15",
-    "held": 1,
+    "since": "2026-11-10",
+    "until": "2026-11-16",
+    "held": 2,
     "next_day": 0,
     "steps": {
       "summarized": 0,
@@ -396,7 +396,7 @@
       "waiting": 0,
       "failed": 0,
       "unmatched": 0,
-      "not_found": 1,
+      "not_found": 2,
       "no_source": 0,
       "no_recordings": 0
     },
@@ -405,14 +405,19 @@
         "date": "2026-11-10",
         "board": "School Committee",
         "step": "not_found"
+      },
+      {
+        "date": "2026-11-16",
+        "board": "School Committee",
+        "step": "not_found"
       }
     ]
   },
   "documents": {
-    "since": "2026-08-18",
-    "until": "2026-11-15",
-    "held": 84,
-    "boards": 28,
+    "since": "2026-08-19",
+    "until": "2026-11-16",
+    "held": 85,
+    "boards": 29,
     "counts": {
       "no_documents": 1,
       "no_minutes": 11,
@@ -442,15 +447,15 @@
         "meetings": 4
       },
       {
-        "board": "City Council",
-        "meetings": 3
-      },
-      {
         "board": "Airport Commission",
         "meetings": 2
       },
       {
         "board": "Bellevue Cemetery Board",
+        "meetings": 2
+      },
+      {
+        "board": "City Council",
         "meetings": 2
       },
       {
@@ -475,7 +480,7 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-16T02:24:00-05:00",
+    "at": "2026-11-17T04:24:07-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-13T08:16:33-05:00"
@@ -483,7 +488,5 @@
   "officials": {
     "checked_at": "2026-11-14T04:28:44-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-16T09:43:52+00:00",
-  "published_engine": "v1.110.0"
+  }
 }
