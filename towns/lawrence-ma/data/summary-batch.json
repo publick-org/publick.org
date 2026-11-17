@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01S1Xgx8XsrkgrLfRitXMtPy",
-  "sent_at": "2026-11-17T09:33:28+00:00",
+  "id": "msgbatch_01KjAdwsHFT3gVBZdX1yv5NK",
+  "sent_at": "2026-11-17T09:49:21+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,25 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
-      "meeting": {
-        "title": "Bellevue Cemetery Board of Trustees",
-        "date": "2026-11-18",
-        "body": "Bellevue Cemetery Board"
+      "source_hash": "f55db53ba6c85f4397c3616270fbb4a354b8a0bd6e5aca378a39349f0b368850",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
       },
-      "doc": {
-        "id": "2011-202611161310",
-        "sha256": "d4827296feee9b93a5424a3f23f33645abc50429bb9dc99448e44871d1191fd4",
-        "file": "2011-202611161310.pdf",
-        "source_url": "https://www.cityoflawrence.com/AgendaCenter/ViewFile/Agenda/_11182026-2011"
-      }
-    },
-    {
-      "custom_id": "doc-1",
-      "kind": "agenda",
-      "older": false,
       "meeting": {
         "title": "Lawrence Planning Board",
         "date": "2026-12-02",
@@ -37,31 +29,29 @@
       },
       "doc": {
         "id": "2012-202611161611",
-        "sha256": "ed2da1774990c864badb4859310ff2ffa3c935f190e3e0e8b15c9a1351031ea3",
-        "file": "2012-202611161611.pdf",
-        "source_url": "https://www.cityoflawrence.com/AgendaCenter/ViewFile/Agenda/_12022026-2012"
+        "sha256": "ed2da1774990c864badb4859310ff2ffa3c935f190e3e0e8b15c9a1351031ea3"
       }
     },
     {
-      "custom_id": "tr-0",
-      "type": "review",
+      "custom_id": "tr-1",
+      "type": "translation",
       "lang": "es",
-      "kind": "recording",
+      "kind": "agenda",
       "older": false,
-      "source_hash": "fa3b14cbc4167e433e3bf6100a4d9f20cac67ea12eb8b4ec5eb1c70060aceeff",
-      "model": "claude-sonnet-5-5",
+      "source_hash": "594fb2ec5e0a6ba33bbc431f2f8d2442889e515cc2e238e6b54a0f63737d99cc",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
-        "title": "Licensing Board Meeting",
-        "date": "2026-11-12",
-        "body": "Licensing Board"
+        "title": "Bellevue Cemetery Board of Trustees",
+        "date": "2026-11-18",
+        "body": "Bellevue Cemetery Board"
       },
       "doc": {
-        "id": "youtube-IRg_o6IrNS8",
-        "sha256": "7c25a3bcf4c656bf1469f2320dffd122acbe5f886051db56c16f1b19abbc41a2"
+        "id": "2011-202611161310",
+        "sha256": "d4827296feee9b93a5424a3f23f33645abc50429bb9dc99448e44871d1191fd4"
       }
     }
   ]
