@@ -4,7 +4,9 @@
 #
 # Run by hand (Run workflow), it deploys both. By itself, on a push, it deploys
 # only the scheduler: when engine-version moves to an engine whose scheduler
-# changed, or wrangler.scheduler.toml changes (a new Cron Trigger). The sites
+# changed, wrangler.scheduler.toml changes (a new Cron Trigger), or a town's
+# config, defaults/ or scripts/digest_towns.py does (the digest's towns, below),
+# since the last run that succeeded. The sites
 # Worker serves every site, so a mistake in it takes them all down at once: it
 # is deployed only by hand. When engine-version moves to
 # an engine whose sites Worker changed, the push opens an issue, "Deploy the
@@ -21,8 +23,10 @@
 # The weekly digest's email (the engine's worker/digest.js) takes a Buttondown key for each
 # Worker, each set when it's there: BUTTONDOWN_SUBSCRIBE_KEY for the sites Worker's signup
 # form (subscribers read and write, sending disabled), and BUTTONDOWN_SEND_KEY for the
-# scheduler's Sunday send (emails read and write, sending enabled). Each town in the scheduler's
-# DIGEST_TOWNS gets its Buttondown tag (<town>-<state>-en) here, made if it isn't there yet.
+# scheduler's Sunday send (emails read and write, sending enabled). The towns the scheduler sends to,
+# its DIGEST_TOWNS, are made here from the towns' configs (each with a [digest] table, the one that
+# shows the signup form; scripts/digest_towns.py) and passed with its deploy; each gets its
+# Buttondown tag (<town>-<state>-en) here, made if it isn't there yet.
 #
 # Address alerts (the engine's worker/alerts.js) take three secrets on the sites Worker, each set when
 # it's there: POSTMARK_TOKEN (the Postmark server's API token, which sends the emails),
@@ -38,11 +42,12 @@ name: Worker
 on:
   push:
     branches: [main]
-    paths: [engine-version, wrangler.scheduler.toml]
+    paths: [engine-version, wrangler.scheduler.toml, "towns/*/config/*.toml", "defaults/**", scripts/digest_towns.py]
   workflow_dispatch:
 
 permissions:
   contents: read
+  actions: read  # the last run that succeeded, which a push compares with
   issues: write  # the "Deploy the sites Worker" issue
 
 # One deploy at a time, in order.
@@ -54,10 +59,19 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      # The files at the top (the Workers' configs, engine-version), and what the digest's towns are made
+      # from: the towns' configs, the settings they share (defaults/), and the script.
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-          sparse-checkout: .github
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/*/
+            /defaults/
+            /towns/*/config/
+            /scripts/digest_towns.py
 
       - id: engine
         run: echo "ref=$(tr -d '[:space:]' < engine-version)" >> "$GITHUB_OUTPUT"
@@ -71,27 +85,35 @@ jobs:
           path: .publick-engine
           fetch-depth: 0
 
-      # Run by hand: both. A push: the scheduler when its config changed, or its files did between the old
-      # engine-version and the new (anything it can't compare deploys it); never the sites Worker, but
-      # whether its files changed, for the issue below.
+      # Run by hand: both. A push: the scheduler when its config or the digest's towns' files changed, or its
+      # files did between the old engine-version and the new (anything it can't compare deploys it); never the
+      # sites Worker, but whether its files changed, for the issue below. A push compares with the last run
+      # that succeeded, not only the commit before it: a push waiting in the queue is replaced by a newer one.
       - id: decide
         env:
           EVENT: ${{ github.event_name }}
           BEFORE: ${{ github.event.before }}
           NEW: ${{ steps.engine.outputs.ref }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           # Each Worker's files in the engine's worker/ (digest.js is in both).
           scheduler_files=(worker/scheduler-index.js worker/scheduler.js worker/digest.js worker/search.js worker/package.json)
           sites_files=(worker/index.js worker/sites.js worker/digest.js worker/package.json)
+          # The scheduler's config here, and what the digest's towns are made from.
+          scheduler_config=(wrangler.scheduler.toml 'towns/*/config/*.toml' defaults scripts/digest_towns.py)
           scheduler=true; sites=true; sites_changed=false; old=""
           if [ "$EVENT" = push ]; then
             sites=false
-            if git fetch --quiet --depth=1 origin "$BEFORE" 2>/dev/null; then
-              old=$(git show "$BEFORE:engine-version" 2>/dev/null | tr -d '[:space:]')
+            since="$BEFORE"
+            last=$(gh run list --repo "$GITHUB_REPOSITORY" --workflow worker.yml --branch main --status success \
+              --limit 1 --json headSha --jq '.[0].headSha // empty' 2>/dev/null || true)
+            [ -n "$last" ] && since="$last"
+            if git fetch --quiet --depth=1 origin "$since" 2>/dev/null; then
+              old=$(git show "$since:engine-version" 2>/dev/null | tr -d '[:space:]')
             fi
             if [ -n "$old" ] && git -C .publick-engine diff --quiet "$old" "$NEW" -- "${scheduler_files[@]}" 2>/dev/null \
-              && git diff --quiet "$BEFORE" HEAD -- wrangler.scheduler.toml; then
-              echo "The scheduler is the same in $old and $NEW, and its config didn't change."
+              && git diff --quiet "$since" HEAD -- "${scheduler_config[@]}"; then
+              echo "The scheduler is the same in $old and $NEW, and its config and the digest's towns didn't change."
               scheduler=false
             fi
             if [ -n "$old" ] && [ "$old" != "$NEW" ] \
@@ -180,6 +202,21 @@ jobs:
             printf '%s' "${!name}" | npx --yes wrangler@4.137.0 secret put "$name"
           done
 
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+
+      # The towns whose digest is emailed: every town whose config has a [digest] table, read with the engine's
+      # config reader. The scheduler's DIGEST_TOWNS, and the towns whose Buttondown tags are made below. After
+      # the sites Worker's steps, so a config it can't read stops only the scheduler's deploy and the tags.
+      - id: digest
+        env:
+          PYTHONPATH: .publick-engine
+        run: |
+          towns=$(python scripts/digest_towns.py)
+          echo "The digest's towns: ${towns:-none}"
+          echo "towns=$towns" >> "$GITHUB_OUTPUT"
+
       # After the sites Worker, which its service binding names. The token is set right after the deploy
       # (a secret can only be set on a Worker that exists); a start in between would only fail once.
       - name: Deploy the scheduler
@@ -188,12 +225,13 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           SCHEDULER_GITHUB_TOKEN: ${{ secrets.SCHEDULER_GITHUB_TOKEN }}
+          DIGEST_TOWNS: ${{ steps.digest.outputs.towns }}
         run: |
           if [ -z "$SCHEDULER_GITHUB_TOKEN" ]; then
             echo "::warning::SCHEDULER_GITHUB_TOKEN isn't set, so the scheduler isn't deployed; runs start on GitHub's schedule."
             exit 0
           fi
-          npx --yes wrangler@4.137.0 deploy -c wrangler.scheduler.toml
+          npx --yes wrangler@4.137.0 deploy -c wrangler.scheduler.toml --var "DIGEST_TOWNS:$DIGEST_TOWNS"
           printf '%s' "$SCHEDULER_GITHUB_TOKEN" | npx --yes wrangler@4.137.0 secret put GITHUB_TOKEN -c wrangler.scheduler.toml
 
       # Who the scheduler's issues ("network stopped", "digest not sent", "site down") are assigned to, so they
@@ -244,6 +282,7 @@ jobs:
       - name: Make each digest town's Buttondown tag
         env:
           BUTTONDOWN_SUBSCRIBE_KEY: ${{ secrets.BUTTONDOWN_SUBSCRIBE_KEY }}
+          DIGEST_TOWNS: ${{ steps.digest.outputs.towns }}
           # Buttondown requires a color for a new tag (it refused one without, 2026-10-12); only its dashboard shows it.
           TAG_COLOR: "#215367"
         run: |
@@ -251,15 +290,25 @@ jobs:
             echo "::warning::BUTTONDOWN_SUBSCRIBE_KEY isn't set, so no tags are made."
             exit 0
           fi
-          towns=$(sed -n 's/^DIGEST_TOWNS = "\(.*\)"$/\1/p' wrangler.scheduler.toml | tr ',' ' ')
-          # The tags already there, by name (Buttondown pages its list; 100 is more than the network has).
-          status=$(curl -sS -o tags.json -w '%{http_code}' "https://api.buttondown.com/v1/tags?page_size=100" \
-            -H "Authorization: Token $BUTTONDOWN_SUBSCRIBE_KEY")
-          if [ "$status" != 200 ]; then
-            echo "::error::Listing the tags: HTTP $status $(cat tags.json)"
-            exit 1
-          fi
-          jq -r '.results[].name' tags.json > tag-names.txt
+          towns=$(tr ',' ' ' <<< "$DIGEST_TOWNS")
+          # The tags already there, by name, every page of them (Buttondown pages its list). The key goes only to
+          # Buttondown's API, wherever its next page says to look.
+          api=https://api.buttondown.com/v1
+          url="$api/tags?page_size=100"
+          : > tag-names.txt
+          while [ -n "$url" ]; do
+            if [[ "$url" != "$api/"* ]]; then
+              echo "::error::Listing the tags: the next page isn't on Buttondown's API: $url"
+              exit 1
+            fi
+            status=$(curl -sS -o tags.json -w '%{http_code}' "$url" -H "Authorization: Token $BUTTONDOWN_SUBSCRIBE_KEY")
+            if [ "$status" != 200 ]; then
+              echo "::error::Listing the tags: HTTP $status $(cat tags.json)"
+              exit 1
+            fi
+            jq -r '.results[].name' tags.json >> tag-names.txt
+            url=$(jq -r '.next // empty' tags.json)
+          done
           failed=0
           for host in $towns; do
             tag="${host%%.*}-en"
@@ -267,7 +316,7 @@ jobs:
               echo "The tag $tag is there."
               continue
             fi
-            status=$(curl -sS -o tag.json -w '%{http_code}' -X POST https://api.buttondown.com/v1/tags \
+            status=$(curl -sS -o tag.json -w '%{http_code}' -X POST "$api/tags" \
               -H "Authorization: Token $BUTTONDOWN_SUBSCRIBE_KEY" -H "Content-Type: application/json" \
               -d "{\"name\": \"$tag\", \"color\": \"$TAG_COLOR\"}")
             if [ "$status" = 201 ]; then
