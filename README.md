@@ -127,10 +127,10 @@ Worker, which picks the site by hostname: `gloucester-ma.publick.org` is
   town's readers alone. The signup form on a town's `/digest/` page (its
   config's `[digest] signup`) posts to the sites Worker, which passes the
   address on to Buttondown, within the `SIGNUP_LIMITER` rate limit
-  (`wrangler.toml`). A new town joins a full week after its launch, not at
-  launch (ADDING-A-TOWN.md, step 8): its `[digest]` table, and once that's
-  merged the Worker workflow deploys the scheduler with the town in its list,
-  and makes its Buttondown tag. A run makes two requests for each town and two more. See the engine's docs/site.md,
+  (`wrangler.toml`). A new town joins at launch (ADDING-A-TOWN.md, step 7):
+  its config's `[digest]` table, and once that's merged the Worker workflow
+  deploys the scheduler with the town in its list, and makes its Buttondown
+  tag. A run makes two requests for each town and two more. See the engine's docs/site.md,
   Weekly digest.
 - **By hand** (**Actions → Network → Run workflow**): tick **daily** for a daily
   run, as the scheduler starts; or any towns, with or without fetching; with no
