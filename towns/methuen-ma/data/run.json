@@ -1,8 +1,8 @@
 {
   "town": "methuen",
   "folder": "methuen-ma",
-  "started_at": "2026-11-17T13:31:37+00:00",
-  "finished_at": "2026-11-17T13:34:08+00:00",
+  "started_at": "2026-11-17T14:45:22+00:00",
+  "finished_at": "2026-11-17T14:48:26+00:00",
   "engine": "v1.110.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 44.7
+      "seconds": 55.0
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 52.1
+      "seconds": 54.6
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 47.9
+      "seconds": 68.4
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.6
+      "seconds": 4.3
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.7
+      "seconds": 1.2
     }
   ],
   "update": {
     "town": "methuen",
     "sources": "meetings",
-    "started_at": "2026-11-17T13:31:39+00:00",
+    "started_at": "2026-11-17T14:45:22+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 25.8,
+        "seconds": 26.0,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.9,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 2.5,
+        "seconds": 2.6,
         "cadence": "continuous"
       },
       {
@@ -144,7 +144,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 13.5,
+        "seconds": 23.1,
         "cadence": "continuous"
       },
       {
@@ -197,7 +197,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -222,7 +222,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -230,7 +230,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       }
     ]
@@ -240,14 +240,14 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-17T08:31:39-05:00",
+      "updated_at": "2026-11-17T09:45:23-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-17T08:32:05-05:00",
+      "updated_at": "2026-11-17T09:45:50-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -352,9 +352,9 @@
     "Correction for City Council 2026-11-02: its recording summary was made again after the correction was checked on 2026-11-09, so it isn't shown. Check it again."
   ],
   "ok": true,
-  "last_good_at": "2026-11-17T13:43:12+00:00",
-  "data_bytes": 5526318,
-  "data_bytes_added": 3325514,
+  "last_good_at": "2026-11-17T14:48:26+00:00",
+  "data_bytes": 5532093,
+  "data_bytes_added": 3328900,
   "activity": {
     "boards": 27,
     "meetings_by_date": {
@@ -363,26 +363,26 @@
     }
   },
   "fact_checks": {
-    "summaries": 93,
-    "ok": 82,
+    "summaries": 94,
+    "ok": 83,
     "failed": 11,
     "weak": 0,
     "unchecked": 0,
     "not_yet": 0,
     "held_back": 11,
     "entries_not_shown": 29,
-    "vote_counts_left_out": 30
+    "vote_counts_left_out": 31
   },
   "recordings": {
     "since": "2026-11-10",
     "until": "2026-11-16",
     "held": 2,
-    "next_day": 0,
+    "next_day": 1,
     "steps": {
-      "summarized": 0,
+      "summarized": 1,
       "minutes": 0,
       "transcribed": 1,
-      "waiting": 1,
+      "waiting": 0,
       "failed": 0,
       "unmatched": 0,
       "not_found": 0,
@@ -393,12 +393,6 @@
       {
         "date": "2026-11-16",
         "board": "City Council",
-        "step": "waiting",
-        "detail": "1 recording(s) found"
-      },
-      {
-        "date": "2026-11-16",
-        "board": "School Committee",
         "step": "transcribed",
         "detail": "transcript not summarized yet"
       }
@@ -430,15 +424,13 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-17T08:26:07-05:00",
+    "at": "2026-11-17T09:40:46-05:00",
     "refused": 0,
     "transcribed": 1,
-    "last_transcribed_at": "2026-11-17T08:26:07-05:00"
+    "last_transcribed_at": "2026-11-17T09:40:46-05:00"
   },
   "officials": {
     "checked_at": "2026-11-15T04:07:15-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-17T13:43:12+00:00",
-  "published_engine": "v1.110.0"
+  }
 }
