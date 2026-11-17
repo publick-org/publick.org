@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01EFFJu9Me57UEJCQD7Rb2wg",
-  "sent_at": "2026-11-17T05:59:00+00:00",
+  "id": "msgbatch_01NaHu9QPwx9vuqbvRgYkFLb",
+  "sent_at": "2026-11-17T06:05:19+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,41 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
-      "meeting": {
-        "title": "City Council Meeting (Live)",
-        "date": "2026-11-17",
-        "body": "City Council"
+      "source_hash": "23ca86bafec1a36ccc776adf6566c7a07a5b40fa00debf79890e6777836698ba",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
       },
-      "doc": {
-        "id": "civicclerk-10102",
-        "sha256": "fd1a241e7be2f18e6ef67a882ebd05dca51d739a6715db9f4f36fe4278324520",
-        "file": "civicclerk-10102.pdf",
-        "source_url": "https://biddefordme.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=10102,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-1",
-      "kind": "agenda",
-      "older": false,
-      "meeting": {
-        "title": "Finance Committee Meeting (Live)",
-        "date": "2026-11-17",
-        "body": "Finance Committee"
-      },
-      "doc": {
-        "id": "civicclerk-10104",
-        "sha256": "73a852fdea371a77c0cb6ddb51aac45c64abf8650db3e7f4ef4cd8aa3bef1041",
-        "file": "civicclerk-10104.pdf",
-        "source_url": "https://biddefordme.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=10104,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-2",
-      "kind": "agenda",
-      "older": false,
       "meeting": {
         "title": "Recreation Commission Meeting",
         "date": "2026-11-18",
@@ -53,15 +29,21 @@
       },
       "doc": {
         "id": "civicclerk-10095",
-        "sha256": "2386bea5009b65e423602388c6ad28f5388784b7733ff381ee954ac2f4b69d56",
-        "file": "civicclerk-10095.pdf",
-        "source_url": "https://biddefordme.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=10095,plainText=false)"
+        "sha256": "2386bea5009b65e423602388c6ad28f5388784b7733ff381ee954ac2f4b69d56"
       }
     },
     {
-      "custom_id": "doc-3",
+      "custom_id": "tr-1",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
+      "source_hash": "68a12681e68621d84e37915db00632c367e8a276ab27bd916a771f8a07f2ca7e",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "School Committee Meeting",
         "date": "2026-11-18",
@@ -69,15 +51,65 @@
       },
       "doc": {
         "id": "1GV5U5zTVNKjXENbrF8WYGfI65ipsYT0pqA6Dg0vwrF8-d1d3d7ee",
-        "sha256": "d1d3d7ee1f7244e1f009ccab7a303d978cbc0e2997e5ab6be5103ffd949a75ad",
-        "file": "1GV5U5zTVNKjXENbrF8WYGfI65ipsYT0pqA6Dg0vwrF8-d1d3d7ee.pdf",
-        "source_url": "https://docs.google.com/document/d/1GV5U5zTVNKjXENbrF8WYGfI65ipsYT0pqA6Dg0vwrF8/edit?usp=sharing"
+        "sha256": "d1d3d7ee1f7244e1f009ccab7a303d978cbc0e2997e5ab6be5103ffd949a75ad"
       }
     },
     {
-      "custom_id": "doc-4",
+      "custom_id": "tr-2",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "916810c60191866fc6ce105078da16d4dc3d25e38c7e6564c2fc7265b56ebb37",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "City Council Meeting (Live)",
+        "date": "2026-11-17",
+        "body": "City Council"
+      },
+      "doc": {
+        "id": "civicclerk-10102",
+        "sha256": "fd1a241e7be2f18e6ef67a882ebd05dca51d739a6715db9f4f36fe4278324520"
+      }
+    },
+    {
+      "custom_id": "tr-3",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "7d9bcb8feb009e7ec52eb7b235f3eee689498d45be4eaa787363edf90d39f006",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Finance Committee Meeting (Live)",
+        "date": "2026-11-17",
+        "body": "Finance Committee"
+      },
+      "doc": {
+        "id": "civicclerk-10104",
+        "sha256": "73a852fdea371a77c0cb6ddb51aac45c64abf8650db3e7f4ef4cd8aa3bef1041"
+      }
+    },
+    {
+      "custom_id": "tr-4",
+      "type": "translation",
+      "lang": "es",
       "kind": "recording",
       "older": false,
+      "source_hash": "dab00e086f9a6e56be72d12930fba1413ac86234774d5fad9ee2f0469fd895aa",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Charter Revision Commission Meeting (Live)",
         "date": "2026-11-16",
@@ -85,15 +117,21 @@
       },
       "doc": {
         "id": "civicclerk-video-4966",
-        "sha256": "60f7ee3fe9817c22da43a8926d15d7b9ba91ad544dd58f70ed9eba8c2cc2d2c1",
-        "file": "civicclerk-video-4966.txt",
-        "source_url": "https://biddefordme.portal.civicclerk.com/event/4966/media"
+        "sha256": "60f7ee3fe9817c22da43a8926d15d7b9ba91ad544dd58f70ed9eba8c2cc2d2c1"
       }
     },
     {
-      "custom_id": "doc-5",
+      "custom_id": "tr-5",
+      "type": "translation",
+      "lang": "es",
       "kind": "minutes",
       "older": false,
+      "source_hash": "4e1a0eeb89f2a75106bd311fbbd997299ae4314636ba6390ed123c4a34219e35",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "School Committee Meeting",
         "date": "2026-11-10",
@@ -101,15 +139,21 @@
       },
       "doc": {
         "id": "1NRaifC-xCMcU9GdQP_fGLSsmqEm_20Isz-dICMj-WR8-5c7301b0",
-        "sha256": "5c7301b076a7fd0422d609c572f54007e97b05a5b642bf289453a6fbfafc9b86",
-        "file": "1NRaifC-xCMcU9GdQP_fGLSsmqEm_20Isz-dICMj-WR8-5c7301b0.pdf",
-        "source_url": "https://docs.google.com/document/d/1NRaifC-xCMcU9GdQP_fGLSsmqEm_20Isz-dICMj-WR8/edit?usp=sharing"
+        "sha256": "5c7301b076a7fd0422d609c572f54007e97b05a5b642bf289453a6fbfafc9b86"
       }
     },
     {
-      "custom_id": "doc-6",
+      "custom_id": "tr-6",
+      "type": "translation",
+      "lang": "es",
       "kind": "minutes",
       "older": false,
+      "source_hash": "7c239784db7d98d008f13661ea050aad2788ff75f2a300e1771aef688a2dd657",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "School Committee Meeting",
         "date": "2026-10-28",
@@ -117,15 +161,21 @@
       },
       "doc": {
         "id": "1wUTT4cj_c0YATcDorZbaWW6PDM6GqoHxlc1Jfmsfj-E-2f718a84",
-        "sha256": "2f718a84607dd0c827dc61ea0033ac8d59ecbb63b9262b8ebb25c1b9f9038b6f",
-        "file": "1wUTT4cj_c0YATcDorZbaWW6PDM6GqoHxlc1Jfmsfj-E-2f718a84.pdf",
-        "source_url": "https://docs.google.com/document/d/1wUTT4cj_c0YATcDorZbaWW6PDM6GqoHxlc1Jfmsfj-E/edit?usp=sharing"
+        "sha256": "2f718a84607dd0c827dc61ea0033ac8d59ecbb63b9262b8ebb25c1b9f9038b6f"
       }
     },
     {
-      "custom_id": "doc-7",
+      "custom_id": "tr-7",
+      "type": "translation",
+      "lang": "es",
       "kind": "minutes",
       "older": false,
+      "source_hash": "f4e98b88b4578f6734315299474474b64ec9893cd4b49767bec380e9b3fad73d",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "School Committee Meeting",
         "date": "2026-10-14",
@@ -133,15 +183,21 @@
       },
       "doc": {
         "id": "1-uf2MAr6ws2QPubxCMIGVkvbMayjn9xIAt2AwTYSBic-cc51edf2",
-        "sha256": "cc51edf25e3c566a3ced8fd98dd81a8516d4c23b51421dbecf5dd33442824fc6",
-        "file": "1-uf2MAr6ws2QPubxCMIGVkvbMayjn9xIAt2AwTYSBic-cc51edf2.pdf",
-        "source_url": "https://docs.google.com/document/d/1-uf2MAr6ws2QPubxCMIGVkvbMayjn9xIAt2AwTYSBic/edit?usp=sharing"
+        "sha256": "cc51edf25e3c566a3ced8fd98dd81a8516d4c23b51421dbecf5dd33442824fc6"
       }
     },
     {
-      "custom_id": "doc-8",
+      "custom_id": "tr-8",
+      "type": "translation",
+      "lang": "es",
       "kind": "minutes",
       "older": false,
+      "source_hash": "90dc6b6a1cf2f781628335d435a796f4cf1a379e821aed7b4842195af80667aa",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "School Committee Meeting",
         "date": "2026-09-23",
@@ -149,53 +205,7 @@
       },
       "doc": {
         "id": "1MtsFhMA-iR8_WaZK0IRoocrLxJuIUg5qbkh8ZDY-z1k-6c6434ce",
-        "sha256": "6c6434ce1dcb6827534cb4dccb6d91bc4fd461b1a0d3faee428cc54c316ddde2",
-        "file": "1MtsFhMA-iR8_WaZK0IRoocrLxJuIUg5qbkh8ZDY-z1k-6c6434ce.pdf",
-        "source_url": "https://docs.google.com/document/d/1MtsFhMA-iR8_WaZK0IRoocrLxJuIUg5qbkh8ZDY-z1k/edit?usp=sharing"
-      }
-    },
-    {
-      "custom_id": "tr-0",
-      "type": "review",
-      "lang": "es",
-      "kind": "recording",
-      "older": false,
-      "source_hash": "09e36223d487f484dd54ff7815619ac47edf03052cd2ce254450d85c08f1713e",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Diversity, Equity and Inclusion Committee Meeting",
-        "date": "2026-11-09",
-        "body": "Diversity, Equity and Inclusion Committee"
-      },
-      "doc": {
-        "id": "civicclerk-video-4824",
-        "sha256": "f84fe7092f3c8a6e93db38a5c1876039976a4cad30a86c937025e2a1bd651ea8"
-      }
-    },
-    {
-      "custom_id": "tr-1",
-      "type": "review",
-      "lang": "es",
-      "kind": "recording",
-      "older": false,
-      "source_hash": "c425166b119a4d1d46dd0fe8ea5d280b5ad0c4f4a89ddeb165f7e471fd5de014",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Historic Preservation Commission Meeting",
-        "date": "2026-11-04",
-        "body": "Historic Preservation Commission"
-      },
-      "doc": {
-        "id": "civicclerk-video-4886",
-        "sha256": "4b094ff5b4e43aa2d6238066fd536e4c6eafeb777a78d4aad8eda5be4a305d19"
+        "sha256": "6c6434ce1dcb6827534cb4dccb6d91bc4fd461b1a0d3faee428cc54c316ddde2"
       }
     }
   ]
