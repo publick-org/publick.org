@@ -1,8 +1,8 @@
 {
   "town": "pawtucket",
   "folder": "pawtucket-ri",
-  "started_at": "2026-11-16T09:09:48+00:00",
-  "finished_at": "2026-11-16T09:19:52+00:00",
+  "started_at": "2026-11-17T09:14:49+00:00",
+  "finished_at": "2026-11-17T09:25:11+00:00",
   "engine": "v1.110.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 448.8
+      "seconds": 480.7
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 65.5
+      "seconds": 66.8
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 47.7
+      "seconds": 58.0
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 24.9
+      "seconds": 15.1
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 1.2
+      "seconds": 0.8
     }
   ],
   "update": {
     "town": "pawtucket",
     "sources": "all",
-    "started_at": "2026-11-16T09:09:49+00:00",
+    "started_at": "2026-11-17T09:14:49+00:00",
     "ok": true,
     "steps": [
       {
@@ -109,7 +109,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 422.2,
+        "seconds": 425.2,
         "cadence": "continuous"
       },
       {
@@ -144,7 +144,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 14.4,
+        "seconds": 10.7,
         "cadence": "continuous"
       },
       {
@@ -152,7 +152,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -162,7 +162,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -171,7 +171,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 14 days ago; checked every 30 days"
+        "skipped": "checked 15 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -180,14 +180,14 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 24.8,
         "cadence": "monthly"
       },
       {
@@ -203,7 +203,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -236,7 +236,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 7.5,
+        "seconds": 15.8,
         "cadence": "continuous"
       },
       {
@@ -263,21 +263,21 @@
     {
       "label": "Meetings (Open Meetings portal)",
       "file": "meetings/opengov_status.json",
-      "updated_at": "2026-11-16T04:09:50-05:00",
+      "updated_at": "2026-11-17T04:14:51-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-16T04:17:09-05:00",
+      "updated_at": "2026-11-17T04:22:33-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-16T04:17:17-05:00",
+      "updated_at": "2026-11-17T04:22:49-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -320,13 +320,13 @@
     {
       "label": "Housing figures",
       "file": "housing/housing.json",
-      "updated_at": "2026-11-09T04:36:11-05:00",
+      "updated_at": "2026-11-17T04:22:07-05:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
       "stale": false,
-      "latest": "2025 building permits; ACS 2024 5-year estimates",
-      "next": "2026 building permits usually by June 1, 2027; ACS 2025 5-year estimates usually by December 15, 2026",
+      "latest": "2025 building permits; September 2026 building permits; ACS 2024 5-year estimates",
+      "next": "2026 building permits usually by June 1, 2027; October 2026 building permits usually by December 1, 2026; ACS 2025 5-year estimates usually by December 15, 2026",
       "behind": null
     },
     {
@@ -355,15 +355,15 @@
   "corrections": [],
   "ok": true,
   "last_good_at": "2026-11-05T00:12:20+00:00",
-  "data_bytes": 2865636,
-  "data_bytes_added": 106454,
+  "data_bytes": 2865820,
+  "data_bytes_added": 106971,
   "activity": {
     "boards": 32,
     "meetings_by_date": {
-      "2026-11-16": 1,
       "2026-11-17": 3,
       "2026-11-19": 1,
-      "2026-11-24": 1
+      "2026-11-24": 1,
+      "2026-11-30": 1
     }
   },
   "fact_checks": {
@@ -378,8 +378,8 @@
     "vote_counts_left_out": 82
   },
   "recordings": {
-    "since": "2026-11-09",
-    "until": "2026-11-15",
+    "since": "2026-11-10",
+    "until": "2026-11-16",
     "held": 1,
     "next_day": 0,
     "steps": {
@@ -396,10 +396,10 @@
     "misses": []
   },
   "documents": {
-    "since": "2026-08-18",
-    "until": "2026-11-15",
-    "held": 85,
-    "boards": 25,
+    "since": "2026-08-19",
+    "until": "2026-11-16",
+    "held": 84,
+    "boards": 26,
     "counts": {
       "no_documents": 0,
       "no_minutes": 1,
@@ -417,7 +417,7 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-16T02:24:05-05:00",
+    "at": "2026-11-17T02:24:07-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-12T08:24:07-05:00"
@@ -425,7 +425,5 @@
   "officials": {
     "checked_at": "2026-11-15T04:21:27-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-16T09:47:14+00:00",
-  "published_engine": "v1.110.0"
+  }
 }
