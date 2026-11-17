@@ -1,8 +1,8 @@
 {
   "town": "wallingford",
   "folder": "wallingford-ct",
-  "started_at": "2026-11-17T00:57:04+00:00",
-  "finished_at": "2026-11-17T01:00:02+00:00",
+  "started_at": "2026-11-17T13:31:42+00:00",
+  "finished_at": "2026-11-17T13:34:32+00:00",
   "engine": "v1.110.0",
   "fetched": true,
   "steps": [
@@ -10,25 +10,25 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 97.6
+      "seconds": 78.3
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 45.9
+      "seconds": 46.9
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 39.4
+      "seconds": 38.3
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 7.3
+      "seconds": 5.6
     },
     {
       "name": "Check live site",
@@ -40,7 +40,7 @@
   "update": {
     "town": "wallingford",
     "sources": "meetings",
-    "started_at": "2026-11-17T00:57:04+00:00",
+    "started_at": "2026-11-17T13:31:42+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 10.4,
+        "seconds": 7.8,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.4,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -73,7 +73,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 43.6,
+        "seconds": 40.3,
         "cadence": "continuous"
       },
       {
@@ -144,7 +144,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 15.8,
+        "seconds": 27.6,
         "cadence": "continuous"
       },
       {
@@ -154,7 +154,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 13 days ago; checked every 30 days"
+        "skipped": "checked 14 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -163,7 +163,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 3 days ago; checked every 7 days"
+        "skipped": "checked 4 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -181,15 +181,16 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 24.6,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -239,14 +240,14 @@
     {
       "label": "Meetings (town website)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-16T19:57:04-05:00",
+      "updated_at": "2026-11-17T08:31:43-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Board of Education meetings (school district website)",
       "file": "meetings/finalsite_status.json",
-      "updated_at": "2026-11-16T19:57:16-05:00",
+      "updated_at": "2026-11-17T08:31:51-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -335,9 +336,9 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-17T01:03:24+00:00",
-  "data_bytes": 2108816,
-  "data_bytes_added": 18557,
+  "last_good_at": "2026-11-17T13:34:32+00:00",
+  "data_bytes": 2333146,
+  "data_bytes_added": 26047,
   "activity": {
     "boards": 26,
     "meetings_by_date": {
@@ -350,33 +351,40 @@
     }
   },
   "fact_checks": {
-    "summaries": 137,
-    "ok": 125,
-    "failed": 10,
+    "summaries": 150,
+    "ok": 136,
+    "failed": 12,
     "weak": 2,
     "unchecked": 0,
     "not_yet": 0,
-    "held_back": 10,
-    "entries_not_shown": 27,
-    "vote_counts_left_out": 97
+    "held_back": 12,
+    "entries_not_shown": 34,
+    "vote_counts_left_out": 113
   },
   "recordings": {
-    "since": "2026-11-09",
-    "until": "2026-11-15",
+    "since": "2026-11-10",
+    "until": "2026-11-16",
     "held": 2,
     "next_day": 1,
     "steps": {
-      "summarized": 2,
+      "summarized": 1,
       "minutes": 0,
       "transcribed": 0,
-      "waiting": 0,
+      "waiting": 1,
       "failed": 0,
       "unmatched": 0,
       "not_found": 0,
       "no_source": 0,
       "no_recordings": 0
     },
-    "misses": []
+    "misses": [
+      {
+        "date": "2026-11-16",
+        "board": "Zoning Board of Appeals",
+        "step": "waiting",
+        "detail": "1 recording(s) found"
+      }
+    ]
   },
   "documents": {
     "since": "2026-08-19",
@@ -395,15 +403,13 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-16T19:52:17-05:00",
+    "at": "2026-11-17T08:24:14-05:00",
     "refused": 0,
     "transcribed": 1,
-    "last_transcribed_at": "2026-11-16T19:52:17-05:00"
+    "last_transcribed_at": "2026-11-17T08:24:14-05:00"
   },
   "officials": {
     "checked_at": "2026-11-15T04:08:00-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-17T01:03:24+00:00",
-  "published_engine": "v1.110.0"
+  }
 }
