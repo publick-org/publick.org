@@ -1,8 +1,8 @@
 {
   "town": "worcester",
   "folder": "worcester-ma",
-  "started_at": "2026-11-17T09:13:20+00:00",
-  "finished_at": "2026-11-17T09:21:09+00:00",
+  "started_at": "2026-11-17T13:31:51+00:00",
+  "finished_at": "2026-11-17T13:39:44+00:00",
   "engine": "v1.110.0",
   "fetched": true,
   "steps": [
@@ -10,25 +10,25 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 59.3
+      "seconds": 31.4
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 180.3
+      "seconds": 184.3
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 200.8
+      "seconds": 252.5
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.5
+      "seconds": 3.7
     },
     {
       "name": "Check live site",
@@ -39,8 +39,8 @@
   ],
   "update": {
     "town": "worcester",
-    "sources": "all",
-    "started_at": "2026-11-17T09:13:21+00:00",
+    "sources": "meetings",
+    "started_at": "2026-11-17T13:31:52+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 7.5,
+        "seconds": 3.9,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.5,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.1,
+        "seconds": 1.6,
         "cadence": "continuous"
       },
       {
@@ -144,7 +144,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 12.1,
+        "seconds": 22.7,
         "cadence": "continuous"
       },
       {
@@ -163,7 +163,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "skipped": "checked 6 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -190,14 +190,14 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "skipped": "checked 6 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.5,
         "cadence": "continuous"
       },
       {
@@ -205,7 +205,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.5,
         "cadence": "continuous"
       },
       {
@@ -222,7 +222,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.5,
         "cadence": "continuous"
       },
       {
@@ -230,32 +230,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 19.7,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests from an open data portal",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [socrata_311] in the config"
-      },
-      {
-        "name": "Compute 311 scorecard",
-        "ok": true,
-        "required": true,
-        "error": null,
-        "seconds": 16.9,
+        "seconds": 0.5,
         "cadence": "continuous"
       }
     ]
@@ -265,14 +240,14 @@
     {
       "label": "Meetings (PrimeGov)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-17T04:13:21-05:00",
+      "updated_at": "2026-11-17T08:31:52-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-17T04:13:29-05:00",
+      "updated_at": "2026-11-17T08:31:57-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -375,9 +350,9 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-17T09:44:41+00:00",
-  "data_bytes": 30748301,
-  "data_bytes_added": 26946796,
+  "last_good_at": "2026-11-17T13:39:44+00:00",
+  "data_bytes": 30759734,
+  "data_bytes_added": 26945385,
   "activity": {
     "boards": 23,
     "meetings_by_date": {
@@ -388,8 +363,8 @@
     }
   },
   "fact_checks": {
-    "summaries": 97,
-    "ok": 85,
+    "summaries": 98,
+    "ok": 86,
     "failed": 12,
     "weak": 0,
     "unchecked": 0,
@@ -448,15 +423,13 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-17T02:24:06-05:00",
+    "at": "2026-11-17T08:25:25-05:00",
     "refused": 0,
-    "transcribed": 0,
-    "last_transcribed_at": "2026-11-12T17:46:16-05:00"
+    "transcribed": 1,
+    "last_transcribed_at": "2026-11-17T08:25:25-05:00"
   },
   "officials": {
     "checked_at": "2026-11-14T09:07:33-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-17T09:44:41+00:00",
-  "published_engine": "v1.110.0"
+  }
 }
