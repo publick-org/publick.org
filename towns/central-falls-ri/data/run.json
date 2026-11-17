@@ -1,8 +1,8 @@
 {
   "town": "central-falls",
   "folder": "central-falls-ri",
-  "started_at": "2026-11-16T09:11:36+00:00",
-  "finished_at": "2026-11-16T09:15:14+00:00",
+  "started_at": "2026-11-17T09:07:09+00:00",
+  "finished_at": "2026-11-17T09:10:41+00:00",
   "engine": "v1.110.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 175.8
+      "seconds": 155.2
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 11.7
+      "seconds": 13.3
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 24.8
+      "seconds": 37.0
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 6.1
+      "seconds": 4.4
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.6
+      "seconds": 0.8
     }
   ],
   "update": {
     "town": "central-falls",
     "sources": "all",
-    "started_at": "2026-11-16T09:11:37+00:00",
+    "started_at": "2026-11-17T09:07:10+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.5,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -109,7 +109,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 114.1,
+        "seconds": 116.1,
         "cadence": "continuous"
       },
       {
@@ -144,7 +144,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 7.0,
+        "seconds": 6.6,
         "cadence": "continuous"
       },
       {
@@ -152,7 +152,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -171,7 +171,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 14 days ago; checked every 30 days"
+        "skipped": "checked 15 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -187,15 +187,16 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 24.5,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -203,7 +204,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -220,7 +221,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 28.4,
+        "seconds": 29.1,
         "cadence": "continuous"
       },
       {
@@ -228,7 +229,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -265,7 +266,7 @@
     {
       "label": "Meetings (Open Meetings portal)",
       "file": "meetings/opengov_status.json",
-      "updated_at": "2026-11-16T04:11:37-05:00",
+      "updated_at": "2026-11-17T04:07:12-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -343,8 +344,8 @@
   "corrections": [],
   "ok": true,
   "last_good_at": "2026-11-05T00:08:43+00:00",
-  "data_bytes": 769207,
-  "data_bytes_added": 2,
+  "data_bytes": 772337,
+  "data_bytes_added": 3010,
   "activity": {
     "boards": 8,
     "meetings_by_date": {
@@ -363,9 +364,9 @@
     "vote_counts_left_out": 6
   },
   "recordings": {
-    "since": "2026-11-09",
-    "until": "2026-11-15",
-    "held": 2,
+    "since": "2026-11-10",
+    "until": "2026-11-16",
+    "held": 1,
     "next_day": 0,
     "steps": {
       "summarized": 1,
@@ -374,47 +375,36 @@
       "waiting": 0,
       "failed": 0,
       "unmatched": 0,
-      "not_found": 1,
+      "not_found": 0,
       "no_source": 0,
       "no_recordings": 0
     },
-    "misses": [
-      {
-        "date": "2026-11-09",
-        "board": "City Council",
-        "step": "not_found"
-      }
-    ]
+    "misses": []
   },
   "documents": {
-    "since": "2026-08-18",
-    "until": "2026-11-15",
+    "since": "2026-08-19",
+    "until": "2026-11-16",
     "held": 24,
     "boards": 7,
     "counts": {
       "no_documents": 0,
-      "no_minutes": 1,
+      "no_minutes": 0,
       "pairs": 0
     },
     "no_documents": [],
-    "no_minutes": [
-      {
-        "board": "Purchasing Board",
-        "meetings": 4
-      }
-    ],
+    "no_minutes": [],
     "pairs": [],
     "waiting": {},
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-16T02:23:57-05:00",
+    "at": "2026-11-17T02:23:59-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-12T12:23:57-05:00"
   },
   "officials": {
-    "checked_at": "2026-11-16T04:14:04-05:00",
+    "checked_at": "2026-11-17T04:09:15-05:00",
     "leads": [
       {
         "name": "Mayor",
@@ -429,7 +419,5 @@
         "since": "2026-11-07T04:33:15-05:00"
       }
     ]
-  },
-  "published_at": "2026-11-16T09:40:53+00:00",
-  "published_engine": "v1.110.0"
+  }
 }
