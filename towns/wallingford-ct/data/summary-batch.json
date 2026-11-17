@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01GVoRsn1ddHMXTDG6jSV24p",
-  "sent_at": "2026-11-17T14:46:22+00:00",
+  "id": "msgbatch_01HzbHKkDZAXU2FzJKpNQ7mH",
+  "sent_at": "2026-11-17T14:53:08+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,9 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "recording",
       "older": false,
+      "source_hash": "90b2eafdee92974a045e1996cd11855b3f1654b23b8309cf7cec5d1fad4cff07",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Zoning Board of Appeals Meeting",
         "date": "2026-11-16",
@@ -21,15 +29,21 @@
       },
       "doc": {
         "id": "youtube-0y7Af02RfVo",
-        "sha256": "3474337180623545144c35315ca2b0c574f11058e9170200418b4df1fc9ffc25",
-        "file": "youtube-0y7Af02RfVo.txt",
-        "source_url": "https://www.youtube.com/watch?v=0y7Af02RfVo"
+        "sha256": "3474337180623545144c35315ca2b0c574f11058e9170200418b4df1fc9ffc25"
       }
     },
     {
-      "custom_id": "doc-1",
+      "custom_id": "tr-1",
+      "type": "translation",
+      "lang": "es",
       "kind": "minutes",
       "older": false,
+      "source_hash": "8f9c5a59d7a9cdc1a38f6944d3bee865535383b868debd8659fe829ab3ab9eaf",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Planning & Zoning Commission Meeting",
         "date": "2026-11-09",
@@ -37,207 +51,7 @@
       },
       "doc": {
         "id": "filelist-12266",
-        "sha256": "546ac2e10f27d03ff8b381a3a78034750dd5d6a3839fb487fd014db2ef4d483b",
-        "file": "filelist-12266.pdf",
-        "source_url": "https://www.wallingfordct.gov/minutes-and-agendas/DownloadFile.aspx?FileID=12266"
-      }
-    },
-    {
-      "custom_id": "tr-0",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "c495da149317600c39426d4a943260d5007eb8c4ae18fffe0f36382d58dd5963",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Public Celebrations Committee Meeting",
-        "date": "2026-11-23",
-        "body": "Public Celebrations Committee"
-      },
-      "doc": {
-        "id": "filelist-12265",
-        "sha256": "16b72c69902c6b92aaf905d9d41fc590418d8d74ba65ea002436028771a9b340"
-      }
-    },
-    {
-      "custom_id": "tr-1",
-      "type": "review",
-      "lang": "es",
-      "kind": "recording",
-      "older": false,
-      "source_hash": "f51485bb6ace8d4bca2057c10b31b12f0d29e8c139a43110ed720057495d4e04",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Board of Education Instructional Committee Meeting",
-        "date": "2026-11-16",
-        "body": "Board of Education Instructional Committee"
-      },
-      "doc": {
-        "id": "youtube-QpTe_SZj_9w",
-        "sha256": "2aba9bbf7b738b45a7e3f5feed8abafe1d37c1f7e4415abb8dbc1bf0b2c84357"
-      }
-    },
-    {
-      "custom_id": "tr-2",
-      "type": "translation",
-      "lang": "es",
-      "kind": "recording",
-      "older": false,
-      "source_hash": "8665802a2b1073b40b9a98f384b41b8bb8e2a3430eacaac1f5b7d6595f35952d",
-      "model": "claude-haiku-5-5",
-      "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
-      },
-      "meeting": {
-        "title": "Board of Education Operations Committee Meeting",
-        "date": "2026-11-16",
-        "body": "Board of Education Operations Committee"
-      },
-      "doc": {
-        "id": "youtube-0O5U2b2sE20",
-        "sha256": "dcede18f12d2c0ab32d6665a1f618c77d4f7ecc231752d0e3be4074884415a02"
-      }
-    },
-    {
-      "custom_id": "tr-3",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "5a3df2b76eaeeae0578d48cfd88d9c2e96841a47054be312fe4c8e9ccafb0df4",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Veterans Memorial Committee Meeting",
-        "date": "2026-11-09",
-        "body": "Veterans Memorial Committee"
-      },
-      "doc": {
-        "id": "filelist-12264",
-        "sha256": "4ed2455ae713bcfb7afdb89952d02947c28f7502febac1b4c37e075f5a77f2b4"
-      }
-    },
-    {
-      "custom_id": "tr-4",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "abe1387948773321773f71bd349817c61d9aad3faca539648e88de25434f200e",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Board of Education Meeting",
-        "date": "2026-10-26",
-        "body": "Board of Education"
-      },
-      "doc": {
-        "id": "1SOTRHHht4oRr6Pcl6GDtrrMjG4nQ1w5DNR__A9HXTuA-535297dd",
-        "sha256": "535297dda8921fcb3a86658792fd586d2bdbc9ca618b717feebf656629b14501"
-      }
-    },
-    {
-      "custom_id": "tr-5",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "bcaaac6299a96a32513ac01950436ba68c802f1e21f699379089cfa73f2269ea",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Board of Education Special Meeting",
-        "date": "2026-10-15",
-        "body": "Board of Education"
-      },
-      "doc": {
-        "id": "1ngQMcphm9UWWe8wNk5KQnA7btW5mtPzFDG5In0ewaA0-8de24d51",
-        "sha256": "8de24d5112cdfcb030f1a19bc35ef64bca2edfb17b42e5ed758cf0c5fb0cc370"
-      }
-    },
-    {
-      "custom_id": "tr-6",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "e160a3416d284574f387b4202dc11316645fe58c1b7331cb81e4d719045eae48",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Board of Education Special Meeting",
-        "date": "2026-10-14",
-        "body": "Board of Education"
-      },
-      "doc": {
-        "id": "1TNOBfv6jE67giCXt-8FRwMptMmOFLHcQQafxDqXB6Mw-f7b70de8",
-        "sha256": "f7b70de8345259e1d27b025c49cceafa6167c98f0b496d697343d165efb8bb01"
-      }
-    },
-    {
-      "custom_id": "tr-7",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "64255e991b4b3e946cd9e75b15feb82748900e1783850a89d8fceb2f64eed5a8",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Board of Education Special Meeting",
-        "date": "2026-09-30",
-        "body": "Board of Education"
-      },
-      "doc": {
-        "id": "1DgJ83TeVtmV37-aQfiIhOrcGdYyV5QsZdB8Sa-eGZrk-e46cbcb4",
-        "sha256": "e46cbcb48e3019ff97daed740ef98ad8bc6ea02bb61f697ba8c838a802156633"
-      }
-    },
-    {
-      "custom_id": "tr-8",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "160b529f7f47eb01e6e918399a737aa2927d5a24335ff9c6bb29a8118f354ae3",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Board of Education Meeting",
-        "date": "2026-09-28",
-        "body": "Board of Education"
-      },
-      "doc": {
-        "id": "1_x4F8nSIQUW17-adCN0weZ3srVUaznY6YGIM-fGdsLQ-f6b02188",
-        "sha256": "f6b02188dda8005a34c044566a9cc35d3aa4aaff8c5b109028db41ef0bc9d46f"
+        "sha256": "546ac2e10f27d03ff8b381a3a78034750dd5d6a3839fb487fd014db2ef4d483b"
       }
     }
   ]
