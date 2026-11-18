@@ -1,8 +1,8 @@
 {
   "town": "biddeford",
   "folder": "biddeford-me",
-  "started_at": "2026-11-17T13:31:53+00:00",
-  "finished_at": "2026-11-17T13:37:05+00:00",
+  "started_at": "2026-11-18T00:24:31+00:00",
+  "finished_at": "2026-11-18T00:29:47+00:00",
   "engine": "v1.110.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 237.9
+      "seconds": 234.8
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 26.7
+      "seconds": 30.6
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 31.0
+      "seconds": 45.2
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.2
+      "seconds": 3.6
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.6
+      "seconds": 0.9
     }
   ],
   "update": {
     "town": "biddeford",
     "sources": "meetings",
-    "started_at": "2026-11-17T13:31:54+00:00",
+    "started_at": "2026-11-18T00:24:32+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 191.0,
+        "seconds": 196.0,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 16.6,
+        "seconds": 16.5,
         "cadence": "continuous"
       },
       {
@@ -144,7 +144,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 27.2,
+        "seconds": 19.5,
         "cadence": "continuous"
       },
       {
@@ -239,14 +239,14 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-17T08:31:54-05:00",
+      "updated_at": "2026-11-17T19:24:33-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-17T08:35:05-05:00",
+      "updated_at": "2026-11-17T19:27:49-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -326,24 +326,24 @@
     "Correction for City Council 2026-11-05: its recording summary was made again after the correction was checked on 2026-11-09, so it isn't shown. Check it again."
   ],
   "ok": true,
-  "last_good_at": "2026-11-17T17:26:21+00:00",
-  "data_bytes": 1494651,
-  "data_bytes_added": 19177,
+  "last_good_at": "2026-11-18T00:29:47+00:00",
+  "data_bytes": 1500183,
+  "data_bytes_added": 4121,
   "activity": {
     "boards": 42,
     "meetings_by_date": {
-      "2026-11-17": 2,
       "2026-11-18": 4,
       "2026-11-19": 2,
       "2026-11-23": 1,
       "2026-11-24": 1,
       "2026-11-25": 1,
-      "2026-11-30": 1
+      "2026-11-30": 1,
+      "2026-12-01": 2
     }
   },
   "fact_checks": {
-    "summaries": 84,
-    "ok": 73,
+    "summaries": 85,
+    "ok": 74,
     "failed": 11,
     "weak": 0,
     "unchecked": 0,
@@ -377,10 +377,10 @@
     ]
   },
   "documents": {
-    "since": "2026-08-19",
-    "until": "2026-11-16",
+    "since": "2026-08-20",
+    "until": "2026-11-17",
     "held": 77,
-    "boards": 26,
+    "boards": 25,
     "counts": {
       "no_documents": 0,
       "no_minutes": 5,
@@ -414,7 +414,7 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-17T08:24:21-05:00",
+    "at": "2026-11-17T18:53:22-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-01T18:42:20-05:00"
@@ -422,7 +422,5 @@
   "officials": {
     "checked_at": "2026-11-14T04:16:06-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-17T17:26:21+00:00",
-  "published_engine": "v1.110.0"
+  }
 }
