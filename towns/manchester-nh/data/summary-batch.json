@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01WV5h8vGa1to8c3BUp2xtki",
-  "sent_at": "2026-11-18T09:21:47+00:00",
+  "id": "msgbatch_01DQzLcW7r2sdm9QLAXTnZtu",
+  "sent_at": "2026-11-18T09:37:27+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,9 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
+      "source_hash": "ec5d7736cdc9d776a8faff0ab755db1bf78b81b502d255e75e3933ffd4c7dd02",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Board of School Committee Special Meeting",
         "date": "2026-11-20",
@@ -21,38 +29,20 @@
       },
       "doc": {
         "id": "fae442afd9c398c0-c0f1e934",
-        "sha256": "c0f1e9349b92b600c897890a892f460bbf3a9593f456c2bb640c27f0e454a264",
-        "file": "fae442afd9c398c0-c0f1e934.pdf",
-        "source_url": "https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/3235/Msd/26bc7294-6d85-4b9d-ad57-a8d1c6e88fdf/2026-11-20-BOSC-Special-Agenda---Recount.pdf?disposition=inline"
+        "sha256": "c0f1e9349b92b600c897890a892f460bbf3a9593f456c2bb640c27f0e454a264"
       }
     },
     {
-      "custom_id": "doc-1",
-      "kind": "minutes",
-      "older": false,
-      "meeting": {
-        "title": "School Committee Teaching and Learning Committee Meeting",
-        "date": "2026-10-27",
-        "body": "School Committee Teaching and Learning Committee"
-      },
-      "doc": {
-        "id": "7d9a4cd408d09b6d-11d53662",
-        "sha256": "11d53662f83f5723adec6061ee306702417d32c9f999d4c7aa43145b780c03cb",
-        "file": "7d9a4cd408d09b6d-11d53662.pdf",
-        "source_url": "https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/3235/Msd/c218afe1-7cae-4016-b91f-24f85debd456/2026-10-27-Teaching-and-Learning-Minutes.pdf?disposition=inline"
-      }
-    },
-    {
-      "custom_id": "tr-0",
-      "type": "translation",
+      "custom_id": "tr-1",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "d857045585edb7782dd6fe1082aec844359cd1707c606a8858a5ec895fa69f33",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Committee on Joint School Buildings Meeting",
@@ -62,6 +52,28 @@
       "doc": {
         "id": "civicclerk-5409",
         "sha256": "36c97940b70e61ff2f3652993438250750b4fddff7a2e6ecd48ab93a433c6624"
+      }
+    },
+    {
+      "custom_id": "tr-2",
+      "type": "translation",
+      "lang": "es",
+      "kind": "minutes",
+      "older": false,
+      "source_hash": "6783522ec74ef3d73f0c525eae07cc7d8b1ced6bb1184a579c0c2da4ade34164",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "School Committee Teaching and Learning Committee Meeting",
+        "date": "2026-10-27",
+        "body": "School Committee Teaching and Learning Committee"
+      },
+      "doc": {
+        "id": "7d9a4cd408d09b6d-11d53662",
+        "sha256": "11d53662f83f5723adec6061ee306702417d32c9f999d4c7aa43145b780c03cb"
       }
     }
   ]
