@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_016tS6Lvyj97YQJ5dksm7hNH",
-  "sent_at": "2026-11-17T14:52:51+00:00",
+  "id": "msgbatch_01GQB55j4kt1WyRyC6rTajmk",
+  "sent_at": "2026-11-18T09:29:47+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -10,6 +10,22 @@
     "long_prompt_tokens": 100000
   },
   "documents": [
+    {
+      "custom_id": "doc-0",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "Conservation Commission Meeting",
+        "date": "2026-11-19",
+        "body": "Conservation Commission"
+      },
+      "doc": {
+        "id": "1187",
+        "sha256": "ae68c0bf3189e1e0b8e53dcb5e625a837a2d6069198f51b0bfd62e8ad2dca196",
+        "file": "1187.pdf",
+        "source_url": "https://www.methuen.gov/AgendaCenter/ViewFile/Agenda/_11192026-1187"
+      }
+    },
     {
       "custom_id": "tr-0",
       "type": "translation",
@@ -34,15 +50,15 @@
     },
     {
       "custom_id": "tr-1",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "recording",
       "older": false,
       "source_hash": "103019a5207cc7b7543ab43c5a25eb1be89957eb3ffb6b8de74a015340038139",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "School Committee Special Meeting",
