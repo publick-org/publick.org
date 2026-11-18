@@ -1,34 +1,34 @@
 {
   "town": "salem",
   "folder": "salem-ma",
-  "started_at": "2026-11-17T09:21:28+00:00",
-  "finished_at": "2026-11-17T09:25:27+00:00",
-  "engine": "v1.110.0",
+  "started_at": "2026-11-18T09:09:15+00:00",
+  "finished_at": "2026-11-18T09:26:34+00:00",
+  "engine": "v1.111.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 57.6
+      "seconds": 760.6
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 95.5
+      "seconds": 94.6
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 69.9
+      "seconds": 89.1
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 7.0
+      "seconds": 93.0
     },
     {
       "name": "Check live site",
@@ -40,7 +40,7 @@
   "update": {
     "town": "salem",
     "sources": "all",
-    "started_at": "2026-11-17T09:21:28+00:00",
+    "started_at": "2026-11-18T09:09:16+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 30.9,
+        "seconds": 46.1,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.1,
+        "seconds": 0.6,
         "cadence": "continuous"
       },
       {
@@ -145,7 +145,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 11.1,
+        "seconds": 24.9,
         "cadence": "continuous"
       },
       {
@@ -153,9 +153,8 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "yearly",
-        "skipped": "checked 29 days ago; checked every 30 days"
+        "seconds": 0.4,
+        "cadence": "yearly"
       },
       {
         "name": "Fetch unemployment",
@@ -171,25 +170,23 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "yearly",
-        "skipped": "checked 29 days ago; checked every 30 days"
+        "seconds": 0.4,
+        "cadence": "yearly"
       },
       {
         "name": "Fetch budget figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "yearly",
-        "skipped": "checked 29 days ago; checked every 30 days"
+        "seconds": 0.5,
+        "cadence": "yearly"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 24.6,
         "cadence": "monthly"
       },
       {
@@ -197,7 +194,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -205,7 +202,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -222,7 +219,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.5,
         "cadence": "continuous"
       },
       {
@@ -230,7 +227,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -238,7 +235,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 10.2,
+        "seconds": 658.2,
         "cadence": "continuous"
       },
       {
@@ -255,7 +252,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 2.6,
+        "seconds": 2.8,
         "cadence": "continuous"
       }
     ]
@@ -265,28 +262,28 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-17T04:21:29-05:00",
+      "updated_at": "2026-11-18T04:09:16-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-17T04:22:13-05:00",
+      "updated_at": "2026-11-18T04:10:55-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-17T04:22:23-05:00",
+      "updated_at": "2026-11-18T04:21:53-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Average tax bill (Mass. DLS)",
       "file": "finance/tax_bill.json",
-      "updated_at": "2026-10-19T05:18:06-04:00",
+      "updated_at": "2026-11-18T04:10:28-05:00",
       "max_days": null,
       "cadence": "yearly",
       "failing": 0,
@@ -298,7 +295,7 @@
     {
       "label": "City budget (Mass. DLS)",
       "file": "finance/budget.json",
-      "updated_at": "2026-10-19T05:18:10-04:00",
+      "updated_at": "2026-11-18T04:10:28-05:00",
       "max_days": null,
       "cadence": "yearly",
       "failing": 0,
@@ -310,7 +307,7 @@
     {
       "label": "School figures (DESE)",
       "file": "schools/schools.json",
-      "updated_at": "2026-10-19T05:18:06-04:00",
+      "updated_at": "2026-11-18T04:10:28-05:00",
       "max_days": null,
       "cadence": "yearly",
       "failing": 0,
@@ -334,13 +331,13 @@
     {
       "label": "Housing figures",
       "file": "housing/housing.json",
-      "updated_at": "2026-11-10T04:22:40-05:00",
+      "updated_at": "2026-11-18T04:10:29-05:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
       "stale": false,
-      "latest": "2025 building permits; ACS 2024 5-year estimates; Fiscal year 2026 parcel counts",
-      "next": "2026 building permits usually by June 1, 2027; ACS 2025 5-year estimates usually by December 15, 2026; Fiscal year 2027 parcel counts usually by March 1, 2027",
+      "latest": "2025 building permits; September 2026 building permits; ACS 2024 5-year estimates; Fiscal year 2027 parcel counts",
+      "next": "2026 building permits usually by June 1, 2027; October 2026 building permits usually by December 1, 2026; ACS 2025 5-year estimates usually by December 15, 2026; Fiscal year 2028 parcel counts usually by March 1, 2028",
       "behind": null
     },
     {
@@ -368,20 +365,19 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-17T17:33:12+00:00",
-  "data_bytes": 12657707,
-  "data_bytes_added": 8777487,
+  "last_good_at": "2026-11-18T09:26:34+00:00",
+  "data_bytes": 12730362,
+  "data_bytes_added": 8822376,
   "activity": {
     "boards": 54,
     "meetings_by_date": {
-      "2026-11-17": 5,
       "2026-11-18": 8,
-      "2026-11-19": 3
+      "2026-11-19": 6
     }
   },
   "fact_checks": {
-    "summaries": 159,
-    "ok": 146,
+    "summaries": 161,
+    "ok": 148,
     "failed": 12,
     "weak": 1,
     "unchecked": 0,
@@ -391,8 +387,8 @@
     "vote_counts_left_out": 40
   },
   "recordings": {
-    "since": "2026-11-10",
-    "until": "2026-11-16",
+    "since": "2026-11-11",
+    "until": "2026-11-17",
     "held": 2,
     "next_day": 0,
     "steps": {
@@ -420,13 +416,13 @@
     ]
   },
   "documents": {
-    "since": "2026-08-19",
-    "until": "2026-11-16",
-    "held": 124,
+    "since": "2026-08-20",
+    "until": "2026-11-17",
+    "held": 126,
     "boards": 43,
     "counts": {
       "no_documents": 0,
-      "no_minutes": 3,
+      "no_minutes": 2,
       "pairs": 0
     },
     "no_documents": [],
@@ -434,10 +430,6 @@
       {
         "board": "Licensing Board",
         "meetings": 5
-      },
-      {
-        "board": "Beautification Committee",
-        "meetings": 2
       },
       {
         "board": "North Shore Public Health Collaborative",
@@ -452,7 +444,5 @@
   "officials": {
     "checked_at": "2026-11-14T04:22:42-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-17T17:33:12+00:00",
-  "published_engine": "v1.110.0"
+  }
 }
