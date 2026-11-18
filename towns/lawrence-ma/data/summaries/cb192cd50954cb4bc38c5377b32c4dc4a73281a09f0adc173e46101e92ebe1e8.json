@@ -172,8 +172,36 @@
   "fact_check": {
     "version": 11,
     "source": "recording",
-    "result": "ok",
+    "result": "failed",
     "problems": [
+      {
+        "field": "decisions",
+        "entry": 2,
+        "kind": "agenda",
+        "what": "$7,881,647",
+        "agenda": "$7,861,647"
+      },
+      {
+        "field": "decisions",
+        "entry": 5,
+        "kind": "agenda",
+        "what": "$40,316.80",
+        "agenda": "$30,316.80"
+      },
+      {
+        "field": "decision_titles",
+        "entry": 2,
+        "kind": "agenda",
+        "what": "$7,881,647",
+        "agenda": "$7,861,647"
+      },
+      {
+        "field": "decision_titles",
+        "entry": 5,
+        "kind": "agenda",
+        "what": "$40,316.80",
+        "agenda": "$30,316.80"
+      },
       {
         "field": "decisions",
         "entry": 1,
@@ -212,6 +240,10 @@
       null,
       null,
       null
+    ],
+    "recording_version": 1,
+    "agendas": [
+      "651c606caf565237714de2c353b60354c113f44be758e0f768076084c20a3110"
     ]
   }
 }
