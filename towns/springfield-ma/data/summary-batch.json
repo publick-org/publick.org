@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01QCDQWMtfT1UdNsiM2YnioM",
-  "sent_at": "2026-11-18T09:10:09+00:00",
+  "id": "msgbatch_016TqcDJGm5hZzkuvFyKXMXn",
+  "sent_at": "2026-11-18T09:20:34+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,9 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
+      "source_hash": "a8958b8b58deeb2db5537c4aa61ba9bf51254ac707335c50461abdfef3cc91f4",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Historical Commission",
         "date": "2026-11-19",
@@ -21,38 +29,20 @@
       },
       "doc": {
         "id": "civicclerk-24803",
-        "sha256": "2acd625bd44e86018fbc2641f460843e281b2ba9024c9fd8779cf1929a76bb8f",
-        "file": "civicclerk-24803.pdf",
-        "source_url": "https://springfieldma.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=24803,plainText=false)"
+        "sha256": "2acd625bd44e86018fbc2641f460843e281b2ba9024c9fd8779cf1929a76bb8f"
       }
     },
     {
-      "custom_id": "doc-1",
-      "kind": "minutes",
-      "older": false,
-      "meeting": {
-        "title": "Finance Committee",
-        "date": "2026-11-16",
-        "body": "Finance Committee"
-      },
-      "doc": {
-        "id": "civicclerk-24805",
-        "sha256": "3ae61a71a0386797a7d677b3ec518ced3fc61b010592614b88aed3ea740ccdc2",
-        "file": "civicclerk-24805.pdf",
-        "source_url": "https://springfieldma.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=24805,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "tr-0",
-      "type": "translation",
+      "custom_id": "tr-1",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "bbce49cd66168e83919bd2be0660d7c0d16e6544cffe7641c8b8deabff04ce08",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Board of Assessors Meeting 11/18/2026",
@@ -62,6 +52,28 @@
       "doc": {
         "id": "civicclerk-24801",
         "sha256": "e9f0dd0893d22e5630258c3b097c9072700e728e42a76727e3140e8a9dc0a8c5"
+      }
+    },
+    {
+      "custom_id": "tr-2",
+      "type": "translation",
+      "lang": "es",
+      "kind": "minutes",
+      "older": false,
+      "source_hash": "844c4e4560a6d399769ab90857c426ee47d0c427d8373c041865948bdc09aef8",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Finance Committee",
+        "date": "2026-11-16",
+        "body": "Finance Committee"
+      },
+      "doc": {
+        "id": "civicclerk-24805",
+        "sha256": "3ae61a71a0386797a7d677b3ec518ced3fc61b010592614b88aed3ea740ccdc2"
       }
     }
   ]
