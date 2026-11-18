@@ -1,46 +1,46 @@
 {
   "town": "burlington",
   "folder": "burlington-vt",
-  "started_at": "2026-11-17T09:09:04+00:00",
-  "finished_at": "2026-11-17T09:22:07+00:00",
-  "engine": "v1.110.0",
+  "started_at": "2026-11-18T09:10:18+00:00",
+  "finished_at": "2026-11-18T09:15:19+00:00",
+  "engine": "v1.111.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 605.3
+      "seconds": 127.6
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 68.4
+      "seconds": 65.0
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 65.1
+      "seconds": 70.8
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.1
+      "seconds": 35.8
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.9
+      "seconds": 1.3
     }
   ],
   "update": {
     "town": "burlington",
     "sources": "all",
-    "started_at": "2026-11-17T09:09:04+00:00",
+    "started_at": "2026-11-18T09:10:19+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 40.0,
+        "seconds": 55.0,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.5,
+        "seconds": 4.0,
         "cadence": "continuous"
       },
       {
@@ -91,7 +91,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 22.7,
+        "seconds": 22.6,
         "cadence": "continuous"
       },
       {
@@ -144,7 +144,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 17.0,
+        "seconds": 33.4,
         "cadence": "continuous"
       },
       {
@@ -154,7 +154,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 12 days ago; checked every 30 days"
+        "skipped": "checked 13 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -163,7 +163,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -172,7 +172,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 12 days ago; checked every 30 days"
+        "skipped": "checked 13 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -181,16 +181,15 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 12 days ago; checked every 30 days"
+        "skipped": "checked 13 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "seconds": 0.4,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch place",
@@ -222,7 +221,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 6.6,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -238,7 +237,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 514.4,
+        "seconds": 8.6,
         "cadence": "continuous"
       },
       {
@@ -265,28 +264,28 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-17T04:09:05-05:00",
+      "updated_at": "2026-11-18T04:10:19-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Board meetings (Diligent Community)",
       "file": "meetings/diligent_status.json",
-      "updated_at": "2026-11-17T04:09:46-05:00",
+      "updated_at": "2026-11-18T04:11:18-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-17T04:10:34-05:00",
+      "updated_at": "2026-11-18T04:12:16-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-17T04:19:08-05:00",
+      "updated_at": "2026-11-18T04:12:25-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -375,22 +374,22 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-17T17:27:53+00:00",
-  "data_bytes": 6726651,
-  "data_bytes_added": 3047585,
+  "last_good_at": "2026-11-18T09:15:19+00:00",
+  "data_bytes": 6756872,
+  "data_bytes_added": 3061966,
   "activity": {
     "boards": 59,
     "meetings_by_date": {
-      "2026-11-17": 8,
       "2026-11-18": 4,
-      "2026-11-19": 6,
+      "2026-11-19": 7,
       "2026-11-23": 5,
-      "2026-11-24": 1
+      "2026-11-24": 1,
+      "2026-12-01": 1
     }
   },
   "fact_checks": {
-    "summaries": 291,
-    "ok": 271,
+    "summaries": 294,
+    "ok": 274,
     "failed": 18,
     "weak": 2,
     "unchecked": 0,
@@ -400,8 +399,8 @@
     "vote_counts_left_out": 33
   },
   "recordings": {
-    "since": "2026-11-10",
-    "until": "2026-11-16",
+    "since": "2026-11-11",
+    "until": "2026-11-17",
     "held": 0,
     "next_day": 0,
     "steps": {
@@ -418,9 +417,9 @@
     "misses": []
   },
   "documents": {
-    "since": "2026-08-19",
-    "until": "2026-11-16",
-    "held": 149,
+    "since": "2026-08-20",
+    "until": "2026-11-17",
+    "held": 155,
     "boards": 48,
     "counts": {
       "no_documents": 0,
@@ -443,7 +442,7 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-17T02:24:11-05:00",
+    "at": "2026-11-18T02:24:21-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-11T12:24:18-05:00"
@@ -457,7 +456,5 @@
         "none": true
       }
     ]
-  },
-  "published_at": "2026-11-17T17:27:53+00:00",
-  "published_engine": "v1.110.0"
+  }
 }
