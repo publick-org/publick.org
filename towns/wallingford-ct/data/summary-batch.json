@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01HzbHKkDZAXU2FzJKpNQ7mH",
-  "sent_at": "2026-11-17T14:53:08+00:00",
+  "id": "msgbatch_01LY9rswk9ZbXxhEkitXiwbS",
+  "sent_at": "2026-11-18T09:23:47+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,16 +11,32 @@
   },
   "documents": [
     {
+      "custom_id": "doc-0",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "Committee on Aging Meeting",
+        "date": "2026-11-20",
+        "body": "Committee on Aging"
+      },
+      "doc": {
+        "id": "filelist-12267",
+        "sha256": "c42347a2a8544dab7a6f74fafbfaf4b8b68ffdfcb774e49fc2b575c8f378e938",
+        "file": "filelist-12267.pdf",
+        "source_url": "https://www.wallingfordct.gov/minutes-and-agendas/DownloadFile.aspx?FileID=12267"
+      }
+    },
+    {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "recording",
       "older": false,
       "source_hash": "90b2eafdee92974a045e1996cd11855b3f1654b23b8309cf7cec5d1fad4cff07",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Zoning Board of Appeals Meeting",
@@ -34,15 +50,15 @@
     },
     {
       "custom_id": "tr-1",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "8f9c5a59d7a9cdc1a38f6944d3bee865535383b868debd8659fe829ab3ab9eaf",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Planning & Zoning Commission Meeting",
