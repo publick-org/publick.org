@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01RsmNPnc8j8Jxhr2aVBtEQu",
-  "sent_at": "2026-11-17T05:58:19+00:00",
+  "id": "msgbatch_01AGBxD2PL969isJEtMo9NZC",
+  "sent_at": "2026-11-18T05:44:50+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,16 +11,80 @@
   },
   "documents": [
     {
+      "custom_id": "doc-0",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "Town Council Special Meeting",
+        "date": "2026-11-23",
+        "body": "Town Council"
+      },
+      "doc": {
+        "id": "1344",
+        "sha256": "077267d01a100e97ddc31136bcca5a570c95b5a8878d34e848e43c4ba20aafe1",
+        "file": "1344.pdf",
+        "source_url": "https://www.londonderrynh.gov/AgendaCenter/ViewFile/Agenda/_11232026-1344"
+      }
+    },
+    {
+      "custom_id": "doc-1",
+      "kind": "recording",
+      "older": false,
+      "meeting": {
+        "title": "Budget Committee Meeting - Budget Workshop",
+        "date": "2026-11-17",
+        "body": "Budget Committee"
+      },
+      "doc": {
+        "id": "youtube-IxMhE2T7kyE",
+        "sha256": "dd5e7f040179ea1001588979f92e22c8699f537afdd481557e29e595e8881e6c",
+        "file": "youtube-IxMhE2T7kyE.txt",
+        "source_url": "https://www.youtube.com/watch?v=IxMhE2T7kyE"
+      }
+    },
+    {
+      "custom_id": "doc-2",
+      "kind": "minutes",
+      "older": false,
+      "meeting": {
+        "title": "Planning Board Meeting",
+        "date": "2026-10-14",
+        "body": "Planning Board"
+      },
+      "doc": {
+        "id": "agendacenter-1305",
+        "sha256": "33aa4b10b4103f0db4481813df70d936d70e9a69b0fdcc87756a56e75a12543e",
+        "file": "agendacenter-1305.pdf",
+        "source_url": "https://www.londonderrynh.gov/AgendaCenter/ViewFile/Minutes/_10142026-1305"
+      }
+    },
+    {
+      "custom_id": "doc-3",
+      "kind": "minutes",
+      "older": false,
+      "meeting": {
+        "title": "Planning Board Meeting",
+        "date": "2026-10-07",
+        "body": "Planning Board"
+      },
+      "doc": {
+        "id": "agendacenter-1299",
+        "sha256": "d56916150d65b9257a5b1179cf7977749da5dacea15ba0aa8bd744d40d43fe62",
+        "file": "agendacenter-1299.pdf",
+        "source_url": "https://www.londonderrynh.gov/AgendaCenter/ViewFile/Minutes/_10072026-1299"
+      }
+    },
+    {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "9e6e450824e8361c9dd8f69fd73b17c96d9322297f708431385984f73bab8163",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "School District Offices Working Group Meeting",
@@ -34,15 +98,15 @@
     },
     {
       "custom_id": "tr-1",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "7e4352ffbe9c53012265614296dd85170c8ecf208e99cb2cbc9a8e2d3cc4eacc",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Budget Committee Meeting - Budget Workshop",
@@ -56,15 +120,15 @@
     },
     {
       "custom_id": "tr-2",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "074822dd61ce856a7acfe4f0eb027a86a80f679030cc28b536c935989d1a42cc",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Arts Council Meeting",
@@ -78,15 +142,15 @@
     },
     {
       "custom_id": "tr-3",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "666f2a31296a77b17ede58f805f7229f9b0be84796e2c536c68f014bcab4004a",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Budget Committee Meeting - Budget Workshop",
@@ -122,15 +186,15 @@
     },
     {
       "custom_id": "tr-5",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "6a62858180d93702caaa99de9d0386344dc6bee253911f003c566a298685db3c",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Town Council Meeting",
