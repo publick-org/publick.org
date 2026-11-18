@@ -1,46 +1,46 @@
 {
   "town": "lowell",
   "folder": "lowell-ma",
-  "started_at": "2026-11-17T09:07:13+00:00",
-  "finished_at": "2026-11-17T09:10:54+00:00",
-  "engine": "v1.110.0",
+  "started_at": "2026-11-18T09:08:51+00:00",
+  "finished_at": "2026-11-18T09:12:05+00:00",
+  "engine": "v1.111.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 42.3
+      "seconds": 30.3
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 119.8
+      "seconds": 115.4
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 32.9
+      "seconds": 37.4
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 4.3
+      "seconds": 9.9
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.9
+      "seconds": 0.7
     }
   ],
   "update": {
     "town": "lowell",
     "sources": "all",
-    "started_at": "2026-11-17T09:07:14+00:00",
+    "started_at": "2026-11-18T09:08:51+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 11.4,
+        "seconds": 10.7,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 10.6,
+        "seconds": 1.0,
         "cadence": "continuous"
       },
       {
@@ -145,7 +145,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 17.2,
+        "seconds": 17.0,
         "cadence": "continuous"
       },
       {
@@ -155,15 +155,16 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 5 days ago; checked every 30 days"
+        "skipped": "checked 6 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.0,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -172,7 +173,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 5 days ago; checked every 30 days"
+        "skipped": "checked 6 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -181,7 +182,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 5 days ago; checked every 30 days"
+        "skipped": "checked 6 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -190,14 +191,14 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 4 days ago; checked every 7 days"
+        "skipped": "checked 5 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -222,7 +223,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -230,7 +231,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -267,7 +268,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-17T04:07:14-05:00",
+      "updated_at": "2026-11-18T04:08:52-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -363,50 +364,57 @@
     "Correction for License Commission 2026-11-05: \"Tuscabar\" isn't in its summaries any more, so it isn't shown. Remove it, or check it again."
   ],
   "ok": true,
-  "last_good_at": "2026-11-17T17:31:37+00:00",
-  "data_bytes": 2947177,
-  "data_bytes_added": 7777,
+  "last_good_at": "2026-11-18T09:12:05+00:00",
+  "data_bytes": 2990159,
+  "data_bytes_added": 3755,
   "activity": {
     "boards": 40,
     "meetings_by_date": {
-      "2026-11-17": 4,
       "2026-11-18": 4,
+      "2026-11-19": 2,
       "2026-11-23": 1
     }
   },
   "fact_checks": {
-    "summaries": 134,
-    "ok": 114,
-    "failed": 17,
+    "summaries": 138,
+    "ok": 116,
+    "failed": 19,
     "weak": 2,
     "unchecked": 1,
     "not_yet": 0,
-    "held_back": 17,
-    "entries_not_shown": 40,
-    "vote_counts_left_out": 127
+    "held_back": 19,
+    "entries_not_shown": 42,
+    "vote_counts_left_out": 135
   },
   "recordings": {
-    "since": "2026-11-10",
-    "until": "2026-11-16",
+    "since": "2026-11-11",
+    "until": "2026-11-17",
     "held": 1,
     "next_day": 0,
     "steps": {
-      "summarized": 1,
+      "summarized": 0,
       "minutes": 0,
       "transcribed": 0,
-      "waiting": 0,
+      "waiting": 1,
       "failed": 0,
       "unmatched": 0,
       "not_found": 0,
       "no_source": 0,
       "no_recordings": 0
     },
-    "misses": []
+    "misses": [
+      {
+        "date": "2026-11-17",
+        "board": "City Council",
+        "step": "waiting",
+        "detail": "1 recording(s) found"
+      }
+    ]
   },
   "documents": {
-    "since": "2026-08-19",
-    "until": "2026-11-16",
-    "held": 83,
+    "since": "2026-08-20",
+    "until": "2026-11-17",
+    "held": 85,
     "boards": 28,
     "counts": {
       "no_documents": 0,
@@ -425,7 +433,7 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-17T02:25:31-05:00",
+    "at": "2026-11-18T02:25:19-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-11T12:25:20-05:00"
@@ -433,7 +441,5 @@
   "officials": {
     "checked_at": "2026-11-14T04:14:04-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-17T17:31:37+00:00",
-  "published_engine": "v1.110.0"
+  }
 }
