@@ -1,8 +1,8 @@
 {
   "town": "holyoke",
   "folder": "holyoke-ma",
-  "started_at": "2026-11-18T13:07:07+00:00",
-  "finished_at": "2026-11-18T13:13:07+00:00",
+  "started_at": "2026-11-18T17:40:20+00:00",
+  "finished_at": "2026-11-18T17:45:35+00:00",
   "engine": "v1.111.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 311.8
+      "seconds": 240.3
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 8.6
+      "seconds": 12.7
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 30.5
+      "seconds": 50.9
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 10.2
+      "seconds": 9.7
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.8
+      "seconds": 1.0
     }
   ],
   "update": {
     "town": "holyoke",
-    "sources": "all",
-    "started_at": "2026-11-18T13:07:08+00:00",
+    "sources": "meetings",
+    "started_at": "2026-11-18T17:40:21+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.6,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -127,7 +127,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 163.5,
+        "seconds": 169.0,
         "cadence": "continuous"
       },
       {
@@ -153,7 +153,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 84.8,
+        "seconds": 67.9,
         "cadence": "continuous"
       },
       {
@@ -188,8 +188,9 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
-        "cadence": "yearly"
+        "seconds": 0,
+        "cadence": "yearly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch housing figures",
@@ -205,7 +206,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -213,7 +214,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -230,7 +231,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -238,32 +239,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 60.1,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests from an open data portal",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [socrata_311] in the config"
-      },
-      {
-        "name": "Compute 311 scorecard",
-        "ok": true,
-        "required": true,
-        "error": null,
-        "seconds": 0.9,
+        "seconds": 0.4,
         "cadence": "continuous"
       }
     ]
@@ -273,7 +249,7 @@
     {
       "label": "Meetings (city website)",
       "file": "meetings/proudcity_status.json",
-      "updated_at": "2026-11-18T08:07:09-05:00",
+      "updated_at": "2026-11-18T12:40:22-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -377,27 +353,27 @@
   "corrections": [],
   "ok": true,
   "last_good_at": null,
-  "data_bytes": 1829138,
-  "data_bytes_added": 1174546,
+  "data_bytes": 2324696,
+  "data_bytes_added": 1172490,
   "activity": {
-    "boards": 36,
+    "boards": 37,
     "meetings_by_date": {
       "2026-11-18": 5,
       "2026-11-19": 2,
-      "2026-11-23": 1,
+      "2026-11-23": 2,
       "2026-11-24": 2
     }
   },
   "fact_checks": {
-    "summaries": 40,
-    "ok": 29,
+    "summaries": 80,
+    "ok": 58,
     "failed": 2,
-    "weak": 0,
-    "unchecked": 9,
+    "weak": 1,
+    "unchecked": 19,
     "not_yet": 0,
     "held_back": 2,
     "entries_not_shown": 1,
-    "vote_counts_left_out": 0
+    "vote_counts_left_out": 1
   },
   "recordings": {
     "since": "2026-11-11",
@@ -407,11 +383,11 @@
     "steps": {
       "summarized": 0,
       "minutes": 0,
-      "transcribed": 0,
+      "transcribed": 1,
       "waiting": 0,
       "failed": 0,
       "unmatched": 0,
-      "not_found": 1,
+      "not_found": 0,
       "no_source": 0,
       "no_recordings": 0
     },
@@ -419,25 +395,38 @@
       {
         "date": "2026-11-17",
         "board": "City Council",
-        "step": "not_found"
+        "step": "transcribed",
+        "detail": "transcript not summarized yet"
       }
     ]
   },
   "documents": {
     "since": "2026-08-20",
     "until": "2026-11-17",
-    "held": 93,
-    "boards": 35,
+    "held": 103,
+    "boards": 36,
     "counts": {
       "no_documents": 0,
-      "no_minutes": 4,
+      "no_minutes": 7,
       "pairs": 0,
-      "beside": 2
+      "beside": 0
     },
     "no_documents": [],
     "no_minutes": [
       {
         "board": "City Council Development and Governmental Relations Committee",
+        "meetings": 3
+      },
+      {
+        "board": "School Committee",
+        "meetings": 3
+      },
+      {
+        "board": "Water Works Commission",
+        "meetings": 3
+      },
+      {
+        "board": "City Council Charter and Rules Committee",
         "meetings": 2
       },
       {
@@ -445,40 +434,32 @@
         "meetings": 2
       },
       {
-        "board": "School Committee",
+        "board": "Retirement Board",
         "meetings": 2
       },
       {
-        "board": "Water Works Commission",
+        "board": "School Committee Policy and Governance Subcommittee",
         "meetings": 2
       }
     ],
     "pairs": [],
-    "beside": [
-      {
-        "date": "2026-11-09",
-        "board": "School Committee",
-        "other": "Local Cultural Council"
-      },
-      {
-        "date": "2026-10-21",
-        "board": "Redevelopment Authority",
-        "other": "Board of Fire Commissioners"
-      }
-    ],
+    "beside": [],
     "waiting": {
       "proudcity_status": {
-        "count": 346,
+        "count": 298,
         "unit": "meetings"
       }
     },
     "backlog": {}
   },
-  "gemini": null,
+  "gemini": {
+    "at": "2026-11-18T12:25:37-05:00",
+    "refused": 0,
+    "transcribed": 1,
+    "last_transcribed_at": "2026-11-18T12:25:37-05:00"
+  },
   "officials": {
     "checked_at": "2026-11-17T13:41:33-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-18T13:21:18+00:00",
-  "published_engine": "v1.111.0"
+  }
 }
