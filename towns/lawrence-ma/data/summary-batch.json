@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01F5M9qizge6yTm7CuwTqnYD",
-  "sent_at": "2026-11-18T09:41:42+00:00",
+  "id": "msgbatch_01STHnnx2CdmW9j63S16t922",
+  "sent_at": "2026-11-18T09:59:52+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,48 +11,16 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
-      "kind": "agenda",
-      "older": false,
-      "meeting": {
-        "title": "Lawrence Municipal Airport Commission",
-        "date": "2026-11-19",
-        "body": "Airport Commission"
-      },
-      "doc": {
-        "id": "2015",
-        "sha256": "184c73daab4f7e9d773c709cb136f6090355d4370ec87c53d9418b261987e4db",
-        "file": "2015.pdf",
-        "source_url": "https://www.cityoflawrence.com/AgendaCenter/ViewFile/Agenda/_11192026-2015"
-      }
-    },
-    {
-      "custom_id": "doc-1",
-      "kind": "agenda",
-      "older": false,
-      "meeting": {
-        "title": "Library Trustees Meeting",
-        "date": "2026-11-19",
-        "body": "Library Trustees"
-      },
-      "doc": {
-        "id": "2016-202611171723",
-        "sha256": "e839ff562ce3bd147b291b5917001e56041093bdab084cc1f5763dd5a2685a77",
-        "file": "2016-202611171723.pdf",
-        "source_url": "https://www.cityoflawrence.com/AgendaCenter/ViewFile/Agenda/_11192026-2016"
-      }
-    },
-    {
       "custom_id": "tr-0",
-      "type": "review",
+      "type": "translation",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "f55db53ba6c85f4397c3616270fbb4a354b8a0bd6e5aca378a39349f0b368850",
-      "model": "claude-sonnet-5-5",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
         "title": "Lawrence Planning Board",
@@ -66,24 +34,46 @@
     },
     {
       "custom_id": "tr-1",
-      "type": "review",
+      "type": "translation",
       "lang": "es",
       "kind": "agenda",
       "older": false,
-      "source_hash": "594fb2ec5e0a6ba33bbc431f2f8d2442889e515cc2e238e6b54a0f63737d99cc",
-      "model": "claude-sonnet-5-5",
+      "source_hash": "4c40a56caf7a0b2d276f392c342c839f98cf4589ea7ddaad7f34bbbc7d9aded3",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
-        "title": "Bellevue Cemetery Board of Trustees",
-        "date": "2026-11-18",
-        "body": "Bellevue Cemetery Board"
+        "title": "Lawrence Municipal Airport Commission",
+        "date": "2026-11-19",
+        "body": "Airport Commission"
       },
       "doc": {
-        "id": "2011-202611161310",
-        "sha256": "d4827296feee9b93a5424a3f23f33645abc50429bb9dc99448e44871d1191fd4"
+        "id": "2015",
+        "sha256": "184c73daab4f7e9d773c709cb136f6090355d4370ec87c53d9418b261987e4db"
+      }
+    },
+    {
+      "custom_id": "tr-2",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "817e8abaf7dd2f592a3105c6cf8fb59615e8eb191e0f9b0e44d4490955446752",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Library Trustees Meeting",
+        "date": "2026-11-19",
+        "body": "Library Trustees"
+      },
+      "doc": {
+        "id": "2016-202611171723",
+        "sha256": "e839ff562ce3bd147b291b5917001e56041093bdab084cc1f5763dd5a2685a77"
       }
     }
   ]
