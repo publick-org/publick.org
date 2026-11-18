@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01KW1FfJWE3RZWjeA5rUcVYH",
-  "sent_at": "2026-11-18T09:09:23+00:00",
+  "id": "msgbatch_01TyqRKxnSQZ2MYvMp9rb5zu",
+  "sent_at": "2026-11-18T09:19:01+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,25 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
-      "meeting": {
-        "title": "Fair Rent Commission",
-        "date": "2026-11-18",
-        "body": "Fair Rent Commission"
+      "source_hash": "d39ac5a6b2ff2b37ade964263df3f53e054e18cc3aea53361519d15c1365b7f7",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
       },
-      "doc": {
-        "id": "civicclerk-13965",
-        "sha256": "b33c0ee123c28d1eb720001d7563397e6ef09a26458c92be73d3cbd761314bd1",
-        "file": "civicclerk-13965.pdf",
-        "source_url": "https://bristolct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=13965,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-1",
-      "kind": "agenda",
-      "older": false,
       "meeting": {
         "title": "Animal Control Building Committee",
         "date": "2026-11-19",
@@ -37,86 +29,20 @@
       },
       "doc": {
         "id": "civicclerk-13969",
-        "sha256": "3dee230acc399a97845a070731c879ed10e2af4c290e7c4f93204e37984bbcc1",
-        "file": "civicclerk-13969.pdf",
-        "source_url": "https://bristolct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=13969,plainText=false)"
+        "sha256": "3dee230acc399a97845a070731c879ed10e2af4c290e7c4f93204e37984bbcc1"
       }
     },
     {
-      "custom_id": "doc-2",
-      "kind": "agenda",
-      "older": false,
-      "meeting": {
-        "title": "Special City Council 11-19-26",
-        "date": "2026-11-19",
-        "body": "City Council"
-      },
-      "doc": {
-        "id": "civicclerk-13975",
-        "sha256": "c354f2cd22729c64209dfeccfc165bf90470f46d8b6c985c55424cca5611b3b9",
-        "file": "civicclerk-13975.pdf",
-        "source_url": "https://bristolct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=13975,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-3",
-      "kind": "agenda",
-      "older": false,
-      "meeting": {
-        "title": "Energy Commission",
-        "date": "2026-11-19",
-        "body": "Energy Commission"
-      },
-      "doc": {
-        "id": "civicclerk-13970",
-        "sha256": "fe919c437da06a31e1aa661f558b2cc18da9c6cb89e20c4547ee5181d0012b85",
-        "file": "civicclerk-13970.pdf",
-        "source_url": "https://bristolct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=13970,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-4",
-      "kind": "minutes",
-      "older": false,
-      "meeting": {
-        "title": "Board of Health Meeting November 12, 2026",
-        "date": "2026-11-12",
-        "body": "Board of Health"
-      },
-      "doc": {
-        "id": "civicclerk-13968",
-        "sha256": "81e0d4e27e47084167c4452207c33fe671a859a912d0d867e2015edca7066eb4",
-        "file": "civicclerk-13968.pdf",
-        "source_url": "https://bristolct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=13968,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-5",
-      "kind": "minutes",
-      "older": false,
-      "meeting": {
-        "title": "Board of Health Special Meeting",
-        "date": "2026-10-20",
-        "body": "Board of Health"
-      },
-      "doc": {
-        "id": "civicclerk-13966",
-        "sha256": "5df95a060078ce5dab9c3e9fcc254e29b6c5bedd08a390c1cd810afd795cf27d",
-        "file": "civicclerk-13966.pdf",
-        "source_url": "https://bristolct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=13966,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "tr-0",
-      "type": "review",
+      "custom_id": "tr-1",
+      "type": "translation",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "bf602fe5cd01cbd24c0a696e6a566991271294bdb1f6b25e798c5a58c047a15e",
-      "model": "claude-sonnet-5-5",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
         "title": "Board of Fire Commissioners",
@@ -129,82 +55,104 @@
       }
     },
     {
-      "custom_id": "tr-1",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "b08e098d400fd53d3c481ef8566307751b0b4aae21de768cd93ced5516b070da",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Board of Education Finance and Operations Committee Special Meeting",
-        "date": "2026-11-18",
-        "body": "Board of Education Finance and Operations Committee"
-      },
-      "doc": {
-        "id": "boardbook-776887-agenda-e1507f14",
-        "sha256": "e1507f144599ba72086a8613c70e7c39695a67253a4730be03b7a430d68b974e"
-      }
-    },
-    {
       "custom_id": "tr-2",
-      "type": "review",
+      "type": "translation",
       "lang": "es",
       "kind": "agenda",
       "older": false,
-      "source_hash": "7a2fd8aefc106802ec49df693995253cd04c48ea9533ed893a724fd5019c62de",
-      "model": "claude-sonnet-5-5",
+      "source_hash": "9bde27e362a624400b6f4308334cb8068ba226902e0c6d29dd9497e60f7566f7",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
-        "title": "Board of Water Commissioners",
-        "date": "2026-11-17",
-        "body": "Board of Water Commissioners"
+        "title": "Special City Council 11-19-26",
+        "date": "2026-11-19",
+        "body": "City Council"
       },
       "doc": {
-        "id": "civicclerk-13960",
-        "sha256": "d6184938bcc5145005d54b6021e486c4dd06668973609ad0bcef161b53028dae"
+        "id": "civicclerk-13975",
+        "sha256": "c354f2cd22729c64209dfeccfc165bf90470f46d8b6c985c55424cca5611b3b9"
       }
     },
     {
       "custom_id": "tr-3",
-      "type": "review",
+      "type": "translation",
       "lang": "es",
       "kind": "agenda",
       "older": false,
-      "source_hash": "61394c62349e3eccfeb2c6dec4c628371fcca626f0bbf5d2e4b2eaa93a870ba4",
-      "model": "claude-sonnet-5-5",
+      "source_hash": "2cf44a05186b7d4c7da8f2800cf4ae80e5fb7865cd3dfd2678742b777a25ca07",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
-        "title": "Sewer Commission",
-        "date": "2026-11-17",
-        "body": "Sewer Commission"
+        "title": "Energy Commission",
+        "date": "2026-11-19",
+        "body": "Energy Commission"
       },
       "doc": {
-        "id": "civicclerk-13961",
-        "sha256": "b495d7fd4df9005df8f97c4abd77556d391b3265bbc85d984f5acab2e1aa4928"
+        "id": "civicclerk-13970",
+        "sha256": "fe919c437da06a31e1aa661f558b2cc18da9c6cb89e20c4547ee5181d0012b85"
       }
     },
     {
       "custom_id": "tr-4",
-      "type": "review",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "055140de66350e4c8112dc706c14bfc9677a916ad90d17fa82d6fd30ce7f1d64",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Fair Rent Commission",
+        "date": "2026-11-18",
+        "body": "Fair Rent Commission"
+      },
+      "doc": {
+        "id": "civicclerk-13965",
+        "sha256": "b33c0ee123c28d1eb720001d7563397e6ef09a26458c92be73d3cbd761314bd1"
+      }
+    },
+    {
+      "custom_id": "tr-5",
+      "type": "translation",
+      "lang": "es",
+      "kind": "minutes",
+      "older": false,
+      "source_hash": "28e7453bff1c548716df64766e1189eab20ad8eaa61e90b84cb731513140f49c",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Board of Health Meeting November 12, 2026",
+        "date": "2026-11-12",
+        "body": "Board of Health"
+      },
+      "doc": {
+        "id": "civicclerk-13968",
+        "sha256": "81e0d4e27e47084167c4452207c33fe671a859a912d0d867e2015edca7066eb4"
+      }
+    },
+    {
+      "custom_id": "tr-6",
+      "type": "translation",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "59a7b01f2ffd0e683383d51b2407670af14ba36cab2b4b5526a0fc83872171b1",
-      "model": "claude-sonnet-5-5",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
         "title": "City Council Meeting",
@@ -217,25 +165,25 @@
       }
     },
     {
-      "custom_id": "tr-5",
-      "type": "review",
+      "custom_id": "tr-7",
+      "type": "translation",
       "lang": "es",
       "kind": "minutes",
       "older": false,
-      "source_hash": "2231ae1bb9967d6d2c67144f035df757c66a6e32c2a20b0cd4eb4ed7e283fe03",
-      "model": "claude-sonnet-5-5",
+      "source_hash": "1b3030c7ab5de5820fe7b01d2691d4d36b6291495676a99f1c574da4f3d9f4af",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
-        "title": "Joint Meeting of City Council and Board of Finance",
-        "date": "2026-11-10",
-        "body": "Joint Meeting of the City Council and Board of Finance"
+        "title": "Board of Health Special Meeting",
+        "date": "2026-10-20",
+        "body": "Board of Health"
       },
       "doc": {
-        "id": "civicclerk-13962",
-        "sha256": "ab34335c3b8c8446b298ca4b869e0b7cca575f7c67ed13f249f77e3f227fae0c"
+        "id": "civicclerk-13966",
+        "sha256": "5df95a060078ce5dab9c3e9fcc254e29b6c5bedd08a390c1cd810afd795cf27d"
       }
     }
   ]
