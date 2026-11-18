@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01SjEJFtkfVKr5rqDiJrtUZL",
-  "sent_at": "2026-11-18T07:51:00+00:00",
+  "id": "msgbatch_01HCu4UgcEAjTycMXx8FakVW",
+  "sent_at": "2026-11-18T13:31:43+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,16 +11,67 @@
   },
   "documents": [
     {
+      "custom_id": "doc-0",
+      "kind": "recording",
+      "older": false,
+      "meeting": {
+        "title": "Community Preservation Committee (CPC)",
+        "date": "2026-11-17",
+        "body": "Community Preservation Committee",
+        "agendas": [
+          {
+            "sha256": "88bb38692ac68766a9271a29070cb56208b2d69827da787aa6876259479d66c2"
+          },
+          {
+            "sha256": "1c56ff76f5b3c4a41b7bb2a8bac571c212fe300bfee651da48f5910d059ff3a7"
+          }
+        ]
+      },
+      "doc": {
+        "id": "youtube-Z2m82aRgo0E",
+        "sha256": "22e17b27da68865a792869e572b48fbfbf1bce06fd9d9933959047d7e647385a",
+        "file": "youtube-Z2m82aRgo0E.txt",
+        "source_url": "https://www.youtube.com/watch?v=Z2m82aRgo0E"
+      }
+    },
+    {
+      "custom_id": "doc-1",
+      "kind": "recording",
+      "older": false,
+      "meeting": {
+        "title": "Standing Committee on Public Works",
+        "date": "2026-11-17",
+        "body": "Standing Committee on Public Works",
+        "agendas": [
+          {
+            "sha256": "7cc3977025989320a06a23a54d8ed74eaafd2622bad5a165f2f3fe3c603062ac"
+          },
+          {
+            "sha256": "96d3c1fe60d0b35258b2fd17c0c498d5ff167ca10e4d58d8e8da900dba1eb5d8"
+          },
+          {
+            "sha256": "c9c38920ef0824a91d25a99e05a1b4d23228171c9d88818ffbea51a00b78b170"
+          }
+        ]
+      },
+      "doc": {
+        "id": "youtube-g03riF_1LUk",
+        "sha256": "510b32ca0f66ee88d1de079aa8944e77cbebb8da59c9030b87da6dfed9aaf8d8",
+        "file": "youtube-g03riF_1LUk.txt",
+        "source_url": "https://www.youtube.com/watch?v=g03riF_1LUk"
+      }
+    },
+    {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "55c46d972b485ab50eb29b44d5b6612e262694dda60f9db76d45d3899c9665e2",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "School Committee Meeting",
@@ -30,6 +81,28 @@
       "doc": {
         "id": "1-YelKmXpsQz-SWrz_TmtVg-AtkaKEe77-d607485d",
         "sha256": "d607485d8cf626d499ba7ca705f4f49655eb6c77e34b3ac3fcdf4e29508523d5"
+      }
+    },
+    {
+      "custom_id": "tr-1",
+      "type": "translation",
+      "lang": "es",
+      "kind": "recording",
+      "older": false,
+      "source_hash": "8dac9df7ff4757ff21b2a76311466810e007d71929a041f5dc57519b04857111",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "City Council",
+        "date": "2026-11-17",
+        "body": "City Council"
+      },
+      "doc": {
+        "id": "youtube-qYbYOmbG-Xo",
+        "sha256": "0d276c89123430cf249e13a89d1e136187fdde762e17bfe54a321d19e4e4f971"
       }
     }
   ]
