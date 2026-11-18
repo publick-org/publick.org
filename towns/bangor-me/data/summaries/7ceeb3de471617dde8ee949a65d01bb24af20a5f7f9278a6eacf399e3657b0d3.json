@@ -43,8 +43,14 @@
   "fact_check": {
     "version": 11,
     "source": "recording",
-    "result": "ok",
+    "result": "failed",
     "problems": [
+      {
+        "field": "summary",
+        "kind": "agenda",
+        "what": "92 Sydney Street",
+        "agenda": "92 Sidney St"
+      },
       {
         "field": "decisions",
         "entry": 1,
@@ -53,9 +59,23 @@
       },
       {
         "field": "decisions",
+        "entry": 1,
+        "kind": "agenda",
+        "what": "92 Sydney Street",
+        "agenda": "92 Sidney St"
+      },
+      {
+        "field": "decisions",
         "entry": 2,
         "kind": "tally",
         "what": "5-0"
+      },
+      {
+        "field": "decision_titles",
+        "entry": 1,
+        "kind": "agenda",
+        "what": "92 Sydney Street",
+        "agenda": "92 Sidney St"
       },
       {
         "field": "decisions",
@@ -67,6 +87,10 @@
     "pages": [
       null,
       null
+    ],
+    "recording_version": 1,
+    "agendas": [
+      "6c441ca2d351d5afd558233c375ee986b3fb61fb4a06311720005d0aba83d38e"
     ]
   }
 }
