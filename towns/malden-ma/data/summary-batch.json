@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_011LgaLQb5ymMyd434ryxEQa",
-  "sent_at": "2026-11-18T09:13:47+00:00",
+  "id": "msgbatch_01JFhJrNgGHGc2heiB6ExQqJ",
+  "sent_at": "2026-11-18T09:28:53+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,9 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "minutes",
-      "older": true,
+      "older": false,
+      "source_hash": "efc27ae571d43cab0673f30834fb30d9151141c11b4a7ce52fcd6f0435685d08",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Cannabis Licensing and Enforcement Commission Meeting",
         "date": "2026-09-17",
@@ -21,31 +29,7 @@
       },
       "doc": {
         "id": "agendacenter-4425",
-        "sha256": "b87898fc28cffbcff69a70a35a15c7cb85c989b26302b47019021553338f0323",
-        "file": "agendacenter-4425.pdf",
-        "source_url": "https://www.cityofmalden.org/AgendaCenter/ViewFile/Minutes/_09172026-4425"
-      }
-    },
-    {
-      "custom_id": "tr-0",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "9c24be9c8bf70467f7051ebfed3aa6a7e927e3a11b739e264bab5844d76939a3",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Malden Historical Commission Meeting",
-        "date": "2026-11-19",
-        "body": "Historical Commission"
-      },
-      "doc": {
-        "id": "4538-202611161454",
-        "sha256": "9862bbf48c6a0f2ce4ea2de444bcfdb7a23352bf95dadbdf0a6894e72d38fd37"
+        "sha256": "b87898fc28cffbcff69a70a35a15c7cb85c989b26302b47019021553338f0323"
       }
     }
   ]
