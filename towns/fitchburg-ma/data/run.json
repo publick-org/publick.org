@@ -1,8 +1,8 @@
 {
   "town": "fitchburg",
   "folder": "fitchburg-ma",
-  "started_at": "2026-11-18T00:24:13+00:00",
-  "finished_at": "2026-11-18T00:26:24+00:00",
+  "started_at": "2026-11-18T05:43:13+00:00",
+  "finished_at": "2026-11-18T05:45:36+00:00",
   "engine": "v1.110.0",
   "fetched": true,
   "steps": [
@@ -10,25 +10,25 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 30.2
+      "seconds": 23.0
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 35.6
+      "seconds": 32.9
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 58.2
+      "seconds": 46.7
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 3.1
+      "seconds": 39.0
     },
     {
       "name": "Check live site",
@@ -40,7 +40,7 @@
   "update": {
     "town": "fitchburg",
     "sources": "meetings",
-    "started_at": "2026-11-18T00:24:13+00:00",
+    "started_at": "2026-11-18T05:43:14+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 10.9,
+        "seconds": 2.7,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -145,7 +145,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 15.9,
+        "seconds": 18.5,
         "cadence": "continuous"
       },
       {
@@ -198,7 +198,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -206,7 +206,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -223,7 +223,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -231,7 +231,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       }
     ]
@@ -241,7 +241,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-17T19:24:13-05:00",
+      "updated_at": "2026-11-18T00:43:14-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -344,9 +344,9 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-18T00:32:11+00:00",
-  "data_bytes": 5827165,
-  "data_bytes_added": 4530139,
+  "last_good_at": "2026-11-18T05:45:36+00:00",
+  "data_bytes": 5854487,
+  "data_bytes_added": 4527318,
   "activity": {
     "boards": 42,
     "meetings_by_date": {
@@ -356,37 +356,38 @@
     }
   },
   "fact_checks": {
-    "summaries": 40,
-    "ok": 34,
-    "failed": 4,
+    "summaries": 44,
+    "ok": 37,
+    "failed": 5,
     "weak": 2,
     "unchecked": 0,
     "not_yet": 0,
-    "held_back": 4,
-    "entries_not_shown": 21,
+    "held_back": 5,
+    "entries_not_shown": 23,
     "vote_counts_left_out": 2
   },
   "recordings": {
-    "since": "2026-11-10",
-    "until": "2026-11-16",
+    "since": "2026-11-11",
+    "until": "2026-11-17",
     "held": 2,
     "next_day": 1,
     "steps": {
       "summarized": 1,
       "minutes": 0,
-      "transcribed": 0,
+      "transcribed": 1,
       "waiting": 0,
       "failed": 0,
       "unmatched": 0,
-      "not_found": 1,
+      "not_found": 0,
       "no_source": 0,
       "no_recordings": 0
     },
     "misses": [
       {
-        "date": "2026-11-10",
-        "board": "Zoning Board of Appeals",
-        "step": "not_found"
+        "date": "2026-11-17",
+        "board": "City Council",
+        "step": "transcribed",
+        "detail": "transcript not summarized yet"
       }
     ]
   },
@@ -435,7 +436,5 @@
   "officials": {
     "checked_at": "2026-11-13T08:30:20-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-18T00:32:11+00:00",
-  "published_engine": "v1.110.0"
+  }
 }
