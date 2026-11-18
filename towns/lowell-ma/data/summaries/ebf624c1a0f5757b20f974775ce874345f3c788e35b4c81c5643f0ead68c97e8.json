@@ -51,8 +51,55 @@
   "fact_check": {
     "version": 11,
     "source": "recording",
-    "result": "ok",
+    "result": "failed",
     "problems": [
+      {
+        "field": "headline",
+        "kind": "agenda",
+        "what": "41 Third Street",
+        "agenda": "41 Hurd Street"
+      },
+      {
+        "field": "summary",
+        "kind": "agenda",
+        "what": "585 protected Boulevard",
+        "agenda": "585 Pawtucket Boulevard"
+      },
+      {
+        "field": "decisions",
+        "entry": 2,
+        "kind": "agenda",
+        "what": "585 protected Boulevard",
+        "agenda": "585 Pawtucket Boulevard"
+      },
+      {
+        "field": "decisions",
+        "entry": 3,
+        "kind": "agenda",
+        "what": "41 Third Street",
+        "agenda": "41 Hurd Street"
+      },
+      {
+        "field": "discussion",
+        "entry": 1,
+        "kind": "agenda",
+        "what": "41 Third Street",
+        "agenda": "41 Hurd Street"
+      },
+      {
+        "field": "decision_titles",
+        "entry": 2,
+        "kind": "agenda",
+        "what": "585 protected Boulevard",
+        "agenda": "585 Pawtucket Boulevard"
+      },
+      {
+        "field": "decision_titles",
+        "entry": 3,
+        "kind": "agenda",
+        "what": "41 Third Street",
+        "agenda": "41 Hurd Street"
+      },
       {
         "field": "decisions",
         "entry": 3,
@@ -70,6 +117,10 @@
       null,
       null,
       null
+    ],
+    "recording_version": 1,
+    "agendas": [
+      "f91d942a4a18785e1d689935646eb678adb0b27cf574acd17b278c98461dd23e"
     ]
   }
 }
