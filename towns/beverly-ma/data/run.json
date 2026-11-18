@@ -1,8 +1,8 @@
 {
   "town": "beverly",
   "folder": "beverly-ma",
-  "started_at": "2026-11-18T09:09:11+00:00",
-  "finished_at": "2026-11-18T09:13:11+00:00",
+  "started_at": "2026-11-18T17:40:13+00:00",
+  "finished_at": "2026-11-18T17:43:42+00:00",
   "engine": "v1.111.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 49.0
+      "seconds": 34.0
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 129.3
+      "seconds": 132.2
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 31.2
+      "seconds": 38.4
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 4.7
+      "seconds": 3.0
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.9
+      "seconds": 1.5
     }
   ],
   "update": {
     "town": "beverly",
-    "sources": "all",
-    "started_at": "2026-11-18T09:09:11+00:00",
+    "sources": "meetings",
+    "started_at": "2026-11-18T17:40:13+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": false,
         "required": false,
         "error": "exited with status 1",
-        "seconds": 28.7,
+        "seconds": 17.0,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 1.4,
         "cadence": "continuous"
       },
       {
@@ -132,6 +132,15 @@
         "skipped": "no [proudcity_meetings] in the config"
       },
       {
+        "name": "Fetch the city's WordPress meetings",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [wordpress_meetings] in the config"
+      },
+      {
         "name": "Fetch the school district's minutes library",
         "ok": true,
         "required": false,
@@ -145,7 +154,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 18.7,
+        "seconds": 13.6,
         "cadence": "continuous"
       },
       {
@@ -164,7 +173,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 4 days ago; checked every 7 days"
+        "skipped": "checked 5 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -191,14 +200,14 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -206,7 +215,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -223,7 +232,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -231,35 +240,8 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [seeclickfix] in the config"
-      },
-      {
-        "name": "Fetch 311 requests from an open data portal",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [socrata_311] in the config"
-      },
-      {
-        "name": "Compute 311 scorecard",
-        "ok": true,
-        "required": true,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [seeclickfix] or [socrata_311] in the config"
       }
     ]
   },
@@ -357,9 +339,9 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-18T10:05:03+00:00",
-  "data_bytes": 3968018,
-  "data_bytes_added": 4621,
+  "last_good_at": "2026-11-18T17:43:42+00:00",
+  "data_bytes": 3984550,
+  "data_bytes_added": 3189,
   "activity": {
     "boards": 57,
     "meetings_by_date": {
@@ -372,8 +354,8 @@
     }
   },
   "fact_checks": {
-    "summaries": 216,
-    "ok": 210,
+    "summaries": 219,
+    "ok": 213,
     "failed": 1,
     "weak": 4,
     "unchecked": 1,
@@ -390,8 +372,8 @@
     "steps": {
       "summarized": 0,
       "minutes": 0,
-      "transcribed": 0,
-      "waiting": 1,
+      "transcribed": 1,
+      "waiting": 0,
       "failed": 0,
       "unmatched": 0,
       "not_found": 0,
@@ -402,20 +384,21 @@
       {
         "date": "2026-11-17",
         "board": "Planning Board",
-        "step": "waiting",
-        "detail": "1 recording(s) found"
+        "step": "transcribed",
+        "detail": "transcript not summarized yet"
       }
     ]
   },
   "documents": {
     "since": "2026-08-20",
     "until": "2026-11-17",
-    "held": 125,
+    "held": 124,
     "boards": 46,
     "counts": {
       "no_documents": 4,
       "no_minutes": 7,
-      "pairs": 0
+      "pairs": 0,
+      "beside": 0
     },
     "no_documents": [
       {
@@ -466,19 +449,18 @@
       }
     ],
     "pairs": [],
+    "beside": [],
     "waiting": {},
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-18T02:24:11-05:00",
+    "at": "2026-11-18T12:24:21-05:00",
     "refused": 0,
-    "transcribed": 0,
-    "last_transcribed_at": "2026-11-03T07:53:21-05:00"
+    "transcribed": 1,
+    "last_transcribed_at": "2026-11-18T12:24:21-05:00"
   },
   "officials": {
     "checked_at": "2026-11-15T04:12:01-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-18T10:05:03+00:00",
-  "published_engine": "v1.111.0"
+  }
 }
