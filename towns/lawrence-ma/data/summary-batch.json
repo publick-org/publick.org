@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01TmccWzzFfAQgGKNVgYFnce",
-  "sent_at": "2026-11-18T17:41:03+00:00",
+  "id": "msgbatch_01U2sFVpbKZ68FpEmtK4owW2",
+  "sent_at": "2026-11-18T17:50:10+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,59 +11,16 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
-      "kind": "recording",
-      "older": false,
-      "meeting": {
-        "title": "City Council Regular Meeting",
-        "date": "2026-11-17",
-        "body": "City Council",
-        "agendas": [
-          {
-            "sha256": "5392df5cac2b623b0d922a8a1c667e1627e1cbe681c674d986c3e755f9ac4611"
-          }
-        ]
-      },
-      "doc": {
-        "id": "youtube-mn9aDy0iaVw",
-        "sha256": "ce796cde4bbfebb5e0bd6baab574a1f866f1c33ca1127c84eb2ed7cc327eb00c",
-        "file": "youtube-mn9aDy0iaVw.txt",
-        "source_url": "https://www.youtube.com/watch?v=mn9aDy0iaVw"
-      }
-    },
-    {
       "custom_id": "tr-0",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "f55db53ba6c85f4397c3616270fbb4a354b8a0bd6e5aca378a39349f0b368850",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Lawrence Planning Board",
-        "date": "2026-12-02",
-        "body": "Planning Board"
-      },
-      "doc": {
-        "id": "2012-202611161611",
-        "sha256": "ed2da1774990c864badb4859310ff2ffa3c935f190e3e0e8b15c9a1351031ea3"
-      }
-    },
-    {
-      "custom_id": "tr-1",
-      "type": "review",
+      "type": "translation",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "4c40a56caf7a0b2d276f392c342c839f98cf4589ea7ddaad7f34bbbc7d9aded3",
-      "model": "claude-sonnet-5-5",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
         "title": "Lawrence Municipal Airport Commission",
@@ -76,16 +33,16 @@
       }
     },
     {
-      "custom_id": "tr-2",
-      "type": "review",
+      "custom_id": "tr-1",
+      "type": "translation",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "817e8abaf7dd2f592a3105c6cf8fb59615e8eb191e0f9b0e44d4490955446752",
-      "model": "claude-sonnet-5-5",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
         "title": "Library Trustees Meeting",
@@ -95,6 +52,28 @@
       "doc": {
         "id": "2016-202611171723",
         "sha256": "e839ff562ce3bd147b291b5917001e56041093bdab084cc1f5763dd5a2685a77"
+      }
+    },
+    {
+      "custom_id": "tr-2",
+      "type": "translation",
+      "lang": "es",
+      "kind": "recording",
+      "older": false,
+      "source_hash": "25bec44f9e9d5ae3918ff48a375e4382cfb3a3d1e61885ab1a68c8f228acd0e4",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "City Council Regular Meeting",
+        "date": "2026-11-17",
+        "body": "City Council"
+      },
+      "doc": {
+        "id": "youtube-mn9aDy0iaVw",
+        "sha256": "ce796cde4bbfebb5e0bd6baab574a1f866f1c33ca1127c84eb2ed7cc327eb00c"
       }
     }
   ]
