@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01EsFWcbDvjnHyjs9ENrV18F",
-  "sent_at": "2026-11-18T09:40:18+00:00",
+  "id": "msgbatch_01UCepyZNVcf4m8DY3wPTBE3",
+  "sent_at": "2026-11-18T14:34:18+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,16 +11,37 @@
   },
   "documents": [
     {
+      "custom_id": "doc-0",
+      "kind": "recording",
+      "older": false,
+      "meeting": {
+        "title": "Board of Police Commissioners",
+        "date": "2026-11-17",
+        "body": "Board of Police Commissioners",
+        "agendas": [
+          {
+            "sha256": "ecd2a221d899f4c3efb16d05ca5c1242c80998bf10554dbd299f812c33e15f7b"
+          }
+        ]
+      },
+      "doc": {
+        "id": "civicclerk-video-5222",
+        "sha256": "2884c7a34537be4d0d62975d127a7c0a726a05600103f61b494d13d4b7a59214",
+        "file": "civicclerk-video-5222.txt",
+        "source_url": "https://bristolct.portal.civicclerk.com/event/5222/media"
+      }
+    },
+    {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "9bde27e362a624400b6f4308334cb8068ba226902e0c6d29dd9497e60f7566f7",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Special City Council 11-19-26",
@@ -34,15 +55,15 @@
     },
     {
       "custom_id": "tr-1",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "28e7453bff1c548716df64766e1189eab20ad8eaa61e90b84cb731513140f49c",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Board of Health Meeting November 12, 2026",
