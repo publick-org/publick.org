@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01UrGcPRTRTv1C1pJnD3fPkZ",
-  "sent_at": "2026-11-19T09:42:52+00:00",
+  "id": "msgbatch_0148qW66M2cLGyqk82YXmQZM",
+  "sent_at": "2026-11-19T14:40:41+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,16 +11,69 @@
   },
   "documents": [
     {
+      "custom_id": "doc-0",
+      "kind": "recording",
+      "older": false,
+      "meeting": {
+        "title": "Fair Rent Commission",
+        "date": "2026-11-18",
+        "body": "Fair Rent Commission",
+        "agendas": [
+          {
+            "sha256": "b33c0ee123c28d1eb720001d7563397e6ef09a26458c92be73d3cbd761314bd1"
+          }
+        ]
+      },
+      "doc": {
+        "id": "civicclerk-video-5334",
+        "sha256": "32625a97392a22948a318c609bccb4815dc06fa272658477e608b7d6f80a403c",
+        "file": "civicclerk-video-5334.txt",
+        "source_url": "https://bristolct.portal.civicclerk.com/event/5334/media"
+      }
+    },
+    {
+      "custom_id": "doc-1",
+      "kind": "minutes",
+      "older": false,
+      "meeting": {
+        "title": "Fair Rent Commission",
+        "date": "2026-10-28",
+        "body": "Fair Rent Commission"
+      },
+      "doc": {
+        "id": "civicclerk-13984",
+        "sha256": "e77d899dfabb7c290a4c32de0c5d3808a80d90341ae78058732e448b8d8c02a8",
+        "file": "civicclerk-13984.pdf",
+        "source_url": "https://bristolct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=13984,plainText=false)"
+      }
+    },
+    {
+      "custom_id": "doc-2",
+      "kind": "minutes",
+      "older": false,
+      "meeting": {
+        "title": "Planning Commission",
+        "date": "2026-10-26",
+        "body": "Planning Commission"
+      },
+      "doc": {
+        "id": "civicclerk-13985",
+        "sha256": "9958a7447ca6c5bf3d347f7a5dfddfe4305cc1d7f0806cebe37ffce3c70b2251",
+        "file": "civicclerk-13985.pdf",
+        "source_url": "https://bristolct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=13985,plainText=false)"
+      }
+    },
+    {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "67e2da4cedb4ac28ac1fc17c000181ece660b64359c8a1fb9f01553a6548719a",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Zoning Board of Appeals",
@@ -34,15 +87,15 @@
     },
     {
       "custom_id": "tr-1",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "32e56da4cc4840ebe2c552201b3476f461625031fed1747592eeeede4e450b69",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Board of Finance",
