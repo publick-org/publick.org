@@ -43,18 +43,36 @@
   "fact_check": {
     "version": 11,
     "source": "recording",
-    "result": "ok",
+    "result": "failed",
     "problems": [
+      {
+        "field": "decisions",
+        "entry": 1,
+        "kind": "off_agenda",
+        "what": "$1.18"
+      },
       {
         "field": "decisions",
         "entry": 1,
         "kind": "unanchored",
         "what": "the minutes don't say how the motion ended near the quote"
+      },
+      {
+        "field": "decisions",
+        "entry": 1,
+        "kind": "committee",
+        "what": "we did"
       }
     ],
     "pages": [
       null,
       null
+    ],
+    "recording_version": 1,
+    "agendas": [
+      "c557530dad3b2eb6a9dd676b3321d08fa5f624ce558846b4aea26c86997ebde0",
+      "31cc9a7ba7eb60dca151de430072ee8b7a4f2d8d1259c13a02f23cbf60574190",
+      "08d1fbb9d632d48363decd875a57c12d732e1faa3714980f9ce4e962d1bc4c6b"
     ]
   }
 }

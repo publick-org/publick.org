@@ -140,13 +140,31 @@
   "fact_check": {
     "version": 11,
     "source": "recording",
-    "result": "ok",
+    "result": "failed",
     "problems": [
+      {
+        "field": "headline",
+        "kind": "agenda",
+        "what": "439 Conger Street",
+        "agenda": "439 Congress St"
+      },
+      {
+        "field": "summary",
+        "kind": "agenda",
+        "what": "439 Conger Street",
+        "agenda": "439 Congress St"
+      },
       {
         "field": "decisions",
         "entry": 1,
         "kind": "tally",
         "what": "4-0"
+      },
+      {
+        "field": "decisions",
+        "entry": 1,
+        "kind": "off_agenda",
+        "what": "24 Row Avenue"
       },
       {
         "field": "decisions",
@@ -156,9 +174,21 @@
       },
       {
         "field": "decisions",
+        "entry": 2,
+        "kind": "off_agenda",
+        "what": "56 and 58 Federal Street"
+      },
+      {
+        "field": "decisions",
         "entry": 3,
         "kind": "tally",
         "what": "4-0"
+      },
+      {
+        "field": "decisions",
+        "entry": 3,
+        "kind": "off_agenda",
+        "what": "341 Cumberland Ave"
       },
       {
         "field": "decisions",
@@ -168,9 +198,35 @@
       },
       {
         "field": "decisions",
+        "entry": 4,
+        "kind": "off_agenda",
+        "what": "$10,361"
+      },
+      {
+        "field": "decisions",
+        "entry": 4,
+        "kind": "agenda",
+        "what": "439 Conger Street",
+        "agenda": "439 Congress St"
+      },
+      {
+        "field": "decisions",
         "entry": 5,
         "kind": "tally",
         "what": "4-0"
+      },
+      {
+        "field": "decisions",
+        "entry": 5,
+        "kind": "off_agenda",
+        "what": "$7.98"
+      },
+      {
+        "field": "decisions",
+        "entry": 5,
+        "kind": "agenda",
+        "what": "439 Conger Street",
+        "agenda": "439 Congress St"
       },
       {
         "field": "decisions",
@@ -198,15 +254,33 @@
       },
       {
         "field": "decisions",
+        "entry": 9,
+        "kind": "off_agenda",
+        "what": "$75.80"
+      },
+      {
+        "field": "decisions",
         "entry": 10,
         "kind": "tally",
         "what": "4-0"
       },
       {
         "field": "decisions",
+        "entry": 10,
+        "kind": "off_agenda",
+        "what": "$7,081.22"
+      },
+      {
+        "field": "decisions",
         "entry": 11,
         "kind": "tally",
         "what": "4-0"
+      },
+      {
+        "field": "decisions",
+        "entry": 11,
+        "kind": "off_agenda",
+        "what": "$1,381.22"
       },
       {
         "field": "decisions",
@@ -222,9 +296,35 @@
       },
       {
         "field": "decisions",
+        "entry": 13,
+        "kind": "off_agenda",
+        "what": "$50.69"
+      },
+      {
+        "field": "decisions",
+        "entry": 13,
+        "kind": "off_agenda",
+        "what": "$168.71"
+      },
+      {
+        "field": "decisions",
         "entry": 14,
         "kind": "tally",
         "what": "4-0"
+      },
+      {
+        "field": "decision_titles",
+        "entry": 4,
+        "kind": "agenda",
+        "what": "439 Conger Street",
+        "agenda": "439 Congress St"
+      },
+      {
+        "field": "decision_titles",
+        "entry": 5,
+        "kind": "agenda",
+        "what": "439 Conger Street",
+        "agenda": "439 Congress St"
       },
       {
         "field": "decisions",
@@ -332,6 +432,11 @@
       null,
       null,
       null
+    ],
+    "recording_version": 1,
+    "agendas": [
+      "53d33314209c924e2dac5cee006a57b6a0c747c59f582cb7c7da59268dac7806",
+      "1265d86ffeefc87d4ee85eafddaac4ff9ca4aadb178077c1c202227ac77ed8a7"
     ]
   }
 }
