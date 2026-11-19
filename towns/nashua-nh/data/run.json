@@ -1,46 +1,46 @@
 {
   "town": "nashua",
   "folder": "nashua-nh",
-  "started_at": "2026-11-18T09:12:36+00:00",
-  "finished_at": "2026-11-18T09:18:30+00:00",
-  "engine": "v1.111.0",
+  "started_at": "2026-11-19T09:11:09+00:00",
+  "finished_at": "2026-11-19T09:17:19+00:00",
+  "engine": "v1.111.1",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 107.9
+      "seconds": 108.9
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 181.2
+      "seconds": 178.8
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 59.0
+      "seconds": 61.1
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 4.4
+      "seconds": 19.0
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.8
+      "seconds": 1.0
     }
   ],
   "update": {
     "town": "nashua",
     "sources": "all",
-    "started_at": "2026-11-18T09:12:36+00:00",
+    "started_at": "2026-11-19T09:11:09+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 58.0,
+        "seconds": 54.9,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 3.9,
+        "seconds": 16.3,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 18.1,
+        "seconds": 17.9,
         "cadence": "continuous"
       },
       {
@@ -131,6 +131,15 @@
         "skipped": "no [proudcity_meetings] in the config"
       },
       {
+        "name": "Fetch the city's WordPress meetings",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [wordpress_meetings] in the config"
+      },
+      {
         "name": "Fetch the school district's minutes library",
         "ok": true,
         "required": false,
@@ -144,7 +153,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 26.5,
+        "seconds": 17.8,
         "cadence": "continuous"
       },
       {
@@ -154,7 +163,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 5 days ago; checked every 30 days"
+        "skipped": "checked 6 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -163,7 +172,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -172,7 +181,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 5 days ago; checked every 30 days"
+        "skipped": "checked 6 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -181,7 +190,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 5 days ago; checked every 30 days"
+        "skipped": "checked 6 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -190,14 +199,14 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 4 days ago; checked every 7 days"
+        "skipped": "checked 5 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -205,7 +214,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -222,7 +231,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -230,7 +239,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -267,14 +276,14 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-18T04:12:36-05:00",
+      "updated_at": "2026-11-19T04:11:10-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Board of Education meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-18T04:13:38-05:00",
+      "updated_at": "2026-11-19T04:12:21-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -366,36 +375,35 @@
     "Correction for Finance Committee 2027-03-24: 0 meetings match it, so it isn't shown."
   ],
   "ok": true,
-  "last_good_at": "2026-11-18T10:10:25+00:00",
-  "data_bytes": 7589605,
-  "data_bytes_added": 7999,
+  "last_good_at": "2026-11-19T09:17:19+00:00",
+  "data_bytes": 7711443,
+  "data_bytes_added": 9977,
   "activity": {
     "boards": 70,
     "meetings_by_date": {
-      "2026-11-18": 6,
       "2026-11-19": 4,
       "2026-11-20": 2,
       "2026-11-23": 3,
       "2026-11-24": 2,
       "2026-11-25": 1,
-      "2026-11-27": 1,
-      "2026-12-01": 4
+      "2026-12-01": 4,
+      "2026-12-02": 2
     }
   },
   "fact_checks": {
-    "summaries": 273,
-    "ok": 251,
+    "summaries": 276,
+    "ok": 254,
     "failed": 15,
     "weak": 7,
     "unchecked": 0,
     "not_yet": 0,
     "held_back": 15,
-    "entries_not_shown": 29,
+    "entries_not_shown": 23,
     "vote_counts_left_out": 115
   },
   "recordings": {
-    "since": "2026-11-11",
-    "until": "2026-11-17",
+    "since": "2026-11-12",
+    "until": "2026-11-18",
     "held": 2,
     "next_day": 0,
     "steps": {
@@ -418,31 +426,37 @@
     ]
   },
   "documents": {
-    "since": "2026-08-20",
-    "until": "2026-11-17",
-    "held": 155,
+    "since": "2026-08-21",
+    "until": "2026-11-18",
+    "held": 159,
     "boards": 54,
     "counts": {
       "no_documents": 0,
       "no_minutes": 0,
-      "pairs": 0
+      "pairs": 0,
+      "beside": 1
     },
     "no_documents": [],
     "no_minutes": [],
     "pairs": [],
+    "beside": [
+      {
+        "date": "2026-11-09",
+        "board": "New Hampshire Municipal Association",
+        "other": "Board of Aldermen"
+      }
+    ],
     "waiting": {},
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-18T02:24:03-05:00",
+    "at": "2026-11-19T02:24:13-05:00",
     "refused": 0,
     "transcribed": 0,
-    "last_transcribed_at": "2026-11-03T07:56:49-05:00"
+    "last_transcribed_at": "2026-11-18T04:24:04-05:00"
   },
   "officials": {
     "checked_at": "2026-11-14T04:20:08-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-18T10:10:25+00:00",
-  "published_engine": "v1.111.0"
+  }
 }
