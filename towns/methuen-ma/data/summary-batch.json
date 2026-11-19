@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01Cy3EMUjZrhTnsgoATpXatW",
-  "sent_at": "2026-11-19T09:53:06+00:00",
+  "id": "msgbatch_01NgKuppbP1Rx3teLwHh7ydz",
+  "sent_at": "2026-11-19T09:58:11+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,37 +11,16 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
-      "kind": "recording",
-      "older": false,
-      "meeting": {
-        "title": "City Council Special Meeting (Following 6pm Workshop)",
-        "date": "2026-11-09",
-        "body": "City Council",
-        "agendas": [
-          {
-            "sha256": "723830355beaa86dee09ac49db12a50d912969e2590663d06eadcb87b95b3bf9"
-          }
-        ]
-      },
-      "doc": {
-        "id": "youtube-DcFomTEi-Aw",
-        "sha256": "8dfc8206b7d7bcbfd14614e0f6d1799cbab2e634f174c31a943cf608bcd45bde",
-        "file": "youtube-DcFomTEi-Aw.txt",
-        "source_url": "https://www.youtube.com/watch?v=DcFomTEi-Aw"
-      }
-    },
-    {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "6b0bd4f3bb7171817c8e1fbb6374136c86f1fcc08e5c5d0d664c3e92acd3b288",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "School Committee Finance Subcommittee Meeting",
@@ -51,6 +30,28 @@
       "doc": {
         "id": "1hAMJU7U5Z2t97KHThO6nj6taheyefCEZ-b054c6f2",
         "sha256": "b054c6f2811ca71823e1c61f477650f88b1c780ed11c5cae098b3d499b5e4d6b"
+      }
+    },
+    {
+      "custom_id": "tr-1",
+      "type": "translation",
+      "lang": "es",
+      "kind": "recording",
+      "older": false,
+      "source_hash": "e8544f3d5ae238f3973c8271e119e6671697717eeb71bc0e155436d37dd893bf",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "City Council Special Meeting (Following 6pm Workshop)",
+        "date": "2026-11-09",
+        "body": "City Council"
+      },
+      "doc": {
+        "id": "youtube-DcFomTEi-Aw",
+        "sha256": "8dfc8206b7d7bcbfd14614e0f6d1799cbab2e634f174c31a943cf608bcd45bde"
       }
     }
   ]
