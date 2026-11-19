@@ -1,46 +1,46 @@
 {
   "town": "holyoke",
   "folder": "holyoke-ma",
-  "started_at": "2026-11-18T17:40:20+00:00",
-  "finished_at": "2026-11-18T17:45:35+00:00",
-  "engine": "v1.111.0",
+  "started_at": "2026-11-19T12:14:27+00:00",
+  "finished_at": "2026-11-19T12:19:40+00:00",
+  "engine": "v1.111.1",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 240.3
+      "seconds": 248.6
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 23.7
+      "seconds": 20.8
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 40.2
+      "seconds": 31.3
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 17.5
+      "seconds": 11.0
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.8
+      "seconds": 1.0
     }
   ],
   "update": {
     "town": "holyoke",
-    "sources": "meetings",
-    "started_at": "2026-11-18T17:40:21+00:00",
+    "sources": "all",
+    "started_at": "2026-11-19T12:14:27+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.6,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -127,7 +127,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 169.0,
+        "seconds": 172.8,
         "cadence": "continuous"
       },
       {
@@ -153,7 +153,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 67.9,
+        "seconds": 64.6,
         "cadence": "continuous"
       },
       {
@@ -163,7 +163,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 0 days ago; checked every 30 days"
+        "skipped": "checked 1 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -172,7 +172,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -181,7 +181,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 0 days ago; checked every 30 days"
+        "skipped": "checked 1 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -199,14 +199,14 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -214,7 +214,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -231,7 +231,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -239,7 +239,32 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch 311 requests",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 8.1,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch 311 requests from an open data portal",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [socrata_311] in the config"
+      },
+      {
+        "name": "Compute 311 scorecard",
+        "ok": true,
+        "required": true,
+        "error": null,
+        "seconds": 1.1,
         "cadence": "continuous"
       }
     ]
@@ -249,21 +274,21 @@
     {
       "label": "Meetings (city website)",
       "file": "meetings/proudcity_status.json",
-      "updated_at": "2026-11-18T12:40:22-05:00",
+      "updated_at": "2026-11-19T07:14:28-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-18T08:11:18-05:00",
+      "updated_at": "2026-11-19T07:18:26-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-18T08:12:19-05:00",
+      "updated_at": "2026-11-19T07:18:35-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -353,31 +378,30 @@
   "corrections": [],
   "ok": true,
   "last_good_at": null,
-  "data_bytes": 2324696,
-  "data_bytes_added": 1172490,
+  "data_bytes": 2749565,
+  "data_bytes_added": 1122427,
   "activity": {
-    "boards": 37,
+    "boards": 39,
     "meetings_by_date": {
-      "2026-11-18": 5,
       "2026-11-19": 2,
       "2026-11-23": 2,
       "2026-11-24": 2
     }
   },
   "fact_checks": {
-    "summaries": 80,
-    "ok": 58,
-    "failed": 2,
+    "summaries": 117,
+    "ok": 80,
+    "failed": 4,
     "weak": 1,
-    "unchecked": 19,
+    "unchecked": 32,
     "not_yet": 0,
-    "held_back": 2,
-    "entries_not_shown": 1,
-    "vote_counts_left_out": 1
+    "held_back": 4,
+    "entries_not_shown": 2,
+    "vote_counts_left_out": 10
   },
   "recordings": {
-    "since": "2026-11-11",
-    "until": "2026-11-17",
+    "since": "2026-11-12",
+    "until": "2026-11-18",
     "held": 1,
     "next_day": 0,
     "steps": {
@@ -401,13 +425,13 @@
     ]
   },
   "documents": {
-    "since": "2026-08-20",
-    "until": "2026-11-17",
-    "held": 103,
+    "since": "2026-08-21",
+    "until": "2026-11-18",
+    "held": 108,
     "boards": 36,
     "counts": {
       "no_documents": 0,
-      "no_minutes": 7,
+      "no_minutes": 9,
       "pairs": 0,
       "beside": 0
     },
@@ -430,7 +454,15 @@
         "meetings": 2
       },
       {
+        "board": "City Council Ordinance Committee",
+        "meetings": 2
+      },
+      {
         "board": "Parks & Recreation Commission",
+        "meetings": 2
+      },
+      {
+        "board": "Public Works Commission",
         "meetings": 2
       },
       {
@@ -446,22 +478,20 @@
     "beside": [],
     "waiting": {
       "proudcity_status": {
-        "count": 298,
+        "count": 258,
         "unit": "meetings"
       }
     },
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-18T12:25:37-05:00",
+    "at": "2026-11-19T04:24:03-05:00",
     "refused": 0,
-    "transcribed": 1,
+    "transcribed": 0,
     "last_transcribed_at": "2026-11-18T12:25:37-05:00"
   },
   "officials": {
     "checked_at": "2026-11-17T13:41:33-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-19T10:07:53+00:00",
-  "published_engine": "v1.111.1"
+  }
 }

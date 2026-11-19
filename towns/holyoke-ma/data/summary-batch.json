@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01Wt5mz3qwgBDS6MHXg1ATgW",
-  "sent_at": "2026-11-18T17:59:10+00:00",
+  "id": "msgbatch_01CeHYRzxhqKhzP4g3CRoiFi",
+  "sent_at": "2026-11-19T12:18:24+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,16 +11,48 @@
   },
   "documents": [
     {
+      "custom_id": "doc-0",
+      "kind": "minutes",
+      "older": false,
+      "meeting": {
+        "title": "Board of Fire Commissioners Meeting",
+        "date": "2026-10-21",
+        "body": "Board of Fire Commissioners"
+      },
+      "doc": {
+        "id": "proudcity-50673-81cc9f98",
+        "sha256": "81cc9f989dbcea1b8d383fe1fe08b86c3d5b6bf5a2f6eee3693f0902b8234e13",
+        "file": "proudcity-50673-81cc9f98.pdf",
+        "source_url": "https://storage.googleapis.com/proudcity/holyokema/2026/10/approved-minutes-10-21-26-fire-chiefs-report-423c5860.pdf"
+      }
+    },
+    {
+      "custom_id": "doc-1",
+      "kind": "agenda",
+      "older": true,
+      "meeting": {
+        "title": "City Council Finance Committee Meeting",
+        "date": "2026-09-08",
+        "body": "City Council Finance Committee"
+      },
+      "doc": {
+        "id": "proudcity-49991-2e601586",
+        "sha256": "2e601586c96ae7a186fc561c75c45faba513bc440014ddfe93196694676f6f27",
+        "file": "proudcity-49991-2e601586.pdf",
+        "source_url": "https://www.holyoke.org/meetings/finance-committee-meeting-september-8-2026/"
+      }
+    },
+    {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "dc417f7a0ba55f1f42a39a9830224168cecef405920389256869dfd10917852c",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "School Committee Meeting",
@@ -34,15 +66,37 @@
     },
     {
       "custom_id": "tr-1",
-      "type": "translation",
+      "type": "review",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "d41a19600651c2b1b28a8268fb422170d1c5498eebd036b5033781820180229c",
+      "model": "claude-sonnet-5-5",
+      "prices": {
+        "input_price": 2.0,
+        "output_price": 10.0
+      },
+      "meeting": {
+        "title": "Planning Board Meeting",
+        "date": "2026-11-10",
+        "body": "Planning Board"
+      },
+      "doc": {
+        "id": "proudcity-51010-b0b1896b",
+        "sha256": "b0b1896b576406887db0e11d2dd3001e18f5ad970eb43ee16753d2eb0ce3ac85"
+      }
+    },
+    {
+      "custom_id": "tr-2",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "1d99f0721ecd6caa0731c4087ae432ecd353494556caab85438d185538a58088",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Bicycle and Pedestrian Committee Meeting",
@@ -55,16 +109,16 @@
       }
     },
     {
-      "custom_id": "tr-2",
-      "type": "translation",
+      "custom_id": "tr-3",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "eda14fd07a20d9666156392ed773294f575057a6481ede3725426d9cdaa6d2d0",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Board of Fire Commissioners Meeting",
@@ -77,16 +131,16 @@
       }
     },
     {
-      "custom_id": "tr-3",
-      "type": "translation",
+      "custom_id": "tr-4",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "692b02965591df9f6ff144cc1589b91e83fc27795268d545a8b97ccb2978b2d7",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Redevelopment Authority Meeting",
@@ -99,16 +153,16 @@
       }
     },
     {
-      "custom_id": "tr-4",
-      "type": "translation",
+      "custom_id": "tr-5",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "b568c767ddc1495a5b5807a0e74b86f1bcdf159d92ac65ea4c75825078d5eec9",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "School Committee Finance and Operations Subcommittee Meeting",
@@ -121,16 +175,16 @@
       }
     },
     {
-      "custom_id": "tr-5",
-      "type": "translation",
+      "custom_id": "tr-6",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "0d572c0dbeb23cfd1557288299d1c9f3b8b3187267961870eebe17e4c9002a05",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Board of Registrars of Voters Meeting",
@@ -143,16 +197,16 @@
       }
     },
     {
-      "custom_id": "tr-6",
-      "type": "translation",
+      "custom_id": "tr-7",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "a8f3647eb1e0ac24806582e90271316ef955253a8982b7d8acbee0cd831eba8c",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "City Council Finance Committee Meeting",
@@ -165,38 +219,16 @@
       }
     },
     {
-      "custom_id": "tr-7",
+      "custom_id": "tr-8",
       "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
-      "source_hash": "875a33ecc754af69125977f2babf85e45e71bda43ac68f1fce2b6b628cca507c",
+      "source_hash": "a12884b9c4e9dc8df46608b00216bf1a055f01d8ea937fcf03f932259c5767ca",
       "model": "claude-sonnet-5-5",
       "prices": {
         "input_price": 2.0,
         "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Library Board Meeting",
-        "date": "2026-10-13",
-        "body": "Library Board"
-      },
-      "doc": {
-        "id": "proudcity-50693-a00860e9",
-        "sha256": "a00860e92cac35fc80517be5dcf0fbdcca1cf32a0a1eb9cb5c1a8b260158a217"
-      }
-    },
-    {
-      "custom_id": "tr-8",
-      "type": "translation",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "a12884b9c4e9dc8df46608b00216bf1a055f01d8ea937fcf03f932259c5767ca",
-      "model": "claude-haiku-5-5",
-      "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
       },
       "meeting": {
         "title": "School Committee Meeting",
@@ -210,15 +242,15 @@
     },
     {
       "custom_id": "tr-9",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "a862e17a012ab4ba119fac264ce735d95347b2a17f338b62d742732b797d893f",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Housing Authority Meeting",
@@ -232,15 +264,15 @@
     },
     {
       "custom_id": "tr-10",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "2ba0b3a1e3d3c5b1d8d4ee3b019c4fc6226f7f278c0bac390a4a7da251526563",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "License Board Meeting",
@@ -254,15 +286,15 @@
     },
     {
       "custom_id": "tr-11",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "da3813819d43bd56802093f2a27af599201f7abb5dc65c72ead6d47e7cc06de0",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "City Council Ordinance Committee Meeting",
@@ -276,15 +308,15 @@
     },
     {
       "custom_id": "tr-12",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "c3abb700db7b5aab310d6cf212e849d4be3279787f80f4c2f6c19d9a0fc10fe4",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "City Council Development and Governmental Relations Committee Meeting",
@@ -298,15 +330,15 @@
     },
     {
       "custom_id": "tr-13",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "15ceb57bc32baba24e615e553dbc5d18daa58846e3a021920f7ee76a115e4ee6",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Retirement Board Meeting",
@@ -320,15 +352,37 @@
     },
     {
       "custom_id": "tr-14",
-      "type": "translation",
+      "type": "review",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "6844ac5745ee075f161fc6db09a30c0ca5edc2993f42ae509ba92cc3ccbd0f07",
+      "model": "claude-sonnet-5-5",
+      "prices": {
+        "input_price": 2.0,
+        "output_price": 10.0
+      },
+      "meeting": {
+        "title": "School Committee Meeting",
+        "date": "2026-09-28",
+        "body": "School Committee"
+      },
+      "doc": {
+        "id": "proudcity-50539-2616ae1e",
+        "sha256": "2616ae1e515e589d6f551a45ff1de9eac7879c2dc5ac8f725828789c9f271462"
+      }
+    },
+    {
+      "custom_id": "tr-15",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "b7c71fcb408ed4d92914a19f500a5cff2eb49fbed748ed18360a3b393cafe6f7",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Conservation Commission Meeting",
@@ -341,60 +395,16 @@
       }
     },
     {
-      "custom_id": "tr-15",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "750255d55789e205a647abb7ded2c238619f63f5a27f73a1618bc74e56787a9e",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Conservation Commission Meeting",
-        "date": "2026-09-24",
-        "body": "Conservation Commission"
-      },
-      "doc": {
-        "id": "proudcity-46076-fa1c6951",
-        "sha256": "fa1c6951b5059e825ab201c14f5a268850c07e55bb084580b90ae7c334508a14"
-      }
-    },
-    {
       "custom_id": "tr-16",
       "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
-      "source_hash": "e489a1fcea08d46365d098e818dd3b9e2d47ff32c46693afe64304d1145ef30d",
+      "source_hash": "794cf9d05d994e88694361c49f8997e19e926c2ac5b94b00e8c48bdf7d4c1a50",
       "model": "claude-sonnet-5-5",
       "prices": {
         "input_price": 2.0,
         "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Community Preservation Act Committee Meeting",
-        "date": "2026-09-23",
-        "body": "Community Preservation Act Committee"
-      },
-      "doc": {
-        "id": "proudcity-50494-7713840a",
-        "sha256": "7713840abdecc0a988dc4a03a6a7755a5908646c3dc32377d51e9fb469c1d50a"
-      }
-    },
-    {
-      "custom_id": "tr-17",
-      "type": "translation",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "794cf9d05d994e88694361c49f8997e19e926c2ac5b94b00e8c48bdf7d4c1a50",
-      "model": "claude-haiku-5-5",
-      "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
       },
       "meeting": {
         "title": "School Committee Policy and Governance Subcommittee Meeting",
@@ -407,16 +417,16 @@
       }
     },
     {
-      "custom_id": "tr-18",
-      "type": "translation",
+      "custom_id": "tr-17",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "b73bf0ed214f95e5c2526919ec11abb22303bdf9ce6596856571271d57932463",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Planning Board Meeting",
@@ -429,16 +439,16 @@
       }
     },
     {
-      "custom_id": "tr-19",
-      "type": "translation",
+      "custom_id": "tr-18",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "04d348f05fd8a75768a29c1db72b8a1d42059539dc21f20c7b0479d503afafe6",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "City Council Public Safety Committee Meeting",
@@ -451,16 +461,16 @@
       }
     },
     {
-      "custom_id": "tr-20",
-      "type": "translation",
+      "custom_id": "tr-19",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "74e5db1a9e5872c9a2e5f21cab50ad2d6366d286e3738eff74cfb912e6a4a174",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Public Works Commission Meeting",
@@ -473,16 +483,16 @@
       }
     },
     {
-      "custom_id": "tr-21",
-      "type": "translation",
+      "custom_id": "tr-20",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "a01183561924d597a049fd23564d235a37f3a10c69faa59f61f4ba4654fa43ce",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Board of Health Meeting",
@@ -495,16 +505,16 @@
       }
     },
     {
-      "custom_id": "tr-22",
-      "type": "translation",
+      "custom_id": "tr-21",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "a7fbd5c2ef46140e88b7a8aa070a516594e22fc22d05fb5e8a5d91707ed8ada3",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "City Council Ordinance Committee Meeting",
@@ -517,16 +527,16 @@
       }
     },
     {
-      "custom_id": "tr-23",
-      "type": "translation",
+      "custom_id": "tr-22",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "6cf304d0c775f0abdd4bf357c62ff455c64d22946391b80b1fac28ce644e1bcd",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "City Council Charter and Rules Committee Meeting",
@@ -539,16 +549,16 @@
       }
     },
     {
-      "custom_id": "tr-24",
-      "type": "translation",
+      "custom_id": "tr-23",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "46b50ac15e276d3820f3a2d1210e1aaf2b7c9f36d833e43ed85e52f60d0dbc16",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Redevelopment Authority Meeting",
@@ -561,16 +571,16 @@
       }
     },
     {
-      "custom_id": "tr-25",
-      "type": "translation",
+      "custom_id": "tr-24",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "e6c6db3930329fb5be1bca3ea3a9c030508961e758869e15983aebfe7127263c",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Redevelopment Authority Meeting",
@@ -583,16 +593,16 @@
       }
     },
     {
-      "custom_id": "tr-26",
-      "type": "translation",
+      "custom_id": "tr-25",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "a49738eb78606fbee9ca417ca0ea6e8ff08a0c790584f2f59d3c2abc4395cc9e",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Water Works Commission Meeting",
@@ -605,16 +615,16 @@
       }
     },
     {
-      "custom_id": "tr-27",
-      "type": "translation",
+      "custom_id": "tr-26",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "da4be650e78d46431fa155493a74b5d2ee44e017655b8591efae443ca9d02e18",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "City Council Meeting",
@@ -627,16 +637,16 @@
       }
     },
     {
-      "custom_id": "tr-28",
-      "type": "translation",
+      "custom_id": "tr-27",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "707b38f6b5c8783d38226539d583fa780e3c276d431540355f0429280402aad5",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "City Council Meeting",
@@ -649,16 +659,16 @@
       }
     },
     {
-      "custom_id": "tr-29",
-      "type": "translation",
+      "custom_id": "tr-28",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "24c95d64a5f2a3525a0b17514b3101dc7a0ad6db82c79e9287e24ab3d4d6d652",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Health Benefit Trust Meeting",
@@ -671,16 +681,16 @@
       }
     },
     {
-      "custom_id": "tr-30",
-      "type": "translation",
+      "custom_id": "tr-29",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "a682eff12134ae2658b5d49f0e92adc68f47e56fbbd970d485f15342783931de",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Health Benefit Trust Meeting",
@@ -693,16 +703,16 @@
       }
     },
     {
-      "custom_id": "tr-31",
-      "type": "translation",
+      "custom_id": "tr-30",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "b97a8205b03d64ea21fc17e2cf237d318eb0a0a75c8d551523effe17438a06db",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "School Committee Finance and Operations Subcommittee Meeting",
@@ -715,7 +725,7 @@
       }
     },
     {
-      "custom_id": "tr-32",
+      "custom_id": "tr-31",
       "type": "translation",
       "lang": "es",
       "kind": "agenda",
@@ -737,7 +747,7 @@
       }
     },
     {
-      "custom_id": "tr-33",
+      "custom_id": "tr-32",
       "type": "translation",
       "lang": "es",
       "kind": "minutes",
@@ -759,16 +769,16 @@
       }
     },
     {
-      "custom_id": "tr-34",
-      "type": "translation",
+      "custom_id": "tr-33",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "ace67a36db9084a0000c6c6e77ad2d7907f584b189562d323e56a3fac95dddcf",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "City Council Development and Governmental Relations Committee Meeting",
@@ -781,16 +791,16 @@
       }
     },
     {
-      "custom_id": "tr-35",
-      "type": "translation",
+      "custom_id": "tr-34",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "bd36fbbc6102525cb43fef85a0701c2d67fb59f847d08f2d3f3d265a13e10c07",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Local Cultural Council Meeting",
@@ -803,16 +813,16 @@
       }
     },
     {
-      "custom_id": "tr-36",
-      "type": "translation",
+      "custom_id": "tr-35",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "7cf23251c612f6c0acf37100123ab5295b2f7d6ab1dffc015452ea8b7fb79fd1",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Local Cultural Council Meeting",
@@ -825,7 +835,7 @@
       }
     },
     {
-      "custom_id": "tr-37",
+      "custom_id": "tr-36",
       "type": "translation",
       "lang": "es",
       "kind": "agenda",
@@ -844,336 +854,6 @@
       "doc": {
         "id": "proudcity-50412-0529812b",
         "sha256": "0529812b3dbe75711dc745299d427ca792f815b3beab517145c6a09c37165d7b"
-      }
-    },
-    {
-      "custom_id": "tr-38",
-      "type": "translation",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "2753b4a6a621a480c9b36cc141dc7010b028b2cd911774a03dbe80dd46a89620",
-      "model": "claude-haiku-5-5",
-      "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
-      },
-      "meeting": {
-        "title": "Council on Aging Board of Directors Meeting",
-        "date": "2026-09-11",
-        "body": "Council on Aging Board of Directors"
-      },
-      "doc": {
-        "id": "proudcity-50387-b1e6e6f5",
-        "sha256": "b1e6e6f510960cc942c75913320a36e8cc2c3f9ea5d771635cbab923d1bd0650"
-      }
-    },
-    {
-      "custom_id": "tr-39",
-      "type": "translation",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "ce674b4d262d3c1cad09c04cc542a36a2ac8548fdac385523d0687047ef93068",
-      "model": "claude-haiku-5-5",
-      "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
-      },
-      "meeting": {
-        "title": "Council on Aging Board of Directors Meeting",
-        "date": "2026-09-11",
-        "body": "Council on Aging Board of Directors"
-      },
-      "doc": {
-        "id": "proudcity-50387-500266aa",
-        "sha256": "500266aaef663ddd4dfda74c080d6dfbf55fe0ce359987ef5c795c538bc43ad2"
-      }
-    },
-    {
-      "custom_id": "tr-40",
-      "type": "translation",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "dbe82fcc3b423c129e4906a70340eae7074d161ca8cc7bd361aec145156ba617",
-      "model": "claude-haiku-5-5",
-      "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
-      },
-      "meeting": {
-        "title": "Bicycle and Pedestrian Committee Meeting",
-        "date": "2026-09-09",
-        "body": "Bicycle and Pedestrian Committee"
-      },
-      "doc": {
-        "id": "proudcity-50367-03a73c01",
-        "sha256": "03a73c01cae3bbbcbb140c6d47ab6fe6d109e191186f01ecb425f0e988909098"
-      }
-    },
-    {
-      "custom_id": "tr-41",
-      "type": "translation",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "0446749562439b11ab543c27d5f2273c254b9eb0cfc81522298cf8ba9071738d",
-      "model": "claude-haiku-5-5",
-      "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
-      },
-      "meeting": {
-        "title": "Board of Fire Commissioners Meeting",
-        "date": "2026-09-09",
-        "body": "Board of Fire Commissioners"
-      },
-      "doc": {
-        "id": "proudcity-50225-2fb1977c",
-        "sha256": "2fb1977c0fa82396f1466975bc4398367e166200c0c47c65b6adb65c3ad49c12"
-      }
-    },
-    {
-      "custom_id": "tr-42",
-      "type": "translation",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "7282c1e976e1e03be7b5676d8229b0ee0505b609fa846b0cdca2502145f61354",
-      "model": "claude-haiku-5-5",
-      "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
-      },
-      "meeting": {
-        "title": "Board of Fire Commissioners Meeting",
-        "date": "2026-09-09",
-        "body": "Board of Fire Commissioners"
-      },
-      "doc": {
-        "id": "proudcity-50225-b3387ba8",
-        "sha256": "b3387ba86790cb66a7e243ec5469ab28ecc0972d654984aa8670ea97e078f812"
-      }
-    },
-    {
-      "custom_id": "tr-43",
-      "type": "translation",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "5123c3d180d80f4f30d0a1ef3da203a8a5cb9ddefa83b58139085ab4b14afce6",
-      "model": "claude-haiku-5-5",
-      "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
-      },
-      "meeting": {
-        "title": "Planning Board Meeting",
-        "date": "2026-09-08",
-        "body": "Planning Board"
-      },
-      "doc": {
-        "id": "proudcity-50343-a852ee72",
-        "sha256": "a852ee7282ac7d14c3ef0d8706a557f2eb37f6b17921b29a5070cf24c2a23c49"
-      }
-    },
-    {
-      "custom_id": "tr-44",
-      "type": "translation",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "172d271b17d0c49f53aef424c96ddceb3c6bf5fcc6f51eae5a8dbc2fabebdb0a",
-      "model": "claude-haiku-5-5",
-      "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
-      },
-      "meeting": {
-        "title": "License Board Meeting",
-        "date": "2026-09-02",
-        "body": "License Board"
-      },
-      "doc": {
-        "id": "proudcity-50299-b87a6d0a",
-        "sha256": "b87a6d0ae34d2c3604278a9f5009dc0d39a8ed3bee0e8a79947357a3e00983ab"
-      }
-    },
-    {
-      "custom_id": "tr-45",
-      "type": "translation",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "728400fe1e3f223b3038f3677075575287de2885062435322046e4bfefde99b0",
-      "model": "claude-haiku-5-5",
-      "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
-      },
-      "meeting": {
-        "title": "Commission on Disabilities Meeting",
-        "date": "2026-08-27",
-        "body": "Commission on Disabilities"
-      },
-      "doc": {
-        "id": "proudcity-47141-00b50a7f",
-        "sha256": "00b50a7f0c03d698ff0ff6912697f87c87e18ae3d6f3a2d7c19f34a71b132489"
-      }
-    },
-    {
-      "custom_id": "tr-46",
-      "type": "translation",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "abd5b99446a48eeabe9cdddbfe04c632e935cbbea6c07df20e0ae895d7d5db21",
-      "model": "claude-haiku-5-5",
-      "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
-      },
-      "meeting": {
-        "title": "Conservation Commission Meeting",
-        "date": "2026-08-27",
-        "body": "Conservation Commission"
-      },
-      "doc": {
-        "id": "proudcity-46074-2e7ed3c7",
-        "sha256": "2e7ed3c705c653569aed70e1e38552fcf744a04c92601329dbb79d6bd598ef5c"
-      }
-    },
-    {
-      "custom_id": "tr-47",
-      "type": "translation",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "3781913902e09aee1e5522dc572a36f75c0e7a22966d266f48816cad0249227e",
-      "model": "claude-haiku-5-5",
-      "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
-      },
-      "meeting": {
-        "title": "Planning Board Meeting",
-        "date": "2026-08-25",
-        "body": "Planning Board"
-      },
-      "doc": {
-        "id": "proudcity-50179-3f0f9224",
-        "sha256": "3f0f92248a833a92b0393ca7560c4319e43e9173fab13103cfcc64782484fd63"
-      }
-    },
-    {
-      "custom_id": "tr-48",
-      "type": "translation",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "58d6a3cd8d55411d0a920630ad0c2aacd98e569102da0663eb7252f4f45c7ea4",
-      "model": "claude-haiku-5-5",
-      "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
-      },
-      "meeting": {
-        "title": "Redevelopment Authority Meeting",
-        "date": "2026-08-19",
-        "body": "Redevelopment Authority"
-      },
-      "doc": {
-        "id": "proudcity-50134-bcca681d",
-        "sha256": "bcca681d4b49651eaa16f90c4d846a2a48323532ce8b3334dc5baf9054da3480"
-      }
-    },
-    {
-      "custom_id": "tr-49",
-      "type": "translation",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "e4b46fb54a3844c0c135c7f0539caf873b3e375c66ef49f91a5b3c5b9ec835ea",
-      "model": "claude-haiku-5-5",
-      "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
-      },
-      "meeting": {
-        "title": "Tourism Advisory Committee Meeting",
-        "date": "2026-08-18",
-        "body": "Tourism Advisory Committee"
-      },
-      "doc": {
-        "id": "proudcity-50038-a97fd467",
-        "sha256": "a97fd4673c97f8958d5c90a38caea05319413e26c44266edd85b17a16924d90d"
-      }
-    },
-    {
-      "custom_id": "tr-50",
-      "type": "translation",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "15ad5336c832ac8973d87e5acf545c9b8882417ab64b00b3d3b56cdf258445f0",
-      "model": "claude-haiku-5-5",
-      "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
-      },
-      "meeting": {
-        "title": "Conservation Commission Meeting",
-        "date": "2026-08-13",
-        "body": "Conservation Commission"
-      },
-      "doc": {
-        "id": "proudcity-46073-3420b271",
-        "sha256": "3420b2716cbf9fece8c12b4c18233f1d934ab95667bac97acb127463269efddd"
-      }
-    },
-    {
-      "custom_id": "tr-51",
-      "type": "translation",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "697e392187d07ed62b33ee186e6d770fbba77b1085496b6f81e2f4bea6a6bc75",
-      "model": "claude-haiku-5-5",
-      "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
-      },
-      "meeting": {
-        "title": "Holyoke Economic Development and Industrial Corporation Meeting",
-        "date": "2026-08-13",
-        "body": "Holyoke Economic Development and Industrial Corporation"
-      },
-      "doc": {
-        "id": "proudcity-50077-646f38aa",
-        "sha256": "646f38aa4d9b8bb6303c86e48773fe5c080131f2e6c4744885cc3a9ea3471e90"
-      }
-    },
-    {
-      "custom_id": "tr-52",
-      "type": "translation",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "129ea48ebe66e5be0c82d2673bf54b9d18844295769f7b33c18c05d20c0a3b96",
-      "model": "claude-haiku-5-5",
-      "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
-      },
-      "meeting": {
-        "title": "Local Cultural Council Meeting",
-        "date": "2026-08-03",
-        "body": "Local Cultural Council"
-      },
-      "doc": {
-        "id": "proudcity-50032-e681f573",
-        "sha256": "e681f573b85bac76c9dedbf5ac161c8ecd6ab7304ac625b3f45fe4ad6efcd087"
       }
     }
   ]
