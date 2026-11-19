@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01Q9fBGdJjiRp75EiA1re5Kg",
-  "sent_at": "2026-11-19T21:06:08+00:00",
+  "id": "msgbatch_0117oA4w3CsF7dkQivU1MzeS",
+  "sent_at": "2026-11-19T21:24:13+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,9 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
+      "source_hash": "e81852ae7c8955f38fa91829db14a522f9b937e3d4ed8b18dc7e1e8cbf727355",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "School Committee Facilities Subcommittee Meeting",
         "date": "2026-11-23",
@@ -21,44 +29,20 @@
       },
       "doc": {
         "id": "opengov-571931-5523cde7",
-        "sha256": "5523cde71e769d942daf94e3128b3e4d20cf25bffdc335d0b4458acd0e1d0801",
-        "file": "opengov-571931-5523cde7.pdf",
-        "source_url": "https://opengov.sos.ri.gov/Common/DownloadMeetingFiles?FilePath=%5CNotices%5C7390%5C2026%5C571931.pdf"
-      }
-    },
-    {
-      "custom_id": "tr-0",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "089c9b3fd5f2d27d23d69e2dd91e91ba243f21e09ffbef8590077cfe62b382f7",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Housing Authority Meeting",
-        "date": "2026-11-23",
-        "body": "Housing Authority"
-      },
-      "doc": {
-        "id": "opengov-571825-cee4cc22",
-        "sha256": "cee4cc22a0fdd3e94938cc22863c667d1713cc05760aeec3b5e2f50e7a9b5177"
+        "sha256": "5523cde71e769d942daf94e3128b3e4d20cf25bffdc335d0b4458acd0e1d0801"
       }
     },
     {
       "custom_id": "tr-1",
-      "type": "review",
+      "type": "translation",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "d5fc4ce23e483f5f197d4e9df1ebffb5ffbed2863ecd4b606a81c082bd5294c0",
-      "model": "claude-sonnet-5-5",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
         "title": "Board of Canvassers Meeting",
@@ -72,37 +56,15 @@
     },
     {
       "custom_id": "tr-2",
-      "type": "review",
-      "lang": "es",
-      "kind": "recording",
-      "older": false,
-      "source_hash": "a2de097f656666a0d12ff21992c113e410678a12272b2a1fb1bce75917f380d6",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "School Committee Meeting",
-        "date": "2026-11-17",
-        "body": "School Committee"
-      },
-      "doc": {
-        "id": "youtube-mXHfaf6T3-4",
-        "sha256": "77d16633cf58b4c753dca1e4026725b0e7a5ca88e2c9429a9f556bc90cb3da7c"
-      }
-    },
-    {
-      "custom_id": "tr-3",
-      "type": "review",
+      "type": "translation",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "b1d474f22b777717e78159650ac12b2b7ccad286f0164419e444c30743ff8378",
-      "model": "claude-sonnet-5-5",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
         "title": "Pawtucket Redevelopment Agency Meeting",
