@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01DQzLcW7r2sdm9QLAXTnZtu",
-  "sent_at": "2026-11-18T09:37:27+00:00",
+  "id": "msgbatch_01F3QZKn6JYV4uxCUHZDomtT",
+  "sent_at": "2026-11-19T00:52:17+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,16 +11,90 @@
   },
   "documents": [
     {
+      "custom_id": "doc-0",
+      "kind": "recording",
+      "older": false,
+      "meeting": {
+        "title": "Board of Mayor and Aldermen",
+        "date": "2026-11-17",
+        "body": "Board of Mayor and Aldermen",
+        "agendas": [
+          {
+            "sha256": "ba82c89d0e1b4840d4a6f13f925f9bd61a28b5ea5c2a34a34f6bd10760c82b76"
+          }
+        ]
+      },
+      "doc": {
+        "id": "castus-6afdf6c3f05aaa0002e28370",
+        "sha256": "caa60312bd4a066a55fda43eda797d318fa699ad591e74f54b714f8656a9b382",
+        "file": "castus-6afdf6c3f05aaa0002e28370.txt",
+        "source_url": "https://cloud.castus.tv/vod/#/manchestertv/video/6afdf6c3f05aaa0002e28370"
+      }
+    },
+    {
+      "custom_id": "doc-1",
+      "kind": "recording",
+      "older": false,
+      "meeting": {
+        "title": "Committee on Community Improvement",
+        "date": "2026-11-17",
+        "body": "Committee on Community Improvement",
+        "agendas": [
+          {
+            "sha256": "51ef22621bb6bfd316af93276f75054b65420aafdd5f7ec2c4e9a8bec6ebfd07"
+          }
+        ]
+      },
+      "doc": {
+        "id": "castus-6afdcfb4dce81600023d9764",
+        "sha256": "9014a95fe73eb30b64070b3c515e8e04e6dd7dcc2a19f7ffdd4a4be6589a3755",
+        "file": "castus-6afdcfb4dce81600023d9764.txt",
+        "source_url": "https://cloud.castus.tv/vod/#/manchestertv/video/6afdcfb4dce81600023d9764"
+      }
+    },
+    {
+      "custom_id": "doc-2",
+      "kind": "minutes",
+      "older": false,
+      "meeting": {
+        "title": "Board of Mayor and Aldermen",
+        "date": "2026-10-20",
+        "body": "Board of Mayor and Aldermen"
+      },
+      "doc": {
+        "id": "civicclerk-5416",
+        "sha256": "af96e65e020c61b4be0caed90b3255c9ab689fcb6f8c32b75abf7ce6ee9bf14c",
+        "file": "civicclerk-5416.pdf",
+        "source_url": "https://manchesternh.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=5416,plainText=false)"
+      }
+    },
+    {
+      "custom_id": "doc-3",
+      "kind": "minutes",
+      "older": false,
+      "meeting": {
+        "title": "Committee on Finance",
+        "date": "2026-10-20",
+        "body": "Committee on Finance"
+      },
+      "doc": {
+        "id": "civicclerk-5417",
+        "sha256": "ebab8f77bfe36ce31b2394f7973e8c7f2b04229739bee2a1f1d5a315ce0a3bc6",
+        "file": "civicclerk-5417.pdf",
+        "source_url": "https://manchesternh.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=5417,plainText=false)"
+      }
+    },
+    {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "ec5d7736cdc9d776a8faff0ab755db1bf78b81b502d255e75e3933ffd4c7dd02",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Board of School Committee Special Meeting",
@@ -38,33 +112,11 @@
       "lang": "es",
       "kind": "minutes",
       "older": false,
-      "source_hash": "d857045585edb7782dd6fe1082aec844359cd1707c606a8858a5ec895fa69f33",
+      "source_hash": "6783522ec74ef3d73f0c525eae07cc7d8b1ced6bb1184a579c0c2da4ade34164",
       "model": "claude-sonnet-5-5",
       "prices": {
         "input_price": 2.0,
         "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Committee on Joint School Buildings Meeting",
-        "date": "2026-11-10",
-        "body": "Committee on Joint School Buildings"
-      },
-      "doc": {
-        "id": "civicclerk-5409",
-        "sha256": "36c97940b70e61ff2f3652993438250750b4fddff7a2e6ecd48ab93a433c6624"
-      }
-    },
-    {
-      "custom_id": "tr-2",
-      "type": "translation",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "6783522ec74ef3d73f0c525eae07cc7d8b1ced6bb1184a579c0c2da4ade34164",
-      "model": "claude-haiku-5-5",
-      "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
       },
       "meeting": {
         "title": "School Committee Teaching and Learning Committee Meeting",

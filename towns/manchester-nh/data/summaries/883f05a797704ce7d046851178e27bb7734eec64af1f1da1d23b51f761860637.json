@@ -51,19 +51,44 @@
   "fact_check": {
     "version": 11,
     "source": "recording",
-    "result": "ok",
+    "result": "failed",
     "problems": [
+      {
+        "field": "decisions",
+        "entry": 2,
+        "kind": "agenda",
+        "what": "333 Coppas Avenue",
+        "agenda": "333 Cohas Avenue"
+      },
+      {
+        "field": "decision_titles",
+        "entry": 2,
+        "kind": "agenda",
+        "what": "333 Coppas Avenue",
+        "agenda": "333 Cohas Avenue"
+      },
       {
         "field": "decisions",
         "entry": 3,
         "kind": "away",
         "what": "1308"
+      },
+      {
+        "field": "transcript",
+        "kind": "unlisted",
+        "what": "ah, right. So a motion has been made. Thank you, Vice Chair. Do we have a second second by Peter Lennon? All those in favor, please say aye. Aye. Opposed? Any abstentions? Hearing no abstentions, the motion carries"
       }
     ],
     "pages": [
       null,
       null,
       null
+    ],
+    "recording_version": 1,
+    "agendas": [
+      "4e374fd6c553a68cb247aef4acf4ab15b3539ec3c854f266ac3a64db27948fd5",
+      "f728251c7e99b249aa64fb576b7f36b50c312bc97d07aad9e2eaa6e33380da3c",
+      "b56457eac396341c7a800286c8697a3605d3790fbd200d115e5f34e375a296eb"
     ]
   }
 }
