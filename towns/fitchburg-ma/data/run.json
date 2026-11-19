@@ -1,46 +1,46 @@
 {
   "town": "fitchburg",
   "folder": "fitchburg-ma",
-  "started_at": "2026-11-18T05:43:13+00:00",
-  "finished_at": "2026-11-18T05:45:36+00:00",
-  "engine": "v1.110.0",
+  "started_at": "2026-11-19T05:48:20+00:00",
+  "finished_at": "2026-11-19T05:50:39+00:00",
+  "engine": "v1.111.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 23.0
+      "seconds": 32.2
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 42.0
+      "seconds": 42.3
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 58.7
+      "seconds": 49.1
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 27.7
+      "seconds": 14.6
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.9
+      "seconds": 0.5
     }
   ],
   "update": {
     "town": "fitchburg",
     "sources": "meetings",
-    "started_at": "2026-11-18T05:43:14+00:00",
+    "started_at": "2026-11-19T05:48:21+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 2.7,
+        "seconds": 2.1,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 15.7,
         "cadence": "continuous"
       },
       {
@@ -132,6 +132,15 @@
         "skipped": "no [proudcity_meetings] in the config"
       },
       {
+        "name": "Fetch the city's WordPress meetings",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [wordpress_meetings] in the config"
+      },
+      {
         "name": "Fetch the school district's minutes library",
         "ok": true,
         "required": false,
@@ -145,7 +154,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 18.5,
+        "seconds": 12.1,
         "cadence": "continuous"
       },
       {
@@ -155,7 +164,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 4 days ago; checked every 30 days"
+        "skipped": "checked 5 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -164,7 +173,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 4 days ago; checked every 7 days"
+        "skipped": "checked 5 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -173,7 +182,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 4 days ago; checked every 30 days"
+        "skipped": "checked 5 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -182,7 +191,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 4 days ago; checked every 30 days"
+        "skipped": "checked 5 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -191,7 +200,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 4 days ago; checked every 7 days"
+        "skipped": "checked 5 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -236,12 +245,12 @@
       }
     ]
   },
-  "stale": false,
+  "stale": true,
   "sources": [
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-18T00:43:14-05:00",
+      "updated_at": "2026-11-19T00:48:21-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -250,14 +259,14 @@
       "file": "311/status.json",
       "updated_at": "2026-11-16T04:20:15-05:00",
       "max_days": 2,
-      "stale": false
+      "stale": true
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
       "updated_at": "2026-11-16T04:20:25-05:00",
       "max_days": 2,
-      "stale": false
+      "stale": true
     },
     {
       "label": "Average tax bill (Mass. DLS)",
@@ -345,36 +354,35 @@
   "corrections": [],
   "ok": true,
   "last_good_at": "2026-11-18T10:04:34+00:00",
-  "data_bytes": 5854487,
-  "data_bytes_added": 4527318,
+  "data_bytes": 5887756,
+  "data_bytes_added": 4536381,
   "activity": {
     "boards": 42,
     "meetings_by_date": {
-      "2026-11-18": 5,
       "2026-11-19": 1,
       "2026-11-20": 1
     }
   },
   "fact_checks": {
-    "summaries": 44,
-    "ok": 37,
-    "failed": 5,
+    "summaries": 47,
+    "ok": 39,
+    "failed": 6,
     "weak": 2,
     "unchecked": 0,
     "not_yet": 0,
-    "held_back": 5,
-    "entries_not_shown": 23,
-    "vote_counts_left_out": 2
+    "held_back": 6,
+    "entries_not_shown": 22,
+    "vote_counts_left_out": 5
   },
   "recordings": {
-    "since": "2026-11-11",
-    "until": "2026-11-17",
+    "since": "2026-11-12",
+    "until": "2026-11-18",
     "held": 2,
-    "next_day": 1,
+    "next_day": 2,
     "steps": {
-      "summarized": 1,
+      "summarized": 2,
       "minutes": 0,
-      "transcribed": 1,
+      "transcribed": 0,
       "waiting": 0,
       "failed": 0,
       "unmatched": 0,
@@ -382,24 +390,18 @@
       "no_source": 0,
       "no_recordings": 0
     },
-    "misses": [
-      {
-        "date": "2026-11-17",
-        "board": "City Council",
-        "step": "transcribed",
-        "detail": "transcript not summarized yet"
-      }
-    ]
+    "misses": []
   },
   "documents": {
-    "since": "2026-08-20",
-    "until": "2026-11-17",
-    "held": 103,
+    "since": "2026-08-21",
+    "until": "2026-11-18",
+    "held": 108,
     "boards": 36,
     "counts": {
       "no_documents": 0,
-      "no_minutes": 6,
-      "pairs": 0
+      "no_minutes": 7,
+      "pairs": 0,
+      "beside": 0
     },
     "no_documents": [],
     "no_minutes": [
@@ -426,9 +428,14 @@
       {
         "board": "Planning Board",
         "meetings": 2
+      },
+      {
+        "board": "School Committee",
+        "meetings": 2
       }
     ],
     "pairs": [],
+    "beside": [],
     "waiting": {},
     "backlog": {}
   },
@@ -436,7 +443,5 @@
   "officials": {
     "checked_at": "2026-11-13T08:30:20-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-18T10:04:34+00:00",
-  "published_engine": "v1.111.0"
+  }
 }
