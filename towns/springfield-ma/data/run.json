@@ -1,34 +1,34 @@
 {
   "town": "springfield",
   "folder": "springfield-ma",
-  "started_at": "2026-11-19T09:07:08+00:00",
-  "finished_at": "2026-11-19T09:11:08+00:00",
-  "engine": "v1.111.0",
+  "started_at": "2026-11-19T09:52:33+00:00",
+  "finished_at": "2026-11-19T09:54:51+00:00",
+  "engine": "v1.111.1",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 108.7
+      "seconds": 67.1
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 41.0
+      "seconds": 37.2
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 45.2
+      "seconds": 29.3
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.6
+      "seconds": 3.0
     },
     {
       "name": "Check live site",
@@ -39,8 +39,8 @@
   ],
   "update": {
     "town": "springfield",
-    "sources": "all",
-    "started_at": "2026-11-19T09:07:09+00:00",
+    "sources": "meetings",
+    "started_at": "2026-11-19T09:52:34+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 49.6,
+        "seconds": 45.6,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 10.2,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -145,7 +145,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 4.8,
+        "seconds": 4.6,
         "cadence": "continuous"
       },
       {
@@ -153,7 +153,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 16.9,
+        "seconds": 14.8,
         "cadence": "continuous"
       },
       {
@@ -172,7 +172,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -197,15 +197,16 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 24.6,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -213,7 +214,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -230,7 +231,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -238,35 +239,8 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [seeclickfix] in the config"
-      },
-      {
-        "name": "Fetch 311 requests from an open data portal",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [socrata_311] in the config"
-      },
-      {
-        "name": "Compute 311 scorecard",
-        "ok": true,
-        "required": true,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [seeclickfix] or [socrata_311] in the config"
       }
     ]
   },
@@ -275,14 +249,14 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-19T04:07:09-05:00",
+      "updated_at": "2026-11-19T04:52:34-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee minutes (school district website)",
       "file": "meetings/sharpschool_status.json",
-      "updated_at": "2026-11-19T04:08:09-05:00",
+      "updated_at": "2026-11-19T04:53:20-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -371,9 +345,9 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-19T09:24:25+00:00",
-  "data_bytes": 1928888,
-  "data_bytes_added": 10643,
+  "last_good_at": "2026-11-19T09:54:51+00:00",
+  "data_bytes": 2011803,
+  "data_bytes_added": 2429,
   "activity": {
     "boards": 47,
     "meetings_by_date": {
@@ -387,15 +361,15 @@
     }
   },
   "fact_checks": {
-    "summaries": 117,
-    "ok": 109,
-    "failed": 7,
+    "summaries": 123,
+    "ok": 111,
+    "failed": 11,
     "weak": 1,
     "unchecked": 0,
     "not_yet": 0,
-    "held_back": 7,
-    "entries_not_shown": 8,
-    "vote_counts_left_out": 97
+    "held_back": 11,
+    "entries_not_shown": 19,
+    "vote_counts_left_out": 115
   },
   "recordings": {
     "since": "2026-11-12",
@@ -403,9 +377,9 @@
     "held": 4,
     "next_day": 0,
     "steps": {
-      "summarized": 0,
+      "summarized": 1,
       "minutes": 0,
-      "transcribed": 1,
+      "transcribed": 0,
       "waiting": 0,
       "failed": 0,
       "unmatched": 1,
@@ -419,12 +393,6 @@
         "board": "School Committee",
         "step": "unmatched",
         "detail": "youtube-R-NKoq1PCeQ, youtube-YsUQ9abnj2g, youtube-kE9NzJi6SSg, youtube-pn1Yqw0qGNk"
-      },
-      {
-        "date": "2026-11-16",
-        "board": "City Council",
-        "step": "transcribed",
-        "detail": "transcript not summarized yet"
       },
       {
         "date": "2026-11-18",
@@ -491,15 +459,13 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-19T02:24:02-05:00",
+    "at": "2026-11-19T04:23:58-05:00",
     "refused": 0,
-    "transcribed": 0,
-    "last_transcribed_at": "2026-11-18T04:24:01-05:00"
+    "transcribed": 2,
+    "last_transcribed_at": "2026-11-19T04:23:58-05:00"
   },
   "officials": {
     "checked_at": "2026-11-15T04:11:14-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-19T09:24:25+00:00",
-  "published_engine": "v1.111.1"
+  }
 }
