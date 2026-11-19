@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01U74Ndw6xrqjWSF5TL97hb1",
-  "sent_at": "2026-11-19T05:51:22+00:00",
+  "id": "msgbatch_01SyyR9zga5DFVnfzyMmks1s",
+  "sent_at": "2026-11-19T05:57:28+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,33 +11,39 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "recording",
       "older": false,
+      "source_hash": "9475031760f75e3ef3d484e26dbcc2d3649fecb10c67d0d8d4273c5f1065ea8c",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Planning Board",
         "date": "2026-11-18",
-        "body": "Planning Board",
-        "agendas": [
-          {
-            "sha256": "e9a8cd48535afb3bf7d11667adf1abb42559e178a76febf9d015d77679e4ca9f"
-          },
-          {
-            "sha256": "a9b37a631da9d108949a146bdbfdab6503d5460e75b3cc88fa0b318800e85e99"
-          }
-        ]
+        "body": "Planning Board"
       },
       "doc": {
         "id": "youtube-1qjI2sS9O8w",
-        "sha256": "44c75fcbd2c64c9ba4d4c379cecb322d35301eed4f01f9aaae29109ce7d804f6",
-        "file": "youtube-1qjI2sS9O8w.txt",
-        "source_url": "https://www.youtube.com/watch?v=1qjI2sS9O8w"
+        "sha256": "44c75fcbd2c64c9ba4d4c379cecb322d35301eed4f01f9aaae29109ce7d804f6"
       }
     },
     {
-      "custom_id": "doc-1",
+      "custom_id": "tr-1",
+      "type": "translation",
+      "lang": "es",
       "kind": "minutes",
       "older": false,
+      "source_hash": "1cac86540b4e5e23e266d59c14d272c8a501ead0a253c61448436a845bd0af7a",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Conservation Commission",
         "date": "2026-11-10",
@@ -45,22 +51,20 @@
       },
       "doc": {
         "id": "9756",
-        "sha256": "f74e0294f70962b662a9e7e8ea34518bc35a73dbef701a8e89e368bff3abf28b",
-        "file": "9756.pdf",
-        "source_url": "https://www.concordnh.gov/Archive.aspx?ADID=9756"
+        "sha256": "f74e0294f70962b662a9e7e8ea34518bc35a73dbef701a8e89e368bff3abf28b"
       }
     },
     {
-      "custom_id": "tr-0",
-      "type": "translation",
+      "custom_id": "tr-2",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "237252d49ba90bca2c65238b2b31255d75cc33e1f42132689c2b0c0d9412bf4a",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "City Council Meeting",
