@@ -1,46 +1,46 @@
 {
   "town": "bangor",
   "folder": "bangor-me",
-  "started_at": "2026-11-18T13:31:20+00:00",
-  "finished_at": "2026-11-18T13:34:48+00:00",
-  "engine": "v1.111.0",
+  "started_at": "2026-11-19T09:25:55+00:00",
+  "finished_at": "2026-11-19T09:29:25+00:00",
+  "engine": "v1.111.1",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 67.6
+      "seconds": 74.1
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 64.0
+      "seconds": 66.0
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 43.0
+      "seconds": 56.1
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 29.8
+      "seconds": 13.1
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.8
+      "seconds": 0.7
     }
   ],
   "update": {
     "town": "bangor",
-    "sources": "meetings",
-    "started_at": "2026-11-18T13:31:21+00:00",
+    "sources": "all",
+    "started_at": "2026-11-19T09:25:55+00:00",
     "ok": true,
     "steps": [
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 1.1,
         "cadence": "continuous"
       },
       {
@@ -154,7 +154,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 24.1,
+        "seconds": 20.6,
         "cadence": "continuous"
       },
       {
@@ -172,7 +172,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -181,7 +181,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 13 days ago; checked every 30 days"
+        "skipped": "checked 14 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -190,7 +190,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch housing figures",
@@ -199,14 +199,14 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -241,6 +241,31 @@
         "error": null,
         "seconds": 0.3,
         "cadence": "continuous"
+      },
+      {
+        "name": "Fetch 311 requests",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 7.9,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch 311 requests from an open data portal",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [socrata_311] in the config"
+      },
+      {
+        "name": "Compute 311 scorecard",
+        "ok": true,
+        "required": true,
+        "error": null,
+        "seconds": 1.7,
+        "cadence": "continuous"
       }
     ]
   },
@@ -249,21 +274,21 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-18T08:31:21-05:00",
+      "updated_at": "2026-11-19T04:25:55-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-18T04:24:05-05:00",
+      "updated_at": "2026-11-19T04:27:00-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-18T04:24:14-05:00",
+      "updated_at": "2026-11-19T04:27:07-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -331,11 +356,9 @@
       "file": "summaries",
       "updated_at": null,
       "max_days": 2,
-      "stale": true,
-      "waiting": [
-        "agenda for City Council Organizational, 2026-11-09"
-      ],
-      "waiting_count": 1
+      "stale": false,
+      "waiting": [],
+      "waiting_count": 0
     }
   ],
   "failing": [],
@@ -343,12 +366,11 @@
   "corrections": [],
   "ok": true,
   "last_good_at": "2026-11-15T09:59:30+00:00",
-  "data_bytes": 4190583,
-  "data_bytes_added": 1881265,
+  "data_bytes": 4214341,
+  "data_bytes_added": 1894565,
   "activity": {
-    "boards": 32,
+    "boards": 34,
     "meetings_by_date": {
-      "2026-11-18": 1,
       "2026-11-19": 1,
       "2026-11-23": 2,
       "2026-11-24": 2,
@@ -356,25 +378,25 @@
     }
   },
   "fact_checks": {
-    "summaries": 79,
-    "ok": 62,
+    "summaries": 81,
+    "ok": 64,
     "failed": 15,
     "weak": 2,
     "unchecked": 0,
     "not_yet": 0,
     "held_back": 15,
     "entries_not_shown": 39,
-    "vote_counts_left_out": 35
+    "vote_counts_left_out": 39
   },
   "recordings": {
-    "since": "2026-11-11",
-    "until": "2026-11-17",
+    "since": "2026-11-12",
+    "until": "2026-11-18",
     "held": 2,
-    "next_day": 0,
+    "next_day": 1,
     "steps": {
-      "summarized": 0,
+      "summarized": 1,
       "minutes": 0,
-      "transcribed": 1,
+      "transcribed": 0,
       "waiting": 0,
       "failed": 0,
       "unmatched": 0,
@@ -387,23 +409,17 @@
         "date": "2026-11-12",
         "board": "School Committee",
         "step": "not_found"
-      },
-      {
-        "date": "2026-11-17",
-        "board": "Planning Board",
-        "step": "transcribed",
-        "detail": "transcript not summarized yet"
       }
     ]
   },
   "documents": {
-    "since": "2026-08-20",
-    "until": "2026-11-17",
-    "held": 86,
+    "since": "2026-08-21",
+    "until": "2026-11-18",
+    "held": 87,
     "boards": 27,
     "counts": {
       "no_documents": 2,
-      "no_minutes": 8,
+      "no_minutes": 9,
       "pairs": 0,
       "beside": 0
     },
@@ -427,6 +443,10 @@
         "meetings": 3
       },
       {
+        "board": "City Council Finance Committee",
+        "meetings": 3
+      },
+      {
         "board": "Advisory Committee on Racial Equity, Inclusion, and Human Rights",
         "meetings": 2
       },
@@ -435,7 +455,7 @@
         "meetings": 2
       },
       {
-        "board": "City Council Finance Committee",
+        "board": "City Council Government Operations Committee",
         "meetings": 2
       },
       {
@@ -457,9 +477,9 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-18T08:23:59-05:00",
+    "at": "2026-11-19T02:24:02-05:00",
     "refused": 0,
-    "transcribed": 1,
+    "transcribed": 0,
     "last_transcribed_at": "2026-11-18T08:23:59-05:00"
   },
   "officials": {
@@ -474,7 +494,5 @@
         ]
       }
     ]
-  },
-  "published_at": "2026-11-18T13:39:57+00:00",
-  "published_engine": "v1.111.0"
+  }
 }

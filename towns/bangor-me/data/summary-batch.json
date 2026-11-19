@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_017FMkrLKFVCRM4X3kKRt3J4",
-  "sent_at": "2026-11-18T13:37:37+00:00",
+  "id": "msgbatch_01YUicxfgzFECrL9jjg2dLzp",
+  "sent_at": "2026-11-19T09:26:56+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,16 +11,32 @@
   },
   "documents": [
     {
+      "custom_id": "doc-0",
+      "kind": "minutes",
+      "older": false,
+      "meeting": {
+        "title": "Planning Board",
+        "date": "2026-10-20",
+        "body": "Planning Board"
+      },
+      "doc": {
+        "id": "agendacenter-954",
+        "sha256": "28ac385834edcba70c07ec299d1882c3345f40fbdacec41d34eb4b20e71633c7",
+        "file": "agendacenter-954.pdf",
+        "source_url": "https://www.bangormaine.gov/AgendaCenter/ViewFile/Minutes/_10202026-954"
+      }
+    },
+    {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "recording",
       "older": false,
       "source_hash": "8cb9317adf28218438e40a205cbca18b51bbb1b8da6568723b444e2da29e14e2",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Planning Board",
@@ -34,15 +50,15 @@
     },
     {
       "custom_id": "tr-1",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "da40f6a21d3af09cb2d31b6f0cba50cf28d676e0419cc5d26731c141f59c317a",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "City Council Organizational Meeting",
