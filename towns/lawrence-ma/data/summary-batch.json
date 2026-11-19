@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01U2sFVpbKZ68FpEmtK4owW2",
-  "sent_at": "2026-11-18T17:50:10+00:00",
+  "id": "msgbatch_014YCWvSV2tuGWXCbT75ER25",
+  "sent_at": "2026-11-19T12:13:20+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,16 +11,64 @@
   },
   "documents": [
     {
+      "custom_id": "doc-0",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "Lawrence Retirement Board [LRB]",
+        "date": "2026-11-23",
+        "body": "Retirement Board"
+      },
+      "doc": {
+        "id": "2018-202611181809",
+        "sha256": "0b4436f5b309359351ce00bdbe0c70e4085409fcf816e36a1eb9e23b5417fd18",
+        "file": "2018-202611181809.pdf",
+        "source_url": "https://www.cityoflawrence.com/AgendaCenter/ViewFile/Agenda/_11232026-2018"
+      }
+    },
+    {
+      "custom_id": "doc-1",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "Licensing Board Meeting",
+        "date": "2026-12-02",
+        "body": "Licensing Board"
+      },
+      "doc": {
+        "id": "2019-202611181811",
+        "sha256": "a7d98310ea4eb4be9b9e0309c99443fe6c1388162b6e264846e947babb959ee8",
+        "file": "2019-202611181811.pdf",
+        "source_url": "https://www.cityoflawrence.com/AgendaCenter/ViewFile/Agenda/_12022026-2019"
+      }
+    },
+    {
+      "custom_id": "doc-2",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "Lawrence Housing Authority [LHA] - Public Hearing",
+        "date": "2027-01-12",
+        "body": "Lawrence Housing Authority"
+      },
+      "doc": {
+        "id": "2017-202611181808",
+        "sha256": "072a04d22c04b57a3edc39369cad69f1765de643d6706e793f792730d64f95e6",
+        "file": "2017-202611181808.pdf",
+        "source_url": "https://www.cityoflawrence.com/AgendaCenter/ViewFile/Agenda/_01122027-2017"
+      }
+    },
+    {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "4c40a56caf7a0b2d276f392c342c839f98cf4589ea7ddaad7f34bbbc7d9aded3",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Lawrence Municipal Airport Commission",
@@ -34,15 +82,15 @@
     },
     {
       "custom_id": "tr-1",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "817e8abaf7dd2f592a3105c6cf8fb59615e8eb191e0f9b0e44d4490955446752",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Library Trustees Meeting",
@@ -56,15 +104,15 @@
     },
     {
       "custom_id": "tr-2",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "recording",
       "older": false,
       "source_hash": "25bec44f9e9d5ae3918ff48a375e4382cfb3a3d1e61885ab1a68c8f228acd0e4",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "City Council Regular Meeting",
