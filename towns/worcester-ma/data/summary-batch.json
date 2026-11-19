@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01DmwHh28bLm3jc2mLPnaJEr",
-  "sent_at": "2026-11-18T13:42:30+00:00",
+  "id": "msgbatch_01CQAWdFoNiMtCH5T4qeDHXb",
+  "sent_at": "2026-11-19T05:47:51+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,38 +11,62 @@
   },
   "documents": [
     {
+      "custom_id": "doc-0",
+      "kind": "recording",
+      "older": false,
+      "meeting": {
+        "title": "School Committee Meeting",
+        "date": "2026-11-19",
+        "body": "School Committee",
+        "agendas": [
+          {
+            "sha256": "cb0224f542b35aa74ecbe5f9792c2b1ad436fec164a8194c496df3b9580efe48"
+          },
+          {
+            "sha256": "916917f928f67de755e1471d248910d8196ff73ea700012e2ab8962960c8ed84"
+          },
+          {
+            "sha256": "14268ee45e6b1ab5e8cf4142e29b9b8e6e990ae3f14a5568b2fad3bde7da7902"
+          },
+          {
+            "sha256": "d607485d8cf626d499ba7ca705f4f49655eb6c77e34b3ac3fcdf4e29508523d5"
+          }
+        ]
+      },
+      "doc": {
+        "id": "youtube-VI8JVlYfNCk",
+        "sha256": "47ed80990dd9501f78da60f9f10f280b29c95ef4b082281b88a214688e3ffc87",
+        "file": "youtube-VI8JVlYfNCk.txt",
+        "source_url": "https://www.youtube.com/watch?v=VI8JVlYfNCk"
+      }
+    },
+    {
+      "custom_id": "doc-1",
+      "kind": "minutes",
+      "older": false,
+      "meeting": {
+        "title": "Standing Committee on Municipal and Legislative Operations",
+        "date": "2026-11-09",
+        "body": "Standing Committee on Municipal and Legislative Operations"
+      },
+      "doc": {
+        "id": "primegov-22795-20261118183752",
+        "sha256": "d8e7eb84ed5632d982f56e15c48b4603d9abbf15b78dace3701e85bf00b8b092",
+        "file": "primegov-22795-20261118183752.pdf",
+        "source_url": "https://worcesterma.primegov.com/Public/CompiledDocument?meetingTemplateId=77023&compileOutputType=1"
+      }
+    },
+    {
       "custom_id": "tr-0",
       "type": "review",
       "lang": "es",
       "kind": "recording",
       "older": false,
-      "source_hash": "8dac9df7ff4757ff21b2a76311466810e007d71929a041f5dc57519b04857111",
+      "source_hash": "b5fe092fd3683cb9591ea58ba70effbc52af2d1740ddb3b954ea822cbbbe0c0b",
       "model": "claude-sonnet-5-5",
       "prices": {
         "input_price": 2.0,
         "output_price": 10.0
-      },
-      "meeting": {
-        "title": "City Council",
-        "date": "2026-11-17",
-        "body": "City Council"
-      },
-      "doc": {
-        "id": "youtube-qYbYOmbG-Xo",
-        "sha256": "0d276c89123430cf249e13a89d1e136187fdde762e17bfe54a321d19e4e4f971"
-      }
-    },
-    {
-      "custom_id": "tr-1",
-      "type": "translation",
-      "lang": "es",
-      "kind": "recording",
-      "older": false,
-      "source_hash": "b5fe092fd3683cb9591ea58ba70effbc52af2d1740ddb3b954ea822cbbbe0c0b",
-      "model": "claude-haiku-5-5",
-      "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
       },
       "meeting": {
         "title": "Community Preservation Committee (CPC)",
@@ -55,16 +79,16 @@
       }
     },
     {
-      "custom_id": "tr-2",
-      "type": "translation",
+      "custom_id": "tr-1",
+      "type": "review",
       "lang": "es",
       "kind": "recording",
       "older": false,
       "source_hash": "4a2c61e7afb99af604cca7a152f5e9df6a89adc23357f0a3b6477d313718364e",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Standing Committee on Public Works",
