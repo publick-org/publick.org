@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01PCjk5wdqRTWdcE38TDYgcj",
-  "sent_at": "2026-11-18T14:39:10+00:00",
+  "id": "msgbatch_01WdZCTV2YLEa8yUNGiKpZTU",
+  "sent_at": "2026-11-19T09:28:49+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,16 +11,48 @@
   },
   "documents": [
     {
+      "custom_id": "doc-0",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "Board of Finance",
+        "date": "2026-11-24",
+        "body": "Board of Finance"
+      },
+      "doc": {
+        "id": "civicclerk-13979",
+        "sha256": "0675d78334d9b96a229a8cac747553877425e7f0f3587dbba4c416618072cfcb",
+        "file": "civicclerk-13979.pdf",
+        "source_url": "https://bristolct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=13979,plainText=false)"
+      }
+    },
+    {
+      "custom_id": "doc-1",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "Zoning Board of Appeals",
+        "date": "2026-12-01",
+        "body": "Zoning Board of Appeals"
+      },
+      "doc": {
+        "id": "civicclerk-13977",
+        "sha256": "7df1623aa1e3694f75f19a9b43b0597cb765ff8b9a69f58e19827218a280bd4e",
+        "file": "civicclerk-13977.pdf",
+        "source_url": "https://bristolct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=13977,plainText=false)"
+      }
+    },
+    {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "recording",
       "older": false,
       "source_hash": "c399d2ada0f8ff9cbf8d26b25da4512ab22c4c97c67d1b0862094f448187ed64",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Board of Police Commissioners",
@@ -30,6 +62,28 @@
       "doc": {
         "id": "civicclerk-video-5222",
         "sha256": "2884c7a34537be4d0d62975d127a7c0a726a05600103f61b494d13d4b7a59214"
+      }
+    },
+    {
+      "custom_id": "tr-1",
+      "type": "review",
+      "lang": "es",
+      "kind": "recording",
+      "older": false,
+      "source_hash": "474bc8ccd31dd168109b0c60ea059fe2c3705aa3f964a12fbd125b0e75833df7",
+      "model": "claude-sonnet-5-5",
+      "prices": {
+        "input_price": 2.0,
+        "output_price": 10.0
+      },
+      "meeting": {
+        "title": "Board of Ethics",
+        "date": "2026-11-04",
+        "body": "Board of Ethics"
+      },
+      "doc": {
+        "id": "civicclerk-video-5587",
+        "sha256": "f145d1532cc1f06fdf0ff63a9bb62d4201d01dc1042ece5c7a3db5813d5303df"
       }
     }
   ]
