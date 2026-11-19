@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01Usfi8VDP4zSjkVSqeyCkmH",
-  "sent_at": "2026-11-18T09:57:09+00:00",
+  "id": "msgbatch_01U74Ndw6xrqjWSF5TL97hb1",
+  "sent_at": "2026-11-19T05:51:22+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,60 +11,56 @@
   },
   "documents": [
     {
-      "custom_id": "tr-0",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
+      "custom_id": "doc-0",
+      "kind": "recording",
       "older": false,
-      "source_hash": "5ae7ff370b8deeb02fcbc5d3764bd27d6472fd0a118a9ac8d8e36fd282e5db61",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
       "meeting": {
         "title": "Planning Board",
         "date": "2026-11-18",
-        "body": "Planning Board"
+        "body": "Planning Board",
+        "agendas": [
+          {
+            "sha256": "e9a8cd48535afb3bf7d11667adf1abb42559e178a76febf9d015d77679e4ca9f"
+          },
+          {
+            "sha256": "a9b37a631da9d108949a146bdbfdab6503d5460e75b3cc88fa0b318800e85e99"
+          }
+        ]
       },
       "doc": {
-        "id": "legistar-1486-agenda-20261117151632",
-        "sha256": "a9b37a631da9d108949a146bdbfdab6503d5460e75b3cc88fa0b318800e85e99"
+        "id": "youtube-1qjI2sS9O8w",
+        "sha256": "44c75fcbd2c64c9ba4d4c379cecb322d35301eed4f01f9aaae29109ce7d804f6",
+        "file": "youtube-1qjI2sS9O8w.txt",
+        "source_url": "https://www.youtube.com/watch?v=1qjI2sS9O8w"
       }
     },
     {
-      "custom_id": "tr-1",
+      "custom_id": "doc-1",
+      "kind": "minutes",
+      "older": false,
+      "meeting": {
+        "title": "Conservation Commission",
+        "date": "2026-11-10",
+        "body": "Conservation Commission"
+      },
+      "doc": {
+        "id": "9756",
+        "sha256": "f74e0294f70962b662a9e7e8ea34518bc35a73dbef701a8e89e368bff3abf28b",
+        "file": "9756.pdf",
+        "source_url": "https://www.concordnh.gov/Archive.aspx?ADID=9756"
+      }
+    },
+    {
+      "custom_id": "tr-0",
       "type": "translation",
       "lang": "es",
       "kind": "minutes",
       "older": false,
-      "source_hash": "f57d189925a1fd969fdaa4d3e46af3c07b65521037614a7e9dfb2d8a82a1eedc",
+      "source_hash": "237252d49ba90bca2c65238b2b31255d75cc33e1f42132689c2b0c0d9412bf4a",
       "model": "claude-haiku-5-5",
       "prices": {
         "input_price": 0.1,
         "output_price": 0.5
-      },
-      "meeting": {
-        "title": "Ad-Hoc City Manager Search Committee",
-        "date": "2026-11-12",
-        "body": "Ad-Hoc City Manager Search Committee"
-      },
-      "doc": {
-        "id": "9753",
-        "sha256": "80ca19026b444191bfb29c16166f3cb7ed21ce21e8359dee48f147ac5c0883ec"
-      }
-    },
-    {
-      "custom_id": "tr-2",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "237252d49ba90bca2c65238b2b31255d75cc33e1f42132689c2b0c0d9412bf4a",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
       },
       "meeting": {
         "title": "City Council Meeting",
