@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01P3jzEEsFewwdivKgAHsGNs",
-  "sent_at": "2026-11-19T12:09:59+00:00",
+  "id": "msgbatch_01GgCs9unduH6uhFXFo5QYrs",
+  "sent_at": "2026-11-19T12:15:20+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,9 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
+      "source_hash": "eb56d6baeeb7da64fc5dea314ef7544086c7a9f902d9e6884182e04067f8cd19",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Planning Commission Meeting",
         "date": "2026-11-24",
@@ -21,38 +29,20 @@
       },
       "doc": {
         "id": "490",
-        "sha256": "905aa2cc70eaddc0d8b11b0a22227b0ff3d0ca7a57eb84485c9ffcbafbf1f303",
-        "file": "490.pdf",
-        "source_url": "https://www.southburlingtonvt.gov/AgendaCenter/ViewFile/Agenda/_11242026-490"
+        "sha256": "905aa2cc70eaddc0d8b11b0a22227b0ff3d0ca7a57eb84485c9ffcbafbf1f303"
       }
     },
     {
-      "custom_id": "doc-1",
-      "kind": "minutes",
-      "older": false,
-      "meeting": {
-        "title": "Planning Commission Meeting",
-        "date": "2026-10-27",
-        "body": "Planning Commission"
-      },
-      "doc": {
-        "id": "agendacenter-474",
-        "sha256": "37305d3d8c2f86b00f48a19c08039a8ac7dc5af5ad866134aabe00c88e4bb4c4",
-        "file": "agendacenter-474.pdf",
-        "source_url": "https://www.southburlingtonvt.gov/AgendaCenter/ViewFile/Minutes/_10272026-474"
-      }
-    },
-    {
-      "custom_id": "tr-0",
-      "type": "review",
+      "custom_id": "tr-1",
+      "type": "translation",
       "lang": "es",
       "kind": "recording",
       "older": false,
       "source_hash": "a5737f3d50d56bb48d8cee0549d7fad13c303ca0cb2da4de6b37f1ea541816b3",
-      "model": "claude-sonnet-5-5",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
         "title": "Development Review Board Meeting",
@@ -62,6 +52,28 @@
       "doc": {
         "id": "youtube-pWJRBxZRTfc",
         "sha256": "dddaefe548b8e41d91db89d6c2109c6b7728e3b6d5d6b01e7a14378dacb36857"
+      }
+    },
+    {
+      "custom_id": "tr-2",
+      "type": "translation",
+      "lang": "es",
+      "kind": "minutes",
+      "older": false,
+      "source_hash": "5c69363d27928a079b05651ce1d678a9eba10300a515a6318b1d182d050fe00f",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Planning Commission Meeting",
+        "date": "2026-10-27",
+        "body": "Planning Commission"
+      },
+      "doc": {
+        "id": "agendacenter-474",
+        "sha256": "37305d3d8c2f86b00f48a19c08039a8ac7dc5af5ad866134aabe00c88e4bb4c4"
       }
     }
   ]
