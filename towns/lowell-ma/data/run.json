@@ -1,8 +1,8 @@
 {
   "town": "lowell",
   "folder": "lowell-ma",
-  "started_at": "2026-11-18T14:35:19+00:00",
-  "finished_at": "2026-11-18T14:38:25+00:00",
+  "started_at": "2026-11-19T05:47:24+00:00",
+  "finished_at": "2026-11-19T05:50:53+00:00",
   "engine": "v1.111.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 29.0
+      "seconds": 23.2
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 119.5
+      "seconds": 123.7
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 29.4
+      "seconds": 49.6
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 3.9
+      "seconds": 11.2
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.9
+      "seconds": 0.7
     }
   ],
   "update": {
     "town": "lowell",
     "sources": "meetings",
-    "started_at": "2026-11-18T14:35:20+00:00",
+    "started_at": "2026-11-19T05:47:24+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.9,
+        "seconds": 2.1,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.1,
+        "seconds": 1.0,
         "cadence": "continuous"
       },
       {
@@ -154,7 +154,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 24.0,
+        "seconds": 17.8,
         "cadence": "continuous"
       },
       {
@@ -207,7 +207,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -215,7 +215,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -232,7 +232,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -240,7 +240,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       }
     ]
@@ -250,7 +250,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-18T09:35:20-05:00",
+      "updated_at": "2026-11-19T00:47:25-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -347,35 +347,34 @@
     "Correction for License Commission 2026-11-05: its recording summary was made again after the correction was checked on 2026-11-09, so it isn't shown. Check it again."
   ],
   "ok": true,
-  "last_good_at": "2026-11-18T14:43:58+00:00",
-  "data_bytes": 3010392,
-  "data_bytes_added": 3415,
+  "last_good_at": "2026-11-19T05:50:53+00:00",
+  "data_bytes": 3031805,
+  "data_bytes_added": 6741,
   "activity": {
     "boards": 40,
     "meetings_by_date": {
-      "2026-11-18": 4,
       "2026-11-19": 2,
       "2026-11-23": 1
     }
   },
   "fact_checks": {
-    "summaries": 141,
+    "summaries": 142,
     "ok": 118,
-    "failed": 20,
+    "failed": 21,
     "weak": 2,
     "unchecked": 1,
     "not_yet": 0,
-    "held_back": 20,
-    "entries_not_shown": 22,
-    "vote_counts_left_out": 135
+    "held_back": 21,
+    "entries_not_shown": 24,
+    "vote_counts_left_out": 140
   },
   "recordings": {
-    "since": "2026-11-11",
-    "until": "2026-11-17",
-    "held": 1,
-    "next_day": 0,
+    "since": "2026-11-12",
+    "until": "2026-11-18",
+    "held": 2,
+    "next_day": 1,
     "steps": {
-      "summarized": 0,
+      "summarized": 1,
       "minutes": 0,
       "transcribed": 1,
       "waiting": 0,
@@ -387,17 +386,17 @@
     },
     "misses": [
       {
-        "date": "2026-11-17",
-        "board": "City Council",
+        "date": "2026-11-18",
+        "board": "School Committee",
         "step": "transcribed",
         "detail": "transcript not summarized yet"
       }
     ]
   },
   "documents": {
-    "since": "2026-08-20",
-    "until": "2026-11-17",
-    "held": 85,
+    "since": "2026-08-21",
+    "until": "2026-11-18",
+    "held": 88,
     "boards": 28,
     "counts": {
       "no_documents": 0,
@@ -418,15 +417,13 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-18T09:17:21-05:00",
+    "at": "2026-11-19T00:25:24-05:00",
     "refused": 0,
-    "transcribed": 1,
+    "transcribed": 0,
     "last_transcribed_at": "2026-11-18T09:17:21-05:00"
   },
   "officials": {
     "checked_at": "2026-11-14T04:14:04-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-18T14:43:58+00:00",
-  "published_engine": "v1.111.0"
+  }
 }
