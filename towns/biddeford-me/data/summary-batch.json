@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01NvpJgKsLeKsbBcpEj24Zsc",
-  "sent_at": "2026-11-19T05:55:07+00:00",
+  "id": "msgbatch_014omFZDTjLvDU5tDLBq7nZr",
+  "sent_at": "2026-11-19T13:36:26+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,16 +11,40 @@
   },
   "documents": [
     {
+      "custom_id": "doc-0",
+      "kind": "recording",
+      "older": false,
+      "meeting": {
+        "title": "School Committee Meeting",
+        "date": "2026-11-18",
+        "body": "School Committee",
+        "agendas": [
+          {
+            "sha256": "fa075cdd188220f8af93ac0e9d03cfeb2121f8911f0985892f90196a94e2c5fb"
+          },
+          {
+            "sha256": "d1d3d7ee1f7244e1f009ccab7a303d978cbc0e2997e5ab6be5103ffd949a75ad"
+          }
+        ]
+      },
+      "doc": {
+        "id": "youtube-GWKKOT2J48A",
+        "sha256": "0c853dc93a10077f6b5d5e44a7bdea0321872d5499538d78fba6268c59083d60",
+        "file": "youtube-GWKKOT2J48A.txt",
+        "source_url": "https://www.youtube.com/watch?v=GWKKOT2J48A"
+      }
+    },
+    {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "recording",
       "older": false,
       "source_hash": "1eef6f352450e1e5c73c7ab83feab4f2a3cd6cf68aeb6fa0037166c642b24d86",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Planning Board Meeting (Live)",
