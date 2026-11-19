@@ -1,46 +1,46 @@
 {
   "town": "westbrook",
   "folder": "westbrook-me",
-  "started_at": "2026-11-18T09:06:53+00:00",
-  "finished_at": "2026-11-18T09:08:58+00:00",
-  "engine": "v1.110.0",
+  "started_at": "2026-11-19T09:09:14+00:00",
+  "finished_at": "2026-11-19T09:11:07+00:00",
+  "engine": "v1.111.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 86.8
+      "seconds": 52.4
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 21.6
+      "seconds": 22.0
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 24.6
+      "seconds": 32.7
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 21.7
+      "seconds": 4.8
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.8
+      "seconds": 0.6
     }
   ],
   "update": {
     "town": "westbrook",
     "sources": "all",
-    "started_at": "2026-11-18T09:06:54+00:00",
+    "started_at": "2026-11-19T09:09:14+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 25.7,
+        "seconds": 25.8,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 35.8,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 12.4,
+        "seconds": 12.5,
         "cadence": "continuous"
       },
       {
@@ -131,6 +131,15 @@
         "skipped": "no [proudcity_meetings] in the config"
       },
       {
+        "name": "Fetch the city's WordPress meetings",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [wordpress_meetings] in the config"
+      },
+      {
         "name": "Fetch the school district's minutes library",
         "ok": true,
         "required": false,
@@ -144,7 +153,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 11.2,
+        "seconds": 11.4,
         "cadence": "continuous"
       },
       {
@@ -162,7 +171,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 2 days ago; checked every 7 days"
+        "skipped": "checked 4 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -171,7 +180,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 17 days ago; checked every 30 days"
+        "skipped": "checked 18 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -180,7 +189,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 2 days ago; checked every 7 days"
+        "skipped": "checked 4 days ago; checked every 7 days"
       },
       {
         "name": "Fetch housing figures",
@@ -189,14 +198,14 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 3 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.2,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -204,7 +213,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.2,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -221,7 +230,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.2,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -229,7 +238,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.2,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -266,14 +275,14 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-18T04:06:54-05:00",
+      "updated_at": "2026-11-19T04:09:14-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-18T04:07:56-05:00",
+      "updated_at": "2026-11-19T04:09:41-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -350,31 +359,31 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-18T10:12:08+00:00",
-  "data_bytes": 1327276,
-  "data_bytes_added": 8623,
+  "last_good_at": "2026-11-19T09:11:07+00:00",
+  "data_bytes": 1494950,
+  "data_bytes_added": -1419,
   "activity": {
     "boards": 14,
     "meetings_by_date": {
-      "2026-11-18": 2,
-      "2026-12-01": 1
+      "2026-12-01": 1,
+      "2026-12-02": 1
     }
   },
   "fact_checks": {
-    "summaries": 12,
-    "ok": 12,
-    "failed": 0,
+    "summaries": 20,
+    "ok": 17,
+    "failed": 3,
     "weak": 0,
     "unchecked": 0,
     "not_yet": 0,
-    "held_back": 0,
-    "entries_not_shown": 0,
+    "held_back": 3,
+    "entries_not_shown": 3,
     "vote_counts_left_out": 0
   },
   "recordings": {
-    "since": "2026-11-11",
-    "until": "2026-11-17",
-    "held": 1,
+    "since": "2026-11-12",
+    "until": "2026-11-18",
+    "held": 2,
     "next_day": 0,
     "steps": {
       "summarized": 0,
@@ -385,34 +394,41 @@
       "unmatched": 0,
       "not_found": 0,
       "no_source": 0,
-      "no_recordings": 1
+      "no_recordings": 2
     },
     "misses": [
       {
         "date": "2026-11-16",
         "board": "City Council",
         "step": "no_recordings"
+      },
+      {
+        "date": "2026-11-18",
+        "board": "School Committee",
+        "step": "no_recordings"
       }
     ]
   },
   "documents": {
-    "since": "2026-08-20",
-    "until": "2026-11-17",
-    "held": 19,
+    "since": "2026-08-21",
+    "until": "2026-11-18",
+    "held": 20,
     "boards": 9,
     "counts": {
       "no_documents": 0,
       "no_minutes": 1,
-      "pairs": 0
+      "pairs": 0,
+      "beside": 0
     },
     "no_documents": [],
     "no_minutes": [
       {
         "board": "Recreation and Conservation Commission",
-        "meetings": 3
+        "meetings": 2
       }
     ],
     "pairs": [],
+    "beside": [],
     "waiting": {},
     "backlog": {}
   },
@@ -420,7 +436,5 @@
   "officials": {
     "checked_at": "2026-11-17T04:08:28-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-18T10:12:08+00:00",
-  "published_engine": "v1.111.0"
+  }
 }
