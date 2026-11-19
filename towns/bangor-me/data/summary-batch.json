@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01YUicxfgzFECrL9jjg2dLzp",
-  "sent_at": "2026-11-19T09:26:56+00:00",
+  "id": "msgbatch_01NRhrwtr9ZodcoA36Nr4Hf8",
+  "sent_at": "2026-11-19T09:43:22+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,9 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "minutes",
       "older": false,
+      "source_hash": "510c41d6af4f5c6f2f11505fcebbaf2f1e2a94f291f390729fe2de083447cab1",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Planning Board",
         "date": "2026-10-20",
@@ -21,53 +29,7 @@
       },
       "doc": {
         "id": "agendacenter-954",
-        "sha256": "28ac385834edcba70c07ec299d1882c3345f40fbdacec41d34eb4b20e71633c7",
-        "file": "agendacenter-954.pdf",
-        "source_url": "https://www.bangormaine.gov/AgendaCenter/ViewFile/Minutes/_10202026-954"
-      }
-    },
-    {
-      "custom_id": "tr-0",
-      "type": "review",
-      "lang": "es",
-      "kind": "recording",
-      "older": false,
-      "source_hash": "8cb9317adf28218438e40a205cbca18b51bbb1b8da6568723b444e2da29e14e2",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Planning Board",
-        "date": "2026-11-17",
-        "body": "Planning Board"
-      },
-      "doc": {
-        "id": "youtube-dyYIAgDiDzg",
-        "sha256": "6447c60a0ec8dd3417b4f140bc521bc06f809715889b63db7ac29a9b53062237"
-      }
-    },
-    {
-      "custom_id": "tr-1",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "da40f6a21d3af09cb2d31b6f0cba50cf28d676e0419cc5d26731c141f59c317a",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "City Council Organizational Meeting",
-        "date": "2026-11-09",
-        "body": "City Council Organizational"
-      },
-      "doc": {
-        "id": "967",
-        "sha256": "f26727f899cccd1c3ed39150b58662752982b55d23bd93e6bbdc0184f28d29f6"
+        "sha256": "28ac385834edcba70c07ec299d1882c3345f40fbdacec41d34eb4b20e71633c7"
       }
     }
   ]
