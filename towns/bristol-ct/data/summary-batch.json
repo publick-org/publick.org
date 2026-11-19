@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01LLSxRZysmbnvRdCj5vbMmz",
-  "sent_at": "2026-11-19T14:46:22+00:00",
+  "id": "msgbatch_014UWqhX2tdQZGTzWJKhjVrs",
+  "sent_at": "2026-11-19T17:48:02+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,38 +11,53 @@
   },
   "documents": [
     {
-      "custom_id": "tr-0",
-      "type": "translation",
-      "lang": "es",
+      "custom_id": "doc-0",
       "kind": "agenda",
       "older": false,
-      "source_hash": "32e56da4cc4840ebe2c552201b3476f461625031fed1747592eeeede4e450b69",
-      "model": "claude-haiku-5-5",
-      "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
-      },
       "meeting": {
         "title": "Board of Finance",
         "date": "2026-11-24",
         "body": "Board of Finance"
       },
       "doc": {
-        "id": "civicclerk-13979",
-        "sha256": "0675d78334d9b96a229a8cac747553877425e7f0f3587dbba4c416618072cfcb"
+        "id": "civicclerk-13988",
+        "sha256": "8bd66ec3120bf4a706bc5d36c1d4e5903a32fd32c49dcaef9c71ed958e08474e",
+        "file": "civicclerk-13988.pdf",
+        "source_url": "https://bristolct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=13988,plainText=false)"
       }
     },
     {
-      "custom_id": "tr-1",
-      "type": "translation",
+      "custom_id": "doc-1",
+      "kind": "recording",
+      "older": false,
+      "meeting": {
+        "title": "Board of Education Finance and Operations Committee Special Meeting",
+        "date": "2026-11-18",
+        "body": "Board of Education Finance and Operations Committee",
+        "agendas": [
+          {
+            "sha256": "e1507f144599ba72086a8613c70e7c39695a67253a4730be03b7a430d68b974e"
+          }
+        ]
+      },
+      "doc": {
+        "id": "youtube-M2LdiSP2o_U",
+        "sha256": "665ed8f35a8a7a5718adb0b9a2e31fe7c165569d9fc0f90b0382c33f41818b36",
+        "file": "youtube-M2LdiSP2o_U.txt",
+        "source_url": "https://www.youtube.com/watch?v=M2LdiSP2o_U"
+      }
+    },
+    {
+      "custom_id": "tr-0",
+      "type": "review",
       "lang": "es",
       "kind": "recording",
       "older": false,
       "source_hash": "e5a3d80ddf8ae25f6c325798ce281c0d7492909fe5eab32264df9bedaf5e2f05",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Fair Rent Commission",
@@ -55,7 +70,7 @@
       }
     },
     {
-      "custom_id": "tr-2",
+      "custom_id": "tr-1",
       "type": "translation",
       "lang": "es",
       "kind": "minutes",
@@ -77,16 +92,16 @@
       }
     },
     {
-      "custom_id": "tr-3",
-      "type": "translation",
+      "custom_id": "tr-2",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "7f45f46331ffc150cef2d60f540091fe46ffd3c215c86f0fda936a33e1e9b63b",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Planning Commission",
