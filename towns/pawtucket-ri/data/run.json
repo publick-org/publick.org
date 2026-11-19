@@ -1,46 +1,46 @@
 {
   "town": "pawtucket",
   "folder": "pawtucket-ri",
-  "started_at": "2026-11-19T00:48:55+00:00",
-  "finished_at": "2026-11-19T00:58:03+00:00",
-  "engine": "v1.111.0",
+  "started_at": "2026-11-19T20:58:53+00:00",
+  "finished_at": "2026-11-19T21:08:13+00:00",
+  "engine": "v1.111.1",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 438.1
+      "seconds": 447.7
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 70.4
+      "seconds": 67.7
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 42.8
+      "seconds": 39.1
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 11.1
+      "seconds": 4.1
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.8
+      "seconds": 1.0
     }
   ],
   "update": {
     "town": "pawtucket",
-    "sources": "meetings",
-    "started_at": "2026-11-19T00:48:55+00:00",
+    "sources": "all",
+    "started_at": "2026-11-19T20:58:54+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -109,7 +109,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 415.3,
+        "seconds": 408.7,
         "cadence": "continuous"
       },
       {
@@ -153,7 +153,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 19.9,
+        "seconds": 27.3,
         "cadence": "continuous"
       },
       {
@@ -171,7 +171,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 3 days ago; checked every 7 days"
+        "skipped": "checked 4 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -180,7 +180,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 17 days ago; checked every 30 days"
+        "skipped": "checked 18 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -189,7 +189,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 3 days ago; checked every 7 days"
+        "skipped": "checked 4 days ago; checked every 7 days"
       },
       {
         "name": "Fetch housing figures",
@@ -198,7 +198,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -230,7 +230,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -238,7 +238,32 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch 311 requests",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 8.0,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch 311 requests from an open data portal",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [socrata_311] in the config"
+      },
+      {
+        "name": "Compute 311 scorecard",
+        "ok": true,
+        "required": true,
+        "error": null,
+        "seconds": 1.0,
         "cadence": "continuous"
       }
     ]
@@ -248,21 +273,21 @@
     {
       "label": "Meetings (Open Meetings portal)",
       "file": "meetings/opengov_status.json",
-      "updated_at": "2026-11-18T19:48:56-05:00",
+      "updated_at": "2026-11-19T15:58:55-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-18T04:18:36-05:00",
+      "updated_at": "2026-11-19T16:06:12-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-18T04:18:44-05:00",
+      "updated_at": "2026-11-19T16:06:20-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -340,38 +365,38 @@
   "corrections": [],
   "ok": true,
   "last_good_at": "2026-11-05T00:12:20+00:00",
-  "data_bytes": 2888292,
-  "data_bytes_added": 115352,
+  "data_bytes": 2924572,
+  "data_bytes_added": 117873,
   "activity": {
     "boards": 32,
     "meetings_by_date": {
       "2026-11-19": 1,
       "2026-11-20": 1,
-      "2026-11-23": 1,
+      "2026-11-23": 2,
       "2026-11-24": 1,
       "2026-11-30": 1
     }
   },
   "fact_checks": {
-    "summaries": 181,
-    "ok": 170,
-    "failed": 11,
+    "summaries": 185,
+    "ok": 173,
+    "failed": 12,
     "weak": 0,
     "unchecked": 0,
     "not_yet": 0,
-    "held_back": 11,
-    "entries_not_shown": 15,
-    "vote_counts_left_out": 82
+    "held_back": 12,
+    "entries_not_shown": 16,
+    "vote_counts_left_out": 89
   },
   "recordings": {
-    "since": "2026-11-11",
-    "until": "2026-11-17",
+    "since": "2026-11-12",
+    "until": "2026-11-18",
     "held": 2,
-    "next_day": 0,
+    "next_day": 1,
     "steps": {
-      "summarized": 0,
+      "summarized": 1,
       "minutes": 0,
-      "transcribed": 1,
+      "transcribed": 0,
       "waiting": 0,
       "failed": 0,
       "unmatched": 0,
@@ -384,12 +409,6 @@
         "date": "2026-11-17",
         "board": "Planning Commission",
         "step": "not_found"
-      },
-      {
-        "date": "2026-11-17",
-        "board": "School Committee",
-        "step": "transcribed",
-        "detail": "transcript not summarized yet"
       }
     ]
   },
@@ -417,15 +436,13 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-18T18:26:02-05:00",
+    "at": "2026-11-19T12:24:01-05:00",
     "refused": 0,
-    "transcribed": 1,
+    "transcribed": 0,
     "last_transcribed_at": "2026-11-18T18:26:02-05:00"
   },
   "officials": {
     "checked_at": "2026-11-15T04:21:27-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-19T10:15:45+00:00",
-  "published_engine": "v1.111.1"
+  }
 }
