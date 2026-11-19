@@ -1,46 +1,46 @@
 {
   "town": "hamden",
   "folder": "hamden-ct",
-  "started_at": "2026-11-18T09:21:58+00:00",
-  "finished_at": "2026-11-18T09:26:02+00:00",
-  "engine": "v1.111.0",
+  "started_at": "2026-11-19T09:21:32+00:00",
+  "finished_at": "2026-11-19T09:25:13+00:00",
+  "engine": "v1.111.1",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 102.2
+      "seconds": 115.6
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 49.9
+      "seconds": 48.6
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 40.4
+      "seconds": 35.9
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 3.6
+      "seconds": 20.4
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.6
+      "seconds": 0.4
     }
   ],
   "update": {
     "town": "hamden",
     "sources": "all",
-    "started_at": "2026-11-18T09:21:58+00:00",
+    "started_at": "2026-11-19T09:21:32+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 51.7,
+        "seconds": 54.8,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 15.8,
+        "seconds": 24.8,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.1,
+        "seconds": 0.7,
         "cadence": "continuous"
       },
       {
@@ -131,6 +131,15 @@
         "skipped": "no [proudcity_meetings] in the config"
       },
       {
+        "name": "Fetch the city's WordPress meetings",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [wordpress_meetings] in the config"
+      },
+      {
         "name": "Fetch the school district's minutes library",
         "ok": true,
         "required": false,
@@ -144,7 +153,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 23.7,
+        "seconds": 24.1,
         "cadence": "continuous"
       },
       {
@@ -154,7 +163,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 16 days ago; checked every 30 days"
+        "skipped": "checked 17 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -163,7 +172,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 2 days ago; checked every 7 days"
+        "skipped": "checked 3 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -172,7 +181,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 16 days ago; checked every 30 days"
+        "skipped": "checked 17 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -181,7 +190,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 2 days ago; checked every 7 days"
+        "skipped": "checked 3 days ago; checked every 7 days"
       },
       {
         "name": "Fetch housing figures",
@@ -190,14 +199,14 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 2 days ago; checked every 7 days"
+        "skipped": "checked 3 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.2,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -205,7 +214,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.2,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -222,7 +231,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.2,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -230,7 +239,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.2,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -238,7 +247,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 8.1,
+        "seconds": 9.2,
         "cadence": "continuous"
       },
       {
@@ -255,7 +264,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 0.8,
+        "seconds": 0.7,
         "cadence": "continuous"
       }
     ]
@@ -265,21 +274,21 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-18T04:21:58-05:00",
+      "updated_at": "2026-11-19T04:21:32-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-18T04:23:31-05:00",
+      "updated_at": "2026-11-19T04:23:18-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-18T04:23:40-05:00",
+      "updated_at": "2026-11-19T04:23:27-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -368,63 +377,58 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-18T10:05:26+00:00",
-  "data_bytes": 5055611,
-  "data_bytes_added": 2535866,
+  "last_good_at": "2026-11-19T09:25:13+00:00",
+  "data_bytes": 5165246,
+  "data_bytes_added": 2560737,
   "activity": {
     "boards": 51,
     "meetings_by_date": {
-      "2026-11-18": 6,
-      "2026-11-19": 2,
+      "2026-11-19": 4,
       "2026-11-23": 2,
       "2026-11-24": 1,
-      "2026-12-01": 2
+      "2026-12-01": 2,
+      "2026-12-02": 4
     }
   },
   "fact_checks": {
-    "summaries": 144,
-    "ok": 139,
+    "summaries": 152,
+    "ok": 147,
     "failed": 3,
     "weak": 2,
     "unchecked": 0,
     "not_yet": 0,
     "held_back": 3,
     "entries_not_shown": 3,
-    "vote_counts_left_out": 16
+    "vote_counts_left_out": 19
   },
   "recordings": {
-    "since": "2026-11-11",
-    "until": "2026-11-17",
+    "since": "2026-11-12",
+    "until": "2026-11-18",
     "held": 1,
     "next_day": 0,
     "steps": {
       "summarized": 0,
-      "minutes": 0,
+      "minutes": 1,
       "transcribed": 0,
       "waiting": 0,
       "failed": 0,
       "unmatched": 0,
-      "not_found": 1,
+      "not_found": 0,
       "no_source": 0,
       "no_recordings": 0
     },
-    "misses": [
-      {
-        "date": "2026-11-16",
-        "board": "Legislative Council",
-        "step": "not_found"
-      }
-    ]
+    "misses": []
   },
   "documents": {
-    "since": "2026-08-20",
-    "until": "2026-11-17",
-    "held": 136,
+    "since": "2026-08-21",
+    "until": "2026-11-18",
+    "held": 139,
     "boards": 47,
     "counts": {
       "no_documents": 1,
       "no_minutes": 0,
-      "pairs": 0
+      "pairs": 0,
+      "beside": 1
     },
     "no_documents": [
       {
@@ -434,6 +438,13 @@
     ],
     "no_minutes": [],
     "pairs": [],
+    "beside": [
+      {
+        "date": "2026-11-17",
+        "board": "General",
+        "other": "Hamden Plains Cemetery Committee"
+      }
+    ],
     "waiting": {},
     "backlog": {}
   },
@@ -441,7 +452,5 @@
   "officials": {
     "checked_at": "2026-11-17T04:24:51-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-18T10:05:26+00:00",
-  "published_engine": "v1.111.0"
+  }
 }
