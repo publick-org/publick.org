@@ -1,8 +1,8 @@
 {
   "town": "derry",
   "folder": "derry-nh",
-  "started_at": "2026-11-19T12:06:59+00:00",
-  "finished_at": "2026-11-19T12:09:00+00:00",
+  "started_at": "2026-11-19T14:41:38+00:00",
+  "finished_at": "2026-11-19T14:43:47+00:00",
   "engine": "v1.111.1",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 55.6
+      "seconds": 61.4
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 34.6
+      "seconds": 37.4
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 26.4
+      "seconds": 25.0
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.2
+      "seconds": 3.0
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.5
+      "seconds": 1.0
     }
   ],
   "update": {
     "town": "derry",
-    "sources": "all",
-    "started_at": "2026-11-19T12:06:59+00:00",
+    "sources": "meetings",
+    "started_at": "2026-11-19T14:41:40+00:00",
     "ok": true,
     "steps": [
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 2.6,
         "cadence": "continuous"
       },
       {
@@ -153,7 +153,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 11.7,
+        "seconds": 14.7,
         "cadence": "continuous"
       },
       {
@@ -241,33 +241,6 @@
         "error": null,
         "seconds": 0.3,
         "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [seeclickfix] in the config"
-      },
-      {
-        "name": "Fetch 311 requests from an open data portal",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [socrata_311] in the config"
-      },
-      {
-        "name": "Compute 311 scorecard",
-        "ok": true,
-        "required": true,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [seeclickfix] or [socrata_311] in the config"
       }
     ]
   },
@@ -276,14 +249,14 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-19T07:07:00-05:00",
+      "updated_at": "2026-11-19T09:41:40-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Board meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-19T07:07:41-05:00",
+      "updated_at": "2026-11-19T09:42:23-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -372,9 +345,9 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-19T12:12:29+00:00",
-  "data_bytes": 1657487,
-  "data_bytes_added": 3290,
+  "last_good_at": "2026-11-19T14:43:47+00:00",
+  "data_bytes": 1659881,
+  "data_bytes_added": 2075,
   "activity": {
     "boards": 16,
     "meetings_by_date": {
@@ -402,8 +375,8 @@
     "steps": {
       "summarized": 1,
       "minutes": 0,
-      "transcribed": 0,
-      "waiting": 1,
+      "transcribed": 1,
+      "waiting": 0,
       "failed": 0,
       "unmatched": 0,
       "not_found": 0,
@@ -414,8 +387,8 @@
       {
         "date": "2026-11-18",
         "board": "Planning Board",
-        "step": "waiting",
-        "detail": "1 recording(s) found"
+        "step": "transcribed",
+        "detail": "transcript not summarized yet"
       }
     ]
   },
@@ -438,15 +411,13 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-19T04:24:01-05:00",
+    "at": "2026-11-19T09:31:19-05:00",
     "refused": 0,
-    "transcribed": 0,
-    "last_transcribed_at": "2026-11-18T12:24:18-05:00"
+    "transcribed": 1,
+    "last_transcribed_at": "2026-11-19T09:31:19-05:00"
   },
   "officials": {
     "checked_at": "2026-11-15T04:17:54-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-19T12:12:29+00:00",
-  "published_engine": "v1.111.1"
+  }
 }
