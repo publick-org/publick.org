@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01A5TCdixu7kc1XGCMpQi4gB",
-  "sent_at": "2026-11-19T05:47:50+00:00",
+  "id": "msgbatch_01MVsbf9RpxoKnCThD9t8zRF",
+  "sent_at": "2026-11-19T05:50:20+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,26 +11,39 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "recording",
       "older": false,
+      "source_hash": "6ff5ee1a154f490ae7a00d02f80b28576d615f6dc7f0c52a6741e85634c07b63",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "City Council Regular Meeting",
         "date": "2026-11-17",
-        "body": "City Council",
-        "agendas": []
+        "body": "City Council"
       },
       "doc": {
         "id": "castus-6afe49d5ea16c00002ea5dd5",
-        "sha256": "7ebbda2481a5107540abee022f19cb67b4d8fdce82b633d22c9deaf45a106ed2",
-        "file": "castus-6afe49d5ea16c00002ea5dd5.txt",
-        "source_url": "https://cloud.castus.tv/vod/#/medford/video/6afe49d5ea16c00002ea5dd5"
+        "sha256": "7ebbda2481a5107540abee022f19cb67b4d8fdce82b633d22c9deaf45a106ed2"
       }
     },
     {
-      "custom_id": "doc-1",
+      "custom_id": "tr-1",
+      "type": "translation",
+      "lang": "es",
       "kind": "minutes",
       "older": false,
+      "source_hash": "6187d17efeb9a31b2162d873a0190e62e91f04d913827d54e5098706c82d7eb3",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "City Council Regular Meeting",
         "date": "2026-11-10",
@@ -38,9 +51,7 @@
       },
       "doc": {
         "id": "civicclerk-1035",
-        "sha256": "57743df8cfa17d667de0b840356ffe53362198f7b78331cf97738af7944b3be3",
-        "file": "civicclerk-1035.pdf",
-        "source_url": "https://medfordma.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=1035,plainText=false)"
+        "sha256": "57743df8cfa17d667de0b840356ffe53362198f7b78331cf97738af7944b3be3"
       }
     }
   ]
