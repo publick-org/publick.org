@@ -1,8 +1,8 @@
 {
   "town": "beverly",
   "folder": "beverly-ma",
-  "started_at": "2026-11-18T17:40:13+00:00",
-  "finished_at": "2026-11-18T17:43:42+00:00",
+  "started_at": "2026-11-19T07:38:19+00:00",
+  "finished_at": "2026-11-19T07:42:30+00:00",
   "engine": "v1.111.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 34.0
+      "seconds": 40.9
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 135.4
+      "seconds": 136.3
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 35.0
+      "seconds": 31.0
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 3.0
+      "seconds": 41.2
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 2.0
+      "seconds": 1.0
     }
   ],
   "update": {
     "town": "beverly",
     "sources": "meetings",
-    "started_at": "2026-11-18T17:40:13+00:00",
+    "started_at": "2026-11-19T07:38:20+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": false,
         "required": false,
         "error": "exited with status 1",
-        "seconds": 17.0,
+        "seconds": 16.6,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.4,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -154,7 +154,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 13.6,
+        "seconds": 21.5,
         "cadence": "continuous"
       },
       {
@@ -164,7 +164,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 17 days ago; checked every 30 days"
+        "skipped": "checked 18 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -182,7 +182,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 17 days ago; checked every 30 days"
+        "skipped": "checked 18 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -191,7 +191,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 17 days ago; checked every 30 days"
+        "skipped": "checked 18 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -207,7 +207,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -215,7 +215,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -232,7 +232,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -240,7 +240,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       }
     ]
@@ -339,13 +339,12 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-18T17:46:56+00:00",
-  "data_bytes": 3984550,
-  "data_bytes_added": 3189,
+  "last_good_at": "2026-11-19T07:42:30+00:00",
+  "data_bytes": 4039259,
+  "data_bytes_added": 8658,
   "activity": {
     "boards": 57,
     "meetings_by_date": {
-      "2026-11-18": 6,
       "2026-11-19": 10,
       "2026-11-23": 2,
       "2026-11-24": 1,
@@ -354,25 +353,25 @@
     }
   },
   "fact_checks": {
-    "summaries": 219,
+    "summaries": 221,
     "ok": 213,
-    "failed": 1,
+    "failed": 3,
     "weak": 4,
     "unchecked": 1,
     "not_yet": 0,
-    "held_back": 1,
-    "entries_not_shown": 1,
+    "held_back": 3,
+    "entries_not_shown": 3,
     "vote_counts_left_out": 6
   },
   "recordings": {
-    "since": "2026-11-11",
-    "until": "2026-11-17",
+    "since": "2026-11-12",
+    "until": "2026-11-18",
     "held": 1,
-    "next_day": 0,
+    "next_day": 1,
     "steps": {
-      "summarized": 0,
+      "summarized": 1,
       "minutes": 0,
-      "transcribed": 1,
+      "transcribed": 0,
       "waiting": 0,
       "failed": 0,
       "unmatched": 0,
@@ -380,19 +379,12 @@
       "no_source": 0,
       "no_recordings": 0
     },
-    "misses": [
-      {
-        "date": "2026-11-17",
-        "board": "Planning Board",
-        "step": "transcribed",
-        "detail": "transcript not summarized yet"
-      }
-    ]
+    "misses": []
   },
   "documents": {
-    "since": "2026-08-20",
-    "until": "2026-11-17",
-    "held": 124,
+    "since": "2026-08-21",
+    "until": "2026-11-18",
+    "held": 129,
     "boards": 46,
     "counts": {
       "no_documents": 4,
@@ -407,15 +399,15 @@
       },
       {
         "board": "School Committee Curriculum, Instruction and Student Life Subcommittee",
-        "meetings": 2
+        "meetings": 3
       },
       {
         "board": "School Committee Finance and Facilities Subcommittee",
-        "meetings": 2
+        "meetings": 3
       },
       {
         "board": "School Committee of the Whole",
-        "meetings": 2
+        "meetings": 3
       }
     ],
     "no_minutes": [
@@ -454,15 +446,13 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-18T12:24:21-05:00",
+    "at": "2026-11-19T02:24:22-05:00",
     "refused": 0,
     "transcribed": 1,
-    "last_transcribed_at": "2026-11-18T12:24:21-05:00"
+    "last_transcribed_at": "2026-11-19T02:24:22-05:00"
   },
   "officials": {
     "checked_at": "2026-11-15T04:12:01-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-18T17:46:56+00:00",
-  "published_engine": "v1.111.0"
+  }
 }

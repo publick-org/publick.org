@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01AsA662o4dczTpngbmQYHf3",
-  "sent_at": "2026-11-18T17:43:59+00:00",
+  "id": "msgbatch_01GttJsHdiqcwrQ2i2vqJScr",
+  "sent_at": "2026-11-19T07:38:56+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -10,6 +10,27 @@
     "long_prompt_tokens": 100000
   },
   "documents": [
+    {
+      "custom_id": "doc-0",
+      "kind": "recording",
+      "older": false,
+      "meeting": {
+        "title": "Regular City Council Meeting",
+        "date": "2026-11-09",
+        "body": "City Council",
+        "agendas": [
+          {
+            "sha256": "73bfe4be5d6e03685987e959379b97e0b2b46aa92b6a3271045a45a77f609941"
+          }
+        ]
+      },
+      "doc": {
+        "id": "youtube-GEULSSsKS4U",
+        "sha256": "c0ebfff312600f96b4ec45110b0f83f0e299f8372c1ed9b416c7ad7295db4721",
+        "file": "youtube-GEULSSsKS4U.txt",
+        "source_url": "https://www.youtube.com/watch?v=GEULSSsKS4U"
+      }
+    },
     {
       "custom_id": "tr-0",
       "type": "translation",
@@ -34,15 +55,15 @@
     },
     {
       "custom_id": "tr-1",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "0affb136124109876600455b94c0940b456fc0a02750c18f3eba009ab1fef914",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Conservation Commission Meeting",
