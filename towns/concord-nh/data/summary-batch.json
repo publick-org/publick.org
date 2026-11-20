@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01SyyR9zga5DFVnfzyMmks1s",
-  "sent_at": "2026-11-19T05:57:28+00:00",
+  "id": "msgbatch_01JyedB67L7gRtHZTW9T2dEz",
+  "sent_at": "2026-11-20T09:15:31+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -12,15 +12,15 @@
   "documents": [
     {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "recording",
       "older": false,
       "source_hash": "9475031760f75e3ef3d484e26dbcc2d3649fecb10c67d0d8d4273c5f1065ea8c",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Planning Board",
@@ -34,15 +34,15 @@
     },
     {
       "custom_id": "tr-1",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "1cac86540b4e5e23e266d59c14d272c8a501ead0a253c61448436a845bd0af7a",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Conservation Commission",
@@ -52,28 +52,6 @@
       "doc": {
         "id": "9756",
         "sha256": "f74e0294f70962b662a9e7e8ea34518bc35a73dbef701a8e89e368bff3abf28b"
-      }
-    },
-    {
-      "custom_id": "tr-2",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "237252d49ba90bca2c65238b2b31255d75cc33e1f42132689c2b0c0d9412bf4a",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "City Council Meeting",
-        "date": "2026-11-09",
-        "body": "City Council"
-      },
-      "doc": {
-        "id": "legistar-1472-minutes-20261117190404",
-        "sha256": "2e2bdf64675df3282670c64d275af4db15c636f0e4fc2cda276ebfa758aa1071"
       }
     }
   ]
