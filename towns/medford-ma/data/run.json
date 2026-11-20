@@ -1,28 +1,28 @@
 {
   "town": "medford",
   "folder": "medford-ma",
-  "started_at": "2026-11-19T05:47:28+00:00",
-  "finished_at": "2026-11-19T05:49:57+00:00",
-  "engine": "v1.111.0",
+  "started_at": "2026-11-20T00:19:43+00:00",
+  "finished_at": "2026-11-20T00:21:57+00:00",
+  "engine": "v1.111.1",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 49.4
+      "seconds": 30.3
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 39.6
+      "seconds": 37.9
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 64.4
+      "seconds": 62.3
     },
     {
       "name": "Publish site",
@@ -34,13 +34,13 @@
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.8
+      "seconds": 1.1
     }
   ],
   "update": {
     "town": "medford",
     "sources": "meetings",
-    "started_at": "2026-11-19T05:47:29+00:00",
+    "started_at": "2026-11-20T00:19:43+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 6.7,
+        "seconds": 9.2,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 2.1,
+        "seconds": 0.5,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
+        "seconds": 4.4,
         "cadence": "continuous"
       },
       {
@@ -153,7 +153,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 13.5,
+        "seconds": 13.8,
         "cadence": "continuous"
       },
       {
@@ -172,7 +172,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -197,8 +197,9 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 24.5,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -248,14 +249,14 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-19T00:47:29-05:00",
+      "updated_at": "2026-11-19T19:19:44-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-19T00:47:38-05:00",
+      "updated_at": "2026-11-19T19:19:53-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -360,9 +361,9 @@
     "Correction for City Council 2026-11-02: the city changed the listing (start_time) after it was checked on 2026-11-01, so it isn't shown. Check it again."
   ],
   "ok": true,
-  "last_good_at": "2026-11-19T10:15:51+00:00",
-  "data_bytes": 7332288,
-  "data_bytes_added": 6281576,
+  "last_good_at": "2026-11-20T00:21:57+00:00",
+  "data_bytes": 7463830,
+  "data_bytes_added": 6290902,
   "activity": {
     "boards": 10,
     "meetings_by_date": {
@@ -372,15 +373,15 @@
     }
   },
   "fact_checks": {
-    "summaries": 35,
+    "summaries": 37,
     "ok": 22,
-    "failed": 7,
-    "weak": 6,
+    "failed": 8,
+    "weak": 7,
     "unchecked": 0,
     "not_yet": 0,
-    "held_back": 7,
-    "entries_not_shown": 11,
-    "vote_counts_left_out": 145
+    "held_back": 8,
+    "entries_not_shown": 12,
+    "vote_counts_left_out": 157
   },
   "recordings": {
     "since": "2026-11-12",
@@ -388,9 +389,9 @@
     "held": 1,
     "next_day": 0,
     "steps": {
-      "summarized": 0,
+      "summarized": 1,
       "minutes": 0,
-      "transcribed": 1,
+      "transcribed": 0,
       "waiting": 0,
       "failed": 0,
       "unmatched": 0,
@@ -398,18 +399,11 @@
       "no_source": 0,
       "no_recordings": 0
     },
-    "misses": [
-      {
-        "date": "2026-11-17",
-        "board": "City Council",
-        "step": "transcribed",
-        "detail": "transcript not summarized yet"
-      }
-    ]
+    "misses": []
   },
   "documents": {
-    "since": "2026-08-21",
-    "until": "2026-11-18",
+    "since": "2026-08-22",
+    "until": "2026-11-19",
     "held": 22,
     "boards": 7,
     "counts": {
@@ -426,7 +420,7 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-19T00:26:00-05:00",
+    "at": "2026-11-19T18:39:55-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-10T12:25:21-05:00"
@@ -434,7 +428,5 @@
   "officials": {
     "checked_at": "2026-11-15T04:07:08-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-19T10:15:51+00:00",
-  "published_engine": "v1.111.1"
+  }
 }
