@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01XFyQrg15Jf9ot4Unrs1LfN",
-  "sent_at": "2026-11-20T00:20:09+00:00",
+  "id": "msgbatch_01VCoBt5zHPxGB1HDzGWrpLz",
+  "sent_at": "2026-11-20T00:25:32+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,9 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
+      "source_hash": "443807ed3b4a4b8286af4471130b3e82cd9b4648fdd45e746de9364d07904121",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "School Committee Meeting",
         "date": "2026-11-23",
@@ -21,70 +29,29 @@
       },
       "doc": {
         "id": "ed14993c524e8b5b-59585909",
-        "sha256": "59585909ddbed62d1a1697ec00f04a11aa37179130a7296d96a375ce2ea448b9",
-        "file": "ed14993c524e8b5b-59585909.pdf",
-        "source_url": "https://www.mps02155.org/fs/resource-manager/view/39406daf-8142-40f0-9a6a-002e4705b38e"
-      }
-    },
-    {
-      "custom_id": "doc-1",
-      "kind": "recording",
-      "older": false,
-      "meeting": {
-        "title": "Council Public Works & Facilities Committee Meeting",
-        "date": "2026-11-18",
-        "body": "Council Public Works & Facilities Committee",
-        "agendas": []
-      },
-      "doc": {
-        "id": "castus-6aff52f85aa26f0002fafb84",
-        "sha256": "d86dbd33688ae8532ed5ded39a4a6949fcbad07aabb9d7538a06cdb8d750d9f5",
-        "file": "castus-6aff52f85aa26f0002fafb84.txt",
-        "source_url": "https://cloud.castus.tv/vod/#/medford/video/6aff52f85aa26f0002fafb84"
-      }
-    },
-    {
-      "custom_id": "tr-0",
-      "type": "review",
-      "lang": "es",
-      "kind": "recording",
-      "older": false,
-      "source_hash": "6ff5ee1a154f490ae7a00d02f80b28576d615f6dc7f0c52a6741e85634c07b63",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "City Council Regular Meeting",
-        "date": "2026-11-17",
-        "body": "City Council"
-      },
-      "doc": {
-        "id": "castus-6afe49d5ea16c00002ea5dd5",
-        "sha256": "7ebbda2481a5107540abee022f19cb67b4d8fdce82b633d22c9deaf45a106ed2"
+        "sha256": "59585909ddbed62d1a1697ec00f04a11aa37179130a7296d96a375ce2ea448b9"
       }
     },
     {
       "custom_id": "tr-1",
-      "type": "review",
+      "type": "translation",
       "lang": "es",
-      "kind": "minutes",
+      "kind": "recording",
       "older": false,
-      "source_hash": "6187d17efeb9a31b2162d873a0190e62e91f04d913827d54e5098706c82d7eb3",
-      "model": "claude-sonnet-5-5",
+      "source_hash": "3bd1127783e67af7fd29affd6e77894c293b0f57dccf8bf18a8470a13d565482",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
-        "title": "City Council Regular Meeting",
-        "date": "2026-11-10",
-        "body": "City Council"
+        "title": "Council Public Works & Facilities Committee Meeting",
+        "date": "2026-11-18",
+        "body": "Council Public Works & Facilities Committee"
       },
       "doc": {
-        "id": "civicclerk-1035",
-        "sha256": "57743df8cfa17d667de0b840356ffe53362198f7b78331cf97738af7944b3be3"
+        "id": "castus-6aff52f85aa26f0002fafb84",
+        "sha256": "d86dbd33688ae8532ed5ded39a4a6949fcbad07aabb9d7538a06cdb8d750d9f5"
       }
     }
   ]
