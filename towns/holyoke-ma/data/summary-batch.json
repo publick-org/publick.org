@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01DKwrGKpbyj8THPPeAh25K8",
-  "sent_at": "2026-11-20T09:15:18+00:00",
+  "id": "msgbatch_01LH4p6pyvnP2C6aKPwX4D5N",
+  "sent_at": "2026-11-20T09:25:15+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,25 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
-      "meeting": {
-        "title": "City Council Public Service Committee Meeting",
-        "date": "2026-11-23",
-        "body": "City Council Public Service Committee"
+      "source_hash": "a63ac0182bc6b4a08cad7e2e70d7408b099bb7a555c0b288f8d6409c1dd2d5f4",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
       },
-      "doc": {
-        "id": "proudcity-50806-78693ca6",
-        "sha256": "78693ca64757a5812a01dc721d7b52ba1c68af202b8ccfa0cb838b240b7a504d",
-        "file": "proudcity-50806-78693ca6.pdf",
-        "source_url": "https://www.holyoke.org/meetings/public-service-committee-meeting-november-23-2026/"
-      }
-    },
-    {
-      "custom_id": "doc-1",
-      "kind": "agenda",
-      "older": false,
       "meeting": {
         "title": "City Council Finance Committee Meeting",
         "date": "2026-11-24",
@@ -37,15 +29,43 @@
       },
       "doc": {
         "id": "proudcity-49997-46aba650",
-        "sha256": "46aba6509dc733a8348ff980ccb1d5e9e1fb90109cf0439e73ca59c084f93d18",
-        "file": "proudcity-49997-46aba650.pdf",
-        "source_url": "https://www.holyoke.org/meetings/finance-committee-meeting-november-24-2026/"
+        "sha256": "46aba6509dc733a8348ff980ccb1d5e9e1fb90109cf0439e73ca59c084f93d18"
       }
     },
     {
-      "custom_id": "doc-2",
+      "custom_id": "tr-1",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "07ce65daf549cd986663d6ac93733b0d489f7d83857cba1a96c8657fac8a958d",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "City Council Public Service Committee Meeting",
+        "date": "2026-11-23",
+        "body": "City Council Public Service Committee"
+      },
+      "doc": {
+        "id": "proudcity-50806-78693ca6",
+        "sha256": "78693ca64757a5812a01dc721d7b52ba1c68af202b8ccfa0cb838b240b7a504d"
+      }
+    },
+    {
+      "custom_id": "tr-2",
+      "type": "translation",
+      "lang": "es",
       "kind": "minutes",
       "older": false,
+      "source_hash": "6dce6bfd7020cff097366d81d3a9072e85065bbd9b2d7c8ec11e36e02c9d77fb",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Conservation Commission Meeting",
         "date": "2026-10-22",
@@ -53,635 +73,7 @@
       },
       "doc": {
         "id": "proudcity-46078-1593f234",
-        "sha256": "1593f234370417aba753a0f9a47c54273db5f7b90257d4f4899f45a87ca37b59",
-        "file": "proudcity-46078-1593f234.pdf",
-        "source_url": "https://storage.googleapis.com/proudcity/holyokema/2025/12/10-22-26-meeting-minutes_final.docx-1-1baf1d3d.pdf"
-      }
-    },
-    {
-      "custom_id": "doc-3",
-      "kind": "agenda",
-      "older": true,
-      "meeting": {
-        "title": "Gas & Electric Commission Meeting",
-        "date": "2026-09-08",
-        "body": "Gas & Electric Commission"
-      },
-      "doc": {
-        "id": "proudcity-50346-11181e00",
-        "sha256": "11181e00c525e73647d40162bddeaebcd749eed5b09a6e3ac1c7b0aa67dd0087",
-        "file": "proudcity-50346-11181e00.pdf",
-        "source_url": "https://storage.googleapis.com/proudcity/holyokema/2026/09/hge-commission-agenda-09.08.26-187d4a1e.pdf"
-      }
-    },
-    {
-      "custom_id": "doc-4",
-      "kind": "agenda",
-      "older": true,
-      "meeting": {
-        "title": "Library Board Meeting",
-        "date": "2026-09-08",
-        "body": "Library Board"
-      },
-      "doc": {
-        "id": "proudcity-50362-bb8af4eb",
-        "sha256": "bb8af4eb01349d4b59dd56f237a2b2485e1df2a6f1925077bb13763761021df8",
-        "file": "proudcity-50362-bb8af4eb.pdf",
-        "source_url": "https://www.holyoke.org/meetings/library-board-meeting-september-8-2026/"
-      }
-    },
-    {
-      "custom_id": "doc-5",
-      "kind": "agenda",
-      "older": true,
-      "meeting": {
-        "title": "Planning Board Meeting",
-        "date": "2026-09-08",
-        "body": "Planning Board"
-      },
-      "doc": {
-        "id": "proudcity-50343-60889cbf",
-        "sha256": "60889cbfc7b448f3a77b0f13f7b3777b6f686c8975863e0a34f753374033c324",
-        "file": "proudcity-50343-60889cbf.pdf",
-        "source_url": "https://storage.googleapis.com/proudcity/holyokema/2026/09/agenda-9-8-26-6ab3d861.pdf"
-      }
-    },
-    {
-      "custom_id": "doc-6",
-      "kind": "agenda",
-      "older": true,
-      "meeting": {
-        "title": "Housing Authority Meeting",
-        "date": "2026-09-03",
-        "body": "Housing Authority"
-      },
-      "doc": {
-        "id": "proudcity-50270-145d5c06",
-        "sha256": "145d5c06bcefbfd04b3636f232db5f3acca5face59bf8968b381b0fbe23e460b",
-        "file": "proudcity-50270-145d5c06.pdf",
-        "source_url": "https://storage.googleapis.com/proudcity/holyokema/2026/08/meeting-agenda-september-2026-9ee08846.pdf"
-      }
-    },
-    {
-      "custom_id": "doc-7",
-      "kind": "agenda",
-      "older": true,
-      "meeting": {
-        "title": "City Council Meeting",
-        "date": "2026-09-02",
-        "body": "City Council"
-      },
-      "doc": {
-        "id": "proudcity-49958-03b2ff1b",
-        "sha256": "03b2ff1b7074ae72050a22f7a11871859dbc4221658340275c1898610d623b6c",
-        "file": "proudcity-49958-03b2ff1b.pdf",
-        "source_url": "https://www.holyoke.org/meetings/holyoke-city-council-meeting-september-2-2026/"
-      }
-    },
-    {
-      "custom_id": "doc-8",
-      "kind": "agenda",
-      "older": true,
-      "meeting": {
-        "title": "License Board Meeting",
-        "date": "2026-09-02",
-        "body": "License Board"
-      },
-      "doc": {
-        "id": "proudcity-50299-58d81dd9",
-        "sha256": "58d81dd97af2785803a5f9c8de9d4a7b7a70fcff31aaaaa87f0d58d8885fbb09",
-        "file": "proudcity-50299-58d81dd9.pdf",
-        "source_url": "https://storage.googleapis.com/proudcity/holyokema/2026/08/sept-1-amended-agenda-20f97873.pdf"
-      }
-    },
-    {
-      "custom_id": "doc-9",
-      "kind": "agenda",
-      "older": true,
-      "meeting": {
-        "title": "Parks & Recreation Commission Meeting",
-        "date": "2026-08-31",
-        "body": "Parks & Recreation Commission"
-      },
-      "doc": {
-        "id": "proudcity-50256-dc6bc404",
-        "sha256": "dc6bc404c7e2e635f2e818e63ae7be2b5efadbe76afa8691f659ed0239940a02",
-        "file": "proudcity-50256-dc6bc404.pdf",
-        "source_url": "https://www.holyoke.org/meetings/holyoke-parks-recreation-commission-meeting-august-31-2026/"
-      }
-    },
-    {
-      "custom_id": "doc-10",
-      "kind": "agenda",
-      "older": true,
-      "meeting": {
-        "title": "Commission on Disabilities Meeting",
-        "date": "2026-08-27",
-        "body": "Commission on Disabilities"
-      },
-      "doc": {
-        "id": "proudcity-47141-ac77c2f1",
-        "sha256": "ac77c2f1a2aed3b572c6794a20b7b2c606eb14af9e30159f42c64b005ed3971a",
-        "file": "proudcity-47141-ac77c2f1.pdf",
-        "source_url": "https://www.holyoke.org/meetings/commission-on-disabilities-meeting-august-27-2026/"
-      }
-    },
-    {
-      "custom_id": "doc-11",
-      "kind": "agenda",
-      "older": true,
-      "meeting": {
-        "title": "Conservation Commission Meeting",
-        "date": "2026-08-27",
-        "body": "Conservation Commission"
-      },
-      "doc": {
-        "id": "proudcity-46074-0f43e1ed",
-        "sha256": "0f43e1edde917eec66fab1271b857f88790501e192c14accfaaea344dc2713e0",
-        "file": "proudcity-46074-0f43e1ed.pdf",
-        "source_url": "https://storage.googleapis.com/proudcity/holyokema/2025/12/8-27-26-agenda-stamped-3909c358.pdf"
-      }
-    },
-    {
-      "custom_id": "doc-12",
-      "kind": "agenda",
-      "older": true,
-      "meeting": {
-        "title": "Retirement Board Meeting",
-        "date": "2026-08-27",
-        "body": "Retirement Board"
-      },
-      "doc": {
-        "id": "proudcity-50100-f21359df",
-        "sha256": "f21359dfecc9f6a1458f15cb77537ef84b93f23af8014d3f62207cb4ac90c6a0",
-        "file": "proudcity-50100-f21359df.pdf",
-        "source_url": "https://www.holyoke.org/meetings/holyoke-retirement-board-meeting-august-27-2026/"
-      }
-    },
-    {
-      "custom_id": "doc-13",
-      "kind": "agenda",
-      "older": true,
-      "meeting": {
-        "title": "City Council Charter and Rules Committee Meeting",
-        "date": "2026-08-26",
-        "body": "City Council Charter and Rules Committee"
-      },
-      "doc": {
-        "id": "proudcity-50116-586d58aa",
-        "sha256": "586d58aab05700e123c5339e46b00be232e9fff3cc9900825bc63d4992e4ef77",
-        "file": "proudcity-50116-586d58aa.pdf",
-        "source_url": "https://www.holyoke.org/meetings/charter-and-rules-committee-meeting-august-26-2026/"
-      }
-    },
-    {
-      "custom_id": "doc-14",
-      "kind": "agenda",
-      "older": true,
-      "meeting": {
-        "title": "School Committee Policy and Governance Subcommittee Meeting",
-        "date": "2026-08-26",
-        "body": "School Committee Policy and Governance Subcommittee"
-      },
-      "doc": {
-        "id": "proudcity-50187-9a8649c3",
-        "sha256": "9a8649c3ffb5d76cb2605937778cd47afb0a232dd2a34a6d5dd05169ebaf9feb",
-        "file": "proudcity-50187-9a8649c3.pdf",
-        "source_url": "https://www.holyoke.org/meetings/school-committee-policy-and-governance-subcommittee-meeting-august-26-2026/"
-      }
-    },
-    {
-      "custom_id": "doc-15",
-      "kind": "agenda",
-      "older": true,
-      "meeting": {
-        "title": "Planning Board Meeting",
-        "date": "2026-08-25",
-        "body": "Planning Board"
-      },
-      "doc": {
-        "id": "proudcity-50179-bc121211",
-        "sha256": "bc121211bf83dc6e1aee4649d5d044bbf9026a6e23d4acd5caa0ca4880e3a1da",
-        "file": "proudcity-50179-bc121211.pdf",
-        "source_url": "https://storage.googleapis.com/proudcity/holyokema/2026/08/scan_brianna-tejada_2026-08-19-e121b70d.pdf"
-      }
-    },
-    {
-      "custom_id": "doc-16",
-      "kind": "agenda",
-      "older": true,
-      "meeting": {
-        "title": "Water Works Commission Meeting",
-        "date": "2026-08-25",
-        "body": "Water Works Commission"
-      },
-      "doc": {
-        "id": "proudcity-50215-5236504e",
-        "sha256": "5236504e630f170d62988b5386d83deae5a6e7623c7fc5ce780f94c0244f52c3",
-        "file": "proudcity-50215-5236504e.pdf",
-        "source_url": "https://www.holyoke.org/meetings/holyoke-water-works-commission-meeting-tuesday-august-25-2026/"
-      }
-    },
-    {
-      "custom_id": "doc-17",
-      "kind": "agenda",
-      "older": true,
-      "meeting": {
-        "title": "City Council Development and Governmental Relations Committee Meeting",
-        "date": "2026-08-24",
-        "body": "City Council Development and Governmental Relations Committee"
-      },
-      "doc": {
-        "id": "proudcity-49336-7be48efb",
-        "sha256": "7be48efbe8c60f027d3c78f5bd51d184ae9e16074d243b6e375b9e1bf5f177ed",
-        "file": "proudcity-49336-7be48efb.pdf",
-        "source_url": "https://www.holyoke.org/meetings/development-and-governmental-relations-committee-meeting-august-24-2026/"
-      }
-    },
-    {
-      "custom_id": "doc-18",
-      "kind": "agenda",
-      "older": true,
-      "meeting": {
-        "title": "School Committee Meeting",
-        "date": "2026-08-24",
-        "body": "School Committee"
-      },
-      "doc": {
-        "id": "proudcity-50189-b07117b3",
-        "sha256": "b07117b30099f3d4646ca2b772faa634dce5f19cebf39289d013cd6cedee14f3",
-        "file": "proudcity-50189-b07117b3.pdf",
-        "source_url": "https://www.holyoke.org/meetings/school-committee-meeting-august-24-2026/"
-      }
-    },
-    {
-      "custom_id": "doc-19",
-      "kind": "agenda",
-      "older": true,
-      "meeting": {
-        "title": "Local Historic District Commission Meeting",
-        "date": "2026-08-21",
-        "body": "Local Historic District Commission"
-      },
-      "doc": {
-        "id": "proudcity-50184-ac98158b",
-        "sha256": "ac98158badbbbe6bf102167da9cbd1fe9f1bb18201b48b5329037d294b4282ca",
-        "file": "proudcity-50184-ac98158b.pdf",
-        "source_url": "https://storage.googleapis.com/proudcity/holyokema/2026/08/local-historic-district-commission-agenda-8.21.26-575f142d.pdf"
-      }
-    },
-    {
-      "custom_id": "doc-20",
-      "kind": "agenda",
-      "older": true,
-      "meeting": {
-        "title": "Board of Fire Commissioners Meeting",
-        "date": "2026-08-19",
-        "body": "Board of Fire Commissioners"
-      },
-      "doc": {
-        "id": "proudcity-50103-46e72921",
-        "sha256": "46e72921ea7a6d6489c8fa6f5019585d476cb4ae16afd419727782b7a923b054",
-        "file": "proudcity-50103-46e72921.pdf",
-        "source_url": "https://storage.googleapis.com/proudcity/holyokema/2026/08/approved-minutes-8-19-26-fire-chiefs-report-e642bdc0.pdf"
-      }
-    },
-    {
-      "custom_id": "doc-21",
-      "kind": "agenda",
-      "older": true,
-      "meeting": {
-        "title": "Gas & Electric Commission Meeting",
-        "date": "2026-08-19",
-        "body": "Gas & Electric Commission"
-      },
-      "doc": {
-        "id": "proudcity-50124-68c17837",
-        "sha256": "68c17837a7918701d950a62d214261ac492381922cdc737adc9b6ea4a86f51d0",
-        "file": "proudcity-50124-68c17837.pdf",
-        "source_url": "https://storage.googleapis.com/proudcity/holyokema/2026/08/hge-commission-agenda-08.19.26-769e38a7.pdf"
-      }
-    },
-    {
-      "custom_id": "doc-22",
-      "kind": "agenda",
-      "older": true,
-      "meeting": {
-        "title": "Redevelopment Authority Meeting",
-        "date": "2026-08-19",
-        "body": "Redevelopment Authority"
-      },
-      "doc": {
-        "id": "proudcity-50134-9967179e",
-        "sha256": "9967179e9144c9b461345a94f170d96f6d3e3ef2b82f5bfc2d6d17a965ed8775",
-        "file": "proudcity-50134-9967179e.pdf",
-        "source_url": "https://storage.googleapis.com/proudcity/holyokema/2026/08/hra-agenda-3ce13165.pdf"
-      }
-    },
-    {
-      "custom_id": "doc-23",
-      "kind": "agenda",
-      "older": true,
-      "meeting": {
-        "title": "Tourism Advisory Committee Meeting",
-        "date": "2026-08-18",
-        "body": "Tourism Advisory Committee"
-      },
-      "doc": {
-        "id": "proudcity-50038-92f65219",
-        "sha256": "92f65219951aafa5cc21e6368615c6c84c43db528c406e91cc3c13acb212a713",
-        "file": "proudcity-50038-92f65219.pdf",
-        "source_url": "https://storage.googleapis.com/proudcity/holyokema/2026/07/tourism-advisory-committee-agenda-8.18.26-2fdd0891.pdf"
-      }
-    },
-    {
-      "custom_id": "doc-24",
-      "kind": "agenda",
-      "older": true,
-      "meeting": {
-        "title": "Retirement Board Meeting",
-        "date": "2026-08-17",
-        "body": "Retirement Board"
-      },
-      "doc": {
-        "id": "proudcity-50098-2bd95d59",
-        "sha256": "2bd95d5967de9ab000f6faa8724ee8872ef33a947662c6fe7a4e8fda30aa8639",
-        "file": "proudcity-50098-2bd95d59.pdf",
-        "source_url": "https://www.holyoke.org/meetings/holyoke-retirement-board-meeting-august-17-2026/"
-      }
-    },
-    {
-      "custom_id": "doc-25",
-      "kind": "agenda",
-      "older": true,
-      "meeting": {
-        "title": "City Council Ordinance Committee Meeting",
-        "date": "2026-08-13",
-        "body": "City Council Ordinance Committee"
-      },
-      "doc": {
-        "id": "proudcity-49333-b8f480d6",
-        "sha256": "b8f480d63f364fe76394a7c08e378e1ca97db6e8d5ecebf62aef6fe89714ae3f",
-        "file": "proudcity-49333-b8f480d6.pdf",
-        "source_url": "https://www.holyoke.org/meetings/ordinance-committee-meeting-august-13-2026/"
-      }
-    },
-    {
-      "custom_id": "doc-26",
-      "kind": "agenda",
-      "older": true,
-      "meeting": {
-        "title": "Conservation Commission Meeting",
-        "date": "2026-08-13",
-        "body": "Conservation Commission"
-      },
-      "doc": {
-        "id": "proudcity-46073-49f70a08",
-        "sha256": "49f70a08a0c62727972a4a5807b777b4aa6ded1d893b95b85703ee6ff1849b05",
-        "file": "proudcity-46073-49f70a08.pdf",
-        "source_url": "https://storage.googleapis.com/proudcity/holyokema/2025/12/8-13-26-agenda-stamped-db150fd9.pdf"
-      }
-    },
-    {
-      "custom_id": "doc-27",
-      "kind": "agenda",
-      "older": true,
-      "meeting": {
-        "title": "Holyoke Economic Development and Industrial Corporation Meeting",
-        "date": "2026-08-13",
-        "body": "Holyoke Economic Development and Industrial Corporation"
-      },
-      "doc": {
-        "id": "proudcity-50080-bf368019",
-        "sha256": "bf3680195916db4d2a3d87d507048a4676726d22860cca534205f64f4aacc75d",
-        "file": "proudcity-50080-bf368019.pdf",
-        "source_url": "https://storage.googleapis.com/proudcity/holyokema/2026/08/hedic-executive-august-13-2026-0a3014c3.pdf"
-      }
-    },
-    {
-      "custom_id": "doc-28",
-      "kind": "agenda",
-      "older": true,
-      "meeting": {
-        "title": "City Council Finance Committee Meeting",
-        "date": "2026-08-12",
-        "body": "City Council Finance Committee"
-      },
-      "doc": {
-        "id": "proudcity-49346-8df9429f",
-        "sha256": "8df9429fe00516b21de63c2b71f3fd0b621e8d352cdf52114098d451c4295eee",
-        "file": "proudcity-49346-8df9429f.pdf",
-        "source_url": "https://www.holyoke.org/meetings/finance-committee-meeting-august-12-2026/"
-      }
-    },
-    {
-      "custom_id": "doc-29",
-      "kind": "agenda",
-      "older": true,
-      "meeting": {
-        "title": "Community Preservation Act Committee Meeting",
-        "date": "2026-08-12",
-        "body": "Community Preservation Act Committee"
-      },
-      "doc": {
-        "id": "proudcity-50088-3eb554a4",
-        "sha256": "3eb554a4fc7e540c0e784726f9ec72e3a59cacca1112688562efb6956155dfda",
-        "file": "proudcity-50088-3eb554a4.pdf",
-        "source_url": "https://www.holyoke.org/meetings/community-preservation-act-committee-meeting-august-12-2026/"
-      }
-    },
-    {
-      "custom_id": "doc-30",
-      "kind": "agenda",
-      "older": true,
-      "meeting": {
-        "title": "Library Board Meeting",
-        "date": "2026-08-11",
-        "body": "Library Board"
-      },
-      "doc": {
-        "id": "proudcity-50084-cdea1cd3",
-        "sha256": "cdea1cd3912c3fc4fd1ce1cc9b0a33107377c175cf644043311d212386d96698",
-        "file": "proudcity-50084-cdea1cd3.pdf",
-        "source_url": "https://www.holyoke.org/meetings/library-board-meeting-august-11-2026/"
-      }
-    },
-    {
-      "custom_id": "doc-31",
-      "kind": "agenda",
-      "older": true,
-      "meeting": {
-        "title": "City Council Public Safety Committee Meeting",
-        "date": "2026-08-10",
-        "body": "City Council Public Safety Committee"
-      },
-      "doc": {
-        "id": "proudcity-49331-3345eb68",
-        "sha256": "3345eb68315f6a13d303c88fe46b64141f50d63de3d8101337f002339b819250",
-        "file": "proudcity-49331-3345eb68.pdf",
-        "source_url": "https://www.holyoke.org/meetings/public-safety-committee-meeting-august-10-2026/"
-      }
-    },
-    {
-      "custom_id": "doc-32",
-      "kind": "agenda",
-      "older": true,
-      "meeting": {
-        "title": "Housing Authority Meeting",
-        "date": "2026-08-06",
-        "body": "Housing Authority"
-      },
-      "doc": {
-        "id": "proudcity-50049-74fc7882",
-        "sha256": "74fc78823edc1788f16ef89bd562348ff56313a6322b1a82b2eb80de68c2f053",
-        "file": "proudcity-50049-74fc7882.pdf",
-        "source_url": "https://www.holyoke.org/meetings/holyoke-housing-authority-meeting-august-6-2026/"
-      }
-    },
-    {
-      "custom_id": "doc-33",
-      "kind": "agenda",
-      "older": true,
-      "meeting": {
-        "title": "License Board Meeting",
-        "date": "2026-08-05",
-        "body": "License Board"
-      },
-      "doc": {
-        "id": "proudcity-50061-3846bbee",
-        "sha256": "3846bbeea82ec0be97804ce68200c1a6e3b908d02634ed5f3091ea5557a25010",
-        "file": "proudcity-50061-3846bbee.pdf",
-        "source_url": "https://storage.googleapis.com/proudcity/holyokema/2026/08/august-5-agenda-7b6c5062.pdf"
-      }
-    },
-    {
-      "custom_id": "doc-34",
-      "kind": "agenda",
-      "older": true,
-      "meeting": {
-        "title": "School Committee Leadership and Accountability Subcommittee Meeting",
-        "date": "2026-08-05",
-        "body": "School Committee Leadership and Accountability Subcommittee"
-      },
-      "doc": {
-        "id": "proudcity-50036-6bb46b73",
-        "sha256": "6bb46b73822b011461ce2997552a919e7499dadacd94f339039f503958b0fcf1",
-        "file": "proudcity-50036-6bb46b73.pdf",
-        "source_url": "https://www.holyoke.org/meetings/school-committee-leadership-and-accountability-subcommittee-meeting-august-5-2026/"
-      }
-    },
-    {
-      "custom_id": "doc-35",
-      "kind": "agenda",
-      "older": true,
-      "meeting": {
-        "title": "City Council Meeting",
-        "date": "2026-08-04",
-        "body": "City Council"
-      },
-      "doc": {
-        "id": "proudcity-49956-30ef1174",
-        "sha256": "30ef1174e0f9a7aada1f5441c9db1307d981cdf03fe6e2e5e4a3f72ca7132b85",
-        "file": "proudcity-49956-30ef1174.pdf",
-        "source_url": "https://www.holyoke.org/meetings/holyoke-city-council-meeting-august-4-2026/"
-      }
-    },
-    {
-      "custom_id": "doc-36",
-      "kind": "agenda",
-      "older": true,
-      "meeting": {
-        "title": "School Committee Parent and Community Engagement Committee Meeting",
-        "date": "2026-08-04",
-        "body": "School Committee Parent and Community Engagement Committee"
-      },
-      "doc": {
-        "id": "proudcity-50013-3af3baf3",
-        "sha256": "3af3baf3a255488a842b818721093db930a849c4fbebed1f73574133e39f2288",
-        "file": "proudcity-50013-3af3baf3.pdf",
-        "source_url": "https://www.holyoke.org/meetings/parent-and-community-engagement-committee-meeting-august-4-2026/"
-      }
-    },
-    {
-      "custom_id": "doc-37",
-      "kind": "agenda",
-      "older": true,
-      "meeting": {
-        "title": "Local Cultural Council Meeting",
-        "date": "2026-08-03",
-        "body": "Local Cultural Council"
-      },
-      "doc": {
-        "id": "proudcity-50032-9131d7d8",
-        "sha256": "9131d7d841099f9a0f74fd698cba1ada944c117d459ead43dc3aec56df2c8f88",
-        "file": "proudcity-50032-9131d7d8.pdf",
-        "source_url": "https://www.holyoke.org/meetings/holyoke-local-cultural-council-meeting-august-3-2026/"
-      }
-    },
-    {
-      "custom_id": "tr-0",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "dc417f7a0ba55f1f42a39a9830224168cecef405920389256869dfd10917852c",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "School Committee Meeting",
-        "date": "2026-11-23",
-        "body": "School Committee"
-      },
-      "doc": {
-        "id": "proudcity-51322-b8b00302",
-        "sha256": "b8b00302979b44dedcd58a439f45c6e6631ed2bb1c0c84c22ad7843dc7131a88"
-      }
-    },
-    {
-      "custom_id": "tr-1",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "89696529f6ebac1f443a339f9c29a75b4f7439f62f850985a483d01b5b4b186e",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Board of Fire Commissioners Meeting",
-        "date": "2026-10-21",
-        "body": "Board of Fire Commissioners"
-      },
-      "doc": {
-        "id": "proudcity-50673-81cc9f98",
-        "sha256": "81cc9f989dbcea1b8d383fe1fe08b86c3d5b6bf5a2f6eee3693f0902b8234e13"
-      }
-    },
-    {
-      "custom_id": "tr-2",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "b73bf0ed214f95e5c2526919ec11abb22303bdf9ce6596856571271d57932463",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Planning Board Meeting",
-        "date": "2026-09-22",
-        "body": "Planning Board"
-      },
-      "doc": {
-        "id": "proudcity-50475-c1e7507b",
-        "sha256": "c1e7507b6630f756714e024fe02deed21ade6931e004cb61a90298102d52d6c9"
+        "sha256": "1593f234370417aba753a0f9a47c54273db5f7b90257d4f4899f45a87ca37b59"
       }
     },
     {
@@ -690,187 +82,11 @@
       "lang": "es",
       "kind": "agenda",
       "older": false,
-      "source_hash": "74e5db1a9e5872c9a2e5f21cab50ad2d6366d286e3738eff74cfb912e6a4a174",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Public Works Commission Meeting",
-        "date": "2026-09-21",
-        "body": "Public Works Commission"
-      },
-      "doc": {
-        "id": "proudcity-50470-f792bf0f",
-        "sha256": "f792bf0fd4f1ee385f1b410dfcc3d2359ffef3ec8fa0f3dcf11f0a99e09b6c3f"
-      }
-    },
-    {
-      "custom_id": "tr-4",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "a7fbd5c2ef46140e88b7a8aa070a516594e22fc22d05fb5e8a5d91707ed8ada3",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "City Council Ordinance Committee Meeting",
-        "date": "2026-09-17",
-        "body": "City Council Ordinance Committee"
-      },
-      "doc": {
-        "id": "proudcity-48719-ac1cc44e",
-        "sha256": "ac1cc44e087fea30369dde290b4b3c5e34c2d762251978cbe24ce94ac62382a3"
-      }
-    },
-    {
-      "custom_id": "tr-5",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "6cf304d0c775f0abdd4bf357c62ff455c64d22946391b80b1fac28ce644e1bcd",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "City Council Charter and Rules Committee Meeting",
-        "date": "2026-09-16",
-        "body": "City Council Charter and Rules Committee"
-      },
-      "doc": {
-        "id": "proudcity-50118-03664dff",
-        "sha256": "03664dfff6a53a58f9b76b63b855a2f9681ca0809902863ae341c87fa99c16ae"
-      }
-    },
-    {
-      "custom_id": "tr-6",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "46b50ac15e276d3820f3a2d1210e1aaf2b7c9f36d833e43ed85e52f60d0dbc16",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Redevelopment Authority Meeting",
-        "date": "2026-09-16",
-        "body": "Redevelopment Authority"
-      },
-      "doc": {
-        "id": "proudcity-50421-7cc71e08",
-        "sha256": "7cc71e08a27979d198ac22f76e0b4757790989ce52d77c3649f78bd83a92143e"
-      }
-    },
-    {
-      "custom_id": "tr-7",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "a49738eb78606fbee9ca417ca0ea6e8ff08a0c790584f2f59d3c2abc4395cc9e",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Water Works Commission Meeting",
-        "date": "2026-09-16",
-        "body": "Water Works Commission"
-      },
-      "doc": {
-        "id": "proudcity-50434-be3f612a",
-        "sha256": "be3f612adc8429b123974a9869db3a60d78f6df986eafdc9bf59e9268cfac69f"
-      }
-    },
-    {
-      "custom_id": "tr-8",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "da4be650e78d46431fa155493a74b5d2ee44e017655b8591efae443ca9d02e18",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "City Council Meeting",
-        "date": "2026-09-15",
-        "body": "City Council"
-      },
-      "doc": {
-        "id": "proudcity-49960-461531d5",
-        "sha256": "461531d571b7864c8bcf184d92ba730ca4a60b2e31c665929015e4bc87b0730f"
-      }
-    },
-    {
-      "custom_id": "tr-9",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "b97a8205b03d64ea21fc17e2cf237d318eb0a0a75c8d551523effe17438a06db",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "School Committee Finance and Operations Subcommittee Meeting",
-        "date": "2026-09-15",
-        "body": "School Committee Finance and Operations Subcommittee"
-      },
-      "doc": {
-        "id": "proudcity-50409-5ce39dfd",
-        "sha256": "5ce39dfd15779bb7c4907ecf3b9d28c424e6f678bc7e16ae987e83178d5f289e"
-      }
-    },
-    {
-      "custom_id": "tr-10",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "ace67a36db9084a0000c6c6e77ad2d7907f584b189562d323e56a3fac95dddcf",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "City Council Development and Governmental Relations Committee Meeting",
-        "date": "2026-09-14",
-        "body": "City Council Development and Governmental Relations Committee"
-      },
-      "doc": {
-        "id": "proudcity-50093-c2ed59d0",
-        "sha256": "c2ed59d09140ac01dce150ffe4fa44993b503dd6fbdf2a1d9908bb12b916cc0b"
-      }
-    },
-    {
-      "custom_id": "tr-11",
-      "type": "translation",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
       "source_hash": "0446749562439b11ab543c27d5f2273c254b9eb0cfc81522298cf8ba9071738d",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Board of Fire Commissioners Meeting",
@@ -883,16 +99,16 @@
       }
     },
     {
-      "custom_id": "tr-12",
-      "type": "translation",
+      "custom_id": "tr-4",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "7282c1e976e1e03be7b5676d8229b0ee0505b609fa846b0cdca2502145f61354",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Board of Fire Commissioners Meeting",
@@ -905,16 +121,16 @@
       }
     },
     {
-      "custom_id": "tr-13",
-      "type": "review",
+      "custom_id": "tr-5",
+      "type": "translation",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "c43b29a3fbd2b3b4e8e2682cfea2ac64bbb613eabc467230f0b22cb0adb392d9",
-      "model": "claude-sonnet-5-5",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
         "title": "City Council Finance Committee Meeting",
@@ -927,16 +143,170 @@
       }
     },
     {
-      "custom_id": "tr-14",
-      "type": "review",
+      "custom_id": "tr-6",
+      "type": "translation",
       "lang": "es",
-      "kind": "minutes",
+      "kind": "agenda",
       "older": false,
-      "source_hash": "728400fe1e3f223b3038f3677075575287de2885062435322046e4bfefde99b0",
-      "model": "claude-sonnet-5-5",
+      "source_hash": "72ac7cd5e346f92cf3b2450847195883d15b54bebf20b3e82b0f190dcf425dad",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Gas & Electric Commission Meeting",
+        "date": "2026-09-08",
+        "body": "Gas & Electric Commission"
+      },
+      "doc": {
+        "id": "proudcity-50346-11181e00",
+        "sha256": "11181e00c525e73647d40162bddeaebcd749eed5b09a6e3ac1c7b0aa67dd0087"
+      }
+    },
+    {
+      "custom_id": "tr-7",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "b1080982e07b395207ae4a79627bfb959131278230e79a6ca713352bc256d957",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Library Board Meeting",
+        "date": "2026-09-08",
+        "body": "Library Board"
+      },
+      "doc": {
+        "id": "proudcity-50362-bb8af4eb",
+        "sha256": "bb8af4eb01349d4b59dd56f237a2b2485e1df2a6f1925077bb13763761021df8"
+      }
+    },
+    {
+      "custom_id": "tr-8",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "2a317261e4516f7fc6893ba7fb19fb73daabb65fc11bd0115b7ca23dd722c717",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Planning Board Meeting",
+        "date": "2026-09-08",
+        "body": "Planning Board"
+      },
+      "doc": {
+        "id": "proudcity-50343-60889cbf",
+        "sha256": "60889cbfc7b448f3a77b0f13f7b3777b6f686c8975863e0a34f753374033c324"
+      }
+    },
+    {
+      "custom_id": "tr-9",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "5212031af3d61416c3ccbfb0fc0897c4202403d4a0ef82cdb52c0556be3abf2f",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Housing Authority Meeting",
+        "date": "2026-09-03",
+        "body": "Housing Authority"
+      },
+      "doc": {
+        "id": "proudcity-50270-145d5c06",
+        "sha256": "145d5c06bcefbfd04b3636f232db5f3acca5face59bf8968b381b0fbe23e460b"
+      }
+    },
+    {
+      "custom_id": "tr-10",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "7b7360008e5ec8d2b47ad253c8a966bd0d4ff1ce2a70bc8f35f91c7d0e4eec5f",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "City Council Meeting",
+        "date": "2026-09-02",
+        "body": "City Council"
+      },
+      "doc": {
+        "id": "proudcity-49958-03b2ff1b",
+        "sha256": "03b2ff1b7074ae72050a22f7a11871859dbc4221658340275c1898610d623b6c"
+      }
+    },
+    {
+      "custom_id": "tr-11",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "24c2e8418adbdfad0e122072e40c4c2026a98120fe91b5601c271f52a5799b66",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "License Board Meeting",
+        "date": "2026-09-02",
+        "body": "License Board"
+      },
+      "doc": {
+        "id": "proudcity-50299-58d81dd9",
+        "sha256": "58d81dd97af2785803a5f9c8de9d4a7b7a70fcff31aaaaa87f0d58d8885fbb09"
+      }
+    },
+    {
+      "custom_id": "tr-12",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "e6387a6da337463fde1931b5b16bbcb75e6523f0dd46e39e268ec0071beda474",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Parks & Recreation Commission Meeting",
+        "date": "2026-08-31",
+        "body": "Parks & Recreation Commission"
+      },
+      "doc": {
+        "id": "proudcity-50256-dc6bc404",
+        "sha256": "dc6bc404c7e2e635f2e818e63ae7be2b5efadbe76afa8691f659ed0239940a02"
+      }
+    },
+    {
+      "custom_id": "tr-13",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "88d6f8350171e25c6f3e37ef53ddd2ba7f2c50fb41d9dd67d425f3082af07011",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
         "title": "Commission on Disabilities Meeting",
@@ -944,21 +314,131 @@
         "body": "Commission on Disabilities"
       },
       "doc": {
-        "id": "proudcity-47141-00b50a7f",
-        "sha256": "00b50a7f0c03d698ff0ff6912697f87c87e18ae3d6f3a2d7c19f34a71b132489"
+        "id": "proudcity-47141-ac77c2f1",
+        "sha256": "ac77c2f1a2aed3b572c6794a20b7b2c606eb14af9e30159f42c64b005ed3971a"
+      }
+    },
+    {
+      "custom_id": "tr-14",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "ee0fd3ceb0b5a82457648cf0948da503b40e5adab96ea40cd1664290ce42c2ee",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Conservation Commission Meeting",
+        "date": "2026-08-27",
+        "body": "Conservation Commission"
+      },
+      "doc": {
+        "id": "proudcity-46074-0f43e1ed",
+        "sha256": "0f43e1edde917eec66fab1271b857f88790501e192c14accfaaea344dc2713e0"
       }
     },
     {
       "custom_id": "tr-15",
       "type": "translation",
       "lang": "es",
-      "kind": "minutes",
+      "kind": "agenda",
       "older": false,
-      "source_hash": "3781913902e09aee1e5522dc572a36f75c0e7a22966d266f48816cad0249227e",
+      "source_hash": "0756b511e0203fe624b5d97038719026723b29b5e5ce317a567dbf04c09719d4",
       "model": "claude-haiku-5-5",
       "prices": {
         "input_price": 0.1,
         "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Retirement Board Meeting",
+        "date": "2026-08-27",
+        "body": "Retirement Board"
+      },
+      "doc": {
+        "id": "proudcity-50100-f21359df",
+        "sha256": "f21359dfecc9f6a1458f15cb77537ef84b93f23af8014d3f62207cb4ac90c6a0"
+      }
+    },
+    {
+      "custom_id": "tr-16",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "d7c23cd9ef274c5570fa5acb3d78017b70ba3e9999aa2b18a56c37fc8bebbff7",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "City Council Charter and Rules Committee Meeting",
+        "date": "2026-08-26",
+        "body": "City Council Charter and Rules Committee"
+      },
+      "doc": {
+        "id": "proudcity-50116-586d58aa",
+        "sha256": "586d58aab05700e123c5339e46b00be232e9fff3cc9900825bc63d4992e4ef77"
+      }
+    },
+    {
+      "custom_id": "tr-17",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "124c09842106e5a5226ab1b89d7e12ba6ea7ac0ea89feca73e5bc52c9d77362c",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "School Committee Policy and Governance Subcommittee Meeting",
+        "date": "2026-08-26",
+        "body": "School Committee Policy and Governance Subcommittee"
+      },
+      "doc": {
+        "id": "proudcity-50187-9a8649c3",
+        "sha256": "9a8649c3ffb5d76cb2605937778cd47afb0a232dd2a34a6d5dd05169ebaf9feb"
+      }
+    },
+    {
+      "custom_id": "tr-18",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "dcc94e6fbbf3c1056f22b7af3a2c1a341df372581e7f3dffbfbf44be08854a00",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Planning Board Meeting",
+        "date": "2026-08-25",
+        "body": "Planning Board"
+      },
+      "doc": {
+        "id": "proudcity-50179-bc121211",
+        "sha256": "bc121211bf83dc6e1aee4649d5d044bbf9026a6e23d4acd5caa0ca4880e3a1da"
+      }
+    },
+    {
+      "custom_id": "tr-19",
+      "type": "review",
+      "lang": "es",
+      "kind": "minutes",
+      "older": false,
+      "source_hash": "3781913902e09aee1e5522dc572a36f75c0e7a22966d266f48816cad0249227e",
+      "model": "claude-sonnet-5-5",
+      "prices": {
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Planning Board Meeting",
@@ -971,16 +451,258 @@
       }
     },
     {
-      "custom_id": "tr-16",
+      "custom_id": "tr-20",
       "type": "translation",
       "lang": "es",
-      "kind": "minutes",
+      "kind": "agenda",
       "older": false,
-      "source_hash": "15ad5336c832ac8973d87e5acf545c9b8882417ab64b00b3d3b56cdf258445f0",
+      "source_hash": "8d22eebda67ec3297e8e343ed80a44b18cf3e260380c53b1c91447ab0d8cc68e",
       "model": "claude-haiku-5-5",
       "prices": {
         "input_price": 0.1,
         "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Water Works Commission Meeting",
+        "date": "2026-08-25",
+        "body": "Water Works Commission"
+      },
+      "doc": {
+        "id": "proudcity-50215-5236504e",
+        "sha256": "5236504e630f170d62988b5386d83deae5a6e7623c7fc5ce780f94c0244f52c3"
+      }
+    },
+    {
+      "custom_id": "tr-21",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "c4119bbed82e68c408e6a581d1224f62a8e5328a71eda9b938d0132a275cbeaf",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "City Council Development and Governmental Relations Committee Meeting",
+        "date": "2026-08-24",
+        "body": "City Council Development and Governmental Relations Committee"
+      },
+      "doc": {
+        "id": "proudcity-49336-7be48efb",
+        "sha256": "7be48efbe8c60f027d3c78f5bd51d184ae9e16074d243b6e375b9e1bf5f177ed"
+      }
+    },
+    {
+      "custom_id": "tr-22",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "8205f0da7ab99703880859fb9270fd5ad5ae10720da165df9f9b1a1c60d69b14",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "School Committee Meeting",
+        "date": "2026-08-24",
+        "body": "School Committee"
+      },
+      "doc": {
+        "id": "proudcity-50189-b07117b3",
+        "sha256": "b07117b30099f3d4646ca2b772faa634dce5f19cebf39289d013cd6cedee14f3"
+      }
+    },
+    {
+      "custom_id": "tr-23",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "47cc8575e34bde536652a511371c8f90c9daae61a8ffa4eda6cd61c14b1e335f",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Local Historic District Commission Meeting",
+        "date": "2026-08-21",
+        "body": "Local Historic District Commission"
+      },
+      "doc": {
+        "id": "proudcity-50184-ac98158b",
+        "sha256": "ac98158badbbbe6bf102167da9cbd1fe9f1bb18201b48b5329037d294b4282ca"
+      }
+    },
+    {
+      "custom_id": "tr-24",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "65aa81c16534c0fbc7bba62daa1e8d00d59bcd6798d98b90ac2a1979ed3dd39a",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Board of Fire Commissioners Meeting",
+        "date": "2026-08-19",
+        "body": "Board of Fire Commissioners"
+      },
+      "doc": {
+        "id": "proudcity-50103-46e72921",
+        "sha256": "46e72921ea7a6d6489c8fa6f5019585d476cb4ae16afd419727782b7a923b054"
+      }
+    },
+    {
+      "custom_id": "tr-25",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "ef4bdd7a5f20bef3ca3ca53c65fb4b3a6eb9976023caf60b742128ba9040c0f2",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Gas & Electric Commission Meeting",
+        "date": "2026-08-19",
+        "body": "Gas & Electric Commission"
+      },
+      "doc": {
+        "id": "proudcity-50124-68c17837",
+        "sha256": "68c17837a7918701d950a62d214261ac492381922cdc737adc9b6ea4a86f51d0"
+      }
+    },
+    {
+      "custom_id": "tr-26",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "e4d9c27fd101f3f62f5e2e7f9a8264e52dbd4096d495b7bf8b42a871c782d8d3",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Redevelopment Authority Meeting",
+        "date": "2026-08-19",
+        "body": "Redevelopment Authority"
+      },
+      "doc": {
+        "id": "proudcity-50134-9967179e",
+        "sha256": "9967179e9144c9b461345a94f170d96f6d3e3ef2b82f5bfc2d6d17a965ed8775"
+      }
+    },
+    {
+      "custom_id": "tr-27",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "6b81677e8bddfbe2c1f8100e8be81c4b4e2034b35a14c705402430f680a66eec",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Tourism Advisory Committee Meeting",
+        "date": "2026-08-18",
+        "body": "Tourism Advisory Committee"
+      },
+      "doc": {
+        "id": "proudcity-50038-92f65219",
+        "sha256": "92f65219951aafa5cc21e6368615c6c84c43db528c406e91cc3c13acb212a713"
+      }
+    },
+    {
+      "custom_id": "tr-28",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "07691ff1cafd196895d28e41eba644015ed0a0ce1ae4af30f7751d29415352ba",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Retirement Board Meeting",
+        "date": "2026-08-17",
+        "body": "Retirement Board"
+      },
+      "doc": {
+        "id": "proudcity-50098-2bd95d59",
+        "sha256": "2bd95d5967de9ab000f6faa8724ee8872ef33a947662c6fe7a4e8fda30aa8639"
+      }
+    },
+    {
+      "custom_id": "tr-29",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "3b7d8028b32e45d3dbaabcd333d13c58e76c635ec70b1fecce3beee221c897a1",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "City Council Ordinance Committee Meeting",
+        "date": "2026-08-13",
+        "body": "City Council Ordinance Committee"
+      },
+      "doc": {
+        "id": "proudcity-49333-b8f480d6",
+        "sha256": "b8f480d63f364fe76394a7c08e378e1ca97db6e8d5ecebf62aef6fe89714ae3f"
+      }
+    },
+    {
+      "custom_id": "tr-30",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "6a49d02e47021ae70034fb5a73b55535f44ce508b81163bf940cf8c3f9877bb2",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Conservation Commission Meeting",
+        "date": "2026-08-13",
+        "body": "Conservation Commission"
+      },
+      "doc": {
+        "id": "proudcity-46073-49f70a08",
+        "sha256": "49f70a08a0c62727972a4a5807b777b4aa6ded1d893b95b85703ee6ff1849b05"
+      }
+    },
+    {
+      "custom_id": "tr-31",
+      "type": "review",
+      "lang": "es",
+      "kind": "minutes",
+      "older": false,
+      "source_hash": "15ad5336c832ac8973d87e5acf545c9b8882417ab64b00b3d3b56cdf258445f0",
+      "model": "claude-sonnet-5-5",
+      "prices": {
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Conservation Commission Meeting",
@@ -993,16 +715,16 @@
       }
     },
     {
-      "custom_id": "tr-17",
-      "type": "review",
+      "custom_id": "tr-32",
+      "type": "translation",
       "lang": "es",
-      "kind": "minutes",
+      "kind": "agenda",
       "older": false,
-      "source_hash": "697e392187d07ed62b33ee186e6d770fbba77b1085496b6f81e2f4bea6a6bc75",
-      "model": "claude-sonnet-5-5",
+      "source_hash": "f5a4c56a228ae333eea4474283656368b4cba885bcfcef622ded7098140f75cb",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
         "title": "Holyoke Economic Development and Industrial Corporation Meeting",
@@ -1010,21 +732,219 @@
         "body": "Holyoke Economic Development and Industrial Corporation"
       },
       "doc": {
-        "id": "proudcity-50077-646f38aa",
-        "sha256": "646f38aa4d9b8bb6303c86e48773fe5c080131f2e6c4744885cc3a9ea3471e90"
+        "id": "proudcity-50080-bf368019",
+        "sha256": "bf3680195916db4d2a3d87d507048a4676726d22860cca534205f64f4aacc75d"
       }
     },
     {
-      "custom_id": "tr-18",
-      "type": "review",
+      "custom_id": "tr-33",
+      "type": "translation",
       "lang": "es",
-      "kind": "minutes",
+      "kind": "agenda",
       "older": false,
-      "source_hash": "129ea48ebe66e5be0c82d2673bf54b9d18844295769f7b33c18c05d20c0a3b96",
-      "model": "claude-sonnet-5-5",
+      "source_hash": "870d30f55eba3417d6470290342bb9785ebc317b83147e5ac0f607a955f92d42",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "City Council Finance Committee Meeting",
+        "date": "2026-08-12",
+        "body": "City Council Finance Committee"
+      },
+      "doc": {
+        "id": "proudcity-49346-8df9429f",
+        "sha256": "8df9429fe00516b21de63c2b71f3fd0b621e8d352cdf52114098d451c4295eee"
+      }
+    },
+    {
+      "custom_id": "tr-34",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "206026d70683495c7d40843a3df0d670a883fbddcd58090c58cb966cca1d780a",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Community Preservation Act Committee Meeting",
+        "date": "2026-08-12",
+        "body": "Community Preservation Act Committee"
+      },
+      "doc": {
+        "id": "proudcity-50088-3eb554a4",
+        "sha256": "3eb554a4fc7e540c0e784726f9ec72e3a59cacca1112688562efb6956155dfda"
+      }
+    },
+    {
+      "custom_id": "tr-35",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "62e07af50d6380b8b044b609446aeda23e7aba20fd4bb7b66ade4a00ee49b79c",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Library Board Meeting",
+        "date": "2026-08-11",
+        "body": "Library Board"
+      },
+      "doc": {
+        "id": "proudcity-50084-cdea1cd3",
+        "sha256": "cdea1cd3912c3fc4fd1ce1cc9b0a33107377c175cf644043311d212386d96698"
+      }
+    },
+    {
+      "custom_id": "tr-36",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "1286d0aa7a1835e96141c1c19cbe41f42bd252d75a8e841755bac53c11e0de9c",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "City Council Public Safety Committee Meeting",
+        "date": "2026-08-10",
+        "body": "City Council Public Safety Committee"
+      },
+      "doc": {
+        "id": "proudcity-49331-3345eb68",
+        "sha256": "3345eb68315f6a13d303c88fe46b64141f50d63de3d8101337f002339b819250"
+      }
+    },
+    {
+      "custom_id": "tr-37",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "c88c139f4a239f75487e529f8cdbf650e8a11f997cf581cc68b824dbabc8e905",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Housing Authority Meeting",
+        "date": "2026-08-06",
+        "body": "Housing Authority"
+      },
+      "doc": {
+        "id": "proudcity-50049-74fc7882",
+        "sha256": "74fc78823edc1788f16ef89bd562348ff56313a6322b1a82b2eb80de68c2f053"
+      }
+    },
+    {
+      "custom_id": "tr-38",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "b33146ed51433c5e5ca0328bc90076f98b1355e81debebcca81dbf4eb486713d",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "License Board Meeting",
+        "date": "2026-08-05",
+        "body": "License Board"
+      },
+      "doc": {
+        "id": "proudcity-50061-3846bbee",
+        "sha256": "3846bbeea82ec0be97804ce68200c1a6e3b908d02634ed5f3091ea5557a25010"
+      }
+    },
+    {
+      "custom_id": "tr-39",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "54f35375ff384b58c90ba29b4bf997e7850b9e6b5e6660e95972b693a20ba515",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "School Committee Leadership and Accountability Subcommittee Meeting",
+        "date": "2026-08-05",
+        "body": "School Committee Leadership and Accountability Subcommittee"
+      },
+      "doc": {
+        "id": "proudcity-50036-6bb46b73",
+        "sha256": "6bb46b73822b011461ce2997552a919e7499dadacd94f339039f503958b0fcf1"
+      }
+    },
+    {
+      "custom_id": "tr-40",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "a2960c28f070923a1419bcb19504237925ce97d179891b85bff6d94c179d48ad",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "City Council Meeting",
+        "date": "2026-08-04",
+        "body": "City Council"
+      },
+      "doc": {
+        "id": "proudcity-49956-30ef1174",
+        "sha256": "30ef1174e0f9a7aada1f5441c9db1307d981cdf03fe6e2e5e4a3f72ca7132b85"
+      }
+    },
+    {
+      "custom_id": "tr-41",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "94f6568046f80a4a446f1392691f8508ba16f48f4ec54b40a9940c1999cc6f58",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "School Committee Parent and Community Engagement Committee Meeting",
+        "date": "2026-08-04",
+        "body": "School Committee Parent and Community Engagement Committee"
+      },
+      "doc": {
+        "id": "proudcity-50013-3af3baf3",
+        "sha256": "3af3baf3a255488a842b818721093db930a849c4fbebed1f73574133e39f2288"
+      }
+    },
+    {
+      "custom_id": "tr-42",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "62f68f5e8db08efddaf6d8f1c57dbdff133c1ab54df7458e52e24d756beb3778",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
         "title": "Local Cultural Council Meeting",
@@ -1032,8 +952,8 @@
         "body": "Local Cultural Council"
       },
       "doc": {
-        "id": "proudcity-50032-e681f573",
-        "sha256": "e681f573b85bac76c9dedbf5ac161c8ecd6ab7304ac625b3f45fe4ad6efcd087"
+        "id": "proudcity-50032-9131d7d8",
+        "sha256": "9131d7d841099f9a0f74fd698cba1ada944c117d459ead43dc3aec56df2c8f88"
       }
     }
   ]
