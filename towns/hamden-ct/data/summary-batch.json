@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01HrJN3V593SVoUQX8ETRz5v",
-  "sent_at": "2026-11-20T09:11:32+00:00",
+  "id": "msgbatch_01TUioF7tfGvNfRC8b83BXB4",
+  "sent_at": "2026-11-20T09:23:09+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,9 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
+      "source_hash": "f5ea454d763090f76bb8600485f5e1969480d67e3143619ec73f3c601cada6d9",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Board of Education Personnel Committee Meeting",
         "date": "2026-11-30",
@@ -21,310 +29,20 @@
       },
       "doc": {
         "id": "8e6754ce0fc89394-b2418ac4",
-        "sha256": "b2418ac41172f37273929171c4417de96a6ca84b583ff605af7bd0a00a26556c",
-        "file": "8e6754ce0fc89394-b2418ac4.pdf",
-        "source_url": "https://files.smartsites.parentsquare.com/13638/personnel_committee_agenda_for_11-24-26.pdf"
+        "sha256": "b2418ac41172f37273929171c4417de96a6ca84b583ff605af7bd0a00a26556c"
       }
     },
     {
-      "custom_id": "doc-1",
-      "kind": "minutes",
-      "older": false,
-      "meeting": {
-        "title": "Board of Education Policy Committee Meeting",
-        "date": "2026-11-17",
-        "body": "Board of Education Policy Committee"
-      },
-      "doc": {
-        "id": "4ef28e4e9e10cdff-f2668bab",
-        "sha256": "f2668bab646900538550c4c8b32f506c27d060c83ba3ca3d1166dbe4e270d291",
-        "file": "4ef28e4e9e10cdff-f2668bab.pdf",
-        "source_url": "https://files.smartsites.parentsquare.com/13638/11_17_26_minutes.pdf"
-      }
-    },
-    {
-      "custom_id": "doc-2",
-      "kind": "minutes",
-      "older": false,
-      "meeting": {
-        "title": "Historic Properties Commission Regular Meeting",
-        "date": "2026-11-16",
-        "body": "Historic Properties Commission"
-      },
-      "doc": {
-        "id": "civicclerk-14390",
-        "sha256": "cd2ff56fbbe2d278fb34bd63790b384e5c0c928ed3160ad2bb0f204f3b986a83",
-        "file": "civicclerk-14390.pdf",
-        "source_url": "https://hamdenct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=14390,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-3",
-      "kind": "minutes",
-      "older": false,
-      "meeting": {
-        "title": "Legislative Council 1st Regular Monthly Meeting of November",
-        "date": "2026-11-16",
-        "body": "Legislative Council"
-      },
-      "doc": {
-        "id": "civicclerk-14345",
-        "sha256": "608e3382cdc6bf936177ea91fe98dc3e63469ce4d5979cc853c03709017cfeea",
-        "file": "civicclerk-14345.pdf",
-        "source_url": "https://hamdenct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=14345,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-4",
-      "kind": "minutes",
-      "older": false,
-      "meeting": {
-        "title": "Legislative Council Regular Meeting with Committees - Nov 9",
-        "date": "2026-11-09",
-        "body": "Legislative Council"
-      },
-      "doc": {
-        "id": "civicclerk-14344",
-        "sha256": "a7defd600b6cda06099b93adab4303e639f73680a85c9fa4499329eab38e66aa",
-        "file": "civicclerk-14344.pdf",
-        "source_url": "https://hamdenct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=14344,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-5",
-      "kind": "minutes",
-      "older": false,
-      "meeting": {
-        "title": "Legislative Council 2nd Regular Monthly Meeting",
-        "date": "2026-10-19",
-        "body": "Legislative Council"
-      },
-      "doc": {
-        "id": "civicclerk-14343",
-        "sha256": "dc73cf6b63659c246080fafc9a51ec9f1e0f58941de53ad8693055c09f564c55",
-        "file": "civicclerk-14343.pdf",
-        "source_url": "https://hamdenct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=14343,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-6",
-      "kind": "minutes",
-      "older": false,
-      "meeting": {
-        "title": "LC Engineering, Dev & Municipal Planning Committee - October 19",
-        "date": "2026-10-19",
-        "body": "Legislative Council Engineering, Development and Municipal Planning Committee"
-      },
-      "doc": {
-        "id": "civicclerk-14347",
-        "sha256": "74763b0040095c557c0c98cc464e5b22684aa0a406e7ab5c3dc8915e55f6c246",
-        "file": "civicclerk-14347.pdf",
-        "source_url": "https://hamdenct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=14347,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-7",
-      "kind": "minutes",
-      "older": false,
-      "meeting": {
-        "title": "LC Human Services Committee Regular Meeting - October 19",
-        "date": "2026-10-19",
-        "body": "Legislative Council Human Services Committee"
-      },
-      "doc": {
-        "id": "civicclerk-14351",
-        "sha256": "848933c713c2100bfb580e57da4b39bed7a953e76f0eb313bfb66c2d23740d0f",
-        "file": "civicclerk-14351.pdf",
-        "source_url": "https://hamdenct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=14351,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-8",
-      "kind": "minutes",
-      "older": false,
-      "meeting": {
-        "title": "LC IT & Civic Engagement Committee Regular Meeting - October 19",
-        "date": "2026-10-19",
-        "body": "Legislative Council IT and Civic Engagement Committee"
-      },
-      "doc": {
-        "id": "civicclerk-14349",
-        "sha256": "c4d358b34c873adc67563c3ce25c224d8ce95ba929a24fc8a74560d5cc37f5e5",
-        "file": "civicclerk-14349.pdf",
-        "source_url": "https://hamdenct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=14349,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-9",
-      "kind": "minutes",
-      "older": false,
-      "meeting": {
-        "title": "LC Public Safety Committee Regular Meeting - October 19",
-        "date": "2026-10-19",
-        "body": "Legislative Council Public Safety Committee"
-      },
-      "doc": {
-        "id": "civicclerk-14348",
-        "sha256": "45120a8f69c7c12690578a92557423836fbe9db413afb286593264dc8736f28c",
-        "file": "civicclerk-14348.pdf",
-        "source_url": "https://hamdenct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=14348,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-10",
-      "kind": "minutes",
-      "older": false,
-      "meeting": {
-        "title": "Public Works, Facilities & Sustainability Committee Meeting - October 19",
-        "date": "2026-10-19",
-        "body": "Legislative Council Public Works, Facilities and Sustainability Committee"
-      },
-      "doc": {
-        "id": "civicclerk-14352",
-        "sha256": "912240add6504e4ec67143bc75aaa636e3afe19f03460ec6ab271f6c5f327907",
-        "file": "civicclerk-14352.pdf",
-        "source_url": "https://hamdenct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=14352,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-11",
-      "kind": "minutes",
-      "older": false,
-      "meeting": {
-        "title": "LC Admin & Settlement Committee Regular Meeting - Oct 5",
-        "date": "2026-10-05",
-        "body": "Legislative Council Administration and Settlement Committee"
-      },
-      "doc": {
-        "id": "civicclerk-14353",
-        "sha256": "f5f2e61376d31794163147dd546a4ac5d1bd103e35ed7e9397e8e9979812f905",
-        "file": "civicclerk-14353.pdf",
-        "source_url": "https://hamdenct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=14353,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-12",
-      "kind": "minutes",
-      "older": false,
-      "meeting": {
-        "title": "LC Finance Committee Regular Meeting - Oct 5",
-        "date": "2026-10-05",
-        "body": "Legislative Council Finance Committee"
-      },
-      "doc": {
-        "id": "civicclerk-14354",
-        "sha256": "72000c15d21a35fbe6abe55388e3ea1c4e75fb06cd72be4c916eee92d1c82e61",
-        "file": "civicclerk-14354.pdf",
-        "source_url": "https://hamdenct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=14354,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-13",
-      "kind": "minutes",
-      "older": false,
-      "meeting": {
-        "title": "LC Administration & Settlement Committee - Sept 28",
-        "date": "2026-09-28",
-        "body": "Legislative Council Administration and Settlement Committee"
-      },
-      "doc": {
-        "id": "civicclerk-14355",
-        "sha256": "9d649f7c75e2ea6e204bdf2b3fe9bb5983ea861bd54884265dd5becb27f85832",
-        "file": "civicclerk-14355.pdf",
-        "source_url": "https://hamdenct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=14355,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-14",
-      "kind": "minutes",
-      "older": false,
-      "meeting": {
-        "title": "LC Engineering, Dev & Municipal Planning Committee - Sept 28",
-        "date": "2026-09-28",
-        "body": "Legislative Council Engineering, Development and Municipal Planning Committee"
-      },
-      "doc": {
-        "id": "civicclerk-14356",
-        "sha256": "0f8cc3d6370aadbd6baa43cf888e40cac824aa92b33c2e3b05112a533ca1e2ec",
-        "file": "civicclerk-14356.pdf",
-        "source_url": "https://hamdenct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=14356,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-15",
-      "kind": "minutes",
-      "older": false,
-      "meeting": {
-        "title": "LC Finance Committee - Sept 28",
-        "date": "2026-09-28",
-        "body": "Legislative Council Finance Committee"
-      },
-      "doc": {
-        "id": "civicclerk-14360",
-        "sha256": "a257aee702ea83a7cb4b0113c5b066a479fd9f444ba0fa6dcb83df526804f613",
-        "file": "civicclerk-14360.pdf",
-        "source_url": "https://hamdenct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=14360,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-16",
-      "kind": "minutes",
-      "older": false,
-      "meeting": {
-        "title": "LC Human Services Committee - Sept 28",
-        "date": "2026-09-28",
-        "body": "Legislative Council Human Services Committee"
-      },
-      "doc": {
-        "id": "civicclerk-14357",
-        "sha256": "c9b1f3e1f701c85500817ee511510125f86ad2eb8de981b1c202d2ebbe1559ce",
-        "file": "civicclerk-14357.pdf",
-        "source_url": "https://hamdenct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=14357,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-17",
-      "kind": "minutes",
-      "older": false,
-      "meeting": {
-        "title": "LC IT & Civic Engagement Committee - Sept 28",
-        "date": "2026-09-28",
-        "body": "Legislative Council IT and Civic Engagement Committee"
-      },
-      "doc": {
-        "id": "civicclerk-14359",
-        "sha256": "efbbbc2b696da6daf0ea887e1ffbd9ad53fc1b76ab579d0aa92c3872c74b1f39",
-        "file": "civicclerk-14359.pdf",
-        "source_url": "https://hamdenct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=14359,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-18",
-      "kind": "minutes",
-      "older": false,
-      "meeting": {
-        "title": "LC Public Safety Committee - Sept 28",
-        "date": "2026-09-28",
-        "body": "Legislative Council Public Safety Committee"
-      },
-      "doc": {
-        "id": "civicclerk-14358",
-        "sha256": "c71aff39f84e16abbdd2802189d16c80ec08085d52697cfda7540d316a10a29b",
-        "file": "civicclerk-14358.pdf",
-        "source_url": "https://hamdenct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=14358,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "tr-0",
-      "type": "review",
+      "custom_id": "tr-1",
+      "type": "translation",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "de181d4fbc7cf4683424b713cc80505f3c9c6d0ab1f1b38c80c2a6cf33475341",
-      "model": "claude-sonnet-5-5",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
         "title": "Planning & Zoning Commission Regular Meeting",
@@ -337,38 +55,16 @@
       }
     },
     {
-      "custom_id": "tr-1",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "9e99a025852230f7af2d587b139c578635bc53a303538aa6b337d7b0a8415de5",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Human Rights & Relations Commission Special Meeting - 11/19/2026",
-        "date": "2026-11-19",
-        "body": "Human Rights & Relations Commission"
-      },
-      "doc": {
-        "id": "civicclerk-14323",
-        "sha256": "e9433a1e5aafef4891a1a3f559107dda4b0ec71fd205a213d3379767d161608e"
-      }
-    },
-    {
       "custom_id": "tr-2",
-      "type": "review",
+      "type": "translation",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "7a60df6f1323c574e5d80aa39deea37df14a1ab0c6bcbbfd08f76f05988b09a4",
-      "model": "claude-sonnet-5-5",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
         "title": "Ice Rink Working Group Special Meeting",
@@ -382,15 +78,59 @@
     },
     {
       "custom_id": "tr-3",
-      "type": "review",
+      "type": "translation",
       "lang": "es",
-      "kind": "agenda",
+      "kind": "minutes",
       "older": false,
-      "source_hash": "9dc3a52dddec4ffbf1181edc51766a5b10b9991c52a1f41a0fbf63dc711062e3",
-      "model": "claude-sonnet-5-5",
+      "source_hash": "045f8eba215047d78e20b8f2a9c0fccd25fe320a5cc5177a5f9ba32be9e38015",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Board of Education Policy Committee Meeting",
+        "date": "2026-11-17",
+        "body": "Board of Education Policy Committee"
+      },
+      "doc": {
+        "id": "4ef28e4e9e10cdff-f2668bab",
+        "sha256": "f2668bab646900538550c4c8b32f506c27d060c83ba3ca3d1166dbe4e270d291"
+      }
+    },
+    {
+      "custom_id": "tr-4",
+      "type": "translation",
+      "lang": "es",
+      "kind": "minutes",
+      "older": false,
+      "source_hash": "5a98b7c1c71079023d219459696db8f98f875f844af94d52496a5ec5813a4ac8",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Historic Properties Commission Regular Meeting",
+        "date": "2026-11-16",
+        "body": "Historic Properties Commission"
+      },
+      "doc": {
+        "id": "civicclerk-14390",
+        "sha256": "cd2ff56fbbe2d278fb34bd63790b384e5c0c928ed3160ad2bb0f204f3b986a83"
+      }
+    },
+    {
+      "custom_id": "tr-5",
+      "type": "translation",
+      "lang": "es",
+      "kind": "minutes",
+      "older": false,
+      "source_hash": "a70597ee96513cb9d9a6706d934f52258b07054dec6eee8a1caf65e0e260f1dd",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
         "title": "Legislative Council 1st Regular Monthly Meeting of November",
@@ -398,21 +138,21 @@
         "body": "Legislative Council"
       },
       "doc": {
-        "id": "civicclerk-14283",
-        "sha256": "b5b079f5f93b0598af2b1dcbe4f218ca83488bcfba293f8cebd4958020c73f22"
+        "id": "civicclerk-14345",
+        "sha256": "608e3382cdc6bf936177ea91fe98dc3e63469ce4d5979cc853c03709017cfeea"
       }
     },
     {
-      "custom_id": "tr-4",
-      "type": "review",
+      "custom_id": "tr-6",
+      "type": "translation",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "ad478392ee600d63ebcbd39e508d8dd2ba9af285befe16420eb068d9e8382af6",
-      "model": "claude-sonnet-5-5",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
         "title": "Finance Commission Regular Meeting",
@@ -425,60 +165,38 @@
       }
     },
     {
-      "custom_id": "tr-5",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "7a15ef2ba75e83b217b4c9d0c794bcbf161a76d5748165d65d8305064cd07938",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Economic Development Commission Regular Meeting",
-        "date": "2026-11-10",
-        "body": "Economic Development Commission"
-      },
-      "doc": {
-        "id": "civicclerk-14301",
-        "sha256": "67d85543d0aaf86409a5e7f955ace27223327cae44967b3f2d3158140ed8f5e5"
-      }
-    },
-    {
-      "custom_id": "tr-6",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "686e16bc0cea967c8ce69fd90299da6ad9113b48016dbcd9061db4dece6d1ac3",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Farmington Canal Commission Regular Meeting",
-        "date": "2026-11-10",
-        "body": "Farmington Canal Commission"
-      },
-      "doc": {
-        "id": "civicclerk-14303",
-        "sha256": "62f53130dc4e7f09a556b78bce1c810f43c54cbb80bad07a0a1417bb555100c7"
-      }
-    },
-    {
       "custom_id": "tr-7",
-      "type": "review",
+      "type": "translation",
+      "lang": "es",
+      "kind": "minutes",
+      "older": false,
+      "source_hash": "c58973e3dba773256fcfcbf9fdce406e8802cd8aefab954d9bef8560c512e189",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Legislative Council Regular Meeting with Committees - Nov 9",
+        "date": "2026-11-09",
+        "body": "Legislative Council"
+      },
+      "doc": {
+        "id": "civicclerk-14344",
+        "sha256": "a7defd600b6cda06099b93adab4303e639f73680a85c9fa4499329eab38e66aa"
+      }
+    },
+    {
+      "custom_id": "tr-8",
+      "type": "translation",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "d75cc3c56acd714e89d2a2de15d18b1900e5c14276603b332c9a526fd6e472e4",
-      "model": "claude-sonnet-5-5",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
         "title": "Legislative Council Special Meeting - November 2nd",
@@ -491,16 +209,16 @@
       }
     },
     {
-      "custom_id": "tr-8",
-      "type": "review",
+      "custom_id": "tr-9",
+      "type": "translation",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "0c8505971ba55a81a033e29ea94cceb01850f0a43062f9b7e32949975459b086",
-      "model": "claude-sonnet-5-5",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
         "title": "Legislative Council w/Committee of the Whole Special Meeting",
@@ -513,16 +231,16 @@
       }
     },
     {
-      "custom_id": "tr-9",
-      "type": "review",
+      "custom_id": "tr-10",
+      "type": "translation",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "c26c8596bb4b5aa7f754f9482aa4d0fa9aa79fbbacab33d07ad2bfb5a5b54dff",
-      "model": "claude-sonnet-5-5",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
         "title": "Legislative Council Workshop Meeting",
@@ -535,47 +253,25 @@
       }
     },
     {
-      "custom_id": "tr-10",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "aadbf2b45f7a2cf02c1cc9e39b3c6d052d58fc5229d4d32fb1afadc03c83ca63",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Tree Commission Regular Meeting - October 20, 2026",
-        "date": "2026-10-20",
-        "body": "Tree Commission"
-      },
-      "doc": {
-        "id": "civicclerk-14310",
-        "sha256": "980563dd0ae548c4942cc8e3c33a8b74ca5337da56ab79ff8972286812bd241f"
-      }
-    },
-    {
       "custom_id": "tr-11",
       "type": "translation",
       "lang": "es",
       "kind": "minutes",
       "older": false,
-      "source_hash": "1f9e1d84f190d35222655104ab2f8bc41dd7342992e274d1c3431c7f5236b629",
+      "source_hash": "012ba115e6d48c1b9cc93034c199ef531ac009ce3ce75195b3ee55bf204a096f",
       "model": "claude-haiku-5-5",
       "prices": {
         "input_price": 0.1,
         "output_price": 0.5
       },
       "meeting": {
-        "title": "Legislative Council 1st Regular Monthly Meeting",
-        "date": "2026-10-05",
+        "title": "Legislative Council 2nd Regular Monthly Meeting",
+        "date": "2026-10-19",
         "body": "Legislative Council"
       },
       "doc": {
-        "id": "civicclerk-14317",
-        "sha256": "824f569223561089d03dcc216954ee4f013a59df14a4aed0be5e953b9b2bee3b"
+        "id": "civicclerk-14343",
+        "sha256": "dc73cf6b63659c246080fafc9a51ec9f1e0f58941de53ad8693055c09f564c55"
       }
     },
     {
@@ -584,11 +280,165 @@
       "lang": "es",
       "kind": "minutes",
       "older": false,
-      "source_hash": "8738b7f453fe419e95b105bf242665149deda6413fdbcae7900a9b99e610f9c6",
+      "source_hash": "3baf587a6e110d411a6a819a0d08926bbb1823205c25ac04e4928b823e2ac644",
       "model": "claude-haiku-5-5",
       "prices": {
         "input_price": 0.1,
         "output_price": 0.5
+      },
+      "meeting": {
+        "title": "LC Engineering, Dev & Municipal Planning Committee - October 19",
+        "date": "2026-10-19",
+        "body": "Legislative Council Engineering, Development and Municipal Planning Committee"
+      },
+      "doc": {
+        "id": "civicclerk-14347",
+        "sha256": "74763b0040095c557c0c98cc464e5b22684aa0a406e7ab5c3dc8915e55f6c246"
+      }
+    },
+    {
+      "custom_id": "tr-13",
+      "type": "translation",
+      "lang": "es",
+      "kind": "minutes",
+      "older": false,
+      "source_hash": "6bef72bede19d94c2dbc791171fd99d557a98c22ce5b6c77dba41b7c29910abe",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "LC Human Services Committee Regular Meeting - October 19",
+        "date": "2026-10-19",
+        "body": "Legislative Council Human Services Committee"
+      },
+      "doc": {
+        "id": "civicclerk-14351",
+        "sha256": "848933c713c2100bfb580e57da4b39bed7a953e76f0eb313bfb66c2d23740d0f"
+      }
+    },
+    {
+      "custom_id": "tr-14",
+      "type": "translation",
+      "lang": "es",
+      "kind": "minutes",
+      "older": false,
+      "source_hash": "e07c07a88a77319c69b108460525b0bd13aeb9db5ae3860afd2ce31d55ed6fb6",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "LC IT & Civic Engagement Committee Regular Meeting - October 19",
+        "date": "2026-10-19",
+        "body": "Legislative Council IT and Civic Engagement Committee"
+      },
+      "doc": {
+        "id": "civicclerk-14349",
+        "sha256": "c4d358b34c873adc67563c3ce25c224d8ce95ba929a24fc8a74560d5cc37f5e5"
+      }
+    },
+    {
+      "custom_id": "tr-15",
+      "type": "translation",
+      "lang": "es",
+      "kind": "minutes",
+      "older": false,
+      "source_hash": "67f78d472ccc793eff91958525d5a22527469041df5cae3b102ba47d7a8e7f46",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "LC Public Safety Committee Regular Meeting - October 19",
+        "date": "2026-10-19",
+        "body": "Legislative Council Public Safety Committee"
+      },
+      "doc": {
+        "id": "civicclerk-14348",
+        "sha256": "45120a8f69c7c12690578a92557423836fbe9db413afb286593264dc8736f28c"
+      }
+    },
+    {
+      "custom_id": "tr-16",
+      "type": "translation",
+      "lang": "es",
+      "kind": "minutes",
+      "older": false,
+      "source_hash": "62ecfbc58fff29125146c230383e98486018c4c7891c9f25b4c68e98afa179cf",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Public Works, Facilities & Sustainability Committee Meeting - October 19",
+        "date": "2026-10-19",
+        "body": "Legislative Council Public Works, Facilities and Sustainability Committee"
+      },
+      "doc": {
+        "id": "civicclerk-14352",
+        "sha256": "912240add6504e4ec67143bc75aaa636e3afe19f03460ec6ab271f6c5f327907"
+      }
+    },
+    {
+      "custom_id": "tr-17",
+      "type": "translation",
+      "lang": "es",
+      "kind": "minutes",
+      "older": false,
+      "source_hash": "0a09090a1f6e5578f3193c9d41aaac0d0cd03fe036aab15d757e9467c59a4ce7",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "LC Admin & Settlement Committee Regular Meeting - Oct 5",
+        "date": "2026-10-05",
+        "body": "Legislative Council Administration and Settlement Committee"
+      },
+      "doc": {
+        "id": "civicclerk-14353",
+        "sha256": "f5f2e61376d31794163147dd546a4ac5d1bd103e35ed7e9397e8e9979812f905"
+      }
+    },
+    {
+      "custom_id": "tr-18",
+      "type": "translation",
+      "lang": "es",
+      "kind": "minutes",
+      "older": false,
+      "source_hash": "3509ad3b4180bae8db9af4419cb939e75b035b8b0dd70cfbacb781af36c8d596",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "LC Finance Committee Regular Meeting - Oct 5",
+        "date": "2026-10-05",
+        "body": "Legislative Council Finance Committee"
+      },
+      "doc": {
+        "id": "civicclerk-14354",
+        "sha256": "72000c15d21a35fbe6abe55388e3ea1c4e75fb06cd72be4c916eee92d1c82e61"
+      }
+    },
+    {
+      "custom_id": "tr-19",
+      "type": "review",
+      "lang": "es",
+      "kind": "minutes",
+      "older": false,
+      "source_hash": "8738b7f453fe419e95b105bf242665149deda6413fdbcae7900a9b99e610f9c6",
+      "model": "claude-sonnet-5-5",
+      "prices": {
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Legislative Council Regular Meeting - Sept 28. 2026",
@@ -598,6 +448,138 @@
       "doc": {
         "id": "civicclerk-14318",
         "sha256": "56298c9b47797b4ecd5411a87ecbfe7352aa41d6e5b3b9d22abe8843e8720a79"
+      }
+    },
+    {
+      "custom_id": "tr-20",
+      "type": "translation",
+      "lang": "es",
+      "kind": "minutes",
+      "older": false,
+      "source_hash": "6809f196c44733176391b87e71732ac7d0267cd0a4e7c30eb01632307a18c030",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "LC Administration & Settlement Committee - Sept 28",
+        "date": "2026-09-28",
+        "body": "Legislative Council Administration and Settlement Committee"
+      },
+      "doc": {
+        "id": "civicclerk-14355",
+        "sha256": "9d649f7c75e2ea6e204bdf2b3fe9bb5983ea861bd54884265dd5becb27f85832"
+      }
+    },
+    {
+      "custom_id": "tr-21",
+      "type": "translation",
+      "lang": "es",
+      "kind": "minutes",
+      "older": false,
+      "source_hash": "e90aa62b522a91d17d5a67eef3205e3857a9b77b0bfb3a4489729f06051feaf1",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "LC Engineering, Dev & Municipal Planning Committee - Sept 28",
+        "date": "2026-09-28",
+        "body": "Legislative Council Engineering, Development and Municipal Planning Committee"
+      },
+      "doc": {
+        "id": "civicclerk-14356",
+        "sha256": "0f8cc3d6370aadbd6baa43cf888e40cac824aa92b33c2e3b05112a533ca1e2ec"
+      }
+    },
+    {
+      "custom_id": "tr-22",
+      "type": "translation",
+      "lang": "es",
+      "kind": "minutes",
+      "older": false,
+      "source_hash": "7817f14214c3478c0622f89bb4fcb7a3563f4d3378c7420ccf466a0fe28b9564",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "LC Finance Committee - Sept 28",
+        "date": "2026-09-28",
+        "body": "Legislative Council Finance Committee"
+      },
+      "doc": {
+        "id": "civicclerk-14360",
+        "sha256": "a257aee702ea83a7cb4b0113c5b066a479fd9f444ba0fa6dcb83df526804f613"
+      }
+    },
+    {
+      "custom_id": "tr-23",
+      "type": "translation",
+      "lang": "es",
+      "kind": "minutes",
+      "older": false,
+      "source_hash": "0b1776febf5e60afc4de9957c7867d8366cb911fbdc250d2b0c7ba90d56165ce",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "LC Human Services Committee - Sept 28",
+        "date": "2026-09-28",
+        "body": "Legislative Council Human Services Committee"
+      },
+      "doc": {
+        "id": "civicclerk-14357",
+        "sha256": "c9b1f3e1f701c85500817ee511510125f86ad2eb8de981b1c202d2ebbe1559ce"
+      }
+    },
+    {
+      "custom_id": "tr-24",
+      "type": "translation",
+      "lang": "es",
+      "kind": "minutes",
+      "older": false,
+      "source_hash": "218d27175e4b534b81fa0d1ad5a1322788e3453c16844783d2644ba580b3e625",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "LC IT & Civic Engagement Committee - Sept 28",
+        "date": "2026-09-28",
+        "body": "Legislative Council IT and Civic Engagement Committee"
+      },
+      "doc": {
+        "id": "civicclerk-14359",
+        "sha256": "efbbbc2b696da6daf0ea887e1ffbd9ad53fc1b76ab579d0aa92c3872c74b1f39"
+      }
+    },
+    {
+      "custom_id": "tr-25",
+      "type": "translation",
+      "lang": "es",
+      "kind": "minutes",
+      "older": false,
+      "source_hash": "0298414bd651049d6fcb733a07ce1f89e3bc8379d2a4bcb90f8d49a3893bd9f2",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "LC Public Safety Committee - Sept 28",
+        "date": "2026-09-28",
+        "body": "Legislative Council Public Safety Committee"
+      },
+      "doc": {
+        "id": "civicclerk-14358",
+        "sha256": "c71aff39f84e16abbdd2802189d16c80ec08085d52697cfda7540d316a10a29b"
       }
     }
   ]
