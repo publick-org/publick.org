@@ -1,46 +1,46 @@
 {
   "town": "fitchburg",
   "folder": "fitchburg-ma",
-  "started_at": "2026-11-19T05:48:20+00:00",
-  "finished_at": "2026-11-19T05:50:39+00:00",
-  "engine": "v1.111.0",
+  "started_at": "2026-11-20T00:14:31+00:00",
+  "finished_at": "2026-11-20T00:16:48+00:00",
+  "engine": "v1.111.1",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 32.2
+      "seconds": 41.6
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 46.3
+      "seconds": 42.4
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 56.4
+      "seconds": 47.9
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 3.0
+      "seconds": 3.5
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.8
+      "seconds": 0.9
     }
   ],
   "update": {
     "town": "fitchburg",
     "sources": "meetings",
-    "started_at": "2026-11-19T05:48:21+00:00",
+    "started_at": "2026-11-20T00:14:32+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 2.1,
+        "seconds": 16.3,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 15.7,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -154,7 +154,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 12.1,
+        "seconds": 23.4,
         "cadence": "continuous"
       },
       {
@@ -164,7 +164,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 5 days ago; checked every 30 days"
+        "skipped": "checked 6 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -173,7 +173,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "skipped": "checked 6 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -182,7 +182,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 5 days ago; checked every 30 days"
+        "skipped": "checked 6 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -191,7 +191,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 5 days ago; checked every 30 days"
+        "skipped": "checked 6 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -200,7 +200,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "skipped": "checked 6 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -250,7 +250,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-19T00:48:21-05:00",
+      "updated_at": "2026-11-19T19:14:32-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -354,24 +354,25 @@
   "corrections": [],
   "ok": true,
   "last_good_at": "2026-11-18T10:04:34+00:00",
-  "data_bytes": 5887756,
-  "data_bytes_added": 4536381,
+  "data_bytes": 5963126,
+  "data_bytes_added": 4540299,
   "activity": {
     "boards": 42,
     "meetings_by_date": {
-      "2026-11-19": 1,
-      "2026-11-20": 1
+      "2026-11-20": 1,
+      "2026-11-24": 1,
+      "2026-11-25": 1
     }
   },
   "fact_checks": {
-    "summaries": 47,
-    "ok": 39,
-    "failed": 6,
+    "summaries": 52,
+    "ok": 41,
+    "failed": 9,
     "weak": 2,
     "unchecked": 0,
     "not_yet": 0,
-    "held_back": 6,
-    "entries_not_shown": 22,
+    "held_back": 9,
+    "entries_not_shown": 25,
     "vote_counts_left_out": 5
   },
   "recordings": {
@@ -393,9 +394,9 @@
     "misses": []
   },
   "documents": {
-    "since": "2026-08-21",
-    "until": "2026-11-18",
-    "held": 108,
+    "since": "2026-08-22",
+    "until": "2026-11-19",
+    "held": 109,
     "boards": 36,
     "counts": {
       "no_documents": 0,
@@ -407,11 +408,11 @@
     "no_minutes": [
       {
         "board": "Fitchburg Redevelopment Authority",
-        "meetings": 4
+        "meetings": 5
       },
       {
         "board": "City Council Appointments Committee",
-        "meetings": 2
+        "meetings": 3
       },
       {
         "board": "City Council Finance Committee",
@@ -443,7 +444,5 @@
   "officials": {
     "checked_at": "2026-11-13T08:30:20-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-19T10:07:56+00:00",
-  "published_engine": "v1.111.1"
+  }
 }

@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01RMmMhatU6pfMPG9LsYdy95",
-  "sent_at": "2026-11-19T05:54:15+00:00",
+  "id": "msgbatch_01NG2DX3NAaQuhhS8JXk2oY4",
+  "sent_at": "2026-11-20T00:15:09+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -10,6 +10,99 @@
     "long_prompt_tokens": 100000
   },
   "documents": [
+    {
+      "custom_id": "doc-0",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "Retirement Board Meeting",
+        "date": "2026-11-24",
+        "body": "Retirement Board"
+      },
+      "doc": {
+        "id": "5496-202611191505",
+        "sha256": "2dcf98b8fa4525325837de4c4db326051082910b9c31a3de541490a015f41837",
+        "file": "5496-202611191505.pdf",
+        "source_url": "https://www.fitchburgma.gov/AgendaCenter/ViewFile/Agenda/_11242026-5496"
+      }
+    },
+    {
+      "custom_id": "doc-1",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "City Council Finance Committee Meeting",
+        "date": "2026-11-25",
+        "body": "City Council Finance Committee"
+      },
+      "doc": {
+        "id": "5494-202611191304",
+        "sha256": "994aa43d45b73b785dc7a2d4fd87e5ec5cbd9b57e8b31c5a6808ea19a6a71421",
+        "file": "5494-202611191304.pdf",
+        "source_url": "https://www.fitchburgma.gov/AgendaCenter/ViewFile/Agenda/_11252026-5494"
+      }
+    },
+    {
+      "custom_id": "doc-2",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "Zoning Board of Appeals Meeting",
+        "date": "2026-12-08",
+        "body": "Zoning Board of Appeals"
+      },
+      "doc": {
+        "id": "5495-202611191406",
+        "sha256": "10903f40965d402e25f5025b429f5d2e0e8745b072a1038b30c35545a0c4a6da",
+        "file": "5495-202611191406.pdf",
+        "source_url": "https://www.fitchburgma.gov/AgendaCenter/ViewFile/Agenda/_12082026-5495"
+      }
+    },
+    {
+      "custom_id": "doc-3",
+      "kind": "recording",
+      "older": false,
+      "meeting": {
+        "title": "Trustees of Public Burial Grounds Meeting",
+        "date": "2026-11-19",
+        "body": "Trustees of Public Burial Grounds",
+        "agendas": [
+          {
+            "sha256": "11dd56578d7dfb3fc08215c13225e85254026658dd954d8165478c5245b671bf"
+          }
+        ]
+      },
+      "doc": {
+        "id": "telvue-1069453",
+        "sha256": "6ab6a128c11cb5e800e5558377c29d146096ec5993de5b8abe6e2f6c555c6cce",
+        "file": "telvue-1069453.txt",
+        "source_url": "https://videoplayer.telvue.com/player/yycCAZPb0NN3zj2o5qio-YFMNC43NjCG/media/1069453"
+      }
+    },
+    {
+      "custom_id": "doc-4",
+      "kind": "recording",
+      "older": false,
+      "meeting": {
+        "title": "Cultural Council Meeting",
+        "date": "2026-11-18",
+        "body": "Cultural Council",
+        "agendas": [
+          {
+            "sha256": "a3e94458c2a6846c4ed0f997381e6404db1dc641f520da11e6d20ac0bcc85f38"
+          },
+          {
+            "sha256": "3f6fdde21dd7af1cd78c2cdbe396048af5a8ac96bd31c6ad0c3ef8693a73408e"
+          }
+        ]
+      },
+      "doc": {
+        "id": "telvue-1069454",
+        "sha256": "388f32256da81ffdcdd15d5a6e470d61aed8fde32a06a709a1e780ba78a4f452",
+        "file": "telvue-1069454.txt",
+        "source_url": "https://videoplayer.telvue.com/player/yycCAZPb0NN3zj2o5qio-YFMNC43NjCG/media/1069454"
+      }
+    },
     {
       "custom_id": "tr-0",
       "type": "translation",
@@ -56,15 +149,15 @@
     },
     {
       "custom_id": "tr-2",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "recording",
       "older": false,
       "source_hash": "05ee2c072d0ba1f5066c31e1ef6ed14609b7bf2aabbdeaf3511194f2ca55756a",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "City Council Appointments Committee Meeting",
@@ -80,35 +173,13 @@
       "custom_id": "tr-3",
       "type": "review",
       "lang": "es",
-      "kind": "recording",
+      "kind": "minutes",
       "older": false,
-      "source_hash": "31cc6efc68bf27a7520534fcf890b27b2cb535b62f495e7a787c1f84f259e2a2",
+      "source_hash": "1586de6a305d8d2e0654911353138344dcf9b37d9545d512d2b3b33b7d5330ba",
       "model": "claude-sonnet-5-5",
       "prices": {
         "input_price": 2.0,
         "output_price": 10.0
-      },
-      "meeting": {
-        "title": "City Council Legislative Affairs Committee Meeting",
-        "date": "2026-11-17",
-        "body": "City Council Legislative Affairs Committee"
-      },
-      "doc": {
-        "id": "telvue-1068993",
-        "sha256": "ee06e76178e9eba31c20139785e735080a3fa086896b5a4b1b3fec4245118d83"
-      }
-    },
-    {
-      "custom_id": "tr-4",
-      "type": "translation",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "1586de6a305d8d2e0654911353138344dcf9b37d9545d512d2b3b33b7d5330ba",
-      "model": "claude-haiku-5-5",
-      "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
       },
       "meeting": {
         "title": "City Council Meeting",
@@ -121,16 +192,16 @@
       }
     },
     {
-      "custom_id": "tr-5",
-      "type": "translation",
+      "custom_id": "tr-4",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "52cff8f8a0c20255478f28badb2731aa8db01f6b03941e8e8242d3864591687d",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "City Council Public Hearing",
@@ -143,16 +214,16 @@
       }
     },
     {
-      "custom_id": "tr-6",
-      "type": "translation",
+      "custom_id": "tr-5",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "fbd00de7edf112846b557f6c9af1f95ef9651efe5d77717f6d6a442963a9a1b1",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "City Council City Property Committee Meeting",
