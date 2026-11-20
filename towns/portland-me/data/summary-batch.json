@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01CWG7SvbSzhEJCQoeinTRFp",
-  "sent_at": "2026-11-20T00:16:46+00:00",
+  "id": "msgbatch_01EXAjnTQgGjxDCuknJDKRWX",
+  "sent_at": "2026-11-20T00:22:00+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,73 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
-      "meeting": {
-        "title": "Portland Development Corporation",
-        "date": "2026-11-19",
-        "body": "Portland Development Corporation"
+      "source_hash": "7d8f5060f9baca5bb4f0620395a3c6b5abf0ef3e67ba335433caca3c7e83aabe",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
       },
-      "doc": {
-        "id": "civicclerk-20709",
-        "sha256": "dd244b026fffe2b13d5078d5fbfcbe550774c64c5cff6253433f0e0af461cd7c",
-        "file": "civicclerk-20709.pdf",
-        "source_url": "https://portlandme.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=20709,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-1",
-      "kind": "agenda",
-      "older": false,
-      "meeting": {
-        "title": "Portland Fish Pier Authority Board",
-        "date": "2026-11-19",
-        "body": "Portland Fish Pier Authority"
-      },
-      "doc": {
-        "id": "civicclerk-20707",
-        "sha256": "417961c8822ddfb0f8a76a3a083782aa814973c6e9636d9d8331811ef63748f8",
-        "file": "civicclerk-20707.pdf",
-        "source_url": "https://portlandme.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=20707,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-2",
-      "kind": "agenda",
-      "older": false,
-      "meeting": {
-        "title": "Board of Public Education Meeting",
-        "date": "2026-11-24",
-        "body": "Board of Public Education"
-      },
-      "doc": {
-        "id": "diligent-24473-498ddd56",
-        "sha256": "498ddd560bb2d0f347386972293c0a6b9e15d0f086c4cdcfcf570f46cc1ea897",
-        "file": "diligent-24473-498ddd56.pdf",
-        "source_url": "https://portlandschools.community.highbond.com/document/24473/?printPdf=true"
-      }
-    },
-    {
-      "custom_id": "doc-3",
-      "kind": "agenda",
-      "older": false,
-      "meeting": {
-        "title": "CDBG Allocation Committee Meeting",
-        "date": "2026-12-02",
-        "body": "CDBG Allocation Committee"
-      },
-      "doc": {
-        "id": "civicclerk-20706",
-        "sha256": "2f46e671ab49d39fa47578a0094fe77682ae396994676bfc29aac499856df989",
-        "file": "civicclerk-20706.pdf",
-        "source_url": "https://portlandme.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=20706,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-4",
-      "kind": "agenda",
-      "older": false,
       "meeting": {
         "title": "Hybrid Zoning Board of Appeals Meeting",
         "date": "2026-12-03",
@@ -85,74 +29,117 @@
       },
       "doc": {
         "id": "civicclerk-20711",
-        "sha256": "f7347a5c00315a479cb1db83c621a9cfcc636e15491c827c515d97bc3139ef89",
-        "file": "civicclerk-20711.pdf",
-        "source_url": "https://portlandme.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=20711,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-5",
-      "kind": "recording",
-      "older": false,
-      "meeting": {
-        "title": "Hybrid Historic Preservation Board Meeting 11-18-2026",
-        "date": "2026-11-18",
-        "body": "Historic Preservation Board",
-        "agendas": [
-          {
-            "sha256": "f32d9e28804aba74b6ab7a2ce7759d19784014e8cbd493852ad56b690eff8893"
-          }
-        ]
-      },
-      "doc": {
-        "id": "civicclerk-video-8464",
-        "sha256": "2c73969e108888e9734c42a0e4b2f373ef02a8972c456abe430c0d519ce8e2be",
-        "file": "civicclerk-video-8464.txt",
-        "source_url": "https://portlandme.portal.civicclerk.com/event/8464/media"
-      }
-    },
-    {
-      "custom_id": "tr-0",
-      "type": "review",
-      "lang": "es",
-      "kind": "recording",
-      "older": false,
-      "source_hash": "fbce1292467ad3cb71e6fac77f992aec832aa865756825627460f13cc18a1805",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Sustainability & Transportation Committee Meeting",
-        "date": "2026-11-18",
-        "body": "City Council Sustainability and Transportation Committee"
-      },
-      "doc": {
-        "id": "civicclerk-video-8477",
-        "sha256": "64377c6385d95525122dc5bbb38aeaa823ce7cb1a92b97046bffa1e5793be2a0"
+        "sha256": "f7347a5c00315a479cb1db83c621a9cfcc636e15491c827c515d97bc3139ef89"
       }
     },
     {
       "custom_id": "tr-1",
-      "type": "review",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "b59f2e763a46b6cd128f0d4023672c13dfd154a8a946c7e9e0ec06cde922611e",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "CDBG Allocation Committee Meeting",
+        "date": "2026-12-02",
+        "body": "CDBG Allocation Committee"
+      },
+      "doc": {
+        "id": "civicclerk-20706",
+        "sha256": "2f46e671ab49d39fa47578a0094fe77682ae396994676bfc29aac499856df989"
+      }
+    },
+    {
+      "custom_id": "tr-2",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "e71df75d93ca75bc9166e8a3d322d4fdf07d720e465e089710daf36d7fa8ac79",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Board of Public Education Meeting",
+        "date": "2026-11-24",
+        "body": "Board of Public Education"
+      },
+      "doc": {
+        "id": "diligent-24473-498ddd56",
+        "sha256": "498ddd560bb2d0f347386972293c0a6b9e15d0f086c4cdcfcf570f46cc1ea897"
+      }
+    },
+    {
+      "custom_id": "tr-3",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "11d4b7786650689b2a4f90dcb7285e2e6c77feb6f01d4ece8ab62073965ac3ad",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Portland Development Corporation",
+        "date": "2026-11-19",
+        "body": "Portland Development Corporation"
+      },
+      "doc": {
+        "id": "civicclerk-20709",
+        "sha256": "dd244b026fffe2b13d5078d5fbfcbe550774c64c5cff6253433f0e0af461cd7c"
+      }
+    },
+    {
+      "custom_id": "tr-4",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "80d1c26369de22c8c43523f1e5e4442874800cdda9a2132d71bdae0fee7cc666",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Portland Fish Pier Authority Board",
+        "date": "2026-11-19",
+        "body": "Portland Fish Pier Authority"
+      },
+      "doc": {
+        "id": "civicclerk-20707",
+        "sha256": "417961c8822ddfb0f8a76a3a083782aa814973c6e9636d9d8331811ef63748f8"
+      }
+    },
+    {
+      "custom_id": "tr-5",
+      "type": "translation",
       "lang": "es",
       "kind": "recording",
       "older": false,
-      "source_hash": "777d58a79396c95c1a5781fb2180048d6596c95a3881a554d6cf15f390d4dc0e",
-      "model": "claude-sonnet-5-5",
+      "source_hash": "6c5a3987ef9393897674973e9ac7184718fd2fdb49ff5ebcf6e4530d4899318e",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
-        "title": "Board of Public Education Policy Committee Meeting",
+        "title": "Hybrid Historic Preservation Board Meeting 11-18-2026",
         "date": "2026-11-18",
-        "body": "Board of Public Education Policy Committee"
+        "body": "Historic Preservation Board"
       },
       "doc": {
-        "id": "youtube-b7qFGGf9_Tg",
-        "sha256": "ed93f880a93058af2df67de81b580ef7e43e3d7acdc8a3e31cda44785532e4cd"
+        "id": "civicclerk-video-8464",
+        "sha256": "2c73969e108888e9734c42a0e4b2f373ef02a8972c456abe430c0d519ce8e2be"
       }
     }
   ]
