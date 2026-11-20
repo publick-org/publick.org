@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01PbBseEk4DmvZDpWhm2Xsvs",
-  "sent_at": "2026-11-20T00:22:05+00:00",
+  "id": "msgbatch_01YYjww24Tztwaz4kohhk6ua",
+  "sent_at": "2026-11-20T20:37:16+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,16 +11,64 @@
   },
   "documents": [
     {
+      "custom_id": "doc-0",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "Planning Board Meeting",
+        "date": "2026-11-24",
+        "body": "Planning Board"
+      },
+      "doc": {
+        "id": "5499-202611201433",
+        "sha256": "675f610b4e72815d4b4e1319ce2006ae5eef713c1b98cb3f2b2e62d9072e8a62",
+        "file": "5499-202611201433.pdf",
+        "source_url": "https://www.fitchburgma.gov/AgendaCenter/ViewFile/Agenda/_11242026-5499"
+      }
+    },
+    {
+      "custom_id": "doc-1",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "School Committee Building Needs and Resource Committee Meeting",
+        "date": "2026-11-24",
+        "body": "School Committee Building Needs and Resource Committee"
+      },
+      "doc": {
+        "id": "5498-202611200840",
+        "sha256": "debe002a6399aa49c83ac52e89b118a49997e935ee9dbaabaa96441fc1e8d54c",
+        "file": "5498-202611200840.pdf",
+        "source_url": "https://www.fitchburgma.gov/AgendaCenter/ViewFile/Agenda/_11242026-5498"
+      }
+    },
+    {
+      "custom_id": "doc-2",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "Cultural Council Meeting",
+        "date": "2026-12-03",
+        "body": "Cultural Council"
+      },
+      "doc": {
+        "id": "5497-202611200831",
+        "sha256": "d8e97e7858d6ddf88b01e85d7818919b001a4269f9c891e4b0037949537713b0",
+        "file": "5497-202611200831.pdf",
+        "source_url": "https://www.fitchburgma.gov/AgendaCenter/ViewFile/Agenda/_12032026-5497"
+      }
+    },
+    {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "7b226c3d4a6f012e5f0ee17b992258c71764db2bd813b59f10e048d71d7fb6a2",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Zoning Board of Appeals Meeting",
@@ -34,15 +82,15 @@
     },
     {
       "custom_id": "tr-1",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "6750112f4512e1262317430bc6deb8dddcebe4c42969390d672f0f302d002c06",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "City Council Finance Committee Meeting",
@@ -56,15 +104,15 @@
     },
     {
       "custom_id": "tr-2",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "46f57ad4f842f91d34a50c2fda3da40d39c328c789ca991031cde719be78bc6f",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Retirement Board Meeting",
@@ -78,15 +126,15 @@
     },
     {
       "custom_id": "tr-3",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "recording",
       "older": false,
       "source_hash": "23f2170ebfbd571081efe38459df9977cc634c7192b249f3a2a1b0700b061168",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Trustees of Public Burial Grounds Meeting",
@@ -118,28 +166,6 @@
       "doc": {
         "id": "telvue-1069454",
         "sha256": "388f32256da81ffdcdd15d5a6e470d61aed8fde32a06a709a1e780ba78a4f452"
-      }
-    },
-    {
-      "custom_id": "tr-5",
-      "type": "review",
-      "lang": "es",
-      "kind": "recording",
-      "older": false,
-      "source_hash": "1a94d10959d477f4ca71b66793602334b0aa54568a93d27d4a64008ce48019f1",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Water & Wastewater Commission Meeting",
-        "date": "2026-11-18",
-        "body": "Water & Wastewater Commission"
-      },
-      "doc": {
-        "id": "telvue-1069244",
-        "sha256": "cc8eef4afad6bb5c506a9d6339e2b6d2e434930ad19b3dcf5d2733babdcc3119"
       }
     }
   ]
