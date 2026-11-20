@@ -1,8 +1,8 @@
 {
   "town": "lowell",
   "folder": "lowell-ma",
-  "started_at": "2026-11-20T00:14:41+00:00",
-  "finished_at": "2026-11-20T00:18:21+00:00",
+  "started_at": "2026-11-20T13:28:24+00:00",
+  "finished_at": "2026-11-20T13:31:34+00:00",
   "engine": "v1.111.1",
   "fetched": true,
   "steps": [
@@ -10,37 +10,31 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 61.5
+      "seconds": 20.4
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 122.1
+      "seconds": 122.9
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 31.6
+      "seconds": 36.9
     },
     {
       "name": "Publish site",
-      "ok": true,
-      "error": null,
-      "seconds": 3.5
-    },
-    {
-      "name": "Check live site",
-      "ok": true,
-      "error": null,
-      "seconds": 1.1
+      "ok": false,
+      "error": "exited with status 1",
+      "seconds": 9.6
     }
   ],
   "update": {
     "town": "lowell",
     "sources": "meetings",
-    "started_at": "2026-11-20T00:14:42+00:00",
+    "started_at": "2026-11-20T13:28:25+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +42,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 11.7,
+        "seconds": 1.8,
         "cadence": "continuous"
       },
       {
@@ -154,7 +148,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 22.5,
+        "seconds": 15.8,
         "cadence": "continuous"
       },
       {
@@ -164,7 +158,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 8 days ago; checked every 30 days"
+        "skipped": "checked 9 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -173,7 +167,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 2 days ago; checked every 7 days"
+        "skipped": "checked 3 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -182,7 +176,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 8 days ago; checked every 30 days"
+        "skipped": "checked 9 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -191,15 +185,16 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 8 days ago; checked every 30 days"
+        "skipped": "checked 9 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 24.6,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -231,7 +226,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -249,7 +244,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-19T19:14:42-05:00",
+      "updated_at": "2026-11-20T08:28:25-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -335,7 +330,7 @@
     }
   ],
   "failing": [],
-  "deployed": true,
+  "deployed": false,
   "corrections": [
     "Correction for City Council 2026-10-27: \"A letter opposing that use was approved.\" isn't in its summaries any more, so it isn't shown. Remove it, or check it again.",
     "Correction for Planning Board 2026-11-02: \"Protected Boulevard\" isn't in its summaries any more, so it isn't shown. Remove it, or check it again.",
@@ -345,10 +340,10 @@
     "Correction for City Council 2026-11-03: \"57 Weir Street\" isn't in its summaries any more, so it isn't shown. Remove it, or check it again.",
     "Correction for License Commission 2026-11-05: its recording summary was made again after the correction was checked on 2026-11-09, so it isn't shown. Check it again."
   ],
-  "ok": true,
+  "ok": false,
   "last_good_at": "2026-11-20T00:23:45+00:00",
-  "data_bytes": 3046242,
-  "data_bytes_added": 8584,
+  "data_bytes": 3092620,
+  "data_bytes_added": 6313,
   "activity": {
     "boards": 40,
     "meetings_by_date": {
@@ -357,19 +352,19 @@
     }
   },
   "fact_checks": {
-    "summaries": 143,
-    "ok": 119,
-    "failed": 21,
+    "summaries": 146,
+    "ok": 121,
+    "failed": 22,
     "weak": 2,
     "unchecked": 1,
     "not_yet": 0,
-    "held_back": 21,
+    "held_back": 22,
     "entries_not_shown": 24,
     "vote_counts_left_out": 146
   },
   "recordings": {
-    "since": "2026-11-12",
-    "until": "2026-11-18",
+    "since": "2026-11-13",
+    "until": "2026-11-19",
     "held": 2,
     "next_day": 2,
     "steps": {
@@ -409,15 +404,13 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-19T18:40:10-05:00",
+    "at": "2026-11-20T08:25:02-05:00",
     "refused": 0,
     "transcribed": 1,
-    "last_transcribed_at": "2026-11-19T18:40:10-05:00"
+    "last_transcribed_at": "2026-11-20T08:25:02-05:00"
   },
   "officials": {
     "checked_at": "2026-11-14T04:14:04-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-20T00:23:45+00:00",
-  "published_engine": "v1.111.1"
+  }
 }
