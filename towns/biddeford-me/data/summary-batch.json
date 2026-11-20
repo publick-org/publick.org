@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_018WfMSer4STnxJZ7mXSLNJs",
-  "sent_at": "2026-11-19T13:40:57+00:00",
+  "id": "msgbatch_019RQgyc7apjNSQ8wejFVTd4",
+  "sent_at": "2026-11-20T05:42:20+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,16 +11,72 @@
   },
   "documents": [
     {
+      "custom_id": "doc-0",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "Veterans Committee Meeting",
+        "date": "2026-11-23",
+        "body": "Veterans Committee"
+      },
+      "doc": {
+        "id": "civicclerk-10116",
+        "sha256": "92f3f52e0155c5c45fdc3fb0b8df064afab59e84fa588ed847a39be0bcac37a9",
+        "file": "civicclerk-10116.pdf",
+        "source_url": "https://biddefordme.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=10116,plainText=false)"
+      }
+    },
+    {
+      "custom_id": "doc-1",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "Traffic Committee Meeting (Live)",
+        "date": "2026-11-24",
+        "body": "Traffic Committee"
+      },
+      "doc": {
+        "id": "civicclerk-10111",
+        "sha256": "970490249865d42510a5a0f3019480c81306e93d202451634caaf401b024e329",
+        "file": "civicclerk-10111.pdf",
+        "source_url": "https://biddefordme.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=10111,plainText=false)"
+      }
+    },
+    {
+      "custom_id": "doc-2",
+      "kind": "recording",
+      "older": false,
+      "meeting": {
+        "title": "Capital Projects / Operations Committee Meeting (Live)",
+        "date": "2026-11-19",
+        "body": "Capital Projects / Operations Committee",
+        "agendas": [
+          {
+            "sha256": "dfd9c633ba6634298cd5617f172e3e62a7a0bc3f92f0ac7287eb6e54a8004956"
+          },
+          {
+            "sha256": "aea7c720d1447f111f22f83ad44590ce47dd5de571bd1125fb0cbe6c392e6805"
+          }
+        ]
+      },
+      "doc": {
+        "id": "civicclerk-video-4933",
+        "sha256": "45c74a8c92d62077285731353b2e75aeb27e57499d15fb0e92a32148aa9b0288",
+        "file": "civicclerk-video-4933.txt",
+        "source_url": "https://biddefordme.portal.civicclerk.com/event/4933/media"
+      }
+    },
+    {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "recording",
       "older": false,
       "source_hash": "1eef6f352450e1e5c73c7ab83feab4f2a3cd6cf68aeb6fa0037166c642b24d86",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Planning Board Meeting (Live)",
@@ -34,15 +90,15 @@
     },
     {
       "custom_id": "tr-1",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "recording",
       "older": false,
       "source_hash": "39f1dbfeece64b593d6fc0235b847952a80a63f66218ede1b68fd1a742382c1a",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "School Committee Meeting",
