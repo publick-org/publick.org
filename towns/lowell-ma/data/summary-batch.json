@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01QnFc4Cj2AkbTTmP4DAPxHb",
-  "sent_at": "2026-11-21T09:23:19+00:00",
+  "id": "msgbatch_01TPmP8dZQBCKT5bp7fbDhYg",
+  "sent_at": "2026-11-21T09:33:31+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,9 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
+      "source_hash": "750851b15b0ecc7a090de119f74163fb12376f0a16a507a47386a6c819cd022b",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "City Council Meeting",
         "date": "2026-11-24",
@@ -21,60 +29,20 @@
       },
       "doc": {
         "id": "4102-202611201152",
-        "sha256": "97541e7159713af89648cf8dbfb2ab9bcd79931db1aab78dfbaf326d77d8b779",
-        "file": "4102-202611201152.pdf",
-        "source_url": "https://www.lowellma.gov/AgendaCenter/ViewFile/Agenda/_11242026-4102"
-      }
-    },
-    {
-      "custom_id": "doc-1",
-      "kind": "minutes",
-      "older": false,
-      "meeting": {
-        "title": "Historic Board Meeting",
-        "date": "2026-10-19",
-        "body": "Historic Board"
-      },
-      "doc": {
-        "id": "agendacenter-4070",
-        "sha256": "ef5474a1e847f06f80bc96cc96851fe3aba22ba2053707dc909eb14060e29696",
-        "file": "agendacenter-4070.pdf",
-        "source_url": "https://www.lowellma.gov/AgendaCenter/ViewFile/Minutes/_10192026-4070"
-      }
-    },
-    {
-      "custom_id": "tr-0",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "5465004437b8e8ee76b18c44be4ea08c507c7d434289a7513675be3e38edb122",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Affordable Housing Trust Meeting",
-        "date": "2026-11-23",
-        "body": "Affordable Housing Trust"
-      },
-      "doc": {
-        "id": "4107-202611191313",
-        "sha256": "a3b5903e07062d1893bc01886e0764225672c8e9883a4e5fcb5542ede5b27f29"
+        "sha256": "97541e7159713af89648cf8dbfb2ab9bcd79931db1aab78dfbaf326d77d8b779"
       }
     },
     {
       "custom_id": "tr-1",
-      "type": "review",
+      "type": "translation",
       "lang": "es",
       "kind": "recording",
       "older": false,
       "source_hash": "8f7a40cd9727de628a48e20df0e529257d5493f2b5de3e5884f27c6cb17f5705",
-      "model": "claude-sonnet-5-5",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
         "title": "School Building Committee Meeting",
@@ -88,24 +56,24 @@
     },
     {
       "custom_id": "tr-2",
-      "type": "review",
+      "type": "translation",
       "lang": "es",
-      "kind": "recording",
+      "kind": "minutes",
       "older": false,
-      "source_hash": "a1eeab392355154f97cb2b35ddfedc6b4e6cc9b3fa57ccc577a1c295681233ec",
-      "model": "claude-sonnet-5-5",
+      "source_hash": "2280d1b1da72bc8b91740da067cc8538a68057aeb84213007b77f87d95b5fa69",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
-        "title": "Board of Health Meeting",
-        "date": "2026-11-04",
-        "body": "Board of Health"
+        "title": "Historic Board Meeting",
+        "date": "2026-10-19",
+        "body": "Historic Board"
       },
       "doc": {
-        "id": "youtube-APnFpEg7QZ0",
-        "sha256": "087d7aa31615a6b5c1651fa69299ca25b15ee4804d4f7dc1605315395d03d9a0"
+        "id": "agendacenter-4070",
+        "sha256": "ef5474a1e847f06f80bc96cc96851fe3aba22ba2053707dc909eb14060e29696"
       }
     }
   ]
