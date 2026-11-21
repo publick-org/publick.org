@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01FKLffos5Yq6qJ4UGnrZYrD",
-  "sent_at": "2026-11-21T09:17:36+00:00",
+  "id": "msgbatch_01BEoccTtvadCNTH4drRyRAA",
+  "sent_at": "2026-11-21T09:27:07+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,9 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
+      "source_hash": "85f945969983c8b05ce752964ded457a988d0e23438ae545dad6edda4c70b2b0",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Diversity Council",
         "date": "2026-11-24",
@@ -21,75 +29,7 @@
       },
       "doc": {
         "id": "civicclerk-13996",
-        "sha256": "fd7296e9f024105e0a6e7b9652726112762c178f2ba080f0c04d656582f7b1c3",
-        "file": "civicclerk-13996.pdf",
-        "source_url": "https://bristolct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=13996,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "tr-0",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "85aa521436b4a6b07cf925a81e166931a2865ad420729be13e5661ebf7d7a49a",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Planning Commission",
-        "date": "2026-11-23",
-        "body": "Planning Commission"
-      },
-      "doc": {
-        "id": "civicclerk-13990",
-        "sha256": "a7b172f398c512be394ddc96acdbf69986869098c2aa715ffc626cda440588ba"
-      }
-    },
-    {
-      "custom_id": "tr-1",
-      "type": "review",
-      "lang": "es",
-      "kind": "recording",
-      "older": false,
-      "source_hash": "088f326b83ec020d28a483d674b3179f232e675eadfd03b64b6413cbf320b25c",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Board of Education Finance and Operations Committee Special Meeting",
-        "date": "2026-11-18",
-        "body": "Board of Education Finance and Operations Committee"
-      },
-      "doc": {
-        "id": "youtube-M2LdiSP2o_U",
-        "sha256": "665ed8f35a8a7a5718adb0b9a2e31fe7c165569d9fc0f90b0382c33f41818b36"
-      }
-    },
-    {
-      "custom_id": "tr-2",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "a89ebe9b602f46b26aa902a4c007773f411c3cda5b4e7fde7642559ae7b91add",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Real Estate Committee - PUBLIC HEARING",
-        "date": "2026-11-10",
-        "body": "Real Estate Committee"
-      },
-      "doc": {
-        "id": "civicclerk-13995",
-        "sha256": "80e623d1a5e25f0f2961f2232ec14371967fc58e677d67c92621c409f5795a2b"
+        "sha256": "fd7296e9f024105e0a6e7b9652726112762c178f2ba080f0c04d656582f7b1c3"
       }
     }
   ]
