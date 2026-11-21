@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01WRUeVq54G1C3rEqzFGxBFN",
-  "sent_at": "2026-11-21T09:14:08+00:00",
+  "id": "msgbatch_01LyNDWqGMQr6AXwEWYAUZQc",
+  "sent_at": "2026-11-21T09:25:41+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,25 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
-      "meeting": {
-        "title": "Special Meeting - Setting the FY27 Tax Rate",
-        "date": "2026-11-24",
-        "body": "City Council"
+      "source_hash": "57cd044a9f72f4cf87f2d79cd76f740fd8eb9cc9ed3d71dd3a1b80d10c1a21c8",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
       },
-      "doc": {
-        "id": "civicclerk-24813",
-        "sha256": "9fcede93bea1eaed335345906fa9e0fc86deff946ef4802964afca81d4da6ec1",
-        "file": "civicclerk-24813.pdf",
-        "source_url": "https://springfieldma.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=24813,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-1",
-      "kind": "agenda",
-      "older": false,
       "meeting": {
         "title": "Special Meeting - Setting the FY27 Tax Rate",
         "date": "2026-11-25",
@@ -37,15 +29,43 @@
       },
       "doc": {
         "id": "civicclerk-24815",
-        "sha256": "17b6f8ab1dcef17886478fce58ae389bf85648bea5df2b2b74641b2680f0cc91",
-        "file": "civicclerk-24815.pdf",
-        "source_url": "https://springfieldma.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=24815,plainText=false)"
+        "sha256": "17b6f8ab1dcef17886478fce58ae389bf85648bea5df2b2b74641b2680f0cc91"
       }
     },
     {
-      "custom_id": "doc-2",
+      "custom_id": "tr-1",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "f76863998a6f2cb843a1dcebbfed894780e383bbde01a8f92031794058521da5",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Special Meeting - Setting the FY27 Tax Rate",
+        "date": "2026-11-24",
+        "body": "City Council"
+      },
+      "doc": {
+        "id": "civicclerk-24813",
+        "sha256": "9fcede93bea1eaed335345906fa9e0fc86deff946ef4802964afca81d4da6ec1"
+      }
+    },
+    {
+      "custom_id": "tr-2",
+      "type": "translation",
+      "lang": "es",
       "kind": "minutes",
       "older": false,
+      "source_hash": "2aaa1f8c4431fddad92a9fed6979695b2c0f3c595bbc8ba66435e986bb5ce9f8",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "City Council Regular Meeting",
         "date": "2026-11-16",
@@ -53,97 +73,7 @@
       },
       "doc": {
         "id": "civicclerk-24806",
-        "sha256": "cee8bb0ee8324429b543334b4584895130531b78885900560973459acb1b2eed",
-        "file": "civicclerk-24806.pdf",
-        "source_url": "https://springfieldma.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=24806,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "tr-0",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "623bf776b308385bed67d876bb02f9ac7b4a0349b705a7ac05925ce0b5134af7",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Planning Board",
-        "date": "2026-12-02",
-        "body": "Planning Board"
-      },
-      "doc": {
-        "id": "civicclerk-24809",
-        "sha256": "04c15ede9a7b12fa74ab0653a8919ae4fb4fd3024561350c4b6f9a84fed9f614"
-      }
-    },
-    {
-      "custom_id": "tr-1",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "72d8b02d97f30e32dfc01e66d9b27fc3962b9d62e43bf0b35c73536265bb23ce",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "City Council Hearings Meeting",
-        "date": "2026-11-23",
-        "body": "City Council Hearings"
-      },
-      "doc": {
-        "id": "civicclerk-24810",
-        "sha256": "e73886e95ba0e628a0afb897ded2a5f883079f3baae73e45fc61a05e2050623c"
-      }
-    },
-    {
-      "custom_id": "tr-2",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "937a70b3ef3824c81587f6eb874afe0b8f8a665c0dc450700cddf297f4640180",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Planning Board",
-        "date": "2026-11-18",
-        "body": "Planning Board"
-      },
-      "doc": {
-        "id": "civicclerk-24808",
-        "sha256": "41b44ef537fd642ead50f70793230c28b99c5da295e23aa6970611a18d133fb1"
-      }
-    },
-    {
-      "custom_id": "tr-3",
-      "type": "review",
-      "lang": "es",
-      "kind": "recording",
-      "older": false,
-      "source_hash": "f1b3da546c8379152c90443a5e9a9edbfdd2a1007bedd27c0939071630ec4513",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Public Safety Committee Meeting",
-        "date": "2026-11-17",
-        "body": "Public Safety Committee"
-      },
-      "doc": {
-        "id": "youtube-yd7Z6ztNveM",
-        "sha256": "1583654043a48ac6685bf900270845b8186b43610e155302f8b5c1aafb1a383b"
+        "sha256": "cee8bb0ee8324429b543334b4584895130531b78885900560973459acb1b2eed"
       }
     }
   ]
