@@ -1,8 +1,8 @@
 {
   "town": "lowell",
   "folder": "lowell-ma",
-  "started_at": "2026-11-20T13:28:24+00:00",
-  "finished_at": "2026-11-20T13:31:34+00:00",
+  "started_at": "2026-11-21T09:22:44+00:00",
+  "finished_at": "2026-11-21T09:26:28+00:00",
   "engine": "v1.111.1",
   "fetched": true,
   "steps": [
@@ -10,25 +10,25 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 20.4
+      "seconds": 48.2
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 123.3
+      "seconds": 121.0
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 35.5
+      "seconds": 30.3
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 11.9
+      "seconds": 24.2
     },
     {
       "name": "Check live site",
@@ -39,8 +39,8 @@
   ],
   "update": {
     "town": "lowell",
-    "sources": "meetings",
-    "started_at": "2026-11-20T13:28:25+00:00",
+    "sources": "all",
+    "started_at": "2026-11-21T09:22:44+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.8,
+        "seconds": 6.0,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.9,
+        "seconds": 5.5,
         "cadence": "continuous"
       },
       {
@@ -154,7 +154,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 15.8,
+        "seconds": 26.3,
         "cadence": "continuous"
       },
       {
@@ -173,7 +173,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 3 days ago; checked every 7 days"
+        "skipped": "checked 4 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -200,14 +200,14 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -215,7 +215,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -232,7 +232,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 9.2,
         "cadence": "continuous"
       },
       {
@@ -242,6 +242,33 @@
         "error": null,
         "seconds": 0.3,
         "cadence": "continuous"
+      },
+      {
+        "name": "Fetch 311 requests",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [seeclickfix] in the config"
+      },
+      {
+        "name": "Fetch 311 requests from an open data portal",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [socrata_311] in the config"
+      },
+      {
+        "name": "Compute 311 scorecard",
+        "ok": true,
+        "required": true,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [seeclickfix] or [socrata_311] in the config"
       }
     ]
   },
@@ -250,7 +277,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-20T08:28:25-05:00",
+      "updated_at": "2026-11-21T04:22:44-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -347,19 +374,19 @@
     "Correction for License Commission 2026-11-05: its recording summary was made again after the correction was checked on 2026-11-09, so it isn't shown. Check it again."
   ],
   "ok": true,
-  "last_good_at": "2026-11-20T13:37:30+00:00",
-  "data_bytes": 3092620,
-  "data_bytes_added": 6313,
+  "last_good_at": "2026-11-21T09:26:28+00:00",
+  "data_bytes": 3101205,
+  "data_bytes_added": 6338,
   "activity": {
     "boards": 40,
     "meetings_by_date": {
       "2026-11-23": 2,
-      "2026-11-24": 1
+      "2026-11-24": 2
     }
   },
   "fact_checks": {
-    "summaries": 146,
-    "ok": 121,
+    "summaries": 147,
+    "ok": 122,
     "failed": 22,
     "weak": 2,
     "unchecked": 1,
@@ -369,8 +396,8 @@
     "vote_counts_left_out": 146
   },
   "recordings": {
-    "since": "2026-11-13",
-    "until": "2026-11-19",
+    "since": "2026-11-14",
+    "until": "2026-11-20",
     "held": 2,
     "next_day": 2,
     "steps": {
@@ -387,8 +414,8 @@
     "misses": []
   },
   "documents": {
-    "since": "2026-08-22",
-    "until": "2026-11-19",
+    "since": "2026-08-23",
+    "until": "2026-11-20",
     "held": 90,
     "boards": 28,
     "counts": {
@@ -410,15 +437,13 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-20T08:25:02-05:00",
+    "at": "2026-11-21T02:25:05-05:00",
     "refused": 0,
-    "transcribed": 1,
+    "transcribed": 0,
     "last_transcribed_at": "2026-11-20T08:25:02-05:00"
   },
   "officials": {
-    "checked_at": "2026-11-14T04:14:04-05:00",
+    "checked_at": "2026-11-21T04:23:23-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-20T13:37:30+00:00",
-  "published_engine": "v1.111.1"
+  }
 }
