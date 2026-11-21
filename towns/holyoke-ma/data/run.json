@@ -1,8 +1,8 @@
 {
   "town": "holyoke",
   "folder": "holyoke-ma",
-  "started_at": "2026-11-20T09:11:56+00:00",
-  "finished_at": "2026-11-20T09:16:52+00:00",
+  "started_at": "2026-11-21T09:12:51+00:00",
+  "finished_at": "2026-11-21T09:19:29+00:00",
   "engine": "v1.111.1",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 214.4
+      "seconds": 287.7
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 25.0
+      "seconds": 26.7
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 44.7
+      "seconds": 52.1
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 5.9
+      "seconds": 29.7
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.6
+      "seconds": 1.0
     }
   ],
   "update": {
     "town": "holyoke",
     "sources": "all",
-    "started_at": "2026-11-20T09:11:57+00:00",
+    "started_at": "2026-11-21T09:12:52+00:00",
     "ok": true,
     "steps": [
       {
@@ -127,7 +127,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 156.9,
+        "seconds": 163.0,
         "cadence": "continuous"
       },
       {
@@ -153,7 +153,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 45.9,
+        "seconds": 112.0,
         "cadence": "continuous"
       },
       {
@@ -163,7 +163,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 2 days ago; checked every 30 days"
+        "skipped": "checked 3 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -172,7 +172,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 2 days ago; checked every 7 days"
+        "skipped": "checked 3 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -181,7 +181,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 2 days ago; checked every 30 days"
+        "skipped": "checked 3 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -190,7 +190,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch housing figures",
@@ -199,7 +199,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 2 days ago; checked every 7 days"
+        "skipped": "checked 3 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -247,7 +247,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 7.8,
+        "seconds": 8.4,
         "cadence": "continuous"
       },
       {
@@ -264,7 +264,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 1.0,
+        "seconds": 1.2,
         "cadence": "continuous"
       }
     ]
@@ -274,21 +274,21 @@
     {
       "label": "Meetings (city website)",
       "file": "meetings/proudcity_status.json",
-      "updated_at": "2026-11-20T04:11:58-05:00",
+      "updated_at": "2026-11-21T04:12:53-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-20T04:15:22-05:00",
+      "updated_at": "2026-11-21T04:17:30-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-20T04:15:30-05:00",
+      "updated_at": "2026-11-21T04:17:38-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -378,29 +378,29 @@
   "corrections": [],
   "ok": true,
   "last_good_at": null,
-  "data_bytes": 2877479,
-  "data_bytes_added": 1070034,
+  "data_bytes": 3411917,
+  "data_bytes_added": 1121584,
   "activity": {
-    "boards": 40,
+    "boards": 44,
     "meetings_by_date": {
       "2026-11-23": 2,
-      "2026-11-24": 2
+      "2026-11-24": 3
     }
   },
   "fact_checks": {
-    "summaries": 119,
-    "ok": 81,
-    "failed": 4,
-    "weak": 1,
-    "unchecked": 33,
+    "summaries": 157,
+    "ok": 134,
+    "failed": 6,
+    "weak": 3,
+    "unchecked": 14,
     "not_yet": 0,
-    "held_back": 4,
-    "entries_not_shown": 2,
-    "vote_counts_left_out": 10
+    "held_back": 6,
+    "entries_not_shown": 5,
+    "vote_counts_left_out": 16
   },
   "recordings": {
-    "since": "2026-11-13",
-    "until": "2026-11-19",
+    "since": "2026-11-14",
+    "until": "2026-11-20",
     "held": 1,
     "next_day": 0,
     "steps": {
@@ -424,8 +424,8 @@
     ]
   },
   "documents": {
-    "since": "2026-08-22",
-    "until": "2026-11-19",
+    "since": "2026-08-23",
+    "until": "2026-11-20",
     "held": 109,
     "boards": 35,
     "counts": {
@@ -477,14 +477,14 @@
     "beside": [],
     "waiting": {
       "proudcity_status": {
-        "count": 222,
+        "count": 184,
         "unit": "meetings"
       }
     },
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-20T02:24:08-05:00",
+    "at": "2026-11-21T02:23:59-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-18T12:25:37-05:00"
@@ -492,7 +492,5 @@
   "officials": {
     "checked_at": "2026-11-17T13:41:33-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-20T09:34:04+00:00",
-  "published_engine": "v1.111.1"
+  }
 }
