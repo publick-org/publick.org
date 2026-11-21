@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01Rnacv8t2pCa7jShFd3hvR4",
-  "sent_at": "2026-11-20T10:03:48+00:00",
+  "id": "msgbatch_01S8JgKn9XwD41VEMKypPwGt",
+  "sent_at": "2026-11-21T09:13:57+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,16 +11,32 @@
   },
   "documents": [
     {
+      "custom_id": "doc-0",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "Legislative Council Make-up & Workshop Meeting 3/2/26",
+        "date": "2026-11-23",
+        "body": "Legislative Council"
+      },
+      "doc": {
+        "id": "civicclerk-14392",
+        "sha256": "c1da6a7657dd80bf3422dccdfca76ff71a54f57a78d85a0a6e5db3300da693c0",
+        "file": "civicclerk-14392.pdf",
+        "source_url": "https://hamdenct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=14392,plainText=false)"
+      }
+    },
+    {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "a70597ee96513cb9d9a6706d934f52258b07054dec6eee8a1caf65e0e260f1dd",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Legislative Council 1st Regular Monthly Meeting of November",
@@ -34,15 +50,15 @@
     },
     {
       "custom_id": "tr-1",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "c58973e3dba773256fcfcbf9fdce406e8802cd8aefab954d9bef8560c512e189",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Legislative Council Regular Meeting with Committees - Nov 9",
@@ -56,15 +72,15 @@
     },
     {
       "custom_id": "tr-2",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "012ba115e6d48c1b9cc93034c199ef531ac009ce3ce75195b3ee55bf204a096f",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Legislative Council 2nd Regular Monthly Meeting",
@@ -78,15 +94,15 @@
     },
     {
       "custom_id": "tr-3",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "6bef72bede19d94c2dbc791171fd99d557a98c22ce5b6c77dba41b7c29910abe",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "LC Human Services Committee Regular Meeting - October 19",
@@ -100,15 +116,15 @@
     },
     {
       "custom_id": "tr-4",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "67f78d472ccc793eff91958525d5a22527469041df5cae3b102ba47d7a8e7f46",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "LC Public Safety Committee Regular Meeting - October 19",
@@ -122,15 +138,15 @@
     },
     {
       "custom_id": "tr-5",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "6809f196c44733176391b87e71732ac7d0267cd0a4e7c30eb01632307a18c030",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "LC Administration & Settlement Committee - Sept 28",
@@ -140,28 +156,6 @@
       "doc": {
         "id": "civicclerk-14355",
         "sha256": "9d649f7c75e2ea6e204bdf2b3fe9bb5983ea861bd54884265dd5becb27f85832"
-      }
-    },
-    {
-      "custom_id": "tr-6",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "0b1776febf5e60afc4de9957c7867d8366cb911fbdc250d2b0c7ba90d56165ce",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "LC Human Services Committee - Sept 28",
-        "date": "2026-09-28",
-        "body": "Legislative Council Human Services Committee"
-      },
-      "doc": {
-        "id": "civicclerk-14357",
-        "sha256": "c9b1f3e1f701c85500817ee511510125f86ad2eb8de981b1c202d2ebbe1559ce"
       }
     }
   ]
