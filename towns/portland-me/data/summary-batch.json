@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_012s5DyPwUVhjEYTLYnQc1Ez",
-  "sent_at": "2026-11-21T12:09:23+00:00",
+  "id": "msgbatch_01Pnyt9gVMoZuGbU3Q3wqnQL",
+  "sent_at": "2026-11-21T12:14:25+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,9 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
+      "source_hash": "d4146a934cb88bb79433bbc76bb4e07550946ace4fcf7a1c914d9b52d7097550",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Board of Public Education Meeting",
         "date": "2026-11-24",
@@ -21,38 +29,20 @@
       },
       "doc": {
         "id": "diligent-24473-a272d53b",
-        "sha256": "a272d53b677f49268f17ed98b41c56c5c14b12177902430481b545284ba9b4a4",
-        "file": "diligent-24473-a272d53b.pdf",
-        "source_url": "https://portlandschools.community.highbond.com/document/24473/?printPdf=true"
+        "sha256": "a272d53b677f49268f17ed98b41c56c5c14b12177902430481b545284ba9b4a4"
       }
     },
     {
-      "custom_id": "doc-1",
-      "kind": "minutes",
-      "older": false,
-      "meeting": {
-        "title": "Hybrid Zoning Board of Appeals Meeting",
-        "date": "2026-11-19",
-        "body": "Zoning Board of Appeals"
-      },
-      "doc": {
-        "id": "civicclerk-20713",
-        "sha256": "8cf100e548e6ef73a6c8878efc6e80e5051cba8d8fba2924d31d4653b4a1cce3",
-        "file": "civicclerk-20713.pdf",
-        "source_url": "https://portlandme.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=20713,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "tr-0",
-      "type": "review",
+      "custom_id": "tr-1",
+      "type": "translation",
       "lang": "es",
       "kind": "recording",
       "older": false,
       "source_hash": "d0699de9627d4729f7ae084b61d05592b842220af8939665b57dbb6f4b004b0b",
-      "model": "claude-sonnet-5-5",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
         "title": "Portland Development Corporation",
@@ -65,16 +55,16 @@
       }
     },
     {
-      "custom_id": "tr-1",
-      "type": "review",
+      "custom_id": "tr-2",
+      "type": "translation",
       "lang": "es",
       "kind": "recording",
       "older": false,
       "source_hash": "5ee568ce922525895b68c7de607241961d0253d4d12cadac06e5d29b61c29e89",
-      "model": "claude-sonnet-5-5",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
         "title": "Portland Fish Pier Authority Board",
@@ -87,25 +77,25 @@
       }
     },
     {
-      "custom_id": "tr-2",
-      "type": "review",
+      "custom_id": "tr-3",
+      "type": "translation",
       "lang": "es",
-      "kind": "agenda",
+      "kind": "minutes",
       "older": false,
-      "source_hash": "ec364fb3a178d1b90cd210672fb1156e2bb5a4a371fcf7f09ba1c1838df80a82",
-      "model": "claude-sonnet-5-5",
+      "source_hash": "752d562004d74a065644bd36b4b5cbd5adeadd8651ba00c60939fd25b0354716",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
-        "title": "Peaks Island",
-        "date": "2026-11-18",
-        "body": "Peaks Island Council"
+        "title": "Hybrid Zoning Board of Appeals Meeting",
+        "date": "2026-11-19",
+        "body": "Zoning Board of Appeals"
       },
       "doc": {
-        "id": "civicclerk-20676",
-        "sha256": "66d3d35d8e2b3fc6ef4d8d2bfc6c6ffbb73a23f9c3c6c6a77ac7c24a24b43c03"
+        "id": "civicclerk-20713",
+        "sha256": "8cf100e548e6ef73a6c8878efc6e80e5051cba8d8fba2924d31d4653b4a1cce3"
       }
     }
   ]
