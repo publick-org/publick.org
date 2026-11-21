@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01YLN8ZxxsQZ6eM6Asm4jYfq",
-  "sent_at": "2026-11-21T09:25:04+00:00",
+  "id": "msgbatch_016BRT7Q2GtK2KqJv955JfsM",
+  "sent_at": "2026-11-21T09:38:40+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,9 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "minutes",
       "older": false,
+      "source_hash": "4fe2828c5c6162c4e6401f536e9a0b5898b59ab998bff2323d22d29d689e1d57",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Public Art Committee Meeting",
         "date": "2026-11-17",
@@ -21,15 +29,21 @@
       },
       "doc": {
         "id": "agendacenter-339",
-        "sha256": "974718df0d6867fc3a20b34cd513a3fd7ec5b405f3e39da36818fedcb127e3bf",
-        "file": "agendacenter-339.pdf",
-        "source_url": "https://www.southburlingtonvt.gov/AgendaCenter/ViewFile/Minutes/_11172026-339"
+        "sha256": "974718df0d6867fc3a20b34cd513a3fd7ec5b405f3e39da36818fedcb127e3bf"
       }
     },
     {
-      "custom_id": "doc-1",
+      "custom_id": "tr-1",
+      "type": "translation",
+      "lang": "es",
       "kind": "minutes",
       "older": false,
+      "source_hash": "6730c03200ce7d6975efcad80cb18e31bb96ea6b156e3d09a6c44313ea0c2973",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Public Art Committee Meeting",
         "date": "2026-10-20",
@@ -37,53 +51,7 @@
       },
       "doc": {
         "id": "agendacenter-338",
-        "sha256": "250047a1b5311df7e486f0ffa0cfa40c02d48fd46295b2859fb726697c999efb",
-        "file": "agendacenter-338.pdf",
-        "source_url": "https://www.southburlingtonvt.gov/AgendaCenter/ViewFile/Minutes/_10202026-338"
-      }
-    },
-    {
-      "custom_id": "tr-0",
-      "type": "translation",
-      "lang": "es",
-      "kind": "recording",
-      "older": false,
-      "source_hash": "c2426f73c29e059f7b8ae4e39fc13f0940568db0807f0718bdcd76e54e1c0707",
-      "model": "claude-haiku-5-5",
-      "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
-      },
-      "meeting": {
-        "title": "School Board Meeting",
-        "date": "2026-11-18",
-        "body": "School Board"
-      },
-      "doc": {
-        "id": "youtube-9r88EojKI8g",
-        "sha256": "6dbab215de5cf2d518039637150a04b7d34967c704f2152bea917e6f28dca6ae"
-      }
-    },
-    {
-      "custom_id": "tr-1",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "fb592d7c8623033cbf8964504d5718aec9e01b2a9260e6dc1bed7ef874fbbb91",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "School Board Meeting",
-        "date": "2026-11-04",
-        "body": "School Board"
-      },
-      "doc": {
-        "id": "9efc0c231ecba590-6a9d9951",
-        "sha256": "6a9d99518ef78dcee1621f29bf0af1f41600fb00c93b38e156fe0c462073a57b"
+        "sha256": "250047a1b5311df7e486f0ffa0cfa40c02d48fd46295b2859fb726697c999efb"
       }
     }
   ]
