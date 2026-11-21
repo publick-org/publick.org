@@ -1,8 +1,8 @@
 {
   "town": "bristol",
   "folder": "bristol-ct",
-  "started_at": "2026-11-20T12:08:05+00:00",
-  "finished_at": "2026-11-20T12:13:25+00:00",
+  "started_at": "2026-11-21T09:15:37+00:00",
+  "finished_at": "2026-11-21T09:20:47+00:00",
   "engine": "v1.111.1",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 117.8
+      "seconds": 123.1
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 122.5
+      "seconds": 119.9
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 43.6
+      "seconds": 37.0
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 3.5
+      "seconds": 28.7
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.7
+      "seconds": 0.9
     }
   ],
   "update": {
     "town": "bristol",
     "sources": "all",
-    "started_at": "2026-11-20T12:08:05+00:00",
+    "started_at": "2026-11-21T09:15:37+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 91.1,
+        "seconds": 90.9,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.1,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.8,
+        "seconds": 0.7,
         "cadence": "continuous"
       },
       {
@@ -152,7 +152,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 22.9,
+        "seconds": 29.5,
         "cadence": "continuous"
       },
       {
@@ -162,7 +162,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 19 days ago; checked every 30 days"
+        "skipped": "checked 20 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -171,7 +171,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "skipped": "checked 6 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -180,7 +180,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 18 days ago; checked every 30 days"
+        "skipped": "checked 19 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -189,7 +189,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "skipped": "checked 6 days ago; checked every 7 days"
       },
       {
         "name": "Fetch housing figures",
@@ -230,7 +230,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.2,
         "cadence": "continuous"
       },
       {
@@ -275,21 +275,21 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-20T07:08:06-05:00",
+      "updated_at": "2026-11-21T04:15:37-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Board of Education meetings (BoardBook)",
       "file": "meetings/boardbook_status.json",
-      "updated_at": "2026-11-20T07:09:39-05:00",
+      "updated_at": "2026-11-21T04:17:09-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Board of Education minutes (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-20T07:09:38-05:00",
+      "updated_at": "2026-11-21T04:17:08-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -380,24 +380,23 @@
     "Correction for Economic and Community Development Board 2026-11-05: its recording summary was made again after the correction was checked on 2026-11-09, so it isn't shown. Check it again."
   ],
   "ok": true,
-  "last_good_at": "2026-11-20T12:18:04+00:00",
-  "data_bytes": 3628149,
-  "data_bytes_added": 8803,
+  "last_good_at": "2026-11-21T09:20:47+00:00",
+  "data_bytes": 3638102,
+  "data_bytes_added": 4267,
   "activity": {
     "boards": 59,
     "meetings_by_date": {
-      "2026-11-20": 1,
       "2026-11-21": 1,
       "2026-11-23": 1,
-      "2026-11-24": 1,
+      "2026-11-24": 2,
       "2026-12-01": 1,
       "2026-12-02": 4,
       "2026-12-03": 1
     }
   },
   "fact_checks": {
-    "summaries": 187,
-    "ok": 169,
+    "summaries": 189,
+    "ok": 171,
     "failed": 15,
     "weak": 3,
     "unchecked": 0,
@@ -407,8 +406,8 @@
     "vote_counts_left_out": 97
   },
   "recordings": {
-    "since": "2026-11-13",
-    "until": "2026-11-19",
+    "since": "2026-11-14",
+    "until": "2026-11-20",
     "held": 1,
     "next_day": 0,
     "steps": {
@@ -431,25 +430,30 @@
     ]
   },
   "documents": {
-    "since": "2026-08-22",
-    "until": "2026-11-19",
-    "held": 145,
-    "boards": 46,
+    "since": "2026-08-23",
+    "until": "2026-11-20",
+    "held": 146,
+    "boards": 47,
     "counts": {
       "no_documents": 0,
-      "no_minutes": 0,
+      "no_minutes": 1,
       "pairs": 0,
       "beside": 0
     },
     "no_documents": [],
-    "no_minutes": [],
+    "no_minutes": [
+      {
+        "board": "Bristol Early Childhood Collaborative",
+        "meetings": 2
+      }
+    ],
     "pairs": [],
     "beside": [],
     "waiting": {},
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-20T04:24:12-05:00",
+    "at": "2026-11-21T02:24:12-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-19T12:26:34-05:00"
@@ -457,7 +461,5 @@
   "officials": {
     "checked_at": "2026-11-15T04:11:45-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-20T12:18:04+00:00",
-  "published_engine": "v1.111.1"
+  }
 }
