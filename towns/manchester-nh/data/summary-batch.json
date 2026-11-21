@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01EkFZY5EPe7P1JfDL9FkvTR",
-  "sent_at": "2026-11-21T19:23:39+00:00",
+  "id": "msgbatch_01NaPQ8kvPBHBkjSxSSgGqxk",
+  "sent_at": "2026-11-21T19:39:19+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,9 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
+      "source_hash": "731ec600c14536b4aa2173dd1f0715166f0d1de6bfb4f4997486ad52395fcfbc",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Planning Board Public Hearings",
         "date": "2026-12-03",
@@ -21,15 +29,21 @@
       },
       "doc": {
         "id": "dnn-5aefb9485eea88ff",
-        "sha256": "fca1557e27c76161d6d7ed0f15b281f7d5465967aacb7a6522620afe318f2325",
-        "file": "dnn-5aefb9485eea88ff.pdf",
-        "source_url": "https://www.manchesternh.gov/Portals/2/Departments/pcd/BoardsCommissions/PlanningBoard/Agendas2/2026-12-03_PB_AGENDA.PDF?ver=2026-11-20-163240-000"
+        "sha256": "fca1557e27c76161d6d7ed0f15b281f7d5465967aacb7a6522620afe318f2325"
       }
     },
     {
-      "custom_id": "doc-1",
+      "custom_id": "tr-1",
+      "type": "translation",
+      "lang": "es",
       "kind": "minutes",
       "older": false,
+      "source_hash": "5a93e2177e9c153e90e26fecdd164fd5d8a074c135cc1164b3ba5fbb29e87c0a",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Committee on Administration/Information Systems",
         "date": "2026-11-17",
@@ -37,9 +51,7 @@
       },
       "doc": {
         "id": "civicclerk-5422",
-        "sha256": "fec8d2d875f8032ba1cb9de36b2ca83d845bb29b995e61bef4b5b9379691f0dc",
-        "file": "civicclerk-5422.pdf",
-        "source_url": "https://manchesternh.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=5422,plainText=false)"
+        "sha256": "fec8d2d875f8032ba1cb9de36b2ca83d845bb29b995e61bef4b5b9379691f0dc"
       }
     }
   ]
