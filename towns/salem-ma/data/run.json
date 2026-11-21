@@ -1,8 +1,8 @@
 {
   "town": "salem",
   "folder": "salem-ma",
-  "started_at": "2026-11-20T20:33:52+00:00",
-  "finished_at": "2026-11-20T20:38:44+00:00",
+  "started_at": "2026-11-21T19:34:25+00:00",
+  "finished_at": "2026-11-21T19:38:52+00:00",
   "engine": "v1.111.1",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 95.0
+      "seconds": 75.1
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 98.5
+      "seconds": 99.9
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 49.7
+      "seconds": 60.3
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 3.2
+      "seconds": 30.3
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.6
+      "seconds": 0.8
     }
   ],
   "update": {
     "town": "salem",
     "sources": "all",
-    "started_at": "2026-11-20T20:33:52+00:00",
+    "started_at": "2026-11-21T19:34:25+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 41.2,
+        "seconds": 40.9,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 11.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -154,7 +154,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 28.7,
+        "seconds": 15.8,
         "cadence": "continuous"
       },
       {
@@ -164,7 +164,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 2 days ago; checked every 30 days"
+        "skipped": "checked 3 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -173,7 +173,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 4 days ago; checked every 7 days"
+        "skipped": "checked 5 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -182,7 +182,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 2 days ago; checked every 30 days"
+        "skipped": "checked 3 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -191,7 +191,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 2 days ago; checked every 30 days"
+        "skipped": "checked 3 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -200,7 +200,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 2 days ago; checked every 7 days"
+        "skipped": "checked 3 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -232,7 +232,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 4.6,
         "cadence": "continuous"
       },
       {
@@ -248,7 +248,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 10.2,
+        "seconds": 9.8,
         "cadence": "continuous"
       },
       {
@@ -265,7 +265,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 2.1,
+        "seconds": 2.2,
         "cadence": "continuous"
       }
     ]
@@ -275,21 +275,21 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-20T15:33:52-05:00",
+      "updated_at": "2026-11-21T14:34:26-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-20T15:35:15-05:00",
+      "updated_at": "2026-11-21T14:35:28-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-20T15:35:25-05:00",
+      "updated_at": "2026-11-21T14:35:38-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -378,9 +378,9 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-20T21:17:12+00:00",
-  "data_bytes": 13021979,
-  "data_bytes_added": 8905448,
+  "last_good_at": "2026-11-21T19:38:52+00:00",
+  "data_bytes": 13118904,
+  "data_bytes_added": 8924443,
   "activity": {
     "boards": 54,
     "meetings_by_date": {
@@ -390,20 +390,20 @@
     }
   },
   "fact_checks": {
-    "summaries": 177,
-    "ok": 162,
-    "failed": 14,
+    "summaries": 180,
+    "ok": 163,
+    "failed": 16,
     "weak": 1,
     "unchecked": 0,
     "not_yet": 0,
-    "held_back": 14,
-    "entries_not_shown": 14,
+    "held_back": 16,
+    "entries_not_shown": 17,
     "vote_counts_left_out": 41
   },
   "recordings": {
-    "since": "2026-11-13",
-    "until": "2026-11-19",
-    "held": 3,
+    "since": "2026-11-14",
+    "until": "2026-11-20",
+    "held": 2,
     "next_day": 0,
     "steps": {
       "summarized": 0,
@@ -412,16 +412,11 @@
       "waiting": 0,
       "failed": 0,
       "unmatched": 0,
-      "not_found": 3,
+      "not_found": 2,
       "no_source": 0,
       "no_recordings": 0
     },
     "misses": [
-      {
-        "date": "2026-11-13",
-        "board": "City Council",
-        "step": "not_found"
-      },
       {
         "date": "2026-11-18",
         "board": "Zoning Board of Appeals",
@@ -435,8 +430,8 @@
     ]
   },
   "documents": {
-    "since": "2026-08-22",
-    "until": "2026-11-19",
+    "since": "2026-08-23",
+    "until": "2026-11-20",
     "held": 137,
     "boards": 45,
     "counts": {
@@ -465,9 +460,7 @@
   },
   "gemini": null,
   "officials": {
-    "checked_at": "2026-11-14T04:22:42-05:00",
+    "checked_at": "2026-11-21T14:35:23-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-20T21:17:12+00:00",
-  "published_engine": "v1.111.1"
+  }
 }
