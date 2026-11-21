@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01RtZSgUr1GR3pagGU6mdpzB",
-  "sent_at": "2026-11-21T09:10:06+00:00",
+  "id": "msgbatch_01QzuDQ5tQneD6H9tfqDppyZ",
+  "sent_at": "2026-11-21T09:16:42+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,9 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "minutes",
       "older": false,
+      "source_hash": "301354524dc58e687fa06b4c178b80bc8f523c3fec33061bfa9b6e1ee9ace08b",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Licensing Board Meeting",
         "date": "2026-10-14",
@@ -21,15 +29,21 @@
       },
       "doc": {
         "id": "agendacenter-1162",
-        "sha256": "2e9feccacf0892df6273ce94b92f63b8f0860829d50278dd9cf3022673df3d8f",
-        "file": "agendacenter-1162.pdf",
-        "source_url": "https://www.methuen.gov/AgendaCenter/ViewFile/Minutes/_10142026-1162"
+        "sha256": "2e9feccacf0892df6273ce94b92f63b8f0860829d50278dd9cf3022673df3d8f"
       }
     },
     {
-      "custom_id": "doc-1",
+      "custom_id": "tr-1",
+      "type": "translation",
+      "lang": "es",
       "kind": "minutes",
       "older": false,
+      "source_hash": "fc498d7c3b11cfff53d1f7612a6b7afcce97a6ae80e92531bf6bc4378751a310",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Zoning Board of Appeals Meeting",
         "date": "2026-09-23",
@@ -37,15 +51,21 @@
       },
       "doc": {
         "id": "agendacenter-1150",
-        "sha256": "3437015026250bd1432f9bb96e50af1880183699ea45d0eb3beb7e25afec4d6d",
-        "file": "agendacenter-1150.pdf",
-        "source_url": "https://www.methuen.gov/AgendaCenter/ViewFile/Minutes/_09232026-1150"
+        "sha256": "3437015026250bd1432f9bb96e50af1880183699ea45d0eb3beb7e25afec4d6d"
       }
     },
     {
-      "custom_id": "doc-2",
+      "custom_id": "tr-2",
+      "type": "translation",
+      "lang": "es",
       "kind": "minutes",
-      "older": true,
+      "older": false,
+      "source_hash": "6e7dd8650cad6ed5ba5e55cfdc711648d7dd0950286ac81f1b816d94d940364e",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Licensing Board Meeting",
         "date": "2026-09-09",
@@ -53,31 +73,7 @@
       },
       "doc": {
         "id": "agendacenter-1144",
-        "sha256": "16691ec29bcac3c5c507c7fe8922ee324db0a0d302c9d837dbcc73bf7a8b9eb4",
-        "file": "agendacenter-1144.pdf",
-        "source_url": "https://www.methuen.gov/AgendaCenter/ViewFile/Minutes/_09092026-1144"
-      }
-    },
-    {
-      "custom_id": "tr-0",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "83385ddacc4fd543b11954e28f0c16b39cbca7e3057fdfd7cba72b66c505b359",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "School Committee Meeting",
-        "date": "2026-11-23",
-        "body": "School Committee"
-      },
-      "doc": {
-        "id": "1GNu8Lmx8tMLQMRsNKStY-gy_yCK8Xizb-8ae70b9a",
-        "sha256": "8ae70b9a24f3718dccf6336b7f8d9cc436e8cc57504455be576e001a6c5cfbf1"
+        "sha256": "16691ec29bcac3c5c507c7fe8922ee324db0a0d302c9d837dbcc73bf7a8b9eb4"
       }
     }
   ]
