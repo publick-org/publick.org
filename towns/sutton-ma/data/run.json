@@ -1,8 +1,8 @@
 {
   "town": "sutton",
   "folder": "sutton-ma",
-  "started_at": "2026-11-20T09:18:39+00:00",
-  "finished_at": "2026-11-20T09:21:02+00:00",
+  "started_at": "2026-11-21T09:15:16+00:00",
+  "finished_at": "2026-11-21T09:17:38+00:00",
   "engine": "v1.111.1",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 78.4
+      "seconds": 90.7
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 25.4
+      "seconds": 24.8
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 22.7
+      "seconds": 21.0
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 1.7
+      "seconds": 4.7
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.6
+      "seconds": 0.4
     }
   ],
   "update": {
     "town": "sutton",
     "sources": "all",
-    "started_at": "2026-11-20T09:18:40+00:00",
+    "started_at": "2026-11-21T09:15:16+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 56.1,
+        "seconds": 35.6,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 10.5,
+        "seconds": 10.4,
         "cadence": "continuous"
       },
       {
@@ -154,7 +154,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 10.3,
+        "seconds": 15.8,
         "cadence": "continuous"
       },
       {
@@ -164,16 +164,15 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 6 days ago; checked every 30 days"
+        "skipped": "checked 7 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 6 days ago; checked every 7 days"
+        "seconds": 0.5,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch school figures",
@@ -182,7 +181,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 6 days ago; checked every 30 days"
+        "skipped": "checked 7 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -191,16 +190,15 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 6 days ago; checked every 30 days"
+        "skipped": "checked 7 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 6 days ago; checked every 7 days"
+        "seconds": 24.5,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch place",
@@ -232,7 +230,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 2.7,
         "cadence": "continuous"
       },
       {
@@ -277,7 +275,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-20T04:18:40-05:00",
+      "updated_at": "2026-11-21T04:15:17-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -320,7 +318,7 @@
     {
       "label": "Unemployment rate (BLS)",
       "file": "labor/unemployment.json",
-      "updated_at": "2026-11-13T14:29:05-05:00",
+      "updated_at": "2026-11-21T04:16:18-05:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
@@ -332,13 +330,13 @@
     {
       "label": "Housing figures",
       "file": "housing/housing.json",
-      "updated_at": "2026-11-13T14:29:06-05:00",
+      "updated_at": "2026-11-21T04:16:19-05:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
       "stale": false,
-      "latest": "2025 building permits; ACS 2024 5-year estimates; Fiscal year 2027 parcel counts",
-      "next": "2026 building permits usually by June 1, 2027; ACS 2025 5-year estimates usually by December 15, 2026; Fiscal year 2028 parcel counts usually by March 1, 2028",
+      "latest": "2025 building permits; September 2026 building permits; ACS 2024 5-year estimates; Fiscal year 2027 parcel counts",
+      "next": "2026 building permits usually by June 1, 2027; October 2026 building permits usually by December 1, 2026; ACS 2025 5-year estimates usually by December 15, 2026; Fiscal year 2028 parcel counts usually by March 1, 2028",
       "behind": null
     },
     {
@@ -366,9 +364,9 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-20T10:06:39+00:00",
-  "data_bytes": 712999,
-  "data_bytes_added": 8146,
+  "last_good_at": "2026-11-21T09:17:38+00:00",
+  "data_bytes": 720340,
+  "data_bytes_added": -1804,
   "activity": {
     "boards": 20,
     "meetings_by_date": {
@@ -379,8 +377,8 @@
     }
   },
   "fact_checks": {
-    "summaries": 49,
-    "ok": 46,
+    "summaries": 51,
+    "ok": 48,
     "failed": 1,
     "weak": 2,
     "unchecked": 0,
@@ -390,8 +388,8 @@
     "vote_counts_left_out": 22
   },
   "recordings": {
-    "since": "2026-11-13",
-    "until": "2026-11-19",
+    "since": "2026-11-14",
+    "until": "2026-11-20",
     "held": 1,
     "next_day": 1,
     "steps": {
@@ -408,8 +406,8 @@
     "misses": []
   },
   "documents": {
-    "since": "2026-08-22",
-    "until": "2026-11-19",
+    "since": "2026-08-23",
+    "until": "2026-11-20",
     "held": 58,
     "boards": 19,
     "counts": {
@@ -435,15 +433,13 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-20T02:24:05-05:00",
+    "at": "2026-11-21T02:24:00-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-19T08:24:00-05:00"
   },
   "officials": {
-    "checked_at": "2026-11-13T20:02:14-05:00",
+    "checked_at": "2026-11-21T04:16:44-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-20T10:06:39+00:00",
-  "published_engine": "v1.111.1"
+  }
 }
