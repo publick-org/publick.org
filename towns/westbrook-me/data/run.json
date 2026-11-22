@@ -1,46 +1,46 @@
 {
   "town": "westbrook",
   "folder": "westbrook-me",
-  "started_at": "2026-11-21T09:08:59+00:00",
-  "finished_at": "2026-11-21T09:10:58+00:00",
-  "engine": "v1.111.1",
+  "started_at": "2026-11-22T09:06:51+00:00",
+  "finished_at": "2026-11-22T09:08:34+00:00",
+  "engine": "v1.111.3",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 53.6
+      "seconds": 47.2
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 22.8
+      "seconds": 21.1
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 26.7
+      "seconds": 23.8
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 1.7
+      "seconds": 9.4
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.6
+      "seconds": 0.8
     }
   ],
   "update": {
     "town": "westbrook",
     "sources": "all",
-    "started_at": "2026-11-21T09:09:00+00:00",
+    "started_at": "2026-11-22T09:06:53+00:00",
     "ok": true,
     "steps": [
       {
@@ -153,7 +153,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 17.1,
+        "seconds": 9.6,
         "cadence": "continuous"
       },
       {
@@ -169,9 +169,8 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 6 days ago; checked every 7 days"
+        "seconds": 0.5,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch school figures",
@@ -180,16 +179,15 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 20 days ago; checked every 30 days"
+        "skipped": "checked 21 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "yearly",
-        "skipped": "checked 6 days ago; checked every 7 days"
+        "seconds": 0.3,
+        "cadence": "yearly"
       },
       {
         "name": "Fetch housing figures",
@@ -275,21 +273,21 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-21T04:09:00-05:00",
+      "updated_at": "2026-11-22T04:06:53-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-21T04:09:21-05:00",
+      "updated_at": "2026-11-22T04:07:15-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Tax rate and property tax",
       "file": "finance/budget.json",
-      "updated_at": "2026-11-15T04:07:25-05:00",
+      "updated_at": "2026-11-22T04:07:37-05:00",
       "max_days": null,
       "cadence": "yearly",
       "failing": 0,
@@ -313,7 +311,7 @@
     {
       "label": "Unemployment rate (BLS)",
       "file": "labor/unemployment.json",
-      "updated_at": "2026-11-15T04:07:24-05:00",
+      "updated_at": "2026-11-22T04:07:37-05:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
@@ -359,9 +357,9 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-22T00:18:02+00:00",
+  "last_good_at": "2026-11-22T09:08:34+00:00",
   "data_bytes": 1829049,
-  "data_bytes_added": -389,
+  "data_bytes_added": 2,
   "activity": {
     "boards": 14,
     "meetings_by_date": {
@@ -381,8 +379,8 @@
     "vote_counts_left_out": 0
   },
   "recordings": {
-    "since": "2026-11-14",
-    "until": "2026-11-20",
+    "since": "2026-11-15",
+    "until": "2026-11-21",
     "held": 2,
     "next_day": 0,
     "steps": {
@@ -410,8 +408,8 @@
     ]
   },
   "documents": {
-    "since": "2026-08-23",
-    "until": "2026-11-20",
+    "since": "2026-08-24",
+    "until": "2026-11-21",
     "held": 22,
     "boards": 9,
     "counts": {
@@ -440,7 +438,5 @@
   "officials": {
     "checked_at": "2026-11-17T04:08:28-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-22T00:18:02+00:00",
-  "published_engine": "v1.111.3"
+  }
 }
