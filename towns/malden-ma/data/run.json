@@ -1,34 +1,34 @@
 {
   "town": "malden",
   "folder": "malden-ma",
-  "started_at": "2026-11-21T09:22:30+00:00",
-  "finished_at": "2026-11-21T09:30:14+00:00",
-  "engine": "v1.111.1",
+  "started_at": "2026-11-22T09:13:51+00:00",
+  "finished_at": "2026-11-22T09:24:57+00:00",
+  "engine": "v1.111.3",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 95.7
+      "seconds": 320.8
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 192.5
+      "seconds": 195.7
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 93.5
+      "seconds": 132.3
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 3.7
+      "seconds": 15.2
     },
     {
       "name": "Check live site",
@@ -40,7 +40,7 @@
   "update": {
     "town": "malden",
     "sources": "all",
-    "started_at": "2026-11-21T09:22:31+00:00",
+    "started_at": "2026-11-22T09:13:52+00:00",
     "ok": true,
     "steps": [
       {
@@ -154,7 +154,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 37.1,
+        "seconds": 19.4,
         "cadence": "continuous"
       },
       {
@@ -164,7 +164,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 22 days ago; checked every 30 days"
+        "skipped": "checked 23 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -173,7 +173,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 3 days ago; checked every 7 days"
+        "skipped": "checked 4 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -182,7 +182,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 21 days ago; checked every 30 days"
+        "skipped": "checked 22 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -191,15 +191,16 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 22 days ago; checked every 30 days"
+        "skipped": "checked 23 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 24.6,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -231,7 +232,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 4.8,
         "cadence": "continuous"
       },
       {
@@ -247,7 +248,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 10.3,
+        "seconds": 273.1,
         "cadence": "continuous"
       },
       {
@@ -264,7 +265,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 5.5,
+        "seconds": 5.7,
         "cadence": "continuous"
       }
     ]
@@ -274,21 +275,21 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-21T04:22:31-05:00",
+      "updated_at": "2026-11-22T04:13:52-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-21T04:23:51-05:00",
+      "updated_at": "2026-11-22T04:14:34-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-21T04:24:01-05:00",
+      "updated_at": "2026-11-22T04:19:07-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -379,13 +380,12 @@
     "Correction for City Council 2026-10-27: 0 of its decisions have \"an amendment to keep the 15% affordable housing requirement\", so it isn't shown. Name one."
   ],
   "ok": true,
-  "last_good_at": "2026-11-22T00:16:43+00:00",
-  "data_bytes": 20082905,
-  "data_bytes_added": 16055615,
+  "last_good_at": "2026-11-22T09:24:57+00:00",
+  "data_bytes": 20081792,
+  "data_bytes_added": 16056889,
   "activity": {
     "boards": 55,
     "meetings_by_date": {
-      "2026-11-21": 1,
       "2026-11-23": 1,
       "2026-11-24": 5,
       "2026-12-02": 1
@@ -403,8 +403,8 @@
     "vote_counts_left_out": 87
   },
   "recordings": {
-    "since": "2026-11-14",
-    "until": "2026-11-20",
+    "since": "2026-11-15",
+    "until": "2026-11-21",
     "held": 0,
     "next_day": 0,
     "steps": {
@@ -421,13 +421,13 @@
     "misses": []
   },
   "documents": {
-    "since": "2026-08-23",
-    "until": "2026-11-20",
-    "held": 119,
+    "since": "2026-08-24",
+    "until": "2026-11-21",
+    "held": 120,
     "boards": 45,
     "counts": {
       "no_documents": 0,
-      "no_minutes": 5,
+      "no_minutes": 6,
       "pairs": 0,
       "beside": 0
     },
@@ -439,6 +439,10 @@
       },
       {
         "board": "Comprehensive Master Plan Steering Committee",
+        "meetings": 2
+      },
+      {
+        "board": "Northeast Metropolitan Regional Vocational School District",
         "meetings": 2
       },
       {
@@ -460,15 +464,13 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-21T02:24:04-05:00",
+    "at": "2026-11-22T02:24:08-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-11T12:24:00-05:00"
   },
   "officials": {
-    "checked_at": "2026-11-15T04:11:33-05:00",
+    "checked_at": "2026-11-22T04:14:28-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-22T00:16:43+00:00",
-  "published_engine": "v1.111.3"
+  }
 }
