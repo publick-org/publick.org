@@ -1,8 +1,8 @@
 {
   "town": "bristol",
   "folder": "bristol-ct",
-  "started_at": "2026-11-22T09:10:23+00:00",
-  "finished_at": "2026-11-22T09:16:08+00:00",
+  "started_at": "2026-11-23T09:15:42+00:00",
+  "finished_at": "2026-11-23T09:21:13+00:00",
   "engine": "v1.111.3",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 137.2
+      "seconds": 125.1
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 121.7
+      "seconds": 123.2
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 43.3
+      "seconds": 49.3
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 41.1
+      "seconds": 32.9
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.9
+      "seconds": 0.6
     }
   ],
   "update": {
     "town": "bristol",
     "sources": "all",
-    "started_at": "2026-11-22T09:10:24+00:00",
+    "started_at": "2026-11-23T09:15:42+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 86.3,
+        "seconds": 85.8,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.0,
+        "seconds": 0.8,
         "cadence": "continuous"
       },
       {
@@ -99,7 +99,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.7,
+        "seconds": 0.9,
         "cadence": "continuous"
       },
       {
@@ -152,7 +152,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 36.0,
+        "seconds": 11.0,
         "cadence": "continuous"
       },
       {
@@ -162,15 +162,16 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 21 days ago; checked every 30 days"
+        "skipped": "checked 22 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.6,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -179,24 +180,24 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 20 days ago; checked every 30 days"
+        "skipped": "checked 21 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 6.4,
-        "cadence": "yearly"
+        "seconds": 0,
+        "cadence": "yearly",
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "seconds": 24.5,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch place",
@@ -228,7 +229,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 4.8,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -273,21 +274,21 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-22T04:10:24-05:00",
+      "updated_at": "2026-11-23T04:15:42-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Board of Education meetings (BoardBook)",
       "file": "meetings/boardbook_status.json",
-      "updated_at": "2026-11-22T04:11:51-05:00",
+      "updated_at": "2026-11-23T04:17:09-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Board of Education minutes (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-22T04:11:50-05:00",
+      "updated_at": "2026-11-23T04:17:09-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -342,7 +343,7 @@
     {
       "label": "Housing figures",
       "file": "housing/housing.json",
-      "updated_at": "2026-11-16T04:17:07-05:00",
+      "updated_at": "2026-11-23T04:17:21-05:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
@@ -378,9 +379,9 @@
     "Correction for Economic and Community Development Board 2026-11-05: its recording summary was made again after the correction was checked on 2026-11-09, so it isn't shown. Check it again."
   ],
   "ok": true,
-  "last_good_at": "2026-11-22T09:16:08+00:00",
-  "data_bytes": 3639132,
-  "data_bytes_added": -658,
+  "last_good_at": "2026-11-23T09:21:13+00:00",
+  "data_bytes": 3638983,
+  "data_bytes_added": 2,
   "activity": {
     "boards": 59,
     "meetings_by_date": {
@@ -403,8 +404,8 @@
     "vote_counts_left_out": 97
   },
   "recordings": {
-    "since": "2026-11-15",
-    "until": "2026-11-21",
+    "since": "2026-11-16",
+    "until": "2026-11-22",
     "held": 1,
     "next_day": 0,
     "steps": {
@@ -427,9 +428,9 @@
     ]
   },
   "documents": {
-    "since": "2026-08-24",
-    "until": "2026-11-21",
-    "held": 147,
+    "since": "2026-08-25",
+    "until": "2026-11-22",
+    "held": 145,
     "boards": 47,
     "counts": {
       "no_documents": 0,
@@ -454,7 +455,7 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-22T02:24:23-05:00",
+    "at": "2026-11-23T02:24:27-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-19T12:26:34-05:00"
