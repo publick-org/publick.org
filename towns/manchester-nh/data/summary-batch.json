@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01BD3EUD2X6zjnweSsfcwKQn",
-  "sent_at": "2026-11-24T09:20:31+00:00",
+  "id": "msgbatch_01VNegoQfM5cDzX7pZtCfQWt",
+  "sent_at": "2026-11-24T09:26:55+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,9 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "minutes",
       "older": false,
+      "source_hash": "eecabc457e7fcd37693872e35de791ea5e44c06d3ec99adc9f031fc8c1573b68",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Committee on Accounts, Enrollment & Revenue Administration",
         "date": "2026-11-17",
@@ -21,15 +29,21 @@
       },
       "doc": {
         "id": "civicclerk-5423",
-        "sha256": "70f5f56e16ba00395b6c192fa31f22ba5f0fc2998f0c70dca6be486022e6d2e6",
-        "file": "civicclerk-5423.pdf",
-        "source_url": "https://manchesternh.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=5423,plainText=false)"
+        "sha256": "70f5f56e16ba00395b6c192fa31f22ba5f0fc2998f0c70dca6be486022e6d2e6"
       }
     },
     {
-      "custom_id": "doc-1",
+      "custom_id": "tr-1",
+      "type": "translation",
+      "lang": "es",
       "kind": "minutes",
       "older": false,
+      "source_hash": "238e7216afef3ce4fdc8347b9d4fb55349193a84cd2265a4f836fcc48cd21a98",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Committee on Community Improvement",
         "date": "2026-11-17",
@@ -37,9 +51,7 @@
       },
       "doc": {
         "id": "civicclerk-5432",
-        "sha256": "f8db15f3fe1800824423fc73e6fd4674374e6272861074f21ded657f36cddc85",
-        "file": "civicclerk-5432.pdf",
-        "source_url": "https://manchesternh.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=5432,plainText=false)"
+        "sha256": "f8db15f3fe1800824423fc73e6fd4674374e6272861074f21ded657f36cddc85"
       }
     }
   ]
