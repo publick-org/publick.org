@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01NfGJP5PrJvXa4QF69GRm1J",
-  "sent_at": "2026-11-24T09:07:50+00:00",
+  "id": "msgbatch_017kcLNancF8EtwX3GxSHWyY",
+  "sent_at": "2026-11-24T09:15:34+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,9 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "minutes",
-      "older": true,
+      "older": false,
+      "source_hash": "51837b2e7d7b2d454d23ae3ae5efdd8f84ee07f59a200d2a11630c6be1aa21db",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Board of Assessors Meeting",
         "date": "2026-09-24",
@@ -21,31 +29,7 @@
       },
       "doc": {
         "id": "agendacenter-2910",
-        "sha256": "f03bb32f67464034626d4fb83f8a43e4b1da7598d9de28731f885cd7a85c1060",
-        "file": "agendacenter-2910.pdf",
-        "source_url": "https://www.beverlyma.gov/AgendaCenter/ViewFile/Minutes/_09242026-2910"
-      }
-    },
-    {
-      "custom_id": "tr-0",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "a731e7f107c910a5f40092820c4aec76f9448b003274226c7f242c36d973847f",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Waste Reduction Committee Meeting",
-        "date": "2026-11-05",
-        "body": "Beverly Waste Reduction Committee"
-      },
-      "doc": {
-        "id": "2983",
-        "sha256": "e94e5f4add69a19ee7705ffc8bdba17b946b3014a41a61c1294e6c0a888428c9"
+        "sha256": "f03bb32f67464034626d4fb83f8a43e4b1da7598d9de28731f885cd7a85c1060"
       }
     }
   ]
