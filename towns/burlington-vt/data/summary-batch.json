@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01MDrKZHEA2bZywzas9FNB1E",
-  "sent_at": "2026-11-24T05:53:27+00:00",
+  "id": "msgbatch_014hAfncAwGXxEse4oqxai5a",
+  "sent_at": "2026-11-24T05:56:10+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,33 +11,39 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "recording",
       "older": false,
+      "source_hash": "500f3b7cb86c2ca1c8b4fb4f312795069d055e027dd618481e822ce2c4d6ecb1",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "City Council Meeting",
         "date": "2026-11-23",
-        "body": "City Council",
-        "agendas": [
-          {
-            "sha256": "aae457b999d72ab8976e3271359d939eb48a9e47c26453893b0354fb6ba19e53"
-          },
-          {
-            "sha256": "001337292cc517fe3bbc34a36fc57c0503c19ade141715fce2149e43f680785b"
-          }
-        ]
+        "body": "City Council"
       },
       "doc": {
         "id": "youtube-rmldj7Ahq4Q",
-        "sha256": "cdd2ebddab62b7f000c818ba2b0555ec9ced7a5e8e12dd987eaefb55e7ed0245",
-        "file": "youtube-rmldj7Ahq4Q.txt",
-        "source_url": "https://www.youtube.com/watch?v=rmldj7Ahq4Q"
+        "sha256": "cdd2ebddab62b7f000c818ba2b0555ec9ced7a5e8e12dd987eaefb55e7ed0245"
       }
     },
     {
-      "custom_id": "doc-1",
+      "custom_id": "tr-1",
+      "type": "translation",
+      "lang": "es",
       "kind": "minutes",
       "older": false,
+      "source_hash": "9a54e82118fa67482c31be445603f45f670f1496d0c3ebb8213932bdeae94ee9",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "REIB City Council Committee Meeting",
         "date": "2026-11-17",
@@ -45,9 +51,7 @@
       },
       "doc": {
         "id": "civicclerk-21742",
-        "sha256": "7fbcc968746a132ecd93c6064946e865da8343fe1fee0f45bd1ac520b5c46692",
-        "file": "civicclerk-21742.pdf",
-        "source_url": "https://burlingtonvt.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=21742,plainText=false)"
+        "sha256": "7fbcc968746a132ecd93c6064946e865da8343fe1fee0f45bd1ac520b5c46692"
       }
     }
   ]
