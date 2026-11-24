@@ -1,8 +1,8 @@
 {
   "town": "bangor",
   "folder": "bangor-me",
-  "started_at": "2026-11-24T09:08:23+00:00",
-  "finished_at": "2026-11-24T09:12:16+00:00",
+  "started_at": "2026-11-24T13:29:36+00:00",
+  "finished_at": "2026-11-24T13:32:25+00:00",
   "engine": "v1.111.3",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 95.2
+      "seconds": 72.4
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 67.4
+      "seconds": 62.1
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 55.3
+      "seconds": 31.5
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 14.1
+      "seconds": 2.9
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.7
+      "seconds": 0.5
     }
   ],
   "update": {
     "town": "bangor",
-    "sources": "all",
-    "started_at": "2026-11-24T09:08:23+00:00",
+    "sources": "meetings",
+    "started_at": "2026-11-24T13:29:36+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 55.8,
+        "seconds": 55.7,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -154,7 +154,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 9.9,
+        "seconds": 14.8,
         "cadence": "continuous"
       },
       {
@@ -162,7 +162,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -172,7 +172,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "skipped": "checked 6 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -181,7 +181,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 18 days ago; checked every 30 days"
+        "skipped": "checked 19 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -190,7 +190,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "skipped": "checked 6 days ago; checked every 7 days"
       },
       {
         "name": "Fetch housing figures",
@@ -199,14 +199,14 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "skipped": "checked 6 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.2,
         "cadence": "continuous"
       },
       {
@@ -214,7 +214,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.2,
         "cadence": "continuous"
       },
       {
@@ -231,7 +231,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 18.0,
+        "seconds": 0.2,
         "cadence": "continuous"
       },
       {
@@ -239,32 +239,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 8.3,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests from an open data portal",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [socrata_311] in the config"
-      },
-      {
-        "name": "Compute 311 scorecard",
-        "ok": true,
-        "required": true,
-        "error": null,
-        "seconds": 1.0,
+        "seconds": 0.2,
         "cadence": "continuous"
       }
     ]
@@ -274,7 +249,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-24T04:08:23-05:00",
+      "updated_at": "2026-11-24T08:29:36-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -366,8 +341,8 @@
   "corrections": [],
   "ok": true,
   "last_good_at": "2026-11-15T09:59:30+00:00",
-  "data_bytes": 4404278,
-  "data_bytes_added": 1912856,
+  "data_bytes": 4406674,
+  "data_bytes_added": 1914395,
   "activity": {
     "boards": 34,
     "meetings_by_date": {
@@ -396,8 +371,8 @@
     "steps": {
       "summarized": 1,
       "minutes": 0,
-      "transcribed": 0,
-      "waiting": 1,
+      "transcribed": 1,
+      "waiting": 0,
       "failed": 0,
       "unmatched": 0,
       "not_found": 0,
@@ -408,8 +383,8 @@
       {
         "date": "2026-11-23",
         "board": "City Council",
-        "step": "waiting",
-        "detail": "3 recording(s) found"
+        "step": "transcribed",
+        "detail": "transcript not summarized yet"
       }
     ]
   },
@@ -478,10 +453,10 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-24T02:23:57-05:00",
+    "at": "2026-11-24T08:24:01-05:00",
     "refused": 0,
-    "transcribed": 0,
-    "last_transcribed_at": "2026-11-18T08:23:59-05:00"
+    "transcribed": 2,
+    "last_transcribed_at": "2026-11-24T08:24:01-05:00"
   },
   "officials": {
     "checked_at": "2026-11-24T04:09:31-05:00",
