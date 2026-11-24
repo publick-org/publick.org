@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01ThgMCgXyHt7s5hyk3B1U64",
-  "sent_at": "2026-11-24T09:13:08+00:00",
+  "id": "msgbatch_017nai3d2UgzUR8CPhqRDd9B",
+  "sent_at": "2026-11-24T09:21:52+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,25 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
-      "meeting": {
-        "title": "License Commission Hearing - November 25th, 2026",
-        "date": "2026-11-25",
-        "body": "License Commission"
+      "source_hash": "67bd838bd9be4b751467d72a3aeeab6080383ebd0fa5556df7e629a547512cc3",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
       },
-      "doc": {
-        "id": "civicclerk-25807",
-        "sha256": "1410fe0a5f68c71613f98e8f55c9a636c96648024e0e0e6ff6f0093fe076c576",
-        "file": "civicclerk-25807.pdf",
-        "source_url": "https://springfieldma.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=25807,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-1",
-      "kind": "agenda",
-      "older": false,
       "meeting": {
         "title": "Traffic Commission Meeting",
         "date": "2026-12-02",
@@ -37,9 +29,29 @@
       },
       "doc": {
         "id": "civicclerk-25808",
-        "sha256": "5dbf84455518f2831f4c7b6afd630b571a8d4c1ef4a7ca7be4115cfe374bc37d",
-        "file": "civicclerk-25808.pdf",
-        "source_url": "https://springfieldma.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=25808,plainText=false)"
+        "sha256": "5dbf84455518f2831f4c7b6afd630b571a8d4c1ef4a7ca7be4115cfe374bc37d"
+      }
+    },
+    {
+      "custom_id": "tr-1",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "8b3a42676ed483b9d6936bc818f3b9e922900885b56f8d5bdf3a91320294ebb1",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "License Commission Hearing - November 25th, 2026",
+        "date": "2026-11-25",
+        "body": "License Commission"
+      },
+      "doc": {
+        "id": "civicclerk-25807",
+        "sha256": "1410fe0a5f68c71613f98e8f55c9a636c96648024e0e0e6ff6f0093fe076c576"
       }
     }
   ]
