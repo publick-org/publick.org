@@ -1,8 +1,8 @@
 {
   "town": "malden",
   "folder": "malden-ma",
-  "started_at": "2026-11-23T09:10:33+00:00",
-  "finished_at": "2026-11-23T09:17:01+00:00",
+  "started_at": "2026-11-24T09:08:50+00:00",
+  "finished_at": "2026-11-24T09:15:44+00:00",
   "engine": "v1.111.3",
   "fetched": true,
   "steps": [
@@ -10,25 +10,25 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 46.9
+      "seconds": 55.7
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 193.9
+      "seconds": 196.2
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 126.1
+      "seconds": 132.0
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.1
+      "seconds": 29.0
     },
     {
       "name": "Check live site",
@@ -40,7 +40,7 @@
   "update": {
     "town": "malden",
     "sources": "all",
-    "started_at": "2026-11-23T09:10:33+00:00",
+    "started_at": "2026-11-24T09:08:50+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 15.7,
+        "seconds": 15.6,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.2,
+        "seconds": 1.4,
         "cadence": "continuous"
       },
       {
@@ -154,7 +154,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 13.9,
+        "seconds": 21.3,
         "cadence": "continuous"
       },
       {
@@ -164,7 +164,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 24 days ago; checked every 30 days"
+        "skipped": "checked 25 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -173,7 +173,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 4 days ago; checked every 7 days"
+        "skipped": "checked 5 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -182,7 +182,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 23 days ago; checked every 30 days"
+        "skipped": "checked 24 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -191,7 +191,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 24 days ago; checked every 30 days"
+        "skipped": "checked 25 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -200,7 +200,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -248,7 +248,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 9.0,
+        "seconds": 9.7,
         "cadence": "continuous"
       },
       {
@@ -265,7 +265,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 5.1,
+        "seconds": 5.5,
         "cadence": "continuous"
       }
     ]
@@ -275,21 +275,21 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-23T04:10:33-05:00",
+      "updated_at": "2026-11-24T04:08:50-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-23T04:11:06-05:00",
+      "updated_at": "2026-11-24T04:09:30-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-23T04:11:15-05:00",
+      "updated_at": "2026-11-24T04:09:40-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -380,31 +380,31 @@
     "Correction for City Council 2026-10-27: 0 of its decisions have \"an amendment to keep the 15% affordable housing requirement\", so it isn't shown. Name one."
   ],
   "ok": true,
-  "last_good_at": "2026-11-23T09:31:15+00:00",
-  "data_bytes": 20089589,
-  "data_bytes_added": 16064609,
+  "last_good_at": "2026-11-24T09:15:44+00:00",
+  "data_bytes": 20126535,
+  "data_bytes_added": 16086990,
   "activity": {
     "boards": 55,
     "meetings_by_date": {
-      "2026-11-23": 1,
       "2026-11-24": 5,
-      "2026-12-02": 1
+      "2026-12-02": 1,
+      "2026-12-07": 1
     }
   },
   "fact_checks": {
-    "summaries": 277,
+    "summaries": 278,
     "ok": 244,
-    "failed": 12,
+    "failed": 13,
     "weak": 4,
     "unchecked": 15,
     "not_yet": 2,
-    "held_back": 12,
+    "held_back": 13,
     "entries_not_shown": 16,
     "vote_counts_left_out": 87
   },
   "recordings": {
-    "since": "2026-11-16",
-    "until": "2026-11-22",
+    "since": "2026-11-17",
+    "until": "2026-11-23",
     "held": 0,
     "next_day": 0,
     "steps": {
@@ -421,13 +421,13 @@
     "misses": []
   },
   "documents": {
-    "since": "2026-08-25",
-    "until": "2026-11-22",
-    "held": 120,
+    "since": "2026-08-26",
+    "until": "2026-11-23",
+    "held": 117,
     "boards": 45,
     "counts": {
       "no_documents": 0,
-      "no_minutes": 6,
+      "no_minutes": 5,
       "pairs": 0,
       "beside": 0
     },
@@ -452,10 +452,6 @@
       {
         "board": "School Committee Policy Subcommittee",
         "meetings": 2
-      },
-      {
-        "board": "Site Plan Review Committee",
-        "meetings": 2
       }
     ],
     "pairs": [],
@@ -464,7 +460,7 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-23T02:24:25-05:00",
+    "at": "2026-11-24T02:24:05-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-11T12:24:00-05:00"
@@ -472,7 +468,5 @@
   "officials": {
     "checked_at": "2026-11-22T04:14:28-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-23T09:31:15+00:00",
-  "published_engine": "v1.111.3"
+  }
 }
