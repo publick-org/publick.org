@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01HUTsGn4TA8VtZhRmE6ojmZ",
-  "sent_at": "2026-11-24T09:41:14+00:00",
+  "id": "msgbatch_019AjPGKQeQmb8w9rVie8jL8",
+  "sent_at": "2026-11-24T16:10:17+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,16 +11,40 @@
   },
   "documents": [
     {
+      "custom_id": "doc-0",
+      "kind": "recording",
+      "older": false,
+      "meeting": {
+        "title": "School Committee Meeting",
+        "date": "2026-11-23",
+        "body": "School Committee",
+        "agendas": [
+          {
+            "sha256": "59585909ddbed62d1a1697ec00f04a11aa37179130a7296d96a375ce2ea448b9"
+          },
+          {
+            "sha256": "508dfaaa57365d51d66a0485947b8475053eb02db315d19e6b567f41bd4b3bff"
+          }
+        ]
+      },
+      "doc": {
+        "id": "youtube-hItybybL_34",
+        "sha256": "c82ea1d59a3523063f1a7b4f84c969995998512b81529eaba8ba327a541b23d8",
+        "file": "youtube-hItybybL_34.txt",
+        "source_url": "https://www.youtube.com/watch?v=hItybybL_34"
+      }
+    },
+    {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "f5b0b9f881192c3a816669ec09411a35e22fc5d6688f7d8aa098f6d2fe3b0f18",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "School Committee Meeting",
