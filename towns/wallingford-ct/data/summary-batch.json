@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01BmGnFUdZK8oqLcXktA8vZ8",
-  "sent_at": "2026-11-24T13:30:56+00:00",
+  "id": "msgbatch_01HDMUCRpk2euZQYiGHW62Gz",
+  "sent_at": "2026-11-24T13:36:00+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,37 +11,38 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
-      "kind": "recording",
-      "older": false,
-      "meeting": {
-        "title": "Board of Education Meeting",
-        "date": "2026-11-23",
-        "body": "Board of Education",
-        "agendas": [
-          {
-            "sha256": "64c5e254eed07b29cb961cd11f9cd5e6af564f13880fd012f81242b32cc698dc"
-          }
-        ]
-      },
-      "doc": {
-        "id": "youtube-3m8BOanM638",
-        "sha256": "36d9ece50136938e74fcb51816a5bbecf0ea7013d3e6a8915e5462abd11e30b4",
-        "file": "youtube-3m8BOanM638.txt",
-        "source_url": "https://www.youtube.com/watch?v=3m8BOanM638"
-      }
-    },
-    {
       "custom_id": "tr-0",
       "type": "translation",
       "lang": "es",
-      "kind": "minutes",
+      "kind": "recording",
       "older": false,
-      "source_hash": "65c11c41d8ce228f6ab758e52a35797fa9a1bc3d72348b3824c2f90633e43072",
+      "source_hash": "d322c4a2edccd68d4b9c01d02739de64f70b5e64398db30f49f7a5003b6f6c08",
       "model": "claude-haiku-5-5",
       "prices": {
         "input_price": 0.1,
         "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Board of Education Meeting",
+        "date": "2026-11-23",
+        "body": "Board of Education"
+      },
+      "doc": {
+        "id": "youtube-3m8BOanM638",
+        "sha256": "36d9ece50136938e74fcb51816a5bbecf0ea7013d3e6a8915e5462abd11e30b4"
+      }
+    },
+    {
+      "custom_id": "tr-1",
+      "type": "review",
+      "lang": "es",
+      "kind": "minutes",
+      "older": false,
+      "source_hash": "65c11c41d8ce228f6ab758e52a35797fa9a1bc3d72348b3824c2f90633e43072",
+      "model": "claude-sonnet-5-5",
+      "prices": {
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Quinnipiac River Linear Trail Advisory Committee Meeting",
@@ -54,16 +55,16 @@
       }
     },
     {
-      "custom_id": "tr-1",
-      "type": "translation",
+      "custom_id": "tr-2",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "5eb0d49bb1a57dfafd2af01071e5ad6374e63a9c5f4cb2c5740da80347216f6f",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Board of Education Meeting",
