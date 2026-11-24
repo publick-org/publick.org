@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01Cx2C4qUXboZKqycjYK4AB2",
-  "sent_at": "2026-11-24T09:07:51+00:00",
+  "id": "msgbatch_013obA1rcfhDyFhz1mBhRgB2",
+  "sent_at": "2026-11-24T09:14:00+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,9 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
+      "source_hash": "dbe3f16930ce1124f28fea9f6f5ad1060860d21f3c67dcbef866fc1c4b2c4ecf",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Commission on Disability Meeting",
         "date": "2026-12-03",
@@ -21,15 +29,21 @@
       },
       "doc": {
         "id": "1188",
-        "sha256": "32ae2c52713857f9fdf18ae7f34b4c3a97a25a6ecc3400960015881079d7eb30",
-        "file": "1188.pdf",
-        "source_url": "https://www.methuen.gov/AgendaCenter/ViewFile/Agenda/_12032026-1188"
+        "sha256": "32ae2c52713857f9fdf18ae7f34b4c3a97a25a6ecc3400960015881079d7eb30"
       }
     },
     {
-      "custom_id": "doc-1",
+      "custom_id": "tr-1",
+      "type": "translation",
+      "lang": "es",
       "kind": "minutes",
       "older": false,
+      "source_hash": "494ab04cd1a51986978bc034ced7b8fee2eb69d4bc910f4c6885f982a78618e4",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Conservation Commission Meeting",
         "date": "2026-11-05",
@@ -37,9 +51,7 @@
       },
       "doc": {
         "id": "agendacenter-1173",
-        "sha256": "d78d08f33657524a7d32849fa041c8e7b3f469227f5e3f23c053f8abb66596d9",
-        "file": "agendacenter-1173.pdf",
-        "source_url": "https://www.methuen.gov/AgendaCenter/ViewFile/Minutes/_11052026-1173"
+        "sha256": "d78d08f33657524a7d32849fa041c8e7b3f469227f5e3f23c053f8abb66596d9"
       }
     }
   ]
