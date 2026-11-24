@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01JDaa8SKBj5bA54QwNRsLvj",
-  "sent_at": "2026-11-24T03:46:49+00:00",
+  "id": "msgbatch_01RSxZCokMwu5wBRqi8jPa74",
+  "sent_at": "2026-11-24T22:30:22+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,17 +11,41 @@
   },
   "documents": [
     {
-      "custom_id": "tr-0",
-      "type": "translation",
-      "lang": "es",
+      "custom_id": "doc-0",
       "kind": "agenda",
       "older": false,
-      "source_hash": "2a875914ab7f99a2a3073c8aad07f43d7a356fc226ac2735e20b158c6a586fe2",
-      "model": "claude-haiku-5-5",
-      "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+      "meeting": {
+        "title": "City Council Meeting",
+        "date": "2026-11-24",
+        "body": "City Council"
       },
+      "doc": {
+        "id": "4102-202611201152",
+        "sha256": "97541e7159713af89648cf8dbfb2ab9bcd79931db1aab78dfbaf326d77d8b779",
+        "file": "4102-202611201152.pdf",
+        "source_url": "https://www.lowellma.gov/AgendaCenter/ViewFile/Agenda/_11242026-4102"
+      }
+    },
+    {
+      "custom_id": "doc-1",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "Election Commission Meeting",
+        "date": "2026-11-24",
+        "body": "Election Commission"
+      },
+      "doc": {
+        "id": "4108-202611191533",
+        "sha256": "f301fb70a769f13eaf0fcb5afb21745a00326b239f6c648e19aeb1ed19fd9527",
+        "file": "4108-202611191533.pdf",
+        "source_url": "https://www.lowellma.gov/AgendaCenter/ViewFile/Agenda/_11242026-4108"
+      }
+    },
+    {
+      "custom_id": "doc-2",
+      "kind": "agenda",
+      "older": false,
       "meeting": {
         "title": "Community Preservation Committee Meeting",
         "date": "2026-12-03",
@@ -29,20 +53,22 @@
       },
       "doc": {
         "id": "4110-202611231119",
-        "sha256": "ebce067e754c6e2e95312bb0d23e4a2add2cb0f01d8ba981d68deb5f8a090a03"
+        "sha256": "ebce067e754c6e2e95312bb0d23e4a2add2cb0f01d8ba981d68deb5f8a090a03",
+        "file": "4110-202611231119.pdf",
+        "source_url": "https://www.lowellma.gov/AgendaCenter/ViewFile/Agenda/_12032026-4110"
       }
     },
     {
-      "custom_id": "tr-1",
-      "type": "translation",
+      "custom_id": "tr-0",
+      "type": "review",
       "lang": "es",
       "kind": "recording",
       "older": false,
       "source_hash": "d44aa3d9adb224795fe749814399e3b3c905bbd271e38a65b241c953f2ee8e80",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Zoning Board of Appeals Meeting",
