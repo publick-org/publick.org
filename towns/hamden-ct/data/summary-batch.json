@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01YG3LoKvyy7YUzEGWhP6qSq",
-  "sent_at": "2026-11-23T16:31:41+00:00",
+  "id": "msgbatch_01VXumPQb8xcJ2Scr9EshXnH",
+  "sent_at": "2026-11-24T11:08:28+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,16 +11,80 @@
   },
   "documents": [
     {
+      "custom_id": "doc-0",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "Board of Education Operations Committee Meeting",
+        "date": "2026-12-01",
+        "body": "Board of Education Operations Committee"
+      },
+      "doc": {
+        "id": "fd8a4939535d7220-8de5bced",
+        "sha256": "8de5bcedacea2bad2e7b4cf770443f853722e84eb58b3f79011e8851f7952a59",
+        "file": "fd8a4939535d7220-8de5bced.pdf",
+        "source_url": "https://files.smartsites.parentsquare.com/13638/opsagenda_dec1_2026.pdf"
+      }
+    },
+    {
+      "custom_id": "doc-1",
+      "kind": "minutes",
+      "older": false,
+      "meeting": {
+        "title": "Legislative Council Make-up & Workshop Meeting 3/2/26",
+        "date": "2026-11-23",
+        "body": "Legislative Council"
+      },
+      "doc": {
+        "id": "civicclerk-14404",
+        "sha256": "2523e29e3ca728cf221433e51e5745ecc927e331f1958884b64ca445e7afcaab",
+        "file": "civicclerk-14404.pdf",
+        "source_url": "https://hamdenct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=14404,plainText=false)"
+      }
+    },
+    {
+      "custom_id": "doc-2",
+      "kind": "minutes",
+      "older": false,
+      "meeting": {
+        "title": "Civil Service Commission Regular Meeting - Third Tuesday",
+        "date": "2026-11-17",
+        "body": "Civil Service Commission"
+      },
+      "doc": {
+        "id": "civicclerk-14396",
+        "sha256": "42a87ca3bff330c0d67c4e64961c000704d65b1870d3c13a8633cadac9f7429f",
+        "file": "civicclerk-14396.pdf",
+        "source_url": "https://hamdenct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=14396,plainText=false)"
+      }
+    },
+    {
+      "custom_id": "doc-3",
+      "kind": "minutes",
+      "older": false,
+      "meeting": {
+        "title": "Hamden Plains Cemetery Committee",
+        "date": "2026-11-17",
+        "body": "Hamden Plains Cemetery Committee"
+      },
+      "doc": {
+        "id": "civicclerk-14332",
+        "sha256": "755f26777ebece9fbde9e6a43be083157c38418ac94b797847ab66f532b7531d",
+        "file": "civicclerk-14332.pdf",
+        "source_url": "https://hamdenct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=14332,plainText=false)"
+      }
+    },
+    {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "recording",
       "older": false,
       "source_hash": "ddf7799f7638db97d936ced06dfef38a6bd3bf09e31f8f558512d2ae089d38c6",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Zoning Board of Appeals Regular Meeting",
