@@ -1,46 +1,46 @@
 {
   "town": "malden",
   "folder": "malden-ma",
-  "started_at": "2026-11-24T09:08:50+00:00",
-  "finished_at": "2026-11-24T09:15:44+00:00",
-  "engine": "v1.111.3",
+  "started_at": "2026-11-25T09:12:51+00:00",
+  "finished_at": "2026-11-25T09:19:09+00:00",
+  "engine": "v1.113.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 55.7
+      "seconds": 53.9
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 194.2
+      "seconds": 189.9
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 89.2
+      "seconds": 92.1
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 3.8
+      "seconds": 40.8
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.9
+      "seconds": 0.7
     }
   ],
   "update": {
     "town": "malden",
     "sources": "all",
-    "started_at": "2026-11-24T09:08:50+00:00",
+    "started_at": "2026-11-25T09:12:51+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 15.6,
+        "seconds": 18.9,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.4,
+        "seconds": 1.2,
         "cadence": "continuous"
       },
       {
@@ -154,7 +154,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 21.3,
+        "seconds": 19.1,
         "cadence": "continuous"
       },
       {
@@ -164,16 +164,15 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 25 days ago; checked every 30 days"
+        "skipped": "checked 26 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "seconds": 0.5,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch school figures",
@@ -182,7 +181,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 24 days ago; checked every 30 days"
+        "skipped": "checked 25 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -191,7 +190,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 25 days ago; checked every 30 days"
+        "skipped": "checked 26 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -200,14 +199,14 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 2 days ago; checked every 7 days"
+        "skipped": "checked 3 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -215,7 +214,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -232,7 +231,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -240,7 +239,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -248,7 +247,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 9.7,
+        "seconds": 9.1,
         "cadence": "continuous"
       },
       {
@@ -265,7 +264,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 5.5,
+        "seconds": 3.5,
         "cadence": "continuous"
       }
     ]
@@ -275,21 +274,21 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-24T04:08:50-05:00",
+      "updated_at": "2026-11-25T04:12:51-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-24T04:09:30-05:00",
+      "updated_at": "2026-11-25T04:13:32-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-24T04:09:40-05:00",
+      "updated_at": "2026-11-25T04:13:42-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -332,7 +331,7 @@
     {
       "label": "Unemployment rate (BLS)",
       "file": "labor/unemployment.json",
-      "updated_at": "2026-11-18T04:13:50-05:00",
+      "updated_at": "2026-11-25T04:13:31-05:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
@@ -380,20 +379,19 @@
     "Correction for City Council 2026-10-27: 0 of its decisions have \"an amendment to keep the 15% affordable housing requirement\", so it isn't shown. Name one."
   ],
   "ok": true,
-  "last_good_at": "2026-11-25T00:48:39+00:00",
-  "data_bytes": 20126535,
-  "data_bytes_added": 16086990,
+  "last_good_at": "2026-11-25T09:19:09+00:00",
+  "data_bytes": 20158084,
+  "data_bytes_added": 16111551,
   "activity": {
-    "boards": 55,
+    "boards": 57,
     "meetings_by_date": {
-      "2026-11-24": 5,
       "2026-12-02": 1,
       "2026-12-07": 1
     }
   },
   "fact_checks": {
-    "summaries": 278,
-    "ok": 244,
+    "summaries": 279,
+    "ok": 245,
     "failed": 13,
     "weak": 4,
     "unchecked": 15,
@@ -403,40 +401,43 @@
     "vote_counts_left_out": 87
   },
   "recordings": {
-    "since": "2026-11-17",
-    "until": "2026-11-23",
-    "held": 0,
+    "since": "2026-11-18",
+    "until": "2026-11-24",
+    "held": 1,
     "next_day": 0,
     "steps": {
       "summarized": 0,
       "minutes": 0,
       "transcribed": 0,
-      "waiting": 0,
+      "waiting": 1,
       "failed": 0,
       "unmatched": 0,
       "not_found": 0,
       "no_source": 0,
       "no_recordings": 0
     },
-    "misses": []
+    "misses": [
+      {
+        "date": "2026-11-24",
+        "board": "City Council",
+        "step": "waiting",
+        "detail": "1 recording(s) found"
+      }
+    ]
   },
   "documents": {
-    "since": "2026-08-26",
-    "until": "2026-11-23",
-    "held": 117,
-    "boards": 45,
+    "since": "2026-08-27",
+    "until": "2026-11-24",
+    "held": 122,
+    "boards": 46,
     "counts": {
       "no_documents": 0,
-      "no_minutes": 5,
+      "no_minutes": 4,
       "pairs": 0,
       "beside": 0
     },
     "no_documents": [],
     "no_minutes": [
-      {
-        "board": "City Council Finance Committee",
-        "meetings": 2
-      },
       {
         "board": "Comprehensive Master Plan Steering Committee",
         "meetings": 2
@@ -460,7 +461,7 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-24T02:24:05-05:00",
+    "at": "2026-11-25T02:24:09-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-11T12:24:00-05:00"
@@ -468,7 +469,5 @@
   "officials": {
     "checked_at": "2026-11-22T04:14:28-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-25T00:48:39+00:00",
-  "published_engine": "v1.113.0"
+  }
 }
