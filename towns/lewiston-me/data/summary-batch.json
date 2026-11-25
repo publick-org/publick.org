@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01BLSy7CcLvsytpcAW6Ed9cN",
-  "sent_at": "2026-11-25T09:11:10+00:00",
+  "id": "msgbatch_01WH8eafAeuZazPkrrHjr3YG",
+  "sent_at": "2026-11-25T09:25:30+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,41 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
-      "kind": "minutes",
-      "older": false,
-      "meeting": {
-        "title": "Finance Committee Meeting",
-        "date": "2026-11-09",
-        "body": "Finance Committee"
-      },
-      "doc": {
-        "id": "7042",
-        "sha256": "e2b69dcf10cb308287ee3fb349a58a83becb9cdcd47885afb19e2e86c4721813",
-        "file": "7042.pdf",
-        "source_url": "https://www.lewistonmaine.gov/Archive.aspx?ADID=7042"
-      }
-    },
-    {
-      "custom_id": "doc-1",
-      "kind": "minutes",
-      "older": false,
-      "meeting": {
-        "title": "City Council Workshop & Meeting",
-        "date": "2026-10-20",
-        "body": "City Council"
-      },
-      "doc": {
-        "id": "7043",
-        "sha256": "f453ba212772206709e8660ce93ad1e1fbf3ddcd34e58b69799f651d2e4cda8b",
-        "file": "7043.pdf",
-        "source_url": "https://www.lewistonmaine.gov/Archive.aspx?ADID=7043"
-      }
-    },
-    {
-      "custom_id": "doc-2",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
+      "source_hash": "8bd568d352a033df21bce9ef6fa6effd668a9016f03fed3489f229a85f88b82c",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "City Council Special Meeting",
         "date": "2026-11-24",
@@ -53,9 +29,51 @@
       },
       "doc": {
         "id": "7040",
-        "sha256": "c79fe1fbae47874dee2027b910c630155b98aa25549d7fedbbe0c56906d66a1b",
-        "file": "7040.pdf",
-        "source_url": "https://www.lewistonmaine.gov/Archive.aspx?ADID=7040"
+        "sha256": "c79fe1fbae47874dee2027b910c630155b98aa25549d7fedbbe0c56906d66a1b"
+      }
+    },
+    {
+      "custom_id": "tr-1",
+      "type": "translation",
+      "lang": "es",
+      "kind": "minutes",
+      "older": false,
+      "source_hash": "1c47ac0994668fcddee1e9bb4a34f68edc93572eec15dd662a1093ab2d5b97ff",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Finance Committee Meeting",
+        "date": "2026-11-09",
+        "body": "Finance Committee"
+      },
+      "doc": {
+        "id": "7042",
+        "sha256": "e2b69dcf10cb308287ee3fb349a58a83becb9cdcd47885afb19e2e86c4721813"
+      }
+    },
+    {
+      "custom_id": "tr-2",
+      "type": "translation",
+      "lang": "es",
+      "kind": "minutes",
+      "older": false,
+      "source_hash": "854dd51d62350108431f0f44c93fd1bb7877dbf48e56070f24c9c0db8104405f",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "City Council Workshop & Meeting",
+        "date": "2026-10-20",
+        "body": "City Council"
+      },
+      "doc": {
+        "id": "7043",
+        "sha256": "f453ba212772206709e8660ce93ad1e1fbf3ddcd34e58b69799f651d2e4cda8b"
       }
     }
   ]
