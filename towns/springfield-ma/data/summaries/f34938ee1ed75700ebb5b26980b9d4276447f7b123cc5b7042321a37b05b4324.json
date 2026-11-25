@@ -1,17 +1,23 @@
 {
-  "headline": "Public hearing on tax classification.",
-  "summary": "The only item on the agenda is a tax classification hearing. The agenda gives no further details about it.",
+  "headline": "Public hearing on tax classification and the tax rate.",
+  "summary": "The only item listed is the tax classification hearing, and no other business appears on the agenda. The posted title for this special session refers to the tax rate.",
   "items": [
     "Tax classification hearing"
   ],
   "start_time": "17:00",
   "location": "",
+  "item_actions": [
+    "hearing"
+  ],
+  "item_action_words": [
+    "Tax Classification Hearing"
+  ],
   "kind": "agenda",
   "source_url": "https://springfieldma.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=23720,plainText=false)",
   "source_sha256": "f34938ee1ed75700ebb5b26980b9d4276447f7b123cc5b7042321a37b05b4324",
   "model": "claude-haiku-5-5",
-  "prompt_version": 6,
-  "generated_at": "2026-11-05T04:20:44-05:00",
+  "prompt_version": 8,
+  "generated_at": "2026-11-25T04:43:43-05:00",
   "text_version": 2,
   "plain_text": "City Council                                          1                                       HYBRID MEETING \n \n \n                         CITY COUNCIL       \n  \n                                Public Portion Meeting Agenda  \n \n  \nI hereby notify you that the following items of business have been filed with this office and can \nbe acted upon at the meeting of the City Council Tuesday, November 24, 2026 at 5:00 PM.  \n  \nCity Clerk  \n \nI - Tax Classification Hearing",
   "text_note": "not a supported style",
@@ -20,6 +26,14 @@
     "version": 11,
     "source": "pdf",
     "result": "ok",
-    "problems": []
+    "problems": [
+      {
+        "field": "item_actions",
+        "entry": 1,
+        "kind": "action",
+        "what": "hearing: Tax Classification Hearing"
+      }
+    ],
+    "item_action_version": 1
   }
 }
