@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01MjVEpyv6EK79hK98NhS6YF",
-  "sent_at": "2026-11-25T09:51:36+00:00",
+  "id": "msgbatch_016JjymHcZnTL1ni3gdBHXHU",
+  "sent_at": "2026-11-25T21:55:23+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,170 +11,64 @@
   },
   "documents": [
     {
+      "custom_id": "doc-0",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "License Commission Hearing - November 30, 2026",
+        "date": "2026-11-30",
+        "body": "License Commission"
+      },
+      "doc": {
+        "id": "civicclerk-25813",
+        "sha256": "e6caafacea409b3826ddfe8b06a4febf660bb96a5a05afd1a30d7f2ac1edc110",
+        "file": "civicclerk-25813.pdf",
+        "source_url": "https://springfieldma.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=25813,plainText=false)"
+      }
+    },
+    {
+      "custom_id": "doc-1",
+      "kind": "minutes",
+      "older": false,
+      "meeting": {
+        "title": "Special Meeting - Setting the FY27 Tax Rate",
+        "date": "2026-11-24",
+        "body": "City Council"
+      },
+      "doc": {
+        "id": "civicclerk-25811",
+        "sha256": "5225ebb59ea7588500c34f20f5bb31adbfd4cd5af42bbdcabf4712c20b357174",
+        "file": "civicclerk-25811.pdf",
+        "source_url": "https://springfieldma.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=25811,plainText=false)"
+      }
+    },
+    {
+      "custom_id": "doc-2",
+      "kind": "minutes",
+      "older": false,
+      "meeting": {
+        "title": "City Council Hearings Meeting",
+        "date": "2026-11-23",
+        "body": "City Council Hearings"
+      },
+      "doc": {
+        "id": "civicclerk-25812",
+        "sha256": "0fabd23d0896755d71d39c58a105b24865927016b9218ff849e562d51dd7a4e8",
+        "file": "civicclerk-25812.pdf",
+        "source_url": "https://springfieldma.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=25812,plainText=false)"
+      }
+    },
+    {
       "custom_id": "tr-0",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "28b8eb949c6c8ee06160f406eacaf94f34445f048ab8754173f954fcccb98f7a",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Board of Public Works Meeting",
-        "date": "2026-12-08",
-        "body": "Board of Public Works"
-      },
-      "doc": {
-        "id": "civicclerk-25809",
-        "sha256": "f068ae5936b722484f731973ddef8329941c71cc778e6303d03e9f3fa3cda8ed"
-      }
-    },
-    {
-      "custom_id": "tr-1",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "90b4f37ba41c3ee442c4e221b84b85e5470413c7a2d07f474ce21f92565c3b95",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Board of Public Works Meeting",
-        "date": "2026-12-03",
-        "body": "Board of Public Works"
-      },
-      "doc": {
-        "id": "civicclerk-24807",
-        "sha256": "b7c9367f812964beb2db5a395033b7b250a51d51596290ee1bc6832d926ea989"
-      }
-    },
-    {
-      "custom_id": "tr-2",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "92f7d09cb72ee3ae3c6a91e414a51267b51c9719e7e0756807fbf014a3aec7fd",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Planning Board",
-        "date": "2026-12-02",
-        "body": "Planning Board"
-      },
-      "doc": {
-        "id": "civicclerk-24809",
-        "sha256": "04c15ede9a7b12fa74ab0653a8919ae4fb4fd3024561350c4b6f9a84fed9f614"
-      }
-    },
-    {
-      "custom_id": "tr-3",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "0289cf58fc626bd40aa8abd6182bade0a18ea33b6278e407492c3ad8141f77c0",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Traffic Commission Meeting",
-        "date": "2026-12-02",
-        "body": "Traffic Commission"
-      },
-      "doc": {
-        "id": "civicclerk-25808",
-        "sha256": "5dbf84455518f2831f4c7b6afd630b571a8d4c1ef4a7ca7be4115cfe374bc37d"
-      }
-    },
-    {
-      "custom_id": "tr-4",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "96a412363fc71807241b16ae225786686136e0fd438c7e6f0784ad61c0adb721",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Board of Public Works Meeting",
-        "date": "2026-12-01",
-        "body": "Board of Public Works"
-      },
-      "doc": {
-        "id": "civicclerk-24802",
-        "sha256": "412168f29abcb6dc010bd0a00f779598a1a476d3eb7a6ac50d44f4d340cefa8e"
-      }
-    },
-    {
-      "custom_id": "tr-5",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "0b662c568151563710bef155640e2505a3f24d06be3cb77557b299f81b5d602e",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Board of Public Works Meeting",
-        "date": "2026-11-30",
-        "body": "Board of Public Works"
-      },
-      "doc": {
-        "id": "civicclerk-23796",
-        "sha256": "0884bee460ad6499abcd0f835e4053f61e443d02499b10e04dbdd20145b8ffc5"
-      }
-    },
-    {
-      "custom_id": "tr-6",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "1fe278942b51f44f0973de6374133283828eb073811637a6dfc7b407b34fa151",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Springfield School Committee - Special Meeting",
-        "date": "2026-11-30",
-        "body": "School Committee"
-      },
-      "doc": {
-        "id": "civicclerk-25810",
-        "sha256": "b4fb8052434197897953322eacb9722df6f0f2850f160285a8301f8c93f8ba8d"
-      }
-    },
-    {
-      "custom_id": "tr-7",
-      "type": "review",
+      "type": "translation",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "34423382960ffd1f10a6244940c6e7d432bbbb1101db8593a36c0f01be3da0d1",
-      "model": "claude-sonnet-5-5",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
         "title": "Special Meeting - Setting the FY27 Tax Rate",
@@ -187,38 +81,16 @@
       }
     },
     {
-      "custom_id": "tr-8",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "cf57f993e2f0d835b0bb75ddceab2da62d3d093bd349d5f9d8eff90b5fa4fa16",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "License Commission Hearing - November 25th, 2026",
-        "date": "2026-11-25",
-        "body": "License Commission"
-      },
-      "doc": {
-        "id": "civicclerk-25807",
-        "sha256": "1410fe0a5f68c71613f98e8f55c9a636c96648024e0e0e6ff6f0093fe076c576"
-      }
-    },
-    {
-      "custom_id": "tr-9",
-      "type": "review",
+      "custom_id": "tr-1",
+      "type": "translation",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "2c883c85d32d5dd5c6c63ea3004e3b7363f05bfe2017a7d5aa28b20af826c1c8",
-      "model": "claude-sonnet-5-5",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
         "title": "Special Meeting - Setting the FY27 Tax Rate",
@@ -228,28 +100,6 @@
       "doc": {
         "id": "civicclerk-24813",
         "sha256": "9fcede93bea1eaed335345906fa9e0fc86deff946ef4802964afca81d4da6ec1"
-      }
-    },
-    {
-      "custom_id": "tr-10",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "84de7e5bf575567bb782ff6cc7ecf5b491d01b2d2efd66cfe6100d90c66eeded",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Special Public Hearing /Tax Rate",
-        "date": "2026-11-24",
-        "body": "City Council"
-      },
-      "doc": {
-        "id": "civicclerk-23720",
-        "sha256": "f34938ee1ed75700ebb5b26980b9d4276447f7b123cc5b7042321a37b05b4324"
       }
     }
   ]
