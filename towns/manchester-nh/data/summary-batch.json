@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01EfgVnik4ey5FRXwmFTA3Xd",
-  "sent_at": "2026-11-25T09:13:12+00:00",
+  "id": "msgbatch_01N4cChS7C3wPpsFhfXekXEf",
+  "sent_at": "2026-11-25T09:22:34+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,9 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
+      "source_hash": "b1358ba2cd5e5f439d172db25b8789da4ddb03056f005b843aae5ab4f53560e5",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Planning Board Public Hearings",
         "date": "2026-12-03",
@@ -21,31 +29,21 @@
       },
       "doc": {
         "id": "dnn-5aefb9485eea88ff",
-        "sha256": "fca1557e27c76161d6d7ed0f15b281f7d5465967aacb7a6522620afe318f2325",
-        "file": "dnn-5aefb9485eea88ff.pdf",
-        "source_url": "https://www.manchesternh.gov/Portals/2/Departments/pcd/BoardsCommissions/PlanningBoard/Agendas2/2026-12-03_PB_AGENDA.PDF?ver=2026-11-20-163240-000"
+        "sha256": "fca1557e27c76161d6d7ed0f15b281f7d5465967aacb7a6522620afe318f2325"
       }
     },
     {
-      "custom_id": "doc-1",
-      "kind": "minutes",
-      "older": false,
-      "meeting": {
-        "title": "Committee on Human Resources/Insurance",
-        "date": "2026-11-17",
-        "body": "Committee on Human Resources/Insurance"
-      },
-      "doc": {
-        "id": "civicclerk-5441",
-        "sha256": "cb345004aca40c92e27d1b83510cffbef4b7421e47a531be441ead06e9514d24",
-        "file": "civicclerk-5441.pdf",
-        "source_url": "https://manchesternh.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=5441,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-2",
+      "custom_id": "tr-1",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
+      "source_hash": "c307e91af22dd5ea85f04660c3763b452c36ba97a3dcc22574e990d2b5d836bc",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Heritage Commission",
         "date": "2026-11-24",
@@ -53,53 +51,29 @@
       },
       "doc": {
         "id": "dnn-1378c5dc4a35e615",
-        "sha256": "1cdb61e4c5e7b0fe97d1672a238ea5ea3035f14999e463e40a1284d745cbced4",
-        "file": "dnn-1378c5dc4a35e615.pdf",
-        "source_url": "https://www.manchesternh.gov/Portals/2/Departments/pcd/BoardsCommissions/HeritageCommission/Agendas/2026-11-24_HCOMM_AGENDA.PDF?ver=2026-11-20-141053-000"
+        "sha256": "1cdb61e4c5e7b0fe97d1672a238ea5ea3035f14999e463e40a1284d745cbced4"
       }
     },
     {
-      "custom_id": "tr-0",
-      "type": "review",
+      "custom_id": "tr-2",
+      "type": "translation",
       "lang": "es",
       "kind": "minutes",
       "older": false,
-      "source_hash": "eecabc457e7fcd37693872e35de791ea5e44c06d3ec99adc9f031fc8c1573b68",
-      "model": "claude-sonnet-5-5",
+      "source_hash": "d70660a8f4dc52a05e9aef2c6e1a2783f9861acb8e6f5c9d69cd5283a8ed3d85",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
-        "title": "Committee on Accounts, Enrollment & Revenue Administration",
+        "title": "Committee on Human Resources/Insurance",
         "date": "2026-11-17",
-        "body": "Committee on Accounts, Enrollment & Revenue Administration"
+        "body": "Committee on Human Resources/Insurance"
       },
       "doc": {
-        "id": "civicclerk-5423",
-        "sha256": "70f5f56e16ba00395b6c192fa31f22ba5f0fc2998f0c70dca6be486022e6d2e6"
-      }
-    },
-    {
-      "custom_id": "tr-1",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "238e7216afef3ce4fdc8347b9d4fb55349193a84cd2265a4f836fcc48cd21a98",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Committee on Community Improvement",
-        "date": "2026-11-17",
-        "body": "Committee on Community Improvement"
-      },
-      "doc": {
-        "id": "civicclerk-5432",
-        "sha256": "f8db15f3fe1800824423fc73e6fd4674374e6272861074f21ded657f36cddc85"
+        "id": "civicclerk-5441",
+        "sha256": "cb345004aca40c92e27d1b83510cffbef4b7421e47a531be441ead06e9514d24"
       }
     }
   ]
