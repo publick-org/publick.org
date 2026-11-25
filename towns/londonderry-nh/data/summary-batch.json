@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_0132EefJ97fSCfd7dH8vr9ed",
-  "sent_at": "2026-11-25T22:13:05+00:00",
+  "id": "msgbatch_01F7wwiXhLfRqjFdmm7637cu",
+  "sent_at": "2026-11-25T22:37:26+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,9 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
+      "source_hash": "cdd179c6f60f101486d87d3bbbf69519840afc25a08535fe888b1c1ef84cf69e",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Town Council Meeting / Budget Workshop",
         "date": "2026-11-30",
@@ -21,43 +29,20 @@
       },
       "doc": {
         "id": "1347",
-        "sha256": "2b0e17fbbdfc3ab82cfa4c53c5a930c5c0194ae60f376fdadabd3b34240f4486",
-        "file": "1347.pdf",
-        "source_url": "https://www.londonderrynh.gov/AgendaCenter/ViewFile/Agenda/_11302026-1347"
+        "sha256": "2b0e17fbbdfc3ab82cfa4c53c5a930c5c0194ae60f376fdadabd3b34240f4486"
       }
     },
     {
-      "custom_id": "doc-1",
-      "kind": "recording",
-      "older": false,
-      "meeting": {
-        "title": "Conservation Commission Meeting",
-        "date": "2026-11-24",
-        "body": "Conservation Commission",
-        "agendas": [
-          {
-            "sha256": "bb098127099f4edd82288b79637c42c498a9a0c77b8195579dd85df1a592b07f"
-          }
-        ]
-      },
-      "doc": {
-        "id": "youtube-Ol84ej4tTro",
-        "sha256": "0a62170f724646c65f023d471e25765fdd2b1b2825a5ee9b8830c35af07541ea",
-        "file": "youtube-Ol84ej4tTro.txt",
-        "source_url": "https://www.youtube.com/watch?v=Ol84ej4tTro"
-      }
-    },
-    {
-      "custom_id": "tr-0",
-      "type": "translation",
+      "custom_id": "tr-1",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "1837fbb5849e77f2843e09bfeee320d86230c0723c354cbf73b5e9068981beff",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Conservation Commission Meeting",
@@ -70,16 +55,38 @@
       }
     },
     {
-      "custom_id": "tr-1",
+      "custom_id": "tr-2",
       "type": "translation",
       "lang": "es",
-      "kind": "minutes",
+      "kind": "recording",
       "older": false,
-      "source_hash": "ad5c223d9ec51a93868046273d2a439954d4778c309d1dc1a2e0eba6eee78699",
+      "source_hash": "91ecaff14e2d036da7c2ba391ede5c299e2e40565101219619e4d6b614f67049",
       "model": "claude-haiku-5-5",
       "prices": {
         "input_price": 0.1,
         "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Conservation Commission Meeting",
+        "date": "2026-11-24",
+        "body": "Conservation Commission"
+      },
+      "doc": {
+        "id": "youtube-Ol84ej4tTro",
+        "sha256": "0a62170f724646c65f023d471e25765fdd2b1b2825a5ee9b8830c35af07541ea"
+      }
+    },
+    {
+      "custom_id": "tr-3",
+      "type": "review",
+      "lang": "es",
+      "kind": "minutes",
+      "older": false,
+      "source_hash": "ad5c223d9ec51a93868046273d2a439954d4778c309d1dc1a2e0eba6eee78699",
+      "model": "claude-sonnet-5-5",
+      "prices": {
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Leach Library Trustees Non-Public Meeting",
@@ -92,16 +99,16 @@
       }
     },
     {
-      "custom_id": "tr-2",
-      "type": "translation",
+      "custom_id": "tr-4",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "5e347f9f933ba6fbb35ad1f1539ccc21a5574cc96956c999369a8dc8e4f22416",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Budget Committee Meeting - Budget Workshop",
