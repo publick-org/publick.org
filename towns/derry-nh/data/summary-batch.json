@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01766V4FzeqyxYytrbKzNqB5",
-  "sent_at": "2026-11-25T22:12:48+00:00",
+  "id": "msgbatch_01UJw1e46ckNm3h2uHscgKt4",
+  "sent_at": "2026-11-25T22:19:01+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -12,15 +12,15 @@
   "documents": [
     {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "4009f5fc42308329a578dab8178ca7291529ae5d16e4b9c14dfd845b10548b64",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Planning Board",
@@ -34,15 +34,15 @@
     },
     {
       "custom_id": "tr-1",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "801a6f8fc60ed97a123224710d51bd78349f874cf7ac9ee1c6bfcb93dcc1eab3",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Town Council",
@@ -52,28 +52,6 @@
       "doc": {
         "id": "396",
         "sha256": "a9a3831e5d7583a4cb51497b66767f9a7964b23cb747e5847f543948dbf00bd0"
-      }
-    },
-    {
-      "custom_id": "tr-2",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "75b9f4a913351a784d88e9c6775e1ec35b738e84eb0d997498f563ee48dc10ab",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Derry School Board Meeting",
-        "date": "2026-11-10",
-        "body": "Derry School Board"
-      },
-      "doc": {
-        "id": "1RnzDvx4clGOLY9ole5DNAFQngW95Jtmi-d48b07fe",
-        "sha256": "d48b07feafb22961f15fa40deb79c5ecb5842a7d240693b25e02a72d865cd5aa"
       }
     }
   ]
