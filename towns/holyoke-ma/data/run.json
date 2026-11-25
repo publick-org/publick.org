@@ -1,46 +1,46 @@
 {
   "town": "holyoke",
   "folder": "holyoke-ma",
-  "started_at": "2026-11-24T16:10:09+00:00",
-  "finished_at": "2026-11-24T16:15:21+00:00",
-  "engine": "v1.111.3",
+  "started_at": "2026-11-25T01:42:46+00:00",
+  "finished_at": "2026-11-25T01:46:12+00:00",
+  "engine": "v1.113.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 224.1
+      "seconds": 104.5
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 50.9
+      "seconds": 47.2
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 60.0
+      "seconds": 50.2
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.1
+      "seconds": 2.6
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.9
+      "seconds": 0.7
     }
   ],
   "update": {
     "town": "holyoke",
     "sources": "meetings",
-    "started_at": "2026-11-24T16:10:10+00:00",
+    "started_at": "2026-11-25T01:42:46+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
+        "seconds": 0.6,
         "cadence": "continuous"
       },
       {
@@ -127,7 +127,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 197.1,
+        "seconds": 21.0,
         "cadence": "continuous"
       },
       {
@@ -153,7 +153,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 23.0,
+        "seconds": 20.4,
         "cadence": "continuous"
       },
       {
@@ -163,15 +163,16 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 6 days ago; checked every 30 days"
+        "skipped": "checked 7 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.7,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 0 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -180,7 +181,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 6 days ago; checked every 30 days"
+        "skipped": "checked 7 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -196,7 +197,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 24.6,
         "cadence": "monthly"
       },
       {
@@ -229,7 +230,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 35.9,
         "cadence": "continuous"
       },
       {
@@ -247,7 +248,7 @@
     {
       "label": "Meetings (city website)",
       "file": "meetings/proudcity_status.json",
-      "updated_at": "2026-11-24T11:10:11-05:00",
+      "updated_at": "2026-11-24T20:42:48-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -316,13 +317,13 @@
     {
       "label": "Housing figures",
       "file": "housing/housing.json",
-      "updated_at": "2026-11-17T13:41:05-05:00",
+      "updated_at": "2026-11-24T20:43:29-05:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
       "stale": false,
-      "latest": "2025 building permits; September 2026 building permits; ACS 2024 5-year estimates; Fiscal year 2026 parcel counts",
-      "next": "2026 building permits usually by June 1, 2027; October 2026 building permits usually by December 1, 2026; ACS 2025 5-year estimates usually by December 15, 2026; Fiscal year 2027 parcel counts usually by March 1, 2027",
+      "latest": "2025 building permits; September 2026 building permits; ACS 2024 5-year estimates; Fiscal year 2027 parcel counts",
+      "next": "2026 building permits usually by June 1, 2027; October 2026 building permits usually by December 1, 2026; ACS 2025 5-year estimates usually by December 15, 2026; Fiscal year 2028 parcel counts usually by March 1, 2028",
       "behind": null
     },
     {
@@ -351,39 +352,39 @@
   "corrections": [],
   "ok": true,
   "last_good_at": null,
-  "data_bytes": 3786327,
-  "data_bytes_added": 1028328,
+  "data_bytes": 4325968,
+  "data_bytes_added": 1015997,
   "activity": {
     "boards": 50,
     "meetings_by_date": {
-      "2026-11-24": 9,
       "2026-11-30": 1,
       "2026-12-01": 2,
       "2026-12-02": 1,
       "2026-12-03": 1,
-      "2026-12-07": 1
+      "2026-12-07": 1,
+      "2026-12-08": 1
     }
   },
   "fact_checks": {
-    "summaries": 161,
-    "ok": 151,
-    "failed": 6,
+    "summaries": 174,
+    "ok": 162,
+    "failed": 8,
     "weak": 4,
     "unchecked": 0,
     "not_yet": 0,
-    "held_back": 6,
-    "entries_not_shown": 5,
-    "vote_counts_left_out": 17
+    "held_back": 8,
+    "entries_not_shown": 7,
+    "vote_counts_left_out": 31
   },
   "recordings": {
     "since": "2026-11-17",
     "until": "2026-11-23",
     "held": 2,
-    "next_day": 0,
+    "next_day": 1,
     "steps": {
-      "summarized": 0,
+      "summarized": 1,
       "minutes": 0,
-      "transcribed": 2,
+      "transcribed": 1,
       "waiting": 0,
       "failed": 0,
       "unmatched": 0,
@@ -397,32 +398,22 @@
         "board": "City Council",
         "step": "transcribed",
         "detail": "transcript not summarized yet"
-      },
-      {
-        "date": "2026-11-23",
-        "board": "School Committee",
-        "step": "transcribed",
-        "detail": "transcript not summarized yet"
       }
     ]
   },
   "documents": {
-    "since": "2026-08-26",
-    "until": "2026-11-23",
-    "held": 108,
-    "boards": 36,
+    "since": "2026-08-27",
+    "until": "2026-11-24",
+    "held": 115,
+    "boards": 39,
     "counts": {
       "no_documents": 0,
-      "no_minutes": 8,
+      "no_minutes": 7,
       "pairs": 0,
-      "beside": 0
+      "beside": 2
     },
     "no_documents": [],
     "no_minutes": [
-      {
-        "board": "City Council Charter and Rules Committee",
-        "meetings": 2
-      },
       {
         "board": "City Council Development and Governmental Relations Committee",
         "meetings": 2
@@ -453,20 +444,29 @@
       }
     ],
     "pairs": [],
-    "beside": [],
+    "beside": [
+      {
+        "date": "2026-11-24",
+        "board": "School Committee Superintendent Search Committee",
+        "other": "School Committee"
+      },
+      {
+        "date": "2026-11-24",
+        "board": "Superintendent Interview Question Accessibility Task Force",
+        "other": "School Committee and School Committee Policy and Governance Subcommittee"
+      }
+    ],
     "waiting": {},
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-24T10:59:13-05:00",
+    "at": "2026-11-24T20:30:57-05:00",
     "refused": 0,
     "transcribed": 1,
-    "last_transcribed_at": "2026-11-24T10:59:13-05:00"
+    "last_transcribed_at": "2026-11-24T20:30:57-05:00"
   },
   "officials": {
-    "checked_at": "2026-11-17T13:41:33-05:00",
+    "checked_at": "2026-11-24T20:43:54-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-25T00:43:45+00:00",
-  "published_engine": "v1.113.0"
+  }
 }
