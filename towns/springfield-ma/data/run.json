@@ -1,46 +1,46 @@
 {
   "town": "springfield",
   "folder": "springfield-ma",
-  "started_at": "2026-11-24T09:12:06+00:00",
-  "finished_at": "2026-11-24T09:14:40+00:00",
-  "engine": "v1.111.3",
+  "started_at": "2026-11-25T09:20:47+00:00",
+  "finished_at": "2026-11-25T09:24:49+00:00",
+  "engine": "v1.113.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 63.8
+      "seconds": 78.1
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 43.1
+      "seconds": 43.2
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 37.9
+      "seconds": 47.9
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 1.8
+      "seconds": 71.3
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.7
+      "seconds": 1.4
     }
   ],
   "update": {
     "town": "springfield",
     "sources": "all",
-    "started_at": "2026-11-24T09:12:07+00:00",
+    "started_at": "2026-11-25T09:20:47+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 48.9,
+        "seconds": 49.1,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.5,
         "cadence": "continuous"
       },
       {
@@ -145,7 +145,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 4.5,
+        "seconds": 4.8,
         "cadence": "continuous"
       },
       {
@@ -153,7 +153,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 8.5,
+        "seconds": 21.1,
         "cadence": "continuous"
       },
       {
@@ -163,16 +163,15 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 27 days ago; checked every 30 days"
+        "skipped": "checked 28 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 6 days ago; checked every 7 days"
+        "seconds": 0.6,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch school figures",
@@ -181,7 +180,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 27 days ago; checked every 30 days"
+        "skipped": "checked 28 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -190,7 +189,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 27 days ago; checked every 30 days"
+        "skipped": "checked 28 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -199,14 +198,14 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "skipped": "checked 6 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -214,7 +213,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -231,7 +230,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -239,7 +238,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -276,14 +275,14 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-24T04:12:07-05:00",
+      "updated_at": "2026-11-25T04:20:47-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee minutes (school district website)",
       "file": "meetings/sharpschool_status.json",
-      "updated_at": "2026-11-24T04:12:56-05:00",
+      "updated_at": "2026-11-25T04:21:37-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -326,7 +325,7 @@
     {
       "label": "Unemployment rate (BLS)",
       "file": "labor/unemployment.json",
-      "updated_at": "2026-11-18T04:10:12-05:00",
+      "updated_at": "2026-11-25T04:22:03-05:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
@@ -372,24 +371,24 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-25T00:48:36+00:00",
-  "data_bytes": 2083122,
-  "data_bytes_added": 4684,
+  "last_good_at": "2026-11-25T09:24:49+00:00",
+  "data_bytes": 2100793,
+  "data_bytes_added": 7217,
   "activity": {
     "boards": 47,
     "meetings_by_date": {
-      "2026-11-24": 2,
       "2026-11-25": 2,
       "2026-11-30": 2,
       "2026-12-01": 2,
       "2026-12-02": 4,
       "2026-12-03": 3,
-      "2026-12-07": 1
+      "2026-12-07": 1,
+      "2026-12-08": 2
     }
   },
   "fact_checks": {
-    "summaries": 131,
-    "ok": 118,
+    "summaries": 133,
+    "ok": 120,
     "failed": 12,
     "weak": 1,
     "unchecked": 0,
@@ -399,9 +398,9 @@
     "vote_counts_left_out": 127
   },
   "recordings": {
-    "since": "2026-11-17",
-    "until": "2026-11-23",
-    "held": 2,
+    "since": "2026-11-18",
+    "until": "2026-11-24",
+    "held": 3,
     "next_day": 0,
     "steps": {
       "summarized": 0,
@@ -409,7 +408,7 @@
       "transcribed": 0,
       "waiting": 0,
       "failed": 0,
-      "unmatched": 0,
+      "unmatched": 1,
       "not_found": 1,
       "no_source": 0,
       "no_recordings": 0
@@ -419,17 +418,23 @@
         "date": "2026-11-18",
         "board": "Zoning Board of Appeals",
         "step": "not_found"
+      },
+      {
+        "date": "2026-11-24",
+        "board": "City Council",
+        "step": "unmatched",
+        "detail": "youtube-4ih2rhfQ9DM"
       }
     ]
   },
   "documents": {
-    "since": "2026-08-26",
-    "until": "2026-11-23",
-    "held": 149,
+    "since": "2026-08-27",
+    "until": "2026-11-24",
+    "held": 147,
     "boards": 42,
     "counts": {
       "no_documents": 1,
-      "no_minutes": 12,
+      "no_minutes": 10,
       "pairs": 0,
       "beside": 0
     },
@@ -446,22 +451,14 @@
       },
       {
         "board": "Board of Assessors",
-        "meetings": 5
+        "meetings": 4
       },
       {
         "board": "Historical Commission",
         "meetings": 3
       },
       {
-        "board": "License Commission",
-        "meetings": 3
-      },
-      {
         "board": "Board of Library Commissioners",
-        "meetings": 2
-      },
-      {
-        "board": "Board of Police Commissioners",
         "meetings": 2
       },
       {
@@ -470,6 +467,10 @@
       },
       {
         "board": "Conservation Commission",
+        "meetings": 2
+      },
+      {
+        "board": "License Commission",
         "meetings": 2
       },
       {
@@ -483,10 +484,6 @@
       {
         "board": "Traffic Commission",
         "meetings": 2
-      },
-      {
-        "board": "Zoning Board of Appeals",
-        "meetings": 2
       }
     ],
     "pairs": [],
@@ -495,7 +492,7 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-24T02:23:58-05:00",
+    "at": "2026-11-25T02:24:02-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-19T04:23:58-05:00"
@@ -503,7 +500,5 @@
   "officials": {
     "checked_at": "2026-11-23T04:14:47-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-25T00:48:36+00:00",
-  "published_engine": "v1.113.0"
+  }
 }
