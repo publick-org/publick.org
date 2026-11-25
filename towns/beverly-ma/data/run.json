@@ -1,46 +1,46 @@
 {
   "town": "beverly",
   "folder": "beverly-ma",
-  "started_at": "2026-11-24T09:06:55+00:00",
-  "finished_at": "2026-11-24T09:11:29+00:00",
-  "engine": "v1.111.3",
+  "started_at": "2026-11-25T09:07:15+00:00",
+  "finished_at": "2026-11-25T09:12:56+00:00",
+  "engine": "v1.113.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 58.6
+      "seconds": 105.9
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 140.4
+      "seconds": 142.5
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 30.0
+      "seconds": 51.3
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 3.1
+      "seconds": 40.2
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.9
+      "seconds": 1.1
     }
   ],
   "update": {
     "town": "beverly",
     "sources": "all",
-    "started_at": "2026-11-24T09:06:55+00:00",
+    "started_at": "2026-11-25T09:07:15+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 36.7,
+        "seconds": 48.7,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.6,
+        "seconds": 5.2,
         "cadence": "continuous"
       },
       {
@@ -154,7 +154,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 17.7,
+        "seconds": 25.1,
         "cadence": "continuous"
       },
       {
@@ -164,7 +164,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 23 days ago; checked every 30 days"
+        "skipped": "checked 24 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -173,7 +173,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 3 days ago; checked every 7 days"
+        "skipped": "checked 4 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -182,7 +182,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 23 days ago; checked every 30 days"
+        "skipped": "checked 24 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -191,14 +191,14 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 23 days ago; checked every 30 days"
+        "skipped": "checked 24 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 24.6,
         "cadence": "monthly"
       },
       {
@@ -276,7 +276,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-24T04:06:56-05:00",
+      "updated_at": "2026-11-25T04:07:16-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -331,13 +331,13 @@
     {
       "label": "Housing figures",
       "file": "housing/housing.json",
-      "updated_at": "2026-11-17T04:12:55-05:00",
+      "updated_at": "2026-11-25T04:08:35-05:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
       "stale": false,
-      "latest": "2025 building permits; September 2026 building permits; ACS 2024 5-year estimates; Fiscal year 2026 parcel counts",
-      "next": "2026 building permits usually by June 1, 2027; October 2026 building permits usually by December 1, 2026; ACS 2025 5-year estimates usually by December 15, 2026; Fiscal year 2027 parcel counts usually by March 1, 2027",
+      "latest": "2025 building permits; September 2026 building permits; ACS 2024 5-year estimates; Fiscal year 2027 parcel counts",
+      "next": "2026 building permits usually by June 1, 2027; October 2026 building permits usually by December 1, 2026; ACS 2025 5-year estimates usually by December 15, 2026; Fiscal year 2028 parcel counts usually by March 1, 2028",
       "behind": null
     },
     {
@@ -365,22 +365,22 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-25T00:43:23+00:00",
-  "data_bytes": 4415125,
-  "data_bytes_added": 2113,
+  "last_good_at": "2026-11-25T09:12:56+00:00",
+  "data_bytes": 4426904,
+  "data_bytes_added": 9359,
   "activity": {
     "boards": 56,
     "meetings_by_date": {
-      "2026-11-24": 1,
       "2026-11-30": 1,
       "2026-12-01": 1,
-      "2026-12-03": 1,
-      "2026-12-07": 2
+      "2026-12-03": 2,
+      "2026-12-07": 2,
+      "2026-12-08": 1
     }
   },
   "fact_checks": {
-    "summaries": 225,
-    "ok": 215,
+    "summaries": 226,
+    "ok": 216,
     "failed": 4,
     "weak": 5,
     "unchecked": 1,
@@ -390,18 +390,18 @@
     "vote_counts_left_out": 12
   },
   "recordings": {
-    "since": "2026-11-17",
-    "until": "2026-11-23",
+    "since": "2026-11-18",
+    "until": "2026-11-24",
     "held": 2,
-    "next_day": 1,
+    "next_day": 0,
     "steps": {
-      "summarized": 1,
+      "summarized": 0,
       "minutes": 0,
       "transcribed": 0,
       "waiting": 0,
       "failed": 0,
       "unmatched": 1,
-      "not_found": 0,
+      "not_found": 1,
       "no_source": 0,
       "no_recordings": 0
     },
@@ -411,17 +411,22 @@
         "board": "City Council",
         "step": "unmatched",
         "detail": "youtube-8UNrJ6qQFcY"
+      },
+      {
+        "date": "2026-11-24",
+        "board": "Zoning Board of Appeals",
+        "step": "not_found"
       }
     ]
   },
   "documents": {
-    "since": "2026-08-26",
-    "until": "2026-11-23",
+    "since": "2026-08-27",
+    "until": "2026-11-24",
     "held": 141,
     "boards": 48,
     "counts": {
       "no_documents": 4,
-      "no_minutes": 9,
+      "no_minutes": 8,
       "pairs": 1,
       "beside": 0
     },
@@ -475,10 +480,6 @@
       {
         "board": "South Essex Sewerage Board",
         "meetings": 2
-      },
-      {
-        "board": "Zoning Board of Appeals",
-        "meetings": 2
       }
     ],
     "pairs": [
@@ -493,7 +494,7 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-24T02:24:29-05:00",
+    "at": "2026-11-25T02:24:28-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-19T12:30:00-05:00"
@@ -501,7 +502,5 @@
   "officials": {
     "checked_at": "2026-11-23T04:10:01-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-25T00:43:23+00:00",
-  "published_engine": "v1.113.0"
+  }
 }
