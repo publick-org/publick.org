@@ -1,8 +1,8 @@
 {
   "town": "hamden",
   "folder": "hamden-ct",
-  "started_at": "2026-11-25T09:12:57+00:00",
-  "finished_at": "2026-11-25T09:16:56+00:00",
+  "started_at": "2026-11-25T21:44:47+00:00",
+  "finished_at": "2026-11-25T21:47:51+00:00",
   "engine": "v1.113.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 81.2
+      "seconds": 68.5
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 70.8
+      "seconds": 65.7
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 64.0
+      "seconds": 46.6
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.8
+      "seconds": 2.0
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.8
+      "seconds": 0.7
     }
   ],
   "update": {
     "town": "hamden",
     "sources": "all",
-    "started_at": "2026-11-25T09:12:57+00:00",
+    "started_at": "2026-11-25T21:44:48+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 45.5,
+        "seconds": 43.1,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 4.0,
+        "seconds": 3.6,
         "cadence": "continuous"
       },
       {
@@ -153,7 +153,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 20.9,
+        "seconds": 10.9,
         "cadence": "continuous"
       },
       {
@@ -172,7 +172,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -190,7 +190,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch housing figures",
@@ -199,7 +199,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -247,7 +247,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 8.2,
+        "seconds": 8.0,
         "cadence": "continuous"
       },
       {
@@ -274,21 +274,21 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-25T04:12:58-05:00",
+      "updated_at": "2026-11-25T16:44:48-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-25T04:14:09-05:00",
+      "updated_at": "2026-11-25T16:45:47-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-25T04:14:18-05:00",
+      "updated_at": "2026-11-25T16:45:55-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -377,29 +377,29 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-25T18:10:52+00:00",
-  "data_bytes": 5575815,
-  "data_bytes_added": 2543660,
+  "last_good_at": "2026-11-25T21:47:51+00:00",
+  "data_bytes": 5569692,
+  "data_bytes_added": 2540644,
   "activity": {
     "boards": 51,
     "meetings_by_date": {
       "2026-11-30": 1,
       "2026-12-01": 2,
       "2026-12-02": 4,
-      "2026-12-03": 3,
+      "2026-12-03": 2,
       "2026-12-07": 2,
       "2026-12-08": 6
     }
   },
   "fact_checks": {
     "summaries": 187,
-    "ok": 176,
-    "failed": 9,
+    "ok": 177,
+    "failed": 8,
     "weak": 2,
     "unchecked": 0,
     "not_yet": 0,
-    "held_back": 9,
-    "entries_not_shown": 13,
+    "held_back": 8,
+    "entries_not_shown": 12,
     "vote_counts_left_out": 20
   },
   "recordings": {
@@ -464,7 +464,5 @@
   "officials": {
     "checked_at": "2026-11-24T06:08:30-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-25T18:10:52+00:00",
-  "published_engine": "v1.113.0"
+  }
 }
