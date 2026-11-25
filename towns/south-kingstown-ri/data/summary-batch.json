@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01N3nddbEn25ku6z7GL7oxgz",
-  "sent_at": "2026-11-25T09:54:23+00:00",
+  "id": "msgbatch_012jMjJUmLftKU5neaHe4ixv",
+  "sent_at": "2026-11-25T21:56:52+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,16 +11,112 @@
   },
   "documents": [
     {
+      "custom_id": "doc-0",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "Economic Development Committee",
+        "date": "2026-12-02",
+        "body": "Economic Development Committee"
+      },
+      "doc": {
+        "id": "civicclerk-8437",
+        "sha256": "933f2ce196357e5f2534deaa7c390a3cd2dc38d1beac7dcb3aaa4f2f50a6ce29",
+        "file": "civicclerk-8437.pdf",
+        "source_url": "https://southkingstownri.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=8437,plainText=false)"
+      }
+    },
+    {
+      "custom_id": "doc-1",
+      "kind": "minutes",
+      "older": false,
+      "meeting": {
+        "title": "Town Council",
+        "date": "2026-11-09",
+        "body": "Town Council"
+      },
+      "doc": {
+        "id": "civicclerk-8438",
+        "sha256": "65df867b62956094c387cd3eefdcfe2b4b491424584a190f0069e92051197ce1",
+        "file": "civicclerk-8438.pdf",
+        "source_url": "https://southkingstownri.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=8438,plainText=false)"
+      }
+    },
+    {
+      "custom_id": "doc-2",
+      "kind": "minutes",
+      "older": false,
+      "meeting": {
+        "title": "Planning Board - Regular Session",
+        "date": "2026-10-27",
+        "body": "Planning Board"
+      },
+      "doc": {
+        "id": "civicclerk-8439",
+        "sha256": "f9b8d128cc7be91b0ce4113a4a490a893acc9fdf772bc4dfec52aec40bc7c6fd",
+        "file": "civicclerk-8439.pdf",
+        "source_url": "https://southkingstownri.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=8439,plainText=false)"
+      }
+    },
+    {
+      "custom_id": "doc-3",
+      "kind": "minutes",
+      "older": false,
+      "meeting": {
+        "title": "School Committee Meeting",
+        "date": "2026-10-27",
+        "body": "School Committee"
+      },
+      "doc": {
+        "id": "opengov-572409-f532e1c9",
+        "sha256": "f532e1c90130c4b1e79fee4a26fa5e8e17bac7f8feab8d9f179aceb3eee6be6b",
+        "file": "opengov-572409-f532e1c9.pdf",
+        "source_url": "https://opengov.sos.ri.gov/Common/DownloadMeetingFiles?FilePath=%5CMinutes%5C3959%5C2026%5C572409.pdf"
+      }
+    },
+    {
+      "custom_id": "doc-4",
+      "kind": "minutes",
+      "older": false,
+      "meeting": {
+        "title": "Economic Development Committee",
+        "date": "2026-10-07",
+        "body": "Economic Development Committee"
+      },
+      "doc": {
+        "id": "civicclerk-8326",
+        "sha256": "923f7939dd721a60d74a99dd8c39cbcb60ee738dc10347f4bf07ea03e6d3f5f9",
+        "file": "civicclerk-8326.pdf",
+        "source_url": "https://southkingstownri.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=8326,plainText=false)"
+      }
+    },
+    {
+      "custom_id": "doc-5",
+      "kind": "minutes",
+      "older": false,
+      "meeting": {
+        "title": "Planning Board - Work Session",
+        "date": "2026-10-06",
+        "body": "Planning Board"
+      },
+      "doc": {
+        "id": "civicclerk-8440",
+        "sha256": "9c95f44648072540319838fd3b8ec4a305310a59d5be06469c8f725dbc050cae",
+        "file": "civicclerk-8440.pdf",
+        "source_url": "https://southkingstownri.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=8440,plainText=false)"
+      }
+    },
+    {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "110c9033e2315b8ebe793796fe5708771fb87aeed15d61a887f86d71cddaaa06",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Town Council",
@@ -34,15 +130,15 @@
     },
     {
       "custom_id": "tr-1",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "e1c262fe2ea6307490038ea7a92f9e6fe6d6f9f1e2a6c82bbea0dc8434b49021",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Canvassing Authority",
@@ -56,15 +152,15 @@
     },
     {
       "custom_id": "tr-2",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "4fcb02067e4818768e44bb28c3c23c32b86afd8905d0fdee5344b85e75df0f8a",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Planning Board - Regular Session",
@@ -78,15 +174,15 @@
     },
     {
       "custom_id": "tr-3",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "5c1c8a57e1259b28c2abbb700f02c8445262a055b58c85c5694e04f3b91477b3",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "School Committee Meeting",
