@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01BgSBRSQKCTQdDxyBEXCYDb",
-  "sent_at": "2026-11-25T11:07:25+00:00",
+  "id": "msgbatch_01VdooBqdtE8sxcFSJwP5dNe",
+  "sent_at": "2026-11-25T11:12:44+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,41 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
-      "meeting": {
-        "title": "Joint Meeting of the Medford City Council and the Medford School Committee",
-        "date": "2026-11-30",
-        "body": "City Council"
+      "source_hash": "efcbd6409740b9cd691edb3ffd7548a79c251a4df85c0c5972ee146fdaf4d504",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
       },
-      "doc": {
-        "id": "civicclerk-1037",
-        "sha256": "04afc96d17feff1bfa1e3611abdf32555ac6f302acd09312497569a6fb24ece8",
-        "file": "civicclerk-1037.pdf",
-        "source_url": "https://medfordma.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=1037,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-1",
-      "kind": "agenda",
-      "older": false,
-      "meeting": {
-        "title": "School Committee Meeting",
-        "date": "2026-11-30",
-        "body": "School Committee"
-      },
-      "doc": {
-        "id": "c01a44b404a4be31-61491e26",
-        "sha256": "61491e26a12c40fa564ffad42bd0ea0f7e28b493b6dcd60e7fc7fc36d164c8d1",
-        "file": "c01a44b404a4be31-61491e26.pdf",
-        "source_url": "https://www.mps02155.org/fs/resource-manager/view/dfcd508b-a63b-4eb3-ba0d-ee6d30ddc343"
-      }
-    },
-    {
-      "custom_id": "doc-2",
-      "kind": "agenda",
-      "older": false,
       "meeting": {
         "title": "School Committee Facilities & Capital Planning Subcommittee Meeting",
         "date": "2026-12-04",
@@ -53,18 +29,38 @@
       },
       "doc": {
         "id": "9d4eff31e9bcfa35-51a06db9",
-        "sha256": "51a06db9b74bd47c82ae51c1e57371f074aea7b9e0428dc37a146bd1e7bc82b7",
-        "file": "9d4eff31e9bcfa35-51a06db9.pdf",
-        "source_url": "https://www.mps02155.org/fs/resource-manager/view/848ed5b6-511d-4347-ad14-d98c52bf4e00"
+        "sha256": "51a06db9b74bd47c82ae51c1e57371f074aea7b9e0428dc37a146bd1e7bc82b7"
       }
     },
     {
-      "custom_id": "tr-0",
+      "custom_id": "tr-1",
       "type": "translation",
       "lang": "es",
-      "kind": "recording",
+      "kind": "agenda",
       "older": false,
-      "source_hash": "d859547a92eadebd6c6ebe84d2bd6ceaa5c3c927dd93ff889dda2ed4cfbd5844",
+      "source_hash": "836fe47cf8529aa304b65a50d9388dbf4fe6f9a9fe5de50881aa33468bc110f0",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Joint Meeting of the Medford City Council and the Medford School Committee",
+        "date": "2026-11-30",
+        "body": "City Council"
+      },
+      "doc": {
+        "id": "civicclerk-1037",
+        "sha256": "04afc96d17feff1bfa1e3611abdf32555ac6f302acd09312497569a6fb24ece8"
+      }
+    },
+    {
+      "custom_id": "tr-2",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "df72d837dd91b216db22349cb0b2d1ad71eac526f7640a16bd647b659eda8465",
       "model": "claude-haiku-5-5",
       "prices": {
         "input_price": 0.1,
@@ -72,12 +68,12 @@
       },
       "meeting": {
         "title": "School Committee Meeting",
-        "date": "2026-11-23",
+        "date": "2026-11-30",
         "body": "School Committee"
       },
       "doc": {
-        "id": "youtube-hItybybL_34",
-        "sha256": "c82ea1d59a3523063f1a7b4f84c969995998512b81529eaba8ba327a541b23d8"
+        "id": "c01a44b404a4be31-61491e26",
+        "sha256": "61491e26a12c40fa564ffad42bd0ea0f7e28b493b6dcd60e7fc7fc36d164c8d1"
       }
     }
   ]
