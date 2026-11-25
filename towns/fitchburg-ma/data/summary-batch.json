@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01Rna4tewqzPoATbUwDaoEDx",
-  "sent_at": "2026-11-25T21:45:13+00:00",
+  "id": "msgbatch_01Ge8c4gtsnWngpujQAtdXaT",
+  "sent_at": "2026-11-25T21:56:03+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,70 +11,16 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
-      "kind": "agenda",
-      "older": false,
-      "meeting": {
-        "title": "Board of Park Commissioners Meeting",
-        "date": "2026-12-01",
-        "body": "Board of Park Commissioners"
-      },
-      "doc": {
-        "id": "5502-202611251300",
-        "sha256": "5ea6babd2e09da5f90bd843a78225d73cc6cc63a6fff435a9b17db1f5bed2d51",
-        "file": "5502-202611251300.pdf",
-        "source_url": "https://www.fitchburgma.gov/AgendaCenter/ViewFile/Agenda/_12012026-5502"
-      }
-    },
-    {
-      "custom_id": "doc-1",
-      "kind": "agenda",
-      "older": false,
-      "meeting": {
-        "title": "City Council Meeting",
-        "date": "2026-12-01",
-        "body": "City Council"
-      },
-      "doc": {
-        "id": "5501-202611251101",
-        "sha256": "cc18b3f8df149b275c08bbf6bfb74097648a9ed65958dced3b0fbaead14654a7",
-        "file": "5501-202611251101.pdf",
-        "source_url": "https://www.fitchburgma.gov/AgendaCenter/ViewFile/Agenda/_12012026-5501"
-      }
-    },
-    {
       "custom_id": "tr-0",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "cc0fb2d66a22d4a024b43cca5f330c84f6a119a5ddd92ed1d0748d09565b96b8",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Water & Wastewater Commission Meeting",
-        "date": "2026-12-16",
-        "body": "Water & Wastewater Commission"
-      },
-      "doc": {
-        "id": "5500-202611240930",
-        "sha256": "79876b548e4f372a533ed1511240f560e65880b856ac3371790e2a9d0b41f0d9"
-      }
-    },
-    {
-      "custom_id": "tr-1",
-      "type": "review",
+      "type": "translation",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "77f30f26456f67cd3d4810fa12a22a4b6fd42934216ac4fa9ca4f81ba38deafa",
-      "model": "claude-sonnet-5-5",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
         "title": "Zoning Board of Appeals Meeting",
@@ -87,38 +33,60 @@
       }
     },
     {
-      "custom_id": "tr-2",
-      "type": "review",
+      "custom_id": "tr-1",
+      "type": "translation",
       "lang": "es",
       "kind": "agenda",
       "older": false,
-      "source_hash": "ec647e94fa9a0aacf6f1a001119f3ed65398df3a49049aec9553a22f238f824c",
-      "model": "claude-sonnet-5-5",
+      "source_hash": "dfb84ddd6dcbc8a91cdb49bab6d89d545f19415dcc94310e230142dbdfb931e9",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
-        "title": "Cultural Council Meeting",
-        "date": "2026-12-03",
-        "body": "Cultural Council"
+        "title": "Board of Park Commissioners Meeting",
+        "date": "2026-12-01",
+        "body": "Board of Park Commissioners"
       },
       "doc": {
-        "id": "5497-202611200831",
-        "sha256": "d8e97e7858d6ddf88b01e85d7818919b001a4269f9c891e4b0037949537713b0"
+        "id": "5502-202611251300",
+        "sha256": "5ea6babd2e09da5f90bd843a78225d73cc6cc63a6fff435a9b17db1f5bed2d51"
+      }
+    },
+    {
+      "custom_id": "tr-2",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "d1fc2d5b1bd893731415c8bd06cdb01531b9ef5735017621250167805cc4a87f",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "City Council Meeting",
+        "date": "2026-12-01",
+        "body": "City Council"
+      },
+      "doc": {
+        "id": "5501-202611251101",
+        "sha256": "cc18b3f8df149b275c08bbf6bfb74097648a9ed65958dced3b0fbaead14654a7"
       }
     },
     {
       "custom_id": "tr-3",
-      "type": "review",
+      "type": "translation",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "bd3700fb4cd2ed818bd8d96cdc8c7f04b24e8a047d6e32ba93548e408ce4298c",
-      "model": "claude-sonnet-5-5",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
         "title": "City Council Finance Committee Meeting",
@@ -132,15 +100,15 @@
     },
     {
       "custom_id": "tr-4",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "7ede481a18d3ee622e3a7286911f8da0a813fbe76c7fcce85c61b2d36bc32807",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Planning Board Meeting",
@@ -154,59 +122,15 @@
     },
     {
       "custom_id": "tr-5",
-      "type": "review",
-      "lang": "es",
-      "kind": "recording",
-      "older": false,
-      "source_hash": "6ae40f823eb88c203b13c7a1e3ad5fbbe78e2f7aed26f2645d805af827ce5464",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Planning Board Meeting",
-        "date": "2026-11-24",
-        "body": "Planning Board"
-      },
-      "doc": {
-        "id": "telvue-1070230",
-        "sha256": "aac9749b9b8d2b3bfd6c80510f90d16516d7658d70a216c9634005aced218d4e"
-      }
-    },
-    {
-      "custom_id": "tr-6",
       "type": "translation",
       "lang": "es",
       "kind": "agenda",
       "older": false,
-      "source_hash": "a0c602b18a8f2deed02ec0383bfde39e9000a8b9c1d44f7e4de4301933a5a3ac",
+      "source_hash": "75556f414196cadedf183a739e50b3eac404daf152e109c2146f6c743bda40a9",
       "model": "claude-haiku-5-5",
       "prices": {
         "input_price": 0.1,
         "output_price": 0.5
-      },
-      "meeting": {
-        "title": "Retirement Board Meeting",
-        "date": "2026-11-24",
-        "body": "Retirement Board"
-      },
-      "doc": {
-        "id": "5496-202611191505",
-        "sha256": "2dcf98b8fa4525325837de4c4db326051082910b9c31a3de541490a015f41837"
-      }
-    },
-    {
-      "custom_id": "tr-7",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "75556f414196cadedf183a739e50b3eac404daf152e109c2146f6c743bda40a9",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
       },
       "meeting": {
         "title": "School Committee Building Needs and Resource Committee Meeting",
@@ -219,38 +143,16 @@
       }
     },
     {
-      "custom_id": "tr-8",
+      "custom_id": "tr-6",
       "type": "translation",
       "lang": "es",
       "kind": "minutes",
       "older": false,
-      "source_hash": "5f2ef0715a1f032d46fbb50feaac3a17623a4811cb1f655d727b17af0be1448b",
+      "source_hash": "fc57f34aa6f509d6a9f33fad95ac2385c8a8b30fe710ba1e3e96e38d8c9b062f",
       "model": "claude-haiku-5-5",
       "prices": {
         "input_price": 0.1,
         "output_price": 0.5
-      },
-      "meeting": {
-        "title": "Retirement Board Meeting",
-        "date": "2026-10-27",
-        "body": "Retirement Board"
-      },
-      "doc": {
-        "id": "agendacenter-5456",
-        "sha256": "fd4105c899fdeb7a04bf9d644bda165696d19acc99022187f6ca1b09d47bf124"
-      }
-    },
-    {
-      "custom_id": "tr-9",
-      "type": "review",
-      "lang": "es",
-      "kind": "minutes",
-      "older": false,
-      "source_hash": "fc57f34aa6f509d6a9f33fad95ac2385c8a8b30fe710ba1e3e96e38d8c9b062f",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
       },
       "meeting": {
         "title": "Council on Aging Meeting",
