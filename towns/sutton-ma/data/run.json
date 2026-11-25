@@ -1,46 +1,46 @@
 {
   "town": "sutton",
   "folder": "sutton-ma",
-  "started_at": "2026-11-24T09:07:17+00:00",
-  "finished_at": "2026-11-24T09:09:52+00:00",
-  "engine": "v1.111.3",
+  "started_at": "2026-11-25T09:07:22+00:00",
+  "finished_at": "2026-11-25T09:09:44+00:00",
+  "engine": "v1.113.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 89.0
+      "seconds": 85.2
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 29.6
+      "seconds": 28.1
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 22.9
+      "seconds": 22.0
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 1.5
+      "seconds": 5.5
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.6
+      "seconds": 0.5
     }
   ],
   "update": {
     "town": "sutton",
     "sources": "all",
-    "started_at": "2026-11-24T09:07:18+00:00",
+    "started_at": "2026-11-25T09:07:23+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 66.8,
+        "seconds": 61.1,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 10.4,
+        "seconds": 10.6,
         "cadence": "continuous"
       },
       {
@@ -154,7 +154,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 9.9,
+        "seconds": 11.4,
         "cadence": "continuous"
       },
       {
@@ -164,7 +164,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 10 days ago; checked every 30 days"
+        "skipped": "checked 11 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -173,7 +173,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 2 days ago; checked every 7 days"
+        "skipped": "checked 3 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -182,7 +182,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 10 days ago; checked every 30 days"
+        "skipped": "checked 11 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -191,7 +191,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 10 days ago; checked every 30 days"
+        "skipped": "checked 11 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -200,7 +200,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 2 days ago; checked every 7 days"
+        "skipped": "checked 3 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -277,7 +277,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-24T04:07:18-05:00",
+      "updated_at": "2026-11-25T04:07:23-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -366,22 +366,23 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-25T00:48:49+00:00",
-  "data_bytes": 725529,
-  "data_bytes_added": 4587,
+  "last_good_at": "2026-11-25T09:09:44+00:00",
+  "data_bytes": 732471,
+  "data_bytes_added": 4788,
   "activity": {
-    "boards": 20,
+    "boards": 22,
     "meetings_by_date": {
-      "2026-11-24": 4,
       "2026-12-01": 1,
       "2026-12-02": 1,
       "2026-12-03": 1,
-      "2026-12-07": 2
+      "2026-12-04": 1,
+      "2026-12-07": 2,
+      "2026-12-08": 3
     }
   },
   "fact_checks": {
-    "summaries": 51,
-    "ok": 48,
+    "summaries": 52,
+    "ok": 49,
     "failed": 1,
     "weak": 2,
     "unchecked": 0,
@@ -391,30 +392,37 @@
     "vote_counts_left_out": 22
   },
   "recordings": {
-    "since": "2026-11-17",
-    "until": "2026-11-23",
-    "held": 0,
+    "since": "2026-11-18",
+    "until": "2026-11-24",
+    "held": 1,
     "next_day": 0,
     "steps": {
       "summarized": 0,
       "minutes": 0,
       "transcribed": 0,
-      "waiting": 0,
+      "waiting": 1,
       "failed": 0,
       "unmatched": 0,
       "not_found": 0,
       "no_source": 0,
       "no_recordings": 0
     },
-    "misses": []
+    "misses": [
+      {
+        "date": "2026-11-24",
+        "board": "Select Board",
+        "step": "waiting",
+        "detail": "1 recording(s) found"
+      }
+    ]
   },
   "documents": {
-    "since": "2026-08-26",
-    "until": "2026-11-23",
-    "held": 54,
+    "since": "2026-08-27",
+    "until": "2026-11-24",
+    "held": 58,
     "boards": 19,
     "counts": {
-      "no_documents": 1,
+      "no_documents": 2,
       "no_minutes": 1,
       "pairs": 0,
       "beside": 0
@@ -422,6 +430,10 @@
     "no_documents": [
       {
         "board": "School Committee",
+        "meetings": 2
+      },
+      {
+        "board": "School Committee Budget Subcommittee",
         "meetings": 2
       }
     ],
@@ -437,7 +449,7 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-24T02:24:00-05:00",
+    "at": "2026-11-25T02:24:04-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-19T08:24:00-05:00"
@@ -445,7 +457,5 @@
   "officials": {
     "checked_at": "2026-11-21T04:16:44-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-25T00:48:49+00:00",
-  "published_engine": "v1.113.0"
+  }
 }
