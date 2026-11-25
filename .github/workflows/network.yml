@@ -7,7 +7,8 @@
 #              workflow_dispatch with daily), with one GitHub schedule as a
 #              backup, since GitHub starts scheduled runs late or not at all.
 #              A daily run takes the towns that are due: those whose last
-#              fetching run finished more than DUE_HOURS ago, oldest first. So
+#              full fetch (all their data, not a meetings run's) finished
+#              more than DUE_HOURS ago, oldest first. So
 #              a late or doubled start does no harm (a start with nothing due
 #              does nothing), and the next run makes up a missed one.
 #              Fetches, builds, checks, publishes, commits data.
@@ -154,8 +155,10 @@ env:
   # The most jobs one run's matrix has: GitHub refuses a matrix of more than 256. A run with more towns than
   # this many jobs at their batch size puts more towns in each job instead.
   MAX_JOBS: "100"
-  # A daily run takes the towns whose last fetching run finished more than this many hours ago.
-  DUE_HOURS: "18"
+  # A daily run takes the towns whose last full fetch finished more than this many hours ago. More than the
+  # scheduler's morning starts span (09:05 to 14:05 UTC) and a run, so no town is taken twice in a morning; few
+  # enough that a town fetched the evening before, up to 02:05 UTC, is due again by the last start.
+  DUE_HOURS: "12"
   PYTHONPATH: ${{ github.workspace }}/.publick-engine
 
 jobs:
