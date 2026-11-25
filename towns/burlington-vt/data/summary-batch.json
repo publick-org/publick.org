@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01RKaTBynnmBCdbk9B6dYPZy",
-  "sent_at": "2026-11-25T09:47:53+00:00",
+  "id": "msgbatch_01GGMEGubjQdJEZo6gd4E9wS",
+  "sent_at": "2026-11-25T21:50:46+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,16 +11,128 @@
   },
   "documents": [
     {
+      "custom_id": "doc-0",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "BPOA Step II Grievance Hearing",
+        "date": "2026-11-30",
+        "body": "BPOA Step II Grievance"
+      },
+      "doc": {
+        "id": "civicclerk-21768",
+        "sha256": "2b37b95308bf42136d99cfa60a2dd3b7f2d1e92de0973e05228a35b89755e6e4",
+        "file": "civicclerk-21768.pdf",
+        "source_url": "https://burlingtonvt.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=21768,plainText=false)"
+      }
+    },
+    {
+      "custom_id": "doc-1",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "Board for Registration of Voters Meeting",
+        "date": "2026-12-01",
+        "body": "Board for Registration of Voters"
+      },
+      "doc": {
+        "id": "civicclerk-21765",
+        "sha256": "ddca53dd5766f3ea2ecd709208ca39f90c371a36502e044a8015e288e5bd7a63",
+        "file": "civicclerk-21765.pdf",
+        "source_url": "https://burlingtonvt.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=21765,plainText=false)"
+      }
+    },
+    {
+      "custom_id": "doc-2",
+      "kind": "minutes",
+      "older": false,
+      "meeting": {
+        "title": "Charter Change Committee Meeting",
+        "date": "2026-11-19",
+        "body": "City Council Charter Change Committee"
+      },
+      "doc": {
+        "id": "civicclerk-21770",
+        "sha256": "f1bb2ef3e3eb995aadf4fe96c03bceaf752d7f1366b36ba22c00d87d5eebc518",
+        "file": "civicclerk-21770.pdf",
+        "source_url": "https://burlingtonvt.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=21770,plainText=false)"
+      }
+    },
+    {
+      "custom_id": "doc-3",
+      "kind": "minutes",
+      "older": false,
+      "meeting": {
+        "title": "Ordinance Committee",
+        "date": "2026-11-19",
+        "body": "Ordinance Committee"
+      },
+      "doc": {
+        "id": "civicclerk-21771",
+        "sha256": "394a0afd4f4b29c4f4afc751026b13421ee6f46606f27c8d3b74afd13da78be1",
+        "file": "civicclerk-21771.pdf",
+        "source_url": "https://burlingtonvt.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=21771,plainText=false)"
+      }
+    },
+    {
+      "custom_id": "doc-4",
+      "kind": "minutes",
+      "older": false,
+      "meeting": {
+        "title": "Development Review Board Meeting",
+        "date": "2026-11-04",
+        "body": "Development Review Board"
+      },
+      "doc": {
+        "id": "civicclerk-21764",
+        "sha256": "2977ba1c7a14964ea6f06888f4f2332746bfde485be4ae8b3ddb14fb1c1b1879",
+        "file": "civicclerk-21764.pdf",
+        "source_url": "https://burlingtonvt.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=21764,plainText=false)"
+      }
+    },
+    {
+      "custom_id": "doc-5",
+      "kind": "minutes",
+      "older": false,
+      "meeting": {
+        "title": "Development Review Board Meeting",
+        "date": "2026-10-20",
+        "body": "Development Review Board"
+      },
+      "doc": {
+        "id": "civicclerk-21763",
+        "sha256": "a5ca19b380492e0f1c787bb351c2c1fc0a1303f2dfa9d4ab558b73816b3e088b",
+        "file": "civicclerk-21763.pdf",
+        "source_url": "https://burlingtonvt.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=21763,plainText=false)"
+      }
+    },
+    {
+      "custom_id": "doc-6",
+      "kind": "minutes",
+      "older": false,
+      "meeting": {
+        "title": "Development Review Board Meeting",
+        "date": "2026-10-06",
+        "body": "Development Review Board"
+      },
+      "doc": {
+        "id": "civicclerk-21762",
+        "sha256": "3740f48a8af5945544ab22e56d77ecc07a85a53899cdaaae2c0256e6511b70cc",
+        "file": "civicclerk-21762.pdf",
+        "source_url": "https://burlingtonvt.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=21762,plainText=false)"
+      }
+    },
+    {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "bc9898283f7676fa91e8130ce67c1fef24444f1e9c337dc0f3d8959e073448e1",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Fletcher Free Library Commission",
@@ -34,15 +146,15 @@
     },
     {
       "custom_id": "tr-1",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "4ca55f70bffc78eaa4f2522de6969c6b889c260832c7ef415a208a24e6940353",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Fletcher Free Library Commission",
@@ -56,15 +168,15 @@
     },
     {
       "custom_id": "tr-2",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "84f4388ea40d4f3636dba9f3b5c92373ba0fb0ed650c01dad0423bbeffe3fa88",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Development Review Board Meeting",
@@ -78,15 +190,15 @@
     },
     {
       "custom_id": "tr-3",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "ce4eb378272c2be62e84f2992acafda989a73763ce669588225538b4b00af332",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Burlington Walk Bike Council",
@@ -100,15 +212,15 @@
     },
     {
       "custom_id": "tr-4",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "8a9dc38a235283963efcfc33154fb4f8c55f9c54bb2157c9c5f4676b1567b92d",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Development Review Board Meeting",
@@ -144,15 +256,15 @@
     },
     {
       "custom_id": "tr-6",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "ffe86eff117a64b31d60006db6d7393c198f567167d945ed398e79c950e6ae3b",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "School Board Finance and Facilities Committee Meeting",
@@ -166,15 +278,15 @@
     },
     {
       "custom_id": "tr-7",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "ae0f13653da2ab475e72ea12d4b76157c38a8715e33173f9cdcd8b84a6933c0e",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Design Advisory Board Meeting",
@@ -188,15 +300,15 @@
     },
     {
       "custom_id": "tr-8",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "aa5ea2100d09d30ca235f862c4a6681a762143f86d461549f5d30dc497f807fc",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Board of Civil Authority Meeting",
@@ -210,15 +322,15 @@
     },
     {
       "custom_id": "tr-9",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "93cce99cd6590f0cc999178358cb8a9fff753fb1fc33225d3fc67d48f56472ba",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Board of Finance Meeting",
@@ -232,15 +344,15 @@
     },
     {
       "custom_id": "tr-10",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "70c91d6c1918bb02ff304c8918a526e61d996523c1498da331c889d24ce70a9c",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "City Council Meeting",
@@ -254,15 +366,15 @@
     },
     {
       "custom_id": "tr-11",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "4ac5dde193983784f831ee383c7ae0a9b8d2e1ca03a5e6ee295ac5e4e8dc7951",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Local Control Commission Meeting",
@@ -276,15 +388,15 @@
     },
     {
       "custom_id": "tr-12",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "2d301e69f7c33675c985c5028604731d0c728afc7ce815dbacc51c427768ed28",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Burlington Aging Council",
@@ -298,15 +410,15 @@
     },
     {
       "custom_id": "tr-13",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "cd9e967f671cdc14564912269dd14fd9c8cd3fd9d2afefcbfee534e7bc76433c",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Public Safety Committee Meeting",
@@ -320,15 +432,15 @@
     },
     {
       "custom_id": "tr-14",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "9338aba5768855bafd2b033f3f2b2ea693ea3ceb358488abda2bffe3999b5137",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Church Street Marketplace Commission Meeting",
