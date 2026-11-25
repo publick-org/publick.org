@@ -1,46 +1,46 @@
 {
   "town": "lowell",
   "folder": "lowell-ma",
-  "started_at": "2026-11-24T22:29:55+00:00",
-  "finished_at": "2026-11-24T22:33:26+00:00",
-  "engine": "v1.112.0",
+  "started_at": "2026-11-25T11:51:59+00:00",
+  "finished_at": "2026-11-25T11:56:05+00:00",
+  "engine": "v1.113.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 30.5
+      "seconds": 34.2
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 124.0
+      "seconds": 127.9
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 32.5
+      "seconds": 48.8
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.5
+      "seconds": 24.2
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.6
+      "seconds": 11.0
     }
   ],
   "update": {
     "town": "lowell",
     "sources": "all",
-    "started_at": "2026-11-24T22:29:56+00:00",
+    "started_at": "2026-11-25T11:52:00+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 3.0,
+        "seconds": 2.2,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.0,
+        "seconds": 1.1,
         "cadence": "continuous"
       },
       {
@@ -154,7 +154,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 24.0,
+        "seconds": 28.5,
         "cadence": "continuous"
       },
       {
@@ -173,7 +173,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -200,7 +200,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 4 days ago; checked every 7 days"
+        "skipped": "checked 5 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -277,7 +277,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-24T17:29:56-05:00",
+      "updated_at": "2026-11-25T06:52:00-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -374,13 +374,12 @@
     "Correction for License Commission 2026-11-05: its recording summary was made again after the correction was checked on 2026-11-09, so it isn't shown. Check it again."
   ],
   "ok": true,
-  "last_good_at": "2026-11-25T00:45:48+00:00",
-  "data_bytes": 3181767,
-  "data_bytes_added": 6049,
+  "last_good_at": "2026-11-25T11:56:05+00:00",
+  "data_bytes": 3182386,
+  "data_bytes_added": -1032,
   "activity": {
     "boards": 40,
     "meetings_by_date": {
-      "2026-11-24": 2,
       "2026-12-03": 1
     }
   },
@@ -396,28 +395,35 @@
     "vote_counts_left_out": 148
   },
   "recordings": {
-    "since": "2026-11-17",
-    "until": "2026-11-23",
+    "since": "2026-11-18",
+    "until": "2026-11-24",
     "held": 3,
-    "next_day": 3,
+    "next_day": 2,
     "steps": {
-      "summarized": 3,
+      "summarized": 2,
       "minutes": 0,
       "transcribed": 0,
-      "waiting": 0,
+      "waiting": 1,
       "failed": 0,
       "unmatched": 0,
       "not_found": 0,
       "no_source": 0,
       "no_recordings": 0
     },
-    "misses": []
+    "misses": [
+      {
+        "date": "2026-11-24",
+        "board": "City Council",
+        "step": "waiting",
+        "detail": "1 recording(s) found"
+      }
+    ]
   },
   "documents": {
-    "since": "2026-08-26",
-    "until": "2026-11-23",
-    "held": 90,
-    "boards": 28,
+    "since": "2026-08-27",
+    "until": "2026-11-24",
+    "held": 89,
+    "boards": 27,
     "counts": {
       "no_documents": 0,
       "no_minutes": 2,
@@ -441,7 +447,7 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-24T12:25:14-05:00",
+    "at": "2026-11-25T04:25:11-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-20T08:25:02-05:00"
@@ -449,7 +455,5 @@
   "officials": {
     "checked_at": "2026-11-21T04:23:23-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-25T00:45:48+00:00",
-  "published_engine": "v1.113.0"
+  }
 }
