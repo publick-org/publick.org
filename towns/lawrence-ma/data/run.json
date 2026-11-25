@@ -1,46 +1,46 @@
 {
   "town": "lawrence",
   "folder": "lawrence-ma",
-  "started_at": "2026-11-24T09:10:32+00:00",
-  "finished_at": "2026-11-24T09:13:22+00:00",
-  "engine": "v1.111.3",
+  "started_at": "2026-11-25T09:13:00+00:00",
+  "finished_at": "2026-11-25T09:15:42+00:00",
+  "engine": "v1.113.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 74.9
+      "seconds": 54.1
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 30.2
+      "seconds": 29.9
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 24.4
+      "seconds": 38.5
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.7
+      "seconds": 37.9
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.6
+      "seconds": 0.9
     }
   ],
   "update": {
     "town": "lawrence",
     "sources": "all",
-    "started_at": "2026-11-24T09:10:32+00:00",
+    "started_at": "2026-11-25T09:13:01+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 35.9,
+        "seconds": 36.0,
         "cadence": "continuous"
       },
       {
@@ -154,7 +154,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 12.0,
+        "seconds": 15.5,
         "cadence": "continuous"
       },
       {
@@ -164,7 +164,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 23 days ago; checked every 30 days"
+        "skipped": "checked 24 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -173,7 +173,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 3 days ago; checked every 7 days"
+        "skipped": "checked 4 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -182,7 +182,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 23 days ago; checked every 30 days"
+        "skipped": "checked 24 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -191,15 +191,16 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 23 days ago; checked every 30 days"
+        "skipped": "checked 24 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 24.6,
-        "cadence": "monthly"
+        "seconds": 0,
+        "cadence": "monthly",
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -276,7 +277,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-24T04:10:33-05:00",
+      "updated_at": "2026-11-25T04:13:01-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -370,14 +371,16 @@
     "Correction for City Council 2026-11-04: \"8 Henlow Street\" isn't in its summaries any more, so it isn't shown. Remove it, or check it again."
   ],
   "ok": true,
-  "last_good_at": "2026-11-25T00:43:30+00:00",
-  "data_bytes": 1366509,
-  "data_bytes_added": 161,
+  "last_good_at": "2026-11-25T09:15:42+00:00",
+  "data_bytes": 1371874,
+  "data_bytes_added": 5422,
   "activity": {
     "boards": 34,
     "meetings_by_date": {
-      "2026-12-02": 2,
-      "2026-12-04": 1
+      "2026-12-01": 1,
+      "2026-12-02": 3,
+      "2026-12-04": 1,
+      "2026-12-08": 1
     }
   },
   "fact_checks": {
@@ -392,12 +395,12 @@
     "vote_counts_left_out": 7
   },
   "recordings": {
-    "since": "2026-11-17",
-    "until": "2026-11-23",
-    "held": 4,
-    "next_day": 1,
+    "since": "2026-11-18",
+    "until": "2026-11-24",
+    "held": 3,
+    "next_day": 0,
     "steps": {
-      "summarized": 1,
+      "summarized": 0,
       "minutes": 0,
       "transcribed": 0,
       "waiting": 0,
@@ -426,9 +429,9 @@
     ]
   },
   "documents": {
-    "since": "2026-08-26",
-    "until": "2026-11-23",
-    "held": 92,
+    "since": "2026-08-27",
+    "until": "2026-11-24",
+    "held": 90,
     "boards": 30,
     "counts": {
       "no_documents": 1,
@@ -445,11 +448,11 @@
     "no_minutes": [
       {
         "board": "Licensing Board",
-        "meetings": 6
+        "meetings": 5
       },
       {
         "board": "School Committee",
-        "meetings": 5
+        "meetings": 4
       },
       {
         "board": "City Council",
@@ -496,7 +499,7 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-24T02:24:03-05:00",
+    "at": "2026-11-25T02:24:06-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-18T12:29:04-05:00"
@@ -504,7 +507,5 @@
   "officials": {
     "checked_at": "2026-11-21T04:33:17-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-25T00:43:30+00:00",
-  "published_engine": "v1.113.0"
+  }
 }
