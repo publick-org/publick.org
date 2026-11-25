@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01SfPVK1CpLprcbr2m9aS9Nm",
-  "sent_at": "2026-11-25T09:40:40+00:00",
+  "id": "msgbatch_01TvXo7oavYR9gJfwT3SJo3E",
+  "sent_at": "2026-11-25T21:56:13+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,60 +11,48 @@
   },
   "documents": [
     {
+      "custom_id": "doc-0",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "Town Council",
+        "date": "2026-12-01",
+        "body": "Town Council"
+      },
+      "doc": {
+        "id": "396",
+        "sha256": "a9a3831e5d7583a4cb51497b66767f9a7964b23cb747e5847f543948dbf00bd0",
+        "file": "396.pdf",
+        "source_url": "https://www.derrynh.gov/AgendaCenter/ViewFile/Agenda/_12012026-396"
+      }
+    },
+    {
+      "custom_id": "doc-1",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "Planning Board",
+        "date": "2026-12-02",
+        "body": "Planning Board"
+      },
+      "doc": {
+        "id": "395",
+        "sha256": "65b059dfe5ea2350e1ebc05aaf076170bf828261735ac22b0c201f454441bad1",
+        "file": "395.pdf",
+        "source_url": "https://www.derrynh.gov/AgendaCenter/ViewFile/Agenda/_12022026-395"
+      }
+    },
+    {
       "custom_id": "tr-0",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "5037d9728389660bd634a70896a59ba09a431b3a2bba76ca889591e1820624d9",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Zoning Board of Adjustment",
-        "date": "2026-12-03",
-        "body": "Zoning Board of Adjustment"
-      },
-      "doc": {
-        "id": "393",
-        "sha256": "0d47568614c395809e8df09fcc073b5f084a57c09dd810c3403d639036422aa4"
-      }
-    },
-    {
-      "custom_id": "tr-1",
-      "type": "review",
-      "lang": "es",
-      "kind": "agenda",
-      "older": false,
-      "source_hash": "9fc09520be677cfb573550b4e571ae1e3fa11fbab9230e5adaa986ef414ed672",
-      "model": "claude-sonnet-5-5",
-      "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
-      },
-      "meeting": {
-        "title": "Conservation Commission Subcommittee Meeting",
-        "date": "2026-11-30",
-        "body": "Conservation Commission Subcommittee"
-      },
-      "doc": {
-        "id": "394",
-        "sha256": "92e3d824ed6efd7aa44105ec7f6cbe926ce57644ef82c16f25233191a6d9e5dc"
-      }
-    },
-    {
-      "custom_id": "tr-2",
-      "type": "review",
+      "type": "translation",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "75b9f4a913351a784d88e9c6775e1ec35b738e84eb0d997498f563ee48dc10ab",
-      "model": "claude-sonnet-5-5",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
         "title": "Derry School Board Meeting",
@@ -77,16 +65,16 @@
       }
     },
     {
-      "custom_id": "tr-3",
-      "type": "translation",
+      "custom_id": "tr-1",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "99ff5382b03aa9cdca546799fd534f403fa6b98aa91850f2e5317f11435890b2",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Town Council",
