@@ -61,8 +61,9 @@ Worker, which picks the site by hostname: `gloucester-ma.publick.org` is
 - **Daily**, started every hour from 09:05 to 14:05 UTC by the
   `publick-scheduler` Worker (`wrangler.scheduler.toml`), with one GitHub
   schedule (12:17 UTC) as a backup, since GitHub starts those late or not at
-  all. Each start takes the towns that are due (their last fetching run,
-  daily or by hand, finished more than `DUE_HOURS`, 18, ago), oldest first; a start with nothing
+  all. Each start takes the towns that are due (their last full fetch,
+  daily or by hand, finished more than `DUE_HOURS`, 12, ago; a run that fetches
+  only meetings doesn't count), oldest first; a start with nothing
   due does nothing, and the next start makes up a missed one.
   - The statewide job fetches the sources a state's towns share, once for all
     of them, into `states/`: Massachusetts's DLS reports, only when a report
