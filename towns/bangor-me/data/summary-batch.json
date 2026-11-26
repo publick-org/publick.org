@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_017VNBA5quAk5usFkKbcxTYb",
-  "sent_at": "2026-11-26T09:31:17+00:00",
+  "id": "msgbatch_014uLVdL2jjFzyHxNrKyKtqT",
+  "sent_at": "2026-11-26T09:47:22+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,41 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "agenda",
       "older": false,
-      "meeting": {
-        "title": "Planning Board",
-        "date": "2026-12-01",
-        "body": "Planning Board"
+      "source_hash": "a185d79a802413bb28286a48a3af699ec55d16659c0ffc1ad8d76ef7d7e30c5b",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
       },
-      "doc": {
-        "id": "991",
-        "sha256": "82ee6374c67f7d778ffbfee75b1df7b7ad18720f8b8e6590c498b4e3be3033aa",
-        "file": "991.pdf",
-        "source_url": "https://www.bangormaine.gov/AgendaCenter/ViewFile/Agenda/_12012026-991"
-      }
-    },
-    {
-      "custom_id": "doc-1",
-      "kind": "agenda",
-      "older": false,
-      "meeting": {
-        "title": "City Council Workshop Meeting",
-        "date": "2026-12-02",
-        "body": "City Council Workshop"
-      },
-      "doc": {
-        "id": "993",
-        "sha256": "a17c56e5c06f6925911062bff2c7dea1b8b37d4503cecc7515b2b0ded22be2b8",
-        "file": "993.pdf",
-        "source_url": "https://www.bangormaine.gov/AgendaCenter/ViewFile/Agenda/_12022026-993"
-      }
-    },
-    {
-      "custom_id": "doc-2",
-      "kind": "agenda",
-      "older": false,
       "meeting": {
         "title": "Commission on Cultural Development",
         "date": "2026-12-04",
@@ -53,31 +29,51 @@
       },
       "doc": {
         "id": "992",
-        "sha256": "d6dceee2d22785ef573059257b29c4186483c4d8b9eb20fb0615342c0905da28",
-        "file": "992.pdf",
-        "source_url": "https://www.bangormaine.gov/AgendaCenter/ViewFile/Agenda/_12042026-992"
+        "sha256": "d6dceee2d22785ef573059257b29c4186483c4d8b9eb20fb0615342c0905da28"
       }
     },
     {
-      "custom_id": "tr-0",
-      "type": "review",
+      "custom_id": "tr-1",
+      "type": "translation",
       "lang": "es",
-      "kind": "recording",
+      "kind": "agenda",
       "older": false,
-      "source_hash": "d88ea1230510380ad9dcd5f77f6466c5e5bed537a35b2f7fce344bcc8a4bed3b",
-      "model": "claude-sonnet-5-5",
+      "source_hash": "4726e6b8d8c4a7041b0799cf2969080389edc716c07a09055d86e0bc71d6c7e4",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
-        "title": "Advisory Committee on Homelessness",
-        "date": "2026-11-24",
-        "body": "Advisory Committee on Homelessness"
+        "title": "City Council Workshop Meeting",
+        "date": "2026-12-02",
+        "body": "City Council Workshop"
       },
       "doc": {
-        "id": "youtube-h1G7YdshHUQ",
-        "sha256": "04e3d8b4d32f905a2a8880549127f6d9dc37bff296d7d3adfa07eb4e80eedebe"
+        "id": "993",
+        "sha256": "a17c56e5c06f6925911062bff2c7dea1b8b37d4503cecc7515b2b0ded22be2b8"
+      }
+    },
+    {
+      "custom_id": "tr-2",
+      "type": "translation",
+      "lang": "es",
+      "kind": "agenda",
+      "older": false,
+      "source_hash": "61f672c148b72a734ab89631a30cd6e2618deb36adf5b2302da318ce6e35b33f",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Planning Board",
+        "date": "2026-12-01",
+        "body": "Planning Board"
+      },
+      "doc": {
+        "id": "991",
+        "sha256": "82ee6374c67f7d778ffbfee75b1df7b7ad18720f8b8e6590c498b4e3be3033aa"
       }
     }
   ]
