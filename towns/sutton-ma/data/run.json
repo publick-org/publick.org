@@ -1,34 +1,34 @@
 {
   "town": "sutton",
   "folder": "sutton-ma",
-  "started_at": "2026-11-25T21:44:45+00:00",
-  "finished_at": "2026-11-25T21:47:07+00:00",
-  "engine": "v1.113.0",
+  "started_at": "2026-11-26T10:16:13+00:00",
+  "finished_at": "2026-11-26T10:18:27+00:00",
+  "engine": "v1.114.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 91.2
+      "seconds": 77.8
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 29.7
+      "seconds": 27.1
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 36.9
+      "seconds": 25.8
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 5.7
+      "seconds": 1.6
     },
     {
       "name": "Check live site",
@@ -40,7 +40,7 @@
   "update": {
     "town": "sutton",
     "sources": "all",
-    "started_at": "2026-11-25T21:44:45+00:00",
+    "started_at": "2026-11-26T10:16:13+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 56.0,
+        "seconds": 55.7,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 15.6,
+        "seconds": 10.4,
         "cadence": "continuous"
       },
       {
@@ -154,7 +154,15 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 18.0,
+        "seconds": 9.0,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Write digest subject",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 1.1,
         "cadence": "continuous"
       },
       {
@@ -173,7 +181,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 4 days ago; checked every 7 days"
+        "skipped": "checked 5 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -200,7 +208,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 4 days ago; checked every 7 days"
+        "skipped": "checked 5 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -277,7 +285,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-25T16:44:45-05:00",
+      "updated_at": "2026-11-26T05:16:14-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -366,9 +374,10 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-26T10:01:59+00:00",
-  "data_bytes": 735744,
-  "data_bytes_added": 3133,
+  "last_good_at": "2026-11-26T10:18:27+00:00",
+  "full_fetch_at": "2026-11-26T10:18:27+00:00",
+  "data_bytes": 751345,
+  "data_bytes_added": -413,
   "activity": {
     "boards": 22,
     "meetings_by_date": {
@@ -381,8 +390,8 @@
     }
   },
   "fact_checks": {
-    "summaries": 52,
-    "ok": 49,
+    "summaries": 55,
+    "ok": 52,
     "failed": 1,
     "weak": 2,
     "unchecked": 0,
@@ -392,14 +401,14 @@
     "vote_counts_left_out": 22
   },
   "recordings": {
-    "since": "2026-11-18",
-    "until": "2026-11-24",
+    "since": "2026-11-19",
+    "until": "2026-11-25",
     "held": 1,
-    "next_day": 0,
+    "next_day": 1,
     "steps": {
-      "summarized": 0,
+      "summarized": 1,
       "minutes": 0,
-      "transcribed": 1,
+      "transcribed": 0,
       "waiting": 0,
       "failed": 0,
       "unmatched": 0,
@@ -407,18 +416,11 @@
       "no_source": 0,
       "no_recordings": 0
     },
-    "misses": [
-      {
-        "date": "2026-11-24",
-        "board": "Select Board",
-        "step": "transcribed",
-        "detail": "transcript not summarized yet"
-      }
-    ]
+    "misses": []
   },
   "documents": {
-    "since": "2026-08-27",
-    "until": "2026-11-24",
+    "since": "2026-08-28",
+    "until": "2026-11-25",
     "held": 58,
     "boards": 19,
     "counts": {
@@ -449,7 +451,7 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-25T12:26:56-05:00",
+    "at": "2026-11-26T04:23:59-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-25T10:46:03-05:00"
@@ -457,7 +459,5 @@
   "officials": {
     "checked_at": "2026-11-21T04:16:44-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-26T10:01:59+00:00",
-  "published_engine": "v1.114.0"
+  }
 }
