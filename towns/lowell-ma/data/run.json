@@ -1,9 +1,9 @@
 {
   "town": "lowell",
   "folder": "lowell-ma",
-  "started_at": "2026-11-26T09:09:24+00:00",
-  "finished_at": "2026-11-26T09:12:39+00:00",
-  "engine": "v1.113.0",
+  "started_at": "2026-11-26T21:39:13+00:00",
+  "finished_at": "2026-11-26T21:42:20+00:00",
+  "engine": "v1.114.0",
   "fetched": true,
   "steps": [
     {
@@ -16,19 +16,19 @@
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 130.7
+      "seconds": 126.2
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 51.8
+      "seconds": 34.4
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.1
+      "seconds": 2.5
     },
     {
       "name": "Check live site",
@@ -40,7 +40,7 @@
   "update": {
     "town": "lowell",
     "sources": "all",
-    "started_at": "2026-11-26T09:09:24+00:00",
+    "started_at": "2026-11-26T21:39:13+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.9,
+        "seconds": 1.7,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 5.6,
+        "seconds": 1.6,
         "cadence": "continuous"
       },
       {
@@ -154,7 +154,15 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 13.4,
+        "seconds": 16.6,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Write digest subject",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 1.0,
         "cadence": "continuous"
       },
       {
@@ -164,7 +172,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 14 days ago; checked every 30 days"
+        "skipped": "checked 15 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -182,7 +190,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 14 days ago; checked every 30 days"
+        "skipped": "checked 15 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -191,23 +199,22 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 14 days ago; checked every 30 days"
+        "skipped": "checked 15 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 6 days ago; checked every 7 days"
+        "seconds": 0.3,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -215,7 +222,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -232,7 +239,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -277,7 +284,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-26T04:09:24-05:00",
+      "updated_at": "2026-11-26T16:39:13-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -374,9 +381,10 @@
     "Correction for License Commission 2026-11-05: its recording summary was made again after the correction was checked on 2026-11-09, so it isn't shown. Check it again."
   ],
   "ok": true,
-  "last_good_at": "2026-11-26T12:14:13+00:00",
-  "data_bytes": 3200450,
-  "data_bytes_added": 6204,
+  "last_good_at": "2026-11-26T21:42:20+00:00",
+  "full_fetch_at": "2026-11-26T21:42:20+00:00",
+  "data_bytes": 3222109,
+  "data_bytes_added": -1071,
   "activity": {
     "boards": 40,
     "meetings_by_date": {
@@ -384,8 +392,8 @@
     }
   },
   "fact_checks": {
-    "summaries": 152,
-    "ok": 126,
+    "summaries": 153,
+    "ok": 127,
     "failed": 23,
     "weak": 2,
     "unchecked": 1,
@@ -436,7 +444,7 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-26T02:25:11-05:00",
+    "at": "2026-11-26T12:25:09-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-25T12:25:13-05:00"
@@ -444,7 +452,5 @@
   "officials": {
     "checked_at": "2026-11-21T04:23:23-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-26T12:14:13+00:00",
-  "published_engine": "v1.114.0"
+  }
 }
