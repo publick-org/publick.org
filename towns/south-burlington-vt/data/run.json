@@ -1,46 +1,46 @@
 {
   "town": "south-burlington",
   "folder": "south-burlington-vt",
-  "started_at": "2026-11-26T09:06:54+00:00",
-  "finished_at": "2026-11-26T09:09:21+00:00",
-  "engine": "v1.113.0",
+  "started_at": "2026-11-26T21:36:53+00:00",
+  "finished_at": "2026-11-26T21:39:10+00:00",
+  "engine": "v1.114.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 66.4
+      "seconds": 64.7
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 40.9
+      "seconds": 39.6
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 32.6
+      "seconds": 29.8
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.7
+      "seconds": 2.3
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.9
+      "seconds": 0.8
     }
   ],
   "update": {
     "town": "south-burlington",
     "sources": "all",
-    "started_at": "2026-11-26T09:06:55+00:00",
+    "started_at": "2026-11-26T21:36:53+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 50.8,
+        "seconds": 45.8,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.1,
+        "seconds": 1.4,
         "cadence": "continuous"
       },
       {
@@ -153,7 +153,15 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 12.0,
+        "seconds": 14.2,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Write digest subject",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 1.0,
         "cadence": "continuous"
       },
       {
@@ -172,7 +180,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 3 days ago; checked every 7 days"
+        "skipped": "checked 4 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -199,7 +207,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 2 days ago; checked every 7 days"
+        "skipped": "checked 3 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -214,7 +222,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -276,14 +284,14 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-26T04:06:55-05:00",
+      "updated_at": "2026-11-26T16:36:54-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Board meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-26T04:07:47-05:00",
+      "updated_at": "2026-11-26T16:37:40-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -372,9 +380,10 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-26T12:16:24+00:00",
-  "data_bytes": 1903284,
-  "data_bytes_added": 4450,
+  "last_good_at": "2026-11-26T21:39:10+00:00",
+  "full_fetch_at": "2026-11-26T21:39:10+00:00",
+  "data_bytes": 1926096,
+  "data_bytes_added": -1398,
   "activity": {
     "boards": 24,
     "meetings_by_date": {
@@ -386,8 +395,8 @@
     }
   },
   "fact_checks": {
-    "summaries": 106,
-    "ok": 82,
+    "summaries": 107,
+    "ok": 83,
     "failed": 21,
     "weak": 3,
     "unchecked": 0,
@@ -454,7 +463,7 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-26T02:27:06-05:00",
+    "at": "2026-11-26T12:26:11-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-25T08:26:03-05:00"
@@ -462,7 +471,5 @@
   "officials": {
     "checked_at": "2026-11-23T04:22:27-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-26T12:16:24+00:00",
-  "published_engine": "v1.114.0"
+  }
 }
