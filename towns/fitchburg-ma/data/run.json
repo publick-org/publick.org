@@ -1,28 +1,28 @@
 {
   "town": "fitchburg",
   "folder": "fitchburg-ma",
-  "started_at": "2026-11-25T21:44:47+00:00",
-  "finished_at": "2026-11-25T21:47:23+00:00",
-  "engine": "v1.113.0",
+  "started_at": "2026-11-26T10:09:00+00:00",
+  "finished_at": "2026-11-26T10:11:07+00:00",
+  "engine": "v1.114.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 39.0
+      "seconds": 26.3
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 50.5
+      "seconds": 48.1
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 62.0
+      "seconds": 43.3
     },
     {
       "name": "Publish site",
@@ -40,7 +40,7 @@
   "update": {
     "town": "fitchburg",
     "sources": "all",
-    "started_at": "2026-11-25T21:44:48+00:00",
+    "started_at": "2026-11-26T10:09:01+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 11.1,
+        "seconds": 1.7,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -154,7 +154,15 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 14.7,
+        "seconds": 12.0,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Write digest subject",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.9,
         "cadence": "continuous"
       },
       {
@@ -207,7 +215,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -215,7 +223,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -232,7 +240,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -240,7 +248,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -248,7 +256,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 8.4,
+        "seconds": 8.0,
         "cadence": "continuous"
       },
       {
@@ -265,7 +273,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 2.3,
+        "seconds": 1.8,
         "cadence": "continuous"
       }
     ]
@@ -275,21 +283,21 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-25T16:44:48-05:00",
+      "updated_at": "2026-11-26T05:09:01-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-25T16:45:16-05:00",
+      "updated_at": "2026-11-26T05:09:17-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-25T16:45:24-05:00",
+      "updated_at": "2026-11-26T05:09:25-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -378,21 +386,21 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-25T22:16:45+00:00",
-  "data_bytes": 6222031,
-  "data_bytes_added": 4639073,
+  "last_good_at": "2026-11-26T10:19:53+00:00",
+  "full_fetch_at": "2026-11-26T10:11:07+00:00",
+  "data_bytes": 6244866,
+  "data_bytes_added": 4632003,
   "activity": {
     "boards": 42,
     "meetings_by_date": {
-      "2026-11-25": 1,
       "2026-12-01": 2,
       "2026-12-03": 1,
       "2026-12-08": 1
     }
   },
   "fact_checks": {
-    "summaries": 65,
-    "ok": 53,
+    "summaries": 68,
+    "ok": 56,
     "failed": 9,
     "weak": 3,
     "unchecked": 0,
@@ -402,8 +410,8 @@
     "vote_counts_left_out": 6
   },
   "recordings": {
-    "since": "2026-11-18",
-    "until": "2026-11-24",
+    "since": "2026-11-19",
+    "until": "2026-11-25",
     "held": 1,
     "next_day": 1,
     "steps": {
@@ -420,8 +428,8 @@
     "misses": []
   },
   "documents": {
-    "since": "2026-08-27",
-    "until": "2026-11-24",
+    "since": "2026-08-28",
+    "until": "2026-11-25",
     "held": 111,
     "boards": 36,
     "counts": {
@@ -471,6 +479,6 @@
     "checked_at": "2026-11-20T15:37:44-05:00",
     "leads": []
   },
-  "published_at": "2026-11-25T22:16:45+00:00",
-  "published_engine": "v1.113.0"
+  "published_at": "2026-11-26T10:19:53+00:00",
+  "published_engine": "v1.114.0"
 }

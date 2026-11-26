@@ -1,46 +1,46 @@
 {
   "town": "winooski",
   "folder": "winooski-vt",
-  "started_at": "2026-11-25T21:44:52+00:00",
-  "finished_at": "2026-11-25T21:46:10+00:00",
-  "engine": "v1.113.0",
+  "started_at": "2026-11-26T10:06:54+00:00",
+  "finished_at": "2026-11-26T10:08:29+00:00",
+  "engine": "v1.114.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 32.7
+      "seconds": 40.0
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 16.8
+      "seconds": 17.6
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 25.5
+      "seconds": 32.7
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 1.4
+      "seconds": 3.4
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.7
+      "seconds": 1.1
     }
   ],
   "update": {
     "town": "winooski",
     "sources": "all",
-    "started_at": "2026-11-25T21:44:53+00:00",
+    "started_at": "2026-11-26T10:06:54+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 5.9,
+        "seconds": 6.6,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.5,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 16.6,
+        "seconds": 16.8,
         "cadence": "continuous"
       },
       {
@@ -153,7 +153,15 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 8.0,
+        "seconds": 12.6,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Write digest subject",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 1.2,
         "cadence": "continuous"
       },
       {
@@ -163,7 +171,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 23 days ago; checked every 30 days"
+        "skipped": "checked 24 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -172,7 +180,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 3 days ago; checked every 7 days"
+        "skipped": "checked 4 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -181,7 +189,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 3 days ago; checked every 7 days"
+        "skipped": "checked 4 days ago; checked every 7 days"
       },
       {
         "name": "Fetch budget figures",
@@ -190,7 +198,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 24 days ago; checked every 30 days"
+        "skipped": "checked 25 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -199,14 +207,14 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 2 days ago; checked every 7 days"
+        "skipped": "checked 3 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -214,7 +222,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -231,7 +239,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -239,7 +247,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -276,14 +284,14 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-25T16:44:53-05:00",
+      "updated_at": "2026-11-26T05:06:55-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Board meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-25T16:44:59-05:00",
+      "updated_at": "2026-11-26T05:07:02-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -372,14 +380,15 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-25T21:46:10+00:00",
-  "data_bytes": 1426578,
-  "data_bytes_added": 2,
+  "last_good_at": "2026-11-26T10:08:29+00:00",
+  "full_fetch_at": "2026-11-26T10:08:29+00:00",
+  "data_bytes": 1428176,
+  "data_bytes_added": 97,
   "activity": {
     "boards": 21,
     "meetings_by_date": {
-      "2026-11-25": 1,
-      "2026-11-30": 1
+      "2026-11-30": 1,
+      "2026-12-09": 1
     }
   },
   "fact_checks": {
@@ -394,9 +403,9 @@
     "vote_counts_left_out": 2
   },
   "recordings": {
-    "since": "2026-11-18",
-    "until": "2026-11-24",
-    "held": 0,
+    "since": "2026-11-19",
+    "until": "2026-11-25",
+    "held": 1,
     "next_day": 0,
     "steps": {
       "summarized": 0,
@@ -405,16 +414,22 @@
       "waiting": 0,
       "failed": 0,
       "unmatched": 0,
-      "not_found": 0,
+      "not_found": 1,
       "no_source": 0,
       "no_recordings": 0
     },
-    "misses": []
+    "misses": [
+      {
+        "date": "2026-11-25",
+        "board": "City Council",
+        "step": "not_found"
+      }
+    ]
   },
   "documents": {
-    "since": "2026-08-27",
-    "until": "2026-11-24",
-    "held": 39,
+    "since": "2026-08-28",
+    "until": "2026-11-25",
+    "held": 38,
     "boards": 14,
     "counts": {
       "no_documents": 0,
