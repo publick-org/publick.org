@@ -76,6 +76,13 @@ translation_review_model = "claude-sonnet-5-5"
 translation_review_effort = "low"
 translation_review_input_price = 2.0
 translation_review_output_price = 10.0
+# The weekly digest email's subject, preheader and top story, picked and written
+# from the issue's candidates (the engine's pipeline/digest_subject.py), with
+# its prices per million tokens: one request or two a week for each town whose
+# digest is emailed.
+digest_model = "claude-opus-5-5"
+digest_input_price = 4.0
+digest_output_price = 20.0
 
 # New agendas and minutes can wait this long for a summary before the daily run
 # flags them. Older ones are summarized a little each day within the network's
