@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01TVvWai2NsV1BG442U4cRGR",
-  "sent_at": "2026-11-26T01:15:05+00:00",
+  "id": "msgbatch_01EqxggDuQAmGVE2YwgVUrjZ",
+  "sent_at": "2026-11-26T10:09:13+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -12,15 +12,15 @@
   "documents": [
     {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "recording",
       "older": false,
       "source_hash": "da26ebe45f24e61dab452139e5c552c41d79e67187f5efcd4adcc37c1024035d",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "City Council Finance Committee Meeting",
@@ -30,6 +30,28 @@
       "doc": {
         "id": "telvue-1070391",
         "sha256": "ea70e297cf5b4128a19308047bda70a420f8b38f9a9f49c05dcf332d0b2af93e"
+      }
+    },
+    {
+      "custom_id": "tr-1",
+      "type": "review",
+      "lang": "es",
+      "kind": "minutes",
+      "older": false,
+      "source_hash": "0eec70fa5f31f1d90400eda4b5ed04f2be192d7b756dafbb92ab57dde89a7ae7",
+      "model": "claude-sonnet-5-5",
+      "prices": {
+        "input_price": 2.0,
+        "output_price": 10.0
+      },
+      "meeting": {
+        "title": "Library Trustees Meeting",
+        "date": "2026-09-16",
+        "body": "Library Trustees"
+      },
+      "doc": {
+        "id": "agendacenter-5379",
+        "sha256": "b27a50cfb6a653f3c114d913223c56725a3b1910191ad62d9b8ed0b0803afa03"
       }
     }
   ]
