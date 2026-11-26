@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01JHgTsXdih9ts3qkP6iBvJz",
-  "sent_at": "2026-11-25T17:42:32+00:00",
+  "id": "msgbatch_01H5XaoGUWobWdZS4PJoPL5L",
+  "sent_at": "2026-11-26T09:09:44+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,16 +11,32 @@
   },
   "documents": [
     {
+      "custom_id": "doc-0",
+      "kind": "minutes",
+      "older": false,
+      "meeting": {
+        "title": "School Committee Meeting",
+        "date": "2026-11-18",
+        "body": "School Committee"
+      },
+      "doc": {
+        "id": "agendacenter-4082",
+        "sha256": "ba7bf2a1a7830866c6eb19b504a0de3263df04ac14d9298a3c763ade52538694",
+        "file": "agendacenter-4082.pdf",
+        "source_url": "https://www.lowellma.gov/AgendaCenter/ViewFile/Minutes/_11182026-4082"
+      }
+    },
+    {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "6fcdaa1d8cae1a52dd7c2663b3c501d80397117a355d90ccb9d76625b1b27f8d",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "City Council Meeting",
@@ -34,15 +50,15 @@
     },
     {
       "custom_id": "tr-1",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "recording",
       "older": false,
       "source_hash": "c6aaeb0de84eea0f638bb6d6ef42ec54f79513b230e2dc0fee06bcf3d8f0d199",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "City Council Meeting",
