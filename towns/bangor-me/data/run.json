@@ -1,8 +1,8 @@
 {
   "town": "bangor",
   "folder": "bangor-me",
-  "started_at": "2026-11-26T09:26:40+00:00",
-  "finished_at": "2026-11-26T09:33:35+00:00",
+  "started_at": "2026-11-26T21:46:29+00:00",
+  "finished_at": "2026-11-26T21:50:25+00:00",
   "engine": "v1.114.0",
   "fetched": true,
   "steps": [
@@ -10,45 +10,45 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 289.2
+      "seconds": 103.7
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 70.5
+      "seconds": 70.9
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 35.1
+      "seconds": 55.3
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 1.9
+      "seconds": 3.7
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.4
+      "seconds": 1.1
     }
   ],
   "update": {
     "town": "bangor",
     "sources": "all",
-    "started_at": "2026-11-26T09:26:40+00:00",
+    "started_at": "2026-11-26T21:46:30+00:00",
     "ok": true,
     "steps": [
       {
         "name": "Fetch meetings",
-        "ok": false,
+        "ok": true,
         "required": false,
-        "error": "exited with status 1",
-        "seconds": 266.6,
+        "error": null,
+        "seconds": 70.8,
         "cadence": "continuous"
       },
       {
@@ -154,7 +154,15 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 11.7,
+        "seconds": 20.4,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Write digest subject",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 1.2,
         "cadence": "continuous"
       },
       {
@@ -172,7 +180,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -190,7 +198,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch housing figures",
@@ -199,7 +207,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -247,7 +255,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 7.8,
+        "seconds": 7.9,
         "cadence": "continuous"
       },
       {
@@ -264,7 +272,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 0.8,
+        "seconds": 1.1,
         "cadence": "continuous"
       }
     ]
@@ -274,21 +282,21 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-25T08:35:12-05:00",
+      "updated_at": "2026-11-26T16:46:30-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-26T04:31:21-05:00",
+      "updated_at": "2026-11-26T16:48:04-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-26T04:31:29-05:00",
+      "updated_at": "2026-11-26T16:48:12-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -366,8 +374,9 @@
   "corrections": [],
   "ok": true,
   "last_good_at": "2026-11-15T09:59:30+00:00",
-  "data_bytes": 4495936,
-  "data_bytes_added": 1930836,
+  "full_fetch_at": "2026-11-26T21:50:25+00:00",
+  "data_bytes": 4586795,
+  "data_bytes_added": 1926318,
   "activity": {
     "boards": 36,
     "meetings_by_date": {
@@ -380,8 +389,8 @@
     }
   },
   "fact_checks": {
-    "summaries": 92,
-    "ok": 72,
+    "summaries": 95,
+    "ok": 75,
     "failed": 18,
     "weak": 2,
     "unchecked": 0,
@@ -473,7 +482,7 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-26T04:23:52-05:00",
+    "at": "2026-11-26T12:24:02-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-25T08:23:54-05:00"
@@ -490,7 +499,5 @@
         ]
       }
     ]
-  },
-  "published_at": "2026-11-26T12:10:00+00:00",
-  "published_engine": "v1.114.0"
+  }
 }
