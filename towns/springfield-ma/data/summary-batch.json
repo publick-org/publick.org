@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_012VtLSU9Qvz67o5KhVtHADz",
-  "sent_at": "2026-11-26T10:30:50+00:00",
+  "id": "msgbatch_019B6Hbxx5sFhZgPmnuiJuDZ",
+  "sent_at": "2026-11-26T10:40:00+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,64 +11,16 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
-      "kind": "minutes",
-      "older": true,
-      "meeting": {
-        "title": "City Council Regular Meeting",
-        "date": "2026-09-08",
-        "body": "City Council"
-      },
-      "doc": {
-        "id": "civicclerk-23657",
-        "sha256": "6ca5882c8cc75c5056bec64ad264bd31be52b61f1ffb55235daeac2a8feb6b00",
-        "file": "civicclerk-23657.pdf",
-        "source_url": "https://springfieldma.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=23657,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-1",
-      "kind": "minutes",
-      "older": true,
-      "meeting": {
-        "title": "City Council Hearings Meeting",
-        "date": "2026-08-24",
-        "body": "City Council Hearings"
-      },
-      "doc": {
-        "id": "civicclerk-23656",
-        "sha256": "f5daf37ed39f69a6a1d78d921df895bbfb6a90af71de94a6c702e49b310415e3",
-        "file": "civicclerk-23656.pdf",
-        "source_url": "https://springfieldma.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=23656,plainText=false)"
-      }
-    },
-    {
-      "custom_id": "doc-2",
-      "kind": "minutes",
-      "older": true,
-      "meeting": {
-        "title": "City Council Regular Meeting",
-        "date": "2026-07-27",
-        "body": "City Council"
-      },
-      "doc": {
-        "id": "civicclerk-23618",
-        "sha256": "307e36f75d3321149bedd20814fa576518f7969898c2787d972a2b1d2bd423e4",
-        "file": "civicclerk-23618.pdf",
-        "source_url": "https://springfieldma.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=23618,plainText=false)"
-      }
-    },
-    {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "51449d597afe04156f9d5697db2437b479fb46c669109d5f2fd4e1d2795205b4",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "City Council Hearings Meeting",
@@ -78,6 +30,72 @@
       "doc": {
         "id": "civicclerk-25812",
         "sha256": "0fabd23d0896755d71d39c58a105b24865927016b9218ff849e562d51dd7a4e8"
+      }
+    },
+    {
+      "custom_id": "tr-1",
+      "type": "translation",
+      "lang": "es",
+      "kind": "minutes",
+      "older": false,
+      "source_hash": "3db2e99af2d7850ea364d0cf2865adb30ebb478b46dcd7a3c3c9dc441ed23f01",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "City Council Regular Meeting",
+        "date": "2026-09-08",
+        "body": "City Council"
+      },
+      "doc": {
+        "id": "civicclerk-23657",
+        "sha256": "6ca5882c8cc75c5056bec64ad264bd31be52b61f1ffb55235daeac2a8feb6b00"
+      }
+    },
+    {
+      "custom_id": "tr-2",
+      "type": "translation",
+      "lang": "es",
+      "kind": "minutes",
+      "older": false,
+      "source_hash": "0fa360250ac54b7bfb1e28bf4e8ebd57ae2af460c5a43b68a29aa6d2a37efd07",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "City Council Hearings Meeting",
+        "date": "2026-08-24",
+        "body": "City Council Hearings"
+      },
+      "doc": {
+        "id": "civicclerk-23656",
+        "sha256": "f5daf37ed39f69a6a1d78d921df895bbfb6a90af71de94a6c702e49b310415e3"
+      }
+    },
+    {
+      "custom_id": "tr-3",
+      "type": "translation",
+      "lang": "es",
+      "kind": "minutes",
+      "older": false,
+      "source_hash": "6a2532d4d39239bd5979e209de283b9648f982761433477672e21a15fc3884a7",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "City Council Regular Meeting",
+        "date": "2026-07-27",
+        "body": "City Council"
+      },
+      "doc": {
+        "id": "civicclerk-23618",
+        "sha256": "307e36f75d3321149bedd20814fa576518f7969898c2787d972a2b1d2bd423e4"
       }
     }
   ]
