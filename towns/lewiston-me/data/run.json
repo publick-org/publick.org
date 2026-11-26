@@ -1,8 +1,8 @@
 {
   "town": "lewiston",
   "folder": "lewiston-me",
-  "started_at": "2026-11-26T09:19:55+00:00",
-  "finished_at": "2026-11-26T09:30:46+00:00",
+  "started_at": "2026-11-26T21:44:54+00:00",
+  "finished_at": "2026-11-26T21:47:59+00:00",
   "engine": "v1.114.0",
   "fetched": true,
   "steps": [
@@ -10,25 +10,25 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 551.7
+      "seconds": 104.5
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 52.6
+      "seconds": 49.6
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 25.4
+      "seconds": 27.2
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.8
+      "seconds": 2.4
     },
     {
       "name": "Check live site",
@@ -40,23 +40,23 @@
   "update": {
     "town": "lewiston",
     "sources": "all",
-    "started_at": "2026-11-26T09:19:56+00:00",
+    "started_at": "2026-11-26T21:44:55+00:00",
     "ok": true,
     "steps": [
       {
         "name": "Fetch meetings",
-        "ok": false,
+        "ok": true,
         "required": false,
-        "error": "exited with status 1",
-        "seconds": 251.0,
+        "error": null,
+        "seconds": 55.6,
         "cadence": "continuous"
       },
       {
         "name": "Fetch minutes",
-        "ok": false,
+        "ok": true,
         "required": false,
-        "error": "exited with status 1",
-        "seconds": 251.0,
+        "error": null,
+        "seconds": 1.0,
         "cadence": "continuous"
       },
       {
@@ -64,7 +64,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 34.8,
+        "seconds": 34.7,
         "cadence": "continuous"
       },
       {
@@ -153,7 +153,15 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 13.3,
+        "seconds": 10.9,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Write digest subject",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.9,
         "cadence": "continuous"
       },
       {
@@ -199,7 +207,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 5 days ago; checked every 7 days"
+        "skipped": "checked 6 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -276,7 +284,7 @@
     {
       "label": "Meetings (city calendar)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-25T08:35:40-05:00",
+      "updated_at": "2026-11-26T16:44:55-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -365,9 +373,10 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-26T12:12:09+00:00",
-  "data_bytes": 1533671,
-  "data_bytes_added": 3822,
+  "last_good_at": "2026-11-26T21:47:59+00:00",
+  "full_fetch_at": "2026-11-26T21:47:59+00:00",
+  "data_bytes": 1535939,
+  "data_bytes_added": 2349,
   "activity": {
     "boards": 9,
     "meetings_by_date": {
@@ -427,7 +436,7 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-26T02:24:03-05:00",
+    "at": "2026-11-26T12:24:09-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-25T08:32:04-05:00"
@@ -441,7 +450,5 @@
         "none": true
       }
     ]
-  },
-  "published_at": "2026-11-26T12:12:09+00:00",
-  "published_engine": "v1.114.0"
+  }
 }
