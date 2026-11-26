@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01KQkMLZrQqKXCZVMRLnr7Wp",
-  "sent_at": "2026-11-26T10:26:33+00:00",
+  "id": "msgbatch_01JgmD4egoKEDhfynqBgAwC8",
+  "sent_at": "2026-11-26T10:39:07+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,9 +11,17 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
+      "custom_id": "tr-0",
+      "type": "translation",
+      "lang": "es",
       "kind": "minutes",
-      "older": true,
+      "older": false,
+      "source_hash": "f8e75e77d096fd471f583dd7f94dbdeaacf895721ba1c8eabbab28ada736114f",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Parks Commission",
         "date": "2026-08-06",
@@ -21,15 +29,21 @@
       },
       "doc": {
         "id": "civicclerk-20551",
-        "sha256": "1019244562834edfd4e8fb77ad1f85dcdb47aba9ad516b822e98e16c2f396590",
-        "file": "civicclerk-20551.pdf",
-        "source_url": "https://portlandme.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=20551,plainText=false)"
+        "sha256": "1019244562834edfd4e8fb77ad1f85dcdb47aba9ad516b822e98e16c2f396590"
       }
     },
     {
-      "custom_id": "doc-1",
+      "custom_id": "tr-1",
+      "type": "translation",
+      "lang": "es",
       "kind": "minutes",
-      "older": true,
+      "older": false,
+      "source_hash": "560cfc5105e8c2a08f5291ad8594134744e3e74832c861e8abbbf41a4289243d",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
       "meeting": {
         "title": "Housing & Economic Development Committee Meeting",
         "date": "2026-07-21",
@@ -37,9 +51,7 @@
       },
       "doc": {
         "id": "civicclerk-20577",
-        "sha256": "283a3f0edbe0cbe722f8c400d415e1d6dcf453d122c51b979b9f1b4415aba55c",
-        "file": "civicclerk-20577.pdf",
-        "source_url": "https://portlandme.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=20577,plainText=false)"
+        "sha256": "283a3f0edbe0cbe722f8c400d415e1d6dcf453d122c51b979b9f1b4415aba55c"
       }
     }
   ]
