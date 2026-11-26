@@ -1,46 +1,46 @@
 {
   "town": "manchester",
   "folder": "manchester-nh",
-  "started_at": "2026-11-26T01:12:21+00:00",
-  "finished_at": "2026-11-26T01:19:11+00:00",
-  "engine": "v1.113.0",
+  "started_at": "2026-11-26T10:11:10+00:00",
+  "finished_at": "2026-11-26T10:18:04+00:00",
+  "engine": "v1.114.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 169.0
+      "seconds": 197.0
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 175.1
+      "seconds": 161.0
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 99.1
+      "seconds": 51.8
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 40.7
+      "seconds": 3.4
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 1.1
+      "seconds": 0.7
     }
   ],
   "update": {
     "town": "manchester",
-    "sources": "meetings",
-    "started_at": "2026-11-26T01:12:21+00:00",
+    "sources": "all",
+    "started_at": "2026-11-26T10:11:10+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 43.6,
+        "seconds": 63.6,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 106.3,
+        "seconds": 105.6,
         "cadence": "continuous"
       },
       {
@@ -153,7 +153,15 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 17.0,
+        "seconds": 14.3,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Write digest subject",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0.8,
         "cadence": "continuous"
       },
       {
@@ -163,7 +171,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 26 days ago; checked every 30 days"
+        "skipped": "checked 27 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -172,7 +180,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -181,7 +189,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 26 days ago; checked every 30 days"
+        "skipped": "checked 27 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -190,7 +198,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 26 days ago; checked every 30 days"
+        "skipped": "checked 27 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -241,6 +249,31 @@
         "error": null,
         "seconds": 0.3,
         "cadence": "continuous"
+      },
+      {
+        "name": "Fetch 311 requests",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 8.7,
+        "cadence": "continuous"
+      },
+      {
+        "name": "Fetch 311 requests from an open data portal",
+        "ok": true,
+        "required": false,
+        "error": null,
+        "seconds": 0,
+        "cadence": "continuous",
+        "skipped": "no [socrata_311] in the config"
+      },
+      {
+        "name": "Compute 311 scorecard",
+        "ok": true,
+        "required": true,
+        "error": null,
+        "seconds": 2.4,
+        "cadence": "continuous"
       }
     ]
   },
@@ -249,28 +282,28 @@
     {
       "label": "Meetings (city calendar, CivicClerk, and school district calendar)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-25T20:12:21-05:00",
+      "updated_at": "2026-11-26T05:11:10-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Planning and zoning boards' documents (city website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-25T20:13:05-05:00",
+      "updated_at": "2026-11-26T05:12:14-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-25T16:51:12-05:00",
+      "updated_at": "2026-11-26T05:14:16-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-25T16:51:22-05:00",
+      "updated_at": "2026-11-26T05:14:25-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -361,9 +394,10 @@
     "Correction for Planning Board 2026-11-05: \"Coppas Avenue\" isn't in its summaries any more, so it isn't shown. Remove it, or check it again."
   ],
   "ok": true,
-  "last_good_at": "2026-11-26T10:01:03+00:00",
-  "data_bytes": 23349440,
-  "data_bytes_added": 15957242,
+  "last_good_at": "2026-11-26T10:18:04+00:00",
+  "full_fetch_at": "2026-11-26T10:18:04+00:00",
+  "data_bytes": 23363447,
+  "data_bytes_added": 15966020,
   "activity": {
     "boards": 38,
     "meetings_by_date": {
@@ -374,8 +408,8 @@
     }
   },
   "fact_checks": {
-    "summaries": 224,
-    "ok": 193,
+    "summaries": 225,
+    "ok": 194,
     "failed": 18,
     "weak": 12,
     "unchecked": 0,
@@ -385,14 +419,14 @@
     "vote_counts_left_out": 84
   },
   "recordings": {
-    "since": "2026-11-18",
-    "until": "2026-11-24",
+    "since": "2026-11-19",
+    "until": "2026-11-25",
     "held": 1,
     "next_day": 0,
     "steps": {
-      "summarized": 0,
+      "summarized": 1,
       "minutes": 0,
-      "transcribed": 1,
+      "transcribed": 0,
       "waiting": 0,
       "failed": 0,
       "unmatched": 0,
@@ -400,14 +434,7 @@
       "no_source": 0,
       "no_recordings": 0
     },
-    "misses": [
-      {
-        "date": "2026-11-19",
-        "board": "Planning Board",
-        "step": "transcribed",
-        "detail": "transcript not summarized yet"
-      }
-    ]
+    "misses": []
   },
   "documents": {
     "since": "2026-08-28",
@@ -440,7 +467,5 @@
   "officials": {
     "checked_at": "2026-11-22T09:09:54-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-26T10:01:03+00:00",
-  "published_engine": "v1.114.0"
+  }
 }
