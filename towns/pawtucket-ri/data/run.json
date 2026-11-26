@@ -1,8 +1,8 @@
 {
   "town": "pawtucket",
   "folder": "pawtucket-ri",
-  "started_at": "2026-11-25T21:51:28+00:00",
-  "finished_at": "2026-11-25T22:01:25+00:00",
+  "started_at": "2026-11-26T01:12:05+00:00",
+  "finished_at": "2026-11-26T01:21:04+00:00",
   "engine": "v1.113.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 489.0
+      "seconds": 428.0
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 69.7
+      "seconds": 69.8
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 32.2
+      "seconds": 37.0
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 1.9
+      "seconds": 2.4
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.7
+      "seconds": 0.6
     }
   ],
   "update": {
     "town": "pawtucket",
-    "sources": "all",
-    "started_at": "2026-11-25T21:51:28+00:00",
+    "sources": "meetings",
+    "started_at": "2026-11-26T01:12:06+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.3,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -109,7 +109,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 456.4,
+        "seconds": 411.1,
         "cadence": "continuous"
       },
       {
@@ -153,7 +153,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 21.8,
+        "seconds": 14.4,
         "cadence": "continuous"
       },
       {
@@ -240,31 +240,6 @@
         "error": null,
         "seconds": 0.3,
         "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 7.8,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests from an open data portal",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [socrata_311] in the config"
-      },
-      {
-        "name": "Compute 311 scorecard",
-        "ok": true,
-        "required": true,
-        "error": null,
-        "seconds": 0.8,
-        "cadence": "continuous"
       }
     ]
   },
@@ -273,7 +248,7 @@
     {
       "label": "Meetings (Open Meetings portal)",
       "file": "meetings/opengov_status.json",
-      "updated_at": "2026-11-25T16:51:29-05:00",
+      "updated_at": "2026-11-25T20:12:07-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -365,8 +340,8 @@
   "corrections": [],
   "ok": true,
   "last_good_at": "2026-11-05T00:12:20+00:00",
-  "data_bytes": 3086489,
-  "data_bytes_added": 107956,
+  "data_bytes": 3087924,
+  "data_bytes_added": 106296,
   "activity": {
     "boards": 32,
     "meetings_by_date": {
@@ -375,8 +350,8 @@
     }
   },
   "fact_checks": {
-    "summaries": 198,
-    "ok": 186,
+    "summaries": 199,
+    "ok": 187,
     "failed": 12,
     "weak": 0,
     "unchecked": 0,
@@ -393,11 +368,11 @@
     "steps": {
       "summarized": 0,
       "minutes": 0,
-      "transcribed": 0,
+      "transcribed": 1,
       "waiting": 0,
       "failed": 0,
       "unmatched": 0,
-      "not_found": 1,
+      "not_found": 0,
       "no_source": 0,
       "no_recordings": 0
     },
@@ -405,14 +380,15 @@
       {
         "date": "2026-11-24",
         "board": "City Council",
-        "step": "not_found"
+        "step": "transcribed",
+        "detail": "transcript not summarized yet"
       }
     ]
   },
   "documents": {
-    "since": "2026-08-27",
-    "until": "2026-11-24",
-    "held": 94,
+    "since": "2026-08-28",
+    "until": "2026-11-25",
+    "held": 93,
     "boards": 27,
     "counts": {
       "no_documents": 0,
@@ -433,15 +409,13 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-25T12:23:56-05:00",
+    "at": "2026-11-25T20:02:27-05:00",
     "refused": 0,
-    "transcribed": 0,
-    "last_transcribed_at": "2026-11-18T18:26:02-05:00"
+    "transcribed": 1,
+    "last_transcribed_at": "2026-11-25T20:02:27-05:00"
   },
   "officials": {
     "checked_at": "2026-11-22T09:14:03-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-25T22:20:32+00:00",
-  "published_engine": "v1.113.0"
+  }
 }
