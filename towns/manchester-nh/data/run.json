@@ -1,8 +1,8 @@
 {
   "town": "manchester",
   "folder": "manchester-nh",
-  "started_at": "2026-11-25T21:47:54+00:00",
-  "finished_at": "2026-11-25T21:55:27+00:00",
+  "started_at": "2026-11-26T01:12:21+00:00",
+  "finished_at": "2026-11-26T01:19:11+00:00",
   "engine": "v1.113.0",
   "fetched": true,
   "steps": [
@@ -10,25 +10,25 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 211.7
+      "seconds": 169.0
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 164.6
+      "seconds": 164.5
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 72.2
+      "seconds": 73.2
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.3
+      "seconds": 2.2
     },
     {
       "name": "Check live site",
@@ -39,8 +39,8 @@
   ],
   "update": {
     "town": "manchester",
-    "sources": "all",
-    "started_at": "2026-11-25T21:47:54+00:00",
+    "sources": "meetings",
+    "started_at": "2026-11-26T01:12:21+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 63.7,
+        "seconds": 43.6,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 113.2,
+        "seconds": 106.3,
         "cadence": "continuous"
       },
       {
@@ -153,7 +153,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 19.2,
+        "seconds": 17.0,
         "cadence": "continuous"
       },
       {
@@ -206,7 +206,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -214,7 +214,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -231,7 +231,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -239,32 +239,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 9.8,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests from an open data portal",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [socrata_311] in the config"
-      },
-      {
-        "name": "Compute 311 scorecard",
-        "ok": true,
-        "required": true,
-        "error": null,
-        "seconds": 3.6,
+        "seconds": 0.3,
         "cadence": "continuous"
       }
     ]
@@ -274,14 +249,14 @@
     {
       "label": "Meetings (city calendar, CivicClerk, and school district calendar)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-25T16:47:54-05:00",
+      "updated_at": "2026-11-25T20:12:21-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Planning and zoning boards' documents (city website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-25T16:48:59-05:00",
+      "updated_at": "2026-11-25T20:13:05-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -386,26 +361,27 @@
     "Correction for Planning Board 2026-11-05: \"Coppas Avenue\" isn't in its summaries any more, so it isn't shown. Remove it, or check it again."
   ],
   "ok": true,
-  "last_good_at": "2026-11-25T22:18:50+00:00",
-  "data_bytes": 23104739,
-  "data_bytes_added": 15973772,
+  "last_good_at": "2026-11-26T01:19:11+00:00",
+  "data_bytes": 23349440,
+  "data_bytes_added": 15957242,
   "activity": {
     "boards": 38,
     "meetings_by_date": {
       "2026-12-01": 7,
       "2026-12-03": 1,
-      "2026-12-08": 3
+      "2026-12-08": 3,
+      "2026-12-09": 3
     }
   },
   "fact_checks": {
-    "summaries": 215,
-    "ok": 185,
-    "failed": 17,
+    "summaries": 224,
+    "ok": 193,
+    "failed": 18,
     "weak": 12,
     "unchecked": 0,
     "not_yet": 1,
-    "held_back": 17,
-    "entries_not_shown": 26,
+    "held_back": 18,
+    "entries_not_shown": 27,
     "vote_counts_left_out": 84
   },
   "recordings": {
@@ -416,8 +392,8 @@
     "steps": {
       "summarized": 0,
       "minutes": 0,
-      "transcribed": 0,
-      "waiting": 1,
+      "transcribed": 1,
+      "waiting": 0,
       "failed": 0,
       "unmatched": 0,
       "not_found": 0,
@@ -428,14 +404,14 @@
       {
         "date": "2026-11-19",
         "board": "Planning Board",
-        "step": "waiting",
-        "detail": "1 recording(s) found"
+        "step": "transcribed",
+        "detail": "transcript not summarized yet"
       }
     ]
   },
   "documents": {
-    "since": "2026-08-27",
-    "until": "2026-11-24",
+    "since": "2026-08-28",
+    "until": "2026-11-25",
     "held": 89,
     "boards": 34,
     "counts": {
@@ -464,7 +440,5 @@
   "officials": {
     "checked_at": "2026-11-22T09:09:54-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-25T22:18:50+00:00",
-  "published_engine": "v1.113.0"
+  }
 }
