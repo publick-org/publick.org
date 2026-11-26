@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01VdooBqdtE8sxcFSJwP5dNe",
-  "sent_at": "2026-11-25T11:12:44+00:00",
+  "id": "msgbatch_01HanBd2gXPeec385jstrYSw",
+  "sent_at": "2026-11-26T09:07:21+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,16 +11,32 @@
   },
   "documents": [
     {
+      "custom_id": "doc-0",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "City Council Regular Meeting",
+        "date": "2026-12-01",
+        "body": "City Council"
+      },
+      "doc": {
+        "id": "civicclerk-1043",
+        "sha256": "21be61fdf61e11f3c179962bcc5ddcf169570de87bbd95fcc2849174806f9e11",
+        "file": "civicclerk-1043.pdf",
+        "source_url": "https://medfordma.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=1043,plainText=false)"
+      }
+    },
+    {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "efcbd6409740b9cd691edb3ffd7548a79c251a4df85c0c5972ee146fdaf4d504",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "School Committee Facilities & Capital Planning Subcommittee Meeting",
@@ -34,15 +50,15 @@
     },
     {
       "custom_id": "tr-1",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "836fe47cf8529aa304b65a50d9388dbf4fe6f9a9fe5de50881aa33468bc110f0",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Joint Meeting of the Medford City Council and the Medford School Committee",
@@ -56,15 +72,15 @@
     },
     {
       "custom_id": "tr-2",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "agenda",
       "older": false,
       "source_hash": "df72d837dd91b216db22349cb0b2d1ad71eac526f7640a16bd647b659eda8465",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "School Committee Meeting",
