@@ -1,8 +1,8 @@
 {
   "town": "derry",
   "folder": "derry-nh",
-  "started_at": "2026-11-26T10:18:24+00:00",
-  "finished_at": "2026-11-26T10:20:29+00:00",
+  "started_at": "2026-11-27T09:15:18+00:00",
+  "finished_at": "2026-11-27T09:17:19+00:00",
   "engine": "v1.114.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 41.4
+      "seconds": 34.3
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 42.4
+      "seconds": 41.9
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 27.8
+      "seconds": 37.5
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 1.7
+      "seconds": 5.9
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.5
+      "seconds": 0.8
     }
   ],
   "update": {
     "town": "derry",
     "sources": "all",
-    "started_at": "2026-11-26T10:18:25+00:00",
+    "started_at": "2026-11-27T09:15:18+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 25.8,
+        "seconds": 21.0,
         "cadence": "continuous"
       },
       {
@@ -153,7 +153,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 10.7,
+        "seconds": 8.6,
         "cadence": "continuous"
       },
       {
@@ -171,7 +171,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 25 days ago; checked every 30 days"
+        "skipped": "checked 26 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -189,7 +189,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 24 days ago; checked every 30 days"
+        "skipped": "checked 25 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -198,7 +198,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 25 days ago; checked every 30 days"
+        "skipped": "checked 26 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -284,14 +284,14 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-26T05:18:25-05:00",
+      "updated_at": "2026-11-27T04:15:18-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Board meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-26T05:18:52-05:00",
+      "updated_at": "2026-11-27T04:15:40-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -380,10 +380,10 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-26T12:09:05+00:00",
-  "full_fetch_at": "2026-11-26T10:20:29+00:00",
-  "data_bytes": 1921759,
-  "data_bytes_added": 286,
+  "last_good_at": "2026-11-27T09:17:19+00:00",
+  "full_fetch_at": "2026-11-27T09:17:19+00:00",
+  "data_bytes": 1920792,
+  "data_bytes_added": -63,
   "activity": {
     "boards": 16,
     "meetings_by_date": {
@@ -406,12 +406,12 @@
     "vote_counts_left_out": 48
   },
   "recordings": {
-    "since": "2026-11-19",
-    "until": "2026-11-25",
-    "held": 1,
-    "next_day": 1,
+    "since": "2026-11-20",
+    "until": "2026-11-26",
+    "held": 0,
+    "next_day": 0,
     "steps": {
-      "summarized": 1,
+      "summarized": 0,
       "minutes": 0,
       "transcribed": 0,
       "waiting": 0,
@@ -424,8 +424,8 @@
     "misses": []
   },
   "documents": {
-    "since": "2026-08-28",
-    "until": "2026-11-25",
+    "since": "2026-08-29",
+    "until": "2026-11-26",
     "held": 54,
     "boards": 15,
     "counts": {
@@ -447,7 +447,7 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-26T04:23:54-05:00",
+    "at": "2026-11-27T02:23:59-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-20T08:24:00-05:00"
@@ -455,7 +455,5 @@
   "officials": {
     "checked_at": "2026-11-22T04:30:26-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-26T12:09:05+00:00",
-  "published_engine": "v1.114.0"
+  }
 }
