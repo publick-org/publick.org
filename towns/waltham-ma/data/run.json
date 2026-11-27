@@ -1,8 +1,8 @@
 {
   "town": "waltham",
   "folder": "waltham-ma",
-  "started_at": "2026-11-27T09:09:32+00:00",
-  "finished_at": "2026-11-27T09:12:33+00:00",
+  "started_at": "2026-11-27T21:25:05+00:00",
+  "finished_at": "2026-11-27T21:28:14+00:00",
   "engine": "v1.114.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 58.0
+      "seconds": 77.7
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 68.6
+      "seconds": 68.8
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 40.5
+      "seconds": 39.5
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 12.9
+      "seconds": 1.8
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.9
+      "seconds": 0.6
     }
   ],
   "update": {
     "town": "waltham",
     "sources": "all",
-    "started_at": "2026-11-27T09:09:32+00:00",
+    "started_at": "2026-11-27T21:25:05+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 40.9,
+        "seconds": 40.8,
         "cadence": "continuous"
       },
       {
@@ -153,7 +153,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 12.7,
+        "seconds": 9.7,
         "cadence": "continuous"
       },
       {
@@ -171,7 +171,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 14 days ago; checked every 30 days"
+        "skipped": "checked 15 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
@@ -180,7 +180,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 2 days ago; checked every 7 days"
+        "skipped": "checked 3 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -189,7 +189,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 14 days ago; checked every 30 days"
+        "skipped": "checked 15 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -198,16 +198,15 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 14 days ago; checked every 30 days"
+        "skipped": "checked 15 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 6 days ago; checked every 7 days"
+        "seconds": 22.6,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch place",
@@ -284,14 +283,14 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-27T04:09:32-05:00",
+      "updated_at": "2026-11-27T16:25:06-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-27T04:10:14-05:00",
+      "updated_at": "2026-11-27T16:25:47-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -346,13 +345,13 @@
     {
       "label": "Housing figures",
       "file": "housing/housing.json",
-      "updated_at": "2026-11-20T15:43:39-05:00",
+      "updated_at": "2026-11-27T16:25:59-05:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
       "stale": false,
-      "latest": "2025 building permits; September 2026 building permits; ACS 2024 5-year estimates; Fiscal year 2026 parcel counts",
-      "next": "2026 building permits usually by June 1, 2027; October 2026 building permits usually by December 1, 2026; ACS 2025 5-year estimates usually by December 15, 2026; Fiscal year 2027 parcel counts usually by March 1, 2027",
+      "latest": "2025 building permits; October 2026 building permits; ACS 2024 5-year estimates; Fiscal year 2027 parcel counts",
+      "next": "2026 building permits usually by June 1, 2027; November 2026 building permits usually by January 1, 2027; ACS 2025 5-year estimates usually by December 15, 2026; Fiscal year 2028 parcel counts usually by March 1, 2028",
       "behind": null
     },
     {
@@ -380,10 +379,10 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-27T09:12:33+00:00",
-  "full_fetch_at": "2026-11-27T09:12:33+00:00",
-  "data_bytes": 2140721,
-  "data_bytes_added": -216,
+  "last_good_at": "2026-11-27T21:28:14+00:00",
+  "full_fetch_at": "2026-11-27T21:28:14+00:00",
+  "data_bytes": 2140644,
+  "data_bytes_added": 4,
   "activity": {
     "boards": 24,
     "meetings_by_date": {
