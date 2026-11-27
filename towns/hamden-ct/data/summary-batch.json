@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01UpYHLJMEm5ASZjfHBdsPFo",
-  "sent_at": "2026-11-27T21:28:43+00:00",
+  "id": "msgbatch_01QgNMhtEcT5Ly5gh4Dxtn7b",
+  "sent_at": "2026-11-27T21:37:40+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,32 +11,16 @@
   },
   "documents": [
     {
-      "custom_id": "doc-0",
-      "kind": "minutes",
-      "older": false,
-      "meeting": {
-        "title": "Zoning Board of Appeals Regular Meeting",
-        "date": "2026-11-19",
-        "body": "Zoning Board of Appeals"
-      },
-      "doc": {
-        "id": "civicclerk-14411",
-        "sha256": "b91dc166f445548ebeb932aa1b3e3cbed52918cd156495f2c8737ed2e24fff3d",
-        "file": "civicclerk-14411.pdf",
-        "source_url": "https://hamdenct.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=14411,plainText=false)"
-      }
-    },
-    {
       "custom_id": "tr-0",
-      "type": "review",
+      "type": "translation",
       "lang": "es",
       "kind": "recording",
       "older": false,
       "source_hash": "7b714893f63dc98256177d21adad5b25c297d469502118151b981194ef63e2db",
-      "model": "claude-sonnet-5-5",
+      "model": "claude-haiku-5-5",
       "prices": {
-        "input_price": 2.0,
-        "output_price": 10.0
+        "input_price": 0.1,
+        "output_price": 0.5
       },
       "meeting": {
         "title": "Planning & Zoning Commission Regular Meeting",
@@ -46,6 +30,28 @@
       "doc": {
         "id": "civicclerk-video-7612",
         "sha256": "942c47880d16c3202a3c50bb68f6e0fa02e7dfb2378f0aaad987aaa6e4243107"
+      }
+    },
+    {
+      "custom_id": "tr-1",
+      "type": "translation",
+      "lang": "es",
+      "kind": "minutes",
+      "older": false,
+      "source_hash": "268a75f4cae44760160f89d81c61cbf0910b23f547503b64af86282a7285b346",
+      "model": "claude-haiku-5-5",
+      "prices": {
+        "input_price": 0.1,
+        "output_price": 0.5
+      },
+      "meeting": {
+        "title": "Zoning Board of Appeals Regular Meeting",
+        "date": "2026-11-19",
+        "body": "Zoning Board of Appeals"
+      },
+      "doc": {
+        "id": "civicclerk-14411",
+        "sha256": "b91dc166f445548ebeb932aa1b3e3cbed52918cd156495f2c8737ed2e24fff3d"
       }
     }
   ]
