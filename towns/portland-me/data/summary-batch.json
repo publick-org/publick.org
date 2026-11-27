@@ -1,6 +1,6 @@
 {
-  "id": "msgbatch_01JgmD4egoKEDhfynqBgAwC8",
-  "sent_at": "2026-11-26T10:39:07+00:00",
+  "id": "msgbatch_018RqypLbkYcvnnWCLkMdNbn",
+  "sent_at": "2026-11-27T09:18:55+00:00",
   "model": "claude-haiku-5-5",
   "prices": {
     "input_price": 0.1,
@@ -11,16 +11,32 @@
   },
   "documents": [
     {
+      "custom_id": "doc-0",
+      "kind": "agenda",
+      "older": false,
+      "meeting": {
+        "title": "Board of Public Education Meeting",
+        "date": "2026-12-01",
+        "body": "Board of Public Education"
+      },
+      "doc": {
+        "id": "diligent-24567-8fd1950f",
+        "sha256": "8fd1950f06872aae65524aeaeab7ef7da5d297e5b54f69b5a32cb779964481ff",
+        "file": "diligent-24567-8fd1950f.pdf",
+        "source_url": "https://portlandschools.community.highbond.com/document/24567/?printPdf=true"
+      }
+    },
+    {
       "custom_id": "tr-0",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "f8e75e77d096fd471f583dd7f94dbdeaacf895721ba1c8eabbab28ada736114f",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Parks Commission",
@@ -34,15 +50,15 @@
     },
     {
       "custom_id": "tr-1",
-      "type": "translation",
+      "type": "review",
       "lang": "es",
       "kind": "minutes",
       "older": false,
       "source_hash": "560cfc5105e8c2a08f5291ad8594134744e3e74832c861e8abbbf41a4289243d",
-      "model": "claude-haiku-5-5",
+      "model": "claude-sonnet-5-5",
       "prices": {
-        "input_price": 0.1,
-        "output_price": 0.5
+        "input_price": 2.0,
+        "output_price": 10.0
       },
       "meeting": {
         "title": "Housing & Economic Development Committee Meeting",
