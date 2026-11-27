@@ -1,8 +1,8 @@
 {
   "town": "hamden",
   "folder": "hamden-ct",
-  "started_at": "2026-11-27T09:10:06+00:00",
-  "finished_at": "2026-11-27T09:14:13+00:00",
+  "started_at": "2026-11-27T17:28:26+00:00",
+  "finished_at": "2026-11-27T17:32:04+00:00",
   "engine": "v1.114.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 82.1
+      "seconds": 68.4
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 80.8
+      "seconds": 81.6
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 54.3
+      "seconds": 63.9
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 3.4
+      "seconds": 3.3
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.7
+      "seconds": 0.8
     }
   ],
   "update": {
     "town": "hamden",
-    "sources": "all",
-    "started_at": "2026-11-27T09:10:06+00:00",
+    "sources": "meetings",
+    "started_at": "2026-11-27T17:28:27+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 43.0,
+        "seconds": 42.7,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 3.6,
+        "seconds": 3.9,
         "cadence": "continuous"
       },
       {
@@ -153,7 +153,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 23.4,
+        "seconds": 18.0,
         "cadence": "continuous"
       },
       {
@@ -161,7 +161,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.1,
+        "seconds": 1.2,
         "cadence": "continuous"
       },
       {
@@ -180,7 +180,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 3 days ago; checked every 7 days"
+        "skipped": "checked 4 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -198,7 +198,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 3 days ago; checked every 7 days"
+        "skipped": "checked 4 days ago; checked every 7 days"
       },
       {
         "name": "Fetch housing figures",
@@ -207,7 +207,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 3 days ago; checked every 7 days"
+        "skipped": "checked 4 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -249,31 +249,6 @@
         "error": null,
         "seconds": 0.3,
         "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 7.8,
-        "cadence": "continuous"
-      },
-      {
-        "name": "Fetch 311 requests from an open data portal",
-        "ok": true,
-        "required": false,
-        "error": null,
-        "seconds": 0,
-        "cadence": "continuous",
-        "skipped": "no [socrata_311] in the config"
-      },
-      {
-        "name": "Compute 311 scorecard",
-        "ok": true,
-        "required": true,
-        "error": null,
-        "seconds": 1.1,
-        "cadence": "continuous"
       }
     ]
   },
@@ -282,7 +257,7 @@
     {
       "label": "Meetings (CivicClerk)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-27T04:10:06-05:00",
+      "updated_at": "2026-11-27T12:28:27-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -385,10 +360,10 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-27T09:24:42+00:00",
+  "last_good_at": "2026-11-27T17:32:04+00:00",
   "full_fetch_at": "2026-11-27T09:14:13+00:00",
-  "data_bytes": 5872582,
-  "data_bytes_added": 2537120,
+  "data_bytes": 5868867,
+  "data_bytes_added": 2541385,
   "activity": {
     "boards": 51,
     "meetings_by_date": {
@@ -421,11 +396,11 @@
     "steps": {
       "summarized": 0,
       "minutes": 1,
-      "transcribed": 0,
+      "transcribed": 1,
       "waiting": 0,
       "failed": 0,
       "unmatched": 0,
-      "not_found": 1,
+      "not_found": 0,
       "no_source": 0,
       "no_recordings": 0
     },
@@ -433,7 +408,8 @@
       {
         "date": "2026-11-24",
         "board": "Planning & Zoning Commission",
-        "step": "not_found"
+        "step": "transcribed",
+        "detail": "transcript not summarized yet"
       }
     ]
   },
@@ -479,7 +455,5 @@
   "officials": {
     "checked_at": "2026-11-24T06:08:30-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-27T09:24:42+00:00",
-  "published_engine": "v1.114.0"
+  }
 }
