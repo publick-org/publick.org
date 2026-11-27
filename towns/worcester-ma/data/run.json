@@ -1,8 +1,8 @@
 {
   "town": "worcester",
   "folder": "worcester-ma",
-  "started_at": "2026-11-26T10:16:32+00:00",
-  "finished_at": "2026-11-26T10:24:48+00:00",
+  "started_at": "2026-11-27T09:20:51+00:00",
+  "finished_at": "2026-11-27T09:27:47+00:00",
   "engine": "v1.114.0",
   "fetched": true,
   "steps": [
@@ -10,37 +10,37 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 60.0
+      "seconds": 48.4
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 210.5
+      "seconds": 204.6
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 172.6
+      "seconds": 145.5
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 2.2
+      "seconds": 16.1
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 0.7
+      "seconds": 0.8
     }
   ],
   "update": {
     "town": "worcester",
     "sources": "all",
-    "started_at": "2026-11-26T10:16:33+00:00",
+    "started_at": "2026-11-27T09:20:51+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 3.8,
+        "seconds": 3.6,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.2,
+        "seconds": 3.0,
         "cadence": "continuous"
       },
       {
@@ -153,7 +153,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 19.8,
+        "seconds": 16.0,
         "cadence": "continuous"
       },
       {
@@ -161,7 +161,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.2,
+        "seconds": 1.0,
         "cadence": "continuous"
       },
       {
@@ -169,9 +169,8 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "yearly",
-        "skipped": "checked 29 days ago; checked every 30 days"
+        "seconds": 0.3,
+        "cadence": "yearly"
       },
       {
         "name": "Fetch unemployment",
@@ -180,25 +179,23 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "yearly",
-        "skipped": "checked 29 days ago; checked every 30 days"
+        "seconds": 0.3,
+        "cadence": "yearly"
       },
       {
         "name": "Fetch budget figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "yearly",
-        "skipped": "checked 29 days ago; checked every 30 days"
+        "seconds": 0.4,
+        "cadence": "yearly"
       },
       {
         "name": "Fetch housing figures",
@@ -207,14 +204,14 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 0 days ago; checked every 7 days"
+        "skipped": "checked 1 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -222,7 +219,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -239,7 +236,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -247,7 +244,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -255,7 +252,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 10.4,
+        "seconds": 9.3,
         "cadence": "continuous"
       },
       {
@@ -272,7 +269,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 21.2,
+        "seconds": 12.6,
         "cadence": "continuous"
       }
     ]
@@ -282,35 +279,35 @@
     {
       "label": "Meetings (PrimeGov)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-26T05:16:33-05:00",
+      "updated_at": "2026-11-27T04:20:52-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "School Committee meetings (school district website)",
       "file": "meetings/page_status.json",
-      "updated_at": "2026-11-26T05:16:37-05:00",
+      "updated_at": "2026-11-27T04:20:56-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-26T05:17:01-05:00",
+      "updated_at": "2026-11-27T04:21:18-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-26T05:17:11-05:00",
+      "updated_at": "2026-11-27T04:21:27-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Average tax bill (Mass. DLS)",
       "file": "finance/tax_bill.json",
-      "updated_at": "2026-10-27T21:11:15-04:00",
+      "updated_at": "2026-11-27T04:21:16-05:00",
       "max_days": null,
       "cadence": "yearly",
       "failing": 0,
@@ -322,7 +319,7 @@
     {
       "label": "City budget (Mass. DLS)",
       "file": "finance/budget.json",
-      "updated_at": "2026-10-27T21:11:16-04:00",
+      "updated_at": "2026-11-27T04:21:16-05:00",
       "max_days": null,
       "cadence": "yearly",
       "failing": 0,
@@ -334,7 +331,7 @@
     {
       "label": "School figures (DESE)",
       "file": "schools/schools.json",
-      "updated_at": "2026-10-27T21:11:16-04:00",
+      "updated_at": "2026-11-27T04:21:16-05:00",
       "max_days": null,
       "cadence": "yearly",
       "failing": 0,
@@ -392,10 +389,10 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-26T12:25:29+00:00",
-  "full_fetch_at": "2026-11-26T10:24:48+00:00",
-  "data_bytes": 31671061,
-  "data_bytes_added": 27332674,
+  "last_good_at": "2026-11-27T09:27:47+00:00",
+  "full_fetch_at": "2026-11-27T09:27:47+00:00",
+  "data_bytes": 31668706,
+  "data_bytes_added": 27330162,
   "activity": {
     "boards": 23,
     "meetings_by_date": {
@@ -416,12 +413,12 @@
     "vote_counts_left_out": 94
   },
   "recordings": {
-    "since": "2026-11-19",
-    "until": "2026-11-25",
-    "held": 2,
-    "next_day": 2,
+    "since": "2026-11-20",
+    "until": "2026-11-26",
+    "held": 1,
+    "next_day": 1,
     "steps": {
-      "summarized": 2,
+      "summarized": 1,
       "minutes": 0,
       "transcribed": 0,
       "waiting": 0,
@@ -434,8 +431,8 @@
     "misses": []
   },
   "documents": {
-    "since": "2026-08-28",
-    "until": "2026-11-25",
+    "since": "2026-08-29",
+    "until": "2026-11-26",
     "held": 73,
     "boards": 20,
     "counts": {
@@ -448,7 +445,7 @@
     "no_minutes": [
       {
         "board": "School Committee Standing Committee on Operations and Governance",
-        "meetings": 2
+        "meetings": 4
       },
       {
         "board": "Zoning Board of Appeals",
@@ -461,7 +458,7 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-26T04:24:01-05:00",
+    "at": "2026-11-27T02:24:05-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-25T02:24:07-05:00"
@@ -469,7 +466,5 @@
   "officials": {
     "checked_at": "2026-11-22T04:09:05-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-26T12:25:29+00:00",
-  "published_engine": "v1.114.0"
+  }
 }
