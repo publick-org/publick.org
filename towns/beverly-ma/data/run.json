@@ -1,8 +1,8 @@
 {
   "town": "beverly",
   "folder": "beverly-ma",
-  "started_at": "2026-11-26T10:08:47+00:00",
-  "finished_at": "2026-11-26T10:16:39+00:00",
+  "started_at": "2026-11-27T09:10:32+00:00",
+  "finished_at": "2026-11-27T09:14:56+00:00",
   "engine": "v1.114.0",
   "fetched": true,
   "steps": [
@@ -10,25 +10,25 @@
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 275.9
+      "seconds": 55.8
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 144.3
+      "seconds": 143.4
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 50.8
+      "seconds": 48.9
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 3.4
+      "seconds": 14.2
     },
     {
       "name": "Check live site",
@@ -40,15 +40,15 @@
   "update": {
     "town": "beverly",
     "sources": "all",
-    "started_at": "2026-11-26T10:08:48+00:00",
+    "started_at": "2026-11-27T09:10:33+00:00",
     "ok": true,
     "steps": [
       {
         "name": "Fetch meetings",
-        "ok": false,
+        "ok": true,
         "required": false,
-        "error": "exited with status 1",
-        "seconds": 256.1,
+        "error": null,
+        "seconds": 37.0,
         "cadence": "continuous"
       },
       {
@@ -154,7 +154,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 15.9,
+        "seconds": 14.2,
         "cadence": "continuous"
       },
       {
@@ -162,7 +162,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.3,
+        "seconds": 1.5,
         "cadence": "continuous"
       },
       {
@@ -172,16 +172,15 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 25 days ago; checked every 30 days"
+        "skipped": "checked 26 days ago; checked every 30 days"
       },
       {
         "name": "Fetch unemployment",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 6 days ago; checked every 7 days"
+        "seconds": 0.5,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch school figures",
@@ -190,7 +189,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 25 days ago; checked every 30 days"
+        "skipped": "checked 26 days ago; checked every 30 days"
       },
       {
         "name": "Fetch budget figures",
@@ -199,7 +198,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "yearly",
-        "skipped": "checked 25 days ago; checked every 30 days"
+        "skipped": "checked 26 days ago; checked every 30 days"
       },
       {
         "name": "Fetch housing figures",
@@ -208,7 +207,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 1 days ago; checked every 7 days"
+        "skipped": "checked 2 days ago; checked every 7 days"
       },
       {
         "name": "Fetch place",
@@ -223,7 +222,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.5,
         "cadence": "continuous"
       },
       {
@@ -285,7 +284,7 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-25T16:45:02-05:00",
+      "updated_at": "2026-11-27T04:10:33-05:00",
       "max_days": 2,
       "stale": false
     },
@@ -328,7 +327,7 @@
     {
       "label": "Unemployment rate (BLS)",
       "file": "labor/unemployment.json",
-      "updated_at": "2026-11-20T04:08:24-05:00",
+      "updated_at": "2026-11-27T04:11:26-05:00",
       "max_days": null,
       "cadence": "monthly",
       "failing": 0,
@@ -374,10 +373,10 @@
   "deployed": true,
   "corrections": [],
   "ok": true,
-  "last_good_at": "2026-11-26T12:11:03+00:00",
-  "full_fetch_at": "2026-11-26T10:16:39+00:00",
-  "data_bytes": 4495337,
-  "data_bytes_added": 2344,
+  "last_good_at": "2026-11-27T09:14:56+00:00",
+  "full_fetch_at": "2026-11-27T09:14:56+00:00",
+  "data_bytes": 4494941,
+  "data_bytes_added": -493,
   "activity": {
     "boards": 56,
     "meetings_by_date": {
@@ -387,7 +386,8 @@
       "2026-12-03": 2,
       "2026-12-07": 3,
       "2026-12-08": 1,
-      "2026-12-09": 1
+      "2026-12-09": 1,
+      "2026-12-10": 2
     }
   },
   "fact_checks": {
@@ -402,8 +402,8 @@
     "vote_counts_left_out": 12
   },
   "recordings": {
-    "since": "2026-11-19",
-    "until": "2026-11-25",
+    "since": "2026-11-20",
+    "until": "2026-11-26",
     "held": 2,
     "next_day": 0,
     "steps": {
@@ -432,13 +432,13 @@
     ]
   },
   "documents": {
-    "since": "2026-08-28",
-    "until": "2026-11-25",
+    "since": "2026-08-29",
+    "until": "2026-11-26",
     "held": 138,
     "boards": 48,
     "counts": {
       "no_documents": 4,
-      "no_minutes": 6,
+      "no_minutes": 9,
       "pairs": 1,
       "beside": 0
     },
@@ -466,6 +466,14 @@
         "meetings": 3
       },
       {
+        "board": "Airport Commission",
+        "meetings": 2
+      },
+      {
+        "board": "Council on Aging",
+        "meetings": 2
+      },
+      {
         "board": "Human Rights Committee",
         "meetings": 2
       },
@@ -475,6 +483,10 @@
       },
       {
         "board": "Open Space & Recreation Committee",
+        "meetings": 2
+      },
+      {
+        "board": "Parking & Traffic Commission",
         "meetings": 2
       },
       {
@@ -498,7 +510,7 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-26T04:27:41-05:00",
+    "at": "2026-11-27T02:24:13-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-19T12:30:00-05:00"
@@ -506,7 +518,5 @@
   "officials": {
     "checked_at": "2026-11-23T04:10:01-05:00",
     "leads": []
-  },
-  "published_at": "2026-11-26T12:11:03+00:00",
-  "published_engine": "v1.114.0"
+  }
 }
