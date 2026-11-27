@@ -10,8 +10,11 @@
 #                   doesn't read) opens nothing, and its report is in the run's summary.
 #   first fetches   Once that pull request is merged: the town's first fetching runs (ADDING-A-TOWN.md, step 7),
 #                   one Network run after another, until a run collects fewer minutes than one run may
-#                   (MINUTES_PER_RUN), or `runs` runs have collected, each with `catch_up` if it's given. A run
-#                   that couldn't fetch one of the town's meeting sources stops it with an error, naming them.
+#                   (MINUTES_PER_RUN) and the town's meetings readers have nothing left waiting for a later run
+#                   (the engine's `python -m pipeline.waiting`, from their status files), or `runs` runs have
+#                   collected, each with `catch_up` if it's given. With an engine from before that command, the
+#                   minutes alone decide. A run that couldn't fetch one of the town's meeting sources stops it with
+#                   an error, naming them.
 #
 # The pull request is opened with ENGINE_PR_TOKEN (engine.yml says what it is): one this workflow's own token
 # opened wouldn't start its checks. The Network runs are started with this workflow's own token, which a
@@ -62,7 +65,8 @@ concurrency:
 env:
   PYTHONPATH: ${{ github.workspace }}/.publick-engine
   # The minutes a Network run collects for a source at most (the engine's fetch_minutes.py,
-  # max_minutes_per_run): a run that collects fewer has found every one waiting.
+  # max_minutes_per_run): a run that collects fewer has found every one waiting. fetch_minutes.py doesn't save
+  # what it leaves in a status file, so pipeline.waiting (below) doesn't count minutes.
   MINUTES_PER_RUN: 60
 
 jobs:
@@ -195,13 +199,30 @@ jobs:
           filter: blob:none
           sparse-checkout: engine-version
 
-      - name: Fetch until no minutes are waiting
+      - name: The engine every town runs
+        id: engine
+        run: echo "ref=$(tr -d '[:space:]' < engine-version)" >> "$GITHUB_OUTPUT"
+
+      # Its pipeline/waiting.py, which reads the readers' status files with Python's standard library alone.
+      # Without it, the minutes alone decide.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        continue-on-error: true
+        with:
+          persist-credentials: false
+          repository: publick-org/publick-engine
+          ref: ${{ steps.engine.outputs.ref }}
+          path: .publick-engine
+          sparse-checkout: pipeline
+
+      - name: Fetch until nothing is waiting
         env:
           GH_TOKEN: ${{ github.token }}
           TOWN: ${{ inputs.town }}
           STATE: ${{ inputs.state }}
           RUNS: ${{ inputs.runs }}
           CATCH_UP: ${{ inputs.catch_up }}
+          # The minutes the loop may take, under the job's timeout-minutes, with room to report what's left.
+          FETCH_MINUTES: 330
         run: |
           folder=$(python3 -c 'import re, sys; print(re.sub(r"[^a-z0-9]+", "-", sys.argv[1].lower()).strip("-") + "-" + sys.argv[2].lower())' "$TOWN" "$STATE")
           if ! [[ "$RUNS" =~ ^[1-9][0-9]?$ ]]; then
@@ -214,6 +235,24 @@ jobs:
             git show "origin/main:towns/$folder/data/meetings/meetings.json" 2>/dev/null |
               python3 -c 'import json, sys; print(sum(len(m.get("minutes") or []) for m in json.load(sys.stdin).values()))' 2>/dev/null ||
               echo 0
+          }
+          # What the town's meetings readers left for a later run, every reader's together (the engine's
+          # pipeline/waiting.py), from their status files (data/meetings/*status.json) as minutes() last fetched
+          # main; each reader's count goes to the log. "unknown" when a status file or the count couldn't be
+          # read, which isn't done; nothing with an engine from before the command.
+          waiting() {
+            [ -n "$counts" ] || return 0
+            local data="$RUNNER_TEMP/waiting/data" names name count
+            rm -rf "$RUNNER_TEMP/waiting"
+            mkdir -p "$data/meetings"
+            names=$(git ls-tree --name-only "origin/main:towns/$folder/data/meetings" 2>/dev/null) || { echo unknown; return 0; }
+            while read -r name; do
+              case "$name" in
+                *status.json) git show "origin/main:towns/$folder/data/meetings/$name" > "$data/meetings/$name" || { echo unknown; return 0; } ;;
+              esac
+            done <<< "$names"
+            count=$(python3 -m pipeline.waiting --data "$data") || count=""
+            if [[ "$count" =~ ^[0-9]+$ ]]; then echo "$count"; else echo unknown; fi
           }
           # The meeting sources the town's last run couldn't fetch (meetings/status.json, failed_calendars), as
           # minutes() last fetched main: a run that reached none collects no minutes, and isn't done.
@@ -228,8 +267,26 @@ jobs:
             exit 1
           fi
           before=$(minutes)
+          # An engine from before the command has pipeline/waiting.py without main(), and prints nothing.
+          if python3 -c 'import sys, pipeline.waiting as w; sys.exit(not hasattr(w, "main"))' 2>/dev/null; then
+            counts=yes
+          else
+            counts=""
+            echo "::notice::The engine at $(cat engine-version) has no pipeline.waiting command, or it couldn't be checked out: only the minutes a run collects decide when the first fetches are done."
+          fi
+          step_start=$(date +%s)
+          deadline=$(( step_start + FETCH_MINUTES * 60 ))
+          longest=0
+          last_left=""
           for i in $(seq 1 "$RUNS"); do
+            # Another run as long as the longest so far must end before the job's timeout, or the job is
+            # stopped partway with no word of what's left.
+            if [ "$i" -gt 1 ] && [ $(( $(date +%s) + longest )) -gt "$deadline" ]; then
+              echo "::warning::Stopped after $(( i - 1 )) runs, before the job's time limit (the longest took $(( longest / 60 )) minutes): run the first fetches again for the rest."
+              exit 0
+            fi
             started=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+            started_at=$(date +%s)
             gh workflow run network.yml --ref main -f towns="$folder" -f fetch=true -f catch_up="$CATCH_UP"
             # This workflow's run of it: the newest this token started since.
             run=""
@@ -244,23 +301,51 @@ jobs:
               exit 1
             fi
             echo "Run $i of $RUNS: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$run"
-            gh run watch "$run" --interval 60 > /dev/null || true
+            # Until it ends, or the job's time is up: the Network run goes on by itself, and commits what it fetched.
+            while [ "$(gh run view "$run" --json status --jq .status 2>/dev/null)" != completed ]; do
+              if [ "$(date +%s)" -ge "$deadline" ]; then
+                echo "- [Run $i]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$run): still going at the job's time limit" >> "$GITHUB_STEP_SUMMARY"
+                echo "::warning::Run $i was still going at the job's time limit: run the first fetches again once it ends, for the rest."
+                exit 0
+              fi
+              sleep 60
+            done
+            took=$(( $(date +%s) - started_at ))
+            if [ "$took" -gt "$longest" ]; then longest=$took; fi
             conclusion=$(gh run view "$run" --json conclusion --jq .conclusion)
             after=$(minutes)
             added=$(( after - before ))
             before=$after
-            echo "  $conclusion: $added minutes collected"
-            echo "- [Run $i]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$run): $conclusion, $added minutes collected" >> "$GITHUB_STEP_SUMMARY"
+            left=$(waiting)
+            case "$left" in
+              "") note="" ;;
+              unknown) note=", what the readers left waiting couldn't be read" ;;
+              *) note=", $left meetings, documents or posts still waiting" ;;
+            esac
+            collected="$added minutes collected$note"
+            echo "  $conclusion: $collected"
+            echo "- [Run $i]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$run): $conclusion, $collected" >> "$GITHUB_STEP_SUMMARY"
             failed=$(failed_sources)
             if [ "$conclusion" != cancelled ] && [ -n "$failed" ]; then
               echo "- Meetings couldn't be fetched from: $failed" >> "$GITHUB_STEP_SUMMARY"
               echo "::error::Run $i couldn't fetch meetings from: $failed (towns/$folder/data/meetings/status.json has the errors). Run the first fetches again once the town's site answers."
               exit 1
             fi
-            # A run a daily start replaced while it waited collected nothing; the next one goes on.
+            # A run a daily start replaced while it waited collected nothing; the next one goes on. A reader that
+            # saves only so many documents a run, newest first, can fill a run with agendas and collect few
+            # minutes while hundreds of its meetings wait: its count decides with the minutes.
             if [ "$conclusion" != cancelled ] && [ "$added" -lt "$MINUTES_PER_RUN" ]; then
-              echo "No more minutes waiting for $folder."
-              exit 0
+              if [ -z "$left" ] || [ "$left" = 0 ]; then
+                echo "Nothing more waiting for $folder."
+                exit 0
+              fi
+              # A count that didn't go down is left by a reader that isn't reading it (a source no longer in the
+              # config, say): more runs wouldn't read it either.
+              if [ "$left" != unknown ] && [ -n "$last_left" ] && [ "$last_left" != unknown ] && [ "$left" -ge "$last_left" ]; then
+                echo "::warning::Run $i left as much waiting as the run before ($left), so another run wouldn't read it: the log names each reader's count."
+                exit 0
+              fi
             fi
+            if [ "$conclusion" != cancelled ]; then last_left=$left; fi
           done
-          echo "::warning::$RUNS runs collected $MINUTES_PER_RUN or more minutes each; run the first fetches again for the rest."
+          echo "::warning::After $RUNS runs (the last $conclusion, $collected), run the first fetches again for the rest."
