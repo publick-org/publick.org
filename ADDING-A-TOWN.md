@@ -271,7 +271,10 @@ shows no ward map; a town with neither (Bangor) has no 311 section yet.
 - [ ] Merge, then **Actions → Add a town → Run workflow**, step `first
       fetches`, with the town's name and state: it runs **Network** for the
       town, fetching, one run after another until a run collects fewer than
-      60 minutes (a run's most), or `runs` runs have. A run that couldn't
+      60 minutes (a run's most) and the town's meetings readers have nothing
+      left waiting for a later run (the engine's `python -m pipeline.waiting`:
+      a reader that saves so many documents a run, newest first, can fill one
+      with agendas), or `runs` runs have. A run that couldn't
       fetch one of the town's meeting sources (`failed_calendars` in its
       `data/meetings/status.json`) stops it with an error naming them; run
       it again once the town's site answers. **Actions → Network →
