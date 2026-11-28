@@ -1,46 +1,46 @@
 {
   "town": "malden",
   "folder": "malden-ma",
-  "started_at": "2026-11-27T10:09:59+00:00",
-  "finished_at": "2026-11-27T10:16:53+00:00",
-  "engine": "v1.114.0",
+  "started_at": "2026-11-28T09:15:25+00:00",
+  "finished_at": "2026-11-28T09:21:27+00:00",
+  "engine": "v1.115.0",
   "fetched": true,
   "steps": [
     {
       "name": "Fetch new data",
       "ok": true,
       "error": null,
-      "seconds": 51.3
+      "seconds": 62.2
     },
     {
       "name": "Build site",
       "ok": true,
       "error": null,
-      "seconds": 196.7
+      "seconds": 190.0
     },
     {
       "name": "Check site",
       "ok": true,
       "error": null,
-      "seconds": 127.5
+      "seconds": 81.9
     },
     {
       "name": "Publish site",
       "ok": true,
       "error": null,
-      "seconds": 37.0
+      "seconds": 26.6
     },
     {
       "name": "Check live site",
       "ok": true,
       "error": null,
-      "seconds": 1.0
+      "seconds": 0.6
     }
   ],
   "update": {
     "town": "malden",
     "sources": "all",
-    "started_at": "2026-11-27T10:09:59+00:00",
+    "started_at": "2026-11-28T09:15:25+00:00",
     "ok": true,
     "steps": [
       {
@@ -48,7 +48,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 14.4,
+        "seconds": 12.5,
         "cadence": "continuous"
       },
       {
@@ -56,7 +56,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.5,
+        "seconds": 0.4,
         "cadence": "continuous"
       },
       {
@@ -154,7 +154,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 19.4,
+        "seconds": 17.7,
         "cadence": "continuous"
       },
       {
@@ -162,7 +162,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 1.2,
+        "seconds": 16.4,
         "cadence": "continuous"
       },
       {
@@ -170,9 +170,8 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "yearly",
-        "skipped": "checked 29 days ago; checked every 30 days"
+        "seconds": 0.3,
+        "cadence": "yearly"
       },
       {
         "name": "Fetch unemployment",
@@ -181,7 +180,7 @@
         "error": null,
         "seconds": 0,
         "cadence": "monthly",
-        "skipped": "checked 2 days ago; checked every 7 days"
+        "skipped": "checked 3 days ago; checked every 7 days"
       },
       {
         "name": "Fetch school figures",
@@ -197,25 +196,23 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "yearly",
-        "skipped": "checked 29 days ago; checked every 30 days"
+        "seconds": 0.3,
+        "cadence": "yearly"
       },
       {
         "name": "Fetch housing figures",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0,
-        "cadence": "monthly",
-        "skipped": "checked 6 days ago; checked every 7 days"
+        "seconds": 0.3,
+        "cadence": "monthly"
       },
       {
         "name": "Fetch place",
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -223,7 +220,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -240,7 +237,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -248,7 +245,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 0.4,
+        "seconds": 0.3,
         "cadence": "continuous"
       },
       {
@@ -256,7 +253,7 @@
         "ok": true,
         "required": false,
         "error": null,
-        "seconds": 9.1,
+        "seconds": 9.2,
         "cadence": "continuous"
       },
       {
@@ -273,7 +270,7 @@
         "ok": true,
         "required": true,
         "error": null,
-        "seconds": 5.0,
+        "seconds": 3.7,
         "cadence": "continuous"
       }
     ]
@@ -283,46 +280,46 @@
     {
       "label": "Meetings (Agenda Center)",
       "file": "meetings/status.json",
-      "updated_at": "2026-11-27T05:10:00-05:00",
+      "updated_at": "2026-11-28T04:15:25-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 requests",
       "file": "311/status.json",
-      "updated_at": "2026-11-27T05:10:36-05:00",
+      "updated_at": "2026-11-28T04:16:14-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "311 scorecard",
       "file": "311/scorecard.json",
-      "updated_at": "2026-11-27T05:10:46-05:00",
+      "updated_at": "2026-11-28T04:16:24-05:00",
       "max_days": 2,
       "stale": false
     },
     {
       "label": "Average tax bill (Mass. DLS)",
       "file": "finance/tax_bill.json",
-      "updated_at": "2026-10-29T05:24:22-04:00",
+      "updated_at": "2026-11-28T04:16:13-05:00",
       "max_days": null,
       "cadence": "yearly",
       "failing": 0,
       "stale": false,
-      "latest": "Fiscal year 2026",
-      "next": "Fiscal year 2027 usually by February 1, 2027",
+      "latest": "Fiscal year 2027",
+      "next": "Fiscal year 2028 usually by February 1, 2028",
       "behind": null
     },
     {
       "label": "City budget (Mass. DLS)",
       "file": "finance/budget.json",
-      "updated_at": "2026-10-29T05:24:23-04:00",
+      "updated_at": "2026-11-28T04:16:13-05:00",
       "max_days": null,
       "cadence": "yearly",
       "failing": 0,
       "stale": false,
-      "latest": "Fiscal year 2025 spending",
-      "next": "Fiscal year 2026 spending usually by June 1, 2027",
+      "latest": "Fiscal year 2026 spending",
+      "next": "Fiscal year 2027 spending usually by June 1, 2028",
       "behind": null
     },
     {
@@ -388,10 +385,10 @@
     "Correction for City Council 2026-10-27: 0 of its decisions have \"an amendment to keep the 15% affordable housing requirement\", so it isn't shown. Name one."
   ],
   "ok": true,
-  "last_good_at": "2026-11-27T10:16:53+00:00",
-  "full_fetch_at": "2026-11-27T10:16:53+00:00",
-  "data_bytes": 20262923,
-  "data_bytes_added": 16129812,
+  "last_good_at": "2026-11-28T09:21:27+00:00",
+  "full_fetch_at": "2026-11-28T09:21:27+00:00",
+  "data_bytes": 20274707,
+  "data_bytes_added": 16141593,
   "activity": {
     "boards": 58,
     "meetings_by_date": {
@@ -413,8 +410,8 @@
     "vote_counts_left_out": 91
   },
   "recordings": {
-    "since": "2026-11-20",
-    "until": "2026-11-26",
+    "since": "2026-11-21",
+    "until": "2026-11-27",
     "held": 1,
     "next_day": 1,
     "steps": {
@@ -431,8 +428,8 @@
     "misses": []
   },
   "documents": {
-    "since": "2026-08-29",
-    "until": "2026-11-26",
+    "since": "2026-08-30",
+    "until": "2026-11-27",
     "held": 120,
     "boards": 46,
     "counts": {
@@ -445,7 +442,7 @@
     "no_minutes": [
       {
         "board": "Comprehensive Master Plan Steering Committee",
-        "meetings": 2
+        "meetings": 3
       },
       {
         "board": "Northeast Metropolitan Regional Vocational School District",
@@ -466,7 +463,7 @@
     "backlog": {}
   },
   "gemini": {
-    "at": "2026-11-27T04:24:08-05:00",
+    "at": "2026-11-28T02:24:03-05:00",
     "refused": 0,
     "transcribed": 0,
     "last_transcribed_at": "2026-11-25T12:24:09-05:00"
